@@ -3,18 +3,18 @@
   "title": "为什么假设competitive，price-taker",
   "titleGenerationStatus": "failed",
   "createdAt": 1775008622679,
-  "updatedAt": 1775026921556,
-  "lastResponseAt": 1775026921556,
+  "updatedAt": 1775031599179,
+  "lastResponseAt": 1775031599179,
   "sessionId": "5c31f8b8-ab50-4dee-a8da-5647019e0326",
   "sdkSessionId": "5c31f8b8-ab50-4dee-a8da-5647019e0326",
   "currentNote": "PhD-Course/Asset Pricing/Part4-Information, Beliefs, and Learning.md",
   "usage": {
     "model": "haiku",
-    "inputTokens": 19405,
+    "inputTokens": 42426,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 19405,
-    "percentage": 10
+    "contextTokens": 42426,
+    "percentage": 21
   }
 }
