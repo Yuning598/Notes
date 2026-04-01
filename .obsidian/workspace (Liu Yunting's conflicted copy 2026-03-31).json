@@ -1,0 +1,237 @@
+{
+  "main": {
+    "id": "0c90ee130092b350",
+    "type": "split",
+    "children": [
+      {
+        "id": "8abaf924ad7e49cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7496d22041a1662c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77223227a58c9ac6",
+    "type": "split",
+    "children": [
+      {
+        "id": "1bd19ad9cd6bb9cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea60d72a4f19ac86",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ae69a52f64401c7b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "d720f09dba44129a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "249932a61790a4c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "49acbef6712ab194",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cd035dd86d231cd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Research/Project1-Bond+News+LLM/literature.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "literature 的反向链接列表"
+            }
+          },
+          {
+            "id": "03adac72796bf966",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Research/Project1-Bond+News+LLM/literature.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "literature 的出链列表"
+            }
+          },
+          {
+            "id": "3a4f2f8a2426b7ea",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "b0f04af0225908c9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "9bf9e7e56b0eab52",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "PhD-Course/Econometrics/ART-Chap3 Single-Equation GMM.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "ART-Chap3 Single-Equation GMM 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 273.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": true,
+      "daily-notes:打开/创建今天的日记": true,
+      "templates:插入模板": true,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "markdown-importer:打开 Markdown 格式转换器": true,
+      "obsidian-importer:Open Importer": false,
+      "fix-math:Current file": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": true,
+      "workspaces:管理工作区布局": false
+    }
+  },
+  "active": "ea60d72a4f19ac86",
+  "lastOpenFiles": [
+    "PhD-Course/Asset Pricing/Part4-卡片/Back 模型 - 相关扩展.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/Back 1992 - HJB 分解.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/Back 1992 - 净订单流 SDE.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/Kalman-Bucy - 一般公式.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/异质信念 - 创新布朗运动与状态价格密度.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/Back 1992 - Brownian bridge.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/OU 滤波 - Riccati 方程.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/Back 1992 - 验证定理.md",
+    "PhD-Course/Asset Pricing/Part4-卡片/正态-正态更新 - 常数漂移学习.md",
+    "PhD-Course/Asset Pricing/Part4-卡片",
+    "PhD-Course/Asset Pricing/Part1.md",
+    "PhD-Course/attachment/Pasted image 20260329210247.png",
+    "PhD-Course/attachment/Pasted image 20260329205856.png",
+    "PhD-Course/attachment/Pasted image 20260329205240.png",
+    "PhD-Course/attachment/Pasted image 20260329194053.png",
+    "PhD-Course/attachment/Pasted image 20260329194022.png",
+    "PhD-Course/attachment/Pasted image 20260329194013.png",
+    "PhD-Course/attachment/Pasted image 20260329193444.png",
+    "PhD-Course/attachment/Pasted image 20260329192627.png",
+    "PhD-Course/attachment/Pasted image 20260329190403.png",
+    "PhD-Course/attachment/Pasted image 20260329173221.png",
+    "Research/Project1-Bond+News+LLM/notes/20260329.md",
+    "Research/Project1-Bond+News+LLM/notes/未命名.md",
+    "Research/Project1-Bond+News+LLM/notes/20260327.md",
+    "Research/Project1-Bond+News+LLM/notes/design_ref.md",
+    "Research/Project1-Bond+News+LLM/design_ref.md",
+    "Research/Project1-Bond+News+LLM/slides/ref.bib",
+    "Research/Project1-Bond+News+LLM/slides",
+    "Research/Project1-Bond+News+LLM/20260327.md",
+    "PhD-Course/Asset Pricing/Part3-SDF.md",
+    "PhD-Course/Asset Pricing/Part3-Bond.md",
+    "PhD-Course/server/Login Gemini.md",
+    "PhD-Course/server/codex-server-mount-notes.md",
+    "PhD-Course/Asset Pricing/Part4-信息、信念与学习.md",
+    "PhD-Course/Asset Pricing/Part4_raw.txt",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/Section1_Formula_Derivations.md",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/_section1_eq_pages.txt",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/_section1_keypages.txt",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/_section1_slides_extracted.txt",
+    "PhD-Course/Econometrics/ART-Chap3 Single-Equation GMM.md",
+    "PhD-Course/unmount_yunting_sshfs.sh",
+    "PhD-Course/mount_yunting_sshfs.sh",
+    "Research/Project1-Bond+News+LLM/GPT-Pro-file/20260323.md",
+    "Research/Project1-Bond+News+LLM/20260323/research_design_summary.md",
+    "Research/Project1-Bond+News+LLM/20260323/ref.bib",
+    "Research/Project1-Bond+News+LLM/20260323/未命名.md"
+  ]
+}

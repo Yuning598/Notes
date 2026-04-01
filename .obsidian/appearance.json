@@ -1,0 +1,7 @@
+{
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "academic-callouts"
+  ],
+  "accentColor": "#3e5984"
+}

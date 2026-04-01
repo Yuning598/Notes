@@ -1,0 +1,281 @@
+{
+  "main": {
+    "id": "0c90ee130092b350",
+    "type": "split",
+    "children": [
+      {
+        "id": "3df9d801da747550",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "447f8dcf9e07bb77",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "PhD-Course/Asset Pricing/EF8077_slides.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "EF8077_slides"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cd4d59cd30c169c3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "23878f70c51d1847",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PhD-Course/Asset Pricing/Part1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part1"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77223227a58c9ac6",
+    "type": "split",
+    "children": [
+      {
+        "id": "1bd19ad9cd6bb9cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea60d72a4f19ac86",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ae69a52f64401c7b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "d720f09dba44129a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "667dafc28f13ec6b",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "notebook-navigator"
+            }
+          },
+          {
+            "id": "9bf9e7e56b0eab52",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "PhD-Course/Asset Pricing/Part4-信息、信念与学习.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Part4-信息、信念与学习 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 234.50390243530273
+  },
+  "right": {
+    "id": "249932a61790a4c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "49acbef6712ab194",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cd035dd86d231cd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Research/Project1-Bond+News+LLM/literature.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "literature 的反向链接列表"
+            }
+          },
+          {
+            "id": "03adac72796bf966",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "PhD-Course/Asset Pricing/Part4-信息、信念与学习.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Part4-信息、信念与学习 的出链列表"
+            }
+          },
+          {
+            "id": "92c0165d4b20ad6c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "1b65644d734e650d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "4e473c8ca94043ac",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 360.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": true,
+      "graph:查看关系图谱": true,
+      "canvas:新建白板": true,
+      "daily-notes:打开/创建今天的日记": true,
+      "templates:插入模板": true,
+      "obsidian-importer:Open Importer": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": true,
+      "markdown-importer:打开 Markdown 格式转换器": true,
+      "fix-math:Current file": false,
+      "workspaces:管理工作区布局": false,
+      "notebook-navigator:笔记本导航器": false,
+      "terminal:Open terminal": false,
+      "obsidian42-brat:BRAT": false,
+      "claudian:Open Claudian": false
+    }
+  },
+  "active": "4e473c8ca94043ac",
+  "lastOpenFiles": [
+    "PhD-Course/Asset Pricing/Part4-卡片/贝叶斯更新 - 先验、信号、似然、后验.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Long-run risk 定价.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Epstein-Zin 偏好与 Euler 方程.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Lucas tree model 与代表性消费者均衡.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/CCAPM 与 Equity Premium Puzzle.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/最优停止与 smooth pasting.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Merton 问题 - 最优消费与投资.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/连续时间最优组合规则.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/HJB 方程与动态规划.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/鞅方法下的最优消费与最优交易策略.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/冗余证券、复制与完备市场.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/状态价格密度、EMM 与鞅定价.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/多期证券市场、交易策略与自融资.md",
+    "PhD-Course/Asset Pricing/Part1-卡片/竞争均衡、帕累托最优与代表性投资者.md",
+    "PhD-Course/Asset Pricing/Part1-卡片/因子模型与 Jensen alpha.md",
+    "PhD-Course/Asset Pricing/Part1-卡片/CAPM 与 Security Market Line.md",
+    "PhD-Course/Asset Pricing/Part1-卡片/CML 与 Tangency Portfolio.md",
+    "PhD-Course/Asset Pricing/Part2.md",
+    "PhD-Course/Asset Pricing/Part1.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Mean-Variance Efficiency.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Two-Fund Separation Theorem.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Mean-Variance Frontier - 无风险资产缺失情形.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/GMV 组合 - 全局最小方差组合.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/Hansen-Jagannathan bound.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/风险中性概率 - 从 SDF 到 Q.md",
+    "PhD-Course/Asset Pricing/Part2-卡片/无套利、Law of One Price 与 SDF.md",
+    "PhD-Course/Asset Pricing/Part2-卡片",
+    "PhD-Course/Asset Pricing/Part1-卡片",
+    "PhD-Course/Asset Pricing/EF8077_slides.pdf",
+    "PhD-Course/Asset Pricing/EF8083_slides.pdf",
+    "PhD-Course/Asset Pricing/EF8083_part1 2.pdf",
+    "PhD-Course/Asset Pricing/EF8083_part1.pdf",
+    "PhD-Course/Asset Pricing/Slides-2 2.pdf",
+    "PhD-Course/Asset Pricing/EF8083_part3.pdf",
+    "PhD-Course/Asset Pricing/Lecture 1_Intro 2.pdf",
+    "PhD-Course/Asset Pricing/Lecture 4_Beliefs_new.pdf",
+    "PhD-Course/attachment/Pasted image 20260329210247.png",
+    "PhD-Course/attachment/Pasted image 20260329205856.png",
+    "PhD-Course/attachment/Pasted image 20260329205240.png",
+    "PhD-Course/attachment/Pasted image 20260329194053.png",
+    "PhD-Course/attachment/Pasted image 20260329194022.png",
+    "PhD-Course/attachment/Pasted image 20260329194013.png",
+    "PhD-Course/attachment/Pasted image 20260329193444.png",
+    "PhD-Course/attachment/Pasted image 20260329192627.png",
+    "PhD-Course/attachment/Pasted image 20260329190403.png",
+    "PhD-Course/attachment/Pasted image 20260329173221.png"
+  ]
+}

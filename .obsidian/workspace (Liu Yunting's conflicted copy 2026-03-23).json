@@ -1,0 +1,257 @@
+{
+  "main": {
+    "id": "0c90ee130092b350",
+    "type": "split",
+    "children": [
+      {
+        "id": "3171935f4dd9f71c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88aff5ea332b763d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PhD-Course/Econometrics/ART-Chap2 Large- Sample Theory.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ART-Chap2 Large- Sample Theory"
+            }
+          },
+          {
+            "id": "f191f1fbb631d34d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PhD-Course/Econometrics/ART-Chap3 Single-Equation GMM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ART-Chap3 Single-Equation GMM"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77223227a58c9ac6",
+    "type": "split",
+    "children": [
+      {
+        "id": "1bd19ad9cd6bb9cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea60d72a4f19ac86",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ae69a52f64401c7b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "d720f09dba44129a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "249932a61790a4c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "49acbef6712ab194",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cd035dd86d231cd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Research/Project1-Bond+News+LLM/literature.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "literature 的反向链接列表"
+            }
+          },
+          {
+            "id": "03adac72796bf966",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Research/Project1-Bond+News+LLM/literature.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "literature 的出链列表"
+            }
+          },
+          {
+            "id": "3a4f2f8a2426b7ea",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "b0f04af0225908c9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "9bf9e7e56b0eab52",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "PhD-Course/Econometrics/ART-Chap3 Single-Equation GMM.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "ART-Chap3 Single-Equation GMM 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 273.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": true,
+      "daily-notes:打开/创建今天的日记": true,
+      "templates:插入模板": true,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "markdown-importer:打开 Markdown 格式转换器": true,
+      "obsidian-importer:Open Importer": false,
+      "fix-math:Current file": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": true,
+      "workspaces:管理工作区布局": false
+    }
+  },
+  "active": "f191f1fbb631d34d",
+  "lastOpenFiles": [
+    "Research/Project1-Bond+News+LLM/20260323/ref.bib",
+    "Research/Project1-Bond+News+LLM/20260323/main.tex",
+    "Research/Project1-Bond+News+LLM/20260323/未命名.md",
+    "Research/Project1-Bond+News+LLM/20260323/main.pdf",
+    "Research/Project1-Bond+News+LLM/20260323/treasury_fiscal_versionB_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/20260323/treasury_curve_versionA_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/20260323",
+    "Research/Project1-Bond+News+LLM/未命名/treasury_fiscal_versionB_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/未命名/treasury_curve_versionA_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/未命名",
+    "Research/Project1-Bond+News+LLM/notes/review_plus_design.md",
+    "Research/Project1-Bond+News+LLM/notes/literature.md",
+    "Research/Project1-Bond+News+LLM/GPT-Pro-file/treasury_fiscal_versionB_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/GPT-Pro-file/treasury_curve_versionA_submission_draft.pdf",
+    "Research/Project1-Bond+News+LLM/GPT-Pro-file/20260303-LLM 新闻债券研究.md",
+    "Research/Project1-Bond+News+LLM/GPT-Pro-file/20260309.md",
+    "PhD-Course/attachment/Stein_MyersMajluf_Slides.png",
+    "PhD-Course/attachment/Pasted image 20260322204517.png",
+    "PhD-Course/attachment/Pasted image 20260322204502.png",
+    "PhD-Course/attachment/Pasted image 20260322204446.png",
+    "PhD-Course/attachment/Panier2013_Fig3.png",
+    "PhD-Course/attachment/Pasted image 20260322195143.png",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/03_SEOs.md",
+    "03_SEOs.md",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/02_Payout_Policy.md",
+    "02_Payout_Policy.md",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/01_Capital_Structure.md",
+    "PhD-Course/Corporate Finance/Section_1_Empirical_CF/Overview.md",
+    "PhD-Course/Corporate Finance/00_Syllabus_Overview.md",
+    "PhD-Course/server/Login Gemini.md",
+    "PhD-Course/server/未命名.md",
+    "PhD-Course/attachment/Estimation-of-S.png",
+    "PhD-Course/attachment/Proposition-3.3-Wald-Statistics.png",
+    "PhD-Course/attachment/Proposition-3.3-Hypothesis-Testing.png",
+    "PhD-Course/attachment/Pasted image 20260320231733.png",
+    "PhD-Course/Econometrics/ART-Chap2 Large- Sample Theory.md",
+    "PhD-Course/Econometrics/ART-Chap3 Single-Equation GMM.md",
+    "PhD-Course/server/server.md",
+    "PhD-Course/paper/Notes/Seminar/Robust Latent Data Representations.md",
+    "PhD-Course/paper/Literature_Management.md",
+    "PhD-Course/paper/Note_Template.md",
+    "PhD-Course/paper/Notes/Course/Leland1994.md",
+    "Research/Project1-Bond+News+LLM/literature.md",
+    "Research/Project1-Bond+News+LLM/20260309.md",
+    "Research/Project1-Bond+News+LLM/review_plus_design.md",
+    "PhD-Course/paper/Notes/Course/HeMilbradt2014.md"
+  ]
+}

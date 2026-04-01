@@ -1,0 +1,2 @@
+WOS advanced search:
+SO=("JOURNAL OF FINANCE" OR "JOURNAL OF FINANCIAL ECONOMICS" OR "REVIEW OF FINANCIAL STUDIES" OR "JOURNAL OF FINANCIAL AND QUANTITATIVE ANALYSIS" OR "Journal of Monetary Economics" OR "Quarterly Journal of Economics" OR "American Economic Review" OR "Review of Economic Studies") AND TS=(("Text*" OR "News" OR "news" OR "text*") AND ("bond*" OR "macro*"))

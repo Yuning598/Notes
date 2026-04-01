@@ -1,0 +1,10 @@
+{
+  "showLineNumber": true,
+  "readableLineLength": true,
+  "showInlineTitle": true,
+  "strictLineBreaks": true,
+  "vimMode": false,
+  "attachmentFolderPath": "PhD-Course/attachment",
+  "newLinkFormat": "absolute",
+  "alwaysUpdateLinks": true
+}

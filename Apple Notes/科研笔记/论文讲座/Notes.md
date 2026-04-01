@@ -1,0 +1,30 @@
+# **Spatio-Temporal Autoregressions for High Dimensional Matrix-Valued Time Series Hide**
+Jing He (Southwestern University of Finance and Economics)
+10:30 - 11:00 AM, 8 Jan., LT-16
+**Abstract** Motivated by predicting intraday trading volume curves, we consider two spatio-temporal autoregressive models for matrix time series, in which each column may represent daily trading volume curve of one asset, and each row captures synchronized 5-minute volume intervals across multiple assets. While traditional matrix time series focus mainly on temporal evolution, our approach incorporates both spatial and temporal dynamics, enabling simultaneous analysis of interactions across multiple dimensions. The inherent endogeneity in spatio-temporal autoregressive models renders ordinary least squares estimation inconsistent. To overcome this difficulty while simultaneously estimating two distinct weight matrices with banded structure, we develop an iterated generalized Yule-Walker estimator by adapting a generalized method of moments framework based on Yule-Walker equations. Moreover, unlike conventional models that employ a single bandwidth parameter, the dual-bandwidth specification in our framework requires a new two-step, ratio-based sequential estimation procedure.
+
+
+[[Scan 11.pdf]]
+
+# **Testing for the Minimum Mean-Variance Spanning Set Hide**
+Bin Wang (Harbin Institute of Technology, Shenzhen)
+11:00 - 11:30 AM, 8 Jan., LT-16
+**Abstract** This paper explores the estimation and inference of the minimum spanning set (MSS), the smallest subset of risky assets that spans the mean-variance eﬃcient frontier of the full asset set. We establish identification conditions for the MSS and develop a novel procedure for its estimation and inference. Our theoretical analysis shows that the proposed MSS estimator covers the true MSS with probability approaching 1 and converges asymptotically to the true MSS at any desired confidence level, such as 0.95 or 0.99. Monte Carlo simulations confirm the strong finite-sample performance of the MSS estimator. We apply our method to evaluate the relative importance of individual stock momentum and factor momentum strategies, along with a set of well-established stock return factors. The empirical results highlight factor momentum, along with several stock momentum and return factors, as key drivers of mean-variance eﬃciency. Furthermore, our analysis uncovers the sources of contribution from these factors and provides a ranking of their relative importance, oﬀering new insights into their roles in mean-variance analysis.
+
+[[Scan 12.pdf]]
+
+# **The Factor Tree: A Data-Driven Approach to Regime Switching in High-Dimensions Hide**
+Yundong Tu (Peking University)
+11:30 - 12:00 Noon, 8 Jan., LT-16
+**Abstract** Threshold factor models are pivotal for capturing rapid regime-switching dynamics in high-dimensional time series, yet existing frameworks relying on a single pre-specified threshold variable often suffer from model misspecification and unreliable inferences. This paper introduces a novel factor tree model that integrates classification and regression tree (CART) principles with high-dimensional factor analysis to address structural instabilities driven by multiple threshold variables. The factor tree is constructed via a recursive sample splitting procedure that maximizes reductions in a loss function derived from the second moments of estimated pseudo linear factors. At each step, the algorithm selects the threshold variable and cutoff value yielding the steepest loss reduction, terminating when a data-driven information criterion signals no further improvement. To mitigate overfitting, an information criterion-based node merging algorithm consolidates leaf nodes with identical factor representations. Theoretical analysis establishes consistency in threshold variable selection, threshold estimation, and factor space recovery, supported by extensive Monte Carlo simulations. An empirical application to U.S. financial data demonstrates the factor tree's effectiveness in capturing regime-dependent dynamics, outperforming traditional single-threshold models in decomposing threshold effects and recovering latent factor structures. This framework offers a robust data-driven approach to modeling complex regime transitions in high-dimensional systems.
+
+[[Scan 13.pdf]]
+
+
+# **Local Overidentification and Efficiency Gains in Modern Causal Inference and Data Combination Hide**
+Haitian Xie (Peking University)
+2:00 - 2:30 PM, 8 Jan., LT-16
+**Abstract** This paper studies nonparametric local (over-)identification, in the sense of Chen and Santos (2018), and the associated semiparametric efficiency in modern causal frameworks. We develop a unified approach that begins by translating structural models with latent variables into their induced statistical models of observables and then analyzes local overidentification through conditional moment restrictions. We apply this approach to three leading models: (i) the general treatment model under unconfoundedness, (ii) the negative control model, and (iii) the long-term causal inference model under unobserved confounding. The first design yields a locally just-identified statistical model, implying that all regular asymptotically linear estimators of the treatment effect share the same asymptotic variance, equal to the (trivial) semiparametric efficiency bound. In contrast, the latter two models involve nonparametric endogeneity and are naturally locally overidentified; consequently, some doubly robust orthogonal moment estimators of the average treatment effect are inefficient. Whereas existing work typically imposes strong conditions to restore just-identification before deriving the efficiency bound, we relax such assumptions and characterize the general efficiency bound, along with efficient estimators, in the overidentified models (ii) and (iii).
+
+
+[[Scan 14.pdf]]

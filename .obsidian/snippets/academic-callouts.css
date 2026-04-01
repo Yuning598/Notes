@@ -1,0 +1,52 @@
+/* 统一定理、命题、引理、定义的学术样式 */
+.callout[data-callout="theorem"],
+.callout[data-callout="proposition"],
+.callout[data-callout="lemma"],
+.callout[data-callout="definition"],
+.callout[data-callout="info"],
+.callout[data-callout="tip"] {
+    /* 基础样式：透明底色 + 黑色细边框 */
+    --callout-color: 0, 0, 0; 
+    background-color: transparent !important;
+    border: 1.2px solid black !important;
+    border-radius: 2px; /* 较小的圆角，更硬朗 */
+    padding: 16px;
+    box-shadow: none !important;
+    margin: 1.5em 0;
+}
+
+/* 隐藏左侧默认图标，保持简洁 */
+.callout[data-callout="theorem"] .callout-icon,
+.callout[data-callout="proposition"] .callout-icon,
+.callout[data-callout="lemma"] .callout-icon,
+.callout[data-callout="definition"] .callout-icon,
+.callout[data-callout="info"] .callout-icon,
+.callout[data-callout="tip"] .callout-icon {
+    display: none;
+}
+
+/* 标题样式：大号、加粗、黑色 */
+.callout[data-callout="theorem"] .callout-title-inner,
+.callout[data-callout="proposition"] .callout-title-inner,
+.callout[data-callout="lemma"] .callout-title-inner,
+.callout[data-callout="definition"] .callout-title-inner,
+.callout[data-callout="info"] .callout-title-inner,
+.callout[data-callout="tip"] .callout-title-inner {
+    font-size: 1em; /* 字体变大 */
+    font-weight: 800; /* 极粗 */
+    color: black !important;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee; /* 在标题下加一条极细的分割线（可选） */
+    width: 100%;
+}
+
+/* 调整标题栏与内容的间距 */
+.callout-title {
+    padding: 0 0 10px 0 !important;
+}
+
+/* 内容区域样式 */
+.callout-content {
+    color: #333;
+    line-height: 1.6;
+}
