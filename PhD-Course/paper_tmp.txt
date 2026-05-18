@@ -1,0 +1,3886 @@
+ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS
+Author(s): Zhiguo He and Konstantin Milbradt
+Source: Econometrica, Vol. 82, No. 4 (July 2014), pp. 1443-1508
+Published by: The Econometric Society
+Stable URL: https://www.jstor.org/stable/24029257
+Accessed: 09-03-2020 05:14 UTC
+
+
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+
+
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at
+https://about.jstor.org/terms
+
+
+
+
+                 The Econometric Society is collaborating with JSTOR to digitize, preserve and extend access
+                 to Econometrica
+
+
+
+
+                                This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                                                 All use subject to https://about.jstor.org/terms
+                       Econometrica, Vol. 82, No. 4 (July, 2014), 1443-1508
+
+
+        ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS
+
+                      By Zhiguo He and Konstantin Milbradt1
+
+        This paper studies the interaction between default and liquidity for corporate bonds
+     that are traded in an over-the-counter secondary market with search frictions. Bar
+     gaining with dealers determines a bond's endogenous liquidity, which depends on both
+     the firm fundamental and the time-to-maturity of the bond. Corporate default deci
+     sions interact with the endogenous secondary market liquidity via the rollover channel.
+     A default-liquidity loop arises: Assuming a relative illiquid secondary bond market in
+     default, earlier endogenous default worsens a bond's secondary market liquidity, which
+     amplifies equity holders' rollover losses, which in turn leads to earlier endogenous de
+     fault. Besides characterizing in closed form the full interdependence between liquidity
+     and default for credit spreads, our calibrated model can jointly match empirically ob
+     served credit spreads and liquidity measures of bonds across different rating classes.
+
+        Keywords: Positive feedback, liquidity, over-the-counter market, secondary bond
+     market, structural models for credit risk, transaction cost for corporate bonds, bid-ask
+     spread.
+
+
+
+                                      1. INTRODUCTION
+
+The RECENT 2007-2008 financial CRISIS and the ongoing sovereign crisis
+have vividly demonstrated the important interaction between default and liq
+uidity in financial markets. Liquidity tends to dry up for assets when solvency
+becomes a concern, reflected by soaring liquidity premia; in the meantime, de
+fault is looming closer in response to worsening liquidity in financial markets.
+This paper studies the endogenous interactions between default and liquidity
+in the context of corporate bond markets.2
+
+
+   'For helpful comments, we thank Kerry Back (Rice), Nittai Bergman (MIT), Bruce Carlin
+(UCLA), Hui Chen (MIT), Peter Feldhutter (LBS), Richard Green (CMU), Nicolae Garleanu
+(UC Berkeley), Barney Hartman-Glaser (Duke), Burton Hollifield (CMU), Gustavo Manso (UC
+Berkeley), Holger Mueller (NYU), the editor, three anonymous referees, and seminar par
+ticipants of the MIT Sloan lunchtime workshop, NYU lunchtime workshop, Columbia GSB
+lunchtime workshop, Chicago Booth Finance lunch, NBER Microstructure meeting, ASU winter
+conference, Duke-UNC asset pricing conference, Texas Finance Festival, UNC, Boston Univer
+sity, University of Colorado at Boulder, INSEAD, Imperial College London, UCLA Anderson,
+WFA 2012, SED 2012, NBER SI Asset Pricing meeting, Gerzensee ESSFM 2012, Northwest
+ern Kellogg, Copenhagen Business School, Tilburg University, Erasmus University, University
+of Amsterdam, Utah Winter Finance Conference 2013, and London Business School. We are
+especially grateful to Rui Cui for excellent research assistance. Zhiguo He acknowledges finan
+cial support from the Center for Research in Security Prices at the University of Chicago Booth
+School of Business.
+  2Corporate bond markets, for both financial and nonfinancial firms, make up a large part of the
+U.S. financial system. According to flow of funds, the values of corporate bonds reached about
+4.7 trillion in the first quarter of 2010, which consists of about one third of total liabilities of U.S.
+corporate businesses.
+
+
+© 2014 The Econometric Society DOI: 10.3982/ECTA11039
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+1444 Ζ. HE AND Κ. MILBRADT
+
+
+ It has been well documented that secondary co
+are mainly over-the-counter (OTC) markets
+uity markets.3 Edwards, Harris, and Piwowa
+Bao, Pan, and Wang (2011) documented a stro
+liquidity for corporate bonds (measured as tran
+matically for bonds with lower rating classes, t
+firms closer to default. Indeed, recent research
+Feldhiitter, and Lando (2012) and Friewald, Jan
+(2012), has shown that liquidity in corporate b
+tially during the 2007-2008 crisis, and more so f
+than for bonds with investment grade. To deli
+we model endogenous liquidity in the secondar
+search-based over-the-counter (OTC) market
+ersen (2005) (hereafter DGP05). Bond investors,
+ity shocks, face holding costs for holding the asset
+To trade, they meet intermediary dealers with
+and then trade at an endogenous bid-ask spread
+dogenous bid-ask spread is given by the dealer's
+the valuation wedge between investors who ha
+(called L investors) and investors who have n
+depends on not only the bond's time-to-matur
+to-default. The novelty of the paper stems from
+gives rise to an endogenous relation between se
+and a bond's default risk as, for example, embo
+  The endogenous default decision by equity
+losses is the second important ingredient fo
+liquidity interaction in the corporate bond m
+rowed from Leland and Toft (1996) (hereafter
+ously rolls over (or refinances) maturing bonds,
+principal back on maturing bonds, and at the sa
+the same principal and coupon at market price
+teriorate, equity holders will face heavier rollov
+newly issued bonds. Equity holders default opt
+losses is unprofitable, at which point bond inve
+in to recover part of the firm value.
+
+
+ 3 For instance, Edwards, Harris, and Piwowar (2007) st
+in corporate bonds and estimated the transaction cost t
+Pan, and Wang (2011) found even larger numbers. The f
+presumably subject to more asymmetric information prob
+importance of search friction in corporate bond markets.
+secondary bond market liquidity are Hong and Warga (2
+and Schurhoff (2007a, 2007b), Harris and Piwowar (2006), a
+manyam (2013).
+
+
+
+
+    This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                     All use subject to https://about.jstor.org/terms
+                 ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1445
+
+  The secondary market liquidity of defaulted bonds, that is, bonds of firms
+that have defaulted, is important in deriving the endogenous bond liquidity
+before the firm defaults. Motivated by empirical facts, we make two addi
+tional assumptions. First, we assume that bankruptcy leads to a delay in the
+payout of any cash due to lengthy court proceedings. Second, we assume that
+the secondary market for defaulted bonds, like the secondary market for pre
+default bonds, exhibits search frictions and thus illiquidity. We solve for the
+post-default bond valuations in closed form.
+  With the post-default bond valuations as boundary conditions, in Section 3
+we then solve the system of partial differential equations (PDEs) that describes
+the bond valuations before the firm defaults.4 With the closed-form solution for
+bond valuations in hand, we solve for the equity valuation and the endogenous
+default boundary by solving an ordinary differential equation (ODE) in closed
+form.
+    We focus on the situation where the post-default secondary market is more
+illiquid than the pre-default secondary market, an empirical regularity shown
+in EHP07 and Jankowitsch, Nagler, and Subrahmanyam (2013). In the context
+of our theoretical framework, we provide a simple analytic sufficient condition
+for this situation to hold. This sufficient condition essentially requires the (dol
+lar) valuation wedge of default-free infinite-maturity bonds to be less than the
+valuation wedge of post-default bonds. Under this condition, the endogenous
+bid-ask spread is shown to be decreasing in the firm's distance-to-default, a ro
+bust empirical pattern documented in EHP07 and Bao, Pan, and Wang (2011).
+    Intriguingly, our model features a positive feedback loop between default
+and liquidity in the secondary corporate bond market. Imagine an exogenous
+negative cash flow shock pushing the firm closer to default. Because defaulted
+bonds suffer greater illiquidity, even before default the increasing chance of
+facing an illiquid post-default secondary market hurts the L type bond sellers
+when bargaining with dealers. This gives rise to two effects. The first is a wedge
+effect, that is, the valuation wedge between Η and L investors goes up, result
+ing in greater transaction costs and a worsening pre-default secondary mar
+ket liquidity. The second is a level effect, that is, the bond holding value goes
+down because the looming default leads bond investors to put more weight
+on the severe post-default illiquidity. These two forces feed back to the pri
+mary market where Η investors, who understand that later they may be hit
+by liquidity shocks, are purchasing newly issued bonds. The wider refinancing
+gap between the newly issued bond prices and promised principals gives rise
+to heavier rollover losses, causing equity holders to default earlier, and so on
+and so forth. The outcome of this spiral is a unique fixed-point bankruptcy
+threshold at which equity holders default.
+
+
+   4This arises because bond valuations depend on firm fundamental, the bond's time-to
+maturity, and the liquidity state of bond holders.
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+1446 Ζ. HE AND Κ. MILBRADT
+
+
+ The result that bid-ask spreads decrease with d
+the exogenous assumption that default triggers
+illiquid post-default secondary market as exp
+wedge. However, we emphasize that the timing
+size at default and the valuation wedge of post-de
+determined in the model. Because the positive de
+uity holders to default earlier at a higher cash flow
+higher illiquidity wedge of post-default bonds, stren
+In this way, the pre-default illiquidity of the sec
+affects the post-default illiquidity of the secondar
+ Our model, thanks to endogenous liquidity, is a
+the empirical pattern of higher bid-ask spreads
+mented in EHP07. We calibrate our model to cor
+ent rating classes ranging from AAA to B. Since
+for bond values across various ratings is distance
+tures desirable parsimony in that we can generat
+pattern of illiquidity across credit ratings by ad
+default. We choose holding cost parameters to ro
+percentage bid-ask spread for bonds with invest
+calculate the model implied percentage bid-ask s
+ing classes by matching their leverage ratios. The
+spreads and liquidity adds additional discipline to
+an overall good fit cross-sectionally for both bid-
+ Our paper characterizes a full interdependen
+fault components in the credit spread for corpor
+the widely used reduced-form approach in the e
+is common to decompose firms' credit spreads
+default-premium components (e.g., Longstaff, M
+Brandt, and Kavajecz (2009), and Schwarz (2010
+consequences, we propose a novel model-based de
+liquidity-driven-default and default-driven-liquid
+pure liquidity and default components. Based on
+itsch, and Subrahmanyam (2012), we apply this d
+the relative contribution of each component to t
+ing the 2007-2008 financial crisis. Albeit crude,
+understand the impact of liquidity factors upon t
+bonds, and our fully solved structural model a
+sition are useful in paving the way for more str
+studies on this topic.
+  Our paper belongs to the literature on the role
+ing frictions in structural models of corporate f
+Leland (1994), and LT96).5 Ericsson and Renaul
+
+ 5The secondary bond market trading friction is related to b
+ature on dynamic debt runs such as He and Xiong (2012
+
+
+
+
+    This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                     All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1447
+
+tion between secondary liquidity and the bankruptcy-renegotiation in a LT96
+framework, and Duffie and Lando (2001) studied credit risk when bond in
+vestors only have incomplete information. He and Xiong (2012a) took the
+simplified secondary market friction in Amihud and Mendelson (1986) so
+that bond investors hit by liquidity shocks are forced to sell their holdings
+immediately at a constant proportional transaction cost. Because the bond
+market liquidity was modeled in an exogenous way, He and Xiong (2012a)
+could not generate movement in the bid-ask spread in line with default risk.
+In contrast, our paper endogenizes the secondary market liquidity by micro
+founding the bond trading in a search-based secondary market, and derives
+equilibrium liquidity jointly with equilibrium asset prices. Our paper is also
+related to the literature of debt maturity structure (Diamond (1993), Leland
+(1998), etc.). As illustrated in Section 5.1, the use of short-term debt with a
+higher rollover frequency features a trade-off between better liquidity provi
+sion and earlier inefficient default. Regarding the liquidity provision of short
+term debt, bond investors hit by liquidity shocks can either sell to dealers
+or sit out shocks by waiting to receive the face value when the bond ma
+tures. Shorter maturity improves upon the waiting option, resulting in a lower
+rent extracted by dealers and thus greater secondary market liquidity. On
+the other hand, equity holders are absorbing rollover gains/losses ex post.
+As illustrated in LT96 and shown in He and Xiong (2012a) and Diamond
+and He (2013), shorter-term debt with a higher rollover frequency leads to
+heavier rollover losses in bad times and thus an inefficiently earlier default.
+This trade-off allows us to endogenize the firm's initial choice of debt ma
+turity, and unlike traditional capital structure models, an optimal finite ma
+turity structure can arise. We borrow from the search-based asset-pricing lit
+erature as represented by DGP05, Duffie, Gärleanu, and Pedersen (2007),
+Weill (2007), Lagos and Rocheteau (2007), Lagos and Rocheteau (2009),
+Biais and Weill (2009), Feldhütter (2012), among others. To our knowledge,
+this literature with a concentration on OTC markets has thus far focused on
+the determinants of contact intensities and behavior of intermediaries, while
+eschewing time-varying asset fundamentals; for instance, Feldhütter (2012)
+studied the liquidity of corporate bonds but modeled default as an exogenous
+Poisson event.6 We make three contributions to this literature. First, we in
+corporate the firm's distance-to-default (and the bond's time-to-maturity) in
+
+Suarez, Schroth, and Taylor (2014), which emphasizes the coordination among bondholders
+whose debt contracts mature at different times.
+   6Endogenous default with stochastic fundamental is one key building block for our paper. Be
+cause corporate bond payoffs are highly nonlinear in firm fundamentals, our closed-form solution
+with stochastic fundamentals is nontrivial. However, the existing literature often assumes infinite
+maturity and constant asset payoffs. For instance, focusing on a very different market, Vayanos
+and Weill (2008) used a search framework to explain the difference between off-the-run and on
+the-run treasury yields. As far as we know, the only paper with deterministic time dynamics in
+a search framework is the contemporaneous Afonso and Lagos (2011), which introduced deter
+ministic time dynamics via an end-of-day trading close in the federal funds market.
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+  1448 Z. HE AND Κ. MILBRADT
+
+
+  deriving the asset (bond) valuations by modeling
+  the corporate bond market. Second, our paper li
+  ity to a firm's endogenous default. A firm's def
+  wide liquidity event that endogenizes the exogeno
+  Feldhiitter (2012). Finally, our paper demonstrat
+  nel, search-based secondary market liquidity can
+ firms' behavior on the real side.
+     Another possibility to micro-found secondary market liquidity would be
+ to assume that dealers face adverse selection problems with regard to the
+ bankruptcy recovery value; well-known models of this strand of literature in
+ clude Kyle (1985), Glosten and Milgrom (1985), Back and Baruch (2004), and
+ Back and Crotty (2013). We take the search-based approach because the OTC
+ market structure fits the secondary market for corporate bonds well. Besides
+ the advantage of being able to be integrated seamlessly into the dynamic firm
+ setting in LT96, the search-based framework is desirable especially considering
+ the fact that equity markets have much higher liquidity while being subject to
+ more severe asymmetric information problems, and the fact that transaction
+ costs are decreasing with trade size (e.g., EHP07).7
+   We lay out the model in Section 2. Section 3 solves the model in closed form,
+ and illustrates the positive default-liquidity spiral. We calibrate our model to
+ match the cross-sectional pattern of bid-ask spread and credit spreads in Sec
+ tion 4. Section 5 provides discussion and Section 6 concludes. All proofs are
+ in the Appendix. The online appendix provides programs and data used in the
+ calibration (He and Milbradt (2014)).
+
+                                                          2. THE MODEL
+
+   We describe in turn the economic environment of the firm, the firm's debt
+ structure, the secondary bond market, the endogenous default of equity hol
+ ers, and its impact on the secondary bond market.
+
+
+                         2.1. Firm Cash Flows and Stationary Debt Structure
+
+  We consider a continuous-time model in which a firm has assets-in-place that
+generate (after-tax) cash flows at a rate of 8, > 0, where {δ,: 0 < t < oo} follows
+a geometric Brownian motion under the risk-neutral probability measure:
+
+
+ (1) ~τ~ = ßdt + adZt,
+                   δ.
+
+
+    'From the modeling technique side, we do not pursue the path of asymmetric information
+due to the difficulties inherent in tracking persistent private information. For recent progress in
+adverse selection in search markets, see Lauermann and Wolinsky (2011) and Guerrieri, Shimer,
+and Wright (2010) (in directed search, rather than random as we assumed here).
+
+
+
+
+               This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                                All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1449
+
+
+where μ is the constant growth rate of cash flow rate, σ is the constant
+set volatility, and {Z(, J7,:0 < t < 00} is a standard Brownian motion
+complete probability space (Ω,Τ,Τ), representing random shocks to the f
+fundamental. We assume the risk-free rate r to be constant in this econo
+  We follow LT96 in assuming that the firm maintains a stationary debt
+ture, which gives us a convenient dynamic setting to analyze the intera
+between liquidity and default. At each moment in time, the firm has a co
+uum of bonds outstanding with an aggregate principal of ρ and an aggre
+coupon payment of c, where ρ and c are constants that we take as exogen
+given. We normalize the measure of bonds to 1, so that each bond has a
+cipal face value of ρ and a coupon flow of c. All bonds have an initial mat
+Τ but differ in their current time-to-maturity τ € [0, Τ]. Expirations of
+are uniformly spread out across time;8 that is, during a time interval (t, t
+a fraction j dt of the bonds matures and needs to be rolled over (refinan
+Thus, 1/Γ is the firm's rollover frequency on its debt, and Τ/2 is the av
+age maturity of the firm's outstanding bonds. As in LT96, we assume tha
+firm commits to a stationary debt structure, denoted (c, ρ, Τ), in the f
+ing sense: when a bond matures, the firm will replace it by issuing a new
+with identical (initial) maturity T, principal value p, and coupon rate c, in
+primary market.
+
+
+             2.2. Secondary Bond Market and Search-Based Liquidity
+
+ In this section, we describe the structure of the search-based secondary
+ket for corporate bonds. All bond transactions are intermediated by dea
+who form a competitive inter-dealer market. Throughout, following DG
+we simply assume that each investor can hold either 0 or 1 unit of the b
+while dealers cannot hold any inventory and are thus pure pass-through i
+mediaries.9
+
+
+2.2.1. Idiosyncratic Liquidity Shocks
+
+  As in DGP05, bond investors are subject to idiosyncratic independent a
+identically distributed (i.i.d.) liquidity shocks with intensity ξ. Once hit
+shock, an investor needs to search for dealers to trade with. We model th
+den need for liquidity as an asset holding cost of χ = χρρ + ycc, where th
+itive coefficient χρ (χα) is the holding cost per unit of principal ρ (coup
+
+
+  8This assumption of staggered debt maturity structure is made for tractability reasons. R
+empirical findings Choi, Hackbarth, and Zechner (2012) show that firms do spread out thei
+maturities in practice.
+   'Allowing for non-intermediated bilateral sales raises the issue that an agent waiting
+sideline meets a probabilistic cross-section of maturities. This results in an integral in the
+of PDEs that we cannot solve. It is unclear how such bilateral sales would expand the ec
+mechanism of our model.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+ 1450 Z. HE AND Κ. MILBRADT
+
+
+ It is a priori unclear whether the holding cost af
+ proportional to coupon or principal,10 and this m
+ bility in calibration for bonds with different rating
+ status lasts either until the agent sells the bond, or
+ either event, the investor exits the market forever.1
+   We call the non-liquidity-shocked investors H-
+ the liquidity-shocked investors L- (low) type inv
+ ity shock is uninsurable and thus results in an i
+ dependent valuations, as explained below.
+
+ 2.2.2. Dealers and Competitive Dealer Market
+
+  We model the illiquid secondary debt market b
+ L investor who wants to sell his debt-holdings ha
+ with intensity λ to meet a dealer. Similarly, an
+ has to wait an exponential time with intensity λ
+ vestors meet a dealer, bargaining occurs over th
+ We follow Duffle, Gärleanu, and Pedersen (2007)
+ weights β of the investor and 1 - β of the dea
+pairs.
+   Suppose that a contact between a type-L investor and a dealer occurs. As
+in DGP05, the dealer faces a frictionless competitive inter-dealer market with
+a continuum of other dealers. In other words, a dealer in contact with an L
+investor can instantaneously sell a bond at a price Μ to another dealer who
+is in contact with an Η investor. If he does so, the bond travels from the L
+investor to the Η investor via the help of the two dealers who are connected in
+the inter-dealer market. Denote by Β the bid price at which the L-type is selling
+his bond, by A the ask price at which the H-type is purchasing this bond, and
+by Μ the inter-dealer market price.
+   Throughout, we impose the following assumption regarding the relative ag
+gregate buy/sell flows coming to the inter-dealer market.
+
+   ASSUMPTION 1: The flow of L-type sellers in contact with dealers is smaller
+than the flow of Η-type buyers in contact with dealers.
+
+
+    10Modeling the consequence of liquidity shocks as a positive holding cost is common in the
+literature; for example, in DGP05, the holding cost is proportional to the constant dividend
+(coupon) of a perpetual asset. Empirically, EHP07, Table V, shows that, controlling for credit
+ratings, bid-ask spread is increasing in the coupon rate, suggesting that holding cost is increasing
+in coupon rate as well. Modeling liquidity shocks as a positive holding cost allows for better an
+alytical properties, which greatly simplify the proof of Proposition 4. As an alternative, in the
+working paper version (He and Milbradt (2013)), we modeled liquidity shocks by a rise of dis
+count rate r above the risk-free rate r. The qualitative results are the same; in fact, Appendix A.4
+shows that, when liquidity shocks are modeled as a surge of impatience, the implied effective
+holding cost increases in both coupon and principal.
+   11 This simplifying assumption is relaxed in Appendix A.5.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+            ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1451
+
+  Assumption 1 amounts to assuming that the secondary market is a seller's
+market, that is, all the trading surplus goes to the seller-dealer pairs. In Ap
+pendix A.5, we analyze the agent masses along the equilibrium path by micro
+founding the search environment, and provide a sufficient condition of initial
+investor mass for Assumption 1 to hold. In Appendix A.7, we relax the seller's
+market assumption for the post-default market.
+
+2.2.3. Equilibrium Bid-Ask Prices
+  Denote the value function of an Η (L) investor without bond holdings by
+D°h (D°l). As L investors exit the market after selling, D°L = 0 by assumption.
+The surplus generated from an Η investor buying from a dealer who acquires
+the bond for a price Μ on the competitive inter-dealer market is
+
+(2) ΠH = (pH — D°h) — Μ.
+Because in equilibrium some dealer-//-type pairs have to be rationed without
+purchase due to an abundance of buyers under Assumption 1 and the assumed
+zero-inventory restriction on the dealers, as shown in DGP05, Bertrand com
+petition in the inter-dealer market drives the surplus ΠΗ to zero.12 The zero
+surplus ΠH = 0 also implies that D°H = 0, as there are no other benefits accru
+ing to an Η investor without holdings besides some possible claim to a propor
+tion of surplus Π η at the next time of trade. Plugging D°H = 0 into equation
+(2), we have the inter-dealer market price Μ = DH, which in turn implies
+
+        A = M + (1 — β)ΠΗ = Dh.
+
+Although Η investors have some positive bargaining power, the excess de
+mand from //-dealer pairs in a competitive inter-dealer market (Assump
+tion 1) erodes any surplus this bargaining power could extract.
+  On the sell side, the bargaining within a dealer-L-type pair determines the
+bid price B. As a dealer can instantaneously sell at Μ — DH through the inter
+dealer market, the surplus from trade is (assuming DH - DL > 0, which is ver
+ified later in Proposition 4)
+
+         n = IJL = M + [D°L-DL\ = DH-DL> 0.
+The bid price Β at which L investors sell to the dealer thus implements the
+following surplus splits:
+
+(3) Β(8,τ)= DDAr) + β ■ Π (δ, τ) .
+                     L-type's outside option Appropriated surplus
+
+
+
+  12Suppose this were not the case and ΠΗ > 0; then Μ <{DH - D°H), and a dealer-
+could offer a slightly higher price M' > 0 such that 0 < Π'Η < ΠΗ on the inter-de
+This would result in a sure trade and thus a sure positive profit. But this cannot oc
+oversupply of buyers.
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+ 1452 Ζ. HE AND Κ. MILBRADT
+
+
+ As sellers are the only investors able to extrac
+ seller's market applies. We summarize our findi
+
+  Lemma 1: Fix valuations DH > DL, a condition v
+ Under Assumption 1, the ask price A and inter
+ to Dh, and the bid price is given by Β — ßDH
+ spread is A — Β = (1 — ß)(DH — DL) = (1 — β
+
+  We prove in Proposition 4 that Π = DH — D
+ trade occurs whenever an L investor meets
+ gives the endogenous dollar bid-ask spread for
+ tent with the empirical literature, later we als
+ ask spread defined as the dollar spread divided
+ prices (bid price Β and ask price A).
+
+
+                2.3. Primary Bond Market, Debt Rollover
+
+  The firm replaces maturing bonds with newl
+ value in the so-called primary market, where th
+ who can place the new debt to bond investors. W
+ tional issuance cost κ € [0,1], which plays only
+ results emphasized in this paper.13 Per unit of
+ ceives the net proceeds of (1 — k)Dh(8, Τ), w
+ market bond valuation given cash flow 8 and t
+ simplicity, we assumed that H-type investors
+ market.
+    The firm's refinancing/rollover activity leads to
+ are absorbed by equity holders along with cash
+ Following LT96, we assume that any gain will b
+ uity holders and any loss will be funded by issu
+ price. Thus, over the time interval (i, t + dt), th
+ holders (omitting dt) is given by
+
+
+  (4) NC, = δ, -(1 - 7t)c + ^[(1 - k)D
+                      CF        Coupon                v
+                                                       Rollover
+
+
+
+  The first term is the firm's operating cash flow, and the second term is the
+after-tax coupon payment with π being the marginal tax benefit of corporate
+
+
+   13Once we move away from the LT96 stationary debt structure assumption, a strictly positive
+issuance cost becomes important in making the model robust against "infinite rollover" pertur
+bations. Essentially, with κ > 0, we can rule out a strategy in which Τ -> 0 and the firm always
+manages to avoid default by judiciously reducing leverage in response to a sequence of negative
+shocks.
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+              ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1453
+
+
+debt.14 The third term captures the firm's rollover gains/losses by issuing new
+bonds to replace maturing bonds, and can be understood as repricing the bonds
+at a rate of 1 /T. The maturing j dt fraction of bonds requires a principal pay
+ment of ρ each, while the newly issued bonds in the primary market raise pro
+ceeds of (1 - k)Dh(8,, T) each. When the newly issued bond price DH(8t, T)
+drops so that (1 - k)Dh{8,, T) < p, equity holders have to absorb negative
+cash-flow stemming from rollover. Thus, the rollover frequency 1/T (or the
+inverse of debt maturity) affects the extent of rollover losses/gains.
+   When the firm issues additional equity to fund these rollover losses, the eq
+uity issuance dilutes the value of existing shares.15 Equity holders are willing to
+buy more shares and bail out the maturing debt holders as long as the equity
+value is still positive (i.e., the option value of keeping the firm alive justifies ab
+sorbing the rollover losses). When equity holders, protected by limited liability,
+declare default at an endogenous threshold 8b, equity value drops to zero. In
+default, creditors can only recover a fraction of the firm's unlevered value from
+liquidation,16 and for simplicity we assume equal seniority of all creditors.
+
+
+   2.4. Post-Default Secondary Market and Type-Dependent Recovery Factors
+
+  So far, the model followed the standard assumptions in the Leland-type
+structural corporate bond pricing literature. However, as we introduced liq
+uidity shocks and holding costs, our bankruptcy treatment has to be more
+nuanced—if bankruptcy leads investors to receive the same bankruptcy pro
+ceeds in exchange for the bond regardless of type, L investors may view de
+fault as a beneficial outcome.17 This "liquidity by default" runs counter to the
+fact that, in practice, bankruptcy leads to a more illiquid secondary market,
+the freezing of assets within the company, and a delay in the payout of any
+cash depending on court proceedings. The Lehman Brothers bankruptcy in
+September 2008 is a good example of such a delayed payout; after much legal
+
+
+  14For each dollar received by bond investors, the government is subsidizing π dollars, so that
+equity holders only have to pay 1 — π dollars. The tax advantage of debt π affects the equity
+holders' endogenous default decision.
+  15 A simple example works as follows. Suppose a firm has 1 billion shares of equity outstanding,
+and each share is initially valued at $10. The firm has $10 billion of debt maturing now, but the
+firm's new bonds with the same face value can only be sold for $9 billion. To cover the shortfall, the
+firm needs to issue more equity. As the proceeds from the share offering accrue to the maturing
+debt holders, the new shares dilute the existing shares and thus reduce the market value of each
+share. If the firm only needs to roll over its debt once, then the firm needs to issue 1 /9 billion
+shares and each share is valued at $9. The $1 price drop reflects the rollover loss borne by each
+share.
+   16The bankruptcy cost is standard in the trade-off literature, and can be interpreted in different
+ways, such as loss of customers or legal fees. Interestingly, as we will introduce inefficient delay
+in court rulings shortly, our analysis goes through even if there is no bankruptcy cost.
+   17This would be the case, for example, for a Credit Default Swap (CDS) contract written on
+the firm which features immediate payouts at the time of a bankruptcy/credit event.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+ 1454 Ζ. HE AND Κ. MILBRADT
+
+
+ uncertainty, payouts to the debt holders only s
+ three and a half years.
+  Motivated by these observations, we model th
+ ket for defaulted bonds based on two key assu
+ due to court proceedings; second, illiquidity fric
+ akin to the ones in the pre-default market.18 We i
+ liquidity event that shocks the secondary mark
+ from the pre- to the post-default market (e.g
+ at the bankruptcy settlement date; holding co
+ bonds; etc.). Although we exogenously link thi
+ default, the timing of default is endogenously
+ discussed later, this gives us a forward link fro
+ which contrasts with Feldhiitter (2012), who s
+ liquidity event.
+   Let us use "b" to indicate the post-bankruptcy
+ layed emergence payout, we assume that a r
+ unlevered firm value ~ occurs at an exponentia
+ technical convenience, we assume that cash flo
+ the legal delay.19 Post-default, Η investors will
+ intensity fb, the meeting intensity between inv
+ post-default bargaining power of investors is ß
+ market, there is no coupon and all bonds have t
+ turity 1/0. Consistent with our pre-default ho
+ sume that L investors incur a holding cost of
+ ultimate recovery payout, and the post-default
+ be significantly higher than pre-default cost pa
+ eters characterizing the post-default secondary
+ 8b is endogenously determined by equity holder
+ though it is assumed fixed in the post-default
+dealers.
+
+
+  18For evidence on inefficient delay of bankruptcy resolution, see Gilson, John, and Lang (1990)
+and Ivashina, Smith, and Iverson (2013). For evidence on illiquid secondary market for defaulted
+bonds, see Jankowitsch, Nagler, and Subrahmanyam (2013).
+  "The cash flow rate δ restarts at 8b once the firm emerges out of bankruptcy to obtain an
+unlevered firm value of at time of emergence. This assumption, which can be justified by
+the interpretation that the asset growth requires normal operation, is for ease of exposition only.
+Because in our model agents are risk neutral, introducing shocks to Sb during bankruptcy per se
+is irrelevant for valuation purposes, as long as the ultimate recovery value is still below the
+promised payments to debt holders. Even if may exceed the promised payments and thus
+debt holders may not get the entire payout, deriving the post-default debt valuations amounts to
+solving a standard linear ODE, and analytical results are available upon request.
+   20In practice, defaulted bonds that require specialized renegotiation skills typically involve
+greater risk in their recovery payoffs. A higher liquidity holding cost parameter \b is a parsi
+monious way to capture this effect in our risk-neutral setting.
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+                  ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1455
+
+
+  Denote the post-default bond valuations by DbH and D'j. Based on the selle
+market environment implied by Assumption 1, an argument similar to Pr
+sition 1 gives the following system of equations that determines the valuati
+
+
+
+              rDbH = 0 + fb(DbL - DbH) + e(a-A- - D»^,
+
+                           λbßb{D»H
+             rD\ = -Xb-^~ +r    μ
+                                    - D»l)
+                                        \
+                                           + θ(α-^~
+                                                 r
+                                                    - DbL).
+                                                        μ                             /
+
+    Solving                                       the                     system,                  w
+
+
+       Lemma                                         2:             The                       post-d
+                                                            -1
+
+              D =
+                       f + fb + θ              -ξ»                   θα
+                                        r + λί,/3/, + θ           Θα-Xh         r-μ
+
+
+
+
+ where a = (aH,aL)T with aH > aL are type-dependent effec
+covery factors.
+
+
+    To summarize, the post-default secondary market is
+ search market with H- and L-type investors and fixed par
+ βb, θ, 8b). Because the last parameter 8b is an endogenous
+ in the pre-default market, it gives rise to an endogenous f
+ to post-default market liquidity, a topic that we discuss
+tion 3.4.
+    The valuation wedge (aH - arepresents the dollar
+ defaulted bonds. Throughout the paper, we focus on the
+ illiquidity of the post-default secondary market is suffici
+ cise condition, see Proposition 4). This assumption, which
+ empirical findings in Jankowitsch, Nagler, and Subrahman
+ us to conform our model to the regular empirical patter
+ to default have higher bid-ask spreads (e.g., EHP07 and B
+(2011)).
+   Because our paper mainly focuses on corporate bond pricing and its sec
+ondary market illiquidity before the firm defaults, the main purpose of Propo
+sition 2 is to introduce type-dependent effective bankruptcy recovery factors
+a = (aH,aL)T; that is, at default the Η investors' bond valuation is
+
+
+   21Jankowitsch, Nagler, and Subrahmanyam (2013) found that trading volume rises after de
+fault, but the transaction cost rises to about 280 bps. We interpret rising trading volumes as a
+symptom of liquidity events where default triggers involuntary fire-sales of bond holdings.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+1456 Ζ. HE AND Κ. MILBRADT
+
+
+while the L investors'
+               Υ μ.
+                       one is aL-^~, with a
+ery factors, by serving as boundary conditions for bond valuations in the pre
+default market, are a sufficient statistic of the outcome of the post-bankruptcy
+market. As a result, one may treat the type-dependent recovery factors a
+as an equilibrium outcome of other more sophisticated post-default trading
+schemes. In other words, any post-default modeling that delivers the same a
+will be observationally equivalent in its pre-default predictions that Section 3
+focuses on. Moreover, this observation also has important implications for our
+calibration in Section 4: from standard post-default bond trading data (prices,
+transaction costs, etc.), we can only identify aH and aL—which is our task in
+Section 4.1.3—but cannot pin down the underlying parameters without further
+assumptions. We present a richer post-default model without the seller's market
+assumption in Appendix A.7.
+
+
+                               2.5. Summary of Setup
+
+  The model setup is summarized in the schematic representation given in Fig
+ure 1. For exposition purposes, we omit including the bankruptcy event which
+occurs when 8 reaches the endogenous default threshold 8b.
+
+  Primary Market: Let us start with the firm. It (re)issues bonds at a price
+of Dh on the primary market to Η investors, as represented via the "Reis
+sue" arrow. After the Η investors buy the bond, it may mature before either
+the bankruptcy occurs or a liquidity shock hits. This event is summarized in
+the "Maturity" arrow, where the firm retires this bond by paying the principal
+to the investor. This subpart of the graph represents the LT96 model. With
+
+                         Primary market
+
+
+
+
+                                                   Secondary market
+
+
+
+                    Figure 1.—Schematic representation of model.
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+              ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1457
+
+liquidity shocks, an Η investor transitions to an L investor with intensity ξ
+who values the bond at DL, as represented by the "Liq. shock" arrow. Absent
+bankruptcy and retrading opportunities, the L investor will be paid back the
+principal when the bond matures (the "Maturity" arrow again). l/T indicates
+the flow of bonds that mature.
+
+
+  Secondary Market: Once we introduce the secondary market, L in
+vestors can sell their holdings to Η investors via the help of dealers. To do so,
+they contact dealers with an intensity λ, as indicated by the "Intermediation"
+arrow. They sell their bond to the dealer at the bid price B — DL + β (DH — DL).
+The dealer turns around and immediately (re)sells the bond on the inter-dealer
+market for a price Μ = DH, to a dealer who in turn then sells the bond at the
+ask price A = DH to an Η investor, as indicated by the "Resale" arrow.22
+
+
+                                3. MODEL SOLUTIONS
+
+                      3.1. Debt Valuations and Credit Spread
+  We first derive bond valuations by taking the firm's default boundary 8b as
+given. Recall that DH(8, r) and Dl(8,t) are the bond value with time-to
+maturity τ < Τ, an annual coupon payment of c, and a principal value of p,
+to Η and L investors, respectively. We have the following system of PDEs
+for the values of DH and DL, where we omit the two-dimensional argument
+(8, τ) e (8b, oo) χ (0, T) for both functions:
+
+                                                 σ2 δ2
+
+(5) rDH = c — dTD}j + μ8 ■ dbDH-\ ^—8ssDh + £(Dl ~ DhY>
+                                                                    Liquidity shock
+
+
+                                                          2 g2
+           rDL = (c — χ) — dTDL + μδ ■ dbDb Η —dbbDL + λ (Β — Dl) ■
+                                                                          Secondary market
+
+
+The boundary conditions are DH = DL = ρ at τ = 0 because of the princi
+pal repayment at maturity, and Dt = at 8 = 8b, where i e {H, L} as in
+Lemma 2.
+  The first equation in (5) defines DH. The left-hand side rDH is the required
+(dollar) return from holding the bond, which equals the right-hand side captur
+ing expected returns from holding the bond. The first term is the coupon pay
+ment. The next three terms capture the expected value change due to change
+in time-to-maturity τ (the second term) and fluctuation in the cash flow δ, (the
+third and fourth terms). The last term is a loss DL — DH caused by liquidity
+
+
+  22Consequently, before the firm defaults, Η investors are indifferent between staying out of
+the market, buying bonds of maturity Τ at reissue via the primary market, or buying bonds of
+maturities τ e (0, T) on the secondary market.
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+ 1458 Z. HE AND Κ. MILBRADT
+
+
+ shocks that transform Η investors into L investo
+sity of ξ.
+   The second equation in (5) for DL follows a similar explanation to the one
+above. The two differences are on the right-hand side: the L investor incurs
+a holding cost χ, and the last term reflects the value impact of the secondary
+market. An L investor meets a dealer with an intensity of λ and then sells his
+bond (with a private value DL) at the bid price B = DL+ß(DH — DL). Plugging
+Β into equation (5), we have λ(Β - DL) = λβ(ΰΗ - DL). One can thus inter
+pret λβ as the bargaining-weighted effective intensity of "transitioning" (via a
+sale) back from the L state to the Η state.
+   We now define the matrix A that incorporates the discount factors and the
+effective transition intensities ξ and λβ of the states. The following decompo
+sition holds:
+
+
+             A =
+                   r + ξ -ξ '         = PRP
+                                              ,-ι
+
+                   —λβ r + λβ
+
+where R ξ diag[fi, r2\ with ο = r + ξ + λβ > r = r2 is the matrix
+values of A, and Ρ is the matrix of stacked eigenvectors. We will see
+fi s are akin to effective discount rates as we will be discounting via t
+exp(-Ar) = Pexp(-Rr)P_1. For a given default boundary 8b, the nex
+sition gives the closed-form solution for bond valuations.
+
+   Proposition 1: The bond valuations are given by
+
+                         Dh(S, t)
+(6) D(S, τ) EE
+                         Dl(8, t)
+
+                     = A~1c + exp(-Ar) (p - A_1c)[l - F{8, τ)]
+                                                    =kD
+                                                    — F
+
+
+
+
+                         + PG(5,t)P~1 (aVb — A_1c)
+                                                    =kD
+                                                    ~ G
+
+
+
+
+Here, by defining a = £ - φ1 = 0, φ2 = -2a, yjh2 =-a ± J
+{ρ, p)T, c = {c,c — ^)T, and q(8, ρ, t) = log(gD-log(g)_-(p+g) o·-^ t
+
+given by G(8,t) = [g^-t) g^S t)],
+
+
+
+              ^δ'τ)ΞΣ(0 φ[?(δ'<Ροτ)],
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 145 9
+
+
+where Φ(χ) is the cumulative distribution function for a standard normal distri
+bution.
+
+
+  A closer inspection of the solution reveals a linear combination (via the ma
+trix P) of two LT96 solutions, each composed of three terms: the first term gives
+the value of a risk-free consol bond, the second term encapsulates the possibil
+ity that the bond will mature before default, and the third term encapsulates
+the possibility that the bond will default before maturity. Relative to LT96,
+each of these independent subsolutions i = {1,2} has a distorted discount rate
+f, a distorted coupon rate c, = (P_1c),, a distorted principal p, = (P_1c),, and
+a distorted recovery value ά, = CP-1«),.23 Finally, when A ->■ oc so that the sec
+ondary market becomes perfectly liquid, bond values converge to the original
+LT96 case, as a simple inspection of Ρ reveals.
+
+  Credit Spreads: The bond credit spread is defined as the spread be
+tween the corporate bond yield and the risk-free rate r. Given a bond of value
+D{8, τ), the bond yield is defined as the unique yield that solves
+
+
+(7) D(8, τ) = ~ (1 - e~y,MT) + ρ ■ e-yield\
+
+so that the right-hand side is the present value of a bond (discounted by yield)
+with a constant coupon payment c and a principal payment p, conditional on
+it being held to maturity without default or re-trading. Because the ask price
+Dh is also the price of a newly issued bond, which is commonly used in the
+structural corporate bond pricing literature, for the remainder of the paper
+we simply take the ask price DH(8,T) in Proposition 1 as our bond price for
+the left-hand side of equation (7).24 For later references, we define the credit
+spread cs as cs = yield — r.
+
+
+                         3.2. Equity Valuation and Firm Value
+
+  Equity holders of the firm receive the net cash flow in (4) every instant. Be
+cause equity is naturally an infinite maturity security and we are investigating a
+stationary (debt maturity structure) setting, the equity value E{8) satisfies the
+following ODE without time dimension:
+
+                                          J           0.2                 g2
+   (8)                     rE                    =             8            -           (1   —
+                                         v           ν           '
+                                                  Rollover                                   g
+
+
+
+
+      23Given a ma
+      24Our later c
+     \{A                                        +                 B)                    =    \
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+1460 Ζ. HE AND Κ. MILBRADT
+
+
+ where the left-hand side is the required rate of re
+ right-hand side, the first three terms are the equity
+ the next two terms are capturing the instantaneo
+ earlier, the term involving square brackets is the cas
+ rolling over debt (while keeping coupon, princip
+ with 1 / Τ being the rollover frequency.
+    Given a default boundary 8b, the next propositio
+ via (8), which is nontrivial due to the highly non
+in (6).25
+
+ Proposition 2: Given a default boundary 8b, the equity value is given by
+                          / O \ 7J2 C
+
+(9) E(8,Sb) = kf(-) + + kE0
+         \ ) τ μ
+
+
+                          + ^y^S[-exp(-Ar)k^gf(5) + PgG
+
+where gG(S) = ie°(S)], t?u = -a± ja2 + £#
+and
+
+
+                - - 77)C
+         kE = -(1
+          0 r
+
+
+               + ^[(i - *)S(k£ + exp(-Ar)k^) - p]
+                     8b
+         kf = —{ —-—l· kE
+                    r-μ
+
+
+
+               + |(1- k)S[— exp(—AT)kpgF(8b) + PgG(5fc)P_1kp]^,
+                   _ J-λ I xm xm
+        gp(x) = ——— /J <Pi> V2, Τ) - — Η (χ, φι, Ί]χ, Τ)
+                                       Ob             Ob
+
+
+
+
+                  gGj{x)                                                             Ξ
+   25The                             two                     boundary
+ and   lims_00   |Ε(δ^'·' |  <
+ It is  worthwhile    to    po
+ the   levered  firm   valu
+ calculation   performed
+ dealers   in the  seconda
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1461
+
+           Η (δ, ρ, η, Τ)
+
+
+                     ν-ρ
+                                     [q{8,p,T)}
+                           - 8bea'm7>+a)2-(i>+a)2]'T2T<i>[q(8, η, Τ)]},
+
+                     aVT[q{8, ρ, Γ)Φ[^(δ, ρ, Γ)]
+                           + Φ{4(δ,ρ,Τ))], ρ = η,
+where q(-, ·, ■), kg, kg, and kg are given in Proposition
+normal density function, and S = (1,0) is the vector sum
+issued at Dh.
+
+
+                               3.3. Endogenous Default Boundary
+
+   So far, we have taken the default boundary 8b as given
+dard smooth pasting condition dsE(8; 8b)\s=sb = 0 to dete
+chosen by equity holders.
+
+
+   PROPOSITION 3: The endogenous default boundary 8b is
+
+
+           8b = (r — μ)        τ/2 — 1 + ■ Ρ · hGP_1a
+
+
+                       -172&0 + ' (exP(-AT")kphF + Ρ · hGP 1 · kg)
+
+
+where hG = [h°^ ],and 2"
+
+
+
+                           2
+
+
+                     2 Σ—"—{Φ[-(^/ + a)aVf]
+                     σ ^ Vi-<P
+
+                     ΡτΦ[-(ηι +α)σ-/Τ]\,
+
+                       -Αέ —-— {φΗ^<+e)oVf ]
+           ho, =
+                           σtiηι - y>>
+                           - β(Γ~Γΐ)Τφ[-{·ηι + a)aVT]}, γ;7 φ η1}
+                      see Appendix, γ μ = ηχ.
+
+  We note that as Τ -* oo, the boundary converges to the one fo
+(1994).
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+ 1462 Z. HE AND Κ. MILBRADT
+
+
+                                   3.4. Endogenous Liquidity
+     Recall that Lemma 1 showed that the (dollar)
+ fraction of the surplus Π (δ, τ):
+
+  (10) Α(δ, τ) - Β(δ, τ) = (1 - β)[ΰΗ(δ, τ) -
+ Empirically, the effective percentage bid-ask spre
+ used (e.g., EHP07, Bao, Pan, and Wang (2011), Jan
+ rahmanyam (2013)), which is often defined as the
+ by the midpoint of transaction prices:
+
+ Π1Λ ars \ Α(δ, τ) — Β(δ, τ) (Ι-β)Π(δ,τ)
+ (11) Δ{δ,τ) =
+
+                            ^Α(δ, τ) + ^Β(δ,τ) ϋΗ(δ, τ) - ίγ^/7(δ,
+ We focus on percentage bid-ask spreads Δ(δ, τ) in later
+ note that a rising Δ(δ, τ) can be due to increasing dollar
+ (1 - β)Π(δ, τ), as well as a drop in the bond value.
+  Proposition 4, below, gives the key comparative statics for
+liquidity measures under certain sufficient conditions, whic
+our baseline parameters in our later calibration. For the rema
+the term par bond refers to a bond that is issued at par in the
+ that is, ΰΗ(δ) = p.
+
+    PROPOSITION 4: For (δ, τ) e (öb, oo) χ (0, Τ), we have the f
+results'.
+   1. Derivative in state space δ.
+   (a) The dollar bid-ask spread (1 — β)Π(δ, τ) is decreasing in δ if
+
+
+ (12) (aH — aL) 8h X
+             r- μ r+ξ+λβ
+
+In words, under (12), all else equal, bonds with a lower distan
+higher dollar bid-ask spreads.
+  (b) Consider bonds with ρ > cr, which always holds for par
+tential default). Then, the percentage bid-ask spread Δ(δ, τ) i
+(12) holds and ΌΗ(δ, τ) is increasing in δ. One sufficient cond
+being increasing in δ is
+
+
+ (13) ρ >           OiH + ~{θίΗ — aL)
+                           r
+                                            r-μ
+
+    2. Derivative in time space. The dollar bid-ask spread (1
+creasing in τ if
+
+(14) aH — aL > 0.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+                       ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1463
+
+In words, under (14) (so that the post-default market is illiquid), all else equal,
+shorter-term bonds have lower dollar bid-ask spreads.
+    3. If the condition in (14) holds, then the surplus from trade Π (δ, τ) is every
+where nonnegative. This implies that trade always takes place whenever an L-type
+holding the bond establishes contact with a dealer.
+
+
+  The first set of results implies that our structural model can generate the em
+pirical regularity of higher transaction costs (bid-ask spreads) for bonds issued
+by lower rating firms. When the firm is far away from bankruptcy, or δ -> oo
+so that bonds are default-free as in the original DGP05 model, we have
+
+                                          I _ g-(r+f+A/3)T
+                lim Π (δ, τ)
+                δ->οο r + ζ 4- λ/3
+
+ For the bid-ask spread to be decreasing in the distance-to-defau
+ necessary condition is that the bid-ask spread at δ = δι, is high
+ δ —» oo. Condition (12) in part 1(a) of Proposition 4 shows that
+ sufficient condition, with the small change that we are using
+ Γ+ξ+λβ = limineχ(l~er+(llß3'T) when τ becomes large. For t
+ the paper, we concentrate on situations in which this sufficien
+is satisfied.
+  Additionally, in (12), we observe that the difference betwee
+wedge for default-free bonds and the valuation wedge for po
+is affected by the endogenous default boundary öb that is par
+pre-default secondary market illiquidity. As illustrated in the
+the positive default-liquidity feedback leads equity holders to
+which gives rise to a higher bb. Interestingly, this endogenou
+our sufficiency condition (12), by having a higher post-default
+ (aH — ctL)-~f that is proportional to defaulted firm value, relat
+ ity of default-free bonds r+f+xß that is independent of 6b. The
+ post-default bond holders essentially become equity holders of
+ such the value of their position and the valuation wedge are
+cash-flow size 8b at default. This way, the pre-default illiquidity o
+ market endogenously affects the post-default illiquidity of th
+                              26
+ ket through the endogenous default policy δ6.
+
+
+   26In our simple post-default search-based model, the endogenous default boundary 8b only
+affects the dollar bid-ask spread in post-default market, not the percentage bid-ask spread (which
+is a function of aH and aL only). To deliver the latter result, a richer and more realistic setting is
+needed where only hedge funds that are specialized in investing distressed/default securities are
+the marginal buyers. If these specialized hedge fund investors are wealth-constrained and dealers
+are also concerned about inventory risk, then a higher 8b, via increasing the total size of defaulted
+securities, may lead to a greater percentage illiquidity in post-default market. We leave this topic
+for future research.
+
+
+
+
+             This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                              All use subject to https://about.jstor.org/terms
+ 1464 Z. HE AND Κ. MILBRADT
+
+
+   Next, result 1(b) shows that the same comparativ
+ proportional bid-ask spread, a measure commonly
+ ature. For this, however, we require an additiona
+ increasing in 8. In words, we require that the bo
+ to default, a condition that is guaranteed if the de
+ low, as in condition (13).
+   The second result, that the bid-ask spread is incre
+ similar to Feldhiitter (2012), with the difference t
+ deterministic instead of an intensity-based random
+ maturity delivers the principal back to L investor
+ outside option in bargaining. This reduces the ren
+ ing in a smaller bid-ask spread. To the extreme,
+ ately demandable from the firm, L investors gain
+ dealers, and as a result, the bid-ask spread van
+ In this sense, short-term debt provides liquidity
+ become impatient.27 Of course, a downside exists
+ turity structure is changed such that Τ -» 0, the
+ 8b tends to increase, as shown in He and Xiong (2
+cussed in more detail in Section 5.1.
+  Finally, the third result verifies the conjecture in Lemma 1 that trade occurs
+with every L-dealer contact, which we thus far had implicitly assumed when
+writing down the L investor's debt valuation equation in (5).
+
+
+               3.5. Positive Feedback Between Default and Liquidity
+
+  The endogenous liquidity derived in Section 3.4, together with endogenous
+default, gives rise to a positive default-liquidity spiral. Specifically, deteriora
+tion of firm fundamentals leads to a drop in bond values via either the wors
+ening of pre-default secondary market liquidity, or the more likely bankruptcy
+and thus severe post-default illiquidity. This in turn makes equity holders less
+willing to rollover and thus edges the firm yet closer to default, leading (again)
+to a further deterioration in secondary market liquidity.
+
+3.5.1. Rollover Losses and Endogenous Liquidity
+
+  To understand the mechanism, consider the rollover losses borne by equity
+holders (recall equation (4)):
+
+
+(15) NC,= 8, — (1 — 7r)c ~ [(1 — K)D(8t, Τ \ liquidity) — p\,
+                     CF         Coupon                   v
+                                                          Rollover
+
+
+
+
+   27We cannot provide simple sufficient conditions for the percentage bid-ask spread Δ(δ, τ) to
+be increasing in τ. But, under our parameters, 4(δ, τ) is increasing in time-to-maturity τ, which
+is consistent with the empirical pattern.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1465
+
+where D(8t, Τ; liquidity) is a generic term for primary market debt subject
+to secondary market illiquidity. With infinite debt maturity Τ —> oo as in
+Leland (1994), the term "Rollover" vanishes. LT96 featured rollover given a
+finite debt maturity structure, but without secondary market liquidity. In LT96,
+when the firm fundamental δ deteriorates, there are heavier rollover losses
+4[D(S,, T) - p\ because investors adjust the market price of newly issued
+bonds downward.
+   In our model with an illiquid secondary market for corporate bonds, "liq
+uidity" of the secondary market enters (15) in the bond pricing DH(8t, T) =
+D(8t, Τ; liquidity (δ,)). This is because Η investors who purchase bonds on the
+primary market worry about the illiquidity they will face when trying to sell
+their holdings once hit by liquidity shocks. The worse the secondary market
+liquidity, the lower the primary bond price D(8,, Τ; liquidity), the heavier the
+rollover losses borne by equity holders. This lowers the equity holders' option
+value of keeping the firm alive by servicing the debt, leading to earlier default.
+Without the "rollover" term (e.g., in Leland (1994) with Τ = oo), the secondary
+market frictions cannot affect the equity holders' default decision once debt is
+in place, eliminating the feedback between liquidity and default.
+  In models with constant secondary market liquidity (e.g., He and Xiong
+(2012a)), "liquidity" enters D(δ,, Τ·, liquidity) in (15) exogenously, and does
+not depend on the firm's distance-to-default. In contrast, our model endoge
+nously links "liquidity" in DH(8t, T) = D(8t, Τ; liquidity(8,)) to firm funda
+mental δ,. First, for firms closer to default, the higher illiquidity in the post
+default market and the eventual bankruptcy losses lower the level of bond val
+uations; this is the "level" effect. Moreover, as shown in Proposition 4, the en
+dogenous bid-ask spread widens especially in bad times when firms are closer
+to default; this is the "wedge" effect.28
+
+3.5.2. Positive Default-Liquidity Spiral
+
+ Figure 2 illustrates the positive default-liquidity spiral for corporate bond
+markets in our paper. Imagine a negative shock to the firm's cash-flow rate 8.
+
+
+   28The first "level" effect, but not the second "wedge" effect, can be delivered by extending He
+and Xiong (2012a) to allow for delayed bankruptcy payouts with a more illiquid post-default sec
+ondary market. More specifically, suppose that the exogenous proportional transaction cost in the
+pre-default secondary bond market is k > 0, while the post-default secondary market has a higher
+constant proportional transaction cost of Κ > k. When the firm gets closer to default, bond prices
+go down partly due to a higher likelihood of the worse post-default illiquidity, but current liquid
+ity remains the same. We prefer our DGP05 over-the-counter search market modeling for the
+following reasons. First, our model can generate endogenous rating-dependent proportional bid
+ask spreads before default. Second, the over-the-counter search-based micro-foundation gives
+guidance in pinning down primitive market friction parameters, which is especially useful in eval
+uating counterfactuals. Last, as we discuss in Section 5.1, in He and Xiong (2012a) the long-term
+debt is always preferred over short-term debt because there is no inefficient waiting of L investors
+(and thus there are less rich welfare implications).
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+1466 Ζ. HE AND Κ. MILBRADT
+
+                      Cash-flow
+
+                                       values
+                      δ declines DebtDebt values p
+                                         decline
+
+
+
+                      Liquidity \j 1 Debt rollover
+                      decreases! I more expensive
+
+
+                                     I Equity
+                                        Equityholders
+                                                 holders
+                                     Jdefault earlier*
+                                        default    earlier
+
+
+
+   Figure 2.—Feedback loop between default and liquidity in the corporate bond market.
+
+
+
+Since this negative shock brings the firm closer to default, this shock directly
+lowers bond investors' valuations DH and DL. This force is already present in
+LT96 and He and Xiong (2012a).
+  The novelty of our model is that a negative 8 shock not only lowers debt val
+ues, but also worsens the secondary market liquidity by moving closer to pro
+tracted bankruptcy court decisions and prohibitive holding costs in the post
+default market. This gives rise to two forces that can lower bond valuations
+even before default, because potential default worsens the seller's bond valu
+ation when bargaining with a dealer. The first is the "level" effect illustrated
+before: the looming default leads bond investors to put more weight on the
+relatively higher post-default illiquidity discount. The second is the "wedge"
+effect, as the dollar bid-ask spread in the pre-default secondary market goes
+up, as shown in Proposition 4.29 We group both "level" and "wedge" forces to
+gether as indicated by the left large arrow with "declining liquidity" in Figure 2.
+  The "declining liquidity" then leads Η investors to value bonds less. Indi
+cated by the arrow on the right of Figure 2, the lower bond prices—by generat
+ing larger losses in (15)—feed back to the equity holders' default decision via
+the rollover channel. Equity holders hence default earlier at a higher thresh
+old 8b, which translates into a shorter distance to default. But as shown on
+the left-hand side in Figure 2, the shorter distance to default further worsens
+market liquidity via the declining outside option of L investors. Of course, a ra
+tional Η investor aware of the non-constant liquidity anticipates these changes
+in liquidity as 8 changes, and the outcome is the simple fixed point 8b given in
+Proposition 3.
+
+
+                              4. MODEL CALIBRATIONS
+
+  In this section, we calibrate our model to explore the model's cross-sectional
+implications. We first explain our parameter choices in Section 4.1. Section 4.2
+
+
+  29In our later calibration, the proportional bid-ask spread in equation (11), which is widely
+used in the empirical literature about corporate bond market liquidity, goes up after a negative δ
+shock due to both the "level" effect and "wedge" effect.
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1467
+
+
+presents the calibration to bonds of different rating classes, and Section 4
+discusses the model implications on decomposing the credit spread into defa
+and liquidity components.
+
+                                       4.1. Parameters
+
+4.1.1. Firm Parameters
+
+   Without loss of generality, we normalize the bond face value to ρ = l.30 The
+risk-free rate r = 2% and cash flow rate volatility of σ = 25% are standard in
+the literature. We set the drift under Q to μ — -2.2%, which essentially affects
+the overall match between credit spreads and leverage.31 We set π = 21% to
+take into account the effect that many corporate bond investors are tax-exempt
+financial institutions.32 We choose debt maturity Τ = 10 to be consistent with
+the literature on structural bond pricing. This choice also implies that both the
+mean and median of the maturity of the firm's outstanding debt are Τ/2 = 5
+years, roughly consistent with Custodio, Ferreira, and Laureano (2013). The
+issuance cost of κ = 1% is from Chen (2010). Finally, we pin down the coupon
+c = 4% and initial cash flow <50 = 0.12 by targeting a credit spread of 200 basis
+points (bps) for BBB rated par bonds (Huang and Huang (2012)).
+
+4.1.2. Parameters for Search Frictions
+
+  We rely on implied bond illiquidity to determine parameters on search fric
+tions. We choose the liquidity shock intensity ξ = 0.7 which, together with
+A = 26, implies a turnover of about 68% a year, close to the turnover in
+the data.33 We assume holding costs are given by χ = χρρ + xcc. We choose
+
+  30It is straightforward to show that the model is homogeneous of degree 1 with respect to
+face value ρ in that ΏΔδ,ο,χ,ρ) = ρ ■ A(fl f, *,1), Ε(δ; c,x,p) = ρ ■ Εφ j, *,1), and
+Sft(c, χ,ρ) — pöb(j;, p,l)· For example, fix the initial cash flow, coupon, holding cost, and prin
+cipal, that is, fix (<5o> c, X, P)· Then all relative measures, for example, proportional bid-ask spread
+Δ = , market leverage ML = -φ, quasi-market leverage QL = -φ, and yield spreads, are
+the same as in a model with initial cash flow and parameters (^, £, *, 1).
+   31 Our model is cast in a risk-neutral world. The choice of μ = —2.2% is consistent with a drift
+of 1.8% under the physical measure V, a volatility of 10% on systemic risk, and a price of risk
+(or Sharpe ratio) of 40%. Our choices of r and μ are broadly consistent with existing literature
+on structural corporate bond pricing models. For instance, in Bhamra, Kuehn, and Strebulaev
+(2010) with two macro states, their primitive parameters imply an average interest rate of 2.36%
+and an average real cash flow growth of -0.66%, under measure Q. In Chen (2010) with nine
+macro states, under measure Q the average real interest rate is about 0.67% and the average real
+growth is about —3.4%.
+  32While the tax rate on bond income is 32%, many institutions holding corporate bonds enjoy
+tax exemption. Thus, we use an effective bond income tax rate of 25%. Then, the formula given
+by Miller (1977) implies a debt tax benefit of 1 - [(1 - 32%)(1 - 15%)/(1 - 25%)] = 26.5%,
+where 32% is the marginal rate of corporate tax and 15% is the marginal rate of capital gain tax.
+  33The average turnover in the TRACE database is about 70% a year. In our model, the average
+time that an investor is holding the bond (including the time that the investor remains at H-type
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+ 1468 Z. HE AND Κ. MILBRADT
+
+
+ the holding costs parameters χρ = 0.32% and \
+ spreads for BBB and AA rated bonds (see Fig
+choices in more detail in Section 4.2.
+   For the bargaining power allocation between dealers and investors, we set
+β = 3% (i.e., dealers get 97% of the trading surplus) in the baseline case. This
+is following Feldhütter (2012), which, to the best of our knowledge, is the only
+paper that provides an estimation of β based on a different structural model
+involving search.
+   The parameter λ is the meeting intensity of investors with dealers. Although
+we are using a search-based framework to model the secondary corporate bond
+market, we would like to interpret the trading friction in our model more
+broadly. For instance, the average time spent during search, which is l/λ in
+the model, can be interpreted as the time it takes for the liquidity-shocked in
+vestors to sell their holdings completely. We choose λ = 26 in the baseline, so
+that it takes L-type investors about 2 weeks to divest of their bond holdings
+completely.34
+  Since there exist few empirical counterparts to pin down β and λ, we will
+provide comparative statics with respect to these two parameters in Section 4.2.
+
+4.1.3. Effective Recovery Rates at Default
+
+  The effective recovery rates at default, that is, aH and aL, are the two param
+eters that anchor the pre-default prices. As the post-default trading data are
+very sparse, we pin down aH and a, in a model-free way instead of using the
+structural model developed in Section 2.4. To this end, we use recovery rates
+derived from first trading prices after default obtained in the existing literature,
+and the observed bid-ask spreads for defaulted bonds.
+  We first borrow from existing corporate bond pricing models, for exam
+ple, Chen (2010), Bhamra, Kuehn, and Strebulaev (2010). The estimate of
+bankruptcy recovery from Chen (2010) is about 0.5— (average across aggre
+gate states). The bankruptcy recovery in Chen (2010) is defined as the trading
+price right after default, which is likely to be the bid price [(1 — ß)aL + βαΗ] χ
+      We then set the bid-ask spread of defaulted corporate bonds to be 300 bps,
+
+
+and that he is L-type but searching) is A + A. As we will set λ = 26 in the baseline, A + A is about
+1.47,andl/(i + i) = 68%.
+   34This includes the time that the investor needs to find the right dealer(s) who have either the
+right inventories or the right trading partners, as well as the time that this dealer in turn needs
+to find the right trading partners. Moreover, in the model, the seller's market in Assumption 1
+implies that there are always buyer-dealer pairs waiting to complete the transaction immediately.
+If we take into account that, in practice, seller-dealer pairs need to wait for buyer-dealer pairs in
+a symmetric way, then it implies a much higher one-sided meeting intensity. Another noteworthy
+point is that the choice of A should represent the weighted average of searching length over
+business cycle under the risk-neutral measure. If it is much harder to find dealers to complete a
+trade in bad times, then the lengthy waiting time in bad times should receive a greater weight.
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1469
+
+a number based on Jankowitsch, Nagler, and Subrahmanyam (2013), who re
+ported a transaction cost of 280 bps for defaulted bonds. The aH,aL that match
+the reported trading price and bid-ask spread at default are aH = 51.5% and
+aL = 50%.35 One can, of course, translate our choices of effective recovery
+rates aH and aL to deeper structural parameters in Section 2.4, but it is appar
+ent that we can only identify two parameters with the limited amount of data
+we have.
+
+
+4.1.4. Ultimate Recovery Rate
+
+   In Section 4.3, we further assess the effect of secondary market liquidity on
+bond pricing, taking into account the liquidity-default interaction established
+in this paper. This exercise requires us to estimate the ultimate recovery of
+defaulted bonds, so that we can evaluate the LT96 benchmark without any
+liquidity frictions. To this end, we use Moody's default and recovery database,
+which gives the trading price right after default and its eventual recovery value
+at the settlement (or emergence) date for a total of 641 defaulted corporate
+bonds from 1987 to 2011.36
+  As our model is cast in the risk-neutral measure, the crucial step in recov
+ering the ultimate recovery a is to adjust for "risk" appropriately. We rely
+on the commonly accepted Fama-French factor approach. We first form a
+portfolio that consists of all defaulted bonds for a given year, which is re
+balanced annually. Since each bond can take more than one year to emerge
+from bankruptcy, we amortize the total return into each calendar year based
+on time spent in each year. We then estimate the multi-factor alpha of the de
+faulted bond portfolio over 1987-2011 in the spirit of Fama and French (1989,
+1992,1993). Taking the factors to be market excess return, TERM factor (the
+yield difference between 10-year and 1-month treasuries), and DEF factor (the
+AAA-BAA spread), the defaulted bond portfolio has an estimated alpha (an
+annual excess return) of 23% (ί = 2.05).37 This excess return applies to the
+
+
+  35It matters little if we assume the trading price right after default is the bid-price or the mid
+
+price. Suppose that, at default, we have price = y~^ and BAprop — x. Then, if we take the mid
+point we have aH — aL = whereas if we take the bid price we have aH — aL = ~ .
+Thus, with χ = 300 bps, taking the bid-price leads to a roughly 1.5% (proportionally) higher
+wedge. With midpoint trading price, and y = 1/2, we have aH = 50.8% and aL = 49.2%.
+  36The trading price right after default is the first transaction price up to 3 months after default.
+The eventual recovery value is the so-called emergence price, which can be either trading price,
+settlement price, or liquidation price at the time of bankruptcy emergence. We follow the Moody
+preferred choice in deciding the bond's eventual recovery value.
+   37The estimated market beta is 0.23 (t = 0.84), TERM beta is —2.96 (t = —0.79), and DEF
+beta is -0.32 (t = -0.03), with R2 = 5%. When including SMB and HML factors in the regres
+sion, the resulting alpha is about 30%; and if we only include market, SMB, and HML factors,
+the resulting alpha is about 15%. All three specifications have pros and cons, and we decided to
+take the mean of these three, which is close to the alpha based on market, TERM, and DEF.
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+1470 Ζ. HE AND Κ. MILBRADT
+
+
+average resolution period of 501 days or 1.37 ye
+default and recovery database. Taking into accou
+the ultimate recovery in our model, as a fraction
+a = aL exp((23% + r) · 1.37) % 70.36% (with risk
+  Hence, for the LT96 benchmark, the recovery fa
+illiquidity in the post-default market, is estimat
+68.46%. In fact, this estimate is obtained by com
+return 23% over the resolution period of 1.37
+the trading price right after default aL = 50.0%
+1.37) = 68.46%, which is independent of our assum
+
+
+           4.2. Calibration for Bonds in Different Rat
+
+ We investigate the quantitative performance
+bonds across rating classes. Relative to models w
+ket liquidity (say, He and Xiong (2012a)), tying s
+firm's distance-to-default allows us to parsimon
+cross-sectional pattern of illiquidity across credit
+distance-to-default. This joint matching requirem
+cipline on our calibration. For empirical mome
+(2012, page 165, Table 1) we take the leverage
+Poor's (1999)) and credit spreads data for corpo
+classes (from AAA to B). We augmented the c
+Huang (2012) using TRACE data (see captions i
+liquidity across rating classes, EHP07 reported th
+perior grade (AAA/AA) is about 40 bps, invest
+50 bps, and junk grade (below BB) is about 70 bp
+  We calculate the model-implied bid-ask spreads
+different kinds of bonds, depending on whether
+sure the bond is priced at par (recall that we no
+For the first kind of bond, the firm cash flow 8
+coupon, and thus, away from 50 = 0.12, the bond
+treatment corresponds to bonds that have been
+ating firm fundamentals lead these bonds to rece
+(e.g., fallen angels).
+
+
+ 38These numbers are taken from EHP07, page 1441, Figu
+median trade size of 240K (we take 200K for a clean reading
+transaction cost is decreasing in trade size, one aspect th
+only allow for one trade size for tractability. EHP07 reporte
+correspond to one half of the percentage bid-ask spread. T
+higher than the 27 bps reported in Schultz (2001) and Bes
+man (2006). We use EHP07 because they reported transaction
+junk rated bonds.
+
+
+
+
+     This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                      All use subject to https://about.jstor.org/terms
+                  ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1471
+
+
+  For the second kind of bond, we adjust the individual and aggregate co
+c to ensure that the bond is priced at par at whatever the prevailing δ is.
+treatment corresponds to newly issued bonds for different firms, which
+dard both in practice and in the structural bond pricing literature (e.g., L
+Chen (2010)); for more explanation, see Appendix A.6. Unlike non-par bo
+whose holding costs χ = \cc + χρρ are constant, for par bonds the distin
+between and χρ matters: when δ varies, adjusting the coupon c (to
+bonds selling at par) implicitly changes the holding costs. Recall that ho
+costs are a proxy for the need to liquidate assets with some urgency once
+liquidity shocks. This urgency-related discount leads us to assume \c > 0
+cause higher coupons and thus higher bond valuation absent of liquidity
+lems should result in higher holding costs to generate a comparable urgen
+sell. See footnote 10 and Appendix A.4 for further explanations.
+  In the data, bonds in each rating class can be either newly issued bond
+seasoned bonds with rating changes. As a result, we present both calibra
+with the understanding that the empirical moments are a weighted averag
+both bonds. In choosing parameters \c and χρ, we set these two paramet
+to roughly target the bid-ask spreads of BBB (non-par bonds) and AA
+bonds).
+  The calibration results are shown in Figure 3, with Panel A depicting credit
+spreads cs = yield — r and Panel Β depicting proportional bid-ask spreads A.
+To be consistent with Huang and Huang (2012), the horizontal axis is quasi
+
+
+
+
+   Figure 3.—Calibration results. Panel A: Quasi-market leverage versus credit spread. Panel B:
+Quasi-market leverage versus proportional bid-ask. Solid line: Adjusting c so bond always priced
+at par. Dashed line: Fixed c = 400 bps. Dots: Weighted average of empirical credit spreads from
+Huang and Huang (2012) (mainly from 1970s to 1990s with a weight of 2/3) and that from
+TRACE (from 2005 to 2012 with a weight of 1 /3), where the weights reflect the relative sample
+lengths. We follow Dick-Nielsen (2009) in cleaning up the TRACE data provided by Financial
+Industry Regulatory Authority, and calculate credit spread as the difference between the bond's
+yield and the treasury yield with corresponding maturity.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+ 1472 Ζ. HE AND Κ. MILBRADT
+
+
+ market leverage QL, defined as face-value of d
+ debt plus market value of equity,
+
+              QL{8) =
+                           ρ + E{8) '
+
+which is a simple negative monotone transform of 8 if equity is increasing
+in δ.39 On each panel, the empirical moments across the rating classes are plot
+ted as solid dots. The solid line graphs the model-implied moments for bonds
+that are always issued at par, while the dashed line graphs the model-implied
+moments for bonds without coupon adjustment. In the Panel A, we observe
+that the model-implied credit spreads match the cross-sectional empirical pat
+tern quite well.
+   The Panel Β graphs model-implied bid-ask spreads as well as empirical mo
+ments across different ratings. As expected, the model-implied bid-ask spreads
+will depend on whether we adjust the coupon rate across different ratings (for
+the requirement of issue-at-par). Since, all else equal, the holding cost due
+to a liquidity shock increases with the coupon, this gives rise to an additional
+issue-at-par effect that makes the bid-ask spread go up for newly issued bonds
+with lower ratings. As a result, for par bonds (that feature a coupon adjust
+ment to keep the par-pricing throughout varying leverage) the implied bid-ask
+spreads tend to vary with credit ratings more than that for (non-par) bonds
+without coupon adjustment. Quantitatively, in our calibration for bonds with
+out coupon adjustment, the change of implied proportional bid-ask spread
+when varying from superior grade to junk grade is about 24 bps (43 bps for
+AAA to 67 bps for B), which explains about 2/3 of the bid-ask spread differ
+ence in the data.40 Overall, acknowledging that the data are some weighted
+average of both types of bonds that proxy for newly issued and legacy bonds,
+Figure 3 suggests that our baseline model does a reasonably good job at jointly
+matching the cross-sectional pattern of credit spread and liquidity quantita
+tively.
+  Figure 4 gives comparative static analysis for model-implied bid-ask spreads
+when we consider a higher meeting intensity λ = 52 (Panel A) and a higher
+bargaining power β = 6% (Panel B). The quantitative effect of β is worth dis
+cussing. Recall that the dollar bid-ask spread is (1 — β)Π in Proposition 1.
+The direct effect of a higher β = 6%, relative to the baseline β = 3%, is quite
+small (0.94 versus 0.97, so about 3% lower). However, a higher β reduces the
+
+
+   39This leverage measure is used by Standard & Poor's. Note that QL e [0,1] with QL(8b) = 1,
+lims-0O QL(8) = 0, and QL'{8) < 0 iff E'(8) > 0.
+   40The variation of proportional bid-ask spreads can be due to changes in both bond values and
+dollar bid-ask spreads. Most quantitative evidence of transaction costs being higher for lower
+rated bonds is on proportional bid-ask spreads (EHP07, Chen, Lesmond, and Wei (2007), Bao,
+Pan, and Wang (2011)), and we do not have well-established empirical moments of dollar bid-ask
+spreads to judge the quantitative performance of our model.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+             ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1473
+
+                 Α: (3
+           Panel A:    doubles to
+                    β doubles  to 6%
+                                  6% Panel
+                                     Panel Β: A doubles
+                                           B: λ doubles to 52
+
+
+
+
+       0.2   0.3     0.4    0.5    0.6    0.7    0.2    0.3    0.4    0.5    0.6      0.7
+
+
+
+
+  Figure                     4.—Comparative static
+ cles) to                    6% (with circles). Pane
+ circles). In both graphs, the sol
+ the dashed lines have a fixed c
+
+
+
+  endogenous debt valuatio
+  market liquidity, and indi
+  a more efficient default d
+  equilibrium effect: contr
+  a higher β = 6% lowers th
+  33 bps, a relative decreas
+   It is a strong empirical r
+  actions                           costs                      decrease                     w
+ nation is that large trade
+ either higher bargaining
+ view is consistent with ou
+investors for future research.
+
+
+         4.3. Quantifying the Endogenous Liquidity-Default Interaction
+
+   It has been widely recognized that the credit spread of corporate bonds re
+flects not only a default premium determined by the firm's credit risk, but also
+a liquidity premium due to the illiquidity of the secondary debt market (e.g.,
+Longstaff, Mithal, and Neis (2005)). We propose a model-based decomposi
+tion which not only nests the additive default-liquidity decomposition used in
+the literature, but also highlights the novel liquidity-default interaction in our
+model. We then apply this decomposition to the corporate bond market in the
+recent 2007/2008 financial crisis.
+
+4.3.1. A Model-Based Liquidity-Default Decomposition
+
+  It is common practice to decompose firms' credit spreads into liquidity and
+default components based on CDS prices, and then assess their quantitative
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+ 1474 Z. HE AND Κ. MILBRADT
+
+
+ contributions independently; see, for example,
+ (2005), Beber, Brandt, and Kavajecz (2009), an
+ however, liquidity and default components of
+ positive correlation (EHP07, Bao, Pan, and W
+ Dick-Nielsen, Feldhütter, and Lando (2012) an
+ Subrahmanyam (2012) documented that liquidit
+ ket dried up substantially during the 2007/2008 cr
+ bonds with speculative grade.
+  Our model further implies that the intuitive
+ emplified in Longstaff, Mithal, and Neis (2005)
+ and default affect the credit spread. Often, th
+ interpretation that liquidity or default is the c
+ nent, and each component would be the resultin
+ down the other channel. However, in our mode
+ consequences of underlying frictions. For exam
+ ket liquidity helps mitigate the firm's default r
+default premium is in fact driven by liquidity.
+ To address this issue, we propose a finer deco
+ditive default-liquidity decomposition common
+tially, we further decompose the default (liqui
+(pure-liquidity) part and a liquidity-driven def
+part, as follows:
+
+                  Default component csdef Liquidity component csuq
+
+(16) CS — CSpureDEF + CSuQ-+DEF + CSpureLIQ + CS
+
+ By separating causes from consequences, our d
+ liquidity (default) can lead to the rise of sprea
+ This conceptually important point is particularl
+ nomic consequence of government policies (e.g
+liquidity).
+   Let us start with the default component. Imagine a hypothetical investor who
+is not subject to liquidity problems (both pre- and post-default) and consider
+the spread that this investor requires over the treasury rate for holding the cor
+porate bond. The resulting spread, which is csDEF, only prices the default event
+of hitting 8b. Importantly, the default boundary 8b in calculating csDEF is under
+the assumption that the bond investors are still facing the liquidity and search
+frictions central to our model. In contrast, we define the "Pure-Default" com
+ponent csPureDEF as the spread implied by the benchmark LT96 model and its
+corresponding default boundary 8^T absent any liquidity frictions in the pri
+mary and secondary market. Because illiquidity in the bond market leads to
+heavier rollover losses and thus an earlier default, the default component csDEf
+is larger than the pure-default component cspureDEF under LT96. We call the dif
+ference csDEF - cSpUreDEF the "Liquidity-Driven Default" part, which quantifies
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+             ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1475
+
+
+the effect that bond illiquidity in the secondary bond market makes default
+more likely.
+  The liquidity component is defined as the difference between the credit
+spread required by a representative Η investor who is subject to liquidity
+shocks, which is just cs implied by our model, and that required by a hypothet
+ical investor without liquidity shocks while facing the same default boundary,
+which is csDEF ■ The definition csUq = cs — csdef in (16) is in line with Longstaff,
+Mithal, and Neis (2005). We then calculate the "Pure-Liquidity" part c~spureUQ as
+the spread implied by the benchmark DGP05 with liquidity frictions but with
+out default. The remaining residual, csLIq ~ csPureUQ, is the "Default-Driven
+Liquidity" part. Economically, the default-driven liquidity part arises because
+default leads to a more illiquid post-default secondary market, and this in turn
+affects pre-default liquidity.
+
+4.3.2. Decomposition Results
+
+  Friewald, Jankowitsch, and Subrahmanyam (2012) reported credit spreads
+and liquidity measures for both investment and speculative bonds over normal
+and crisis times, which are given in Table I, Panel A. We focus our exercise on
+par bonds in the main text; Appendix A.8 gives qualitatively similar results for
+non-par bonds with a baseline coupon rate of 400 bps (see baseline parameters
+in Table II).
+   This subsection focuses on the model-based decomposition in normal times.
+In Table I, we choose cash flow levels to target the credit spreads of both par
+bonds in normal times, and Panel C gives the decomposition under our base
+line calibrations. For the LT96 benchmark, recall that the estimated recovery
+rate was estimated to be 61.67% in Section 4.1.3 based on Moody's ultimate
+recovery database.
+  Not surprisingly, the pure-liquidity component is more important for invest
+ment grade bonds (28%) compared to speculative grade bonds (10%), while
+the pure-default component is more important for speculative bonds (62%)
+compared to investment grade bonds (47%). Our main focus, however, is the
+liquidity-default interaction terms. For investment (speculative) grade bonds
+with a credit spread of 100 (350) bps, 16% (21%) of this credit spread is
+the default-driven liquidity component, while about 9% (7%) belongs to the
+liquidity-driven default component. In total, both interaction terms account
+for about 25%-28% of observed credit spreads for investment and speculative
+grades.
+
+4.3.3. Decompositions in Normal Time and Crisis Time
+
+  The 2007/2008 financial crisis exhibited both rising credit spreads and illiq
+uidity in the corporate bond market (Dick-Nielsen, Feldhiitter, and Lando
+(2012), and Friewald, Jankowitsch, and Subrahmanyam (2012)). How much
+of this change came from a deteriorating fundamental and how much was due
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+  1476 Ζ. HE AND Κ. MILBRADT
+
+                                                        TABLE I
+
+      Default-Liquidity Decomposition for Investment and Speculative Grade Par
+                                    Bonds in Normal and Crisis Times"
+
+
+                                               Investment Grade Speculative Grade
+                                     Normal          Crisis         Change         Normal          Crisis         Change
+
+                                                     Panel A: Data
+Credit spread bps                      97             321            224             348           1082               734
+                                                                    (3.3x)                                        (3.1x)
+Illiquidity                             1             1.5             0.5             1              2                 1
+                                                                   (1.5x)
+                                                                    (1.5x)                                       (2.0x)
+                                                                                                                  (2.0x)
+                                                    Panel B: Model
+Credit spread bps                      100            336            236             350           1032               682
+                                                                    (3.4x)                                        (2.9x)
+BA spread bps                          42              52             10             60             121               61
+                                                                   (1.2x)                                        (2.Ox)
+                                     Panel C: Model-Based         Decomposition
+Pure default                           47             216             169            218            714               496
+                                     (47%)          (64%)           (72%)          (62%)          (69%)
+                                                                                                  (69%)           (73%)
+Liquidity-driven default                9              19             10             23              38               15
+                                      (9%)           (6%)           (4%)            (7%)           (4%)           (2%)
+Pure liquidity                         28              28             0              35              35                0
+                                     (28%)           (8%)           (0%)           (10%)           (3%)           (0%)
+Default-driven liquidity               16             73              57             74             246               172
+                                     (16%)          (22%)           (24%)          (21%)          (24%)           (25%)
+Total                                  100            336            236            350            1032               682
+                                    (100%)         (100%)          (100%)         (100%)          (100%)         (100%)
+
+    aBaseline parameters are given in Table II, with a^j = 68.46% given in Section 4.1.3. The data in Panel A are
+from Friewald, Jankowitsch, and Subrahmanyam (2012). Panel Β and Panel C give model-implied moments for par
+bonds so that credit spread and coupon spread coincide in normal times. To match normal time credit spreads, we
+adjust the initial cash flow to deliver credit spreads of 100 bps and 350 bps for investment and speculative grade,
+respectively. Crisis is modeled as a negative cash flow shock of —50%, which is chosen to target the rise of credit
+spread of investment grade bonds. Bonds are not at par in crisis times.
+
+
+
+
+to worsening liquidity? Our model allows us to make the first, yet crude, at
+tempt to quantitatively match the observed patterns across both investment
+and speculative bonds, and quantitatively assess the relative contribution of
+each component based on the liquidity-default decomposition in (16).
+  Friewald, Jankowitsch, and Subrahmanyam (2012) reported liquidity mea
+sures for both investment and speculative bonds over normal and crisis times,
+which are shown in Table I, Panel A. To better match our model, we take two
+well-established transaction cost measures used in Friewald, Jankowitsch, and
+Subrahmanyam (2012), the Amihud measure and the Roll measure, normalize
+their normal time levels to be 1, and report the (simple) average of the rela
+
+
+
+
+               This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                                All use subject to https://about.jstor.org/terms
+                  ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1477
+
+                                                TABLE II
+
+                          Model Parameters for Baseline Calibrations
+
+            Firm
+             FirmCharacteristics
+                      Characteristics       Illiquid Secondary        Market
+                                                         Illiquid Secondary Market
+
+Parameter    Interpretation       Value     Parameter      Interpretation                           Value
+
+
+(7
+σ
+             Volatility           25%       r              Interest rate                            2%
+μ            Drift                -2.2%     Xp             Holding cost
+                                                           Holding       prop to
+                                                                   cost prop   toρp                 0.32%
+π
+7T           Tax
+             Tax   shield
+                 shield           27%       Xc                      cost prop
+                                                           Holding cost        to cc
+                                                                         prop to                    0.11
+Ρ
+P             Principal            1        ξf             Intensityofofliquidity
+                                                           Intensity      liquidityshock
+                                                                                     shock          0.7
+C
+c
+              Coupon               4%       Aλ              Intensitytotomeet
+                                                           Intensity                 dealers
+                                                                             meetdealers           26
+Τ
+T             Bond
+              Bond maturity
+                   maturity       10        Pß             Bargaining
+                                                           Bargaining power      investors
+                                                                       powerofofinvestors           3%
+κK            Issuance costs       1%
+                                   1%       '*H
+                                            '*H             Recovery
+                                                           Recovery       value    H type
+                                                                               value      Η type   51.5%
+So            Initial cash flow    0.12     OiL
+                                            OIL            Recovery value L type                   50.0%
+
+
+
+
+ tive rise of illiquidity in crisis time.41 Overall, the bond illiquidity goes up by a
+ factor of 1.5 for investment grade and by a factor of 2.0 for speculative grade.
+ Regarding credit spreads, investment (speculative) grade credit spreads rise
+ from 97 (348) bps to 321 (1082) bps in crisis time.
+    As our model only has one source of exogenous (cash flow) shocks, we inter
+ pret the crisis as a common (aggregate) negative shock dZ, in (1) which affects
+ the cash flow δ of all firms. Recall that, in Section 4.3.2, we set the normal time
+ initial cash flow rate δ0 for each rating class by targeting the corresponding
+ credit spreads in normal times and pricing at par. We then impose a negative
+ fundamental shock of dZt = -50% to target the rise of the credit spread for
+ investment grade bonds observed in the crisis. Given this negative common
+ shock, Table I, Panel Β calculates the model-implied rise in credit spread and
+ illiquidity for bonds with investment grade and speculative grade ratings. Be
+ cause we are interested in the impact of negative fundamental shocks only, we
+ do not adjust the coupon post-shock, so bonds are not priced at par anymore
+ and there is no change in holding costs. The model roughly matches the data in
+ Panel A (except that the implied multiplier of illiquidity for investment grade
+ is only 1.2 in the model, while it is 1.5 in the data). Interestingly, the smaller
+ of the interaction terms, the liquidity-driven default component, is of the same
+ magnitude as the pure-liquidity component for both bonds in the crisis state.
+    Panel C answers the question raised in the beginning: how important is each
+ of the four components in the decomposition (16) in explaining the total rise of
+
+
+   41For detailed definitions, see Friewald, Jankowitsch, and Subrahmanyam (2012). Friewald,
+ Jankowitsch, and Subrahmanyam (2012, Table 7, page 33) considered four other trading mea
+ sures: volume, trades, trade intervals, and fraction of zero-return days; all these four measures
+ vary little from normal time to crisis time. They also considered price dispersion, which also
+ tends to be contaminated by trading activities. We focus on the Amihud and the Roll measures
+ because these two measures roughly capture transaction costs (thus close to the endogenous bid
+ ask spread in our model), rather than trading intensities.
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+ 1478 Ζ. HE AND Κ. MILBRADT
+
+
+ credit spreads for both grades? For both bonds,
+ cSpureDEF rises significantly, and contributes ab
+ in credit spreads. As expected, there is no rise in
+ nent, because our model features constant second
+ default. On the interaction terms, both default-
+ driven default components go up in crisis, with th
+ being the more quantitatively important one (ab
+   Our model biases against the liquidity-driven d
+ underlying shocks take the form of only cash flo
+ rameters that characterize the liquidity of the s
+ ket. The recent financial crisis involved both aggr
+ aggregate liquidity shocks, and the latter are mis
+ ably, the aggregate liquidity shock was caused by
+ ers, mutual funds, insurance companies) going in
+ rupting the functioning of the secondary corpora
+ lend more weight to the liquidity-driven defaul
+ tion of this issue requires one to model time-vary
+ fluctuating with macroeconomic conditions. We
+ quantitative performance in matching the non-d
+ spreads both across ratings and over business c
+ Chen et al. (2013).
+
+                                      5. DISCUSSION
+
+                              5.1. Optimal Debt Maturity
+
+  In our model, debt maturity features a natural trade-off between liquidity
+provision and earlier inefficient default. Section 3.4 has shown that bonds wit
+shorter maturity have a more liquid secondary market, suggesting a role of
+liquidity provision for short-term debt. First, shortening maturity alleviates this
+inefficiency because of the firm's superior primary market liquidity: wheneve
+debt matures, the firm moves debt from inefficient L investors to efficient
+investors via new bond issuance. Second, a shorter maturity reduces the rent
+extracted by dealers in the secondary market, because a shorter maturity—by
+allowing L investors to receive principal payment earlier—raises their outsid
+option of waiting.42
+
+
+  42The firm could, instead of providing liquidity via maturity, allow bondholders with liquidity
+shocks to put back their bonds at face value p. There are two important drawbacks. First, if th
+firm cannot distinguish who was hit by a liquidity shock, whenever DH < ρ all Η investors will
+put back their debt at the same time. In fact, the put provision is akin to making bonds demand
+deposits and we are in a traditional model of a bank run. Second, even if the liquidity shock is
+observable, there will be an additional flow term ξ[ΰΗ — pi dt as L investors are putting back their
+bonds to the firm every instant. These additional refinancing losses may influence the bankruptc
+boundary in an adverse way and destroy the liquidity thus provided. The full implications o
+expanded bond contract terms are left for future work.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+              ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1479
+
+  On the other hand, a positive primary market issuing cost κ naturally pushes
+the firm away from using short-term debt. More importantly, as first shown in
+LT96 (and formally proven in He and Xiong (2012a) and Diamond and He
+(2013)),43 shorter debt maturity in an LT96 style model leads to earlier default
+and thus greater dead-weight bankruptcy costs. In fact, the optimal maturity
+in LT96 and He and Xiong (2012a) (even without primary issuing cost κ) is
+T* = oo, that is, an infinitely lived consol bond is optimal. To see this, recall that
+the equity holders' rollover gains or losses are ^[(1 - k)Dh(8, Τ) - /?] each
+instant. In bad times (low fundamental δ), notwithstanding the fact that short
+term debt has a greater market price DH{8, T), the effect of a higher rollover
+frequency l/T dominates, leading to heavier rollover losses. As a result, equity
+holders default earlier if the firm is using a shorter debt maturity structure.
+  Thus, when equity holders set the firm's maturity structure to maximize the
+initial firm value (the sum of debt and equity; for the closed-form solution of
+firm value, see Appendix A.2), the above inherent trade-off between liquid
+ity provision and bankruptcy risk can lead to an interior optimal T* < oo.44
+Of course, this is an optimal strategy only in the restricted strategy space of
+Leland-type models, in that it is within the class of strategies with fixed Γ, c,
+and p. In an earlier version of the paper (He and Milbradt (2013)), we showed
+that, for low (high) initial leverage, bankruptcy becomes more (less) remote,
+and the effect of liquidity provision (bankruptcy cost) dominates, resulting in
+a shorter (longer) optimal debt maturity. A poorly intermediated market also
+pushes the debt maturity structure to be shorter because there is more liquidity
+provision benefit via a short maturity structure.
+
+
+                     5.2. Discussion of Asymmetric Information
+
+  In our model, the important driving force behind the spiking bid-ask spread
+near default is that there is a significant valuation wedge between H- and
+L-type investors for defaulted bonds. In the literature as well as in practice,
+an equally compelling explanation for the deteriorating liquidity of corporate
+bonds near default is a possibly worsening adverse selection problem due to
+information asymmetry. More specifically, one can imagine that some bond
+investors have private information regarding the bond's recovery value in de
+
+   43He and Xiong (2012a) proved this claim for given (c, p) in the LT96 framework. Diamond
+and He (2013) proved this claim controlling for leverage, that is, adjusting (c, p) to maintain the
+same debt value as shifts in the bankruptcy boundary caused by maturity shortening move the
+value of debt, in the random maturity framework of Leland (1998).
+  44Segura and Suarez (2011) presented a related trade-off in a banking model without sec
+ondary markets but with periodic disruptions of the primary market for debt funding. Although
+the probability of these disruptions is exogenous, the severity of the disruptions is determined
+by how short the bank's maturity structure is. This is traded off against short-term debt being
+cheaper outside crisis states. In contrast, our model features an endogenous probability of de
+fault that is driven by the maturity structure, and we trade this off against endogenously cheaper
+short-term debt due to search frictions.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+1480 Z. HE AND Κ. MILBRADT
+
+
+fault. As the firm edges closer to default, the in
+comes more valuable and he is more likely to atte
+guard against such adversely selected investors, a
+and Milgrom (1985) tradition would raise the bid
+persistent adverse selection with long-lived bond
+lot more technical apparatus and thus awaits futu
+(2013) provided an interesting paper in this direc
+  We believe that search-based frictions play an
+the-counter-based market. First, if "liquidity" in
+by asymmetric information, then equity market
+bond markets, contrary to what we observe in p
+large-sized trades in the secondary corporate bon
+lower transaction costs (see, e.g., EHP07 and Feld
+to the search-based mechanism. In the data, o
+importance between search-based liquidity and a
+consider whether the bid-ask spread rises more fo
+to be driven by search frictions) or large investor
+information) as the firm nears default.45
+ Last but not least, to the extent that an adverse
+conceivably lead to a similar qualitative result if
+concentrated in the bond's recovery value, then
+model has the advantage of incorporating standa
+models in a simpler setting while still delivering
+
+
+                                   6. CONCLUSION
+
+  We investigate the default-liquidity interactions in the corporate bond mar
+ket by studying the endogenous liquidity of defaultable bonds in search-based
+OTC markets jointly with the endogenous default decision by equity holders
+from the firm side. By solving a system of PDEs and an ODE, we derive the
+endogenous secondary market liquidity jointly with the debt valuations, equity
+valuations, and the endogenous default policy, all in closed form. Our calibra
+tion suggests that our model is able to quantitatively match the cross-sectional
+pattern of bid-ask spreads observed in the data.
+  The equity holders' option value of keeping the firm alive is hurt both by the
+presence of the rollover channel that exposes the equity holders to the repric
+ing of maturing bonds and by the fact that the liquidity of corporate bonds
+worsens at the same time that the fundamental cash flow deteriorates signif
+icantly. As a result, illiquidity of the secondary corporate bond market feeds
+back to the distance-to-default of corporate bonds by edging the firm closer to
+bankruptcy. Our model implies that the endogenous interaction between de
+fault and liquidity, which is captured by our model-based default-liquidity de
+
+
+  5We thank an anonymous referee for this excellent point.
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+                   ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1481
+
+
+composition, can be quantitatively important. We hope our fully solved struc
+tural model and the resulting structural decomposition are useful in paving
+the way for more research in understanding the impact of liquidity factors on
+credit spreads of corporate bonds.
+  In earlier working paper versions, we further incorporated endogenous firm
+investment and showed that the mechanism, that is, a feedback loop between
+the firm fundamental and the firm's (debt) financing liquidity, should encom
+pass a broader set of firm level decisions beyond default.
+
+                           APPENDIX A: PROOFS AND EXTENSIONS
+
+                                                 A.l. Proofs
+A. 1.1. Notation
+
+   First, let us introduce possibly different discount rates for the Η and L
+agents, rH = r, rL > rH, r = (rH, rL)T. For most of the proofs, we will look at
+the special case r = rl, that is, r — rH = rL. Second, define ξΗ = ξ and = λ/3,
+                     2
+
+and μ = μ - γ, and the log-transform y = log(5) so that dy = fidt + adZ.
+Third, for brevity we use the notation D' = γ and D = γ. We will, with abuse
+of notation, write q(y,...) to mean yb~y+". Let Φ(χ) be the cumulative normal
+function. We will use dH{y, T) as the debt value in terms of the log-cash flow,
+so that dH(y, Τ) = DH(ey, Τ). Lastly, E[ ] is the expectations operator.
+
+A. 1.2. Pre-Default Debt
+
+   Proof of Proposition 1: Applying the log-transform y = log(δ) to the
+system of PDEs, we are left with a linear system of PDEs:
+
+               fH + £h —%h                  dH                c           dH       σ2   dH   dH
+                                                                  +μ
+                 —£l rL + fh                dL          C~X.              dL      +τ    dL   dL
+                                                         .2
+
+
+                             Α χ d = c + μά + τρά" - d,
+
+where c = (c, c — χ)Ύ. Let us decompose A = PDP"1, where R is a diagonal
+matrix with its diagonal elements the eigenvalues of A and Ρ is a matrix of the
+respective stacked eigenvectors. For rH = rL = r, we have
+
+             R =
+                         f + ξ + λβ 0"
+                              0      r
+
+
+                   ^ *1 '
+              P= \λ/3
+
+              P-i_ 1 Γ-1 !"
+                          ξ + λβ λβ ξ_
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+ 1482 Ζ. HE AND Κ. MILBRADT
+
+
+    Premultiplying the system by P1 and noting
+ delinked system of PDEs with a common bankru
+ and payout boundary t = 0:
+
+                                                   σ2
+           RP d = Ρ 'c + μΡxd + — P-'d" - Ρ Μ
+
+
+                «=> Rd = c + /id' + yd"-d,
+where d = P_Id and c = P_1c. The rows of the system are now delinked, and
+we are left with two PDEs of the form
+
+                ~       cr2^                  *
+              ndj                    —            c,    Τ   μclί             Η          2   d,   d[
+
+ with                  given                       boundary                    conditions
+  from                       LT96.                      The      decompositio
+across rows. The solution takes the form
+
+
+           1 = (k?). + (k£),.e-'<'(l - Fi) + {%)&,
+                             2
+
+
+            Fj(y, 0 = Σ <p,7, 0],
+                            i=1
+
+                                 2
+
+
+           Gj(y> ο = Σβ(γ yb)yii®[<i(y> yp* o],
+                             i=l
+
+
+where
+
+             / ^ yb — y — (p + <*) · a2t
+           q(y,p,t) =
+                                             rft
+and constants
+
+                       Ci
+
+                       'i
+
+
+
+
+            (Φ, = (*-!,.             r,
+
+
+                                     ey> ^
+                        U                  Λ I )
+
+                                 r~ μ rit
+
+and some yet to be determined parameters <py, γ;ί. Note tha
+lim,^0 = ~°° as yb < y> so Φ[l(y> Ρ» 0)1 = Ο for all i and
+note that lim^oo q(y, p, t) = — oo, so lim^oo 0[^(y, p, /)] = 0
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1483
+
+
+candidate solution d, into the PDE with (k^), = f, (kj?)< = pl — f , (kg), =
+ft «του _ £t we see that
+ 1 r~L· Π '
+
+
+          b;e
+                       r,( 1 - F,) + jxF[ + yF" - [ri(l - F) + F,]
+                                         σ2
+                + ci                                       =0
+                       r,.G,-AG;-yG;' + G,
+                                              σ2
+                          Fe_?"
+                                    /IF' + y F" - F
+                                                      σ2
+                             + Ci   nGi - jxG'i -—G" + Gi           = 0.
+
+
+
+We see that both F, and G, have no term Φ(·)· As q is linear in y, we have
+q" = 0 (where q' = qy and q = qt). We thus have, for F,
+
+                                       σ2 2'
+          ®[q(.y,<p,t)\ μφ + γψ
+
+                                       Γ           σ2           2
+                                                                             =    0.
+                   +          <p,                     o]            A?'               +   y    [2
+  So            the               roots                    for             F,     are      φχ
+ We see that this is independe
+ we picked, as r, is cancelled
+
+                                       σ2 2 „
+          ®[q(v, y, t)]       μτ + yr -/■«·
+                                      Γ            a2           2
+                                                                           = 0,
+                   +         4>[q(v,                                y,            0]      M'   +
+
+so the roots for Gi are yn = μ+ν^2+2tr2f| = -a + Ja2 + > 0 and yi2 =
+-a-y/a2 + yri< 0. Simply plugging in the functional form of q results in the
+term in square brackets in the second row vanishing.
+   For the boundary condition, we have
+
+          d(y, 0) = P_11 p = p,
+          a, ^ D-i exP(Fi>) .exp(y6)
+           d(yfc, t) = P la = a ,
+                                    r — μ r — μ
+
+which defines the remaining parameters of the solution.
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+ 1484 Ζ. HE AND Κ. MILBRADT
+
+
+  As a last step, we retranslate the system back i
+ tions by premultiplying by Ρ and noting that F(
+ the symmetry of the <p's, and by rewriting it i
+
+A.1.3. Equity
+
+   Proof of Proposition 2: Equity has the following ODE where
+
+
+             rE = exp(y) - (1 - tt)c + μΕ' + ~E" + j[DH{y, T) - p].
+The term in square brackets is the cash flow term that arises out of rollover
+of debt (while keeping coupon, principal, and maturity stationary), a term first
+pointed out by LT96. We will establish the (closed-form) solution in several
+steps.
+   First, the homogeneous solutions to the ODE are M(y) = emy and U(y) =
+eV2y, where
+
+             σ2 2
+             -η2 + μτη-Γ = 0
+
+so that
+
+
+                      -μ ± y/μ2 + 2a2r
+             rji/2 = — = -α±χ/α2 +
+
+and η! > 1 > 0 > η2 by μ < r.
+   Next, let us establish the Wronskian
+
+             Wr(s) = M(s)U'(s) — M'(s)U(s)
+
+                      = ~(i?i - Vi)exp{(Vi + Vz)s}
+                      = —Δη · M(s)U(s).
+
+Then, by the variation of coefficient solutions to linear ODEs, a technique
+described in most textbooks on differential equations, we have for an ODE
+
+                           (72
+
+            rg = ϊ-g' + yg" + part(s)
+
+the following particular solution gp:
+
+                / ιj\ 2 [' M(s)U(x)-M(x)U(s)
+             gP(x\l)
+                 σ- Jx
+                       = — / part(s)
+                              Wr(s)
+                                     ds
+
+                            2 fl „            „
+                                      „ —„gVlXg-VtS
+                                 g~V2SeV2*
+
+                        = ~ij part(i)-Δηr- ds,
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1485
+
+
+             '/.in 2 f' w M{S)U\X)-M\X)U{S) ,
+            gp(x\l)
+                & J X
+                      = — part(s)
+                            Wr(s)
+                                  ds
+
+                       2 f' +,,V2M(s)U(x)-^M(x)U(s
+                       — /
+                     = σ2   part(s) —— ds,
+                          Jx Wr(s)
+              »/ ,,n 2 [' ./ ,rl\M{s)U{x)-r]\
+            S,(*|/) = -2jx part(,) ^ ds
+                           2
+                               part(x)
+
+
+for an arbitrary limit I e(yb,oo).
+  Second, as the debt term DH is bounded, to impose the condition that equity
+does not grow orders of magnitude faster than the unlevered value of the firm
+F(y) = we need lim,,-»«, \ y^\ < oo. Let us write the solution as
+
+
+           E(y) = kEU(y) + kEMM{y) + V(y) + kE0
+
+                         [' 2 Μ (s)U (y) — Μ (y)U (s)
+                      + / — part(s) —— ds,
+                       Jy σ2 Wr(s)
+
+where we incorporated all constant terms of the O
+kE and part(s) is thus just composed of cumulative
+form Φ[—aa ■ y + bb] where aa > 0. Let us gather
+get
+
+
+
+           E(y) = U(y)
+                               4+1 Lpart Λ
+                                             2 , , U(s)                                Ε
+                                                                       Η r + k0 .
+                      + M(y) \ kM- I —part(s)^-^ds
+                                            r-μ
+
+
+First, let us note that the integrals all converge, as Φ [—a
+faster than any function ecst y for any constant est. Second,
+ary condition of lim,. >oc \ y^\ < oo, we note that lim,-»«
+term in the above equation converges for any choice of
+ond term contains M(y), which explodes to infinity fast
+We thus need to pick
+
+
+                         f°° 2
+            m)=-i Ji-2Pan^^-/s
+                     σ2
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+ 1486 Z. HE AND Κ. MILBRADT
+
+
+ as a necessary condition to have the term stay b
+ we see that the term in question becomes
+
+                                  Γ1
+           M(y)        Κ μ (I) ~ [ part (A) ^S\ ds
+                                  Jy σ2 Wr(s)
+                                r°° 2 U(s)
+                  = -M(y)J -part (s)—ds
+ and we now show that this term converges to 0 as
+get
+
+                                Γ 2
+            lim -M(y) I — part(s) ^(S\ ds
+            y-*<x> JyJy σλ Wr(s)
+                                Γ 2 U(s)
+                          - / lartiAl
+                              — part(^) TI/ - - ds
+               - lim Jy σ                       Wr(s) "0';
+                   y->                  1
+                                       oo       ur\r.
+                                                1 (J
+
+                                         M(y)
+
+                        — part(y)
+                                 2 w \ UW
+               (L'Hopitai),. σ2 Wr(y) n
+                   - hm = U,
+                    y->oo M'(y)
+                                       myi:T2
+
+and again, we see that since U(y), Wr(y), M{y), M'(y) are all of exponen
+tial form and part(y) is of cumulative normal form, this term converges to
+zero rapidly, and the solution to E(y) is verified. Let us take the arbitrary
+limit / -»· oo and define gp(x) = gp(x\oo). We note that the complement of
+the integrals (i.e., ds) vanishes, so that lim,^^ KM(l) = 0. We see that
+gp(x) and g'p(x) (and so forth) consist of a finite sum of integrals of the form
+     ecs, s<b[q(s, ρ, T)] ds where est is a constant.
+   Third, let us briefly establish two auxiliary results. First, let us note that, for
+aa > 0, we have
+
+                  λ oo p—aax+bb
+             aa I 4>(-aa-s + bb)ds= Ι φ(y)
+                  J      X       J     —00
+
+
+  by           simple                           change                     of            variabl
+
+             ecst               xφ       (      —aa          ■       χ       +      bb)
+                   1
+                          exp    — J\(—aa ■ x + bb)2 — 2est ■ x]
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1487
+
+                       1                                                          CSt \ ,,2 , estX
+                                     exp                     -αα · χ + bb Η ) + bb — [bb A
+                   V2^                                                             aa)       \     aa
+
+                                                   ,, cst\
+            =
+                                     aa ■ x + bb A < ,(c«/(ee))(«>+(l/2)(cjt/(ee)))
+                                                              aa )
+
+by a simple completion of the square. Now, we can solve the integral i
+tion via integration by parts:
+
+
+
+        Γ       ecst s<$>[—aa ■ s + bb] ds
+
+
+
+            = Φ [-aa s + bb]
+                      est
+
+                             1
+                  A
+                           est                 I
+                                      aa ■ / ecsts(j)(—aa ■ s + bb)ds
+
+
+            = Φ [—aa ■ χ + bb]
+                           est
+
+                                 1         f°° ( cst\ '
+                  A                      α φ ( — aa ■e s           A )/2)
+                                                           + bb(bb+(1
+                                                        (est/(aa))     ds (es
+                           est           . Jx V aa) .
+
+            = Φ [—aa ■ χ + bb]
+                           est
+
+                                                                        est
+                      + —Φ                 —aa ■ x + bb A                     g(cst/(aa))(bb+(l/2)(cst/(aa)))
+                            est                                         aa
+
+
+
+where we again used the fact that the cumulative normal vanis
+any exponential function explodes. We also need
+
+
+        ί       Φ [—aa ■ s + bb]ds
+
+
+            - sΦ[—aa ■ s + bb]
+                                                                        •I
+                                                                 + aa φ(— aa -s + bb)ds
+
+            = —χΦ[—aa ■ χ + bb]
+
+                      + — \φ{-αα ■ x + bb) 4-bb ■ Φ [-aa ■ x + bb]}
+                                           aa1                                             '
+
+
+                                     =                                  —                          Γ(-α
+                                      aaL                                                J
+
+     which                                                                                                      is
+            1                                               β(γ~γΐ
+
+
+
+
+      This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                       All use subject to https://about.jstor.org/terms
+ 1488 Ζ. HE AND Κ. MILBRADT
+
+
+integrals
+
+
+                IL ε^'Φ[φ,Ρ,,)}
+                    2 1
+                             em*e-ybP
+                    σ —Δη                     /oo β(ρ-1ί2)ίΦ[<7(ί, ρ, θ] ds
+                    2 1
+                             eV2*e~ybP
+                    σ —Δη
+
+                    χ ρ[-β("-"2)φ[9(χ,
+                        - η2
+                                       ρ, 0]
+
+                    + Φ[(?(Χ, η2, ί)]β(ρ"1?2)ίΛ_(1/2)[(ι?+β) (ρ+β)
+
+                1 u _ fclp+Φ
+                 est
+ Here, we used σ^Γ'  σ\/Γ= (ρ - η2), αα = -±
+ σχ/ί — g(x, η, ί), and the fact that
+                                          1
+              (P-1?)(-)       P + fl- r?)
+
+                                      1         1      1      1      '
+                = (p-i?)(~)
+                                          2p+20+2"                                   +    2'!
+
+                = ^[(Ji + tJ)2-(P + «)2].
+where we note that the last term is independent of whether we pick the larger
+or smaller root, as both η and all possible ρ are centered around —a. Lastly,
+we note that | /x°° β^^Φ^Ο, ρ, ^ has the same form of solution
+only with η1 replacing η2. Define
+                                   /»OO
+
+
+
+
+             H(x, ρ,η,Τ) = J β(ρ~η)ίΦ[q(s,p,T)]ds
+                                      1
+
+                                    CSf        [««·*<%(*, ρ,Γ)]
+
+                                  - ecs< ^ exp             -C5f( ρ + α - -est) σ2Γ
+
+
+                                   χ Φ[<7(χ, ρ, Γ) + est · σ\/Γ]
+
+
+                                  —L [β*-*»φ[9(χ,ρ,Τ)]
+                                  η—ρ
+
+
+                                  - ^-τ,)^β(1/2)[(η+Η)2-(ρ+α)2,σ2:ΓΦ[^(χ, η, Γ)]}
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+            ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1489
+
+if ρ φ η, and define
+
+
+
+                               /OO       ΛΟΟ = J Φ [q(s,p,T)\ds
+                                β<·ρ-ν»φ [q(s,p,T)]ds
+
+                            = aVf[q(s, ρ, Γ)Φ[<7(5, ρ, Γ)] + <t)(q(s, ρ, Τ))]
+
+for ρ = η. Note that
+
+         H(yb, ρ, η, Τ)
+                 e(p-v)yb
+                            |φ[ (ρ + a)aVf]
+                  η-ρ
+
+                     _ β(1/2)[(η+«)2-(ρ+α)2]σ2Γφ|-_(τ? + β)σν
+
+                  aVT[-{p + ά)σ\[Ύ ■ Φ[-(ρ + a)aVT]
+                     + </>(-(ρ + a)aVT)\, P = V
+The solution to the particular part for F then is
+
+            , * 2 [°° Μ(s)U(x)-Μ(x)U(s)
+          gp(x) = 2 / uF~i~\ ds
+              σ2 Jx Wr(s)
+                               2
+                      1 2
+                                               Jf(x, <p„ η2, Γ)
+                     -Δη σ2   ί=1
+
+
+
+
+         *>u) = Tjf°°F(,>^(')g(yW') Λ
+                       1 2 2
+                               i=1
+
+
+
+
+and the solution to the particular part for G; is
+
+              , , 2 f00 Μ(s)U(x)-Μ(x)U(s)
+         go Αχ) = 2 / GAS) w~r\ ds
+          ' σ2 Λ
+                        1 2 2
+                                                          γμ, η2, Ό
+                     —Δη σ2i= 1'
+
+                     - emxe~y'iybH(x, Ύμ, ηΐ5 Γ)},
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+1490 Z. HE AND Κ. MILBRADT
+
+
+          r / \ 2 C°°„,.V2M(s)U{x)-t)xM{x)U{s)
+           gcjW-tl Gj(s) —
+                       1 2 2
+                                                 7jiy" η (χ, Jji, Ύ]2,Τ)
+                     —Δη σ2 '
+                       ' 1=1
+
+
+
+                      - r}\emxe~y>'ybH(x, γμ, ηι, Γ
+
+ Plugging in χ = yb, and noting that
+ important observation that
+
+
+          evy»e mH(yb, ρ, η, Τ) = —-—
+                                         η -ρ
+
+                                                (1/2)[(7j+a)2-(p+fl)2]f2
+                                         — e'
+                                                                σ2ΓΦ[-(η + α)σνΤ]}
+is independent of yb. We thus conclude that for any particular part, gp{yb), of
+the form given above, and its derivative g'p{yb) are independent of yb besides
+C(yb) containing eyb. Also note that for ρ = {φι, φ2}, we have
+
+        g(l/2)[(r)+a)2-((p+a)2]CT2r _ ßrT
+
+
+and for ρ = {γ(1, yl2\ we have
+
+        g(l/2)[(77+a)2-(yji+a)2]a2T _ gir-rpT
+
+
+ Total equity is now easily written out to be
+
+
+        E(y) = k*e*<y-»> + + gF(y)
+                                   r μ
+
+
+                = k*e^y-yb) + + kE0
+                                   Γ-μ
+
+
+                           · P[- exp(—RT)kpgF(y) + gG(y)k£],
+
+where we scaled the constants kE by e Wb so that kf = kE
+term kE is
+
+
+         kE = - -(1 - tt)c + · P[k£ + exp(—RT)kF - ρ]
+          0 r
+
+The constant Κ is derived by setting
+
+        0 = E{yb)
+                        eyb                     1     -
+              =            k2+                          —~                     +     kE
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+                ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1491
+
+                                      / eyi>
+                                \ / _ . bE
+                            fcfOfc)
+                                Kr μ
+                                     = - ( 1"^0
+
+
+                                   + ■ P[- exp(—RT)kpgF(yb) + goOfc)k£|^.
+The term in brackets only features linear combinations of constants indepen
+   dent                      of                yb.               Q.E.D.
+
+  A.           1.4.             Optimal                               Default
+
+     Proof                          of             Proposition
+  Plugging                                 k%(yb)                           into           the
+  8h           =        eyb            in          closed                    form:
+
+           0 = E'(yb)
+
+               = k%(yb)n2 + · P[exp(-RT)k°g'F(yb) + gG0>fc)kg]
+
+
+               = i?2 (j~i + k° + ' P[- exP(-RT)k?^(yfc) + go(Ti))kG]^
+                            eyb       1        -
+                      +       +          ·         P[exp(-RT)k
+                      r — μ 1
+                      eyb
+                             τ?2 - 1 + · P{T72gG(yi) -- mko
+                                                        g'G(yfc)}ai
+                   r-μ
+
+
+
+                 + jS ■ P[exp(-RT)k^{i72gF(yi) - g^Oi,)}
+
+                 + {VlgoW - g'G<Jfc)}(k? - «ο)],
+
+which yields
+
+           8b = eyb
+
+                                  γ                   -1-1
+                = (r-μ)         τ?2                   - 1 +                            ·   P{η
+
+
+                            -τ?2^ο                               +          ·          Pexp
+
+
+                        +       ■              P{Tj2go(jfc)
+
+  where                   we note that the
+   We                  can simplify  furth
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+ 1492 Ζ. HE AND Κ. MILBRADT
+
+
+ be written as
+
+
+            V2gF(yb) - g'F(yb)
+                     2 r
+                             \ M(s)U(yb) -M(yb)U(s)
+                             F(S) w   7 Τ ds
+                 172 σ2 L          Wr{yb)
+
+                             ° ^V2M(s)U(yb)-^M(yb)U(s) A
+                    (J ^/
+                    u Jyi    yh Wr(yb) S
+                 2 f°° t?t \ ~ V2)M(yb)U(s)
+               = — / TO u/ , , ^
+                 σ·2 Jyb Wr(yb)
+                    2 2
+                       i=1
+
+
+
+We thus established a closed form, albeit quite complex, for the optimal yb.
+  The limit lim^oo δ6 can be easily derived by noting that the normal distri
+butions converge either to 0 or 1, so the only difficulty remaining is the term
+βα/2)Κηι+α)2-(,φί+α)2]σ2τ_ pet us establish a series of results.
+   First, we note that in addition to e(V2Mm+°)2-<.>Pi+a)2]a2T _ erHr^ we ^ave
+
+           β(1/2)[(771+β)2-(γ;ι·+α)2]σ2Γ _ g(rH-rj)T
+
+
+and since we established that η > rH, we note that this term is converging to
+zero.
+
+   Second, we note that
+
+
+            lim φ[-(τ?ι + «)σ^
+           T-too C
+
+
+                 "0" m-(m + a)aVT])'
+              - TT^r. — hm
+                 "0" oo (e~rHT)'
+                  (η ι + α)σ
+              = lim =-exp                            + α)2σ2Τ + rHT
+                        2rHVf
+                 (77 ι + α)σ                    Μ2
+              = hm -=-exp
+                        2rHVf                   2^+r"~r"
+                       (17 ι+α)σ μ2
+              = lim ==-exp                ——T          = 0,
+                   2rHVT                   2σ2
+
+
+where we used the fact that (ηχ +a)2 = μ'+2fr". Thus, all terms involving func
+tions g vanish and no complication arises from premultiplying by m — j, and
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1493
+
+we are left with
+
+                    Sb -Viko(T) 772(1 ~tt)c
+             lim = lim Vb = lim — = —,
+           r->oo r — μ τ-*oo r->oo 772 — 1 172—1
+
+where Vb = which is the same result as in Leland (1994) once we iden
+tify (in Leland's notation) χ = —η2, so that limr^oo Vb = (1~^/r)jr. In the infi
+nite maturity limit, the equity holders care about the illiquidify they impose on
+bondholders via the valuation spread between Η and L only at the beginning
+when issuing bonds, but since there is no rollover, their default decision is not
+affected by bond market illiquidify for a given level of aggregate face value and
+coupon.
+  Next, let us investigate Τ ->■ 0, which essentially renders the secondary bond
+market completely liquid. But of course there is a large effect of Τ -»· 0 on the
+bankruptcy decision of the equity holders. Using EHopital's rule, we need to
+investigate
+
+
+           1ΐπι-[772^(δί,)-^(δ6)].
+
+We see that two terms that exactly give 77, - ρ explode at the rate -L·, so that,
+in the limit, we have
+
+
+            lim =
+           τ-* 0 r — μ aH
+
+If a = aH = aL, we are back to the LT96 solution of Vb = Q.E.D.
+
+
+                                    A.2. Firm Valuation
+
+  We derive the initial firm valuation as a function of Τ. Following LT96, we
+assume that, at time 0, the firm issues new bonds with maturities uniformly
+distributed τ e [0, Γ] on the primary market, which guarantees that the firm is
+always at its stationary debt maturing structure. Thus the levered initial firm
+value 7Το(δο, Τ; 8b) is the sum of equity valuation plus how much money has
+been raised by the initial bond issuance:46
+
+(A.l) ΓΙο(δο, T\ 8b) = E(80; 5b)
+
+
+                                  + (1-4/ S · ϋ(δ0, τ; 8b)d.T
+
+  46The reader should note that we have one unit measure of bonds, whereas LT96 expanded
+the measure of bonds according to maturity while keeping overall face-value constant.
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+ 1494 Ζ. HE AND K. MILBRADT
+
+
+                                            = E(8 o)
+
+                                                + (1 — k)S
+                                                                      + ^A_1(l — PG(S0, T)P_1
+                                                — exp(—ΑΓ)[1 — F(S0, T)])kj
+
+                                                + PJ(S0,DP-Ikg
+
+
+ where 3(8, T) = [/l(Ä0'r) ^ Γ)], I = [J °], and
+
+
+                Jj(8, T) =
+                                      (yv + a)aVT
+                                        2
+
+
+
+                                        Σ(-1)ί(£)7"<%(δ' Γ)^(δ' Γ)·
+                                  Χ
+
+
+
+
+                         Α.3. Bid-Ask Spread Comparative Statics Proofs
+
+    Let us split up the proof of Proposition 4 into parts. Let us first establish a
+preliminary result.
+
+   Lemma 3: The valuation wedge Π can be represented as
+
+                                        rTATb
+               Π(8, τ) = Ε              / e'hsxds + e~'n{™b)TI(8TMb, τ Λ Tb)
+                                       Jo
+
+
+                                                       Vb(aH - aL) - *
+                             = * +E[e_?1<TATf,)l{T>Ti))]
+                                 Τ\                                                       η
+
+
+
+                                  + E[e-?l(TAT')llT<Tft)](o-^.
+   Proof: Taking the difference between the PDE of DH and DL, we see that
+surplus follows the following linear PDE:
+
+                                  „ „ δΠ δΠ σ2δ2 δ2Π
+                (r + ζ + λ/3) Π — χ — 1- μδ ■ — Η ———,
+                            ν          '    δτ           δδ           2        δδ2
+
+
+  which                                again                       is           in        the   form   o
+   tions                               Π           (δ,                0)              =   0   and   TI(
+  Then,                               using                       the                 Feynman-Kac
+ the result stated in the lemma. Q.E.D.
+
+
+
+
+             This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                              All use subject to https://about.jstor.org/terms
+                 ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1495
+
+A.3.1. Sufficient Conditions for όδΠ < 0 and dsA < 0
+
+   Proof of Proposition 4—Part 1: Simple inspection reveals that
+<?8E[e-h(^>1(T>Tft)] = <?gE[e~flM{T>Ti))] < 0 and that <?δΕ[^<^>1{τ<Τί)] =
+e"hT<?gP[T < Tb] > 0,47 so that a sufficient condition for Ils < 0 is given by
+
+
+               Vb(aH - aL) - * >0 <=> Vb(aH -aL) >
+                                     η                                           η
+
+
+
+To show that 77s < 0 implies d, < 0, note that As = 2(1 -^dh^sdl-dh) _ Ifwe
+can show that dsDH > 0, then we have
+
+            dbDf{ ■ Di — dbDi ■ Dfj < dsDfj · Du — dbDb ■ Du — dbII ■ Du < 0,
+
+where the last inequality uses the fact that Πδ < 0 and DH > 0. Using the
+Feynman-Kac formula to represent DH, treating Π (δ, τ) as an exogenous
+function entering the flow payoff, we can write
+
+                               ~ pTATb
+            Dh(8, t) = E          / e'rs[c- £J7(S, s)] ds
+                               Jo
+
+                             + e r(™b)DH(STATb,T Arb)p
+
+                                  Λ Τ ATb
+
+                         = E
+                                 / e~rsc ■ ds + e-r<TATf,)(l{Tb<T)aHVb + 1 [Tb>T]p)
+                                Jo
+
+                                                           e-r( τλτ;,)
+                             + ξΠ(δΤΑη, Τ Λ Tb)
+
+                                            TATb
+
+
+                               -4ί                 e~rsIJ(8, s) ds
+
+
+                                           JTATbτJ Arb) ds
+                             + [ e rsΠ(8TATb,
+                                  T/
+                                JfTATb
+
+
+                                     TATb
+
+
+                           =il              e rsc ■ ds
+
+
+
+                             _|_ g-r(TATb)               otuVb + —n(8b, Tb)          + 1{t b>T)P
+                                              ^1(T4<T                    r
+
+
+
+
+   47These statements can be easily checked via the following steps: fix a probability path ω (that
+essentially fixes the Brownian shocks). Then suppose, given ω, we shift δ0 to δ'0 > δ0. It is now
+clear that r'b > rh. As this holds for any path ω, the result follows taking expectations over all
+possible paths.
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+ 1496 Z. HE AND Κ. MILBRADT
+
+
+
+                            -ξΕ
+                                   if e rsn(8,s)ds
+                                   Jο
+
+
+                        = -+E[e~^liT>Tb)]oiHVb + -Vb{aH
+                                                 r
+                                                        -aL)~
+                                                        r
+
+
+
+
+                            + E[e-^>llT<Ti)](p-^
+                              ξΕ
+                                    f
+                                   .Jo
+                                         e rsII(8, s)ds
+
+
+Here, we defined Π(δ, s) post default as the constant of Il(8b,s) =
+Vb(aH — aL) or post maturity as the constant of Π(8, τ) = 0. Next, note that
+we have
+
+
+                             =dsE[e~r^llT>Tb)] + dsE[e-r(TAT»%<Tb)] < 0.
+
+This is because a higher initial 8, path by path, will increase the hitting
+time τ λ Tb, lowering the e~r(-™b) path by path. As already argued,
+we have dsE[e~riirMb)liT<Tb)] = e~'lTdsP[T < rb] > 0. Define a(8, τ) ξ
+—d bE[e~r(TATb)l[r>Tb]] > 0. Thus, we have the following inequality:
+
+            0 < <?gE[e_r(TATi')l{T<Ti))] < -dsE[e'r^T»\T>Tb)] = a(8, τ).
+
+Since ρ — -r < 0 by assumption, then
+
+                                                              c     ξ
+           d&DH{8,T) = -ds E[e-r(TMb)l{T>Tb)]--aHVb
+                                              r   r
+                                                    Vb(aH-aL)
+
+
+                                         +                          ^E[e
+                          > a(8, τ)      - - aHVb - -Vb(.0LH - aL) + a(8, τ)
+                                          r         r                                   H)
+                          = α(δ, τ)           Ρ                ~               aHV
+                                                          r
+
+
+
+which is positive if the constant inside the bracket is positive. Q.E.D.
+
+A.3.2. Sufficient Conditions for ότΠ > 0
+
+  Proof of Proposition 4—Part 2: Let us make two observations:
+
+
+           0TE[e~'ri(TATb)] < 0,
+
+            JTE[e-~r^Mb%T>Tb]\=dTE[e-^l{T>Tb}] > 0.
+
+
+
+
+          This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                           All use subject to https://about.jstor.org/terms
+            ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1497
+
+Then, rewrite
+
+                                                                     *"
+        ότΠ(δ, τ) = dTE[e-'r^llT>Tb}]             Vb(aH - aL) -
+
+
+                         - dTE[e-f^l[T<Tb)]^
+
+                       = [Vb{aH - aL)]
+                         - dTE\e-'riiTATb)]^·
+                                  L Ο
+
+                       > dTE[e-^T^llT>Tbi][Vb(aH
+
+ which is positive if aH > aL. Unfort
+ not easily established. From Δ = 2
+ ficient condition in DH < 0. But w
+ have Dh(S, 0) = DH(8, Τ) = ρ by defin
+ Dh(δ, 0) φ 0, we know that DH(8, τ)
+this sufficient condition does not hold for all τ. Q.E.D.
+
+A.3.3. Sufficient Conditions for Π > 0
+
+
+  Proof of Proposition 4—Part 3: Let us rewrite Π(δ,τ) = (1 -
+E[e~?l(TATf,)])4 + E[e""ri(TATi,)l(T>Ti))]U,(a// — aL). We see that this is always posi
+tive as long as aH > aL because τ a rb > 0 and f > 0. Q.E.D.
+
+
+                 A.4. Alternative Modeling of Liquidity Shocks
+
+   In the main text, we model the consequence of liquidity shocks as a positive
+holding cost. In the working paper version (He and Milbradt (2013)), we mod
+eled liquidity shocks as rise in the discount rate r above the risk-free rate r,
+which captures the idea of "urgency to sell." More specifically, normal Η in
+vestors discount future cash flows by r, while L investors who have been hit by
+liquidity shocks discount future cash flows by r = r+ρ with ρ > 0. We show that
+this modeling is consistent with the assumption in the main model with holding
+cost χ = xcc + xpp, where yc > 0 and χρ > 0. For expositional purposes, set
+the benchmark discount rate r = 0, and assume that there is no default.
+  In general, the holding cost χ should be interpreted as the difference be
+tween the efficient holding value without liquidity shocks, and the inefficient
+holding value of impatient L investors (who remain in L state always). To see
+this, imagine that we are in the model with holding costs. Suppose that there
+is no secondary market trading, which makes this point stark. The valuation
+
+
+
+
+       This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                        All use subject to https://about.jstor.org/terms
+ 1498 Ζ. HE AND Κ. MILBRADT
+
+
+ difference then is proportional to holding cost
+
+
+                   / cdt + p- / cdt + p- (xcc + χρ
+                   Jo           Uo          Jo
+                 Efficient valuation L-type valuation
+
+                    = Txc-c + TxP-p.
+ Now we turn to the model of impatient investors. The valuation differen
+which can be interpreted as holding cost, is
+
+
+                  f cdt + p— f e p'cdt + e pTρ
+                  Jo LA
+                 Efficient valuation L-type valuation
+
+
+
+                   = f (1 — e~pl) dt ■ c + (1 - e~pT) · p.
+                      Jo
+
+
+One can easily check that this term is increasing in coupon c, with a positive
+coefficient of
+
+
+
+                   Jo e+—+-^>0.
+                  fT(l-e-«)d,= Ρ
+    Similarly,                                                the                  coeffi
+
+
+                           A.5.                  Micro-Founde
+    Recall that   the  trans
+   for  the  purpose     of t
+   by  £hl  ■  To  embed    t
+   to introduce     a recove
+   would   get a  degenera
+   note  that  the   model   i
+   but  required    a more
+   introduce   types    LO  a
+   LI and  HI  as  L- and   /
+    Suppose   that   there   i
+   Pm  +  Pm   +  Plo  +  Plu
+    type-only                                                       distribut
+    type-only                                                  dynamics
+    Ph = ξ LH                                                  PL - ξπιΡΗ
+
+
+                      Ph«)           =      τ
+                       SHL -Τ SLH L bHL + SL// .
+                                                                                          ξΐ"μ
+                           = μ% + β-^+^),[μΗ(0)-μ^\,
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+               ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1499
+
+
+where μΗ(0) is the exogenous initial state and μ^ = lim,_>oc μΗ(ί) = i
+the steady state. We note that μ# (i) = (£hl + — μη(0)], which
+implies that μΗ(ί) is monotonically increasing in time if and only if μ„ > μΗ(0)
+(and vice versa), that is, if the initial value is below the steady state value.
+  To ensure Assumption 1 that the secondary market is a seller's market, that is,
+there is always a larger flow of potential buyers contacting the dealers than the
+flow of potential sellers, we need μΗο(ί) > μη(ί), Vi e (0, oo). Let us rewrite
+μ no as follows:
+
+           μΗο = μ — μΗΐ — μ-Lo - μη = μ — (1 — μη) — μι = μ# — 1 + μη,
+
+where we used the fact that μL\ + μΗ\ = 1 as the measure of outstanding bonds
+is always 1. Hence,
+
+           μΗθ(0 > μη(ί), Vi € (0, oo) «=Φ· μ//(ί)>1,Υί€(0,οο).
+
+Thus, the necessary and sufficient condition for the market to always be a
+seller's market is given by
+
+           minf/i/AO),^} > 1.
+
+  In the special case in which μ,/(0) > μ)), this condition simplifies to
+
+             ss = ξ lh μ
+             H £hl + £lh
+Thus, we need a sufficiently high recovery times total mass of agents, ξυιμ, to
+have a surplus of potential buyers in the model. We note that although this con
+dition is very simple, the actual functions of μΗο(ί) and μ[Λ(ί) are complicated
+non-stationary functions of t that require the solution to the full cross-sectional
+distribution across (t, τ).
+  The pricing of debt and equity changes only in so far as that the effective
+recovery rate in the pricing equations is now £^ctlve ξ (λ/3 + ξ,.Η) instead of
+λβ alone. Our main model can be understood as having an almost negligible
+recovery intensity %hH and a very large total mass μ that satisfies the sufficient
+conditions above.
+  Similarly, we can also establish conditions for the post-default market to be
+a seller's market as assumed in the main text. By the same equation, we have
+
+           /%o= μ — μ/η — i1lo ~ = μ — (ι— μ^) ~ μ?. — μ?/ — ι + μ0η,
+
+so that μ0Η(ί) > μ^(0 -Φ=> μ0Η(ί) > 1. As we have a different shock intensity
+Zhl > £hl, we see that
+
+                      ss ,b ,
+           μΗ(ί) = μ® + β-^+*»>Κ'-ν[μΗ(η) - μ?],
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+ 1500 Z. HE AND Κ. MILBRADT
+
+
+                         default time and μ^
+ where rb is the random £hl+*lh
+ condition can thus be written as να\η{μΗ{τΑ, μ
+ have
+
+
+            πιίη{μ//(0),μ))·/'} > 1
+
+ as the sufficient condition for pbH0(t) > pbL1(t)
+ μ)), then the condition becomes
+
+                w >L
+           %HL +
+
+
+                     A.6. Par Bonds, Cash Flows, and Coupons
+  In some of our graphs, we show credit spreads and bid-ask spreads for par
+bonds. To keep the bond at par at different cash flow levels (and thus different
+quasi-market leverage levels), we have to adjust the coupon c. Formally, for
+par bonds we have DH{8, c) = p. Differentiating, we have
+
+           dsD/i(8, c) + dcDH(8, c)c'(S) = 0
+
+and we thus have c'(8) = — Next, let us differentiate QL = p+£{S — along
+the par-ray (δ, c(8)) to see that
+
+
+
+                   lit = ■(,+βϋ,#1™c)+" c)c,(8)]·
+If DH is increasing in 8 and increasing in c, then c'(8) < 0. Furthermore, if Ε
+is increasing in 8 and decreasing in c, then we see that QL is monotonically
+decreasing in δ. The solid line in Figures 3 and 4 traces out QL along the
+par-ray (δ, c(8)). It is important to note that different initial δ imply different
+coupons values c (and possibly different holding costs χ) and thus result in
+different default boundaries.
+
+
+
+           A.7. An Expanded Secondary Market Modeling With Richer
+                            Post-Default Market
+
+  We present a richer post-default market in this section. The main idea is that
+the market itself does not have to be shocked in its fundamentals, but rather
+that some investor-specific shocks arise. In a nutshell, the marginal buyer of
+the bond pre-default is sidelined in default, and outside buyers step in to buy
+the bonds. As these outside buyers are not in large supply, there is a shift from
+a seller's to a buyer's market, which shifts the surplus from trade away from the
+(common) sellers to the (specialized) buyers.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+             ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1501
+
+
+  We assume that there are two classes of H-type investors who are ready
+to buy bonds from dealers, and they differ in how default affects their pref
+erence/ability of investing in corporate bonds. More specifically, one class of
+investors is sensitive to the default event. They have a liquidity shock intensity
+of ξ before default; after default, their liquidity shock intensity is ξ0 > ξ to pos
+sibly reflect the fact that they might not be allowed to hold defaulted bonds.48
+Additionally, they cannot purchase defaulted bonds. Without risk of confusion,
+we keep referring to these investors as //-types. In contrast, there is another
+class of investors, denoted by S (for Specialists), who have a constant liquidity
+shock intensity ξ independent of whether the bond has defaulted or not, and
+are able to buy bonds pre- and post-default. For simplicity, we assume that af
+ter purchasing the bond, if a liquidity shock hits either an Η or S investor, both
+transition to the same L-type.
+  The following assumption replaces Assumption 1 in the main text.
+
+   Assumption 2: Before default, the flow of L-type sellers in contact with dealers
+is greater than the flow of S-type buyers in contact with dealers, but smaller than
+the flow ofH-type buyers in contact with dealers, a situation we denote by the term
+seller's market. After default, Η-type investors withdraw from the buy side, and
+the flow of L-type sellers in contact with dealers is smaller than the flow of S-type
+buyers in contact with dealers, a situation we term a buyer's market.
+
+
+  Note that an S investor's surplus is always weakly higher than an Η investor's
+one. Under Assumption 2, however, in equilibrium the marginal buyer is an
+H-type before the default, as there is an oversupply of H-type buyers and an
+undersupply of 5-type buyers, whereas after default the marginal agent is an S
+type. Interestingly, under that assumption, we show that the valuation of 5-type
+investors does not affect the pre-default equilibrium outcome.
+  The classes of Η and S represent different institutional buyers of corporate
+bond in practice. The class of Η investors represents normal corporate bond
+funds (say, money market funds, high yield bond funds, etc.) who can only
+invest in bonds that have not defaulted yet, while the class of 5 investors repre
+sents hedge funds that are specializing in buying defaulted bonds and waiting
+for recovery. Our modeling of Η investors and S investors captures this impor
+tant difference in the most stark way, and we make an assumption below about
+the relative mass of Η investors to S investors to reflect the scarcity of hedge
+funds who specialize in distressed securities. Moreover, the presence of S-type
+investors before default will not change the pre-default equilibrium outcome,
+as along as their measure is sufficiently small, so that the pre-default marginal
+buyer remains the H-type investor.
+
+
+  48As ξι, —► oo, this proxies for an aggregate event in which all of these investors are hit by a
+shock at the exact moment of default. This would, however, be an undesirable assumption as it
+would result in no valuation wedge between H- and L-types and thus would contradict the data.
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+ 1502 Z. HE AND Κ. MILBRADT
+
+
+  Again, we use "ft" to indicate the state of bank
+ ket before default where there are always suffici
+ supply from L-type sellers, buy orders drop abr
+ creases. In other words, the post-default market i
+   Denote the post-default debt valuation for Η
+ where the index i € {0,1} indicates the investors'
+ ation values are Dbf = Db" = 0 because H-type in
+ bonds, and L-type investors exit after selling the
+ denote their values by Dbs', where the index i e
+the S investor. Dbs'° > 0 because S investors provi
+thus earn weakly positive rents in equilibrium.
+ The surplus generated from an L investor sellin
+bond for a price Μ on the competitive inter-deal
+
+           nbL = Mb — (DbL - DbL°) — Mb - DbL.
+
+ Because the inter-dealer market is competitiv
+ equilibrium inter-dealer market price Mb = DbL
+ Mb > DbL so that llbL > 0, then other dealer-L-typ
+ price Mb in the inter-dealer market to obtain a su
+ The equilibrium bid price generically is given by
+then implies
+
+          Bb = DbL = Mb.
+
+  As the buy side is made up of dealer-5-type pairs, define the surplus from
+trade for an S-type as
+
+          IJb = nb = (Dbl - Df) - M" > 0.
+
+Following Nash-bargaining, the ask price at which 5-types (with a bargaining
+power of ßs) buy from the dealer is given by
+
+          Ab = Df + ßsnb.
+
+Thus, a buyer's market is characterized by positive surplus from trade for buy
+ers, and zero surplus from trade for sellers.
+  We now solve for the equilibrium values in the secondary market for de
+faulted bonds. Recall that the bankruptcy payout occurs with intensity Θ. Fur
+ther assume that post-default holding costs are proportional the ultimate re
+covery payout, Xjz~- We then have the following linear system:
+
+
+
+(A.2) rDbH = 0 + ib(DbL - Db{) + θ(α-^~ - DbX
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+             ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1503
+
+
+
+ (A.3) rBi—^ + O +
+          rDbl = 0 + i(DbL - Dbi) + ,
+
+          rDf = 0 + \s{Dbsl -A- Df) + 0(0 - Df).
+
+On the right-hand side of (A.3), the first term is the holding cost Xyf^· T
+second term captures the value increment in contacting the dealer successfu
+but it is zero because L investors sell their bond always at their reservatio
+price DbL. We solve the linear system for the values DbH and Db and for
+proportional bid-ask price Ab ξ αι^(Α^+Βι>) "n the following proposition.
+
+  PROPOSITION 5: Under Assumption 2, post default the debt valuations for
+and L investors are
+
+          ~DbH(8by         aH
+(A.4)
+           DbL{8b)_        aL_   r-μ
+
+where
+
+                   θα fbXt,
+          aH -
+                 r + θ (r + 0)(r + θ + fb)
+
+and
+
+
+          aL =
+                  θα _ Xb
+                 r+0 r + 0
+
+The bid price is given by Bb = DbL, whereas the ask price is g
+ßsHb, and the proportional bid-ask spread is given by
+
+          A" = 2(«0(7· + 0 + ξ)[2(β$ - 1)AS - r - 0]
+                 + x\fr + θ)[ξ — (ßs — 2)(r + 0)]
+
+                 — 2As[2(r + 0) + f]{ßs — 1)])
+
+                 /((2A5 + r + 0)(a0(r + 0 + ξ) - ßsX(r + 0) - γ£
+
+  Note that the boundary conditions for DbH and DbL are in
+secondary market in this formulation (or rather, are equivale
+secondary market) as all the surplus accrues to the outsi
+bid-ask spread, however, reflects the search-frictions presen
+market. Thus, the market in itself does not have to become
+
+
+
+
+        This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                         All use subject to https://about.jstor.org/terms
+    1504 Ζ. HE AND Κ. MILBRADT
+
+
+   contact intensities, bargaining power, etc.), only
+   for the pre-default marginal holders of the asset.
+    Further, recall that, in the text, we defined th
+    ery value as aLT = ^a. Plugging in, we see
+   «£ = ollt — jfre· The values DbH, DbL serve as ou
+   ing bond valuation functions before the firm def
+ of
+
+
+                      &H — &L = — > 0.
+                                    r+0 + &
+
+  Thus, a difference arises between the bid-ask just before default, given by
+
+                      ,. ,,s , (1 - β) (α η ~ (*L)
+                      lim Δ(δ, τ) =
+                                           -[{l + ß)aH + {\-ß)aL\
+
+                                                               2(β-1)χ(Γ+θ)
+                                            2a6(r +θ+ξ„) + (β- 1)χ(χ +θ)~ 2χξ„
+
+  and the bid-ask spread just after default, Ab. We thus can generate a jump in
+  trading prices and in the bid-ask spread that is documented in empirical work.
+
+
+
+                             A.8. Decomposition Results for Non-Par Bonds
+
+
+                                                          TABLE III
+
+   Default-Liquidity Decomposition for Investment and Speculative Grade Non-Par
+                                         Bonds in Normal and Crisis Times3
+
+
+                                             Investment Grade Speculative Grade
+Non-Par Bonds                     Normal         Crisis         Change    Normal       Crisis          Change
+
+                                                       Panel A: Data
+
+Credit spread bps                   97             321 224                 348          1082            734
+                                                                 (3.3x)                                     x)
+                                                                                                       (3.1 χ)
+Illiquidity                         1             1.5             0.5       1i           2                1
+                                                                (1.5 x)                                (2x)
+                                                    Panel B: Model
+Credit spread bps                  100             332 232                 350          970             620
+                                                                 (3.3x)                                (2.8x)
+BA spread bps                       45            55               10       56          116              47
+                                                                (1.2x)                                 (2.1x)
+
+                                                                                                  (Continues)
+
+
+
+
+                    This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                                     All use subject to https://about.jstor.org/terms
+                        ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1505
+
+                                               TABLE III—Continued
+
+
+                                         Investment Grade Speculative Grade
+Non-Par Bonds                 Normal          Crisis          Change            Normal            Crisis           Change
+
+                                       Panel C: Model-Based Decomposition
+Pure default                    44             210              166              223               681               457
+                              (44%)          (63%)             (72%)            (64%)            (70%)             (74%)
+Liq.-driven def.                 9              20               11               21                18               -3
+                               (9%)           (6%)              (5%)             (6%)             (2%)            (-0.5%)
+Pure liquidity                  31              31               0                31               31                 0
+                              (31%)           (9%)             (0%)             (9%)              (3%)              (0%)
+Def.-driven liq.                16              71               55               75               240               165
+                              (16%)          (21%)             (24%)            (21%)            (25%)             (27%)
+Total                           100            332              232               350              970               620
+                              (100%)         (100%)           (100%)           (100%)           (100%)            (100%)
+
+    a Baseline parameters are given in Table II, with a υ = 68.46% given in Section 4.1.3. The data in Panel A are
+from Friewald, Jankowitsch, and Subrahmanyam (2012). Panel Β and Panel C give model-implied moments for non
+par bonds, that is, credit spread and coupon spread do not coincide. To match normal time credit spreads, we adjust
+the initial cash flow to deliver a credit spread of 100 bps and 350 bps for investment and speculative grade, respec
+tively. Crisis is modeled as a negative cash flow shock of —50%, which is chosen to target the rise of credit spread of
+investment grade bonds. Bonds are not at par in normal or in crisis times.
+
+
+
+
+                                                       REFERENCES
+
+Afonso, G., and R. Lagos (2011): "Trade Dynamics in the Market for Federal Fund
+  Paper. [1447]
+AMIHUD, Y., and H. Mendelson (1986): "Asset Pricing and the Bid-Ask Spread,
+  Financial Economics, 17, 223-249. [1447]
+Back, K., and S. Baruch (2004): "Information in Securities Markets: Kyle Meets G
+  Milgrom," Econometrica, 72, 433-465. [1448]
+Back, K., and K. Crotty (2013): "The Informational Role of Stock and Bond Volu
+  ing Paper. [1448,1480]
+Bao, J., J. PAN, and J. Wang (2011): "The Illiquidity of Corporate Bonds," Journa
+  66, 911-946. [1444,1445,1455,1462,1472,1474]
+Beber, Α., Μ. BRANDT, and K. Kavajecz (2009): "Flight-to-Quality or Flight-to-L
+  idence From the Euro-Area Bond Market," Review of Financial Studies, 22, 92
+ 1474]
+Bessembinder, H., W. Maxwell, and K. Venkataraman (2006): "Market Transparency, Liq
+   uidity Externalities, and Institutional Trading Costs in Corporate Bonds," Journal of Financial
+   Economics, 82, 251-288. [1470]
+Bhamra, H. S., L.-A. Kuehn, and I. A. Strebulaev (2010): "The Levered Equity Risk Pre
+  mium and Credit Spreads: A Unified Framework," Review of Financial Studies, 23, 645-703.
+   [1467,1468]
+Biais, B., and P.-O. Weill (2009): "Liquidity Shocks and Order Book Dynamics," Working Pa
+  per. [1447]
+Black, F., and J. C. Cox (1976): "Valuing Corporate Securities: Some Effects of Bond Indenture
+  Provisions," Journal of Finance, 31, 351-367. [1446]
+
+
+
+
+                   This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                                    All use subject to https://about.jstor.org/terms
+ 1506 Ζ. HE AND Κ. MILBRADT
+
+
+ Chen, Η. (2010): "Macroeconomic Conditions and the Puz
+    Structures," Journal of Finance, 65, 2171-2212. [1467,1468,1
+ Chen, H., R. Cui, Z. He, and K. Milbradt (2013): "Liquidit
+    Over the Business Cycle," Working Paper. [1478]
+ Chen, L., D. Lesmond, and J. Wei (2007): "Corporate Yie
+   Journal of Finance, 62, 119-149. [1472]
+ Cheng, I., and K. Milbradt (2012): "The Hazards of Debt:
+  Bailouts," Review of Financial Studies, 25 (4), 1070-1110. [1
+ Choi, J., D. Hackbarth, and J. Zechner (2012): "Granularit
+   Tests," Working Paper. [1449]
+ Custodio, C., M. Ferreira, and L. Laureano (2013): "Why
+  Term Debt Ί" Journal of Financial Economics, 108 (1), 182-2
+ Diamond, D. W. (1993): "Seniority and Maturity of Debt Co
+  nomics, 33, 341-368. [1447]
+ Diamond, D. W, and Z. He (2013): "A Theory of Debt Matu
+  Overhang," Journal of Finance, 69 (2), 719-762. [1447,1479]
+ Dick-Nielsen, J. (2009): "Liquidity Biases in TRACE," Jou
+  [1471]
+Dick-Nielsen, J., P. Feldhütter, and D. Lando (2012): "Corporate Bond Liquidity Before
+  and After the Onset of the Subprime Crisis," Journal of Financial Economics, 103, 471-492.
+  [1444,1474,1475]
+Duffie, D., and D. Lando (2001): "Term Structures of Credit Spreads With Incomplete Ac
+  counting Information," Econometrica, 69, 633-664. [1447]
+Duffie, D., N. Gärleanu, and L. H. Pedersen (2005): "Over-the-Counter Markets," Econo
+  metrica, 73,1815-1847. [1444]
+           (2007): "Valuation in Over-the-Counter Markets," Review of Financial Studies, 20,
+  1865-1900. [1447,1450]
+Edwards, Α., L. Harris, and M. Piwowar (2007): "Corporate Bond Market Transaction Costs
+  and Transparency," Journal of Finance, 62,1421-1451. [1444]
+Ericsson, J., AND O. Renault (2006): "Liquidity and Credit Risk," Journal of Finance, 61,
+  2219-2250. [1446]
+Fama, Ε., and K. R. French (1989): "Business Conditions and Expected Returns on Stocks and
+  Bonds," Journal of Financial Economics, 25, 23—49. [1469]
+          (1992): "The Cross-Section of Expected Stock Returns," Journal of Finance, 47,427-465.
+  [1469]
+           (1993): "Common Risk Factors in the Returns on Stocks and Bonds," Journal of Finan
+  cial Economics, 33, 3-56. [1469]
+Feldhütter, P. (2012): "The Same Bond at Different Prices: Identifying Search Frictions and
+  Selling Pressures," Review of Financial Studies, 25,1155-1206. [1447,1448,1454,1464,1468,1480]
+Friewald, N., R. Jankowitsch, and M. G. Subrahmanyam (2012): "Illiquidity or Credit De
+  terioration: A Study of Liquidity in the US Corporate Bond Market During Financial Crises,"
+  Journal of Financial Economics, 105 (1), 18-36. [1444,1446,1474-1477,1505]
+Gilson, S., K. John, and L. Lang (1990): "Troubled Debt Restructurings: An Empirical Study
+  of Private Reorganization of Firms in Default," Journal of Financial Economics, 27, 315-353.
+  [1454]
+Glosten, L. R., and P. R. Milgrom (1985): "Bid, Ask and Transaction Prices in a Specialist
+  Market With Heterogeneously Informed Traders," Journal of Financial Economics, 14, 71-100.
+  [1448,1480]
+Green, R. C, B. Hollifield, and N. Schurhoff (2007a): "Dealer Intermediation and Price
+  Behavior in the Aftermarket for New Bond Issues," Journal of Financial Economics, 86,
+  643-682. [1444]
+
+
+
+
+            This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                             All use subject to https://about.jstor.org/terms
+                 ENDOGENOUS LIQUIDITY AND DEFAULTABLE BONDS 1507
+
+           (2007b): "Financial Intermediation and the Costs of Trading in an Opaque Market,"
+  Review of Financial Studies, 20, 275-314. [1444]
+Guerrieri, V., R. Shimer, and R. Wright (2010): "Adverse Selection in Competitive Search
+ Equilibrium," Econometrica, 78, 1823-1862. [1448]
+Harris, L., and M. Piwowar (2006): "Secondary Trading Costs in the Municipal Bond Market,"
+  Journal of Finance, 61,1361-1397. [1444]
+He, Z., and K. Milbradt (2013): "Endogenous Liquidity and Defaultable Bonds," Working
+ Paper W18408, NBER. [1450,1479,1497]
+        (2014): "Supplement to 'Endogenous Liquidity and Defaultable Bonds'," Econometrica
+ Supplemental Material, 82, http://www.econometricsociety.org/ecta/supmat/11039_data_and_
+ programs.zip. [1448]
+He, Z., and W. Xiong (2012a): "Rollover Risk and Credit Risk," Journal of Finance, 67,391-430.
+ [1447,1464-1466,1470,1479]
+         (2012b): "Dynamic Debt Runs," Review of Financial Studies, 25 (2), 1799-1843. [1446]
+Hong, G., and A. Warga (2000): "An Empirical Study of Bond Market Transactions," Financial
+ Analysts Journal, 56, 32-46. [1444]
+Huang, J.-Z., and M. Huang (2012): "How Much of the Corporate-Treasury Yield Spread Is
+  Due to Credit Risk?" Review of Asset Pricing Studies, 2,153-202. [1467,1470,1471]
+Ivashina, V., D. C. Smith, and B. Iverson (2013): "The Ownership and Trading of Debt Claims
+  in Chapter 11 Restructurings," Working Paper. [1454]
+Jankowitsch, R., F. Nagler, and M. G. Subrahmanyam (2013): "The Determinants of Re
+  covery Rates in the US Corporate Bond Market," Working Paper. [1444,1445,1454,1455,1462,
+ 1469]
+Kyle, A. S. (1985): "Continuous Auctions and Insider Trading," Econometrica, 53, 1315-1335.
+  [1448]
+Lagos, R., and G. Rocheteau (2007): "Search in Asset Markets: Market Structure, Liquidity,
+  and Welfare," American Economic Review, 97,198-202. [1447]
+          (2009): "Liquidity in Asset Markets With Search Frictions," Econometrica, 77, 403-426.
+  [1447]
+Lauermann, S., and A. Wolinsky (2011): "Search With Adverse Selection," Working Paper.
+  [1448]
+Leland, H. (1994): "Corporate Debt Value, Bond Covenants, and Optimal Capital Structure,"
+  Journal of Finance, 49,1213-1252. [1446,1461,1465,1493]
+           (1998): "Agency Costs, Risk Management, and Capital Structure," Journal of Finance,
+  53,1213-1243. [1447,1479]
+Leland, H., and Κ. B. Toft (1996): "Optimal Capital Structure, Endogenous Bankruptcy, and
+  the Term Structure of Credit Spreads," Journal of Finance, 51, 987-1019. [1444]
+Longstaff, F. Α., S. Mithal, and E. Neis (2005): "Corporate Yield Spreads: Default Risk or
+  Liquidity? New Evidence From the Credit Swap Market," Journal of Finance, 60, 2213-2253.
+  [1446,1473-1475]
+Miller, Μ. H. (1977): "Debt and Taxes," Journal of Finance, 32, 261-275. [1467]
+Schultz, P. (2001): "Corporate Bond Trading Costs: A Peek Behind the Curtain," Journal of
+  Finance, 56, 677-698. [1444,1470]
+Schwarz, Κ. (2010): "Mind the Gap: Disentangling Credit and Liquidity in Risk Spreads,"
+  Working Paper. [1446,1474]
+Segura, Α., and J. Suarez (2011): "Dynamic Maturity Transformation," Working Paper. [1479]
+Suarez, G., E. SCHROTH, AND L. Taylor (2014): "Dynamic Debt Runs and Financial Fragility:
+  Evidence From the 2007 ABCP Crisis," Journal of Financial Economics, 112 (4), 164-189.
+  [1447]
+Vayanos, D„ and P.-O. Weill (2008): "A Search-Based Theory of the On-the-Run Phe
+  nomenon," Journal of Finance, 63,1361-1398. [1447]
+
+
+
+
+           This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                            All use subject to https://about.jstor.org/terms
+ 1508 Z. HE AND Κ. MILBRADT
+
+
+WEILL, P.-O. (2007): "Leaning Against the Wind," Review o
+[1447]
+
+
+  Booth School of Business, University of Chicago, 5807 South Woodlawn Ave.,
+Chicago, IL 60637, U.S.A., and NBER; zhiguo.he@chicagobooth.edu
+                                                  and
+  Kellogg School of Management, Northwestern University, 2001 Sheridan Rd.,
+Evanston, IL 60208, U.S.Α., and NBER; milbradt@northwestern.edu.
+
+           Manuscript received August, 2012; final revision received November, 2013.
+
+
+
+
+         This content downloaded from 144.214.9.191 on Mon, 09 Mar 2020 05:14:37 UTC
+                          All use subject to https://about.jstor.org/terms
+

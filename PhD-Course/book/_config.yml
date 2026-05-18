@@ -1,0 +1,44 @@
+title: PhD Course Review Notes
+author: Yunting
+
+execute:
+  execute_notebooks: off
+
+html:
+  use_multitoc_numbering: true
+
+sphinx:
+  extra_extensions:
+    - sphinxcontrib.mermaid
+  local_extensions:
+    tikz_lexer: _ext
+  config:
+    html_baseurl: https://yuning598.github.io/PhD-Course
+    html_show_copyright: false
+    html_last_updated_fmt: '%b %d, %Y'
+    html_extra_path:
+      - robots.txt
+      - attachment
+    templates_path:
+      - _templates
+    external_toc_path: _toc.yml
+    external_toc_exclude_missing: false
+    suppress_warnings:
+      - toc.not_included
+    html_theme_options:
+      repository_url: https://github.com/Yuning598/PhD-Course
+      repository_branch: master
+      path_to_docs: book
+      use_edit_page_button: true
+      use_repository_button: true
+      use_issues_button: true
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - substitution
+    - tasklist
+  myst_fence_as_directive:
+    - mermaid
+  myst_links_external_new_tab: true

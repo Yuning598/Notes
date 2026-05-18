@@ -1,0 +1,1102 @@
+<!DOCTYPE html><html><head><base href="https://chatgpt.com/g/g-p-69eca8c13148819180f8c0d4dceab132/c/69ecc03c-b2fc-8324-b0bd-51b395af4ac1" />
+<style>
+  :root {
+    --primary-color: #2563eb;
+    --text-main: #1e293b;
+    --text-secondary: #475569;
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-code: #f1f5f9;
+    --border-light: #e2e8f0;
+    /* 页面主内容卡片的最大宽度：用于保持正文在视口中居中展示 */
+    --page-max-width: 850px;
+    /* 右侧目录（TOC）的固定宽度 */
+    --toc-width: 220px;
+    /* 用户提问配色：柔和的浅灰色背景，深色文字，适合长时间阅读 */
+    --bg-user: #f3f4f6;
+    --text-user: #374151;
+    --border-user: #e5e7eb;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+  }
+
+  /* 目录点击后通过 hash 滚动时，使用平滑滚动（现代浏览器支持） */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    height: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 正文区域保持居中：避免为了目录而人为加大右侧 padding 导致视觉偏移 */
+    padding: 40px 20px;
+  }
+
+  /* 右侧目录（TOC）：固定在视口最右侧，并在垂直方向居中显示 */
+  .c2f-export-toc {
+    position: fixed;
+    top: 50%;
+    /* 目录位置始终贴近页面最右侧，以拉开与居中文正文的水平距离 */
+    right: 20px;
+    width: var(--toc-width);
+    /* 目录过长时内部滚动，避免占据过高影响阅读 */
+    max-height: 65vh;
+    overflow: auto;
+    /* 与 top: 50% 配合实现垂直居中 */
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    padding: 14px 14px 10px 14px;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+    /* Firefox 滚动条：细 + 低存在感 */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(15, 23, 42, 0.18) transparent;
+  }
+
+  /* Chromium / WebKit 滚动条：细 + 低存在感（避免影响阅读） */
+  .c2f-export-toc::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .c2f-export-toc::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .c2f-export-toc::-webkit-scrollbar-thumb {
+    background-color: rgba(15, 23, 42, 0.18);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .c2f-export-toc::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(15, 23, 42, 0.26);
+  }
+
+  .c2f-export-toc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+
+  .c2f-export-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .c2f-export-toc-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .c2f-export-toc-item a {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.35;
+    /* 目录项单行展示：超出时省略号截断（避免 TOC 过宽/过高） */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .c2f-export-toc-item a:hover {
+    background: #f1f5f9;
+  }
+
+  .c2f-export-toc-item a.active {
+    background: rgba(37, 99, 235, 0.1);
+    color: #1d4ed8;
+    font-weight: 700;
+  }
+
+  .c2f-export-toc-level-h1 a {
+    padding-left: 8px;
+    font-weight: 700;
+  }
+
+  .c2f-export-toc-level-h2 a {
+    padding-left: 18px;
+  }
+
+  .c2f-export-toc-level-h3 a {
+    padding-left: 28px;
+    color: #475569;
+  }
+
+  .c2f-export-page {
+    width: 100%;
+    max-width: var(--page-max-width);
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 48px 56px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255,255,255,0.5);
+    flex-shrink: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .c2f-export-page-inner,
+  .export-content,
+  .c2f-export-global-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .c2f-export-page-inner {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .exported-message {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+  }
+
+  /* Canonical message structure */
+  .c2f-msg {
+    width: 100%;
+  }
+  .c2f-msg-body {
+    width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  /* Preserve user-entered newlines */
+  .exported-message--user .c2f-msg-body {
+    white-space: pre-wrap;
+  }
+  /* Avoid rendering site layout text nodes as visible blank lines for AI rich content */
+  .exported-message--ai .c2f-msg-body.c2f-msg-body--plain {
+    white-space: pre-wrap;
+  }
+
+  .message-separator {
+    display: none;
+  }
+
+  .exported-message--user {
+    margin-bottom: 40px !important;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* User bubble: only depends on canonical .c2f-* */
+  .exported-message--user .c2f-msg-body {
+    background-color: var(--bg-user) !important;
+    color: var(--text-user) !important;
+    border-radius: 18px 18px 4px 18px !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    max-width: 100%;
+    width: auto !important;
+    border: 1px solid var(--border-user) !important;
+  }
+
+  .exported-message--user .c2f-msg-body * {
+    color: var(--text-user) !important;
+  }
+
+  .exported-message--ai {
+    width: 100%;
+  }
+
+  .exported-message--ai .c2f-msg-body {
+    font-size: 16px;
+    color: var(--text-main);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+  }
+
+  h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--primary-color);
+    margin-right: 10px;
+    border-radius: 2px;
+  }
+
+  p {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+  }
+
+  pre {
+    margin: 16px 0;
+    padding: 12px 14px;
+    background: var(--bg-code);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .c2f-code-block {
+    background: var(--bg-code) !important;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+
+  .c2f-code-block pre {
+    margin: 0 !important;
+    padding: 16px 20px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow-x: auto;
+  }
+
+  code, pre code {
+    font-family: "JetBrains Mono", "Fira Code", Consolas, Menlo, Monaco, "Courier New", monospace;
+    background: transparent !important;
+    padding: 0;
+    color: #334155;
+  }
+
+  .token.comment { color: #94a3b8; font-style: italic; }
+  .token.string { color: #16a34a; }
+  .token.keyword { color: #7c3aed; font-weight: 600; }
+  .token.function { color: #2563eb; }
+  .token.number { color: #db2777; }
+
+  p code, li code {
+    background-color: #f1f5f9;
+    color: #e11d48;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    border: 1px solid #e2e8f0;
+    font-family: inherit;
+  }
+
+  ul, ol {
+    margin: 16px 0;
+    padding-left: 24px;
+    color: var(--text-secondary);
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    margin: 16px 0;
+  }
+
+  table thead, table tbody, table tfoot, table tr {
+    display: table-row-group;
+  }
+
+  table tr {
+    display: table-row;
+  }
+
+  table th, table td {
+    display: table-cell;
+    border: 1px solid var(--border-light);
+    padding: 10px 12px;
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  table th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  table td {
+    color: var(--text-secondary);
+  }
+
+  [role="table"] {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 16px 0;
+  }
+
+  [role="row"] {
+    display: table-row;
+  }
+
+  [role="columnheader"],
+  [role="cell"] {
+    display: table-cell;
+    border: 1px solid var(--border-light);
+    padding: 10px 12px;
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  table th *,
+  table td *,
+  [role="columnheader"] *,
+  [role="cell"] * {
+    white-space: inherit;
+  }
+
+  table.c2f-export-table--wide {
+    width: max-content;
+    min-width: 100%;
+    table-layout: fixed;
+  }
+
+  table.c2f-export-table--wide th,
+  table.c2f-export-table--wide td {
+    min-width: 120px;
+  }
+
+  [role="table"].c2f-export-table--wide {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  [role="table"].c2f-export-table--wide [role="columnheader"],
+  [role="table"].c2f-export-table--wide [role="cell"] {
+    min-width: 120px;
+  }
+
+  [role="columnheader"] {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 10px 14px;
+    border-left: 4px solid var(--border-light);
+    background: #f8fafc;
+    border-radius: 6px;
+    color: #64748b;
+  }
+
+  blockquote p {
+    color: #64748b !important;
+  }
+
+  /* KaTeX / 数学公式基础展示：保留原有 MathML/KaTeX 结构，但给出合理的对齐与间距 */
+  .katex, .katex-display {
+    font-size: 1.02em;
+  }
+  .katex-display {
+    margin: 12px auto;
+    text-align: center;
+  }
+  .katex-mathml {
+    display: inline-block;
+  }
+  .katex .katex-mathml + .katex-html {
+    display: none !important;
+  }
+  @media (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+    /* 小屏幕隐藏目录，避免遮挡正文 */
+    .c2f-export-toc {
+      display: none;
+    }
+    .c2f-export-page {
+      padding: 24px 20px;
+    }
+    .exported-message--user .c2f-msg-body {
+      border-radius: 12px 12px 2px 12px !important;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    /* 中等宽度下也隐藏目录，避免目录覆盖正文（正文仍保持居中） */
+    .c2f-export-toc {
+      display: none;
+    }
+  }
+
+  /* 页面底部扩展信息 */
+  .c2f-export-footer {
+    width: 100%;
+    max-width: 850px;
+    margin-top: 32px;
+    padding: 20px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .c2f-export-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #64748b;
+  }
+
+  .c2f-export-footer-logo svg {
+    width: 16px;
+    height: 16px;
+  }
+</style></head><body><aside class="c2f-export-toc" aria-label="目录">
+      <div class="c2f-export-toc-title">目录</div>
+      <ol class="c2f-export-toc-list"></ol>
+    </aside><div class="c2f-export-page"><div class="c2f-export-page-inner"><div class="export-content c2f-export-global-wrapper" data-c2f-site="chatgpt" data-c2f-mode="assistant-only" data-c2f-template="none" data-c2f-structured-notes="false"><div class="exported-message exported-message--ai" data-message-id="2" data-role="assistant"><article data-chat2file-doc="1"><div class="c2f-msg" data-c2f-role="assistant"><div class="c2f-msg-body"><div class="markdown prose dark:prose-invert w-full wrap-break-word light markdown-new-styling"><p>已按该格式偏好记录。下面按考试推导题风格整理，长式等号对齐，短式连等，必要解释尽量放在公式右侧。</p><h1>Kyle Model 推导笔记</h1><p>统一记号。风险资产终值</p><span class="katex-display" data-c2f-latex="v\sim N(v_0,\Sigma_0)," data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">v\sim N(v_0,\Sigma_0),</annotation></semantics></math></span></span></span><p>知情交易者在交易开始前观察 <span class="katex" data-c2f-latex="v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span></span>，做市商只观察总订单流。噪声订单独立于 <span class="katex" data-c2f-latex="v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span></span>。竞争性做市商零利润定价：</p><span class="katex-display" data-c2f-latex="p=E[v\mid \text{observed order flow}]." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>p</mi><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mi>v</mi><mo>∣</mo><mtext>observed&nbsp;order&nbsp;flow</mtext><mo stretchy="false">]</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">p=E[v\mid \text{observed order flow}].</annotation></semantics></math></span></span></span><p>正态环境下，条件期望等于线性投影，价格规则自然落在线性类中；给定线性价格冲击，知情者面对二次利润函数，最优交易策略也落在线性类中。</p><hr><h1>One-period Kyle Model</h1><p>噪声订单</p><span class="katex-display" data-c2f-latex="u\sim N(0,\sigma^2),\qquad u\perp v." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><mi>u</mi><mo>⊥</mo><mi>v</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">u\sim N(0,\sigma^2),\qquad u\perp v.</annotation></semantics></math></span></span></span><p>线性均衡猜测</p><span class="katex-display" data-c2f-latex="x=\beta(v-v_0),\qquad y=x+u,\qquad p=v_0+\lambda y." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mi>β</mi><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><mi>y</mi><mo>=</mo><mi>x</mi><mo>+</mo><mi>u</mi><mo separator="true">,</mo><mspace width="2em"></mspace><mi>p</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mi>λ</mi><mi>y</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">x=\beta(v-v_0),\qquad y=x+u,\qquad p=v_0+\lambda y.</annotation></semantics></math></span></span></span><p>做市商定价：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+p
+&amp;=E[v\mid y] \\[3pt]
+&amp;=v_0+\frac{\operatorname{Cov}(v,y)}{\operatorname{Var}(y)}y
+\qquad \text{联合正态条件期望} \\[3pt]
+&amp;=v_0+
+\frac{\operatorname{Cov}\bigl(v,\beta(v-v_0)+u\bigr)}
+{\operatorname{Var}\bigl(\beta(v-v_0)+u\bigr)}y \\[3pt]
+&amp;=v_0+\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}y .
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>p</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mi>v</mi><mo>∣</mo><mi>y</mi><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mfrac><mrow><mi mathvariant="normal">Cov</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>y</mi><mspace width="2em"></mspace><mtext>联合正态条件期望</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mfrac><mrow><mi mathvariant="normal">Cov</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi>v</mi><mo separator="true">,</mo><mi>β</mi><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mi>u</mi><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow><mrow><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi>β</mi><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mi>u</mi><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow></mfrac><mi>y</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mfrac><mrow><mi>β</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mi>y</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+p
+&amp;=E[v\mid y] \\[3pt]
+&amp;=v_0+\frac{\operatorname{Cov}(v,y)}{\operatorname{Var}(y)}y
+\qquad \text{联合正态条件期望} \\[3pt]
+&amp;=v_0+
+\frac{\operatorname{Cov}\bigl(v,\beta(v-v_0)+u\bigr)}
+{\operatorname{Var}\bigl(\beta(v-v_0)+u\bigr)}y \\[3pt]
+&amp;=v_0+\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}y .
+\end{aligned}</annotation></semantics></math></span></span></span><p>价格冲击系数：</p><span class="katex-display" data-c2f-latex="\lambda=\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mo>=</mo><mfrac><mrow><mi>β</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda=\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}.</annotation></semantics></math></span></span></span><p>知情者条件期望利润：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+E[(v-p)x\mid v]
+&amp;=E[(v-v_0-\lambda(x+u))x\mid v] \\[3pt]
+&amp;=(v-v_0-\lambda x)x
+\qquad E[u\mid v]=0 \\[3pt]
+&amp;=(v-v_0)x-\lambda x^2 .
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo><mi>x</mi><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo>−</mo><mi>λ</mi><mo stretchy="false">(</mo><mi>x</mi><mo>+</mo><mi>u</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mi>x</mi><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo>−</mo><mi>λ</mi><mi>x</mi><mo stretchy="false">)</mo><mi>x</mi><mspace width="2em"></mspace><mi>E</mi><mo stretchy="false">[</mo><mi>u</mi><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mi>x</mi><mo>−</mo><mi>λ</mi><msup><mi>x</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+E[(v-p)x\mid v]
+&amp;=E[(v-v_0-\lambda(x+u))x\mid v] \\[3pt]
+&amp;=(v-v_0-\lambda x)x
+\qquad E[u\mid v]=0 \\[3pt]
+&amp;=(v-v_0)x-\lambda x^2 .
+\end{aligned}</annotation></semantics></math></span></span></span><p>一阶条件：</p><span class="katex-display" data-c2f-latex="v-v_0-2\lambda x=0,\qquad x=\frac{v-v_0}{2\lambda}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo>−</mo><mn>2</mn><mi>λ</mi><mi>x</mi><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mspace width="2em"></mspace><mi>x</mi><mo>=</mo><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><mrow><mn>2</mn><mi>λ</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">v-v_0-2\lambda x=0,\qquad x=\frac{v-v_0}{2\lambda}.</annotation></semantics></math></span></span></span><p>与 <span class="katex" data-c2f-latex="x=\beta(v-v_0)" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>β</mi><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x=\beta(v-v_0)</annotation></semantics></math></span></span> 比较系数：</p><span class="katex-display" data-c2f-latex="\beta=\frac{1}{2\lambda},\qquad \lambda=\frac{1}{2\beta}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>β</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>λ</mi></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><mi>λ</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>β</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta=\frac{1}{2\lambda},\qquad \lambda=\frac{1}{2\beta}.</annotation></semantics></math></span></span></span><p>联立求解：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\frac{1}{2\beta}
+&amp;=\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2} \\[4pt]
+\beta^2\Sigma_0+\sigma^2
+&amp;=2\beta^2\Sigma_0 \\[4pt]
+\beta^2\Sigma_0
+&amp;=\sigma^2 \\[4pt]
+\beta
+&amp;=\frac{\sigma}{\sqrt{\Sigma_0}},
+\qquad \text{取正根，信息高时买入、信息低时卖出}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mfrac><mn>1</mn><mrow><mn>2</mn><mi>β</mi></mrow></mfrac></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mi>β</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>2</mn><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>β</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><mtext>取正根，信息高时买入、信息低时卖出</mtext><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\frac{1}{2\beta}
+&amp;=\frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2} \\[4pt]
+\beta^2\Sigma_0+\sigma^2
+&amp;=2\beta^2\Sigma_0 \\[4pt]
+\beta^2\Sigma_0
+&amp;=\sigma^2 \\[4pt]
+\beta
+&amp;=\frac{\sigma}{\sqrt{\Sigma_0}},
+\qquad \text{取正根，信息高时买入、信息低时卖出}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>价格冲击：</p><span class="katex-display" data-c2f-latex="\lambda=\frac{1}{2\beta}=\frac{\sqrt{\Sigma_0}}{2\sigma}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>β</mi></mrow></mfrac><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mrow><mn>2</mn><mi>σ</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda=\frac{1}{2\beta}=\frac{\sqrt{\Sigma_0}}{2\sigma}.</annotation></semantics></math></span></span></span><p>均衡策略：</p><span class="katex-display" data-c2f-latex="x=\frac{\sigma}{\sqrt{\Sigma_0}}(v-v_0),\qquad p=v_0+\frac{\sqrt{\Sigma_0}}{2\sigma}y." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><mi>p</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mrow><mn>2</mn><mi>σ</mi></mrow></mfrac><mi>y</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">x=\frac{\sigma}{\sqrt{\Sigma_0}}(v-v_0),\qquad p=v_0+\frac{\sqrt{\Sigma_0}}{2\sigma}y.</annotation></semantics></math></span></span></span><p>posterior variance：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Sigma_1
+&amp;=\operatorname{Var}(v\mid y) \\[3pt]
+&amp;=\Sigma_0-
+\frac{\operatorname{Cov}(v,y)^2}{\operatorname{Var}(y)}
+\qquad \text{联合正态投影残差方差} \\[3pt]
+&amp;=\Sigma_0-\frac{(\beta\Sigma_0)^2}{\beta^2\Sigma_0+\sigma^2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo>∣</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>−</mo><mfrac><mrow><mi mathvariant="normal">Cov</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mfrac><mspace width="2em"></mspace><mtext>联合正态投影残差方差</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>β</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><msup><mi>β</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Sigma_1
+&amp;=\operatorname{Var}(v\mid y) \\[3pt]
+&amp;=\Sigma_0-
+\frac{\operatorname{Cov}(v,y)^2}{\operatorname{Var}(y)}
+\qquad \text{联合正态投影残差方差} \\[3pt]
+&amp;=\Sigma_0-\frac{(\beta\Sigma_0)^2}{\beta^2\Sigma_0+\sigma^2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>代入均衡 <span class="katex" data-c2f-latex="\beta=\sigma/\sqrt{\Sigma_0}" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mi>σ</mi><mi mathvariant="normal">/</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow><annotation encoding="application/x-tex">\beta=\sigma/\sqrt{\Sigma_0}</annotation></semantics></math></span></span>：</p><span class="katex-display" data-c2f-latex="\Sigma_1=\Sigma_0-\frac{\sigma^2\Sigma_0}{2\sigma^2}=\frac{1}{2}\Sigma_0." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>−</mo><mfrac><mrow><msup><mi>σ</mi><mn>2</mn></msup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow><mrow><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Sigma_1=\Sigma_0-\frac{\sigma^2\Sigma_0}{2\sigma^2}=\frac{1}{2}\Sigma_0.</annotation></semantics></math></span></span></span><p>条件期望利润：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Pi^{(1)}(v)
+&amp;=\max_x\{(v-v_0)x-\lambda x^2\} \\[3pt]
+&amp;=\frac{(v-v_0)^2}{4\lambda} \\[3pt]
+&amp;=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2 .
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><mi>x</mi></munder><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mi>x</mi><mo>−</mo><mi>λ</mi><msup><mi>x</mi><mn>2</mn></msup><mo stretchy="false">}</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>4</mn><mi>λ</mi></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mi>σ</mi><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Pi^{(1)}(v)
+&amp;=\max_x\{(v-v_0)x-\lambda x^2\} \\[3pt]
+&amp;=\frac{(v-v_0)^2}{4\lambda} \\[3pt]
+&amp;=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2 .
+\end{aligned}</annotation></semantics></math></span></span></span><p>无条件期望利润：</p><span class="katex-display" data-c2f-latex="E[\Pi^{(1)}]=\frac{\sigma}{2\sqrt{\Sigma_0}}E[(v-v_0)^2]=\frac{1}{2}\sigma\sqrt{\Sigma_0}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo stretchy="false">[</mo><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">]</mo><mo>=</mo><mfrac><mi>σ</mi><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo stretchy="false">]</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">E[\Pi^{(1)}]=\frac{\sigma}{2\sqrt{\Sigma_0}}E[(v-v_0)^2]=\frac{1}{2}\sigma\sqrt{\Sigma_0}.</annotation></semantics></math></span></span></span><hr><h1>Two-period Kyle Model</h1><p>总噪声强度与 one-period benchmark 保持一致，每期噪声方差</p><span class="katex-display" data-c2f-latex="u_1,u_2\overset{iid}{\sim}N(0,s^2),\qquad s^2=\frac{\sigma^2}{2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>u</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>u</mi><mn>2</mn></msub><mo><mover><mo><mo>∼</mo></mo><mrow><mi>i</mi><mi>i</mi><mi>d</mi></mrow></mover></mo><mi>N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><msup><mi>s</mi><mn>2</mn></msup><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><msup><mi>s</mi><mn>2</mn></msup><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mn>2</mn></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">u_1,u_2\overset{iid}{\sim}N(0,s^2),\qquad s^2=\frac{\sigma^2}{2}.</annotation></semantics></math></span></span></span><p>第一期线性猜测：</p><span class="katex-display" data-c2f-latex="x_1=\beta_1(v-v_0),\qquad y_1=x_1+u_1,\qquad p_1=v_0+\lambda_1y_1." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>β</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>y</mi><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>u</mi><mn>1</mn></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>p</mi><mn>1</mn></msub><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>y</mi><mn>1</mn></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">x_1=\beta_1(v-v_0),\qquad y_1=x_1+u_1,\qquad p_1=v_0+\lambda_1y_1.</annotation></semantics></math></span></span></span><p>第二期线性猜测：</p><span class="katex-display" data-c2f-latex="x_2=\beta_2(v-p_1),\qquad y_2=x_2+u_2,\qquad p_2=p_1+\lambda_2y_2." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><msub><mi>β</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>y</mi><mn>2</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><msub><mi>u</mi><mn>2</mn></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>p</mi><mn>2</mn></msub><mo>=</mo><msub><mi>p</mi><mn>1</mn></msub><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><msub><mi>y</mi><mn>2</mn></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">x_2=\beta_2(v-p_1),\qquad y_2=x_2+u_2,\qquad p_2=p_1+\lambda_2y_2.</annotation></semantics></math></span></span></span><p>第二期开始时，市场 maker 的 prior 为</p><span class="katex-display" data-c2f-latex="v\mid y_1\sim N(p_1,\Sigma_1)." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>∣</mo><msub><mi>y</mi><mn>1</mn></msub><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">v\mid y_1\sim N(p_1,\Sigma_1).</annotation></semantics></math></span></span></span><p>第二期等同 one-period Kyle：</p><span class="katex-display" data-c2f-latex="\beta_2=\frac{s}{\sqrt{\Sigma_1}},\qquad \lambda_2=\frac{\sqrt{\Sigma_1}}{2s}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mfrac><mi>s</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub></msqrt><mrow><mn>2</mn><mi>s</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_2=\frac{s}{\sqrt{\Sigma_1}},\qquad \lambda_2=\frac{\sqrt{\Sigma_1}}{2s}.</annotation></semantics></math></span></span></span><p>第二期 continuation value：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+V_2(v,p_1)
+&amp;=\max_{x_2}E[(v-p_2)x_2\mid v,p_1] \\[3pt]
+&amp;=\max_{x_2}\{(v-p_1)x_2-\lambda_2x_2^2\} \\[3pt]
+&amp;=\frac{(v-p_1)^2}{4\lambda_2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>V</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><msub><mi>x</mi><mn>2</mn></msub></munder><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>2</mn></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mn>2</mn></msub><mo>∣</mo><mi>v</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><munder><mrow><mi>max</mi><mo>⁡</mo></mrow><msub><mi>x</mi><mn>2</mn></msub></munder><mo stretchy="false">{</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>λ</mi><mn>2</mn></msub><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo stretchy="false">}</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+V_2(v,p_1)
+&amp;=\max_{x_2}E[(v-p_2)x_2\mid v,p_1] \\[3pt]
+&amp;=\max_{x_2}\{(v-p_1)x_2-\lambda_2x_2^2\} \\[3pt]
+&amp;=\frac{(v-p_1)^2}{4\lambda_2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>记 <span class="katex" data-c2f-latex="z=v-v_0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">z=v-v_0</annotation></semantics></math></span></span>。第一期价格误差：</p><span class="katex-display" data-c2f-latex="v-p_1=z-\lambda_1x_1-\lambda_1u_1." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo>=</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>u</mi><mn>1</mn></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">v-p_1=z-\lambda_1x_1-\lambda_1u_1.</annotation></semantics></math></span></span></span><p>第一期目标函数：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+J_1(x_1;v)
+&amp;=E\left[(v-p_1)x_1+\frac{(v-p_1)^2}{4\lambda_2}\mid v\right] \\[4pt]
+&amp;=x_1(z-\lambda_1x_1)
++\frac{1}{4\lambda_2}
+E\left[(z-\lambda_1x_1-\lambda_1u_1)^2\mid v\right] \\[4pt]
+&amp;=x_1(z-\lambda_1x_1)
++\frac{(z-\lambda_1x_1)^2+\lambda_1^2s^2}{4\lambda_2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>J</mi><mn>1</mn></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">;</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mrow><mo fence="true">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mo>∣</mo><mi>v</mi><mo fence="true">]</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mi>E</mi><mrow><mo fence="true">[</mo><mo stretchy="false">(</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>u</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>∣</mo><mi>v</mi><mo fence="true">]</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msubsup><mi>λ</mi><mn>1</mn><mn>2</mn></msubsup><msup><mi>s</mi><mn>2</mn></msup></mrow><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+J_1(x_1;v)
+&amp;=E\left[(v-p_1)x_1+\frac{(v-p_1)^2}{4\lambda_2}\mid v\right] \\[4pt]
+&amp;=x_1(z-\lambda_1x_1)
++\frac{1}{4\lambda_2}
+E\left[(z-\lambda_1x_1-\lambda_1u_1)^2\mid v\right] \\[4pt]
+&amp;=x_1(z-\lambda_1x_1)
++\frac{(z-\lambda_1x_1)^2+\lambda_1^2s^2}{4\lambda_2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>一阶条件：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+0
+&amp;=\frac{\partial J_1}{\partial x_1} \\[3pt]
+&amp;=z-2\lambda_1x_1-\frac{\lambda_1}{2\lambda_2}(z-\lambda_1x_1).
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><msub><mi>J</mi><mn>1</mn></msub></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>z</mi><mo>−</mo><mn>2</mn><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><mfrac><msub><mi>λ</mi><mn>1</mn></msub><mrow><mn>2</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mo stretchy="false">(</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+0
+&amp;=\frac{\partial J_1}{\partial x_1} \\[3pt]
+&amp;=z-2\lambda_1x_1-\frac{\lambda_1}{2\lambda_2}(z-\lambda_1x_1).
+\end{aligned}</annotation></semantics></math></span></span></span><p>记</p><span class="katex-display" data-c2f-latex="a=\frac{\lambda_1}{2\lambda_2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mo>=</mo><mfrac><msub><mi>λ</mi><mn>1</mn></msub><mrow><mn>2</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">a=\frac{\lambda_1}{2\lambda_2}.</annotation></semantics></math></span></span></span><p>第一期最优交易：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+0
+&amp;=(1-a)z-\lambda_1(2-a)x_1 \\[3pt]
+x_1
+&amp;=\frac{1-a}{\lambda_1(2-a)}z.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo><msub><mi>x</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>x</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mi>a</mi></mrow><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>z</mi><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+0
+&amp;=(1-a)z-\lambda_1(2-a)x_1 \\[3pt]
+x_1
+&amp;=\frac{1-a}{\lambda_1(2-a)}z.
+\end{aligned}</annotation></semantics></math></span></span></span><p>于是</p><span class="katex-display" data-c2f-latex="\beta_1=\frac{1-a}{\lambda_1(2-a)},\qquad \lambda_1\beta_1=\frac{1-a}{2-a}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mi>a</mi></mrow><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mi>a</mi></mrow><mrow><mn>2</mn><mo>−</mo><mi>a</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_1=\frac{1-a}{\lambda_1(2-a)},\qquad \lambda_1\beta_1=\frac{1-a}{2-a}.</annotation></semantics></math></span></span></span><p>第一期 Bayesian pricing：</p><span class="katex-display" data-c2f-latex="\lambda_1=\frac{\beta_1\Sigma_0}{\beta_1^2\Sigma_0+s^2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><msub><mi>β</mi><mn>1</mn></msub><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow><mrow><msubsup><mi>β</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>s</mi><mn>2</mn></msup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_1=\frac{\beta_1\Sigma_0}{\beta_1^2\Sigma_0+s^2}.</annotation></semantics></math></span></span></span><p>第一期 posterior variance：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Sigma_1
+&amp;=\Sigma_0-\frac{(\beta_1\Sigma_0)^2}{\beta_1^2\Sigma_0+s^2} \\[4pt]
+&amp;=\frac{\Sigma_0s^2}{\beta_1^2\Sigma_0+s^2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><msub><mi>β</mi><mn>1</mn></msub><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><msubsup><mi>β</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>s</mi><mn>2</mn></msup></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><msup><mi>s</mi><mn>2</mn></msup></mrow><mrow><msubsup><mi>β</mi><mn>1</mn><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><msup><mi>s</mi><mn>2</mn></msup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Sigma_1
+&amp;=\Sigma_0-\frac{(\beta_1\Sigma_0)^2}{\beta_1^2\Sigma_0+s^2} \\[4pt]
+&amp;=\frac{\Sigma_0s^2}{\beta_1^2\Sigma_0+s^2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>记</p><span class="katex-display" data-c2f-latex="\rho=\frac{\Sigma_1}{\Sigma_0}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>ρ</mi><mo>=</mo><mfrac><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\rho=\frac{\Sigma_1}{\Sigma_0}.</annotation></semantics></math></span></span></span><p>两个关键等式：</p><span class="katex-display" data-c2f-latex="\lambda_1\beta_1=1-\rho,
+\qquad 
+\lambda_1=\frac{\sqrt{\Sigma_0}}{s}\sqrt{\rho(1-\rho)}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>−</mo><mi>ρ</mi><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi>s</mi></mfrac><msqrt><mrow><mi>ρ</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>ρ</mi><mo stretchy="false">)</mo></mrow></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_1\beta_1=1-\rho,
+\qquad 
+\lambda_1=\frac{\sqrt{\Sigma_0}}{s}\sqrt{\rho(1-\rho)}.</annotation></semantics></math></span></span></span><p>第二期价格冲击：</p><span class="katex-display" data-c2f-latex="\lambda_2=\frac{\sqrt{\Sigma_1}}{2s}=\frac{\sqrt{\rho\Sigma_0}}{2s}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>1</mn></msub></msqrt><mrow><mn>2</mn><mi>s</mi></mrow></mfrac><mo>=</mo><mfrac><msqrt><mrow><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt><mrow><mn>2</mn><mi>s</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_2=\frac{\sqrt{\Sigma_1}}{2s}=\frac{\sqrt{\rho\Sigma_0}}{2s}.</annotation></semantics></math></span></span></span><p>于是</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+a
+&amp;=\frac{\lambda_1}{2\lambda_2} \\[3pt]
+&amp;=
+\frac{
+\frac{\sqrt{\Sigma_0}}{s}\sqrt{\rho(1-\rho)}
+}{
+\frac{\sqrt{\rho\Sigma_0}}{s}
+} \\[5pt]
+&amp;=\sqrt{1-\rho}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>a</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><msub><mi>λ</mi><mn>1</mn></msub><mrow><mn>2</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi>s</mi></mfrac><msqrt><mrow><mi>ρ</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>ρ</mi><mo stretchy="false">)</mo></mrow></msqrt></mrow><mfrac><msqrt><mrow><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt><mi>s</mi></mfrac></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msqrt><mrow><mn>1</mn><mo>−</mo><mi>ρ</mi></mrow></msqrt><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+a
+&amp;=\frac{\lambda_1}{2\lambda_2} \\[3pt]
+&amp;=
+\frac{
+\frac{\sqrt{\Sigma_0}}{s}\sqrt{\rho(1-\rho)}
+}{
+\frac{\sqrt{\rho\Sigma_0}}{s}
+} \\[5pt]
+&amp;=\sqrt{1-\rho}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>从 <span class="katex" data-c2f-latex="\lambda_1\beta_1=1-\rho=a^2" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn><mo>−</mo><mi>ρ</mi><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\lambda_1\beta_1=1-\rho=a^2</annotation></semantics></math></span></span> 与 <span class="katex" data-c2f-latex="\lambda_1\beta_1=(1-a)/(2-a)" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\lambda_1\beta_1=(1-a)/(2-a)</annotation></semantics></math></span></span> 得到</p><span class="katex-display" data-c2f-latex="a^2=\frac{1-a}{2-a}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mi>a</mi></mrow><mrow><mn>2</mn><mo>−</mo><mi>a</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">a^2=\frac{1-a}{2-a}.</annotation></semantics></math></span></span></span><p>整理：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+a^2(2-a)&amp;=1-a \\[3pt]
+2a^2-a^3&amp;=1-a \\[3pt]
+a^3-2a^2-a+1&amp;=0.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi>a</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>2</mn><mo>−</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mi>a</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>2</mn><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><msup><mi>a</mi><mn>3</mn></msup></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mi>a</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi>a</mi><mn>3</mn></msup><mo>−</mo><mn>2</mn><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mi>a</mi><mo>+</mo><mn>1</mn></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>0.</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+a^2(2-a)&amp;=1-a \\[3pt]
+2a^2-a^3&amp;=1-a \\[3pt]
+a^3-2a^2-a+1&amp;=0.
+\end{aligned}</annotation></semantics></math></span></span></span><p>取 <span class="katex" data-c2f-latex="a\in(0,1)" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">a\in(0,1)</annotation></semantics></math></span></span> 的根：</p><span class="katex-display" data-c2f-latex="a\approx0.554958,\qquad \rho=1-a^2\approx0.692021." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mo>≈</mo><mn>0.554958</mn><mo separator="true">,</mo><mspace width="2em"></mspace><mi>ρ</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup><mo>≈</mo><mn>0.692021.</mn></mrow><annotation encoding="application/x-tex">a\approx0.554958,\qquad \rho=1-a^2\approx0.692021.</annotation></semantics></math></span></span></span><p>两期均衡参数：</p><span class="katex-display" data-c2f-latex="\beta_1=\frac{s}{\sqrt{\Sigma_0}}\frac{a}{\sqrt{\rho}},
+\qquad 
+\lambda_1=\frac{\sqrt{\Sigma_0}}{s}a\sqrt{\rho}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mfrac><mi>s</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mfrac><mi>a</mi><msqrt><mi>ρ</mi></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi>s</mi></mfrac><mi>a</mi><msqrt><mi>ρ</mi></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_1=\frac{s}{\sqrt{\Sigma_0}}\frac{a}{\sqrt{\rho}},
+\qquad 
+\lambda_1=\frac{\sqrt{\Sigma_0}}{s}a\sqrt{\rho}.</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\beta_2=\frac{s}{\sqrt{\rho\Sigma_0}},
+\qquad
+\lambda_2=\frac{\sqrt{\rho\Sigma_0}}{2s}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mfrac><mi>s</mi><msqrt><mrow><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msqrt><mrow><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt><mrow><mn>2</mn><mi>s</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_2=\frac{s}{\sqrt{\rho\Sigma_0}},
+\qquad
+\lambda_2=\frac{\sqrt{\rho\Sigma_0}}{2s}.</annotation></semantics></math></span></span></span><p>代入 <span class="katex" data-c2f-latex="s=\sigma/\sqrt{2}" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>σ</mi><mi mathvariant="normal">/</mi><msqrt><mn>2</mn></msqrt></mrow><annotation encoding="application/x-tex">s=\sigma/\sqrt{2}</annotation></semantics></math></span></span>：</p><span class="katex-display" data-c2f-latex="\beta_1=\frac{\sigma}{\sqrt{2\Sigma_0}}\frac{a}{\sqrt{\rho}},
+\qquad
+\lambda_1=\frac{\sqrt{2\Sigma_0}}{\sigma}a\sqrt{\rho}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo>=</mo><mfrac><mi>σ</mi><msqrt><mrow><mn>2</mn><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt></mfrac><mfrac><mi>a</mi><msqrt><mi>ρ</mi></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>1</mn></msub><mo>=</mo><mfrac><msqrt><mrow><mn>2</mn><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt><mi>σ</mi></mfrac><mi>a</mi><msqrt><mi>ρ</mi></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_1=\frac{\sigma}{\sqrt{2\Sigma_0}}\frac{a}{\sqrt{\rho}},
+\qquad
+\lambda_1=\frac{\sqrt{2\Sigma_0}}{\sigma}a\sqrt{\rho}.</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\beta_2=\frac{\sigma}{\sqrt{2\rho\Sigma_0}},
+\qquad
+\lambda_2=\frac{\sqrt{\rho\Sigma_0}}{\sqrt{2}\sigma}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mn>2</mn></msub><mo>=</mo><mfrac><mi>σ</mi><msqrt><mrow><mn>2</mn><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mn>2</mn></msub><mo>=</mo><mfrac><msqrt><mrow><mi>ρ</mi><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt><mrow><msqrt><mn>2</mn></msqrt><mi>σ</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_2=\frac{\sigma}{\sqrt{2\rho\Sigma_0}},
+\qquad
+\lambda_2=\frac{\sqrt{\rho\Sigma_0}}{\sqrt{2}\sigma}.</annotation></semantics></math></span></span></span><p>条件期望利润：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Pi^{(2)}(v)
+&amp;=E[(v-p_1)x_1+V_2(v,p_1)\mid v] \\[4pt]
+&amp;=\beta_1\rho z^2+
+\frac{E[(\rho z-\lambda_1u_1)^2\mid v]}{4\lambda_2} \\[4pt]
+&amp;=\beta_1\rho z^2+
+\frac{\rho^2z^2+\lambda_1^2s^2}{4\lambda_2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>V</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>β</mi><mn>1</mn></msub><mi>ρ</mi><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>ρ</mi><mi>z</mi><mo>−</mo><msub><mi>λ</mi><mn>1</mn></msub><msub><mi>u</mi><mn>1</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>β</mi><mn>1</mn></msub><mi>ρ</mi><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mfrac><mrow><msup><mi>ρ</mi><mn>2</mn></msup><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><msubsup><mi>λ</mi><mn>1</mn><mn>2</mn></msubsup><msup><mi>s</mi><mn>2</mn></msup></mrow><mrow><mn>4</mn><msub><mi>λ</mi><mn>2</mn></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Pi^{(2)}(v)
+&amp;=E[(v-p_1)x_1+V_2(v,p_1)\mid v] \\[4pt]
+&amp;=\beta_1\rho z^2+
+\frac{E[(\rho z-\lambda_1u_1)^2\mid v]}{4\lambda_2} \\[4pt]
+&amp;=\beta_1\rho z^2+
+\frac{\rho^2z^2+\lambda_1^2s^2}{4\lambda_2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>代入均衡参数：</p><span class="katex-display" data-c2f-latex="\Pi^{(2)}(v)
+=
+\frac{\sigma}{\sqrt{2\Sigma_0}}
+\sqrt{\rho}\left(a+\frac{\rho}{2}\right)(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mi>σ</mi><msqrt><mrow><mn>2</mn><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt></mfrac><msqrt><mi>ρ</mi></msqrt><mrow><mo fence="true">(</mo><mi>a</mi><mo>+</mo><mfrac><mi>ρ</mi><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow><mrow><mn>2</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac><msup><mi>a</mi><mn>2</mn></msup><msqrt><mi>ρ</mi></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(2)}(v)
+=
+\frac{\sigma}{\sqrt{2\Sigma_0}}
+\sqrt{\rho}\left(a+\frac{\rho}{2}\right)(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}.</annotation></semantics></math></span></span></span><p>数值形式：</p><span class="katex-display" data-c2f-latex="\Pi^{(2)}(v)
+\approx
+0.529974\frac{\sigma}{\sqrt{\Sigma_0}}(v-v_0)^2
++
+0.090581\sigma\sqrt{\Sigma_0}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>≈</mo><mn>0.529974</mn><mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>0.090581</mn><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(2)}(v)
+\approx
+0.529974\frac{\sigma}{\sqrt{\Sigma_0}}(v-v_0)^2
++
+0.090581\sigma\sqrt{\Sigma_0}.</annotation></semantics></math></span></span></span><p><span class="katex" data-c2f-latex="v=v_0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">v=v_0</annotation></semantics></math></span></span> 时：</p><span class="katex-display" data-c2f-latex="\Pi^{(1)}(v_0)=0,\qquad 
+\Pi^{(2)}(v_0)=\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}\approx0.090581\sigma\sqrt{\Sigma_0}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mspace width="2em"></mspace><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow><mrow><mn>2</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac><msup><mi>a</mi><mn>2</mn></msup><msqrt><mi>ρ</mi></msqrt><mo>≈</mo><mn>0.090581</mn><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(1)}(v_0)=0,\qquad 
+\Pi^{(2)}(v_0)=\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}\approx0.090581\sigma\sqrt{\Sigma_0}.</annotation></semantics></math></span></span></span><p>该正利润来自第一期噪声订单制造的错价。若 <span class="katex" data-c2f-latex="u_1&gt;0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mn>1</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">u_1&gt;0</annotation></semantics></math></span></span>，<span class="katex" data-c2f-latex="p_1&gt;v_0=v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>&gt;</mo><msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">p_1&gt;v_0=v</annotation></semantics></math></span></span>，第二期卖出获利；若 <span class="katex" data-c2f-latex="u_1&lt;0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mn>1</mn></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">u_1&lt;0</annotation></semantics></math></span></span>，<span class="katex" data-c2f-latex="p_1&lt;v_0=v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>v</mi><mn>0</mn></msub><mo>=</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">p_1&lt;v_0=v</annotation></semantics></math></span></span>，第二期买入获利。利润来源不是 <span class="katex" data-c2f-latex="v-v_0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">v-v_0</annotation></semantics></math></span></span> 的初始方向性信息，而是动态交易中噪声冲击生成的 posterior mispricing。</p><hr><h1>Multi-period Kyle Model</h1><p>交易期数 <span class="katex" data-c2f-latex="n=1,\dots,N" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">n=1,\dots,N</annotation></semantics></math></span></span>。每期噪声订单</p><span class="katex-display" data-c2f-latex="u_n\sim N(0,s_n^2),\qquad u_n\perp v,\qquad u_n\perp u_m\ (m\neq n)." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>u</mi><mi>n</mi></msub><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>u</mi><mi>n</mi></msub><mo>⊥</mo><mi>v</mi><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>u</mi><mi>n</mi></msub><mo>⊥</mo><msub><mi>u</mi><mi>m</mi></msub><mtext>&nbsp;</mtext><mo stretchy="false">(</mo><mi>m</mi><mo mathvariant="normal">≠</mo><mi>n</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">u_n\sim N(0,s_n^2),\qquad u_n\perp v,\qquad u_n\perp u_m\ (m\neq n).</annotation></semantics></math></span></span></span><p>若总噪声强度固定为 <span class="katex" data-c2f-latex="\sigma^2" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math></span></span>，常取</p><span class="katex-display" data-c2f-latex="s_n^2=\frac{\sigma^2}{N}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>N</mi></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">s_n^2=\frac{\sigma^2}{N}.</annotation></semantics></math></span></span></span><p>交易前 posterior：</p><span class="katex-display" data-c2f-latex="v\mid \mathcal F_{n-1}^y\sim N(p_{n-1},\Sigma_{n-1})." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>∣</mo><msubsup><mi mathvariant="script">F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mo>∼</mo><mi>N</mi><mo stretchy="false">(</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">v\mid \mathcal F_{n-1}^y\sim N(p_{n-1},\Sigma_{n-1}).</annotation></semantics></math></span></span></span><p>线性均衡形式：</p><span class="katex-display" data-c2f-latex="x_n=\beta_n(v-p_{n-1}),\qquad y_n=x_n+u_n,\qquad p_n=p_{n-1}+\lambda_n y_n." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>x</mi><mi>n</mi></msub><mo>=</mo><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>y</mi><mi>n</mi></msub><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo>+</mo><msub><mi>u</mi><mi>n</mi></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>p</mi><mi>n</mi></msub><mo>=</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>y</mi><mi>n</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">x_n=\beta_n(v-p_{n-1}),\qquad y_n=x_n+u_n,\qquad p_n=p_{n-1}+\lambda_n y_n.</annotation></semantics></math></span></span></span><p>记</p><span class="katex-display" data-c2f-latex="z_{n-1}=v-p_{n-1}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">z_{n-1}=v-p_{n-1}.</annotation></semantics></math></span></span></span><p>Bayesian pricing：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\lambda_n
+&amp;=\frac{\operatorname{Cov}(v,y_n\mid \mathcal F_{n-1}^y)}
+{\operatorname{Var}(y_n\mid \mathcal F_{n-1}^y)} \\[4pt]
+&amp;=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>λ</mi><mi>n</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mi mathvariant="normal">Cov</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo separator="true">,</mo><msub><mi>y</mi><mi>n</mi></msub><mo>∣</mo><msubsup><mi mathvariant="script">F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>y</mi><mi>n</mi></msub><mo>∣</mo><msubsup><mi mathvariant="script">F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mo stretchy="false">)</mo></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><msub><mi>β</mi><mi>n</mi></msub><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\lambda_n
+&amp;=\frac{\operatorname{Cov}(v,y_n\mid \mathcal F_{n-1}^y)}
+{\operatorname{Var}(y_n\mid \mathcal F_{n-1}^y)} \\[4pt]
+&amp;=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>posterior variance：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Sigma_n
+&amp;=\operatorname{Var}(v\mid \mathcal F_n^y) \\[3pt]
+&amp;=\Sigma_{n-1}-
+\frac{(\beta_n\Sigma_{n-1})^2}
+{\beta_n^2\Sigma_{n-1}+s_n^2} \\[4pt]
+&amp;=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi mathvariant="normal">Σ</mi><mi>n</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">Var</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>v</mi><mo>∣</mo><msubsup><mi mathvariant="script">F</mi><mi>n</mi><mi>y</mi></msubsup><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><mfrac><mrow><mo stretchy="false">(</mo><msub><mi>β</mi><mi>n</mi></msub><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Sigma_n
+&amp;=\operatorname{Var}(v\mid \mathcal F_n^y) \\[3pt]
+&amp;=\Sigma_{n-1}-
+\frac{(\beta_n\Sigma_{n-1})^2}
+{\beta_n^2\Sigma_{n-1}+s_n^2} \\[4pt]
+&amp;=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>信息揭示比例：</p><span class="katex-display" data-c2f-latex="\lambda_n\beta_n
+=
+\frac{\beta_n^2\Sigma_{n-1}}
+{\beta_n^2\Sigma_{n-1}+s_n^2}
+=
+1-\frac{\Sigma_n}{\Sigma_{n-1}}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><msub><mi mathvariant="normal">Σ</mi><mi>n</mi></msub><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_n\beta_n
+=
+\frac{\beta_n^2\Sigma_{n-1}}
+{\beta_n^2\Sigma_{n-1}+s_n^2}
+=
+1-\frac{\Sigma_n}{\Sigma_{n-1}}.</annotation></semantics></math></span></span></span><p>动态规划写成二次 value function：</p><span class="katex-display" data-c2f-latex="V_n(z_{n-1})=H_nz_{n-1}^2+K_n,\qquad H_{N+1}=K_{N+1}=0." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>V</mi><mi>n</mi></msub><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>H</mi><mi>n</mi></msub><msubsup><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mn>2</mn></msubsup><mo>+</mo><msub><mi>K</mi><mi>n</mi></msub><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>H</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>K</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0.</mn></mrow><annotation encoding="application/x-tex">V_n(z_{n-1})=H_nz_{n-1}^2+K_n,\qquad H_{N+1}=K_{N+1}=0.</annotation></semantics></math></span></span></span><p>给定 <span class="katex" data-c2f-latex="\lambda_n" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\lambda_n</annotation></semantics></math></span></span> 与 <span class="katex" data-c2f-latex="H_{n+1}" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">H_{n+1}</annotation></semantics></math></span></span>，第 <span class="katex" data-c2f-latex="n" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span></span> 期目标函数：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+J_n(x_n;z_{n-1})
+&amp;=E[(v-p_n)x_n+V_{n+1}(v-p_n)\mid v,\mathcal F_{n-1}^y] \\[4pt]
+&amp;=x_n(z_{n-1}-\lambda_nx_n)
++H_{n+1}E[(z_{n-1}-\lambda_nx_n-\lambda_nu_n)^2] +K_{n+1} \\[4pt]
+&amp;=x_n(z_{n-1}-\lambda_nx_n)
++H_{n+1}\bigl[(z_{n-1}-\lambda_nx_n)^2+\lambda_n^2s_n^2\bigr]+K_{n+1}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>J</mi><mi>n</mi></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>n</mi></msub><mo separator="true">;</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mi>n</mi></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mi>n</mi></msub><mo>+</mo><msub><mi>V</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>p</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>∣</mo><mi>v</mi><mo separator="true">,</mo><msubsup><mi mathvariant="script">F</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>y</mi></msubsup><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mi>E</mi><mo stretchy="false">[</mo><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>u</mi><mi>n</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo stretchy="false">]</mo><mo>+</mo><msub><mi>K</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">[</mo><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msubsup><mi>λ</mi><mi>n</mi><mn>2</mn></msubsup><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">]</mo><mo>+</mo><msub><mi>K</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+J_n(x_n;z_{n-1})
+&amp;=E[(v-p_n)x_n+V_{n+1}(v-p_n)\mid v,\mathcal F_{n-1}^y] \\[4pt]
+&amp;=x_n(z_{n-1}-\lambda_nx_n)
++H_{n+1}E[(z_{n-1}-\lambda_nx_n-\lambda_nu_n)^2] +K_{n+1} \\[4pt]
+&amp;=x_n(z_{n-1}-\lambda_nx_n)
++H_{n+1}\bigl[(z_{n-1}-\lambda_nx_n)^2+\lambda_n^2s_n^2\bigr]+K_{n+1}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>一阶条件：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+0
+&amp;=\frac{\partial J_n}{\partial x_n} \\[3pt]
+&amp;=z_{n-1}-2\lambda_nx_n
+-2H_{n+1}\lambda_n(z_{n-1}-\lambda_nx_n).
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><msub><mi>J</mi><mi>n</mi></msub></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><mn>2</mn><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><mo>−</mo><mn>2</mn><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">(</mo><msub><mi>z</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>x</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+0
+&amp;=\frac{\partial J_n}{\partial x_n} \\[3pt]
+&amp;=z_{n-1}-2\lambda_nx_n
+-2H_{n+1}\lambda_n(z_{n-1}-\lambda_nx_n).
+\end{aligned}</annotation></semantics></math></span></span></span><p>最优交易强度：</p><span class="katex-display" data-c2f-latex="\beta_n
+=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mn>2</mn><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub></mrow><mrow><mn>2</mn><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_n
+=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)}.</annotation></semantics></math></span></span></span><p>value function 递推：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+H_n
+&amp;=\beta_n(1-\lambda_n\beta_n)
++H_{n+1}(1-\lambda_n\beta_n)^2, \\[4pt]
+K_n
+&amp;=K_{n+1}+H_{n+1}\lambda_n^2s_n^2.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>H</mi><mi>n</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo separator="true">,</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>K</mi><mi>n</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msub><mi>K</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msubsup><mi>λ</mi><mi>n</mi><mn>2</mn></msubsup><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+H_n
+&amp;=\beta_n(1-\lambda_n\beta_n)
++H_{n+1}(1-\lambda_n\beta_n)^2, \\[4pt]
+K_n
+&amp;=K_{n+1}+H_{n+1}\lambda_n^2s_n^2.
+\end{aligned}</annotation></semantics></math></span></span></span><p>终端期 <span class="katex" data-c2f-latex="n=N" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">n=N</annotation></semantics></math></span></span>：</p><span class="katex-display" data-c2f-latex="H_{N+1}=0
+\quad\Rightarrow\quad
+\beta_N=\frac{1}{2\lambda_N}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>H</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0</mn><mspace width="1em"></mspace><mo>⇒</mo><mspace width="1em"></mspace><msub><mi>β</mi><mi>N</mi></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msub><mi>λ</mi><mi>N</mi></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">H_{N+1}=0
+\quad\Rightarrow\quad
+\beta_N=\frac{1}{2\lambda_N}.</annotation></semantics></math></span></span></span><p>再联立 Bayesian pricing：</p><span class="katex-display" data-c2f-latex="\beta_N=\frac{s_N}{\sqrt{\Sigma_{N-1}}},
+\qquad
+\lambda_N=\frac{\sqrt{\Sigma_{N-1}}}{2s_N},
+\qquad
+H_N=\frac{1}{4\lambda_N}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mi>N</mi></msub><mo>=</mo><mfrac><msub><mi>s</mi><mi>N</mi></msub><msqrt><msub><mi mathvariant="normal">Σ</mi><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow></msub></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>λ</mi><mi>N</mi></msub><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow></msub></msqrt><mrow><mn>2</mn><msub><mi>s</mi><mi>N</mi></msub></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>H</mi><mi>N</mi></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mn>4</mn><msub><mi>λ</mi><mi>N</mi></msub></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_N=\frac{s_N}{\sqrt{\Sigma_{N-1}}},
+\qquad
+\lambda_N=\frac{\sqrt{\Sigma_{N-1}}}{2s_N},
+\qquad
+H_N=\frac{1}{4\lambda_N}.</annotation></semantics></math></span></span></span><p>整套 multi-period 均衡递推写成：</p><span class="katex-display" data-c2f-latex="\boxed{
+\lambda_n=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2},
+\qquad
+\Sigma_n=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}
+}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>λ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>β</mi><mi>n</mi></msub><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="normal">Σ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{
+\lambda_n=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2},
+\qquad
+\Sigma_n=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}
+}</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\boxed{
+\beta_n=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)},
+\qquad
+H_n=\beta_n(1-\lambda_n\beta_n)+H_{n+1}(1-\lambda_n\beta_n)^2
+}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>β</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mn>2</mn><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub></mrow><mrow><mn>2</mn><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>H</mi><mi>n</mi></msub><mo>=</mo><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{
+\beta_n=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)},
+\qquad
+H_n=\beta_n(1-\lambda_n\beta_n)+H_{n+1}(1-\lambda_n\beta_n)^2
+}</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\boxed{
+K_n=K_{n+1}+H_{n+1}\lambda_n^2s_n^2,
+\qquad
+H_{N+1}=K_{N+1}=0.
+}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>K</mi><mi>n</mi></msub><mo>=</mo><msub><mi>K</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msubsup><mi>λ</mi><mi>n</mi><mn>2</mn></msubsup><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>H</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>K</mi><mrow><mi>N</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0.</mn></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{
+K_n=K_{n+1}+H_{n+1}\lambda_n^2s_n^2,
+\qquad
+H_{N+1}=K_{N+1}=0.
+}</annotation></semantics></math></span></span></span><p>该递推体现出 multi-period Kyle 的核心结构：</p><span class="katex-display" data-c2f-latex="\text{Bayesian updating}\quad+\quad\text{dynamic programming}\quad+\quad\text{linear-quadratic fixed point}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Bayesian&nbsp;updating</mtext><mspace width="1em"></mspace><mo>+</mo><mspace width="1em"></mspace><mtext>dynamic&nbsp;programming</mtext><mspace width="1em"></mspace><mo>+</mo><mspace width="1em"></mspace><mtext>linear-quadratic&nbsp;fixed&nbsp;point</mtext><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\text{Bayesian updating}\quad+\quad\text{dynamic programming}\quad+\quad\text{linear-quadratic fixed point}.</annotation></semantics></math></span></span></span><p><span class="katex" data-c2f-latex="N=1" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N=1</annotation></semantics></math></span></span> 退化为 one-period；<span class="katex" data-c2f-latex="N=2" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">N=2</annotation></semantics></math></span></span> 退化为上面的 cubic equation；<span class="katex" data-c2f-latex="N\to\infty" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>→</mo><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">N\to\infty</annotation></semantics></math></span></span> 且 <span class="katex" data-c2f-latex="s_n^2=\sigma^2T/N" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mi mathvariant="normal">/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">s_n^2=\sigma^2T/N</annotation></semantics></math></span></span> 时进入 continuous-time Kyle。</p><hr><h1>Continuous-time Kyle Model</h1><p>交易区间 <span class="katex" data-c2f-latex="[0,T]" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mi>T</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,T]</annotation></semantics></math></span></span>。噪声订单流</p><span class="katex-display" data-c2f-latex="dU_t=\sigma dB_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>U</mi><mi>t</mi></msub><mo>=</mo><mi>σ</mi><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">dU_t=\sigma dB_t.</annotation></semantics></math></span></span></span><p>知情者观察 <span class="katex" data-c2f-latex="v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span></span>，选择累计订单 <span class="katex" data-c2f-latex="X_t" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">X_t</annotation></semantics></math></span></span>。总订单流</p><span class="katex-display" data-c2f-latex="dY_t=dX_t+dU_t=dX_t+\sigma dB_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>Y</mi><mi>t</mi></msub><mo>=</mo><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>+</mo><mi>d</mi><msub><mi>U</mi><mi>t</mi></msub><mo>=</mo><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>+</mo><mi>σ</mi><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">dY_t=dX_t+dU_t=dX_t+\sigma dB_t.</annotation></semantics></math></span></span></span><p>做市商价格</p><span class="katex-display" data-c2f-latex="P_t=E[v\mid \mathcal F_t^Y]." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>P</mi><mi>t</mi></msub><mo>=</mo><mi>E</mi><mo stretchy="false">[</mo><mi>v</mi><mo>∣</mo><msubsup><mi mathvariant="script">F</mi><mi>t</mi><mi>Y</mi></msubsup><mo stretchy="false">]</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">P_t=E[v\mid \mathcal F_t^Y].</annotation></semantics></math></span></span></span><p>连续时间线性均衡猜测：</p><span class="katex-display" data-c2f-latex="dX_t=k_t(v-P_t)dt,\qquad dP_t=\lambda_t dY_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><msub><mi>k</mi><mi>t</mi></msub><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mi>d</mi><mi>t</mi><mo separator="true">,</mo><mspace width="2em"></mspace><mi>d</mi><msub><mi>P</mi><mi>t</mi></msub><mo>=</mo><msub><mi>λ</mi><mi>t</mi></msub><mi>d</mi><msub><mi>Y</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">dX_t=k_t(v-P_t)dt,\qquad dP_t=\lambda_t dY_t.</annotation></semantics></math></span></span></span><p>Kalman-Bucy 更新：</p><span class="katex-display" data-c2f-latex="\lambda_t=\frac{\Sigma_t k_t}{\sigma^2},
+\qquad
+\dot\Sigma_t=-\frac{\Sigma_t^2k_t^2}{\sigma^2}
+=-\lambda_t^2\sigma^2." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mi>t</mi></msub><mo>=</mo><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mi>t</mi></msub><msub><mi>k</mi><mi>t</mi></msub></mrow><msup><mi>σ</mi><mn>2</mn></msup></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mover accent="true"><mi mathvariant="normal">Σ</mi><mo>˙</mo></mover><mi>t</mi></msub><mo>=</mo><mo>−</mo><mfrac><mrow><msubsup><mi mathvariant="normal">Σ</mi><mi>t</mi><mn>2</mn></msubsup><msubsup><mi>k</mi><mi>t</mi><mn>2</mn></msubsup></mrow><msup><mi>σ</mi><mn>2</mn></msup></mfrac><mo>=</mo><mo>−</mo><msubsup><mi>λ</mi><mi>t</mi><mn>2</mn></msubsup><msup><mi>σ</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_t=\frac{\Sigma_t k_t}{\sigma^2},
+\qquad
+\dot\Sigma_t=-\frac{\Sigma_t^2k_t^2}{\sigma^2}
+=-\lambda_t^2\sigma^2.</annotation></semantics></math></span></span></span><p>连续 Kyle 均衡中价格冲击为常数：</p><span class="katex-display" data-c2f-latex="\lambda_t=\lambda." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mi>t</mi></msub><mo>=</mo><mi>λ</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_t=\lambda.</annotation></semantics></math></span></span></span><p>取交易强度</p><span class="katex-display" data-c2f-latex="k_t=\frac{1}{\lambda(T-t)}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>k</mi><mi>t</mi></msub><mo>=</mo><mfrac><mn>1</mn><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">k_t=\frac{1}{\lambda(T-t)}.</annotation></semantics></math></span></span></span><p>posterior variance 轨道：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Sigma_t
+&amp;=\lambda^2\sigma^2(T-t), \\[3pt]
+\Sigma_0
+&amp;=\lambda^2\sigma^2T, \\[3pt]
+\lambda
+&amp;=\frac{\sqrt{\Sigma_0}}{\sigma\sqrt{T}}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi mathvariant="normal">Σ</mi><mi>t</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo separator="true">,</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>λ</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Sigma_t
+&amp;=\lambda^2\sigma^2(T-t), \\[3pt]
+\Sigma_0
+&amp;=\lambda^2\sigma^2T, \\[3pt]
+\lambda
+&amp;=\frac{\sqrt{\Sigma_0}}{\sigma\sqrt{T}}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>检查 Bayesian consistency：</p><span class="katex-display" data-c2f-latex="\frac{\Sigma_t k_t}{\sigma^2}
+=
+\frac{\lambda^2\sigma^2(T-t)}{\sigma^2\lambda(T-t)}
+=\lambda." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mi>t</mi></msub><msub><mi>k</mi><mi>t</mi></msub></mrow><msup><mi>σ</mi><mn>2</mn></msup></mfrac><mo>=</mo><mfrac><mrow><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mi>λ</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\frac{\Sigma_t k_t}{\sigma^2}
+=
+\frac{\lambda^2\sigma^2(T-t)}{\sigma^2\lambda(T-t)}
+=\lambda.</annotation></semantics></math></span></span></span><p>连续时间均衡策略：</p><span class="katex-display" data-c2f-latex="dX_t=\frac{v-P_t}{\lambda(T-t)}dt,
+\qquad
+dP_t=\lambda dY_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>d</mi><mi>t</mi><mo separator="true">,</mo><mspace width="2em"></mspace><mi>d</mi><msub><mi>P</mi><mi>t</mi></msub><mo>=</mo><mi>λ</mi><mi>d</mi><msub><mi>Y</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">dX_t=\frac{v-P_t}{\lambda(T-t)}dt,
+\qquad
+dP_t=\lambda dY_t.</annotation></semantics></math></span></span></span><p>价格动态：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+dP_t
+&amp;=\lambda\left(\frac{v-P_t}{\lambda(T-t)}dt+\sigma dB_t\right) \\[3pt]
+&amp;=\frac{v-P_t}{T-t}dt+\lambda\sigma dB_t.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>d</mi><msub><mi>P</mi><mi>t</mi></msub></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>λ</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow></mfrac><mi>d</mi><mi>t</mi><mo>+</mo><mi>λ</mi><mi>σ</mi><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+dP_t
+&amp;=\lambda\left(\frac{v-P_t}{\lambda(T-t)}dt+\sigma dB_t\right) \\[3pt]
+&amp;=\frac{v-P_t}{T-t}dt+\lambda\sigma dB_t.
+\end{aligned}</annotation></semantics></math></span></span></span><p>记 mispricing</p><span class="katex-display" data-c2f-latex="m_t=v-P_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>m</mi><mi>t</mi></msub><mo>=</mo><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">m_t=v-P_t.</annotation></semantics></math></span></span></span><p>mispricing 动态：</p><span class="katex-display" data-c2f-latex="dm_t=-\frac{m_t}{T-t}dt-\lambda\sigma dB_t." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><msub><mi>m</mi><mi>t</mi></msub><mo>=</mo><mo>−</mo><mfrac><msub><mi>m</mi><mi>t</mi></msub><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow></mfrac><mi>d</mi><mi>t</mi><mo>−</mo><mi>λ</mi><mi>σ</mi><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">dm_t=-\frac{m_t}{T-t}dt-\lambda\sigma dB_t.</annotation></semantics></math></span></span></span><p>解为</p><span class="katex-display" data-c2f-latex="m_t=\frac{T-t}{T}(v-v_0)-\lambda\sigma(T-t)\int_0^t\frac{1}{T-s}dB_s." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>m</mi><mi>t</mi></msub><mo>=</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>−</mo><mi>λ</mi><mi>σ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mfrac><mn>1</mn><mrow><mi>T</mi><mo>−</mo><mi>s</mi></mrow></mfrac><mi>d</mi><msub><mi>B</mi><mi>s</mi></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">m_t=\frac{T-t}{T}(v-v_0)-\lambda\sigma(T-t)\int_0^t\frac{1}{T-s}dB_s.</annotation></semantics></math></span></span></span><p>条件二阶矩：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+E[m_t^2\mid v]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2(T-t)^2\int_0^t\frac{1}{(T-s)^2}ds \\[5pt]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2(T-t)^2\left(\frac{1}{T-t}-\frac{1}{T}\right) \\[5pt]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2\frac{t(T-t)}{T}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>E</mi><mo stretchy="false">[</mo><msubsup><mi>m</mi><mi>t</mi><mn>2</mn></msubsup><mo>∣</mo><mi>v</mi><mo stretchy="false">]</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mrow><mo fence="true">(</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mfrac><mn>1</mn><mrow><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>s</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mfrac><mi>d</mi><mi>s</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mrow><mo fence="true">(</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mrow><mo fence="true">(</mo><mfrac><mn>1</mn><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>T</mi></mfrac><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mrow><mo fence="true">(</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mfrac><mrow><mi>t</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mi>T</mi></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+E[m_t^2\mid v]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2(T-t)^2\int_0^t\frac{1}{(T-s)^2}ds \\[5pt]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2(T-t)^2\left(\frac{1}{T-t}-\frac{1}{T}\right) \\[5pt]
+&amp;=\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2\frac{t(T-t)}{T}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>连续时间条件期望利润：</p><span class="katex-display" data-c2f-latex="\begin{aligned}
+\Pi^{(c)}(v)
+&amp;=E\left[\int_0^T (v-P_t)dX_t\mid v\right] \\[4pt]
+&amp;=E\left[\int_0^T \frac{m_t^2}{\lambda(T-t)}dt\mid v\right] \\[4pt]
+&amp;=\int_0^T
+\frac{1}{\lambda(T-t)}
+\left[
+\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2\frac{t(T-t)}{T}
+\right]dt \\[5pt]
+&amp;=\frac{(v-v_0)^2}{\lambda T^2}\int_0^T(T-t)dt
++\frac{\lambda\sigma^2}{T}\int_0^Tt\,dt \\[5pt]
+&amp;=\frac{(v-v_0)^2}{2\lambda}
++\frac{\lambda\sigma^2T}{2}.
+\end{aligned}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mrow><mo fence="true">[</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>∣</mo><mi>v</mi><mo fence="true">]</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>E</mi><mrow><mo fence="true">[</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mfrac><msubsup><mi>m</mi><mi>t</mi><mn>2</mn></msubsup><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>d</mi><mi>t</mi><mo>∣</mo><mi>v</mi><mo fence="true">]</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mfrac><mn>1</mn><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mrow><mo fence="true">[</mo><msup><mrow><mo fence="true">(</mo><mfrac><mrow><mi>T</mi><mo>−</mo><mi>t</mi></mrow><mi>T</mi></mfrac><mo fence="true">)</mo></mrow><mn>2</mn></msup><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><msup><mi>λ</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mfrac><mrow><mi>t</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mi>T</mi></mfrac><mo fence="true">]</mo></mrow><mi>d</mi><mi>t</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mi>λ</mi><msup><mi>T</mi><mn>2</mn></msup></mrow></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><mi>d</mi><mi>t</mi><mo>+</mo><mfrac><mrow><mi>λ</mi><msup><mi>σ</mi><mn>2</mn></msup></mrow><mi>T</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mi>t</mi><mtext> </mtext><mi>d</mi><mi>t</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><mrow><mn>2</mn><mi>λ</mi></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>λ</mi><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi></mrow><mn>2</mn></mfrac><mi mathvariant="normal">.</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\Pi^{(c)}(v)
+&amp;=E\left[\int_0^T (v-P_t)dX_t\mid v\right] \\[4pt]
+&amp;=E\left[\int_0^T \frac{m_t^2}{\lambda(T-t)}dt\mid v\right] \\[4pt]
+&amp;=\int_0^T
+\frac{1}{\lambda(T-t)}
+\left[
+\left(\frac{T-t}{T}\right)^2(v-v_0)^2
++\lambda^2\sigma^2\frac{t(T-t)}{T}
+\right]dt \\[5pt]
+&amp;=\frac{(v-v_0)^2}{\lambda T^2}\int_0^T(T-t)dt
++\frac{\lambda\sigma^2}{T}\int_0^Tt\,dt \\[5pt]
+&amp;=\frac{(v-v_0)^2}{2\lambda}
++\frac{\lambda\sigma^2T}{2}.
+\end{aligned}</annotation></semantics></math></span></span></span><p>代入 <span class="katex" data-c2f-latex="\lambda=\sqrt{\Sigma_0}/(\sigma\sqrt{T})" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>σ</mi><msqrt><mi>T</mi></msqrt><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\lambda=\sqrt{\Sigma_0}/(\sigma\sqrt{T})</annotation></semantics></math></span></span>：</p><span class="katex-display" data-c2f-latex="\boxed{
+\Pi^{(c)}(v)
+=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}
+}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi>T</mi></mrow></msqrt></mrow><mn>2</mn></mfrac></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{
+\Pi^{(c)}(v)
+=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}
+}</annotation></semantics></math></span></span></span><p>无条件期望利润：</p><span class="katex-display" data-c2f-latex="E[\Pi^{(c)}]
+=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}\Sigma_0
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}
+=
+\sigma\sqrt{\Sigma_0T}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo stretchy="false">[</mo><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">]</mo><mo>=</mo><mfrac><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi>T</mi></mrow></msqrt></mrow><mn>2</mn></mfrac><mo>=</mo><mi>σ</mi><msqrt><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi>T</mi></mrow></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">E[\Pi^{(c)}]
+=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}\Sigma_0
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}
+=
+\sigma\sqrt{\Sigma_0T}.</annotation></semantics></math></span></span></span><p>当 <span class="katex" data-c2f-latex="T=1" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">T=1</annotation></semantics></math></span></span>：</p><span class="katex-display" data-c2f-latex="\lambda=\frac{\sqrt{\Sigma_0}}{\sigma},
+\qquad
+dX_t=\frac{\sigma}{\sqrt{\Sigma_0}}\frac{v-P_t}{1-t}dt,
+\qquad
+\Sigma_t=\Sigma_0(1-t)." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mi>σ</mi></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mrow><mn>1</mn><mo>−</mo><mi>t</mi></mrow></mfrac><mi>d</mi><mi>t</mi><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="normal">Σ</mi><mi>t</mi></msub><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda=\frac{\sqrt{\Sigma_0}}{\sigma},
+\qquad
+dX_t=\frac{\sigma}{\sqrt{\Sigma_0}}\frac{v-P_t}{1-t}dt,
+\qquad
+\Sigma_t=\Sigma_0(1-t).</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\Pi^{(c)}(v)=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2+\frac{\sigma\sqrt{\Sigma_0}}{2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mi>σ</mi><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow><mn>2</mn></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(c)}(v)=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2+\frac{\sigma\sqrt{\Sigma_0}}{2}.</annotation></semantics></math></span></span></span><p>连续时间下 <span class="katex" data-c2f-latex="v=v_0" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">v=v_0</annotation></semantics></math></span></span> 仍得到正利润：</p><span class="katex-display" style="" data-c2f-latex="\Pi^{(c)}(v_0)=\frac{\sigma\sqrt{\Sigma_0T}}{2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><msub><mi>v</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>σ</mi><msqrt><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi>T</mi></mrow></msqrt></mrow><mn>2</mn></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(c)}(v_0)=\frac{\sigma\sqrt{\Sigma_0T}}{2}.</annotation></semantics></math></span></span></span><p>该项对应连续交易中的噪声错价价值。即便初始基本面等于公共均值，订单流噪声仍不断推动价格偏离 <span class="katex" data-c2f-latex="v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span></span>，知情者凭借 <span class="katex" data-c2f-latex="v" data-c2f-math="inline"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span></span> 的真实值持续吸收这些错价。</p><hr><h1>总结关系</h1><p>One-period：</p><span class="katex-display" data-c2f-latex="\beta=\frac{\sigma}{\sqrt{\Sigma_0}},
+\qquad
+\lambda=\frac{\sqrt{\Sigma_0}}{2\sigma},
+\qquad
+\Pi^{(1)}(v)=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>β</mi><mo>=</mo><mfrac><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><mi>λ</mi><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mrow><mn>2</mn><mi>σ</mi></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mi>σ</mi><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta=\frac{\sigma}{\sqrt{\Sigma_0}},
+\qquad
+\lambda=\frac{\sqrt{\Sigma_0}}{2\sigma},
+\qquad
+\Pi^{(1)}(v)=\frac{\sigma}{2\sqrt{\Sigma_0}}(v-v_0)^2.</annotation></semantics></math></span></span></span><p>Two-period：</p><span class="katex-display" data-c2f-latex="a^3-2a^2-a+1=0,\qquad a\in(0,1),\qquad \rho=1-a^2." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>a</mi><mn>3</mn></msup><mo>−</mo><mn>2</mn><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mi>a</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mspace width="2em"></mspace><mi>a</mi><mo>∈</mo><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"></mspace><mi>ρ</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">a^3-2a^2-a+1=0,\qquad a\in(0,1),\qquad \rho=1-a^2.</annotation></semantics></math></span></span></span><span class="katex-display" data-c2f-latex="\Pi^{(2)}(v)
+=
+\frac{\sigma}{\sqrt{2\Sigma_0}}\sqrt{\rho}\left(a+\frac{\rho}{2}\right)(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mi>σ</mi><msqrt><mrow><mn>2</mn><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></mrow></msqrt></mfrac><msqrt><mi>ρ</mi></msqrt><mrow><mo fence="true">(</mo><mi>a</mi><mo>+</mo><mfrac><mi>ρ</mi><mn>2</mn></mfrac><mo fence="true">)</mo></mrow><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow><mrow><mn>2</mn><msqrt><mn>2</mn></msqrt></mrow></mfrac><msup><mi>a</mi><mn>2</mn></msup><msqrt><mi>ρ</mi></msqrt><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(2)}(v)
+=
+\frac{\sigma}{\sqrt{2\Sigma_0}}\sqrt{\rho}\left(a+\frac{\rho}{2}\right)(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0}}{2\sqrt{2}}a^2\sqrt{\rho}.</annotation></semantics></math></span></span></span><p>Multi-period：</p><span class="katex-display" style="" data-c2f-latex="\lambda_n=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2},
+\qquad
+\Sigma_n=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>λ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>β</mi><mi>n</mi></msub><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="normal">Σ</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow><mrow><msubsup><mi>β</mi><mi>n</mi><mn>2</mn></msubsup><msub><mi mathvariant="normal">Σ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>s</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda_n=\frac{\beta_n\Sigma_{n-1}}{\beta_n^2\Sigma_{n-1}+s_n^2},
+\qquad
+\Sigma_n=\frac{\Sigma_{n-1}s_n^2}{\beta_n^2\Sigma_{n-1}+s_n^2}.</annotation></semantics></math></span></span></span><span class="katex-display" style="" data-c2f-latex="\beta_n=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)},
+\qquad
+H_n=\beta_n(1-\lambda_n\beta_n)+H_{n+1}(1-\lambda_n\beta_n)^2." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>β</mi><mi>n</mi></msub><mo>=</mo><mfrac><mrow><mn>1</mn><mo>−</mo><mn>2</mn><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub></mrow><mrow><mn>2</mn><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>λ</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi>H</mi><mi>n</mi></msub><mo>=</mo><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>H</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>λ</mi><mi>n</mi></msub><msub><mi>β</mi><mi>n</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\beta_n=
+\frac{1-2H_{n+1}\lambda_n}
+{2\lambda_n(1-H_{n+1}\lambda_n)},
+\qquad
+H_n=\beta_n(1-\lambda_n\beta_n)+H_{n+1}(1-\lambda_n\beta_n)^2.</annotation></semantics></math></span></span></span><p>Continuous-time：</p><span class="katex-display" data-c2f-latex="\lambda=\frac{\sqrt{\Sigma_0}}{\sigma\sqrt{T}},
+\qquad
+dX_t=\frac{v-P_t}{\lambda(T-t)}dt,
+\qquad
+\Sigma_t=\Sigma_0\left(1-\frac{t}{T}\right)." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>λ</mi><mo>=</mo><mfrac><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"></mspace><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><mfrac><mrow><mi>v</mi><mo>−</mo><msub><mi>P</mi><mi>t</mi></msub></mrow><mrow><mi>λ</mi><mo stretchy="false">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mfrac><mi>d</mi><mi>t</mi><mo separator="true">,</mo><mspace width="2em"></mspace><msub><mi mathvariant="normal">Σ</mi><mi>t</mi></msub><mo>=</mo><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mrow><mo fence="true">(</mo><mn>1</mn><mo>−</mo><mfrac><mi>t</mi><mi>T</mi></mfrac><mo fence="true">)</mo></mrow><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\lambda=\frac{\sqrt{\Sigma_0}}{\sigma\sqrt{T}},
+\qquad
+dX_t=\frac{v-P_t}{\lambda(T-t)}dt,
+\qquad
+\Sigma_t=\Sigma_0\left(1-\frac{t}{T}\right).</annotation></semantics></math></span></span></span><span class="katex-display" style="" data-c2f-latex="\Pi^{(c)}(v)=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}." data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi mathvariant="normal">Π</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow><mrow><mn>2</mn><msqrt><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub></msqrt></mrow></mfrac><mo stretchy="false">(</mo><mi>v</mi><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mfrac><mrow><mi>σ</mi><msqrt><mrow><msub><mi mathvariant="normal">Σ</mi><mn>0</mn></msub><mi>T</mi></mrow></msqrt></mrow><mn>2</mn></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\Pi^{(c)}(v)=
+\frac{\sigma\sqrt{T}}{2\sqrt{\Sigma_0}}(v-v_0)^2
++
+\frac{\sigma\sqrt{\Sigma_0T}}{2}.</annotation></semantics></math></span></span></span><p>核心逻辑压缩成一句：</p><span class="katex-display" style="" data-c2f-latex="\boxed{
+\text{正态学习给出线性价格，线性价格给出二次控制，二次控制给出线性交易，动态版本再叠加 continuation value。}
+}" data-c2f-math="display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mtext>正态学习给出线性价格，线性价格给出二次控制，二次控制给出线性交易，动态版本再叠加&nbsp;continuation&nbsp;value。</mtext></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{
+\text{正态学习给出线性价格，线性价格给出二次控制，二次控制给出线性交易，动态版本再叠加 continuation value。}
+}</annotation></semantics></math></span></span></span></div></div></div></article></div></div></div></div><footer class="c2f-export-footer">
+      <div class="c2f-export-footer-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        使用浏览器扩展 Chat2File - AI对话导出工具 生成
+      </div>
+      <div>2026年4月26日</div>
+    </footer><script>(function(){
+  // 将标题文本转换为适合做 id 的 slug（保留中文、数字、字母、-、_）
+  function slugify(input){
+    try{
+      var s=String(input||'').trim().toLowerCase();
+      s=s.replace(/[s ]+/g,'-');
+      s=s.replace(/[^a-z0-9一-鿿-_]+/g,'');
+      s=s.replace(/-+/g,'-');
+      s=s.replace(/^-|-$/g,'');
+      return s;
+    }catch(_){return '';}}
+  
+  // 提取标题文本：压缩空白，避免目录中出现换行/多空格
+  function getText(el){
+    try{return String(el.textContent||'').replace(/s+/g,' ').trim();}catch(_){return '';}}
+  
+  // 获取 TOC 容器与主内容根节点
+  var tocEl=document.querySelector('.c2f-export-toc');
+  var listEl=document.querySelector('.c2f-export-toc-list');
+  var root=document.querySelector('.c2f-export-page-inner')||document.body;
+  if(!tocEl||!listEl||!root){return;}
+  
+  // 扫描标题节点：目录仅基于 h1/h2/h3 生成
+  var headings=Array.prototype.slice.call(root.querySelectorAll('h1,h2,h3'))
+    .filter(function(h){return !!getText(h);});
+  
+  // 若没有标题则隐藏目录，避免空白块占用视野
+  if(!headings.length){
+    try{tocEl.style.display='none';}catch(_){ }
+    return;}
+  
+  // 为标题补齐 id：确保目录链接可跳转；同时处理重复标题导致的 id 冲突
+  var used={};
+  headings.forEach(function(h,idx){
+    var id='';
+    try{id=String(h.getAttribute('id')||'');}catch(_){id='';}
+    if(!id){
+      var base=slugify(getText(h));
+      if(!base){base='section-'+String(idx+1);}
+      id=base;
+      var n=2;
+      while(document.getElementById(id)||used[id]){id=base+'-'+String(n++);}
+      try{h.setAttribute('id',id);}catch(_){ }
+    }
+    used[id]=true;
+  });
+  
+  // 构建目录列表项
+  listEl.innerHTML='';
+  
+  var links=[];
+  headings.forEach(function(h){
+    var text=getText(h);
+    if(!text){return;}
+    var id='';
+    try{id=String(h.getAttribute('id')||'');}catch(_){id='';}
+    if(!id){return;}
+  
+    var li=document.createElement('li');
+    try{li.className='c2f-export-toc-item c2f-export-toc-level-'+String(h.tagName||'').toLowerCase();}catch(_){li.className='c2f-export-toc-item';}
+  
+    var a=document.createElement('a');
+    a.href='#'+encodeURIComponent(id);
+    a.textContent=text;
+    // 目录文字在 CSS 中会省略号截断，因此用 title 保留完整标题供悬停查看
+    try{a.title=text;}catch(_){ }
+    a.addEventListener('click',function(e){
+      try{e.preventDefault();}catch(_){ }
+      var target=null;
+      try{target=document.getElementById(id);}catch(_){target=null;}
+      if(target&&target.scrollIntoView){
+        try{target.scrollIntoView({behavior:'smooth',block:'start'});}catch(_){try{target.scrollIntoView(true);}catch(__){ }}
+      }
+      // 更新 hash：便于刷新/复制链接定位
+      try{history.pushState(null,'','#'+encodeURIComponent(id));}catch(_){ }
+    });
+  
+    li.appendChild(a);
+    listEl.appendChild(li);
+    links.push(a);
+  });
+  
+  // 根据当前可见标题，高亮对应目录项
+  function setActive(id){
+    links.forEach(function(a){
+      var hid='';
+      try{hid=decodeURIComponent(String(a.getAttribute('href')||'').slice(1));}catch(_){hid='';}
+      try{a.classList.toggle('active',hid===id);}catch(_){if(hid===id){a.className+=' active';}}
+    });
+  }
+  
+  // 若页面初始带 hash，则先高亮对应目录项
+  var initial='';
+  try{initial=decodeURIComponent(String(location.hash||'').replace(/^#/,''));}catch(_){initial='';}
+  if(initial){setActive(initial);}
+  
+  // 监听滚动：标题进入视口时自动切换高亮（无 IntersectionObserver 时跳过，不影响基本使用）
+  if('IntersectionObserver' in window){
+    try{
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry&&entry.isIntersecting&&entry.target&&entry.target.id){
+            setActive(String(entry.target.id));
+          }
+        });
+      },{root:null,rootMargin:'-15% 0px -75% 0px',threshold:0});
+      headings.forEach(function(h){try{obs.observe(h);}catch(_){ }});
+    }catch(_){ }
+  }
+})();</script></body></html>

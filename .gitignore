@@ -1,21 +1,9 @@
-.claude/
-.obsidian/
-.omx/
-.smart-env/
-.tmp/
-.tmp_div_smoothing/
-.dropbox
-Desktop.ini
-.trash/
-Apple Notes/
-
-.dropbox
-.dropbox.cache
-Desktop.ini
-.omx/
-
-
-
-
-# Ignore Smart Environment folder
-.smart-env
+/*
+!/.gitignore
+!/.github/
+!/.github/workflows/
+!/.github/workflows/call-deploy-book.yml
+!/PhD-Course/
+!/PhD-Course/**
+PhD-Course/**/*.pdf
+PhD-Course/.github/

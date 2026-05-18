@@ -1,0 +1,83 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Asset Pricing
+    chapters:
+      - file: Asset Pricing/index
+      - file: Asset Pricing/Empirical_Asset_Pricing
+        sections:
+          - file: Asset Pricing/Empirical AP/00-MOC_EF8083_Empirical_Asset_Pricing
+          - file: Asset Pricing/Empirical AP/01_Volatility_ARCH_GARCH
+          - file: Asset Pricing/Empirical AP/02_Implied_Volatility_VIX_VRP
+          - file: Asset Pricing/Empirical AP/03_Consumption_Based_AP_Puzzles
+          - file: Asset Pricing/Empirical AP/04_Return_Predictability_Econometrics
+          - file: Asset Pricing/Empirical AP/05_Cross_Section_Factor_Models
+          - file: Asset Pricing/Empirical AP/06_Subjective_Expectations_Learning
+          - file: Asset Pricing/Empirical AP/07_Behavioral_Empirical_AP_Overview
+          - file: Asset Pricing/Empirical AP/08_Limits_to_Arbitrage_Prospect_Theory
+          - file: Asset Pricing/Empirical AP/09_Beliefs_Attention_Sentiment_Credit
+      - file: Asset Pricing/Theoretical_Asset_Pricing
+        sections:
+          - file: Asset Pricing/Theoretical AP/01_Single_Period_Models
+          - file: Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing
+          - file: Asset Pricing/Theoretical AP/03_Continuous_Time_Pricing_Options_Term_Structure
+          - file: Asset Pricing/Theoretical AP/04_Information_Beliefs_and_Learning
+  - caption: Corporate Finance
+    chapters:
+      - file: Corporate Finance/index
+      - file: Corporate Finance/01_Empirical_Corporate_Finance
+      - file: Corporate Finance/02_Econometric_Methods_in_Corporate_Finance
+      - file: Corporate Finance/03_Applied_Corporate_Finance_Theory
+      - file: Corporate Finance/04_Special_Topics
+      - file: Corporate Finance/Theory_Reading_Guide
+  - caption: Econometrics
+    chapters:
+      - file: Econometrics/index
+      - file: Econometrics/EF8090/01_CEF_and_Linear_Projection
+        sections:
+          - file: Econometrics/EF8090/cards/Projection_vs_CEF
+          - file: Econometrics/EF8090/cards/Projection_Matrix
+      - file: Econometrics/EF8090/02_OLS_Algebra_FWL_OVB
+      - file: Econometrics/EF8090/03_OLS_Finite_Sample_Gauss_Markov_GLS
+      - file: Econometrics/EF8090/04_Asymptotic_Tools
+      - file: Econometrics/EF8090/05_OLS_Asymptotics_and_Robust_Inference
+      - file: Econometrics/EF8090/06_Hypothesis_Testing
+      - file: Econometrics/EF8090/07_MLE_Fisher_CRLB
+      - file: Econometrics/EF8090/08_MLE_Asymptotics_and_ML_Tests
+      - file: Econometrics/EF8090/09_IV_2SLS_Weak_Instruments
+      - file: Econometrics/EF8090/10_Potential_Outcomes_ATE_Matching
+        sections:
+          - file: Econometrics/EF8090/cards/Potential_Outcomes_ATE_ATT_CATE
+          - file: Econometrics/EF8090/cards/Propensity_Score_Balancing
+      - file: Econometrics/EF8090/11_LATE_Roy_MTE
+      - file: Econometrics/EF8090/12_DiD_Fixed_Effects_Event_Study
+      - file: Econometrics/EF8090/13_RD_Nonparametric_Kernel
+        sections:
+          - file: Econometrics/EF8090/cards/RD_Wald_Estimand
+      - file: Econometrics/MS8956/ART-Chap1 Finite-Sample Properties of OLS
+      - file: Econometrics/MS8956/ART-Chap2 Large- Sample Theory
+      - file: Econometrics/MS8956/ART-Chap3 Single-Equation GMM
+      - file: Econometrics/MS8956/ART-Chap4 Multiple Equation GMM
+      - file: Econometrics/MS8956/ART-Chap5 Panel Data
+  - caption: Microeconomics
+    chapters:
+      - file: Microeconomic/index
+      - file: Microeconomic/01_Static_Choice_Consumer_Demand_and_Integrability
+      - file: Microeconomic/02_Choice_under_Uncertainty_and_State_Contingent_Equilibrium
+      - file: Microeconomic/03_General_Equilibrium_Production_and_Welfare
+      - file: Microeconomic/04_Principal-Agent_Models_Moral_Hazard_and_Screening
+  - caption: Cross-Course Links
+    chapters:
+      - file: Cross-Course/index
+      - file: Cross-Course/QE_Knowledge_Map
+      - file: Cross-Course/Exam_Pattern_Index
+      - file: Cross-Course/bridges/State_Prices_SDF_Complete_Markets
+  - caption: ProblemSet
+    chapters:
+      - file: ProblemSet/index
+      - file: ProblemSet/Theoretical_Asset_Pricing
+      - file: ProblemSet/Empirical_Asset_Pricing
+      - file: ProblemSet/Corporate_Finance
+      - file: ProblemSet/Econometrics
+      - file: ProblemSet/Microeconomics
+      - file: ProblemSet/ProblemSet

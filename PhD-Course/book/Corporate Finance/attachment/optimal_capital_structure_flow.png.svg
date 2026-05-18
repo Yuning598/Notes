@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="430" viewBox="0 0 1600 430">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="150" width="250" height="86" rx="12" ry="12" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <text x="165" y="183" text-anchor="middle" font-family="Times New Roman" font-size="28" fill="#111111">SEO / financing need</text>
+
+  <rect x="350" y="140" width="260" height="106" rx="12" ry="12" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <text x="480" y="175" text-anchor="middle" font-family="Times New Roman" font-size="28" fill="#111111">
+    <tspan x="480" dy="0">Assess leverage gap</tspan>
+    <tspan x="480" dy="34">vs. target</tspan>
+  </text>
+
+  <rect x="680" y="140" width="270" height="106" rx="12" ry="12" fill="#ffffff" stroke="#222222" stroke-width="2"/>
+  <text x="815" y="175" text-anchor="middle" font-family="Times New Roman" font-size="28" fill="#111111">
+    <tspan x="815" dy="0">Capital structure</tspan>
+    <tspan x="815" dy="34">adjustment</tspan>
+  </text>
+
+  <rect x="1025" y="140" width="360" height="106" rx="12" ry="12" fill="#e8f2ff" stroke="#222222" stroke-width="2"/>
+  <text x="1205" y="174" text-anchor="middle" font-family="Times New Roman" font-size="24" fill="#111111">
+    <tspan x="1205" dy="0">Expected announcement effect</tspan>
+    <tspan x="1205" dy="32">small or nonnegative</tspan>
+  </text>
+
+  <rect x="370" y="285" width="220" height="72" rx="12" ry="12" fill="#e8f2ff" stroke="#222222" stroke-width="2"/>
+  <text x="480" y="330" text-anchor="middle" font-family="Times New Roman" font-size="24" fill="#111111">Transaction costs</text>
+
+  <rect x="675" y="285" width="280" height="72" rx="12" ry="12" fill="#e8f2ff" stroke="#222222" stroke-width="2"/>
+  <text x="815" y="315" text-anchor="middle" font-family="Times New Roman" font-size="24" fill="#111111">
+    <tspan x="815" dy="0">Adjust only if</tspan>
+    <tspan x="815" dy="28">benefit &gt; cost</tspan>
+  </text>
+
+  <line x1="290" y1="193" x2="350" y2="193" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="610" y1="193" x2="680" y2="193" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="950" y1="193" x2="1025" y2="193" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="480" y1="285" x2="480" y2="246" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="480" y1="285" x2="450" y2="246" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="815" y1="285" x2="815" y2="246" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <line x1="815" y1="285" x2="845" y2="246" stroke="#222222" stroke-width="2.4" marker-end="url(#arrow)"/>
+</svg>

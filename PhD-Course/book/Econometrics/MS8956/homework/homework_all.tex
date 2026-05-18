@@ -1,0 +1,1543 @@
+\documentclass[12pt, letterpaper, onecolumn]{exam}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{bm}
+\usepackage{pdfpages}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}
+\usepackage{xcolor}
+% \rhead{LIU Yunting (59523980)\\}
+\thispagestyle{empty}
+\usepackage{setspace}
+\onehalfspacing
+
+\begin{document}
+\begingroup
+\centering
+\LARGE MS8956 Advanced Regression Techniques\\
+\LARGE Homework Set\\[1em]
+\large \today\\[0.5em]
+\large LIU Yunting (59523980)\par \endgroup \rule{\textwidth}{0.4pt} \pointsdroppedatright
+\printanswers
+\renewcommand{\solutiontitle}{\noindent
+    \textbf{Answer:}\enspace}
+
+\section*{Exercise 1}
+Prove (1.2.9)--(1.2.11). Hint: They should easily follow from the definition
+of $P$ and $M$.
+
+Both $P$ and $M$ are symmetric and idempotent, (1.2.9)
+
+$PX = X$ (hence the term projection matrix), (1.2.10)
+
+$MX = 0$ (hence the term annihilator). (1.2.11)
+\begin{solution}
+    \begin{enumerate}
+        \item Proof of (1.2.9):
+              \[
+                  P' = (X(X'X)^{-1}X')' = X(X'X)^{-1}X' = P
+              \]
+              \[
+                  P^{2}= P \cdot P = X(X'X)^{-1}X'X(X'X)^{-1}X' = X(X'X)^{-1}X'
+                  = P
+              \]
+              \[
+                  M' = (I - P)' = I - P' = I - P = M
+              \]
+              \[
+                  M^{2}= (I - P)(I - P) = I - 2P + P^{2}= I - P = M
+              \]
+
+        \item Proof of (1.2.10):
+              \[
+                  PX = X(X'X)^{-1}X'X = X(X'X)^{-1}X'X = X
+              \]
+
+        \item Proof of (1.2.11):
+              \[
+                  MX = (I - P)X = X - PX = X - X = 0
+              \]
+    \end{enumerate}
+\end{solution}
+
+\section*{Exercise 2}
+ (Matrix algebra of fitted values and residuals) Show the following:
+\begin{enumerate}
+    \item $\hat{y}= Py$, $e = My = M\epsilon$. Hint: Use (1.2.5).
+
+    \item (1.2.12), namely, $\text{SSR}= \epsilon'M\epsilon$
+\end{enumerate}
+\begin{solution}
+    \begin{enumerate}
+        \item Proof of $\hat{y}= Py$, $e = My = M\epsilon$:
+              \[
+                  \hat{y}= X\hat{\beta}= X(X'X)^{-1}X'y = Py
+              \]
+              \[
+                  e = y - \hat{y}= y - Py = (I - P)y = My
+              \]
+              Since $y = X\beta + \epsilon$, we have
+              \[
+                  e = M(X\beta + \epsilon) = MX\beta + M\epsilon = M\epsilon
+              \]
+
+        \item Proof of (1.2.12):
+              \[
+                  \text{SSR}= e'e = (My)'(My) = y'M'My = y'My
+              \]
+              Since $y = X\beta + \epsilon$, we have
+              \[
+                  y'My = (X\beta + \epsilon)'M(X\beta + \epsilon) = (X\beta)'MX
+                  \beta + 2(X\beta)'M\epsilon + \epsilon'M\epsilon
+              \]
+              Using $MX=0$, we get
+              \[
+                  y'My = 0 + 0 + \epsilon'M\epsilon = \epsilon'M\epsilon
+              \]
+    \end{enumerate}
+\end{solution}
+
+\section*{Exercise 3}
+Prove equation (1.2.19) in the slides using Sherman–Morrison formula.
+\begin{solution}
+    Want to show: $b^{(i)}- b = -(\frac{1}{1-p_{i}}) (X'X)^{-1}x_{i}e_{i}$, where
+    $p_{i}\equiv x_{i}'(X'X)^{-1}x_{i}$.
+    \[
+        b^{(i)}= (X'X - x_{i}x_{i}')^{-1}(X'y - x_{i}y_{i})
+    \]
+    Using Sherman–Morrison formula, we have
+    \[
+        (X'X - x_{i}x_{i}')^{-1}= (X'X)^{-1}+ \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}}{1
+        - x_{i}'(X'X)^{-1}x_{i}}= (X'X)^{-1}+ \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}}{1
+        - p_{i}}
+    \]
+    Therefore,
+    \begin{align*}
+        b^{(i)} & = \left((X'X)^{-1}+ \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}}{1 - p_{i}}\right)(X'y - x_{i}y_{i})                                                            \\
+                & = (X'X)^{-1}X'y - (X'X)^{-1}x_{i}y_{i}+ \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}X'y}{1 - p_{i}}- \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}x_{i}y_{i}}{1 - p_{i}} \\
+                & = b - \frac{(X'X)^{-1}x_{i}y_{i}}{1-p_{i}}+ \frac{(X'X)^{-1}x_{i}x_{i}'(X'X)^{-1}X'y}{1 - p_{i}}                                                          \\
+                & = b - \frac{(X'X)^{-1}x_{i}y_{i}}{1-p_{i}}+ \frac{(X'X)^{-1}x_{i}x_{i}'b}{1 - p_{i}}                                                                      \\
+                & = b - \frac{(X'X)^{-1}x_{i}(y_{i}- x_{i}'b)}{1 - p_{i}}                                                                                                   \\
+                & = b - \frac{(X'X)^{-1}x_{i}e_{i}}{1 - p_{i}}
+    \end{align*}
+    Then, we have
+    \begin{align*}
+        b^{(i)}- b = -\frac{(X'X)^{-1}x_{i}e_{i}}{1 - p_{i}}
+    \end{align*}
+\end{solution}
+
+\section*{Exercise 4}
+Prove proposition 1.1 (d), namely,\\
+(d) Under Assumption 1.1--1.4, $\text{Cov}(\mathbf{b}, \mathbf{e}|X) = 0$, where
+$\mathbf{e}\equiv \mathbf{y}- X\mathbf{b}$.
+
+\begin{solution}
+    I want to show $\text{Cov}(\mathbf{b}, \mathbf{e}|X) = 0$. Since
+    $\mathbf{b}= (X'X)^{-1}X'\mathbf{y}$ and
+    $\mathbf{e}= \mathbf{y}- X\mathbf{b}$, we have
+    \begin{align*}
+        \text{Cov}(\mathbf{b}, \mathbf{e}|X) & = \text{Cov}((X'X)^{-1}X'\mathbf{y}, \mathbf{y}- X(X'X)^{-1}X'\mathbf{y}|X)                             \\
+                                             & = (X'X)^{-1}X'\text{Cov}(\mathbf{y}, \mathbf{y}- X(X'X)^{-1}X'\mathbf{y}|X)                             \\
+                                             & = (X'X)^{-1}X'(\text{Cov}(\mathbf{y}, \mathbf{y}|X)- \text{Cov}(\mathbf{y}, X(X'X)^{-1}X'\mathbf{y}|X)) \\
+                                             & = (X'X)^{-1}X'(\sigma^{2}I - \sigma^{2}P)                                                               \\
+                                             & = (X'X)^{-1}X'\sigma^{2}M                                                                               \\
+                                             & = 0
+    \end{align*}
+\end{solution}
+
+\section*{Exercise 5}
+ (Variance of $s^{2}$) Show that, under Assumptions 1.1--1.5,
+\[
+    \text{Var}(s^{2}|X) = \frac{2\sigma^{4}}{n - K}
+\]
+Hint: If a random variable is distributed as $\chi^{2}(m)$, then its mean is
+$m$ and variance $2m$.
+
+\begin{solution}
+    Since $s^{2}= \frac{\text{SSR}}{n-K}$ and $\text{SSR}= e'e = \epsilon'M\epsilon$,
+    we have
+    \[
+        s^{2}= \frac{\epsilon'M\epsilon}{n-K}
+    \]
+    Since $M$ is idempotent and has rank $n-K$, we have $\epsilon'M\epsilon/\sigma
+        ^{2}\sim \chi^{2}(n-K)$. Therefore,
+    \[
+        \text{Var}(s^{2}|X) = \text{Var}\left(\frac{\epsilon'M\epsilon}{n-K}\right
+        ) = \frac{\sigma^{4}}{(n-K)^{2}}\text{Var}\left(\frac{\epsilon'M\epsilon}{\sigma^{2}}
+        \right) = \frac{\sigma^{4}}{(n - K)^{2}}\cdot 2(n-K) = \frac{2\sigma^{4}}{n
+            - K}
+    \]
+\end{solution}
+
+\section*{Exercise 6}
+Prove (1.4.11) in the slides.
+\[
+    F = \frac{(\text{SSR}_{R}- \text{SSR}_{U})/\#r}{\text{SSR}_{U}/(n - K)}\quad
+    \text{(1.4.11)}
+\]
+
+\begin{solution}
+    I want to check $H_{0}: R\beta = r$ against $H_{1}: R\beta \neq r$. The
+    restricted model is
+    \[
+        y = X\beta + \epsilon, \quad \text{subject to }R\beta = r
+    \]
+    The Lagrangian function is
+    \[
+        \mathcal{L}(\beta, \epsilon) = \frac{1}{2}(y - X\beta)'(y - X\beta) +
+        \lambda (R\beta - r)
+    \]
+    The F.O.C. is
+    \[
+        \begin{cases}
+            \frac{\partial \mathcal{L}}{\partial \beta} = -X'(y - X\beta) + R'\lambda = 0 \\
+            \frac{\partial \mathcal{L}}{\partial \lambda} = R\beta - r = 0
+        \end{cases}
+    \]
+    Solving the F.O.C., we have
+    \[
+        \begin{cases}
+            \hat{\beta}_{R}= (X'X)^{-1}(X'y - R'\lambda) \\
+            \lambda = (R(X'X)^{-1}R')^{-1}(R(X'X)^{-1}X'y - r)
+        \end{cases}
+    \]
+    Therefore, the sum of squared residuals of the restricted model is
+    \begin{align*}
+        \text{SSR}_{R} & = (y - X\hat{\beta}_{R})'(y - X\hat{\beta}_{R})                         \\
+                       & = (y - X(X'X)^{-1}(X'y - R'\lambda))'(y - X(X'X)^{-1}(X'y - R'\lambda)) \\
+                       & = (My + XR'\lambda)'(My + XR'\lambda)                                   \\
+                       & = y'My + 2\lambda'RX'My + \lambda'R(X'X)^{-1}R'\lambda
+    \end{align*}
+    Since $RX'X\hat{\beta}= RX'y$, we have $RX'My = 0$. Therefore,
+    \[
+        \text{SSR}_{R}= y'My + \lambda'R(X'X)^{-1}R'\lambda
+    \]
+    The sum of squared residuals of the unrestricted model is
+    \[
+        \text{SSR}_{U}= (y - X\hat{\beta})'(y - X\hat{\beta}) = y'My = \epsilon
+        'M\epsilon
+    \]
+    which is quadratic form with mean $\sigma^{2}(n-K)$ and variance $2\sigma
+        ^{4}(n-K)$ (from exercise 5).
+
+    Therefore,
+    \[
+        \text{SSR}_{U}/\sigma^{2}\sim \chi^{2}(n-K)
+    \]
+
+    \begin{align*}
+        \text{SSR}_{R}- \text{SSR}_{U} & = \lambda'R(X'X)^{-1}R'\lambda                                   \\
+                                       & =[(R(X'X)^{-1}R')^{-1}(R(X'X)^{-1}X'y - r)]'R(X'X)^{-1}R'\lambda \\
+                                       & =[(R(X'X)^{-1}X'y - r)'(R(X'X)^{-1}R')^{-1}]R(X'X)^{-1}R'\lambda \\
+                                       & =(R(X'X)^{-1}X'y - r)'(R(X'X)^{-1}R')^{-1}(R(X'X)^{-1}X'y - r)   \\
+                                       & =(R\hat{\beta}- r)'(R(X'X)^{-1}R')^{-1}(R\hat{\beta}- r)
+    \end{align*}
+    Since $R\hat{\beta}- r$ is a linear transformation of $\hat{\beta}$, we
+    have
+    \[
+        R\hat{\beta}- r \sim N(0, \sigma^{2}R(X'X)^{-1}R')
+    \]
+    Therefore, the quadratic form is
+    \[
+        \frac{\text{SSR}_{R}- \text{SSR}_{U}}{\sigma^{2}}\sim \chi^{2}(\#r)
+    \]
+    Finally, we have
+    \[
+        F = \frac{\frac{\text{SSR}_{R}- \text{SSR}_{U}}{\sigma^{2}}/\#r}{\frac{\text{SSR}_{U}}{\sigma^{2}}/(n-K)}
+        = \frac{(\text{SSR}_{R}- \text{SSR}_{U})/\#r}{\text{SSR}_{U}/(n - K)}
+        = \frac{\chi^{2}(\#r)/\#r}{\chi^{2}(n-K)/(n-K)}\sim F(\#r, n-K)
+    \]
+\end{solution}
+
+\section*{Exercise 1}
+
+Prove Lemma 2.4(c) from Lemma 2.4(a) and (b). \textit{Hint:} $A_{n}x_{n}= ( A
+        _{n}- A)x_{n}+ A x_{n}$. By (b), $(A_{n}- A)x_{n}\xrightarrow{p}0$.
+
+\begin{solution}
+    \\
+    Lemma 2.4(a): $x_{n}\xrightarrow{d}x$ and $y_{n}\xrightarrow{d}\alpha \quad
+        \implies \quad x_{n}+y_{n}\xrightarrow{d}x+ \alpha$.\\
+    Lemma 2.4(b): $x_{n}\xrightarrow{d}x$ and $y_{n}\xrightarrow{p}0 \quad \implies
+        \quad y_{n}'x_{n}\xrightarrow{p}0$.\\
+    Lemma 2.4(c): $x_{n}\xrightarrow{d}x$ and $A_{n}\xrightarrow{p}A \quad \implies
+        \quad A_{n}x_{n}\xrightarrow{d}Ax$, provided that $A_{n}$ and $x_{n}$
+    are conformable. In particular, if $x \sim N(0,\Sigma )$, then $A_{n}x_{n}
+        \xrightarrow{d}N(0, A \Sigma A')$.\\
+    Start from the decomposition
+    \[
+        A_{n}x_{n}= (A_{n}- A)x_{n}+ A x_{n}.
+    \]
+
+    By Lemma 2.4(b), since $A_{n}- A \xrightarrow{p}0$ and
+    $x_{n}\xrightarrow{d}x$, we have
+    \[
+        (A_{n}- A)x_{n}\xrightarrow{p}0 .
+    \]
+
+    Next consider the second term. Since $A$ is a constant matrix and $x_{n}\xrightarrow
+        {d}x$, the continuous mapping theorem implies
+    \[
+        A x_{n}\xrightarrow{d}Ax .
+    \]
+
+    Therefore we can write
+    \[
+        A_{n}x_{n}= A x_{n}+ (A_{n}- A)x_{n},
+    \]
+    where
+    \[
+        A x_{n}\xrightarrow{d}Ax \quad\text{and}\quad (A_{n}- A)x_{n}\xrightarrow
+        {p}0 .
+    \]
+
+    Applying Lemma 2.4(a), which states that if $u_{n}\xrightarrow{d}u$ and
+    $v_{n}\xrightarrow{p}0$ then $u_{n}+v_{n}\xrightarrow{d}u$, we obtain
+    \[
+        A_{n}x_{n}\xrightarrow{d}Ax .
+    \]
+
+    Finally, if $x \sim N(0,\Sigma)$, then the linear transformation of a
+    normal vector implies
+    \[
+        Ax \sim N(0, A\Sigma A'),
+    \]
+    so
+    \[
+        A_{n}x_{n}\xrightarrow{d}N(0, A\Sigma A').
+    \]
+\end{solution}
+
+\section*{Exercise 2}
+ (Combine Delta method with Lindeberg-Levy) Let$\{z_{i}\}$be a sequence of i.i.d.\ random
+variables with $E(z_{i})=\mu \neq 0$ and $\mathrm{Var}(z_{i})=\sigma^{2}$,
+and let $\bar{z}_{n}$ be the sample mean. Show that
+\[
+    \sqrt{n}\left(\frac{1}{\bar{z}_{n}}-\frac{1}{\mu}\right)\xrightarrow{d}N\!
+    \left(0,\frac{\sigma^{2}}{\mu^{4}}\right).
+\]
+\textit{Hint:}In Lemma 2.5, set $\beta=\mu$, $a(\beta)=\frac{1}{\mu}$,
+$x_{n}=\bar{z}_{n}$.
+\begin{solution}
+    By the Lindeberg-Levy CLT, we have
+    \[
+        \sqrt{n}(\bar{z}_{n}-\mu)\xrightarrow{d}N(0,\sigma^{2}).
+    \]
+
+    Next, we apply the Delta method. Let $a(\beta)=\frac{1}{\beta}$, then
+    \[
+        a'(\beta)=-\frac{1}{\beta^{2}}.
+    \]
+
+    Therefore, by Lemma 2.5, we have
+    \[
+        \sqrt{n}\left(a(\bar{z}_{n})-a(\mu)\right)\xrightarrow{d}N\! \left(0,
+        \sigma^{2}\left(-\frac{1}{\mu^{2}}\right)^{2}\right),
+    \]
+    which simplifies to
+    \[
+        \sqrt{n}\left(\frac{1}{\bar{z}_{n}}-\frac{1}{\mu}\right)\xrightarrow{d}
+        N\! \left(0,\frac{\sigma^{2}}{\mu^{4}}\right).
+    \]
+    This completes the proof.
+\end{solution}
+
+\section*{Exercise 3}
+ (The first difference of a martingale is a martingale difference sequence)
+Let $\{z_{i}\}$ be a martingale. Show that the process $\{g_{i}\}$ created by
+(2.2.7) is an m.d.s.
+
+\textit{Hint:} $(g_{1},\ldots,g_{i})$ and $(z_{1},\ldots,z_{i})$ share the same
+information.
+\begin{solution}
+    (2.2.7) defines $g_{i}=z_{i}-z_{i-1}$ for $i\geq 1$.
+
+    Since $\{z_{i}\}$ is a martingale, we have $\mathbb{E}[z_{i}|\mathcal{F}_{i-1}
+        ]=z_{i-1}$, where $\mathcal{F}_{i-1}$ is the filtration generated by
+    $(z_{1},\ldots,z_{i-1})$. Therefore,
+    \[
+        \mathbb{E}[g_{i}| \mathcal{F}_{i-1}]=\mathbb{E}[z_{i}-z_{i-1}|\mathcal{F}
+        _{i-1}]=\mathbb{E}[z_{i}|\mathcal{F}_{i-1}]-z_{i-1}=z_{i-1}-z_{i-1}=0
+    \]
+    for all $i\geq 1$. This shows that $\{g_{i}\}$ is a martingale difference
+    sequence.
+\end{solution}
+
+\section*{Exercise 4}
+ (Billingsley is stronger than Lindeberg-Levy) Let $\{z_{i}\}$ be an i.i.d.\ sequence
+with $E(z_{i})=\mu$ and $\mathrm{Var}(z_{i})=\Sigma$, as in the Lindeberg-Levy
+CLT. Use the Martingale Differences CLT to prove the claim of the Lindeberg-Levy
+CLT, namely,
+\[
+    \sqrt{n}(\bar{z}_{i}-\mu)\xrightarrow{d}N(0,\Sigma).
+\]
+\textit{Hint:} $\{z_{i}-\mu\}$ is an independent white noise process and hence
+is an ergodic stationary m.d.s.
+\begin{solution}
+    Let $g_{i}=z_{i}-\mu$. Then $\{g_{i}\}$ is an independent white noise
+    process with mean zero and variance $\Sigma$. Therefore, $\{g_{i}\}$ is
+    an ergodic stationary martingale difference sequence.
+
+    By the Martingale Differences CLT, we have
+    \[
+        \frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}\xrightarrow{d}N(0,\Sigma).
+    \]
+
+    Since
+    $\bar{z}_{n}=\frac{1}{n}\sum_{i=1}^{n}z_{i}=\mu+\frac{1}{n}\sum_{i=1}^{n}
+        g_{i}$, we can write
+    \[
+        \sqrt{n}(\bar{z}_{n}-\mu)=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}g_{i}.
+    \]
+
+    Therefore,
+    \[
+        \sqrt{n}(\bar{z}_{n}-\mu)\xrightarrow{d}N(0,\Sigma).
+    \]
+\end{solution}
+
+\section*{Exercise 5}
+Suppose $E(y_{i}|x_{i})=x_{i}'\beta$, that is, suppose the regression of $y_{i}$
+on $x_{i}$ is a linear function of $x_{i}$. Define
+$\varepsilon_{i}\equiv y_{i}- x_{i}'\beta$. Show that $x_{i}$ is orthogonal to
+$\varepsilon_{i}$.\\
+\textit{Hint: }First show that $E(\varepsilon_{i}|x_{i})=0$.
+
+\begin{solution}
+    \[
+        E(\varepsilon_{i}|x_{i})&=E(y_{i}- x_{i}'\beta|x_{i}) =E(y_{i}|x_{i})
+        - x_{i}'\beta =x_{i}'\beta- x_{i}'\beta =0.
+    \]
+    Therefore,
+    \[
+        E(x_{i}\varepsilon_{i})=E\left[E(x_{i}\varepsilon_{i}|x_{i})\right]=E
+        \left[x_{i}E(\varepsilon_{i}|x_{i})\right]=E[x_{i}\cdot 0]=0,
+    \]
+    which means that $x_{i}$ is orthogonal to $\varepsilon_{i}$.
+\end{solution}
+
+\section*{Exercise 6}
+Prove Proposition 2.2.\\
+\textit{Hint:} We have already proved for Proposition 2.1 that $\mathrm{plim}
+    \, \bar g = 0$, $\mathrm{plim}\, S_{xx}= \Sigma_{xx}$, and $\mathrm{plim}(b-\beta
+    )=0$ under Assumption 2.1--2.4. Use Lemma 2.3(a) to show that
+$\mathrm{plim}(b-\beta)'\bar g = 0$ and
+$\mathrm{plim}(b-\beta)'S_{xx}(b -\beta)=0$.
+
+\begin{solution}
+    (Proposition 2.2) Let$e_{i}\equiv y_{i}- x_{i}'b$ be the OLS residual
+    for observation $i$. Under Assumption 2.1--2.4, we have
+    \[
+        s^{2}\equiv \frac{1}{n-K}\sum_{i=1}^{n}e_{i}^{2}\xrightarrow{p}E(\sigma
+        ^{2}),
+    \]
+    provided $E(\sigma^{2})$ exists and is finite.
+
+    \begin{align*}
+        s^{2} & =\frac{1}{n-K}\sum_{i=1}^{n}e_{i}^{2}                                                                                                                           \\
+              & =\frac{1}{n-K}\sum_{i=1}^{n}(y_{i}- x_{i}'b)^{2}                                                                                                                \\
+              & =\frac{1}{n-K}\sum_{i=1}^{n}(y_{i}- x_{i}'\beta + x_{i}'\beta - x_{i}'b)^{2}                                                                                    \\
+              & =\frac{1}{n-K}\sum_{i=1}^{n}(\varepsilon_{i}+ x_{i}'(\beta - b))^{2}                                                                                            \\
+              & =\frac{1}{n-K}\sum_{i=1}^{n}\varepsilon_{i}^{2}+\frac{2}{n-K}\sum_{i=1}^{n}\varepsilon_{i}x_{i}'(\beta - b)+\frac{1}{n-K}\sum_{i=1}^{n}(x_{i}'(\beta - b))^{2}.
+    \end{align*}
+
+    We can write the three terms on the RHS as
+    \[
+        \frac{1}{n-K}\sum_{i=1}^{n}\varepsilon_{i}^{2}=\frac{n}{n-K}\cdot \frac{1}{n}
+        \sum_{i=1}^{n}\varepsilon_{i}^{2},
+    \]
+    \[
+        \frac{2}{n-K}\sum_{i=1}^{n}\varepsilon_{i}x_{i}'(\beta - b)=\frac{2}{n-K}
+        \cdot n\cdot \bar g'(\beta - b),
+    \]
+    \[
+        \frac{1}{n-K}\sum_{i=1}^{n}(x_{i}'(\beta - b))^{2}=\frac{1}{n-K}\cdot
+        n\cdot (\beta - b)'S_{xx}(\beta - b).
+    \]
+    By Proposition 2.1, we have $\mathrm{plim}\, \bar g = 0$,
+    $\mathrm{plim}\, S_{xx}= \Sigma_{xx}$, and $\mathrm{plim}(b-\beta)=0$.
+    Therefore, by Lemma 2.3(a), we have $\mathrm{plim}(b-\beta)'\bar g = 0$ and
+    $\mathrm{plim}(b-\beta)'S_{xx}(b -\beta)=0$.
+
+    Since $\frac{n}{n-K}\xrightarrow{p}1$,
+    $\frac{2}{n-K}\cdot n\xrightarrow{p}2$, and $\frac{1}{n-K}\cdot n\xrightarrow
+        {p}1$, we have
+    \[
+        s^{2}\xrightarrow{p}E(\varepsilon_{i}^{2})=E(\sigma^{2}),
+    \]
+\end{solution}
+
+\section*{Exercise 7}
+ (Standard error of a nonlinear function) For simplicity let $K=1$ and let $b$
+be the OLS estimate of $\beta$. The standard error of $b$ is
+$\sqrt{\widehat{Avar}(b)/n}$. Suppose $\lambda=-\log(\beta)$. The estimate
+of $\lambda$ implied by the OLS estimate of $\beta$ is
+$\hat{\lambda}=-\log(b)$. Verify that the standard error of $\hat{\lambda}$ is
+\[
+    \frac{1}{b}\sqrt{\widehat{Avar}(b)/n}.
+\]
+
+\begin{solution}
+    Let $\lambda = g(\beta), \qquad g(\beta) = -\log(\beta).$
+
+    The estimator of $\lambda$ obtained from the OLS estimator $b$ of
+    $\beta$ is
+
+    \[
+        \hat{\lambda}= g(b) = -\log(b).
+    \]
+
+    To find the standard error of $\hat{\lambda}$ we use the Delta Method. If
+    \[
+        \sqrt{n}(b-\beta) \xrightarrow{d}N(0,\mathrm{Avar}(b)),
+    \]
+    then for a differentiable function $g(\cdot)$,
+    \[
+        \sqrt{n}\big(g(b)-g(\beta)\big) \xrightarrow{d}N\!\left(0,\left[g'(\beta
+                )\right]^{2}\mathrm{Avar}(b)\right).
+    \]
+
+    First compute the derivative of $g(\beta)$:
+    \[
+        g'(\beta)=\frac{d}{d\beta}[-\log(\beta)]=-\frac{1}{\beta}.
+    \]
+
+    Hence
+    \[
+        [g'(\beta)]^{2}=\frac{1}{\beta^{2}}.
+    \]
+
+    Therefore
+    \[
+        \mathrm{Avar}(\hat{\lambda}) = \frac{1}{\beta^{2}}\mathrm{Avar}(b).
+    \]
+
+    The asymptotic variance of $\hat{\lambda}$ (for the estimator itself, not
+    the scaled statistic) is
+    \[
+        \mathrm{Var}(\hat{\lambda}) = \frac{1}{n}\frac{1}{\beta^{2}}\mathrm{Avar}
+        (b).
+    \]
+
+    Replacing the unknown $\beta$ by its estimator $b$ gives the estimated variance
+    \[
+        \widehat{\mathrm{Var}}(\hat{\lambda}) = \frac{1}{b^{2}}\frac{\widehat{\mathrm{Avar}}(b)}{n}
+        .
+    \]
+
+    Taking the square root yields the standard error
+    \[
+        \mathrm{se}(\hat{\lambda}) = \frac{1}{b}\sqrt{\frac{\widehat{\mathrm{Avar}}(b)}{n}}
+        .
+    \]
+\end{solution}
+
+\section*{Exercise 8}
+Without conditional homoskedasticity, is
+\[
+    (SSR_{R}-SSR_{U})/s^{2}
+\]
+asymptotically $\chi^{2}(\#r)$?
+
+\begin{solution}
+    Without conditional homoskedasticity, the result generally fails.
+
+    Consider the linear regression model
+    \[
+        y = X\beta + \varepsilon,
+    \]
+    and the null hypothesis
+    \[
+        H_{0}: R\beta = r,
+    \]
+    where $q=\#r$ is the number of restrictions.
+
+    Let $b$ be the unrestricted OLS estimator and $b_{R}$ the restricted OLS
+    estimator:
+    \[
+        b=\arg\min_{b}(y-Xb)'(y-Xb), \qquad b_{R}=\arg\min_{b_R}(y-Xb_{R})'(
+        y-Xb_{R})\quad\text{s.t.}\quad Rb_{R}=r.
+    \]
+
+    The Lagrangian for the restricted problem is
+    \[
+        L(b_{R},\lambda)=(y-Xb_{R})'(y-Xb_{R})+2\lambda'(Rb_{R}-r).
+    \]
+    The first-order condition with respect to $b_{R}$ is
+    \[
+        \frac{\partial L(b_{R},\lambda)}{\partial b_{R}}=-2X'(y-Xb_{R})+2R'\lambda
+        =0,
+    \]
+    so
+    \[
+        X'Xb_{R}=X'y-R'\lambda.
+    \]
+    Hence
+    \[
+        b_{R}=(X'X)^{-1}(X'y-R'\lambda), \qquad b=(X'X)^{-1}X'y,
+    \]
+    and therefore
+    \[
+        b_{R}=b-(X'X)^{-1}R'\lambda.
+    \]
+    Imposing the restriction $Rb_{R}=r$ gives
+    \[
+        R\Big(b-(X'X)^{-1}R'\lambda\Big)=r,
+    \]
+    so
+    \[
+        Rb-R(X'X)^{-1}R'\lambda=r,
+    \]
+    and thus
+    \[
+        \lambda=\Big[R(X'X)^{-1}R'\Big]^{-1}(Rb-r).
+    \]
+    Substituting back,
+    \[
+        b-b_{R}=(X'X)^{-1}R'\Big[R(X'X)^{-1}R'\Big]^{-1}(Rb-r).
+    \]
+
+    Now recall that
+    \begin{align*}
+        SSR_{R} & =e_{R}'e_{R}                                              \\
+                & =(y-Xb_{R})'(y-Xb_{R})                                    \\
+                & =(y-Xb+Xb-Xb_{R})'(y-Xb+Xb-Xb_{R})                        \\
+                & =(y-Xb)'(y-Xb)+2(y-Xb)'X(b-b_{R})+(b-b_{R})'X'X(b-b_{R}).
+    \end{align*}
+    Since $b$ is the unrestricted OLS estimator, $X'(y-Xb)=0$, hence
+    \[
+        (y-Xb)'X(b-b_{R})=0.
+    \]
+    Therefore
+    \[
+        SSR_{R}=SSR_{U}+(b-b_{R})'X'X(b-b_{R}),
+    \]
+    which implies
+    \begin{align*}
+         & SSR_{R}-SSR_{U}=(b-b_{R})'X'X(b-b_{R})                                                                  \\
+         & =\Big[(X'X)^{-1}R'[R(X'X)^{-1}R']^{-1}(Rb-r)\Big]' X'X \Big[(X'X)^{-1}R'[R(X'X)^{-1}R']^{-1}(Rb-r)\Big] \\
+         & =(Rb-r)'[R(X'X)^{-1}R']^{-1}(Rb-r).
+    \end{align*}
+    Next rewrite this expression in a form suitable for asymptotic analysis.
+    Since
+    \[
+        (X'X)^{-1}=\frac{1}{n}\left(\frac{X'X}{n}\right)^{-1},
+    \]
+    we have
+    \[
+        R(X'X)^{-1}R' =\frac{1}{n}R\left(\frac{X'X}{n}\right)^{-1}R',
+    \]
+    so
+    \[
+        [R(X'X)^{-1}R']^{-1}=n\left[R\left(\frac{X'X}{n}\right)^{-1}R'\right]
+        ^{-1}.
+    \]
+    Hence
+    \begin{align*}
+        SSR_{R}-SSR_{U} & =n(Rb-r)'\left[R\left(\frac{X'X}{n}\right)^{-1}R'\right]^{-1}(Rb-r)                      \\
+                        & =[\sqrt{n}(Rb-r)]' \left[R\left(\frac{X'X}{n}\right)^{-1}R'\right]^{-1}[\sqrt{n}(Rb-r)].
+    \end{align*}
+    Without conditional homoskedasticity, let
+    \[
+        E(\varepsilon_{i}^{2}\mid x_{i})=\sigma_{i}^{2}.
+    \]
+    Then the asymptotic variance of the OLS estimator is
+    \begin{align*}
+        Avar\!\left(\sqrt{n}(b-\beta)\right) & =Avar\!\left(\sqrt{n}(X'X)^{-1}X'y\right)                                         \\
+                                             & =Avar\!\left(\sqrt{n}(X'X)^{-1}X'\varepsilon\right)                               \\
+                                             & =Avar\!\left(\left(\frac{X'X}{n}\right)^{-1}\frac{X'\varepsilon}{\sqrt{n}}\right) \\
+                                             & =Q^{-1}\Omega Q^{-1},
+    \end{align*}
+    where
+    \[
+        Q=E(x_{i}x_{i}'), \qquad \Omega=E(x_{i}x_{i}'\varepsilon_{i}^{2}).
+    \]
+    Therefore, under $H_{0}:R\beta=r$,
+    \[
+        \sqrt{n}(Rb-r) =R\sqrt{n}(b-\beta) \xrightarrow{d}N\!\left(0,\;RQ^{-1}
+        \Omega Q^{-1}R'\right).
+    \]
+    Also,
+    \[
+        \frac{X'X}{n}\xrightarrow{p}Q, \qquad R\left(\frac{X'X}{n}\right)^{-1}
+        R'\xrightarrow{p}RQ^{-1}R'.
+    \]
+    Hence, by Slutsky's theorem,
+    \[
+        SSR_{R}-SSR_{U}\xrightarrow{d}Z'(RQ^{-1}R')^{-1}Z,
+    \]
+    where
+    \[
+        Z\sim N\!\left(0,\;RQ^{-1}\Omega Q^{-1}R'\right).
+    \]
+
+    Let
+    \[
+        W=(RQ^{-1}R')^{-1/2}Z.
+    \]
+    Then
+    \[
+        SSR_{R}-SSR_{U}\xrightarrow{d}W'W,
+    \]
+    but
+    \[
+        Var(W) =(RQ^{-1}R')^{-1/2}\big(RQ^{-1}\Omega Q^{-1}R'\big) (RQ^{-1}R
+        ')^{-1/2},
+    \]
+    which is generally not the identity matrix unless
+    \[
+        \Omega=\sigma^{2}Q.
+    \]
+    Therefore $W'W$ is generally not $\chi^{2}(q)$.
+
+    If we divide by $s^{2}$, this still does not fix the problem, because
+    $s^{2}$ is only a scalar, while the correct asymptotic covariance matrix
+    is
+    \[
+        RQ^{-1}\Omega Q^{-1}R',
+    \]
+    not a scalar multiple of $RQ^{-1}R'$ in general. Thus
+    $\frac{SSR_{R}-SSR_{U}}{s^{2}}$ is generally not a properly normalized
+    quadratic form and hence is not asymptotically $\chi^{2}(q)$.
+
+    Therefore, without conditional homoskedasticity,
+    $\frac{SSR_{R}-SSR_{U}}{s^{2}}$ is not asymptotically $\chi^{2}(q)$.
+\end{solution}
+
+\section*{Exercise 9}
+ (Unforecastability of forecast error) For the minimum mean square error forecast
+$E(y|x)$, the forecast error is orthogonal to any function $\phi(x)$ of $x$.
+That is
+\[
+    E(\eta \phi(x))=0
+\]
+where $\eta \equiv y - E(y|x)$. Prove this.
+
+\textit{Hint:} The Law of Total Expectations. Show that the middle term on
+the RHS of (2.9.3) is zero by setting$\phi(x)=E(y|x)-f(x)$.
+
+\begin{solution}
+    By the Law of Total Expectations, we have
+    \[
+        E(\eta \phi(x))=E\big[E(\eta \phi(x)|x)\big].
+    \]
+
+    Since $\eta=y-E(y|x)$, we can write
+    \[
+        E(\eta \phi(x)|x)=E\big((y-E(y|x))\phi(x)|x\big).
+    \]
+
+    Since $\phi(x)$ is a function of $x$, we can factor it out of the
+    conditional expectation:
+    \[
+        E\big((y-E(y|x))\phi(x)|x\big)=\phi(x)E(y-E(y|x)|x).
+    \]
+
+    Next, we compute $E(y-E(y|x)|x)$:
+    \[
+        E(y-E(y|x)|x)=E(y|x)-E(y|x)=0.
+    \]
+
+    Therefore,
+    \[
+        E(\eta \phi(x))=E\big[E(\eta \phi(x)|x)\big]=E[\phi(x)\cdot 0]=0.
+    \]
+\end{solution}
+
+\section*{Exercise 10}
+Let$\tilde{x}$ be the vector of nonconstant regressors so that
+\[
+    x=
+    \begin{bmatrix}
+        1 \\
+        \tilde{x}
+    \end{bmatrix}.
+\]
+
+Prove that
+\[
+    \hat{E}^{*}(y|x)=\hat{E}^{*}(y|1,\tilde{x})=\mu+\gamma'\tilde{x}, \tag{2.9.7}
+\]
+
+where
+\[
+    \gamma=\mathrm{Var}(\tilde{x})^{-1}\mathrm{Cov}(\tilde{x},y), \qquad \mu=
+    E(y)-\gamma' E(\tilde{x}).
+\]
+
+\begin{solution}
+    The best linear predictor of $y$ given $x$ is
+    \[
+        \hat{E}^{*}(y|x)=\alpha+\beta'x,
+    \]
+    where $\alpha$ and $\beta$ are chosen to minimize the mean squared error
+    $E\big((y-\alpha-\beta'x)^{2}\big)$.
+
+    Since $x=
+        \begin{bmatrix}
+            1 \\
+            \tilde{x}
+        \end{bmatrix}$, we can write
+    \[
+        \hat{E}^{*}(y|x)=\alpha+\beta_{1}\cdot 1 +\beta_{2}'\tilde{x}=\mu+\gamma
+        ' \tilde{x},
+    \]
+    where $\mu=\alpha+\beta_{1}$ and $\gamma=\beta_{2}$.
+
+    To find $\mu$ and $\gamma$, we use the normal equations for the OLS regression
+    of $y$ on $x$. The normal equations are
+    \[
+        E(x(y-x'\theta))=0,
+    \]
+    where $\theta=
+        \begin{bmatrix}
+            \mu \\
+            \gamma
+        \end{bmatrix}$.
+
+    Expanding this gives
+    \[
+        E\left(
+        \begin{bmatrix}
+            1 \\
+            \tilde{x}
+        \end{bmatrix}
+        (y-(\mu+\gamma'\tilde{x}))\right)=0.
+    \]
+
+    This can be rewritten as a system of two equations:
+    \[
+        E(y-(\mu+\gamma'\tilde{x}))=0,
+    \]
+    \[
+        E(\tilde{x}(y-(\mu+\gamma'\tilde{x})))=0.
+    \]
+
+    The first equation implies
+    \[
+        E(y)=\mu+E(\gamma'\tilde{x})=\mu+\gamma' E(\tilde{x}),
+    \]
+    \[
+        \mu=E(y)-\gamma' E(\tilde{x}).
+    \]
+
+    The second equation implies
+    \[
+        E(\tilde{x}y)=E(\tilde{x}\mu)+E(\tilde{x}\gamma'\tilde{x})=\mu E(\tilde
+        {x})+ E(\tilde{x}\tilde{x}')\gamma.
+    \]
+
+    Rearranging gives
+    \begin{align*}
+        E(\tilde{x}\tilde{x}')\gamma & =E(\tilde{x}y)-\mu E(\tilde{x})                                   \\
+                                     & = E(\tilde{x}y)-\big(E(y)-\gamma' E(\tilde{x})\big)E(\tilde{x})   \\
+                                     & =E(\tilde{x}y)-E (y)E(\tilde{x})+\gamma' E(\tilde{x})E(\tilde{x}) \\
+                                     & =\mathrm{Cov}(\tilde{x},y)+\gamma' E(\tilde{x})E(\tilde{x}).
+    \end{align*}
+    Therefore,
+    \[
+        \gamma=(E(\tilde{x}\tilde{x}')-E(\tilde{x})E(\tilde{x})')^{-1}\mathrm{Cov}
+        (\tilde{x},y)=\mathrm{Var}(\tilde{x})^{-1}\mathrm{Cov}(\tilde{x},y).
+    \]
+\end{solution}
+
+\section*{Exercise 1}
+Consider the simple model for demand and supply of a commodity:
+$$q_i^d=\alpha_0+\alpha_1 p_i+u_i, \qquad \text{(demand equation)}$$
+$$q_i^s=\beta_0+\beta_1 p_i+v_i, \qquad \text{(supply equation)}$$
+$$q_i^d=q_i^s, \qquad \text{(market equilibrium)}$$
+Assume that $\mathbb{E}(u_i)=0$ and $\mathbb{E}(v_i)=0$ and $\operatorname{Cov}(u_i,v_i)=0$. Show that least squares estimation of $\alpha_1$ converges to $\frac{\alpha_1 \operatorname{Var}(v_i)+\beta_1 \operatorname{Var}(u_i)}{\operatorname{Var}(u_i)+\operatorname{Var}(v_i)}$ in probability.
+
+\begin{solution}
+    From the market equilibrium condition $q_i^d=q_i^s,$
+    we have
+    $$
+        \alpha_0+\alpha_1 p_i+u_i=\beta_0+\beta_1 p_i+v_i.
+    $$
+    Rearranging gives
+    $$
+        (\alpha_1-\beta_1)p_i=(\beta_0-\alpha_0)+(v_i-u_i),
+    $$
+    so
+    $$
+        p_i=\frac{\beta_0-\alpha_0}{\alpha_1-\beta_1}+\frac{v_i-u_i}{\alpha_1-\beta_1}.
+    $$
+
+    Now substitute this equilibrium price into the demand equation
+    $$
+        q_i=q_i^d=\alpha_0+\alpha_1 p_i+u_i.
+    $$
+    Since we are interested in the probability limit of the OLS estimator from regressing $q_i$ on $p_i$, we use the standard formula
+    $$
+        \plim \hat\alpha_1
+        =
+        \frac{\Cov(p_i,q_i)}{\Var(p_i)}.
+    $$
+    Using
+    $$
+        q_i=\alpha_0+\alpha_1 p_i+u_i,
+    $$
+    we get
+    $$
+        \Cov(p_i,q_i)
+        =
+        \Cov\!\bigl(p_i,\alpha_0+\alpha_1 p_i+u_i\bigr)
+        =
+        \alpha_1\Var(p_i)+\Cov(p_i,u_i).
+    $$
+    Hence
+    $$
+        \plim \hat\alpha_1
+        =
+        \alpha_1+\frac{\Cov(p_i,u_i)}{\Var(p_i)}.
+    $$
+
+    So it remains to compute $\Cov(p_i,u_i)$ and $\Var(p_i)$. From
+    $$
+        p_i=\frac{\beta_0-\alpha_0}{\alpha_1-\beta_1}+\frac{v_i-u_i}{\alpha_1-\beta_1},
+    $$
+    the constant term does not affect covariance or variance, so
+    $$
+        \Cov(p_i,u_i)
+        =
+        \Cov\!\left(\frac{v_i-u_i}{\alpha_1-\beta_1},u_i\right)
+        =
+        \frac{1}{\alpha_1-\beta_1}\bigl(\Cov(v_i,u_i)-\Var(u_i)\bigr).
+    $$
+    Because $\Cov(u_i,v_i)=0$, this becomes
+    $$
+        \Cov(p_i,u_i)
+        =
+        -\frac{\Var(u_i)}{\alpha_1-\beta_1}.
+    $$
+
+    Also,
+    $$
+        \Var(p_i)
+        =
+        \Var\!\left(\frac{v_i-u_i}{\alpha_1-\beta_1}\right)
+        =
+        \frac{1}{(\alpha_1-\beta_1)^2}\Var(v_i-u_i).
+    $$
+    Using $\Cov(u_i,v_i)=0$,
+    $$
+        \Var(v_i-u_i)=\Var(v_i)+\Var(u_i),
+    $$
+    so
+    $$
+        \Var(p_i)
+        =
+        \frac{\Var(v_i)+\Var(u_i)}{(\alpha_1-\beta_1)^2}.
+    $$
+
+    Therefore,
+    $$
+        \frac{\Cov(p_i,u_i)}{\Var(p_i)}
+        =
+        \frac{-\dfrac{\Var(u_i)}{\alpha_1-\beta_1}}
+        {\dfrac{\Var(v_i)+\Var(u_i)}{(\alpha_1-\beta_1)^2}}
+        =
+        -\frac{(\alpha_1-\beta_1)\Var(u_i)}{\Var(v_i)+\Var(u_i)}.
+    $$
+    Substituting back,
+    $$
+        \plim \hat\alpha_1
+        =
+        \alpha_1-\frac{(\alpha_1-\beta_1)\Var(u_i)}{\Var(v_i)+\Var(u_i)}.
+    $$
+    Simplifying,
+    $$
+        \plim \hat\alpha_1
+        =
+        \frac{\alpha_1\bigl(\Var(v_i)+\Var(u_i)\bigr)-(\alpha_1-\beta_1)\Var(u_i)}
+        {\Var(v_i)+\Var(u_i)}.
+    $$
+    Expanding the numerator,
+    $$
+        \alpha_1\Var(v_i)+\alpha_1\Var(u_i)-\alpha_1\Var(u_i)+\beta_1\Var(u_i)
+        =
+        \alpha_1\Var(v_i)+\beta_1\Var(u_i).
+    $$
+    Hence,
+    $$
+        \plim \hat\alpha_1
+        =
+        \frac{\alpha_1 \Var(v_i)+\beta_1 \Var(u_i)}
+        {\Var(u_i)+\Var(v_i)}.
+    $$
+\end{solution}
+
+\section*{Exercise 2}
+For any choice of weighting matrix $W$, show that
+$$
+    (\Sigma_{xz}' W \Sigma_{xz})^{-1}\Sigma_{xz}' W S W \Sigma_{xz}(\Sigma_{xz}' W \Sigma_{xz})^{-1}
+    \geq
+    (\Sigma_{xz}' S^{-1}\Sigma_{xz})^{-1}.
+$$
+\begin{solution}
+    Let $$A=\Sigma_{xz}'W\Sigma_{xz}, \qquad B=\Sigma_{xz}'S^{-1}\Sigma_{xz}.$$
+
+    Then the statement to prove is
+    $$A^{-1}\Sigma_{xz}'WSW\Sigma_{xz}A^{-1}\ge B^{-1},$$
+    where “$\ge$” means that the difference is positive semidefinite.
+
+    Consider the matrix
+    $$M=S^{1/2}W\Sigma_{xz}A^{-1}-S^{-1/2}\Sigma_{xz}B^{-1}.$$
+
+    Since $M'M$ is always positive semidefinite, we have
+    $$M'M\ge 0.$$
+
+    Now expand $M'M$:
+    $$
+        M'M
+        =
+        \left(S^{1/2}W\Sigma_{xz}A^{-1}-S^{-1/2}\Sigma_{xz}B^{-1}\right)'
+        \left(S^{1/2}W\Sigma_{xz}A^{-1}-S^{-1/2}\Sigma_{xz}B^{-1}\right).
+    $$
+
+    Thus
+    $$
+        \begin{aligned}
+            M'M
+             & =A^{-1}\Sigma_{xz}'WSW\Sigma_{xz}A^{-1}-A^{-1}\Sigma_{xz}'W\Sigma_{xz}B^{-1}     \\
+             & -B^{-1}\Sigma_{xz}'W\Sigma_{xz}A^{-1}+B^{-1}\Sigma_{xz}'S^{-1}\Sigma_{xz}B^{-1}.
+        \end{aligned}
+    $$
+
+    Using the definitions of $A$ and $B$,
+
+    $$
+        A^{-1}\Sigma_{xz}'W\Sigma_{xz}B^{-1}=A^{-1}AB^{-1}=B^{-1},
+    $$
+
+    $$
+        B^{-1}\Sigma_{xz}'W\Sigma_{xz}A^{-1}=B^{-1}AA^{-1}=B^{-1},
+    $$
+
+    $$
+        B^{-1}\Sigma_{xz}'S^{-1}\Sigma_{xz}B^{-1}=B^{-1}BB^{-1}=B^{-1}.
+    $$
+
+    Therefore,
+
+    $$
+        M'M
+        =
+        A^{-1}\Sigma_{xz}'WSW\Sigma_{xz}A^{-1}-B^{-1}.
+    $$
+
+    Since $M'M\ge 0$, it follows that
+
+    $$
+        A^{-1}\Sigma_{xz}'WSW\Sigma_{xz}A^{-1}-B^{-1}\ge 0,
+    $$
+
+    that is,
+
+    $$
+        (\Sigma_{xz}' W \Sigma_{xz})^{-1}\Sigma_{xz}' W S W \Sigma_{xz}(\Sigma_{xz}' W \Sigma_{xz})^{-1}
+        \geq
+        (\Sigma_{xz}' S^{-1}\Sigma_{xz})^{-1}.
+    $$
+\end{solution}
+
+\section*{Exercise 3}
+Prove Proposition 3.6: Suppose there is available a consistent estimator, $\hat S$, of $S$ $(= \mathbb{E}(g_i g_i'))$. Under Assumptions 3.1--3.5,
+$$
+    J\bigl(\hat\delta(\hat S^{-1}), \hat S^{-1}\bigr)
+    \; \left(= n \cdot g_n\bigl(\hat\delta(\hat S^{-1})\bigr)' \hat S^{-1} g_n\bigl(\hat\delta(\hat S^{-1})\bigr)\right)
+    \;\to_d\; \chi^2(K-L).
+$$
+\begin{solution}
+    To prove the result, define
+    $$
+        Q_n(\delta,W)\equiv g_n(\delta)'Wg_n(\delta),
+        \qquad
+        g_n(\delta)\equiv \frac1n\sum_{i=1}^n g_i(\delta),
+    $$
+    and let
+    $$
+        \hat\delta=\hat\delta(\hat S^{-1})
+        \equiv
+        \arg\min_{\delta}Q_n(\delta,\hat S^{-1}).
+    $$
+    The Hansen \(J\)-statistic is
+    $$
+        J(\hat\delta(\hat S^{-1}),\hat S^{-1})
+        =
+        n\,g_n(\hat\delta)'\hat S^{-1}g_n(\hat\delta).
+    $$
+    We want to show that
+    $$
+        J(\hat\delta(\hat S^{-1}),\hat S^{-1})\to_d \chi^2(K-L).
+    $$
+
+    Let \(\delta_0\) denote the true parameter value, and define
+    $$
+        G\equiv \E\!\left[\frac{\partial g_i(\delta_0)}{\partial\delta'}\right],
+        \qquad
+        S\equiv \E\!\left[g_i(\delta_0)g_i(\delta_0)'\right].
+    $$
+    Under the null hypothesis of correct specification, $\E[g_i(\delta_0)]=0.$
+
+    Under Assumptions 3.1--3.5, we have the usual central limit theorem for the sample moments:
+    $$
+        \sqrt n\,g_n(\delta_0)\to_d N(0,S).
+    $$
+    Also, \(\hat S\to_p S\), so by continuity of matrix inversion, $\hat S^{-1}\to_p S^{-1}.$
+
+    Next, expand \(g_n(\hat\delta)\) around \(\delta_0\). By a first-order Taylor expansion,
+    $$
+        g_n(\hat\delta)
+        =
+        g_n(\delta_0)
+        +
+        G_n(\tilde\delta)(\hat\delta-\delta_0),
+    $$
+    where \(\tilde\delta\) lies between \(\hat\delta\) and \(\delta_0\), and
+    $$
+        G_n(\delta)\equiv \frac{\partial g_n(\delta)}{\partial\delta'}.
+    $$
+    Since \(\hat\delta\to_p\delta_0\) and \(G_n(\tilde\delta)\to_p G\), it follows that
+    $$
+        g_n(\hat\delta)
+        =
+        g_n(\delta_0)+G(\hat\delta-\delta_0)+o_p(n^{-1/2}).
+    $$
+    $$
+        \sqrt n\,g_n(\hat\delta)
+        =
+        \sqrt n\,g_n(\delta_0)+G\sqrt n(\hat\delta-\delta_0)+o_p(1).
+    $$
+
+    We now derive the asymptotic linear representation of \(\hat\delta\). Since \(\hat\delta\) minimizes
+    $$
+        Q_n(\delta,\hat S^{-1})=g_n(\delta)'\hat S^{-1}g_n(\delta),
+    $$
+    the first-order condition is
+    $$
+        \frac{\partial}{\partial\delta}Q_n(\delta,\hat S^{-1})
+        =
+        2\,G_n(\delta)'\hat S^{-1}g_n(\delta)=0.
+    $$
+
+    Substitute the Taylor expansion into the first-order condition.
+    $$
+        g_n(\hat\delta)=g_n(\delta_0)+G(\hat\delta-\delta_0)+o_p(n^{-1/2})
+    $$
+    $$
+        \implies \sqrt n\,g_n(\hat\delta)
+        =
+        \sqrt n\,g_n(\delta_0)+G\sqrt n(\hat\delta-\delta_0)+o_p(1),
+    $$
+    Since \(G_n(\hat\delta)\to_p G\) and \(\hat S^{-1}\to_p S^{-1}\), we obtain
+    $$
+        G'S^{-1}\Bigl(g_n(\delta_0)+G(\hat\delta-\delta_0)\Bigr)=o_p(n^{-1/2})\\
+    $$
+    $$
+        \implies G'S^{-1}g_n(\delta_0)+G'S^{-1}G(\hat\delta-\delta_0)=o_p(n^{-1/2}).
+    $$
+    $$
+        \implies G'S^{-1}G(\hat\delta-\delta_0)=-\,G'S^{-1}g_n(\delta_0)+o_p(n^{-1/2}).
+    $$
+    Since \(G\) has full column rank \(L\) and \(S\) is positive definite, the matrix $G'S^{-1}G$ is nonsingular. Hence we may premultiply by \((G'S^{-1}G)^{-1}\), which gives
+    $$
+        \hat\delta-\delta_0
+        =
+        -(G'S^{-1}G)^{-1}G'S^{-1}g_n(\delta_0)+o_p(n^{-1/2}).
+    $$
+    $$
+        \implies \sqrt n(\hat\delta-\delta_0)
+        =
+        -(G'S^{-1}G)^{-1}G'S^{-1}\sqrt n\,g_n(\delta_0)+o_p(1).
+    $$
+    \begin{align*}
+        \sqrt n\,g_n(\hat\delta)
+         & =
+        \sqrt n\,g_n(\delta_0)
+        +
+        G\left[
+        -(G'S^{-1}G)^{-1}G'S^{-1}\sqrt n\,g_n(\delta_0)+o_p(1)
+        \right]
+        +o_p(1) \\
+         & =
+        \sqrt n\,g_n(\delta_0)
+        -
+        G(G'S^{-1}G)^{-1}G'S^{-1}\sqrt n\,g_n(\delta_0)
+        +o_p(1) \\
+         & =
+        \left[
+        I-G(G'S^{-1}G)^{-1}G'S^{-1}
+        \right]
+        \sqrt n\,g_n(\delta_0)+o_p(1).
+    \end{align*}
+
+    Define $M \equiv I-G(G'S^{-1}G)^{-1}G'S^{-1}.$
+    Then
+    $$
+        \sqrt n\,g_n(\hat\delta)=M\sqrt n\,g_n(\delta_0)+o_p(1).
+    $$
+    Now rewrite the \(J\)-statistic as
+    $$
+        J(\hat\delta,\hat S^{-1})
+        =
+        \bigl(\sqrt n\,g_n(\hat\delta)\bigr)'\hat S^{-1}\bigl(\sqrt n\,g_n(\hat\delta)\bigr).
+    $$
+    Since \(\hat S^{-1}\to_p S^{-1}\), Slutsky's theorem implies
+    \begin{align*}
+        J(\hat\delta,\hat S^{-1})
+         & =
+        \bigl(\sqrt n\,g_n(\hat\delta)\bigr)'S^{-1}\bigl(\sqrt n\,g_n(\hat\delta)\bigr)+o_p(1) \\
+         & =
+        \left(M\sqrt n\,g_n(\delta_0)+o_p(1)\right)'
+        S^{-1}
+        \left(M\sqrt n\,g_n(\delta_0)+o_p(1)\right)
+        +o_p(1)                                                                                \\
+         & =
+        \bigl(\sqrt n\,g_n(\delta_0)\bigr)'M'S^{-1}M\bigl(\sqrt n\,g_n(\delta_0)\bigr)+o_p(1).
+    \end{align*}
+    Next define $Z\equiv S^{-1/2}\sqrt n\,g_n(\delta_0).$ Because$\sqrt n\,g_n(\delta_0)\to_d N(0,S),$ it follows that $Z\to_d N(0,I_K).$
+    Also,
+    $$
+        \sqrt n\,g_n(\delta_0)=S^{1/2}Z.
+    $$
+    \begin{align*}
+        J(\hat\delta,\hat S^{-1})
+         & =
+        (S^{1/2}Z)'M'S^{-1}M(S^{1/2}Z)+o_p(1) \\
+         & =
+        Z'(S^{1/2})'M'S^{-1}MS^{1/2}Z+o_p(1).
+    \end{align*}
+    Since \(S\) is symmetric positive definite, \(S^{1/2}\) may be taken symmetric, so \((S^{1/2})'=S^{1/2}\). Thus
+    $$
+        J(\hat\delta,\hat S^{-1})
+        =
+        Z'PZ+o_p(1),
+    $$
+    where $P\equiv S^{1/2}M'S^{-1}MS^{1/2}.$
+
+    Let $A\equiv S^{-1/2}G.$ Then $A'A=G'S^{-1}G.$
+
+    Also, $G=S^{1/2}A,\quad G'S^{-1}=A'S^{-1/2}.$
+    Substituting these into the expression for \(M\),
+    $$M=I-(S^{1/2}A)(A'A)^{-1}(A'S^{-1/2}).$$
+    \begin{align*}
+        S^{-1/2}MS^{1/2}
+         & =
+        S^{-1/2}
+        \left[
+        I-S^{1/2}A(A'A)^{-1}A'S^{-1/2}
+        \right]
+        S^{1/2} \\
+         & =
+        I-A(A'A)^{-1}A'.
+    \end{align*}
+    \begin{align*}
+        P=S^{1/2}M'S^{-1}MS^{1/2}=
+        \bigl(S^{-1/2}MS^{1/2}\bigr)'\bigl(S^{-1/2}MS^{1/2}\bigr)=I-A(A'A)^{-1}A'.
+    \end{align*}
+
+    Since \(A\) is \(K\times L\) and has full column rank \(L\), the matrix $A(A'A)^{-1}A'$ is the projection onto the column space of \(A\), which has dimension \(L\). Therefore,
+    $$
+        \operatorname{rank}\!\left(A(A'A)^{-1}A'\right)=L.
+    $$
+    Hence the complementary projection $P=I-A(A'A)^{-1}A'$ has rank $\operatorname{rank}(P)=K-L.$
+
+    Thus \(P\) is a symmetric idempotent matrix of rank \(K-L\). For \(Z\sim N(0,I_K)\), the quadratic form in such a projection matrix has a chi-square distribution with degrees of freedom equal to the rank of the projection. Therefore,
+    $$
+        Z'PZ\to_d \chi^2(K-L).
+    $$
+    Since
+    $$
+        J(\hat\delta,\hat S^{-1})=Z'PZ+o_p(1),
+    $$
+    another application of Slutsky's theorem gives
+    $$
+        J(\hat\delta(\hat S^{-1}),\hat S^{-1})\to_d \chi^2(K-L).
+    $$
+\end{solution}
+
+\section*{Exercise 4}
+ (Weak instruments. This question is due to M. Watson.) Consider the following model:
+$$
+    y_i = z_i \delta + \varepsilon_i \quad (i = 1,2,\ldots,n),
+$$
+where $y_i$, $z_i$, and $\varepsilon_i$ are scalar random variables. Let $x_i$ denote a scalar instrumental variable that is related to $z_i$ via the equation
+$$
+    z_i = x_i \beta + v_i.
+$$
+Let
+$$
+    \eta_i \equiv
+    \begin{bmatrix}
+        \varepsilon_i \\
+        v_i
+    \end{bmatrix},
+    \qquad
+    g_i \equiv \eta_i \cdot x_i \equiv
+    \begin{bmatrix}
+        g_{1i} \\
+        g_{2i}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        x_i \varepsilon_i \\
+        x_i v_i
+    \end{bmatrix}.
+$$
+Assume that
+\begin{itemize}
+    \item[(1)] $\{x_i,\eta_i\}$ follows a stationary and ergodic process.
+    \item[(2)] $g_i$ is a martingale difference sequence with $\mathbb{E}(g_i g_i') = S$, which is a positive definite matrix.
+    \item[(3)] $\mathbb{E}(x_i^2)=\sigma_x^2>0$.
+    \item[(4)] $\beta \neq 0$.
+\end{itemize}
+Let $\hat\delta = s_{xz}^{-1}s_{xy}$ where
+$$
+    s_{xz} \equiv \frac{1}{n}\sum_{i=1}^n x_i z_i,
+    \qquad
+    s_{xy} \equiv \frac{1}{n}\sum_{i=1}^n x_i y_i.
+$$
+\begin{itemize}
+    \item[(a)] Prove that $\sigma_{xz} \equiv \mathbb{E}(x_i z_i) \neq 0$ (so that the rank condition for identification is satisfied).
+    \item[(b)] Prove that $\hat\delta \to_p \delta$.
+\end{itemize}
+
+We now want to consider a case in which the rank condition is just barely satisfied, that is, $\sigma_{xz}$ is very close to zero. One way to do this is to replace Assumption (4) with $(4')$ $\beta = 1/\sqrt{n}$.
+
+For the remainder of the problem, assume that (1)--(3) and $(4')$ hold. (This assumption and the following questions are based on Staiger and Stock (1997).) Note that
+$$
+    \hat\delta - \delta = s_{xz}^{-1}\bar g_1,
+$$
+where $\bar g_1$ is the sample mean of $g_{1i}\,(=x_i\varepsilon_i)$.
+
+\begin{itemize}
+    \item[(c)] Show that $s_{xz} \to_p 0$.
+    \item[(d)] Show that $\sqrt{n}s_{xz} \to_d \sigma_x^2 + a$, where $a$ is distributed $N(0,s_{22})$ and $s_{22}$ is the $(2,2)$ element of $S$.
+    \item[(e)] Show that $\hat\delta - \delta \to_d (\sigma_x^2+a)^{-1}b$, where $(a,b)$ are jointly normally distributed with mean zero and covariance matrix $S$.
+    \item[(f)] Is $\hat\delta$ consistent?
+\end{itemize}
+
+\begin{solution}
+    First note that
+    $y_i=z_i\delta+\varepsilon_i, \quad z_i=x_i\beta+v_i.$
+    $$x_i z_i = x_i(x_i\beta+v_i)=\beta x_i^2 + x_i v_i = \beta x_i^2 + g_{2i},$$
+    $$x_i y_i = x_i(z_i\delta+\varepsilon_i)=\delta x_i z_i + x_i\varepsilon_i= \delta x_i z_i + g_{1i}.$$
+    $$
+        s_{xz}=\frac1n\sum_{i=1}^n x_i z_i=
+        \beta\frac1n\sum_{i=1}^n x_i^2+\bar g_2,
+        \qquad \bar g_2\equiv \frac1n\sum_{i=1}^n g_{2i},
+    $$
+
+    $$
+        s_{xy}=
+        \delta s_{xz}+\bar g_1,
+        \qquad
+        \bar g_1\equiv \frac1n\sum_{i=1}^n g_{1i}.
+    $$
+    Thus
+    $$
+        \hat\delta=s_{xz}^{-1}s_{xy}
+        =
+        s_{xz}^{-1}(\delta s_{xz}+\bar g_1)
+        =
+        \delta+s_{xz}^{-1}\bar g_1,
+    $$
+    $$
+        \implies
+        \hat\delta-\delta=s_{xz}^{-1}\bar g_1.
+    $$
+
+    \textbf{(a)} We need to show that $\sigma_{xz}\equiv \E(x_i z_i)\neq 0.$
+
+    Using \(z_i=x_i\beta+v_i\),
+    $$
+        \E(x_i z_i)=\E\!\bigl(x_i(x_i\beta+v_i)\bigr)
+        =
+        \beta \E(x_i^2)+\E(x_i v_i).
+    $$
+    Now $g_{2i}=x_i v_i.$
+    Since \(g_i\) is a martingale difference sequence, in particular $\E(g_i)=0.$
+    Therefore
+    $$
+        \E(g_{2i})=\E(x_i v_i)=0.
+    $$
+    Hence
+    $$
+        \sigma_{xz}
+        =
+        \beta \E(x_i^2)
+        =
+        \beta \sigma_x^2.
+    $$
+    By Assumption (3), \(\sigma_x^2>0\), and by Assumption (4), \(\beta\neq 0\). Therefore
+    $$
+        \sigma_{xz}=\beta \sigma_x^2\neq 0.
+    $$
+    So the rank condition is satisfied.
+
+    \textbf{(b)} We want to show that $\hat\delta\to_p \delta.$
+
+    From above,
+    $$
+        \hat\delta-\delta=s_{xz}^{-1}\bar g_1.
+    $$
+    So it suffices to show
+    $s_{xz}\to_p \sigma_{xz}\neq 0 \quad\text{and} \quad \bar g_1\to_p 0.$
+
+    Because \(\{x_i,\eta_i\}\) is stationary and ergodic, the ergodic theorem implies $\frac1n\sum_{i=1}^n x_i z_i \to_p \E(x_i z_i)=\sigma_{xz},$ that is, $s_{xz}\to_p \sigma_{xz}.$
+
+    From part (a), \(\sigma_{xz}\neq 0\). Hence, by continuity, $s_{xz}^{-1}\to_p \sigma_{xz}^{-1}.$
+
+    Also, since \(g_i\) is a martingale difference sequence, \(\E(g_{1i})=0\). By stationarity and ergodicity,
+    $$
+        \bar g_1=\frac1n\sum_{i=1}^n g_{1i}\to_p \E(g_{1i})=0.
+    $$
+    Therefore $\hat\delta-\delta=s_{xz}^{-1}\bar g_1 \to_p \sigma_{xz}^{-1}\cdot 0=0 \implies \hat\delta\to_p \delta.$
+
+    For the remainder, replace Assumption (4) by $\beta=\frac1{\sqrt n}.$
+
+    \textbf{(c)} We want to show that $s_{xz}\to_p 0.$
+
+    $$
+        s_{xz}
+        =
+        \beta\frac1n\sum_{i=1}^n x_i^2+\bar g_2=\frac1{\sqrt n}\frac1n\sum_{i=1}^n x_i^2+\bar g_2.
+    $$
+
+    By stationarity and ergodicity, $\frac1n\sum_{i=1}^n x_i^2 \to_p \E(x_i^2)=\sigma_x^2.$
+
+    Therefore $\frac1{\sqrt n}\frac1n\sum_{i=1}^n x_i^2 \to_p 0.$
+
+    Also, since \(\E(g_{2i})=0\), again by stationarity and ergodicity, $\bar g_2\to_p 0.$
+    Hence
+    $$
+        s_{xz}\to_p 0+0=0.
+    $$
+
+    \textbf{(d)} We want to show that $\sqrt n\, s_{xz}\to_d \sigma_x^2+a,$ where \(a\sim N(0,s_{22})\).
+
+    $$
+        s_{xz}
+        =
+        \beta\frac1n\sum_{i=1}^n x_i^2+\bar g_2.
+    $$
+    $$
+        \implies
+        \sqrt n\, s_{xz}
+        =
+        \sqrt n\,\beta\frac1n\sum_{i=1}^n x_i^2+\sqrt n\,\bar g_2=\frac1n\sum_{i=1}^n x_i^2+\sqrt n\,\bar g_2.
+    $$
+
+    Now,
+    $$
+        \frac1n\sum_{i=1}^n x_i^2 \to_p \sigma_x^2.
+    $$
+    Next consider \(\sqrt n\,\bar g_2\). Since \(g_i\) is a martingale difference sequence with
+    $$
+        \E(g_i g_i')=S,
+    $$
+    the martingale central limit theorem gives
+    $$
+        \sqrt n\,\bar g
+        =
+        \frac1{\sqrt n}\sum_{i=1}^n g_i
+        \to_d N(0,S).
+    $$
+    Therefore its second component satisfies $\sqrt n\,\bar g_2 \to_d N(0,s_{22}).$
+    Let $a\sim N(0,s_{22}) \implies \sqrt n\,\bar g_2 \to_d a.$
+    Slutsky's theorem yields
+    $$
+        \sqrt n\, s_{xz}
+        =
+        \frac1n\sum_{i=1}^n x_i^2+\sqrt n\,\bar g_2
+        \to_d \sigma_x^2+a.
+    $$
+
+    \textbf{(e)} We want to show that $\hat\delta-\delta\to_d (\sigma_x^2+a)^{-1}b,$
+    where \((a,b)\) is jointly normal with mean zero and covariance matrix \(S\).
+    $$
+        \hat\delta-\delta=s_{xz}^{-1}\bar g_1
+        \implies
+        \hat\delta-\delta
+        =
+        \frac{\sqrt n\,\bar g_1}{\sqrt n\, s_{xz}}.
+    $$
+    From the martingale central limit theorem,
+    $$
+        \sqrt n\,\bar g
+        =
+        \begin{bmatrix}
+            \sqrt n\,\bar g_1 \\
+            \sqrt n\,\bar g_2
+        \end{bmatrix}
+        \to_d
+        N(0,S).
+    $$
+    Write the limiting normal vector as
+    $$
+        \begin{bmatrix}
+            b \\
+            a
+        \end{bmatrix}
+        \sim N(0,S).
+    $$
+    Equivalently, \((a,b)\) are jointly normally distributed with mean zero and covariance matrix \(S\). In particular,
+    $$
+        \sqrt n\,\bar g_1\to_d b,
+        \qquad
+        \sqrt n\,\bar g_2\to_d a.
+    $$
+
+    From part (d),
+    $$
+        \sqrt n\, s_{xz}
+        =
+        \frac1n\sum_{i=1}^n x_i^2+\sqrt n\,\bar g_2
+        \to_d \sigma_x^2+a.
+    $$
+    Hence, jointly,
+    $$
+        \begin{bmatrix}
+            \sqrt n\,\bar g_1 \\
+            \sqrt n\, s_{xz}
+        \end{bmatrix}
+        \to_d
+        \begin{bmatrix}
+            b \\
+            \sigma_x^2+a
+        \end{bmatrix}.
+    $$
+    Now apply the continuous mapping theorem to the map
+    $$
+        (u,v)\mapsto \frac{u}{v}.
+    $$
+    Since \(\sigma_x^2+a\) is a continuously distributed random variable and \(\sigma_x^2>0\), the event \(\sigma_x^2+a=0\) has probability zero, so this mapping is well-defined with probability one. Therefore
+    $$
+        \hat\delta-\delta
+        =
+        \frac{\sqrt n\,\bar g_1}{\sqrt n\, s_{xz}}
+        \to_d
+        \frac{b}{\sigma_x^2+a}
+        =
+        (\sigma_x^2+a)^{-1}b.
+    $$
+
+    \textbf{(f)} We ask whether \(\hat\delta\) is consistent under \(\beta=1/\sqrt n\).
+
+    If \(\hat\delta\) were consistent, then we would have $\hat\delta-\delta\to_p 0.$
+    But part (e) shows that
+    $$
+        \hat\delta-\delta\to_d (\sigma_x^2+a)^{-1}b.
+    $$
+    The limiting random variable \((\sigma_x^2+a)^{-1}b\) is nondegenerate. Indeed, \(b\) is a nontrivial normal random variable because \(S\) is positive definite, so its \((1,1)\) element is positive. Hence \(b\) is not identically zero. Therefore the limit distribution is not degenerate at zero.
+
+    $$
+        \implies
+        \hat\delta-\delta \not\to_p 0.
+    $$
+    Therefore \(\hat\delta\) is \emph{not} consistent.
+
+\end{solution}
+\end{document}
