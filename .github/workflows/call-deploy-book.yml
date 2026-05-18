@@ -3,7 +3,7 @@ name: call-deploy-book
 on:
   push:
     branches:
-      - "**"
+      - main
     paths:
       - PhD-Course/book/**
       - PhD-Course/requirements.txt
