@@ -113,7 +113,7 @@ Choice data $(\mathcal B,C)$ satisfy the Weak Axiom of Revealed Preference if wh
 
 Intuition: once $x$ is chosen while $y$ is available, later $y$ cannot be chosen over $x$ when both are available.
 
-### Fundamental theorem of revealed preference
+:::{admonition} Fundamental theorem of revealed preference
 
 Assume $\mathcal B$ is rich enough to include every subset of $X$ with at most three elements. Define the revealed preference relation
 
@@ -125,9 +125,9 @@ x\succeq^R y
 \end{aligned}
 $$
 
-**Claim:** If $(\mathcal B,C)$ satisfies WARP, then $\succeq^R$ is rational and rationalizes the data.
+If $(\mathcal B,C)$ satisfies WARP, then $\succeq^R$ is rational and rationalizes the data.
 
-**WTS:**  
+We need to show
 
 $$
 \succeq^R\text{ complete},\qquad
@@ -135,7 +135,7 @@ $$
 C(B)=C^*(B,\succeq^R).
 $$
 
-**Proof skeleton.**
+Proof:
 
 Completeness:
 
@@ -172,6 +172,7 @@ x\in C(B)
 $$
 
 Conversely, if $x\in C^*(B,\succeq^R)$ but $x\notin C(B)$, choose $y\in C(B)$. Then $y\succeq^R x$ by definition, while optimality of $x$ gives $x\succeq^R y$. WARP rules out $y$ being chosen when $x$ is available but $x$ not chosen, a contradiction. Therefore $C(B)=C^*(B,\succeq^R)$.
+:::
 
 **H1 Q2 mini-template: WARP with $\{x,y\}$ and $\{x,y,z\}$**
 
@@ -216,9 +217,9 @@ Strong monotonicity says that if every commodity is strictly larger, the consume
 
 :::
 
-### H1 Q3: strictly increasing transformations preserve preferences
+:::{admonition} Strictly increasing transformations preserve preferences
 
-**WTS:** If $u$ represents $\succeq$ and $\phi:\mathbb R\to\mathbb R$ is strictly increasing, then $\phi\circ u$ represents $\succeq$.
+If $u$ represents $\succeq$ and $\phi:\mathbb R\to\mathbb R$ is strictly increasing, then $\phi\circ u$ represents $\succeq$.
 
 $$
 \begin{aligned}
@@ -257,6 +258,7 @@ $$
 $$
 
 Monotonicity gives uniqueness.
+:::
 
 2. Define
 
