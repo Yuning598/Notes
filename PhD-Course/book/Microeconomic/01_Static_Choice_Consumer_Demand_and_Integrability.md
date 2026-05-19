@@ -315,37 +315,74 @@ At an interior optimum $x^*$, under this regularity condition,
 
 $$
 \begin{aligned}
-\nabla_x f(x^*)-\sum_{j=1}^m\lambda_j\nabla_x g_j(x^*)&=0,\\
-g_j(x^*)&=0,\qquad j=1,\ldots,m.
+\nabla_x f(x^*)-\sum_{j=1}^m\lambda_j\nabla_x g_j(x^*)&=0,\qquad
+g_j(x^*)&=0,\quad j=1,\ldots,m.
 \end{aligned}
 $$
 
-### Envelope theorem template
+### Envelope theorem
 
-For
+:::{admonition} Theorem 15 (Envelope theorem)
+Assume the value function
 
 $$
 \begin{aligned}
 v(\theta)
 =
 \max_x\quad & f(x,\theta)\\
-\text{s.t.}\quad & g(x,\theta)=0,
+\text{s.t.}\quad & g_j(x,\theta)=0,\qquad j=1,\ldots,m,
 \end{aligned}
 $$
 
-with Lagrangian $\mathcal L(x,\lambda,\theta)=f(x,\theta)-\lambda g(x,\theta)$, if $x(\theta)$ and $\lambda(\theta)$ solve the FOCs, then
+is differentiable at $\bar\theta$, and let $(\lambda_1,\ldots,\lambda_m)$ be the Lagrange multipliers associated with the solution $x(\bar\theta)$. If
+
+$$
+\mathcal L(x,\lambda,\theta)
+=
+f(x,\theta)-\sum_{j=1}^m \lambda_j g_j(x,\theta),
+$$
+
+then
 
 $$
 \begin{aligned}
-\frac{\partial v(\theta)}{\partial \theta_k}
-=
-\frac{\partial \mathcal L(x,\lambda,\theta)}{\partial \theta_k}
-\bigg|_{x=x(\theta),\lambda=\lambda(\theta)}.
+\frac{dv(\bar\theta)}{d\theta_k}
+&=
+\frac{\partial \mathcal L(x(\bar\theta),\lambda,\bar\theta)}{\partial \theta_k}\\
+&=
+\frac{\partial f(x(\bar\theta),\bar\theta)}{\partial \theta_k}
+-\sum_{j=1}^m \lambda_j \frac{\partial g_j(x(\bar\theta),\bar\theta)}{\partial \theta_k},
+\qquad k=1,\ldots,s.
+\end{aligned}
+$$
+:::
+
+Proof sketch:
+
+$$
+\begin{aligned}
+v(\theta)&=f(x(\theta),\theta),\\
+\frac{dv(\theta)}{d\theta_k}
+&=
+\frac{\partial f(x(\theta),\theta)}{\partial \theta_k}
++\sum_{i=1}^n \frac{\partial f(x(\theta),\theta)}{\partial x_i}\frac{\partial x_i(\theta)}{\partial \theta_k},\\
+\frac{\partial f(x(\theta),\theta)}{\partial x_i}
+&=
+\sum_{j=1}^m \lambda_j \frac{\partial g_j(x(\theta),\theta)}{\partial x_i},\\
+\Rightarrow\quad
+\frac{dv(\theta)}{d\theta_k}
+&=
+\frac{\partial f(x(\theta),\theta)}{\partial \theta_k}
++\sum_{j=1}^m \lambda_j \sum_{i=1}^n \frac{\partial g_j(x(\theta),\theta)}{\partial x_i}\frac{\partial x_i(\theta)}{\partial \theta_k},\\
+&=
+\frac{\partial f(x(\theta),\theta)}{\partial \theta_k}
+-\sum_{j=1}^m \lambda_j \frac{\partial g_j(x(\theta),\theta)}{\partial \theta_k}.
 \end{aligned}
 $$
 
-The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope theorem applications.
+The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope-theorem applications.
 
+![[../attachment/Pasted image 20260519130811.png]]
 ## 5. Consumer problem: Marshallian demand and indirect utility
 
 :::{admonition} Definition (Consumer problem)
@@ -550,86 +587,28 @@ $$
 
 ## 7. Duality: Roy, Shephard, and identities
 
-### Roy's identity
+### Core theorems
 
-**WTS:** For Marshallian demand,
-
-$$
-x_i(p,w)=-\frac{\partial v(p,w)/\partial p_i}{\partial v(p,w)/\partial w}.
-$$
-
-The consumer Lagrangian is
+Roy's identity:
 
 $$
-\mathcal L(x,\lambda;p,w)
-=
-u(x)-\lambda(p\cdot x-w).
+x_i(p,w)=-\frac{v_{p_i}(p,w)}{v_w(p,w)}.
 $$
 
-By the envelope theorem:
-
-$$
-\begin{aligned}
-\frac{\partial v(p,w)}{\partial p_i}
-&=
-\frac{\partial \mathcal L}{\partial p_i}
-=
--\lambda x_i(p,w),\\
-\frac{\partial v(p,w)}{\partial w}
-&=
-\frac{\partial \mathcal L}{\partial w}
-=
-\lambda.
-\end{aligned}
-$$
-
-Therefore
-
-$$
-\begin{aligned}
--\frac{v_{p_i}(p,w)}{v_w(p,w)}
-&=
--\frac{-\lambda x_i(p,w)}{\lambda}\\
-&=x_i(p,w).
-\end{aligned}
-$$
-
-### Shephard's lemma
-
-**WTS:** For Hicksian demand,
+Shephard's lemma:
 
 $$
 \frac{\partial e(p,\bar u)}{\partial p_i}=h_i(p,\bar u).
 $$
 
-EMP Lagrangian:
-
-$$
-\mathcal L(x,\lambda;p,\bar u)=p\cdot x+\lambda[\bar u-u(x)].
-$$
-
-Envelope theorem:
-
-$$
-\begin{aligned}
-\frac{\partial e(p,\bar u)}{\partial p_i}
-=
-\frac{\partial \mathcal L}{\partial p_i}
-=
-h_i(p,\bar u).
-\end{aligned}
-$$
-
-### The dual equalities
+The dual equalities:
 
 At corresponding utility/income levels,
 
 $$
 \begin{aligned}
-v(p,e(p,\bar u))&=\bar u,\\
-e(p,v(p,w))&=w,\\
-h(p,v(p,w))&=x(p,w),\\
-x(p,e(p,\bar u))&=h(p,\bar u).
+v(p,e(p,\bar u))&=\bar u,\quad e(p,v(p,w))=w,\\
+h(p,v(p,w))&=x(p,w),\quad x(p,e(p,\bar u))=h(p,\bar u).
 \end{aligned}
 $$
 
