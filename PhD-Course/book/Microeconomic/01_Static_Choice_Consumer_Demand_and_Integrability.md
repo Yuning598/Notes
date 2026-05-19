@@ -382,7 +382,7 @@ $$
 
 The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope-theorem applications.
 
-![[../attachment/Pasted image 20260519133638.png]]
+![Envelope theorem](../attachment/Pasted%20image%2020260519133638.png)
 ## 5. Consumer problem: Marshallian demand and indirect utility
 
 :::{admonition} Definition (Consumer problem)
