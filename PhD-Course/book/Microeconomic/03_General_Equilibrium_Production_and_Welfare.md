@@ -19,7 +19,16 @@ tags:
 
 # 03 General Equilibrium, Production, and Welfare
 
-## 1. Pure exchange economy
+## Roadmap
+
+- **Part I:** pure exchange equilibrium
+- **Part II:** welfare theorems
+- **Part III:** planner characterization and Edgeworth box
+- **Part IV:** existence and Walras' law
+
+## Part I. Pure exchange economy
+
+### Environment
 
 There are $L$ commodities and $H$ households. Household $h$ has endowment $e^h\in\mathbb R_+^L$ and utility $u^h:\mathbb R_+^L\to\mathbb R$.
 
@@ -33,16 +42,28 @@ $$
 
 With local nonsatiation/monotonicity, feasible Pareto optima will exhaust resources.
 
-:::{admonition} Definition (Walrasian equilibrium in pure exchange)
-A Walrasian equilibrium is $(p,(c^h)_{h=1}^H)$ such that:
+:::{admonition} Definition (Walrasian equilibrium in a pure exchange economy)
+
+Given endowments $(e^h)_{h=1}^H$, a Walrasian equilibrium is a price vector $p\in\mathbb R_+^L\setminus\{0\}$ and an allocation $(c^h)_{h=1}^H$ satisfying the following conditions.
+
+**Condition 1: Individual optimality**
+
+For each consumer $h=1,\ldots,H$,
 
 $$
-\begin{aligned}
-c^h&\in\arg\max_{x\in\mathbb R_+^L}u^h(x)
-\quad\text{s.t.}\quad p\cdot x\le p\cdot e^h,\qquad h=1,\ldots,H,\\
-\sum_{h=1}^H(c^h-e^h)&=0.
-\end{aligned}
+c^h\in\arg\max_{x\in\mathbb R_+^L} u^h(x)
+\quad
+\text{s.t.}
+\quad
+p\cdot x\le p\cdot e^h.
 $$
+
+**Condition 2: Market clearing**
+
+$$
+\sum_{h=1}^H c^h=\sum_{h=1}^H e^h.
+$$
+
 :::
 
 :::{admonition} Definition (Pareto efficiency)
@@ -54,7 +75,7 @@ $$
 with strict inequality for at least one household.
 :::
 
-Standard assumptions in the slides:
+Standard assumptions of **Walrasian Equilibrium**:
 
 $$
 \begin{aligned}
@@ -65,13 +86,15 @@ $$
 \end{aligned}
 $$
 
-## 2. First Welfare Theorem in pure exchange
+## Part II. First Welfare Theorem
+
+### Statement
 
 :::{admonition} First Welfare Theorem in pure exchange
 If $(p,(c^h))$ is a Walrasian equilibrium and preferences are locally nonsatiated/increasing, then $(c^h)$ is Pareto efficient.
 :::
 
-Proof:
+### Proof
 We show that no feasible allocation $(x^h)$ Pareto dominates $(c^h)$.
 
 Suppose, toward contradiction, that $(x^h)$ is feasible and Pareto improves:
@@ -117,9 +140,13 @@ $$
 
 Contradiction. Therefore $(c^h)$ is Pareto efficient.
 
-Key exam line: **individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
+### Exam idea
 
-## 3. Second Welfare Theorem in pure exchange
+**Individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
+
+## Part II. Second Welfare Theorem
+
+### Statement
 
 The slides state a supporting-price result: under convexity and interiority, a Pareto-efficient allocation can be decentralized as a Walrasian equilibrium after suitable redistribution of endowments.
 
@@ -127,7 +154,7 @@ The slides state a supporting-price result: under convexity and interiority, a P
 Given an economy satisfying the convexity/interiority assumptions, if $(\bar e^h)$ with $\bar e^h\gg0$ is Pareto efficient, then there exists $p\in\mathbb R_+^L$ such that $(p,(\bar e^h))$ is a Walrasian equilibrium for the redistributed economy.
 :::
 
-Proof sketch:
+### Proof sketch
 
 For each household define the set of strictly preferred net trades from the target allocation:
 
@@ -168,7 +195,7 @@ $$
 
 Let $z^h=y^h-\bar e^h\in K^h$. Then $p\cdot z^h\le0$. But separation says any strictly preferred net trade must satisfy $p\cdot z^h\ge0$, and with monotonicity/interiority one obtains the required strict budget violation. Hence no strictly preferred affordable bundle exists.
 
-## 4. Pareto efficiency by planner problem
+## Part III. Planner characterization of Pareto efficiency
 
 For interior allocations, Pareto efficiency can be characterized by weighted utility maximization:
 
@@ -178,6 +205,8 @@ $$
 \text{s.t.}\quad &\sum_{h=1}^H c^h\le \sum_{h=1}^H e^h,\qquad \lambda_h>0.
 \end{aligned}
 $$
+
+### Two-consumer, two-good case
 
 For two consumers and two goods, the interior FOCs imply equal MRS:
 
@@ -189,7 +218,9 @@ $$
 
 This is the standard Edgeworth box contract curve condition. H4 Q5 is a direct application: set MRS equal, impose feasibility, then solve for the contract curve/core/equilibrium.
 
-## 5. Existence via aggregate excess demand
+## Part IV. Existence and Walras' law
+
+### Aggregate excess demand
 
 Let $f^h(p,e^h)$ be household $h$'s demand, and define aggregate excess demand
 
@@ -207,6 +238,8 @@ $$
 \end{aligned}
 $$
 
+### Existence result
+
 :::{admonition} Existence via aggregate excess demand
 If $z$ is continuous, homogeneous of degree zero, and satisfies Walras' law, then there exists $p^*$ such that
 
@@ -218,10 +251,12 @@ $$
 
 With strong monotonicity, equilibrium prices are strictly positive and all markets clear exactly.
 
-Proof sketch:
+### Proof sketch
 Use Brouwer's fixed point theorem on the normalized price simplex. The exam version usually expects the mapping idea, not every topological detail.
 
-## 6. Walras' law and H2 Q4
+### Walras' law
+
+#### Household budget identity
 
 In any household budget problem with locally nonsatiated preferences,
 
