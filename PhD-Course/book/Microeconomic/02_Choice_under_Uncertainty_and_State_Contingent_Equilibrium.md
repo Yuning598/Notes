@@ -244,8 +244,8 @@ $$
 
 which is independence for weak preference. The same chain with strict inequalities gives the strict-preference and indifference versions.
 
-:::{admonition} Expected utility theorem
-If $\succeq$ on $\mathcal L$ satisfies completeness, transitivity, continuity, and independence, then there exist $u_1,\ldots,u_N$ such that
+:::{admonition} Proposition 2 (Expected Utility Theorem)
+Suppose that the preference relation $\succeq$ on the space of lotteries $\mathcal L$ satisfies completeness, transitivity, continuity (or Archimedean), and independence. Then $\succeq$ admits a utility representation of the expected utility form. That is, we can assign a number $u_n$ to each outcome $n=1,\ldots,N$ such that for any two lotteries $L=(p_1,\ldots,p_N)$ and $L'=(p'_1,\ldots,p'_N)$, we have
 
 $$
 L\succeq L'
@@ -256,9 +256,8 @@ $$
 
 The slide proof assumes a best lottery $\overline L$ and worst lottery $\underline L$.
 
-:::{admonition} Expected utility theorem, proof roadmap
+Proof:
 Construct a utility representation $U(L)=\alpha_L$, then show $U$ is linear.
-:::
 
 ### Proof roadmap
 
