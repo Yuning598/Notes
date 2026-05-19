@@ -160,7 +160,7 @@ $$
 \alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'''.
 $$
 
-## 4. Expected utility form and linearity
+## 4. Expected utility
 
 :::{admonition} Definition (Expected utility form)
 A utility function $U:\mathcal L\to\mathbb R$ has expected utility form if there exist numbers $u_1,\ldots,u_N$ such that for every $L=(p_1,\ldots,p_N)$,
@@ -213,6 +213,8 @@ $$
 
 Let $u_n:=U(L^n)$. Then $U(L)=\sum_np_nu_n$.
 
+![](../attachment/image-20260519.png)
+
 :::{admonition} Proposition (Expected utility implies independence)
 If the preference relation $\succeq$ on $\mathcal L$ is represented by a utility function $U(\cdot)$ with expected utility form, then $\succeq$ satisfies the independence axiom.
 :::
@@ -241,8 +243,6 @@ L\succeq L'
 $$
 
 which is independence for weak preference. The same chain with strict inequalities gives the strict-preference and indifference versions.
-
-## 5. Expected utility theorem
 
 :::{admonition} Expected utility theorem
 If $\succeq$ on $\mathcal L$ satisfies completeness, transitivity, continuity, and independence, then there exist $u_1,\ldots,u_N$ such that
@@ -354,7 +354,7 @@ $$
 
 Therefore $U$ has expected utility form.
 
-## 6. Positive affine uniqueness
+## 5. Positive affine uniqueness
 
 In ordinary consumer theory, any strictly increasing transformation preserves representation. In VNM theory, the EU **form** is preserved only by positive affine transformations.
 
@@ -382,7 +382,7 @@ $$
 
 Necessity uses the best/worst normalization: both $U$ and $V$ must assign values linearly along $\alpha\overline L+(1-\alpha)\underline L$, so $V$ must be an affine rescaling of $U$.
 
-## 7. Risk aversion and Jensen
+## 6. Risk aversion and Jensen
 
 For monetary consequences, a decision maker with Bernoulli utility $u$ is risk averse if for every gamble $g$,
 
@@ -414,7 +414,7 @@ u(E[g])\ge E[u(g)]
 \end{aligned}
 $$
 
-## 8. Arrow-Debreu uncertainty model
+## 7. Arrow-Debreu uncertainty model
 
 At date $0$, the state is known. At date $1$, one state $s\in\{1,\ldots,S\}$ realizes. There are $L$ physical commodities in each state, so a complete contingent consumption plan is
 
@@ -434,7 +434,7 @@ $$
 
 The Arrow-Debreu model treats each commodity-state pair as a different good. Therefore the standard existence and welfare theorems apply if all contingent commodities are traded.
 
-## 9. Arrow securities and Debreu prices
+## 8. Arrow securities and Debreu prices
 
 Arrow securities pay one unit of the numeraire in a specified future state.
 
@@ -454,7 +454,7 @@ $$
 
 If Arrow securities for all states are traded, households can transfer wealth across states exactly as in the complete Arrow-Debreu model.
 
-## 10. General asset markets and no arbitrage
+## 9. General asset markets and no arbitrage
 
 Let $A\in\mathbb R^{S\times J}$ be the payoff matrix of $J$ assets across $S$ states, where column $j$ is the payoff vector of asset $j$. Let $q\in\mathbb R^J$ be the vector of asset prices.
 
@@ -539,7 +539,7 @@ $$
 
 Set $\psi=\mu/\mu_0\gg0$.
 
-## 11. Complete and incomplete markets
+## 10. Complete and incomplete markets
 
 :::{admonition} Definition (Complete markets)
 The asset structure is complete if its payoff matrix spans all state-contingent wealth transfers:
@@ -575,7 +575,7 @@ If $\operatorname{rank}(A)<S$, markets are incomplete. Then:
 
 Slides example: with two future states and only a risk-free bond paying $(1,1)$, agents cannot trade state-contingent risk. Equilibrium may involve no trade even though a full-insurance allocation Pareto dominates the endowment allocation.
 
-## 12. Full insurance and belief differences
+## 11. Full insurance and belief differences
 
 There is one consumption good, two states, and two consumers. Utility is expected utility:
 
@@ -670,7 +670,7 @@ $$
 
 Consumer 2 overconsumes in the state she views as relatively more likely. Full insurance fails because prices reflect the risk-neutral consumer's beliefs, not consumer 2's beliefs.
 
-## 13. Pricing by arbitrage template
+## 12. Pricing by arbitrage template
 
 Given asset payoff matrix $A$ and prices $q$, compute $\psi$ from
 
