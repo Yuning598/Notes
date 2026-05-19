@@ -76,32 +76,18 @@ The independence axiom is the source of linearity in probabilities. It says comm
 
 ## 3. Independence preserves strict preference and indifference
 
-:::{admonition} Lemma
-Independence lemma
-If $\succeq$ satisfies independence, then for all $\alpha\in(0,1)$:
+:::{admonition} Lemma 1
+If $\succeq$ satisfies independence, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$,
 
 $$
-\begin{aligned}
 L\succ L'
-&\Longleftrightarrow
-\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'',\\
-L\sim L'
-&\Longleftrightarrow
-\alpha L+(1-\alpha)L''\sim \alpha L'+(1-\alpha)L''.
-\end{aligned}
+ \Longleftrightarrow
+\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L''.
 $$
 
 :::
 
-:::{admonition} Independence lemma, strict preference
-WTS:
-\[
-L\succ L'\Rightarrow \alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L''.
-\]
-:::
-
-Proof for strict preference:
-
+Proof:
 Start from the definition:
 
 $$
@@ -155,7 +141,34 @@ $$
 $$
 
 The reverse direction is identical because independence is an iff statement.  
-The indifference proof uses $L\sim L'\Longleftrightarrow L\succeq L'$ and $L'\succeq L$, then applies independence in both directions.
+:::{admonition} Lemma 2
+If $\succeq$ satisfies independence, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$,
+
+$$
+L\sim L'
+\Longleftrightarrow
+\alpha L+(1-\alpha)L''\sim \alpha L'+(1-\alpha)L''.
+$$
+:::
+
+Proof:
+If $L\sim L'$, then $L\succeq L'$ and $L'\succeq L$. Independence gives
+
+$$
+\begin{aligned}
+\alpha L+(1-\alpha)L''\succeq \alpha L'+(1-\alpha)L''
+\quad\text{and}\quad
+\alpha L'+(1-\alpha)L''\succeq \alpha L+(1-\alpha)L'',
+\end{aligned}
+$$
+
+so
+
+$$
+\alpha L+(1-\alpha)L''\sim \alpha L'+(1-\alpha)L''.
+$$
+
+Conversely, apply the same argument in reverse.
 
 ## 4. Expected utility form and linearity
 
