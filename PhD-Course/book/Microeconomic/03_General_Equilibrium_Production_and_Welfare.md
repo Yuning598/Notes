@@ -19,9 +19,9 @@ tags:
 
 # 03 General Equilibrium, Production, and Welfare
 
-## Part I. Pure exchange economy
+## 1. Pure exchange economy
 
-### Environment
+### 1.1 Environment
 
 There are $L$ commodities and $H$ households. Household $h$ has endowment $e^h\in\mathbb R_+^L$ and utility $u^h:\mathbb R_+^L\to\mathbb R$.
 
@@ -79,9 +79,9 @@ $$
 \end{aligned}
 $$
 
-## Part II. First Welfare Theorem
+## 2. Welfare theorems in pure exchange
 
-### Statement
+### 2.1 First Welfare Theorem
 
 :::{admonition} First Welfare Theorem in pure exchange
 If $(p,(c^h))$ is a Walrasian equilibrium and preferences are locally nonsatiated/increasing, then $(c^h)$ is Pareto efficient.
@@ -133,13 +133,11 @@ $$
 
 Contradiction. Therefore $(c^h)$ is Pareto efficient.
 
-### Exam idea
+### 2.2 Exam idea
 
 **Individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
 
-## Part II. Second Welfare Theorem
-
-### Statement
+### 2.3 Second Welfare Theorem
 
 The slides state a supporting-price result: under convexity and interiority, a Pareto-efficient allocation can be decentralized as a Walrasian equilibrium after suitable redistribution of endowments.
 
@@ -147,7 +145,7 @@ The slides state a supporting-price result: under convexity and interiority, a P
 Given an economy satisfying the convexity/interiority assumptions, if $(\bar e^h)$ with $\bar e^h\gg0$ is Pareto efficient, then there exists $p\in\mathbb R_+^L$ such that $(p,(\bar e^h))$ is a Walrasian equilibrium for the redistributed economy.
 :::
 
-### Proof sketch
+### 2.4 Proof sketch
 
 For each household define the set of strictly preferred net trades from the target allocation:
 
@@ -188,7 +186,7 @@ $$
 
 Let $z^h=y^h-\bar e^h\in K^h$. Then $p\cdot z^h\le0$. But separation says any strictly preferred net trade must satisfy $p\cdot z^h\ge0$, and with monotonicity/interiority one obtains the required strict budget violation. Hence no strictly preferred affordable bundle exists.
 
-## Part III. Planner characterization of Pareto efficiency
+## 3. Planner characterization of Pareto efficiency
 
 For interior allocations, Pareto efficiency can be characterized by weighted utility maximization:
 
@@ -199,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-### Two-consumer, two-good case
+### 3.1 Two-consumer, two-good case
 
 For two consumers and two goods, the interior FOCs imply equal MRS:
 
@@ -211,9 +209,9 @@ $$
 
 This is the standard Edgeworth box contract curve condition. H4 Q5 is a direct application: set MRS equal, impose feasibility, then solve for the contract curve/core/equilibrium.
 
-## Part IV. Existence and Walras' law
+## 4. Existence and Walras' law
 
-### Aggregate excess demand
+### 4.1 Aggregate excess demand
 
 Let $f^h(p,e^h)$ be household $h$'s demand, and define aggregate excess demand
 
@@ -231,7 +229,7 @@ $$
 \end{aligned}
 $$
 
-### Existence result
+### 4.2 Existence result
 
 :::{admonition} Existence via aggregate excess demand
 If $z$ is continuous, homogeneous of degree zero, and satisfies Walras' law, then there exists $p^*$ such that
@@ -244,12 +242,12 @@ $$
 
 With strong monotonicity, equilibrium prices are strictly positive and all markets clear exactly.
 
-### Proof sketch
+### 4.3 Proof sketch
 Use Brouwer's fixed point theorem on the normalized price simplex. The exam version usually expects the mapping idea, not every topological detail.
 
-### Walras' law
+### 4.4 Walras' law
 
-#### Household budget identity
+#### 4.4.1 Household budget identity
 
 In any household budget problem with locally nonsatiated preferences,
 
