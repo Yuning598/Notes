@@ -461,6 +461,96 @@ $$
 
 Therefore $U$ has expected utility form.
 
+### Best-worst ruler proof
+
+We can restate the same argument in a more structural way.
+
+Let
+
+$$
+M(\alpha)=\alpha \bar L+(1-\alpha)\underline L,\qquad \alpha\in[0,1].
+$$
+
+Then $M(1)=\bar L$ and $M(0)=\underline L$. Since $\bar L\succ \underline L$, the map $\alpha\mapsto M(\alpha)$ is strictly increasing in the sense that if $\beta>\alpha$, then
+
+$$
+M(\beta)\succ M(\alpha).
+$$
+
+Indeed, write
+
+$$
+M(\beta)=\gamma \bar L+(1-\gamma)M(\alpha),
+\qquad
+\gamma=\frac{\beta-\alpha}{1-\alpha}\in(0,1),
+$$
+
+and apply independence to the comparison $\bar L\succ M(\alpha)$.
+
+Now for any $L\in\mathcal L$, continuity and the assumption $\bar L\succeq L\succeq \underline L$ imply that there exists a unique $\alpha_L\in[0,1]$ such that
+
+$$
+M(\alpha_L)\sim L.
+$$
+
+Define
+
+$$
+U(L)=\alpha_L.
+$$
+
+Then $U$ represents preferences because
+
+$$
+L\succeq L'
+\Longleftrightarrow
+M(\alpha_L)\succeq M(\alpha_{L'})
+\Longleftrightarrow
+\alpha_L\ge \alpha_{L'}
+\Longleftrightarrow
+U(L)\ge U(L').
+$$
+
+To prove linearity, note that
+
+$$
+L\sim M(U(L)),\qquad L'\sim M(U(L')).
+$$
+
+By independence,
+
+$$
+\beta L+(1-\beta)L'
+\sim
+\beta M(U(L))+(1-\beta)M(U(L')).
+$$
+
+Expanding the right-hand side gives
+
+$$
+\beta M(U(L))+(1-\beta)M(U(L'))
+=
+M\bigl(\beta U(L)+(1-\beta)U(L')\bigr).
+$$
+
+Uniqueness of the representation along the $M(\cdot)$-line implies
+
+$$
+U(\beta L+(1-\beta)L')
+=
+\beta U(L)+(1-\beta)U(L').
+$$
+
+Therefore $U$ is linear on lotteries, and since every lottery is a convex combination of degenerate lotteries, we get
+
+$$
+U(L)=\sum_{n=1}^N p_nu_n,
+\qquad
+u_n:=U(e^n).
+$$
+
+This is the expected utility form.
+
 ## 5. Positive affine uniqueness
 
 In ordinary consumer theory, any strictly increasing transformation preserves representation. In VNM theory, the EU **form** is preserved only by positive affine transformations.
