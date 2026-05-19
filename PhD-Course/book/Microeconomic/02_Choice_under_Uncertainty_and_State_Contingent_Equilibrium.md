@@ -77,98 +77,50 @@ The independence axiom is the source of linearity in probabilities. It says comm
 ## 3. Independence preserves strict preference and indifference
 
 :::{admonition} Lemma 1
-If $\succeq$ satisfies independence, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$,
+If the preference relation $\succeq$ on $\mathcal L$ satisfies the independence axiom, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$, we have
 
 $$
 L\succ L'
- \Longleftrightarrow
-\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L''.
+\Longleftrightarrow
+\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'',
 $$
 
-:::
-
-Proof:
-Start from the definition:
-
-$$
-\begin{aligned}
-L\succ L'
-&\Longleftrightarrow L\succeq L'\ \text{and not }L'\succeq L.
-\end{aligned}
-$$
-
-Apply independence to the weak part:
-
-$$
-\begin{aligned}
-L\succeq L'
-&\Longleftrightarrow
-\alpha L+(1-\alpha)L''\succeq
-\alpha L'+(1-\alpha)L''.
-\end{aligned}
-$$
-
-Apply independence to the negated reverse weak preference:
-
-$$
-\begin{aligned}
-L'\succeq L
-&\Longleftrightarrow
-\alpha L'+(1-\alpha)L''\succeq
-\alpha L+(1-\alpha)L''.
-\end{aligned}
-$$
-
-Therefore
-
-$$
-\begin{aligned}
-\neg(L'\succeq L)
-&\Longleftrightarrow
-\neg\left[
-\alpha L'+(1-\alpha)L''\succeq
-\alpha L+(1-\alpha)L''
-\right].
-\end{aligned}
-$$
-
-Combining,
-
-$$
-\alpha L+(1-\alpha)L''
-\succ
-\alpha L'+(1-\alpha)L''.
-$$
-
-The reverse direction is identical because independence is an iff statement.  
-:::{admonition} Lemma 2
-If $\succeq$ satisfies independence, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$,
+and
 
 $$
 L\sim L'
 \Longleftrightarrow
 \alpha L+(1-\alpha)L''\sim \alpha L'+(1-\alpha)L''.
 $$
+
 :::
 
 Proof:
-If $L\sim L'$, then $L\succeq L'$ and $L'\succeq L$. Independence gives
+The strict-preference equivalence follows by applying independence to both the weak part and the negated reverse weak preference. The indifference equivalence follows by applying independence to $L\succeq L'$ and $L'\succeq L$.
+
+:::{admonition} Lemma 2
+If the preference relation $\succeq$ on $\mathcal L$ satisfies the independence axiom, then for all $\alpha\in(0,1)$ and $L,L',L'',L'''\in\mathcal L$, if $L\succ L'$ and $L''\succ L'''$, then
+
+$$
+\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'''.
+$$
+:::
+
+Proof:
+Suppose that $L\succ L'$ and $L''\succ L'''$. By Lemma 1, we have:
 
 $$
 \begin{aligned}
-\alpha L+(1-\alpha)L''\succeq \alpha L'+(1-\alpha)L''
-\quad\text{and}\quad
-\alpha L'+(1-\alpha)L''\succeq \alpha L+(1-\alpha)L'',
+\alpha L+(1-\alpha)L'' &\succ \alpha L'+(1-\alpha)L'',\\
+(1-\alpha)L''+\alpha L' &\succ (1-\alpha)L'''+\alpha L',
 \end{aligned}
 $$
 
-so
+By transitivity of $\succ$, we have:
 
 $$
-\alpha L+(1-\alpha)L''\sim \alpha L'+(1-\alpha)L''.
+\alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'''.
 $$
-
-Conversely, apply the same argument in reverse.
 
 ## 4. Expected utility form and linearity
 
