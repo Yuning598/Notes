@@ -382,7 +382,7 @@ $$
 
 The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope-theorem applications.
 
-![Envelope theorem](../attachment/Pasted image 20260519133638.png)
+<img src="../attachment/Pasted image 20260519133638.png" alt="Envelope theorem" />
 ## 5. Consumer problem: Marshallian demand and indirect utility
 
 :::{admonition} Definition (Consumer problem)
@@ -587,7 +587,7 @@ $$
 
 ## 7. Duality: Roy, Shephard, and identities
 
-![Duality](../attachment/Pasted image 20260519143615.png)
+<img src="../attachment/Pasted image 20260519143615.png" alt="Duality" />
 
 :::{admonition} Roy's identity
 For Marshallian demand,
@@ -681,7 +681,7 @@ $$
 
 If $\bar u=v(p,w)$, then $x(p,w)$ is feasible for EMP and achieves expenditure $w$, so $e(p,v(p,w))\le w$. If $e(p,v(p,w))<w$, a bundle with the same utility and lower expenditure would contradict minimality, hence $e(p,v(p,w))=w$. Symmetrically, if $w=e(p,\bar u)$, then $h(p,\bar u)$ is feasible for UMP and achieves utility $\bar u$, so $v(p,e(p,\bar u))=\bar u$. Under uniqueness, the optimizers coincide, hence $h(p,v(p,w))=x(p,w)$ and $x(p,e(p,\bar u))=h(p,\bar u)$.
 
-![UMPnEMP](../attachment/Pasted image 20260519144638.png)
+<img src="../attachment/Pasted image 20260519144638.png" alt="UMPnEMP" />
 
 :::{admonition} Law of demand
 For every $p,p'\gg 0$ and every $u$,
