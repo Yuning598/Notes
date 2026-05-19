@@ -14,18 +14,7 @@ tags:
 
 # 01 Static Choice, Consumer Demand, and Integrability
 
-## 1. QE importance
-
-**High.** This is the entry point for almost every micro QE proof: rational choice, utility representation, constrained optimization, demand duality, Slutsky restrictions, and integrability.
-
-Typical QE modes:
-
-- computational: derive Marshallian/Hicksian demand and indirect/expenditure functions;
-- proof-based: WARP rationalization, Roy's identity, Shephard's lemma, Slutsky symmetry/negative semidefiniteness;
-- conceptual: ordinal vs cardinal utility, revealed preference vs utility maximization;
-- interpretation-based: welfare compensation through expenditure functions.
-
-## 2. Static choice: primitives, preference, and revealed preference
+## 1. Static choice: primitives, preference, and revealed preference
 
 :::{admonition} Definition (Choice structure)
 A choice structure is $(\mathcal B,C(\cdot))$, where $\mathcal B$ is a family of feasible sets $B\subseteq X$, and $C(B)\subseteq B$, $C(B)\neq \varnothing$, is the set of alternatives chosen from $B$.
@@ -187,7 +176,7 @@ $$
 
 So $C(\{x,y,z\})\in\{\{x\},\{z\},\{x,z\}\}$.
 
-## 3. Utility representation
+## 2. Utility representation
 
 :::{admonition} Definition (Utility representation)
 A utility function $u:X\to\mathbb R$ represents $\succeq$ if
@@ -281,7 +270,7 @@ Important failure case: lexicographic preferences are rational but discontinuous
 
 ![Lexicographic preferences](../attachment/lexicographic-failure.png)
 
-## 4. Constrained optimization toolkit
+## 3. Constrained optimization toolkit
 
 The slides repeatedly use the equality-constrained program
 
@@ -385,7 +374,7 @@ $$
 The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope-theorem applications.
 
 ![Envelope theorem](../attachment/envelope-theorem-20260519.png)
-## 5. Consumer problem: Marshallian demand and indirect utility
+## 4. Consumer problem: Marshallian demand and indirect utility
 
 :::{admonition} Definition (Consumer problem)
 Given prices $p\gg 0$, wealth $w>0$, and utility $u$, the consumer problem is
@@ -501,7 +490,7 @@ $$
 $$
 :::
 
-## 6. Expenditure minimization, Hicksian demand, and expenditure function
+## 5. Expenditure minimization, Hicksian demand, and expenditure function
 
 :::{admonition} Definition (Expenditure minimization problem)
 Given $p\gg 0$ and target utility $\bar u$, the expenditure minimization problem is
@@ -587,7 +576,7 @@ e(p,\bar u)=
 \frac{p_1^\alpha p_2^\beta}{\alpha^\alpha\beta^\beta}\bar u.
 $$
 
-## 7. Duality: Roy, Shephard, and identities
+## 6. Duality: Roy, Shephard, and identities
 
 ![Duality](../attachment/duality-20260519.png)
 
@@ -730,7 +719,7 @@ $$
 The law of demand is the clean comparative-static statement on the EMP side.
 :::
 
-## 8. Demand restrictions and Slutsky matrix
+## 7. Demand restrictions and Slutsky matrix
 
 :::{admonition} Property summary
 
@@ -834,6 +823,8 @@ $$
 This is the concavity inequality. Therefore the Hessian $\nabla^2_{pp}e(p,u)$ is negative semidefinite, and since $S=\nabla^2_{pp}e$, the Slutsky matrix is negative semidefinite.
 :::
 
+## 8. Integrability theorem
+
 :::{admonition} Integrability theorem
 A Marshallian demand $x(p,w)$ is rationalizable by utility maximization if and only if it satisfies:
 
@@ -847,20 +838,3 @@ $$
 
 Exam interpretation: empirical demand systems should be checked against these restrictions. Homogeneity and Walras' law are accounting/scale restrictions; Slutsky symmetry and negative semidefiniteness encode optimizing behavior.
 :::
-
-## 9. Common QE traps
-
-1. **Forgetting monotonicity.** Walras' law requires local nonsatiation or strong monotonicity.
-2. **Mixing Marshallian and Hicksian demand.** Marshallian holds wealth fixed; Hicksian holds utility fixed.
-3. **Wrong Slutsky sign.**
-
-   $$
-   \frac{\partial h_i}{\partial p_j}
-   =
-   \frac{\partial x_i}{\partial p_j}
-   +
-   \frac{\partial x_i}{\partial w}x_j.
-   $$
-
-4. **Using arbitrary monotone transformations under expected utility.** In certainty utility, any strictly increasing transform preserves preferences. Under VNM expected utility, only positive affine transformations preserve the EU form.
-5. **Treating WARP as always sufficient.** The slides use a finite/rich choice-domain condition. Consumer budget sets require stronger integrability restrictions.
