@@ -244,6 +244,8 @@ $$
 
 which is independence for weak preference. The same chain with strict inequalities gives the strict-preference and indifference versions.
 
+![](../attachment/image-20260519-1.png)
+
 :::{admonition} Proposition 2 (Expected Utility Theorem)
 Suppose that the preference relation $\succeq$ on the space of lotteries $\mathcal L$ satisfies completeness, transitivity, continuity (or Archimedean), and independence. Then $\succeq$ admits a utility representation of the expected utility form. That is, we can assign a number $u_n$ to each outcome $n=1,\ldots,N$ such that for any two lotteries $L=(p_1,\ldots,p_N)$ and $L'=(p'_1,\ldots,p'_N)$, we have
 
@@ -309,13 +311,13 @@ L\succeq L'
 \end{aligned}
 $$
 
-:::{admonition} Linearity step
+### Linearity step
+
 Show that
 
 $$
 U(\beta L+(1-\beta)L')=\beta U(L)+(1-\beta)U(L').
 $$
-:::
 
 Proof:
 
