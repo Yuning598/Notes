@@ -30,15 +30,15 @@ The set of all simple lotteries is the simplex
 $$
 \Delta=\{p\in\mathbb R_+^N:\sum_n p_n=1\}.
 $$
+:::
 
-**Definition (Compound and reduced lottery):**
+:::{admonition} Definition (Compound and reduced lottery)
 Given simple lotteries $L^k=(p_1^k,\ldots,p_N^k)$, $k=1,\ldots,K$, and weights $\alpha_k\ge 0$, $\sum_k\alpha_k=1$, the compound lottery $(L^1,\ldots,L^K;\alpha_1,\ldots,\alpha_K)$ has reduced lottery
 
 $$
 L=\sum_{k=1}^K \alpha_k L^k,\qquad
 p_n=\sum_{k=1}^K\alpha_k p_n^k.
 $$
-
 :::
 
 Every simple lottery is a convex combination of degenerate lotteries:
@@ -166,8 +166,9 @@ $$
 U(L)=\sum_{n=1}^N p_nu_n.
 $$
 The numbers $u_n$ are Bernoulli utilities of final consequences.
+:::
 
-**Lemma:** Expected utility iff linearity in lotteries
+:::{admonition} Lemma (Expected utility iff linearity in lotteries)
 $U$ has expected utility form iff for all lotteries $L^k$ and weights $\alpha_k\ge 0$, $\sum_k\alpha_k=1$,
 
 $$
@@ -175,7 +176,6 @@ U\left(\sum_k\alpha_kL^k\right)
 =
 \sum_k\alpha_kU(L^k).
 $$
-
 :::
 
 **Proof.**
@@ -212,13 +212,15 @@ Let $u_n:=U(L^n)$. Then $U(L)=\sum_np_nu_n$.
 
 ## 5. Expected utility theorem
 
-**Theorem:** If $\succeq$ on $\mathcal L$ satisfies completeness, transitivity, continuity, and independence, then there exist $u_1,\ldots,u_N$ such that
+:::{admonition} Expected utility theorem
+If $\succeq$ on $\mathcal L$ satisfies completeness, transitivity, continuity, and independence, then there exist $u_1,\ldots,u_N$ such that
 
 $$
 L\succeq L'
 \quad\Longleftrightarrow\quad
 \sum_n p_nu_n\ge \sum_np_n'u_n.
 $$
+:::
 
 The slide proof assumes a best lottery $\overline L$ and worst lottery $\underline L$.
 
@@ -438,11 +440,13 @@ $$
 
 :::
 
-**Theorem:** $q$ is arbitrage-free iff there exists a strictly positive state price vector $\psi\in\mathbb R_{++}^S$ such that
+:::{admonition} Theorem (Arbitrage-free prices and state prices)
+$q$ is arbitrage-free iff there exists a strictly positive state price vector $\psi\in\mathbb R_{++}^S$ such that
 
 $$
 q=A^\top\psi.
 $$
+:::
 
 :::{admonition} No arbitrage from positive state prices
 WTS: If $q=A^\top\psi$ with $\psi\gg0$, then no arbitrage.
