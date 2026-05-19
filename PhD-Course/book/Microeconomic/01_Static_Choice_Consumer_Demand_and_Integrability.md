@@ -47,6 +47,7 @@ $$
 
 :::{admonition} Strict preference and indifference inherit transitivity
 If $\succeq$ is rational, then $\succ$ and $\sim$ are transitive, and $x_1\sim x_2\succeq x_3\Rightarrow x_1\succeq x_3$.
+:::
 
 Proof:
 
@@ -93,7 +94,6 @@ x_1\sim x_2,\ x_2\succeq x_3
 $$
 
 This is the clean QE proof style: expand the definitions first, then apply transitivity once.
-:::
 
 :::{admonition} Definition (WARP)
 Choice data $(\mathcal B,C)$ satisfy the Weak Axiom of Revealed Preference if whenever $x,y\in B$, $x\in C(B)$, then for every $B'\in \mathcal B$ with $x,y\in B'$, it is not the case that $y\in C(B')$ and $x\notin C(B')$.
@@ -123,6 +123,7 @@ $$
 \succeq^R\text{ transitive},\qquad
 C(B)=C^*(B,\succeq^R).
 $$
+:::
 
 Proof:
 
@@ -161,7 +162,6 @@ x\in C(B)
 $$
 
 Conversely, if $x\in C^*(B,\succeq^R)$ but $x\notin C(B)$, choose $y\in C(B)$. Then $y\succeq^R x$ by definition, while optimality of $x$ gives $x\succeq^R y$. WARP rules out $y$ being chosen when $x$ is available but $x$ not chosen, a contradiction. Therefore $C(B)=C^*(B,\succeq^R)$.
-:::
 
 **H1 Q2 mini-template: WARP with $\{x,y\}$ and $\{x,y,z\}$**
 
@@ -207,8 +207,8 @@ Strong monotonicity says that if every commodity is strictly larger, the consume
 :::
 
 :::{admonition} Strictly increasing transformations preserve preferences
-
 If $u$ represents $\succeq$ and $\phi:\mathbb R\to\mathbb R$ is strictly increasing, then $\phi\circ u$ represents $\succeq$.
+:::
 
 $$
 \begin{aligned}
@@ -221,13 +221,12 @@ $$
 
 If $\phi$ is only weakly increasing, strict rankings may collapse. Example: $\phi(t)=0$ for all $t$. Then all alternatives become indifferent, so $\phi\circ u$ cannot represent a nontrivial preference.
 
-**Continuous monotone preferences imply utility representation on $\mathbb R_+^n$**
-
+:::{admonition} Continuous monotone preferences imply utility representation on $\mathbb R_+^n$
 The slides prove the simple monotone case using the ray $Z=\{\alpha e:\alpha\ge 0\}$, where $e=(1,\ldots,1)$.
 
 ![Intuition of the proof](../attachment/lexicographic-proof.png)
 
-**WTS:** For continuous and monotone $\succeq$, define $u(x)=\alpha(x)$, where $\alpha(x)e\sim x$, and show $u$ represents $\succeq$.
+WTS: For continuous and monotone $\succeq$, define $u(x)=\alpha(x)$, where $\alpha(x)e\sim x$, and show $u$ represents $\succeq$.
 
 The proof has three steps.
 
@@ -247,7 +246,6 @@ $$
 $$
 
 Monotonicity gives uniqueness.
-:::
 
 2. Define
 
@@ -267,6 +265,7 @@ x\succeq y
 $$
 
 Important failure case: lexicographic preferences are rational but discontinuous; they do not admit a real-valued continuous utility representation.
+:::
 
 ![Lexicographic preferences](../attachment/lexicographic-failure.png)
 
