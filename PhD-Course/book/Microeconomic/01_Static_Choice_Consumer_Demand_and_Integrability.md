@@ -56,11 +56,10 @@ $$
 
 :::
 
-### H1 Q1 proof template: strict preference and indifference inherit transitivity
+:::{admonition} Strict preference and indifference inherit transitivity
+If $\succeq$ is rational, then $\succ$ and $\sim$ are transitive, and $x_1\sim x_2\succeq x_3\Rightarrow x_1\succeq x_3$.
 
-**WTS:** If $\succeq$ is rational, then $\succ$ and $\sim$ are transitive, and $x_1\sim x_2\succeq x_3\Rightarrow x_1\succeq x_3$.
-
-**Proof.**
+Proof:
 
 1. Strict preference:
 
@@ -105,6 +104,7 @@ x_1\sim x_2,\ x_2\succeq x_3
 $$
 
 This is the clean QE proof style: expand the definitions first, then apply transitivity once.
+:::
 
 :::{admonition} Definition (WARP)
 Choice data $(\mathcal B,C)$ satisfy the Weak Axiom of Revealed Preference if whenever $x,y\in B$, $x\in C(B)$, then for every $B'\in \mathcal B$ with $x,y\in B'$, it is not the case that $y\in C(B')$ and $x\notin C(B')$.
@@ -434,15 +434,14 @@ $$
 
 Interpretation: the marginal rate of substitution equals the price ratio.
 
-### H1 Q4: Cobb-Douglas Marshallian demand
-
+:::{admonition} Cobb-Douglas Marshallian demand
 Let
 
 $$
 u(x_1,x_2)=x_1^\alpha x_2^\beta,\qquad \alpha,\beta>0.
 $$
 
-**WTS:** Derive $x_1(p,w)$, $x_2(p,w)$, and $v(p,w)$.
+Derive $x_1(p,w)$, $x_2(p,w)$, and $v(p,w)$.
 
 FOCs:
 
@@ -500,6 +499,7 @@ $$
 \frac{\partial x_1}{\partial w}>0,\qquad
 \frac{\partial x_2}{\partial w}>0.
 $$
+:::
 
 ## 6. Expenditure minimization, Hicksian demand, and expenditure function
 
@@ -803,9 +803,8 @@ s_{ij}
 \end{aligned}
 $$
 
-### Negative semidefiniteness
-
-**WTS:** For any $z\in\mathbb R^n$,
+:::{admonition} Negative semidefiniteness
+For any $z\in\mathbb R^n$,
 
 $$
 z^\top S z\le 0.
@@ -833,10 +832,10 @@ e(p'',u)
 $$
 
 This is the concavity inequality. Therefore the Hessian $\nabla^2_{pp}e(p,u)$ is negative semidefinite, and since $S=\nabla^2_{pp}e$, the Slutsky matrix is negative semidefinite.
+:::
 
-## 9. Integrability theorem
-
-**Theorem:** A Marshallian demand $x(p,w)$ is rationalizable by utility maximization if and only if it satisfies:
+:::{admonition} Integrability theorem
+A Marshallian demand $x(p,w)$ is rationalizable by utility maximization if and only if it satisfies:
 
 $$
 \begin{aligned}
@@ -847,8 +846,9 @@ S(p,w)&=S(p,w)^\top,\qquad z^\top S(p,w)z\le 0\quad \forall z.
 $$
 
 Exam interpretation: empirical demand systems should be checked against these restrictions. Homogeneity and Walras' law are accounting/scale restrictions; Slutsky symmetry and negative semidefiniteness encode optimizing behavior.
+:::
 
-## 10. Common QE traps
+## 9. Common QE traps
 
 1. **Forgetting monotonicity.** Walras' law requires local nonsatiation or strong monotonicity.
 2. **Mixing Marshallian and Hicksian demand.** Marshallian holds wealth fixed; Hicksian holds utility fixed.
@@ -864,33 +864,3 @@ Exam interpretation: empirical demand systems should be checked against these re
 
 4. **Using arbitrary monotone transformations under expected utility.** In certainty utility, any strictly increasing transform preserves preferences. Under VNM expected utility, only positive affine transformations preserve the EU form.
 5. **Treating WARP as always sufficient.** The slides use a finite/rich choice-domain condition. Consumer budget sets require stronger integrability restrictions.
-
-## 11. Practice set
-
-### Basic checks
-
-1. State WARP and explain why $C(\{x,y\})=\{x\}$, $C(\{x,y,z\})=\{y\}$ violates it.
-2. For $u=x_1^\alpha x_2^\beta$, derive Marshallian demand.
-3. State Roy's identity and Shephard's lemma.
-
-### QE-style questions
-
-1. Prove the Slutsky matrix is symmetric and negative semidefinite.
-2. Prove that if $u$ represents $\succeq$, then $\phi\circ u$ represents $\succeq$ iff $\phi$ is strictly increasing.
-3. Given a proposed demand system, check homogeneity, Walras' law, and the Slutsky restrictions.
-
-### Variants and traps
-
-1. If $\phi$ is weakly increasing but not strictly increasing, construct a counterexample to representation.
-2. Show that Cobb-Douglas goods are normal, but explain why normality is not implied by all utility functions.
-3. Give an example where Marshallian demand slopes upward but Hicksian demand still obeys negative semidefiniteness.
-
-## 12. Mastery target
-
-For QE, you should be able to reproduce without notes:
-
-- WARP $\Rightarrow$ revealed preference rationalization proof outline;
-- Lagrangian/FOC system for CP and EMP;
-- Roy and Shephard derivations by envelope theorem;
-- Slutsky equation and matrix restrictions;
-- integrability theorem statement and economic interpretation.
