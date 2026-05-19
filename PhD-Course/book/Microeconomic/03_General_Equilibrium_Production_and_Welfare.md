@@ -22,18 +22,7 @@ tags:
 Source map: EF8070 **General Equilibrium in a Pure Exchange Economy** slides 1-26; **Theory of the Firm and Supply** slides 1-30; **Production in Arrow-Debreu** slides 1-20; homework links: H2 Q4-Q8, H3 Q1-Q6, H4 Q4-Q5.  
 Core cards: [Microeconomic/cards/FWT vs SWT assumptions](Microeconomic/cards/FWT vs SWT assumptions), [Microeconomic/cards/Separating hyperplane theorem](Microeconomic/cards/Separating hyperplane theorem), [Microeconomic/cards/Core and Walrasian equilibrium](Microeconomic/cards/Core and Walrasian equilibrium), [Microeconomic/cards/Producer duality](Microeconomic/cards/Producer duality), [Microeconomic/cards/CRS cone and convex production set](Microeconomic/cards/CRS cone and convex production set), [Microeconomic/cards/Hotelling lemma and supply response](Microeconomic/cards/Hotelling lemma and supply response).
 
-## 1. QE importance
-
-**High.** Welfare theorems and producer theory are classic proof questions. QE questions usually ask you to identify the model first: pure exchange vs production economy; complete vs incomplete markets; consumer problem vs firm problem.
-
-Typical QE modes:
-
-- proof-based: First Welfare Theorem, Second Welfare Theorem proof sketch using separation, CRS iff cone, concavity iff convex production set;
-- computational: Edgeworth box, equilibrium prices, profit maximization, cost minimization;
-- conceptual: assumptions behind welfare theorems, existence, core, free disposal;
-- interpretation: why missing markets/externalities/nonconvexities break welfare results.
-
-## 2. Pure exchange economy
+## 1. Pure exchange economy
 
 There are \(L\) commodities and \(H\) households. Household \(h\) has endowment \(e^h\in\mathbb R_+^L\) and utility \(u^h:\mathbb R_+^L\to\mathbb R\).
 
@@ -77,7 +66,7 @@ $$
 \end{aligned}
 $$
 
-## 3. First Welfare Theorem in pure exchange
+## 2. First Welfare Theorem in pure exchange
 
 **Theorem:** If \((p,(c^h))\) is a Walrasian equilibrium and preferences are locally nonsatiated/increasing, then \((c^h)\) is Pareto efficient.
 
@@ -130,7 +119,7 @@ Contradiction. Therefore \((c^h)\) is Pareto efficient.
 
 Key exam line: **individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
 
-## 4. Second Welfare Theorem in pure exchange
+## 3. Second Welfare Theorem in pure exchange
 
 The slides state a supporting-price result: under convexity and interiority, a Pareto-efficient allocation can be decentralized as a Walrasian equilibrium after suitable redistribution of endowments.
 
@@ -177,7 +166,7 @@ $$
 
 Let \(z^h=y^h-\bar e^h\in K^h\). Then \(p\cdot z^h\le0\). But separation says any strictly preferred net trade must satisfy \(p\cdot z^h\ge0\), and with monotonicity/interiority one obtains the required strict budget violation. Hence no strictly preferred affordable bundle exists.
 
-## 5. Pareto efficiency by planner problem
+## 4. Pareto efficiency by planner problem
 
 For interior allocations, Pareto efficiency can be characterized by weighted utility maximization:
 
@@ -198,7 +187,7 @@ $$
 
 This is the standard Edgeworth box contract curve condition. H4 Q5 is a direct application: set MRS equal, impose feasibility, then solve for the contract curve/core/equilibrium.
 
-## 6. Existence via aggregate excess demand
+## 5. Existence via aggregate excess demand
 
 Let \(f^h(p,e^h)\) be household \(h\)'s demand, and define aggregate excess demand
 
@@ -227,7 +216,7 @@ With strong monotonicity, equilibrium prices are strictly positive and all marke
 
 Proof uses Brouwer's fixed point theorem on the price simplex. The exam version usually expects you to state the mapping idea, not reproduce every topological detail.
 
-## 7. Walras' law and H2 Q4
+## 6. Walras' law and H2 Q4
 
 In any household budget problem with locally nonsatiated preferences,
 
@@ -263,7 +252,7 @@ $$
 
 Thus, with \(L\) goods, clearing \(L-1\) markets implies the last market clears.
 
-## 8. Core
+## 7. Core
 
 :::{admonition} Definition (Core)
 A feasible allocation \((c^h)\) is in the core if there is no coalition \(S\subseteq H\) and allocation \((\tilde c^h)_{h\in S}\) such that
@@ -284,7 +273,7 @@ with strict inequality for at least one member of \(S\).
 
 Core convergence theorem in the slides: in replica economies, as the number of replicas grows, core allocations converge to Walrasian allocations. Intuition: large markets make individual/coalitional market power vanish.
 
-## 9. Theory of the firm: production set
+## 8. Theory of the firm: production set
 
 :::{admonition} Definition (Production set)
 A production plan is \(y\in\mathbb R^L\), where positive components are outputs and negative components are inputs. The production set \(Y\subseteq\mathbb R^L\) contains feasible production plans.
@@ -314,7 +303,7 @@ $$
 MRTS_{ij}(x)=\frac{f_i(x)}{f_j(x)}.
 $$
 
-## 10. H3 Q1: \(f\) concave iff \(Y\) convex under free disposal
+## 9. H3 Q1: \(f\) concave iff \(Y\) convex under free disposal
 
 Let
 
@@ -394,7 +383,7 @@ f(\bar x).
 
 Thus \(f\) is concave.
 
-## 11. CRS iff production set is a cone
+## 10. CRS iff production set is a cone
 
 Assume free disposal and define constant returns to scale as
 
@@ -445,7 +434,7 @@ $$
 
 contradicting the definition of \(f(x)\). Therefore \(f(\lambda x)=\lambda f(x)\).
 
-## 12. Profit maximization
+## 11. Profit maximization
 
 :::{admonition} Definition (Profit maximization problem)
 Given price vector \(p\in\mathbb R^L\), the firm's profit function is
@@ -497,7 +486,7 @@ $$
 
 Interpretation: value of marginal product equals factor price.
 
-## 13. Supply and input demand comparative statics
+## 12. Supply and input demand comparative statics
 
 By Hotelling's lemma/envelope theorem,
 
@@ -540,7 +529,7 @@ $$
 
 With strict concavity and negative cross partial assumptions, one derives \(\partial z_\ell/\partial w_k<0\) for \(k\neq \ell\) in the homework setting.
 
-## 14. Cost minimization and supply
+## 13. Cost minimization and supply
 
 If \(x^*\) maximizes profit and \(y^*=f(x^*)\), then \(x^*\) solves the cost minimization problem for output \(y^*\):
 
@@ -582,7 +571,7 @@ p=MC(y^*,w).
 
 This gives the supply curve as inverse marginal cost.
 
-## 15. Production in Arrow-Debreu
+## 14. Production in Arrow-Debreu
 
 There are \(K\) firms with production sets \(Y^k\subseteq\mathbb R^L\). A production economy equilibrium is
 
@@ -648,7 +637,7 @@ Using \(p\cdot y^k\ge p\cdot \tilde y^k\), the RHS inequality contradicts \(\sum
 
 Under convex production sets and convex preferences, every interior Pareto efficient allocation-production plan can be supported by prices after redistribution. Nonconvex production, increasing returns, and externalities are classic failure cases.
 
-## 16. Firms vs household production
+## 15. Firms vs household production
 
 The slides show that if households own firm technologies by shares \(\delta_k^h\), we can define household production sets
 
@@ -657,100 +646,3 @@ $$
 $$
 
 Under the relevant assumptions, an equilibrium with firms is equivalent to an equilibrium in which households directly operate their share of production technologies. This is useful for welfare proofs because firm profits enter household budget constraints as ownership income.
-
-## 17. Common QE traps
-
-1. **FWT needs local nonsatiation/monotonicity.** Without it, budget exhaustion and revealed-preference cost implications can fail.
-2. **SWT needs convexity.** Nonconvex production breaks supporting hyperplane decentralization.
-3. **Equilibrium price normalization.** Only relative prices matter; normalize one price or impose \(p\in\Delta^{L-1}\).
-4. **Firm supply under CRS/IRS.** If positive profit exists under CRS or IRS, profit is unbounded. Equilibrium requires zero profit under CRS.
-5. **Core vs Pareto efficiency.** Core is stronger than Pareto efficiency because it rules out blocking coalitions, not just grand-coalition improvements.
-
-## 18. Practice set
-
-### Basic checks
-
-1. Define Walrasian equilibrium and Pareto efficiency in a pure exchange economy.
-2. State the First and Second Welfare Theorems and list their assumptions.
-3. Define production set, free disposal, and profit function.
-
-### QE-style questions
-
-1. Prove the First Welfare Theorem in pure exchange.
-2. Prove \(f\) concave iff \(Y\) convex under free disposal.
-3. Prove CRS iff \(Y\) is a cone.
-4. Derive the competitive firm's FOCs and explain \(p=MC\).
-5. Show that a Walrasian allocation is in the core.
-
-### Variants and traps
-
-1. Give an example where a missing market causes a Walrasian equilibrium to fail Pareto efficiency.
-2. Explain why increasing returns may cause nonexistence or nonconvexity problems.
-3. In a two-good Edgeworth box, derive the contract curve and then restrict it to the core.
-
-## 19. Mastery target
-
-For QE, you should be able to reproduce:
-
-- FWT proof in pure exchange and with production;
-- SWT separation proof skeleton;
-- Walras' law and one-market-left-clears result;
-- \(f\) concave iff \(Y\) convex and CRS iff cone;
-- profit/cost duality, Hotelling's lemma, and \(p=MC\).
-
-## 20. Equilibrium under uncertainty
-
-旧课件把不确定性下的一般均衡写成 Arrow-Debreu 形式：每个 state 的 commodity 都是独立商品，价格向量就是 state-price vector。
-
-### Basic setup
-
-令 state 集合为 $S=\{1,\ldots,S\}$，商品在每个 state 下都可交易。一个 contingent commodity bundle 写成
-
-$$
-x=(x_1,\ldots,x_S),
-$$
-
-对应价格为
-
-$$
-p=(p_1,\ldots,p_S),\qquad p_s\ge0.
-$$
-
-家庭预算约束是
-
-$$
-\sum_{s=1}^S p_s x_s \le \sum_{s=1}^S p_s e_s.
-$$
-
-### Arrow securities and state prices
-
-若只交易 Arrow securities，则第 $s$ 个 Arrow 证券在 state $s$ 支付 1，其余 state 支付 0。其价格记为 $q_s$。于是任意 contingent claim 的价格可以写成
-
-$$
-\pi(x)=\sum_{s=1}^S q_s x_s.
-$$
-
-这说明 Arrow security prices 本质上就是 state prices。若存在无套利，则 $q_s>0$，且任意可复制 payoff 的价格由其 state-by-state payoff 决定。
-
-### Complete markets and Pareto efficiency
-
-在 complete markets 下，均衡分配等价于一个跨 state 的 Pareto problem：
-
-$$
-\max_{(x^h)}\sum_{h=1}^H \lambda_h U^h(x^h)
-\qquad
-\text{s.t.}\quad \sum_h x^h \le \sum_h e^h.
-$$
-
-由于每个 state 都能被单独定价，风险分担可以达到最优。若 market incomplete，则某些 state payoff 不能直接交易，风险分担被约束，均衡通常不再是 Pareto efficient。
-
-### Core intuition
-
-Core convergence theorem 的直觉是：当交易者很多、每个人规模很小时，核心解和竞争均衡会越来越接近。旧课件用它来说明 Arrow-Debreu 竞争均衡不是孤立现象，而是 large economy 下的自然极限。
-
-### What to remember for QE
-
-- state prices = Arrow security prices;
-- complete markets = every contingent claim can be priced by state-by-state decomposition;
-- no arbitrage = positive supporting price vector;
-- incomplete markets = constraint on feasible risk sharing, not just a pricing issue.

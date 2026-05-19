@@ -19,18 +19,7 @@ tags:
 Source map: EF8070 **Principal-Agent Models** slides 1-37; **Principal-Agent Models: Monopolistic Screening** slides 1-53; homework links: H5 Q1-Q6.  
 Core cards: [Microeconomic/cards/Moral hazard binding constraints](Microeconomic/cards/Moral hazard binding constraints), [Microeconomic/cards/MLRP and optimal wage monotonicity](Microeconomic/cards/MLRP and optimal wage monotonicity), [Microeconomic/cards/Single crossing and monotonicity](Microeconomic/cards/Single crossing and monotonicity), [Microeconomic/cards/No distortion at the top](Microeconomic/cards/No distortion at the top), [Microeconomic/cards/Envelope theorem in screening](Microeconomic/cards/Envelope theorem in screening), [Microeconomic/cards/Myerson-Satterthwaite impossibility](Microeconomic/cards/Myerson-Satterthwaite impossibility).
 
-## 1. QE importance
-
-**High.** This is a canonical QE topic because every question has a clear model architecture: players, timing, information, contract space, payoff, constraints, and equilibrium/optimization concept.
-
-Typical QE modes:
-
-- computational: solve first-best/second-best wage schedules or screening menu;
-- proof-based: IC implies monotonicity; envelope formula; no distortion at the top;
-- conceptual: hidden action vs hidden information, moral hazard vs adverse selection;
-- interpretation: rents, limited liability, risk-sharing vs incentives tradeoff.
-
-## 2. Information economics taxonomy
+## 1. Information economics taxonomy
 
 :::{admonition} Definition (Asymmetric information)
 Asymmetric information exists when different agents possess different payoff-relevant information. It can generate strategic behavior and market inefficiencies.
@@ -52,7 +41,7 @@ $$
 \end{aligned}
 $$
 
-## 3. Hidden action principal-agent model
+## 2. Hidden action principal-agent model
 
 ### Players, timing, information
 
@@ -76,7 +65,7 @@ $$
 w:X\to\mathbb R_+,\qquad x\mapsto w(x).
 $$
 
-## 4. First-best benchmark: effort observable
+## 3. First-best benchmark: effort observable
 
 If effort is observable, the principal can choose $e$ and wages directly.
 
@@ -168,7 +157,7 @@ $$
 
 Interpretation: marginal productivity gain must exceed compensation for effort cost.
 
-## 5. Second-best: effort unobservable
+## 4. Second-best: effort unobservable
 
 To induce high effort, add incentive compatibility.
 
@@ -263,7 +252,7 @@ $$
 
 If $w_L^{SB}$ violates limited liability or utility domain restrictions, the limited-liability solution applies.
 
-## 6. Low effort implementation
+## 5. Low effort implementation
 
 To induce low effort, the relaxed problem without IC gives full insurance:
 
@@ -293,7 +282,7 @@ $$
 V_1^{SB}\ge V_0.
 $$
 
-## 7. Risk-neutral agent with limited liability
+## 6. Risk-neutral agent with limited liability
 
 Suppose $u(w)=w$, $\bar u=0$, and $w_L,w_H\ge0$.
 
@@ -348,7 +337,7 @@ $$
 (q_1-q_0)(x_H-x_L)\ge \frac{q_1C}{q_1-q_0}.
 $$
 
-## 8. H5 Q1 numerical template: JR 8.16
+## 7. H5 Q1 numerical template: JR 8.16
 
 Data:
 
@@ -465,7 +454,7 @@ $$
 
 Therefore the principal does **not** induce high effort; the worker exerts low effort.
 
-## 9. Continuous output and MLRP
+## 8. Continuous output and MLRP
 
 Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
 
@@ -522,7 +511,7 @@ $$
 
 Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
 
-## 10. Screening: hidden information
+## 9. Screening: hidden information
 
 Now output/effort is observable, but agent's cost type is private.
 
@@ -554,7 +543,7 @@ $$
 
 Higher-cost types dislike output more.
 
-## 11. First-best screening
+## 10. First-best screening
 
 If $\theta$ is known, principal solves
 
@@ -854,7 +843,7 @@ $$
 
 The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
-## 15. Bilateral trade and Myerson-Satterthwaite
+## 11. Bilateral trade and Myerson-Satterthwaite
 
 Environment:
 
@@ -885,111 +874,3 @@ $$
 $$
 
 Intuition: truthful information revelation requires giving information rents to both sides. The total rent needed to elicit private information can exceed the expected surplus available from efficient trade.
-
-## 16. Common QE traps
-
-1. **Skipping timing and information structure.** Always state what is observable/contractible.
-2. **Forgetting IC in hidden action.** First-best full insurance is not feasible when effort is hidden.
-3. **Wrong binding constraints in screening.** In the standard two-type cost model: $IC_L$ and $IR_H$ bind.
-4. **Mislabeling top type.** Here $L$ is low cost/efficient and receives no output distortion; $H$ is high cost/inefficient and is distorted downward.
-5. **Confusing limited liability with risk aversion.** Limited liability creates rents even for risk-neutral agents.
-6. **Forgetting monotonicity.** IC implies allocation monotonicity; if pointwise solution violates monotonicity, ironing is needed.
-
-## 17. Practice set
-
-### Basic checks
-
-1. Define hidden action and hidden information.
-2. Write the principal's high-effort problem with IR and IC.
-3. State the two-type screening constraints.
-
-### QE-style questions
-
-1. Solve the binary-output hidden-action model and derive the second-best wage schedule.
-2. Prove MLRP implies the optimal wage is increasing in output.
-3. Prove IC implies $q_L\ge q_H$ in the two-type screening model.
-4. Derive no distortion at the top and downward distortion at the bottom.
-5. State Myerson-Satterthwaite and explain the economic logic.
-
-### Variants and traps
-
-1. Add limited liability and show why the agent earns a rent.
-2. Reverse type labels and redo the monotonicity condition carefully.
-3. Suppose $S'(q_H^{SB})$ from the FOC would imply $q_H>q_L$. Explain why the monotonicity constraint binds and ironing/pooling appears.
-
-## 18. Mastery target
-
-For QE, you should be able to write from memory:
-
-- hidden-action first-best and second-best systems;
-- binary-output wage formulas;
-- limited-liability rent derivation;
-- MLRP wage monotonicity FOC;
-- two-type screening IC/IR system, binding constraints, and outputs;
-- continuum-type envelope formula and virtual cost;
-- Myerson-Satterthwaite statement and intuition.
-
-## 19. Monopolistic screening and bilateral trade
-
-旧课件把 adverse selection 继续推进到 screening 和双边交易。这里的关键不是求一个 single wage schedule，而是求一个 menu，让不同 type self-select。
-
-### Screening logic
-
-类型为 $\theta$ 的 agent 选择合同 $(q,t)$。principal 提供一个菜单
-
-$$
-\{(q(\theta),t(\theta)):\theta\in\Theta\}.
-$$
-
-screening 的核心约束是
-
-$$
-\begin{aligned}
-\text{IR:}\quad &u(q(\theta),t(\theta);\theta)\ge \bar u(\theta),\\
-\text{IC:}\quad &u(q(\theta),t(\theta);\theta)\ge u(q(\hat\theta),t(\hat\theta);\theta)\quad \forall \hat\theta.
-\end{aligned}
-$$
-
-在 single-crossing 下，IC 给出 monotonicity：高 type 不会接受低 type 的合同，最优菜单通常对低 type 留 rents，对高 type 尽量压 rent。
-
-### Envelope intuition
-
-若直接写类型选择后的 indirect utility
-
-$$
-V(\theta)=u(q(\theta),t(\theta);\theta),
-$$
-
-则在 IC 成立时，$V'(\theta)$ 可由 envelope theorem 直接得到，不需要显式求合同对类型的反应函数。这是筛选题里最常见的 shortcut。
-
-### Myerson-Satterthwaite theorem
-
-双边交易里，买方估值和卖方成本都私有时，想同时满足效率、预算平衡、IR 和 IC 通常做不到。
-
-最简化地写：
-
-$$
-\theta_b \in [\underline\theta_b,\bar\theta_b],\qquad
-\theta_s \in [\underline\theta_s,\bar\theta_s],
-$$
-
-交易条件是
-
-$$
-\theta_b \ge \theta_s.
-$$
-
-若机制必须同时满足
-
-$$
-\text{ex post efficiency} + \text{IC} + \text{IR} + \text{BB},
-$$
-
-则一般不存在。经济含义是：私人信息导致的信息租金与预算平衡之间有硬冲突。
-
-### QE takeaway
-
-- moral hazard: effort hidden, incentive problem;
-- screening: type hidden, menu problem;
-- single crossing gives monotone allocation;
-- Myerson-Satterthwaite tells you why efficient trade can fail even with mutually beneficial trade.

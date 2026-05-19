@@ -17,21 +17,7 @@ tags:
 
 # 02 Choice under Uncertainty and State-Contingent Equilibrium
 
-Source map: EF8070 **Choice under Uncertainty** slides 1-59; EF8070 **Equilibrium Under Uncertainty** slides 1-32; homework links: H2 Q1-Q3 and H4 Q1-Q3.  
-Core cards: [Microeconomic/cards/VNM independence axiom](Microeconomic/cards/VNM independence axiom), [Microeconomic/cards/Risk aversion and Jensen](Microeconomic/cards/Risk aversion and Jensen), [Microeconomic/cards/Arrow securities and state prices](Microeconomic/cards/Arrow securities and state prices), [Microeconomic/cards/No arbitrage and state price vector](Microeconomic/cards/No arbitrage and state price vector), [Microeconomic/cards/Complete vs incomplete markets](Microeconomic/cards/Complete vs incomplete markets), [Microeconomic/cards/Full insurance with common beliefs](Microeconomic/cards/Full insurance with common beliefs).
-
-## 1. QE importance
-
-**High.** This topic connects micro choice axioms to asset-pricing primitives: lotteries, expected utility, state-contingent commodities, Arrow securities, state prices, complete markets, and insurance.
-
-Typical QE modes:
-
-- proof-based: expected utility theorem steps; independence lemma; no-arbitrage iff positive state prices;
-- computational: state price vector from asset payoffs; insurance allocation in two-state economies;
-- conceptual: why VNM utility is unique only up to positive affine transformations;
-- interpretation: complete vs incomplete markets and failure of welfare theorems.
-
-## 2. Lotteries and reduction
+## 1. Lotteries and reduction
 
 :::{admonition} Definition (Simple lottery)
 Let \(C=\{1,\ldots,N\}\) be a finite set of consequences. A simple lottery is
@@ -65,7 +51,7 @@ where \(L^n\) pays consequence \(n\) with probability one.
 
 The slides assume the DM only cares about the **reduced lottery over final outcomes**. The process generating that reduced distribution is irrelevant.
 
-## 3. Preferences over lotteries
+## 2. Preferences over lotteries
 
 The preference relation \(\succeq\) is defined on \(\mathcal L\), the set of simple lotteries.
 
@@ -88,7 +74,7 @@ for all \(L,L',L''\in\mathcal L\) and \(\alpha\in(0,1)\).
 
 The independence axiom is the source of linearity in probabilities. It says common probability branches cancel.
 
-## 4. H2 Q1: independence preserves strict preference and indifference
+## 3. H2 Q1: independence preserves strict preference and indifference
 
 :::{admonition} Lemma
 Independence lemma
@@ -169,7 +155,7 @@ $$
 The reverse direction is identical because independence is an iff statement.  
 The indifference proof uses \(L\sim L'\Longleftrightarrow L\succeq L'\) and \(L'\succeq L\), then applies independence in both directions.
 
-## 5. Expected utility form and linearity
+## 4. Expected utility form and linearity
 
 :::{admonition} Definition (Expected utility form)
 A utility function \(U:\mathcal L\to\mathbb R\) has expected utility form if there exist numbers \(u_1,\ldots,u_N\) such that for every \(L=(p_1,\ldots,p_N)\),
@@ -222,7 +208,7 @@ $$
 
 Let \(u_n:=U(L^n)\). Then \(U(L)=\sum_np_nu_n\).
 
-## 6. Expected utility theorem
+## 5. Expected utility theorem
 
 **Theorem:** If \(\succeq\) on \(\mathcal L\) satisfies completeness, transitivity, continuity, and independence, then there exist \(u_1,\ldots,u_N\) such that
 
@@ -328,7 +314,7 @@ $$
 
 Therefore \(U\) has expected utility form.
 
-## 7. Positive affine uniqueness
+## 6. Positive affine uniqueness
 
 In ordinary consumer theory, any strictly increasing transformation preserves representation. In VNM theory, the EU **form** is preserved only by positive affine transformations.
 
@@ -356,7 +342,7 @@ $$
 
 Necessity uses the best/worst normalization: both \(U\) and \(V\) must assign values linearly along \(\alpha\overline L+(1-\alpha)\underline L\), so \(V\) must be an affine rescaling of \(U\).
 
-## 8. Risk aversion and Jensen
+## 7. Risk aversion and Jensen
 
 For monetary consequences, a decision maker with Bernoulli utility \(u\) is risk averse if for every gamble \(g\),
 
@@ -388,7 +374,7 @@ u(E[g])\ge E[u(g)]
 \end{aligned}
 $$
 
-## 9. Arrow-Debreu uncertainty model
+## 8. Arrow-Debreu uncertainty model
 
 At date \(0\), the state is known. At date \(1\), one state \(s\in\{1,\ldots,S\}\) realizes. There are \(L\) physical commodities in each state, so a complete contingent consumption plan is
 
@@ -408,7 +394,7 @@ $$
 
 The Arrow-Debreu model treats each commodity-state pair as a different good. Therefore the standard existence and welfare theorems apply if all contingent commodities are traded.
 
-## 10. Arrow securities and Debreu prices
+## 9. Arrow securities and Debreu prices
 
 Arrow securities pay one unit of the numeraire in a specified future state.
 
@@ -428,7 +414,7 @@ $$
 
 If Arrow securities for all states are traded, households can transfer wealth across states exactly as in the complete Arrow-Debreu model.
 
-## 11. General asset markets and no arbitrage
+## 10. General asset markets and no arbitrage
 
 Let \(A\in\mathbb R^{S\times J}\) be the payoff matrix of \(J\) assets across \(S\) states, where column \(j\) is the payoff vector of asset \(j\). Let \(q\in\mathbb R^J\) be the vector of asset prices.
 
@@ -509,7 +495,7 @@ $$
 
 Set \(\psi=\mu/\mu_0\gg0\).
 
-## 12. Complete and incomplete markets
+## 11. Complete and incomplete markets
 
 :::{admonition} Definition (Complete markets)
 The asset structure is complete if its payoff matrix spans all state-contingent wealth transfers:
@@ -545,7 +531,7 @@ If \(\operatorname{rank}(A)<S\), markets are incomplete. Then:
 
 Slides example: with two future states and only a risk-free bond paying \((1,1)\), agents cannot trade state-contingent risk. Equilibrium may involve no trade even though a full-insurance allocation Pareto dominates the endowment allocation.
 
-## 13. H4 Q1-Q2: full insurance and belief differences
+## 12. H4 Q1-Q2: full insurance and belief differences
 
 There is one consumption good, two states, and two consumers. Utility is expected utility:
 
@@ -640,7 +626,7 @@ $$
 
 Consumer 2 overconsumes in the state she views as relatively more likely. Full insurance fails because prices reflect the risk-neutral consumer's beliefs, not consumer 2's beliefs.
 
-## 14. H4 Q3: pricing by arbitrage template
+## 13. H4 Q3: pricing by arbitrage template
 
 Given asset payoff matrix \(A\) and prices \(q\), compute \(\psi\) from
 
@@ -655,42 +641,3 @@ $$
 $$
 
 provided \(d\) is spanned by traded payoffs. In a complete market this is automatic; in an incomplete market, the price may be nonunique or the asset may not be replicated.
-
-## 15. Common QE traps
-
-1. **Confusing Bernoulli utility and lottery utility.** Bernoulli utility \(u_n\) is assigned to consequences; \(U(L)=\sum p_nu_n\) is utility over lotteries.
-2. **Using arbitrary monotone transformations under VNM.** Only positive affine transformations preserve expected utility linearity.
-3. **Ignoring belief heterogeneity.** Common priors lead to insurance; different subjective probabilities introduce speculative/state-biased positions.
-4. **No-arbitrage vs completeness.** No-arbitrage gives existence of some positive state price vector; completeness gives spanning and uniqueness.
-5. **Incomplete markets and welfare.** A GEI equilibrium need not be Pareto efficient relative to full state-contingent trades.
-
-## 16. Practice set
-
-### Basic checks
-
-1. Define simple, compound, and reduced lottery.
-2. State the independence axiom and give its common-branch interpretation.
-3. Define Arrow security and state price.
-
-### QE-style questions
-
-1. Prove the independence lemma for strict preference and indifference.
-2. Reproduce the expected utility theorem construction using \(\overline L\) and \(\underline L\).
-3. Prove that \(q=A^\top\psi\), \(\psi\gg0\), implies no arbitrage.
-4. In a two-state economy, derive the condition for full insurance under common beliefs.
-
-### Variants and traps
-
-1. Give a preference over lotteries with curved indifference curves in the simplex; identify which VNM axiom fails.
-2. Show how a missing asset market can block Pareto-improving insurance trades.
-3. If an asset payoff is not in \(\operatorname{span}(A)\), explain why no-arbitrage may not pin down a unique price.
-
-## 17. Mastery target
-
-For QE, you should be able to write from memory:
-
-- the VNM axioms and expected utility theorem proof skeleton;
-- positive affine uniqueness proof;
-- full-insurance derivation under common beliefs;
-- no-arbitrage iff positive state prices theorem;
-- complete vs incomplete markets and welfare implications.
