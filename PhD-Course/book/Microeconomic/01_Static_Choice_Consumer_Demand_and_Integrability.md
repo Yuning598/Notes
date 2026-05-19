@@ -226,7 +226,10 @@ The slides prove the simple monotone case using the ray $Z=\{\alpha e:\alpha\ge 
 
 ![Intuition of the proof](../attachment/lexicographic-proof.png)
 
-WTS: For continuous and monotone $\succeq$, define $u(x)=\alpha(x)$, where $\alpha(x)e\sim x$, and show $u$ represents $\succeq$.
+For continuous and monotone $\succeq$, define $u(x)=\alpha(x)$, where $\alpha(x)e\sim x$, and show $u$ represents $\succeq$.
+:::
+
+Proof:
 
 The proof has three steps.
 
@@ -265,7 +268,6 @@ x\succeq y
 $$
 
 Important failure case: lexicographic preferences are rational but discontinuous; they do not admit a real-valued continuous utility representation.
-:::
 
 ![Lexicographic preferences](../attachment/lexicographic-failure.png)
 
@@ -423,13 +425,10 @@ $$
 Interpretation: the marginal rate of substitution equals the price ratio.
 
 :::{admonition} Cobb-Douglas Marshallian demand
-Let
+For $u(x_1,x_2)=x_1^\alpha x_2^\beta$ with $\alpha,\beta>0$, derive $x_1(p,w)$, $x_2(p,w)$, and $v(p,w)$.
+:::
 
-$$
-u(x_1,x_2)=x_1^\alpha x_2^\beta,\qquad \alpha,\beta>0.
-$$
-
-Derive $x_1(p,w)$, $x_2(p,w)$, and $v(p,w)$.
+Proof:
 
 FOCs:
 
