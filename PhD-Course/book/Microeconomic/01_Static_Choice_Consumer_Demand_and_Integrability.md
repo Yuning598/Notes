@@ -14,7 +14,7 @@ tags:
 
 # 01 Static Choice, Consumer Demand, and Integrability
 
-## 1. Static choice: primitives, preference, and revealed preference
+## Static choice: primitives, preference, and revealed preference
 
 :::{admonition} Definition (Choice structure)
 A choice structure is $(\mathcal B,C(\cdot))$, where $\mathcal B$ is a family of feasible sets $B\subseteq X$, and $C(B)\subseteq B$, $C(B)\neq \varnothing$, is the set of alternatives chosen from $B$.
@@ -176,7 +176,7 @@ $$
 
 So $C(\{x,y,z\})\in\{\{x\},\{z\},\{x,z\}\}$.
 
-## 2. Utility representation
+## Utility representation
 
 :::{admonition} Definition (Utility representation)
 A utility function $u:X\to\mathbb R$ represents $\succeq$ if
@@ -271,7 +271,7 @@ Important failure case: lexicographic preferences are rational but discontinuous
 
 ![Lexicographic preferences](../attachment/lexicographic-failure.png)
 
-## 3. Constrained optimization toolkit
+## Constrained optimization toolkit
 
 The slides repeatedly use the equality-constrained program
 
@@ -375,7 +375,7 @@ $$
 The indirect utility function and expenditure function are value functions, so Roy's identity and Shephard's lemma are envelope-theorem applications.
 
 ![Envelope theorem](../attachment/envelope-theorem-20260519.png)
-## 4. Consumer problem: Marshallian demand and indirect utility
+## Consumer problem: Marshallian demand and indirect utility
 
 :::{admonition} Definition (Consumer problem)
 Given prices $p\gg 0$, wealth $w>0$, and utility $u$, the consumer problem is
@@ -488,7 +488,7 @@ $$
 $$
 :::
 
-## 5. Expenditure minimization, Hicksian demand, and expenditure function
+## Expenditure minimization, Hicksian demand, and expenditure function
 
 :::{admonition} Definition (Expenditure minimization problem)
 Given $p\gg 0$ and target utility $\bar u$, the expenditure minimization problem is
@@ -574,7 +574,7 @@ e(p,\bar u)=
 \frac{p_1^\alpha p_2^\beta}{\alpha^\alpha\beta^\beta}\bar u.
 $$
 
-## 6. Duality: Roy, Shephard, and identities
+## Duality: Roy, Shephard, and identities
 
 ![Duality](../attachment/duality-20260519.png)
 
@@ -717,7 +717,7 @@ $$
 The law of demand is the clean comparative-static statement on the EMP side.
 :::
 
-## 7. Demand restrictions and Slutsky matrix
+## Demand restrictions and Slutsky matrix
 
 :::{admonition} Property summary
 
@@ -822,7 +822,7 @@ $$
 
 This is the concavity inequality. Therefore the Hessian $\nabla^2_{pp}e(p,u)$ is negative semidefinite, and since $S=\nabla^2_{pp}e$, the Slutsky matrix is negative semidefinite.
 
-## 8. Integrability theorem
+## Integrability theorem
 
 :::{admonition} Integrability theorem
 A Marshallian demand $x(p,w)$ is rationalizable by utility maximization if and only if it satisfies:

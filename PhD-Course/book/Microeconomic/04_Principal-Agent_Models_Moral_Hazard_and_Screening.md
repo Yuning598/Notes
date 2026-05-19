@@ -19,7 +19,7 @@ tags:
 Source map: EF8070 **Principal-Agent Models** slides 1-37; **Principal-Agent Models: Monopolistic Screening** slides 1-53; homework links: H5 Q1-Q6.  
 Core cards: [Microeconomic/cards/Moral hazard binding constraints](Microeconomic/cards/Moral hazard binding constraints), [Microeconomic/cards/MLRP and optimal wage monotonicity](Microeconomic/cards/MLRP and optimal wage monotonicity), [Microeconomic/cards/Single crossing and monotonicity](Microeconomic/cards/Single crossing and monotonicity), [Microeconomic/cards/No distortion at the top](Microeconomic/cards/No distortion at the top), [Microeconomic/cards/Envelope theorem in screening](Microeconomic/cards/Envelope theorem in screening), [Microeconomic/cards/Myerson-Satterthwaite impossibility](Microeconomic/cards/Myerson-Satterthwaite impossibility).
 
-## 1. Information economics taxonomy
+## Information economics taxonomy
 
 :::{admonition} Definition (Asymmetric information)
 Asymmetric information exists when different agents possess different payoff-relevant information. It can generate strategic behavior and market inefficiencies.
@@ -41,7 +41,7 @@ $$
 \end{aligned}
 $$
 
-## 2. Hidden action principal-agent model
+## Hidden action principal-agent model
 
 ### Players, timing, information
 
@@ -65,7 +65,7 @@ $$
 w:X\to\mathbb R_+,\qquad x\mapsto w(x).
 $$
 
-## 3. First-best benchmark: effort observable
+## First-best benchmark: effort observable
 
 If effort is observable, the principal can choose $e$ and wages directly.
 
@@ -157,7 +157,7 @@ $$
 
 Interpretation: marginal productivity gain must exceed compensation for effort cost.
 
-## 4. Second-best: effort unobservable
+## Second-best: effort unobservable
 
 To induce high effort, add incentive compatibility.
 
@@ -252,7 +252,7 @@ $$
 
 If $w_L^{SB}$ violates limited liability or utility domain restrictions, the limited-liability solution applies.
 
-## 5. Low effort implementation
+## Low effort implementation
 
 To induce low effort, the relaxed problem without IC gives full insurance:
 
@@ -282,7 +282,7 @@ $$
 V_1^{SB}\ge V_0.
 $$
 
-## 6. Risk-neutral agent with limited liability
+## Risk-neutral agent with limited liability
 
 Suppose $u(w)=w$, $\bar u=0$, and $w_L,w_H\ge0$.
 
@@ -337,7 +337,7 @@ $$
 (q_1-q_0)(x_H-x_L)\ge \frac{q_1C}{q_1-q_0}.
 $$
 
-## 7. H5 Q1 numerical template: JR 8.16
+## H5 Q1 numerical template: JR 8.16
 
 Data:
 
@@ -454,7 +454,7 @@ $$
 
 Therefore the principal does **not** induce high effort; the worker exerts low effort.
 
-## 8. Continuous output and MLRP
+## Continuous output and MLRP
 
 Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
 
@@ -511,7 +511,7 @@ $$
 
 Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
 
-## 9. Screening: hidden information
+## Screening: hidden information
 
 Now output/effort is observable, but agent's cost type is private.
 
@@ -543,7 +543,7 @@ $$
 
 Higher-cost types dislike output more.
 
-## 10. First-best screening
+## First-best screening
 
 If $\theta$ is known, principal solves
 
@@ -841,7 +841,7 @@ $$
 
 The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
-## 11. Bilateral trade and Myerson-Satterthwaite
+## Bilateral trade and Myerson-Satterthwaite
 
 Environment:
 

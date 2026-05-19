@@ -17,7 +17,7 @@ tags:
 
 # 02 Choice under Uncertainty and State-Contingent Equilibrium
 
-## 1. Lotteries and reduction
+## Lotteries and reduction
 
 :::{admonition} Definition (Simple lottery)
 Let $C=\{1,\ldots,N\}$ be a finite set of consequences. A simple lottery is
@@ -51,7 +51,7 @@ where $L^n$ pays consequence $n$ with probability one.
 
 The slides assume the DM only cares about the **reduced lottery over final outcomes**. The process generating that reduced distribution is irrelevant.
 
-## 2. Preferences over lotteries
+## Preferences over lotteries
 
 The preference relation $\succeq$ is defined on $\mathcal L$, the set of simple lotteries.
 
@@ -74,7 +74,7 @@ for all $L,L',L''\in\mathcal L$ and $\alpha\in(0,1)$.
 
 The independence axiom is the source of linearity in probabilities. It says common probability branches cancel.
 
-## 3. Independence preserves strict preference and indifference
+## Independence preserves strict preference and indifference
 
 :::{admonition} Lemma 1
 If the preference relation $\succeq$ on $\mathcal L$ satisfies the independence axiom, then for all $\alpha\in(0,1)$ and $L,L',L''\in\mathcal L$, we have
@@ -160,7 +160,7 @@ $$
 \alpha L+(1-\alpha)L''\succ \alpha L'+(1-\alpha)L'''.
 $$
 
-## 4. Expected utility
+## Expected utility
 
 :::{admonition} Definition (Expected utility form)
 A utility function $U:\mathcal L\to\mathbb R$ has expected utility form if there exist numbers $u_1,\ldots,u_N$ such that for every $L=(p_1,\ldots,p_N)$,
@@ -551,7 +551,7 @@ $$
 
 This is the expected utility form.
 
-## 5. Positive affine uniqueness
+## Positive affine uniqueness
 
 :::{admonition} Positive affine uniqueness
 If $U$ and $V$ are both vNM expected utility representations of the same preference relation $\succeq$, then
@@ -637,7 +637,7 @@ $$
 
 So risk aversion, risk neutrality, and risk loving are invariant under admissible vNM transformations.
 
-## 6. Applications and extensions
+## Applications and extensions
 
 The remaining material uses expected utility as a tool. These are applications of the lottery/EU framework rather than separate foundational chapters.
 
@@ -955,7 +955,7 @@ $$
 
 provided $d$ is spanned by traded payoffs. In a complete market this is automatic; in an incomplete market, the price may be nonunique or the asset may not be replicated.
 
-## 7. Chapter purpose
+## Chapter purpose
 
 这一章不是为了研究赌博或 lottery 本身，而是为了把“不确定性下的选择”变成可推导、可优化的偏好模型。Lottery language 的作用是把随机结果统一写成概率分布上的选择对象：
 
