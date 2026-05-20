@@ -87,7 +87,6 @@ $$
 If $(p,(c^h))$ is a Walrasian equilibrium and preferences are locally nonsatiated/increasing, then $(c^h)$ is Pareto efficient.
 :::
 
-### Proof
 We show that no feasible allocation $(x^h)$ Pareto dominates $(c^h)$.
 
 Suppose, toward contradiction, that $(x^h)$ is feasible and Pareto improves:
@@ -133,8 +132,6 @@ $$
 
 Contradiction. Therefore $(c^h)$ is Pareto efficient.
 
-### Proof idea
-
 **Individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
 
 ### 2.2 Second Welfare Theorem
@@ -144,8 +141,6 @@ The slides state a supporting-price result: under convexity and interiority, a P
 :::{admonition} Second Welfare Theorem in pure exchange
 Given an economy satisfying the convexity/interiority assumptions, if $(\bar e^h)$ with $\bar e^h\gg0$ is Pareto efficient, then there exists $p\in\mathbb R_+^L$ such that $(p,(\bar e^h))$ is a Walrasian equilibrium for the redistributed economy.
 :::
-
-### 2.3 Proof sketch
 
 For each household define the set of strictly preferred net trades from the target allocation:
 
