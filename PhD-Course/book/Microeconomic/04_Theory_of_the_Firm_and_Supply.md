@@ -823,6 +823,36 @@ $$
 MRTS_{ij}(x)=\frac{f_i(x)}{f_j(x)}.
 $$
 
+:::{admonition} Production-function shape implications
+The slide-level judgment belongs here, right after the definition of $f$ and before the $f \leftrightarrow Y$ equivalence:
+
+$$
+\begin{aligned}
+f \text{ is quasiconcave}
+\ &\implies\ \{x\in\mathbb R_+^{L-1}: f(x)\ge y\}\ \text{is convex for each }y>0,\\
+\ &\implies\ MRTS_{ij}(x)\ \text{is diminishing}.
+\end{aligned}
+$$
+
+If $f$ is twice differentiable, then
+
+$$
+\begin{aligned}
+f \text{ is concave}
+\ &\implies\ f_{ii}(x)\le 0\\
+\ &\implies\ \text{diminishing marginal productivity of input }i.
+\end{aligned}
+$$
+
+Under the single-output representation $Y=\{(-x,y):x\ge0,\ y\le f(x)\}$, the convexity link is
+
+$$
+Y \text{ convex}
+\ \Longleftrightarrow\
+f \text{ concave}.
+$$
+:::
+
 ## 2. Production function concavity and convex production set
 
 Let
