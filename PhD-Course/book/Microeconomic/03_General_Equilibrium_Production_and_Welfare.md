@@ -133,11 +133,11 @@ $$
 
 Contradiction. Therefore $(c^h)$ is Pareto efficient.
 
-### 2.2 Exam idea
+### Proof idea
 
 **Individual optimality turns preference improvement into budget cost; feasibility says the aggregate budget cannot pay for it.**
 
-### 2.3 Second Welfare Theorem
+### 2.2 Second Welfare Theorem
 
 The slides state a supporting-price result: under convexity and interiority, a Pareto-efficient allocation can be decentralized as a Walrasian equilibrium after suitable redistribution of endowments.
 
@@ -145,7 +145,7 @@ The slides state a supporting-price result: under convexity and interiority, a P
 Given an economy satisfying the convexity/interiority assumptions, if $(\bar e^h)$ with $\bar e^h\gg0$ is Pareto efficient, then there exists $p\in\mathbb R_+^L$ such that $(p,(\bar e^h))$ is a Walrasian equilibrium for the redistributed economy.
 :::
 
-### 2.4 Proof sketch
+### 2.3 Proof sketch
 
 For each household define the set of strictly preferred net trades from the target allocation:
 
