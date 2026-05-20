@@ -415,98 +415,527 @@ Thus, with $L$ goods, clearing $L-1$ markets implies the last market clears.
 ### 4.5 Transfer paradox widget
 
 ```{raw} html
-<div id="tp-container" style="font-family: system-ui, -apple-system, sans-serif; max-width: 450px; margin: 20px auto; padding: 15px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-    <h3 style="margin-top: 0; font-size: 1.2rem; color: #333; text-align: center;">转移悖论 (Transfer Paradox)</h3>
-    <p style="text-align: center; color: #666; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px;">(Leontief 偏好：完全互补)</p>
-    
-    <div style="position: relative; width: 400px; height: 400px; margin: 0 auto; border: 2px solid #333; background-color: #fafbfc; cursor: crosshair;">
-        <canvas id="tp-canvas" width="400" height="400" style="display: block;"></canvas>
-        <div style="position: absolute; bottom: -25px; left: -10px; font-weight: bold;">O₁</div>
-        <div style="position: absolute; top: -25px; right: -10px; font-weight: bold;">O₂</div>
-    </div>
-
-    <div style="margin-top: 35px; padding: 12px; background: #f6f8fa; border-radius: 6px; font-size: 0.95rem;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span style="color: #0366d6;"><strong>禀赋点 W (拖动):</strong> <span id="tp-val-w"></span></span>
-            <span style="color: #d73a49;"><strong>均衡点 E* (固定):</strong> <span id="tp-val-e"></span></span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span><strong>预算线斜率 (p₁/p₂):</strong> <span id="tp-val-p" style="font-family: monospace;"></span></span>
-        </div>
-        <div id="tp-msg" style="margin-top: 10px; color: #28a745; font-weight: bold; text-align: center; height: 20px; font-size: 0.9rem;"></div>
-    </div>
-</div>
-
-<script>
-(function() {
-    const canvas = document.getElementById('tp-canvas');
-    const ctx = canvas.getContext('2d');
-    const a1 = 0.5, a2 = 2.0, TOTAL = 3, S = 400;
-    
-    const toPx = (x, y) => ({ cx: (x / TOTAL) * S, cy: S - (y / TOTAL) * S });
-    const toMath = (cx, cy) => ({ x: (cx / S) * TOTAL, y: ((S - cy) / S) * TOTAL });
-
-    const e_x = TOTAL * (a2 - 1) / (a2 - a1);
-    const e_y = a1 * e_x;
-    const E = toPx(e_x, e_y);
-
-    let w_math = { x: 1, y: 1 };
-    let W = toPx(w_math.x, w_math.y);
-    let isDragging = false;
-
-    function draw() {
-        ctx.clearRect(0, 0, S, S);
-        
-        ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)'; ctx.setLineDash([5, 5]);
-        const r1_end = toPx(TOTAL, a1 * TOTAL);
-        ctx.moveTo(0, S); ctx.lineTo(r1_end.cx, r1_end.cy); ctx.stroke();
-        
-        ctx.beginPath();
-        const r2_start = toPx(0, TOTAL - a2 * TOTAL);
-        ctx.moveTo(S, 0); ctx.lineTo(r2_start.cx, r2_start.cy); ctx.stroke();
-        ctx.setLineDash([]);
-
-        ctx.beginPath(); ctx.strokeStyle = '#f66a0a'; ctx.lineWidth = 2;
-        const dx = W.cx - E.cx, dy = W.cy - E.cy;
-        if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
-            ctx.moveTo(E.cx - dx * 10, E.cy - dy * 10); ctx.lineTo(E.cx + dx * 10, E.cy + dy * 10);
-        }
-        ctx.stroke();
-
-        ctx.beginPath(); ctx.fillStyle = '#d73a49'; ctx.arc(E.cx, E.cy, 6, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = '#000'; ctx.fillText("E*", E.cx + 10, E.cy - 10);
-
-        ctx.beginPath(); ctx.fillStyle = '#0366d6'; ctx.arc(W.cx, W.cy, 8, 0, Math.PI * 2); ctx.fill();
-        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
-        ctx.fillStyle = '#000'; ctx.fillText("W", W.cx + 10, W.cy + 15);
-
-        document.getElementById('tp-val-e').innerText = `(${e_x.toFixed(2)}, ${e_y.toFixed(2)})`;
-        document.getElementById('tp-val-w').innerText = `(${w_math.x.toFixed(2)}, ${w_math.y.toFixed(2)})`;
-        let priceRatio = "∞";
-        if (Math.abs(w_math.x - e_x) > 0.001) priceRatio = Math.abs((w_math.y - e_y) / (w_math.x - e_x)).toFixed(2);
-        document.getElementById('tp-val-p').innerText = priceRatio;
+<div class="tp-card" id="tp-container">
+  <style>
+    .tp-card {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #d9e2ec;
+      --grid: #edf2f7;
+      --axis: #0f172a;
+      --blue: #2563eb;
+      --blue-soft: rgba(37, 99, 235, 0.12);
+      --red: #dc2626;
+      --orange: #ea580c;
+      --green: #16a34a;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      width: min(100%, 520px);
+      margin: 20px auto;
+      padding: 20px;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      user-select: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    canvas.addEventListener('mousedown', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        const dist = Math.hypot((e.clientX - rect.left) - W.cx, (e.clientY - rect.top) - W.cy);
-        if (dist < 15) { isDragging = true; document.getElementById('tp-msg').innerText = "发生财富转移：价格调整，均衡未变！"; }
-    });
+    .tp-card * {
+      box-sizing: border-box;
+    }
 
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
+    .tp-header {
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .tp-header h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.2rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .tp-header p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+
+    .tp-stage {
+      position: relative;
+      width: min(100%, 400px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      overflow: visible;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 2px solid var(--axis);
+      border-radius: 12px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .tp-stage canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .tp-origin {
+      position: absolute;
+      color: var(--axis);
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .tp-origin--one {
+      left: -10px;
+      bottom: -28px;
+    }
+
+    .tp-origin--two {
+      top: -28px;
+      right: -10px;
+    }
+
+    .tp-panel {
+      margin-top: 36px;
+      padding: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+
+    .tp-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .tp-row:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .tp-label {
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .tp-label--w {
+      color: var(--blue);
+    }
+
+    .tp-label--e {
+      color: var(--red);
+    }
+
+    .tp-value {
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tp-value--mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .tp-message {
+      min-height: 1.25rem;
+      margin-top: 10px;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .tp-card {
+        padding: 16px;
+      }
+
+      .tp-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .tp-label {
+        white-space: normal;
+      }
+    }
+  </style>
+
+  <header class="tp-header">
+    <h3>转移悖论 (Transfer Paradox)</h3>
+    <p>Leontief 偏好：完全互补</p>
+  </header>
+
+  <div class="tp-stage">
+    <canvas id="tp-canvas"></canvas>
+    <div class="tp-origin tp-origin--one">O₁</div>
+    <div class="tp-origin tp-origin--two">O₂</div>
+  </div>
+
+  <section class="tp-panel" aria-live="polite">
+    <div class="tp-row">
+      <span class="tp-label tp-label--w">禀赋点 W（拖动）</span>
+      <span class="tp-value" id="tp-val-w"></span>
+    </div>
+
+    <div class="tp-row">
+      <span class="tp-label tp-label--e">均衡点 E*（固定）</span>
+      <span class="tp-value" id="tp-val-e"></span>
+    </div>
+
+    <div class="tp-row">
+      <span class="tp-label">预算线斜率 (p₁/p₂)</span>
+      <span class="tp-value tp-value--mono" id="tp-val-p"></span>
+    </div>
+
+    <div class="tp-message" id="tp-msg"></div>
+  </section>
+
+  <script>
+    (() => {
+      const canvas = document.querySelector("#tp-canvas");
+      const ctx = canvas.getContext("2d");
+
+      const valueW = document.querySelector("#tp-val-w");
+      const valueE = document.querySelector("#tp-val-e");
+      const valueP = document.querySelector("#tp-val-p");
+      const message = document.querySelector("#tp-msg");
+
+      const config = {
+        total: 3,
+        a1: 0.5,
+        a2: 2.0,
+        hitRadius: 24,
+        messageDurationMs: 2000,
+      };
+
+      const colors = {
+        text: "#1f2937",
+        muted: "#64748b",
+        grid: "#edf2f7",
+        kinkOne: "rgba(37, 99, 235, 0.38)",
+        kinkTwo: "rgba(220, 38, 38, 0.32)",
+        budget: "#ea580c",
+        equilibrium: "#dc2626",
+        endowment: "#2563eb",
+        white: "#ffffff",
+      };
+
+      const equilibrium = getEquilibriumPoint();
+
+      const state = {
+        isDragging: false,
+        messageTimer: null,
+        w: { x: 1, y: 1 },
+      };
+
+      function getCanvasSize() {
+        return Number(canvas.dataset.cssSize) || canvas.clientWidth || 400;
+      }
+
+      function setupCanvasForHiDpi() {
+        const ratio = window.devicePixelRatio || 1;
         const rect = canvas.getBoundingClientRect();
-        W.cx = Math.max(0, Math.min(S, e.clientX - rect.left));
-        W.cy = Math.max(0, Math.min(S, e.clientY - rect.top));
-        w_math = toMath(W.cx, W.cy);
+        const size = Math.min(rect.width, rect.height);
+
+        canvas.width = Math.round(size * ratio);
+        canvas.height = Math.round(size * ratio);
+        canvas.dataset.cssSize = size;
+
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      }
+
+      function getEquilibriumPoint() {
+        const { total, a1, a2 } = config;
+        const x = (total * (a2 - 1)) / (a2 - a1);
+        return { x, y: a1 * x };
+      }
+
+      function toCanvasPoint({ x, y }) {
+        const size = getCanvasSize();
+        return {
+          x: (x / config.total) * size,
+          y: size - (y / config.total) * size,
+        };
+      }
+
+      function toModelPoint({ x, y }) {
+        const size = getCanvasSize();
+        return {
+          x: (x / size) * config.total,
+          y: ((size - y) / size) * config.total,
+        };
+      }
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      function formatPoint({ x, y }) {
+        return `(${x.toFixed(2)}, ${y.toFixed(2)})`;
+      }
+
+      function getPriceRatio() {
+        const dx = state.w.x - equilibrium.x;
+        const dy = state.w.y - equilibrium.y;
+
+        if (Math.abs(dx) < 0.001) return "∞";
+        return Math.abs(dy / dx).toFixed(2);
+      }
+
+      function getPointerPosition(event) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top,
+        };
+      }
+
+      function drawGrid() {
+        const size = getCanvasSize();
+        const step = size / config.total;
+
+        ctx.save();
+        ctx.strokeStyle = colors.grid;
+        ctx.lineWidth = 1;
+
+        for (let i = 1; i < config.total; i += 1) {
+          const p = i * step;
+
+          ctx.beginPath();
+          ctx.moveTo(p, 0);
+          ctx.lineTo(p, size);
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.moveTo(0, p);
+          ctx.lineTo(size, p);
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      function drawLine(from, to, options = {}) {
+        ctx.save();
+        ctx.strokeStyle = options.color ?? colors.text;
+        ctx.lineWidth = options.width ?? 2;
+        ctx.setLineDash(options.dashed ? [6, 6] : []);
+        ctx.beginPath();
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawLabel(text, point, options = {}) {
+        ctx.save();
+        ctx.font = `${options.weight ?? 700} ${options.size ?? 13}px system-ui, sans-serif`;
+        ctx.textAlign = options.align ?? "left";
+        ctx.textBaseline = options.baseline ?? "middle";
+
+        if (options.halo !== false) {
+          ctx.lineWidth = 4;
+          ctx.strokeStyle = "rgba(255,255,255,0.92)";
+          ctx.strokeText(text, point.x, point.y);
+        }
+
+        ctx.fillStyle = options.color ?? colors.text;
+        ctx.fillText(text, point.x, point.y);
+        ctx.restore();
+      }
+
+      function drawPoint(point, options) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.fillStyle = options.fill;
+        ctx.arc(point.x, point.y, options.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (options.stroke) {
+          ctx.strokeStyle = options.stroke;
+          ctx.lineWidth = options.strokeWidth ?? 2;
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      function drawKinkRays() {
+        const total = config.total;
+        const size = getCanvasSize();
+
+        const householdOneEnd = toCanvasPoint({ x: total, y: config.a1 * total });
+        const householdTwoStart = toCanvasPoint({ x: 0, y: total - config.a2 * total });
+
+        drawLine(
+          { x: 0, y: size },
+          householdOneEnd,
+          { color: colors.kinkOne, width: 2, dashed: true }
+        );
+
+        drawLine(
+          { x: size, y: 0 },
+          householdTwoStart,
+          { color: colors.kinkTwo, width: 2, dashed: true }
+        );
+      }
+
+      function getBudgetLineSegment() {
+        const e = toCanvasPoint(equilibrium);
+        const w = toCanvasPoint(state.w);
+        const dx = w.x - e.x;
+        const dy = w.y - e.y;
+        const size = getCanvasSize();
+
+        if (Math.hypot(dx, dy) < 0.01) return null;
+
+        const candidates = [];
+
+        if (Math.abs(dx) > 1e-8) {
+          const tLeft = (0 - e.x) / dx;
+          const yLeft = e.y + tLeft * dy;
+          if (yLeft >= 0 && yLeft <= size) candidates.push({ x: 0, y: yLeft });
+
+          const tRight = (size - e.x) / dx;
+          const yRight = e.y + tRight * dy;
+          if (yRight >= 0 && yRight <= size) candidates.push({ x: size, y: yRight });
+        }
+
+        if (Math.abs(dy) > 1e-8) {
+          const tTop = (0 - e.y) / dy;
+          const xTop = e.x + tTop * dx;
+          if (xTop >= 0 && xTop <= size) candidates.push({ x: xTop, y: 0 });
+
+          const tBottom = (size - e.y) / dy;
+          const xBottom = e.x + tBottom * dx;
+          if (xBottom >= 0 && xBottom <= size) candidates.push({ x: xBottom, y: size });
+        }
+
+        if (candidates.length < 2) return null;
+        return [candidates[0], candidates[1]];
+      }
+
+      function drawBudgetLine() {
+        const segment = getBudgetLineSegment();
+        if (!segment) return;
+
+        drawLine(segment[0], segment[1], {
+          color: colors.budget,
+          width: 2.5,
+        });
+      }
+
+      function updatePanel() {
+        valueE.textContent = formatPoint(equilibrium);
+        valueW.textContent = formatPoint(state.w);
+        valueP.textContent = getPriceRatio();
+      }
+
+      function draw() {
+        const size = getCanvasSize();
+        const e = toCanvasPoint(equilibrium);
+        const w = toCanvasPoint(state.w);
+
+        ctx.clearRect(0, 0, size, size);
+        drawGrid();
+        drawKinkRays();
+        drawBudgetLine();
+
+        drawPoint(e, {
+          fill: colors.equilibrium,
+          radius: 6,
+        });
+        drawLabel("E*", { x: e.x + 10, y: e.y - 10 }, { color: colors.equilibrium });
+
+        drawPoint(w, {
+          fill: colors.endowment,
+          stroke: colors.white,
+          strokeWidth: 2,
+          radius: 8,
+        });
+        drawLabel("W", { x: w.x + 10, y: w.y + 15 }, { color: colors.endowment });
+
+        updatePanel();
+      }
+
+      function showMessage(text) {
+        window.clearTimeout(state.messageTimer);
+        message.textContent = text;
+
+        state.messageTimer = window.setTimeout(() => {
+          message.textContent = "";
+        }, config.messageDurationMs);
+      }
+
+      function startDrag(event) {
+        event.preventDefault();
+
+        const pointer = getPointerPosition(event);
+        const w = toCanvasPoint(state.w);
+        const distance = Math.hypot(pointer.x - w.x, pointer.y - w.y);
+
+        if (distance > config.hitRadius) return;
+
+        state.isDragging = true;
+        canvas.setPointerCapture?.(event.pointerId);
+        showMessage("发生财富转移：价格调整，均衡未变！");
+      }
+
+      function doDrag(event) {
+        if (!state.isDragging) return;
+        event.preventDefault();
+
+        const size = getCanvasSize();
+        const pointer = getPointerPosition(event);
+        const bounded = {
+          x: clamp(pointer.x, 0, size),
+          y: clamp(pointer.y, 0, size),
+        };
+
+        state.w = toModelPoint(bounded);
         draw();
-    });
+      }
 
-    window.addEventListener('mouseup', () => { if(isDragging) { isDragging = false; setTimeout(() => document.getElementById('tp-msg').innerText = "", 2000); }});
-    draw();
-})();
-</script>
+      function endDrag(event) {
+        if (!state.isDragging) return;
+        state.isDragging = false;
+        canvas.releasePointerCapture?.(event.pointerId);
+      }
+
+      function initialize() {
+        setupCanvasForHiDpi();
+        draw();
+
+        canvas.addEventListener("pointerdown", startDrag);
+        canvas.addEventListener("pointermove", doDrag);
+        canvas.addEventListener("pointerup", endDrag);
+        canvas.addEventListener("pointercancel", endDrag);
+        canvas.addEventListener("pointerleave", endDrag);
+
+        window.addEventListener("resize", () => {
+          setupCanvasForHiDpi();
+          draw();
+        });
+      }
+
+      initialize();
+    })();
+  </script>
+</div>
 ```
 
 ### 4.6 FWT and SWT widget
@@ -649,4 +1078,3 @@ with strict inequality for at least one member of $S$.
 **Walrasian allocations are in the core.** If a coalition could block a Walrasian allocation, each blocking member would get a weakly preferred bundle and one member strictly preferred. By the same revealed-preference budget argument as in FWT, the coalition's proposed bundles would cost strictly more than the coalition's endowment, contradicting coalition feasibility.
 
 Core convergence theorem in the slides: in replica economies, as the number of replicas grows, core allocations converge to Walrasian allocations. Intuition: large markets make individual/coalitional market power vanish.
-
