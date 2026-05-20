@@ -286,6 +286,27 @@ z(p^*)\le0,\qquad z_\ell(p^*)=0\ \text{if }p_\ell^*>0.
 $$
 :::
 
+:::{admonition} Two slight problems with the theorem
+$$
+\begin{aligned}
+z(p^*)\le0,\quad z_\ell(p^*)=0\ \text{if }p_\ell^*>0
+&\Longrightarrow \text{quasi-equilibrium},\\
+u^h \text{ strongly increasing}
+&\Longrightarrow p^*\gg0 \Longrightarrow z(p^*)=0.
+\end{aligned}
+$$
+
+To keep $z$ continuous away from the boundary, work on the trimmed simplex
+
+$$
+\Delta_\varepsilon^{L-1}
+=
+\left\{p\in\mathbb R_+^L:
+\sum_{\ell=1}^L p_\ell=1,\ p_\ell\ge\varepsilon\ \forall \ell
+\right\}.
+$$
+:::
+
 ### 4.3 Proof
 
 :::{admonition} Berge maximum theorem
