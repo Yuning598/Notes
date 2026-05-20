@@ -19,6 +19,7 @@ sphinx:
     html_extra_path:
       - robots.txt
       - attachment
+      - Microeconomic/production-set-assumptions.html
     templates_path:
       - _templates
     external_toc_path: _toc.yml
