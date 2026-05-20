@@ -26,12 +26,16 @@ Common assumptions:
 
 $$
 \begin{aligned}
-0&\in Y \quad\text{(inaction)},\\
-Y&\text{ closed},\\
-y\in Y,\ \hat y\le y&\Longrightarrow \hat y\in Y \quad\text{(free disposal)},\\
-Y&\text{ convex under convex technology}.
+1.\quad &0\in Y \quad \text{(possibility of inaction)},\\
+2.\quad &Y \text{ is closed},\\
+3.\quad &y\in Y,\ \hat y\le y \Longrightarrow \hat y\in Y \quad \text{(free disposal)},\\
+4.\quad &y\in Y,\ y\ge 0 \Longrightarrow y=0 \quad \text{(no free lunch)},\\
+5.\quad &Y \text{ is convex},\\
+6.\quad &Y \text{ is a cone: } y\in Y,\ \lambda>0 \Longrightarrow \lambda y\in Y.
 \end{aligned}
 $$
+
+Items 1--4 are the minimal regularity assumptions used in the standard theory. Items 5--6 are stronger shape restrictions used when we study convex technology and constant returns to scale.
 
 For a single-output firm, write the production plan as $(-x,y)$, where $x\in\mathbb R_+^{L-1}$ and $y\in\mathbb R_+$. The production function is
 
@@ -307,4 +311,3 @@ p=MC(y^*,w).
 $$
 
 This gives the supply curve as inverse marginal cost.
-
