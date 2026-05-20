@@ -512,6 +512,124 @@ Thus, with $L$ goods, clearing $L-1$ markets implies the last market clears.
 })();
 </script>
 
+### 4.6 FWT and SWT widget
+
+<div id="wt-container" style="font-family: system-ui, -apple-system, sans-serif; max-width: 450px; margin: 20px auto; padding: 15px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+    <h3 style="margin-top: 0; font-size: 1.2rem; color: #333; text-align: center; margin-bottom: 5px;">第一与第二福利定理 (FWT & SWT)</h3>
+    <p style="text-align: center; color: #666; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px;">(Cobb-Douglas 偏好：平滑无差异曲线)</p>
+    
+    <div style="position: relative; width: 400px; height: 400px; margin: 0 auto; border: 2px solid #333; background-color: #fafbfc; cursor: crosshair;">
+        <canvas id="wt-canvas" width="400" height="400" style="display: block;"></canvas>
+        <div style="position: absolute; bottom: -25px; left: -10px; font-weight: bold;">O₁</div>
+        <div style="position: absolute; top: -25px; right: -10px; font-weight: bold;">O₂</div>
+    </div>
+
+    <div style="margin-top: 35px; padding: 12px; background: #f6f8fa; border-radius: 6px; font-size: 0.95rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="color: #0366d6;"><strong>禀赋 W (拖动):</strong> <span id="wt-val-w"></span></span>
+            <span style="color: #d73a49;"><strong>均衡 E*:</strong> <span id="wt-val-e"></span></span>
+        </div>
+        <div style="margin-bottom: 12px;">
+            <span><strong>均衡价格比 (p₁/p₂):</strong> <span id="wt-val-p" style="font-family: monospace;"></span></span>
+        </div>
+        <hr style="border: none; border-top: 1px solid #e1e4e8; margin: 10px 0;">
+        <div style="font-size: 0.85rem; color: #444; line-height: 1.4;">
+            <div style="margin-bottom: 6px;">🎯 <strong>FWT:</strong> 拖动蓝点 W，均衡 E* 始终落在契约曲线（黑线）上，且两曲线相切。</div>
+            <div>⚖️ <strong>SWT:</strong> 沿橙色虚线（预算线）拖动 W，你会发现均衡 E* 岿然不动！</div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const canvas = document.getElementById('wt-canvas');
+    const ctx = canvas.getContext('2d');
+    const TOTAL = 100, S = 400;
+    
+    const toPx = (x, y) => ({ cx: (x / TOTAL) * S, cy: S - (y / TOTAL) * S });
+    const toMath = (cx, cy) => ({ x: (cx / S) * TOTAL, y: ((S - cy) / S) * TOTAL });
+
+    let w_math = { x: 20, y: 80 }; 
+    let W = toPx(w_math.x, w_math.y);
+    let isDragging = false;
+
+    function draw() {
+        ctx.clearRect(0, 0, S, S);
+
+        const p = (70 - 0.4 * w_math.y) / (30 + 0.4 * w_math.x);
+        const Income1 = p * w_math.x + w_math.y;
+        const e_x = 0.3 * (Income1 / p);
+        const e_y = 0.7 * Income1;
+        const E = toPx(e_x, e_y);
+
+        ctx.beginPath(); ctx.lineWidth = 3; ctx.strokeStyle = '#333';
+        for(let x = 0; x <= 100; x += 1) {
+            let y = (490 * x) / (90 + 4 * x);
+            let pt = toPx(x, y);
+            if(x === 0) ctx.moveTo(pt.cx, pt.cy); else ctx.lineTo(pt.cx, pt.cy);
+        }
+        ctx.stroke();
+
+        ctx.beginPath(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#f66a0a'; ctx.setLineDash([4, 4]);
+        const y_at_0 = p * w_math.x + w_math.y;
+        const y_at_100 = -p * 100 + y_at_0;
+        ctx.moveTo(toPx(0, y_at_0).cx, toPx(0, y_at_0).cy);
+        ctx.lineTo(toPx(100, y_at_100).cx, toPx(100, y_at_100).cy);
+        ctx.stroke(); ctx.setLineDash([]);
+
+        const u1_val = Math.pow(e_x, 0.3) * Math.pow(e_y, 0.7);
+        ctx.beginPath(); ctx.lineWidth = 2; ctx.strokeStyle = '#28a745';
+        for(let x = 0.5; x <= 100; x += 0.5) {
+            let y = Math.pow(u1_val / Math.pow(x, 0.3), 1/0.7);
+            if (y > 100) continue;
+            let pt = toPx(x, y);
+            ctx.lineTo(pt.cx, pt.cy);
+        }
+        ctx.stroke();
+
+        const u2_val = Math.pow(100 - e_x, 0.7) * Math.pow(100 - e_y, 0.3);
+        ctx.beginPath(); ctx.strokeStyle = '#6f42c1';
+        for(let x = 0; x < 99.5; x += 0.5) {
+            let y = 100 - Math.pow(u2_val / Math.pow(100 - x, 0.7), 1/0.3);
+            if (y < 0) continue;
+            let pt = toPx(x, y);
+            ctx.lineTo(pt.cx, pt.cy);
+        }
+        ctx.stroke();
+
+        ctx.beginPath(); ctx.fillStyle = '#d73a49'; ctx.arc(E.cx, E.cy, 6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#000'; ctx.fillText("E*", E.cx + 8, E.cy - 8);
+
+        ctx.beginPath(); ctx.fillStyle = '#0366d6'; ctx.arc(W.cx, W.cy, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+        ctx.fillStyle = '#000'; ctx.fillText("W", W.cx + 8, W.cy + 15);
+
+        document.getElementById('wt-val-w').innerText = `(${w_math.x.toFixed(1)}, ${w_math.y.toFixed(1)})`;
+        document.getElementById('wt-val-e').innerText = `(${e_x.toFixed(1)}, ${e_y.toFixed(1)})`;
+        document.getElementById('wt-val-p').innerText = p.toFixed(3);
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const dist = Math.hypot((e.clientX - rect.left) - W.cx, (e.clientY - rect.top) - W.cy);
+        if (dist < 15) isDragging = true;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const rect = canvas.getBoundingClientRect();
+        W.cx = Math.max(0, Math.min(S, e.clientX - rect.left));
+        W.cy = Math.max(0, Math.min(S, e.clientY - rect.top));
+        w_math = toMath(W.cx, W.cy);
+        draw();
+    });
+
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mouseleave', () => isDragging = false);
+    draw();
+})();
+</script>
+
 ## 5. Core
 
 :::{admonition} Definition (Core)
