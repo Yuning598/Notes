@@ -262,30 +262,99 @@ $$
 ### 4.2 Existence result
 
 :::{admonition} Existence via aggregate excess demand
-If $z$ is continuous, homogeneous of degree zero, and satisfies Walras' law, then there exists $p^*$ such that
-
-$$
-z(p^*)\le0,\qquad
-z_\ell(p^*)=0\ \text{whenever }p_\ell^*>0.
-$$
-:::
-
-On the normalized simplex
-
-$$
-\Delta=\Bigl\{p\in\mathbb R_+^L:\sum_{\ell=1}^Lp_\ell=1\Bigr\},
-$$
-
-the standard normalized excess-demand map $\phi:\Delta\to\Delta$ is continuous. Brouwer gives a fixed point $p^*=\phi(p^*)$, and the usual normalization argument converts the fixed point into
+Assume
 
 $$
 \begin{aligned}
-z(p^*)&\le 0,\\
-p_\ell^*&>0\ \Longrightarrow\ z_\ell(p^*)&=0.
+f^h(p,e^h)&\in\arg\max_{x\in\mathbb R_+^L}\{u^h(x):p\cdot x\le p\cdot e^h\},\\
+z(p)&=\sum_{h\in\mathcal H}\big(f^h(p,e^h)-e^h\big),\\
+z(\lambda p)&=z(p),\qquad \lambda>0,\\
+p\cdot z(p)&=0,\qquad z \text{ continuous}.
 \end{aligned}
 $$
 
-With strong monotonicity, $p^*\gg0$, hence $z(p^*)=0$.
+Normalize prices on
+
+$$
+\Delta^{L-1}=\left\{p\in\mathbb R_+^L:\sum_{\ell=1}^L p_\ell=1\right\}.
+$$
+
+Then there exists $p^*\in\Delta^{L-1}$ such that
+
+$$
+z(p^*)\le0,\qquad z_\ell(p^*)=0\ \text{if }p_\ell^*>0.
+$$
+
+Proof.
+
+By Berge maximum theorem, each $f^h$ is continuous, hence $z$ is continuous. For $\bar p\in\Delta^{L-1}$ define
+
+$$
+\phi(p,\bar p)=p\cdot z(\bar p)-|p-\bar p|^2,\qquad p\in\Delta^{L-1}.
+$$
+
+Since $\phi(\cdot,\bar p)$ is strictly concave in $p$, the maximizer
+
+$$
+f(\bar p)=\arg\max_{p\in\Delta^{L-1}}\phi(p,\bar p)
+$$
+
+is single-valued. By Berge, $f:\Delta^{L-1}\to\Delta^{L-1}$ is continuous, so Brouwer gives $\bar p=f(\bar p)$.
+
+At the fixed point,
+
+$$
+\bar p\cdot z(\bar p)\ge p\cdot z(\bar p)-|p-\bar p|^2
+\qquad \forall p\in\Delta^{L-1}.
+$$
+
+Walras' law gives $\bar p\cdot z(\bar p)=0$, hence
+
+$$
+p\cdot z(\bar p)\le |p-\bar p|^2
+\qquad \forall p\in\Delta^{L-1}.
+$$
+
+If some $p\in\Delta^{L-1}$ satisfies $p\cdot z(\bar p)>0$, then for
+
+$$
+p_\varepsilon=\varepsilon p+(1-\varepsilon)\bar p,\qquad \varepsilon\in(0,1),
+$$
+
+we get
+
+$$
+\begin{aligned}
+p_\varepsilon\cdot z(\bar p)-|p_\varepsilon-\bar p|^2
+&=\varepsilon p\cdot z(\bar p)-\varepsilon^2|p-\bar p|^2\\
+&>0
+\end{aligned}
+$$
+
+for $\varepsilon>0$ small, contradicting the optimality of $\bar p$. Therefore
+
+$$
+p\cdot z(\bar p)\le0\qquad \forall p\in\Delta^{L-1}.
+$$
+
+Take $p=e^\ell$:
+
+$$
+z_\ell(\bar p)=e^\ell\cdot z(\bar p)\le0,\qquad \ell=1,\ldots,L.
+$$
+
+So $z(\bar p)\le0$. Finally,
+
+$$
+\bar p\cdot z(\bar p)=0,\qquad \bar p\ge0,\qquad z(\bar p)\le0
+$$
+
+imply
+
+$$
+\bar p_\ell>0\ \Longrightarrow\ z_\ell(\bar p)=0.
+$$
+:::
 
 ### 4.4 Walras' law
 
