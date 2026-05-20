@@ -288,7 +288,11 @@ $$
 
 ### 4.3 Proof
 
-By Berge maximum theorem, each $f^h$ is continuous, hence $z$ is continuous. For $\bar p\in\Delta^{L-1}$ define
+:::{admonition} Berge maximum theorem
+Each $f^h$ is continuous, hence $z$ is continuous.
+:::
+
+For $\bar p\in\Delta^{L-1}$ define
 
 $$
 \phi(p,\bar p)=p\cdot z(\bar p)-|p-\bar p|^2,\qquad p\in\Delta^{L-1}.
@@ -300,7 +304,15 @@ $$
 f(\bar p)=\arg\max_{p\in\Delta^{L-1}}\phi(p,\bar p)
 $$
 
-is single-valued. By Berge, $f:\Delta^{L-1}\to\Delta^{L-1}$ is continuous, so Brouwer gives $\bar p=f(\bar p)$.
+is single-valued.
+
+:::{admonition} Brouwer fixed point theorem
+The induced map $f:\Delta^{L-1}\to\Delta^{L-1}$ is continuous, so there exists $\bar p\in\Delta^{L-1}$ such that
+
+$$
+\bar p=f(\bar p).
+$$
+:::
 
 At the fixed point,
 
