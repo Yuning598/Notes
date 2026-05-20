@@ -417,6 +417,164 @@ $$
 
 Thus, with $L$ goods, clearing $L-1$ markets implies the last market clears.
 
+### 4.5 Transfer paradox widget
+
+<div id="edgeworth-widget" style="font-family: system-ui, -apple-system, sans-serif; max-width: 450px; margin: 20px auto; padding: 15px; border: 1px solid #e1e4e8; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <h3 style="margin-top: 0; font-size: 1.2rem; color: #333; text-align: center;">转移悖论 (Transfer Paradox) 动态推演</h3>
+
+    <div style="position: relative; width: 400px; height: 400px; margin: 0 auto; border: 2px solid #333; background-color: #fafbfc; cursor: crosshair;">
+        <canvas id="ew-canvas" width="400" height="400" style="display: block;"></canvas>
+        <div style="position: absolute; bottom: -25px; left: -10px; font-weight: bold;">O₁ (家庭1)</div>
+        <div style="position: absolute; top: -25px; right: -10px; font-weight: bold;">O₂ (家庭2)</div>
+    </div>
+
+    <div style="margin-top: 35px; padding: 12px; background: #f6f8fa; border-radius: 6px; font-size: 0.95rem;">
+        <div style="margin-bottom: 8px;"><strong>当前状态：</strong></div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>均衡点 E* (固定):</span>
+            <span id="label-e" style="font-family: monospace; color: #d73a49;"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>禀赋点 W (拖动):</span>
+            <span id="label-w" style="font-family: monospace; color: #0366d6;"></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>预算线斜率 (价格比 p₁/p₂):</span>
+            <span id="label-p" style="font-family: monospace; font-weight: bold;"></span>
+        </div>
+        <div id="status-msg" style="margin-top: 10px; color: #28a745; font-weight: bold; text-align: center; height: 20px;"></div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const canvas = document.getElementById('ew-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const a1 = 0.5;
+    const a2 = 2.0;
+    const TOTAL_X = 3;
+    const TOTAL_Y = 3;
+    const S = 400;
+
+    const toPx = (x, y) => ({ cx: (x / TOTAL_X) * S, cy: S - (y / TOTAL_Y) * S });
+    const toMath = (cx, cy) => ({ x: (cx / S) * TOTAL_X, y: ((S - cy) / S) * TOTAL_Y });
+
+    const e_x = 3 * (a2 - 1) / (a2 - a1);
+    const e_y = a1 * e_x;
+    const E = toPx(e_x, e_y);
+
+    let w_math = { x: 1, y: 1 };
+    let W = toPx(w_math.x, w_math.y);
+    let isDragging = false;
+
+    function draw() {
+        ctx.clearRect(0, 0, S, S);
+        ctx.font = '14px system-ui, -apple-system, sans-serif';
+        ctx.textBaseline = 'middle';
+
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
+        ctx.setLineDash([5, 5]);
+        const r1_end = toPx(TOTAL_X, a1 * TOTAL_X);
+        ctx.moveTo(0, S);
+        ctx.lineTo(r1_end.cx, r1_end.cy);
+        ctx.stroke();
+
+        ctx.beginPath();
+        const r2_start_math_y = TOTAL_Y - a2 * TOTAL_X;
+        const r2_start = toPx(0, r2_start_math_y);
+        ctx.moveTo(S, 0);
+        ctx.lineTo(r2_start.cx, r2_start.cy);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.beginPath();
+        ctx.strokeStyle = '#f66a0a';
+        ctx.lineWidth = 2;
+        const dx = W.cx - E.cx;
+        const dy = W.cy - E.cy;
+        if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+            ctx.moveTo(E.cx - dx * 10, E.cy - dy * 10);
+            ctx.lineTo(E.cx + dx * 10, E.cy + dy * 10);
+        }
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#d73a49';
+        ctx.arc(E.cx, E.cy, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.fillText('E*', E.cx + 10, E.cy - 10);
+
+        ctx.beginPath();
+        ctx.fillStyle = '#0366d6';
+        ctx.arc(W.cx, W.cy, 8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = '#000';
+        ctx.fillText('W', W.cx + 10, W.cy + 15);
+
+        updateLabels();
+    }
+
+    function updateLabels() {
+        document.getElementById('label-e').innerText = `(${e_x.toFixed(2)}, ${e_y.toFixed(2)})`;
+        document.getElementById('label-w').innerText = `(${w_math.x.toFixed(2)}, ${w_math.y.toFixed(2)})`;
+
+        let priceRatio = '∞';
+        if (Math.abs(w_math.x - e_x) > 0.001) {
+            const slope = Math.abs((w_math.y - e_y) / (w_math.x - e_x));
+            priceRatio = slope.toFixed(2);
+        }
+        document.getElementById('label-p').innerText = priceRatio;
+    }
+
+    function getMousePos(evt) {
+        const rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+        const pos = getMousePos(e);
+        const dist = Math.hypot(pos.x - W.cx, pos.y - W.cy);
+        if (dist < 15) {
+            isDragging = true;
+            document.getElementById('status-msg').innerText = '发生财富转移：价格调整，均衡未变！';
+        }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const pos = getMousePos(e);
+        W.cx = Math.max(0, Math.min(S, pos.x));
+        W.cy = Math.max(0, Math.min(S, pos.y));
+        w_math = toMath(W.cx, W.cy);
+        draw();
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            setTimeout(() => {
+                const status = document.getElementById('status-msg');
+                if (status) status.innerText = '';
+            }, 2000);
+        }
+    });
+
+    draw();
+})();
+</script>
+
 ## 5. Core
 
 :::{admonition} Definition (Core)
