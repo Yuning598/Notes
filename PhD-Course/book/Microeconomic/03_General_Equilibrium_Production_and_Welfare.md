@@ -420,7 +420,7 @@ Thus, with $L$ goods, clearing $L-1$ markets implies the last market clears.
 ### 4.5 Transfer paradox widget
 
 <iframe
-  src="../../attachment/transfer_paradox_widget.html"
+  src="../attachment/transfer_paradox_widget.html"
   title="Transfer Paradox Widget"
   style="width: 100%; max-width: 470px; height: 660px; border: 0; display: block; margin: 0 auto;"
   loading="lazy"
