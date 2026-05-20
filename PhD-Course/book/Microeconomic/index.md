@@ -10,19 +10,25 @@
 - 消费者需求 (consumer demand)
 - 对偶性与积可性 (duality and integrability)
 
-### 2. [Choice under Uncertainty and State-Contingent Equilibrium](02_Choice_under_Uncertainty_and_State_Contingent_Equilibrium.md)
+### 3. [General Equilibrium and Welfare](03_General_Equilibrium_Production_and_Welfare.md)
+- 一般均衡 (general equilibrium)
+- 福利定理 (welfare theorems)
+
+### 4. [Theory of the Firm and Supply](04_Theory_of_the_Firm_and_Supply.md)
+- 厂商理论 (theory of the firm)
+- 供给 (supply)
+- 成本最小化 (cost minimization)
+
+### 5. [Production in Arrow-Debreu](05_Production_in_Arrow_Debreu.md)
+- Arrow-Debreu 生产经济 (production economy)
+- 企业与家庭生产 (firms vs household production)
+
+### 6. [Equilibrium Under Uncertainty](06_Equilibrium_Under_Uncertainty.md)
 - 不确定性下的选择 (choice under uncertainty)
 - Arrow securities 与 state prices
 - 完备市场与风险分担 (complete markets and risk sharing)
 
-### 3. [General Equilibrium, Production, and Welfare](03_General_Equilibrium_Production_and_Welfare.md)
-- 一般均衡 (general equilibrium)
-- 生产与对偶性 (production and duality)
-- 福利定理 (welfare theorems)
-
-### 4. [Principal-Agent Models, Moral Hazard, and Screening](04_Principal-Agent_Models_Moral_Hazard_and_Screening.md)
+### 7. [Principal-Agent Models, Moral Hazard, and Screening](07_Principal-Agent_Models_Moral_Hazard_and_Screening.md)
 - 委托代理 (principal-agent)
 - 道德风险 (moral hazard)
 - 筛选与单交叉 (screening and single crossing)
-
-

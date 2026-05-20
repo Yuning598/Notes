@@ -7,7 +7,7 @@ orphan: true
 
 # CRS cone and convex production set
 
-Main note: [Microeconomic/03_General_Equilibrium_Production_and_Welfare](../Microeconomic/03_General_Equilibrium_Production_and_Welfare)
+Main note: [Microeconomic/04_Theory_of_the_Firm_and_Supply](../Microeconomic/04_Theory_of_the_Firm_and_Supply)
 
 Under free disposal and single-output technology:
 

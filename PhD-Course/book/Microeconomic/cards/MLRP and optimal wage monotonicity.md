@@ -7,7 +7,7 @@ orphan: true
 
 # MLRP and optimal wage monotonicity
 
-Main note: [Microeconomic/04_Principal-Agent_Models_Moral_Hazard_and_Screening](../Microeconomic/04_Principal-Agent_Models_Moral_Hazard_and_Screening)
+Main note: [Microeconomic/07_Principal-Agent_Models_Moral_Hazard_and_Screening](../Microeconomic/07_Principal-Agent_Models_Moral_Hazard_and_Screening)
 
 MLRP:
 

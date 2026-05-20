@@ -7,7 +7,7 @@ orphan: true
 
 # No arbitrage and state price vector
 
-Main note: [Microeconomic/02_Choice_under_Uncertainty_and_State_Contingent_Equilibrium](../Microeconomic/02_Choice_under_Uncertainty_and_State_Contingent_Equilibrium)
+Main note: [Microeconomic/06_Equilibrium_Under_Uncertainty](../Microeconomic/06_Equilibrium_Under_Uncertainty)
 
 With payoff matrix \(A\in\mathbb R^{S\times J}\) and asset prices \(q\in\mathbb R^J\),
 

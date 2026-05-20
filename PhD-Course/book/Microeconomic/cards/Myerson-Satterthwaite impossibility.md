@@ -7,7 +7,7 @@ orphan: true
 
 # Myerson-Satterthwaite impossibility
 
-Main note: [Microeconomic/04_Principal-Agent_Models_Moral_Hazard_and_Screening](../Microeconomic/04_Principal-Agent_Models_Moral_Hazard_and_Screening)
+Main note: [Microeconomic/07_Principal-Agent_Models_Moral_Hazard_and_Screening](../Microeconomic/07_Principal-Agent_Models_Moral_Hazard_and_Screening)
 
 With one buyer, one seller, independent private values/costs, and overlapping type supports, no mechanism can satisfy all four:
 
