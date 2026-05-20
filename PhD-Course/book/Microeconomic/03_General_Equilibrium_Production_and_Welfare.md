@@ -284,8 +284,9 @@ Then there exists $p^*\in\Delta^{L-1}$ such that
 $$
 z(p^*)\le0,\qquad z_\ell(p^*)=0\ \text{if }p_\ell^*>0.
 $$
+:::
 
-Proof.
+### 4.3 Proof
 
 By Berge maximum theorem, each $f^h$ is continuous, hence $z$ is continuous. For $\bar p\in\Delta^{L-1}$ define
 
@@ -354,7 +355,6 @@ imply
 $$
 \bar p_\ell>0\ \Longrightarrow\ z_\ell(\bar p)=0.
 $$
-:::
 
 ### 4.4 Walras' law
 
