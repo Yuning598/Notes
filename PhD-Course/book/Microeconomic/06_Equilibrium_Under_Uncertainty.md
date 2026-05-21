@@ -160,7 +160,7 @@ $$
 Then $(x^h,\theta^h)\in\mathcal B^h(p,\alpha)$, and any Arrow-feasible $(x,\theta)$ satisfies $\rho\cdot(x-e^h)\le0$. Since $x^h$ is $\rho$-optimal, it is also Arrow-optimal. Hence $(p,\alpha,((x^h,\theta^h))_h)$ is an Arrow security markets equilibrium.
 :::
 
-:::{admonition} Market structures at a glance
+:::{admonition} Market structures and equilibrium concepts at a glance
 $$
 \left\{
 \begin{aligned}
@@ -170,9 +170,7 @@ $$
 \end{aligned}
 \right.
 $$
-:::
 
-:::{admonition} Equilibrium concepts at a glance
 $$
 \begin{aligned}
 \text{Walrasian equilibrium (Debreu-Walras)}&:\ \rho\in\Delta^{L(S+1)},\ (x^h)_{h\in\mathcal H}\\
