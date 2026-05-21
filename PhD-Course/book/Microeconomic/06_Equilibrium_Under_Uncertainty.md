@@ -376,17 +376,19 @@ so each state has a single consumption good.
 ## 5. Core
 
 :::{admonition} Definition (Core)
-A feasible allocation $(c^h)$ is in the core if there is no coalition $S\subseteq H$ and allocation $(\tilde c^h)_{h\in S}$ such that
+A feasible allocation $(c^h)_{h\in\mathcal H}$ is in the core if there does not exist a coalition $S\subseteq\mathcal H$ and a blocking allocation $(\tilde c^h)_{h\in S}$ such that
 
 $$
-\sum_{h\in S}\tilde c^h=\sum_{h\in S}e^h,
+\sum_{h\in S}\tilde c^h=\sum_{h\in S}e^h
 $$
+
 and
 
 $$
-u^h(\tilde c^h)\ge u^h(c^h)\quad\forall h\in S,
+u^h(\tilde c^h)\ge u^h(c^h)\qquad \forall h\in S,
 $$
-with strict inequality for at least one member of $S$.
+
+with strict inequality for at least one $h\in S$.
 
 :::
 
