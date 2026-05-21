@@ -463,7 +463,46 @@ with strict inequality for at least one $h\in S$.
 :::{admonition} Theorem (parallel to FWT: Walrasian allocations are in the core)
 Assume $(A2)$. A Walrasian equilibrium allocation is in the **core**.
 
-**Proof sketch.** The proof strategy is essentially parallel to the first welfare theorem: if a coalition could block a Walrasian allocation, each blocking member would be weakly better off and one would be strictly better off. By the same revealed-preference budget argument as in FWT, the coalition's proposed bundles would cost strictly more than the coalition's endowment, contradicting coalition feasibility.
+**Proof.** Suppose, to the contrary, that a coalition $S\subseteq\mathcal H$ can block the Walrasian allocation $(c^h)_{h\in\mathcal H}$. Then there exists a feasible allocation $(\tilde c^h)_{h\in S}$ such that
+
+$$
+\left\{
+\begin{aligned}
+&\sum_{h\in S}\tilde c^h=\sum_{h\in S}e^h,\\
+&u^h(\tilde c^h)\ge u^h(c^h)\quad \forall h\in S,\\
+&u^{h_0}(\tilde c^{h_0})>u^{h_0}(c^{h_0})\text{ for some }h_0\in S.
+\end{aligned}
+\right.
+$$
+
+Since $(p,(c^h)_{h\in\mathcal H})$ is a Walrasian equilibrium, consumer optimality and $(A2)$ imply the revealed-preference inequalities
+
+$$
+\begin{aligned}
+p\cdot \tilde c^h&\ge p\cdot e^h,\qquad \forall h\in S,\\
+p\cdot \tilde c^{h_0}&>p\cdot e^{h_0}.
+\end{aligned}
+$$
+
+Summing over $h\in S$ gives
+
+$$
+\sum_{h\in S}p\cdot \tilde c^h>\sum_{h\in S}p\cdot e^h.
+$$
+
+But coalition feasibility gives
+
+$$
+\sum_{h\in S}\tilde c^h=\sum_{h\in S}e^h,
+$$
+
+so
+
+$$
+\sum_{h\in S}p\cdot \tilde c^h=\sum_{h\in S}p\cdot e^h,
+$$
+
+a contradiction. Hence no coalition can block the Walrasian allocation, so it lies in the core.
 
 **Remark.** This guarantees that the core is nonempty for any pure exchange economy for which there exists a Walrasian equilibrium.
 :::
