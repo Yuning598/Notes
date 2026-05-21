@@ -91,6 +91,34 @@ $$
 
 If Arrow securities for all states are traded, households can transfer wealth across states exactly as in the complete Arrow-Debreu model.
 
+:::{admonition} Arrow security markets equilibrium
+Household $h$ chooses consumption $x^h\in\mathbb R_+^{L(S+1)}$ and state-security holdings $\theta^h\in\mathbb R^S$. Its budget set is
+
+$$
+\mathcal B^h(p,\alpha)=
+\left\{
+\begin{aligned}
+&(x,\theta)\in\mathbb R_+^{L(S+1)}\times\mathbb R^S:\\
+&p_0\cdot(x(0)-e^h(0))+\alpha\cdot\theta\le 0,\\
+&p(s)\cdot(x(s)-e^h(s))-\theta_s\le 0,\qquad s=1,\ldots,S.
+\end{aligned}
+\right\}.
+$$
+
+An equilibrium consists of prices $(p,\alpha)$, an allocation $(x^h)_{h\in\mathcal H}$, and portfolios $(\theta^h)_{h\in\mathcal H}$ such that
+
+$$
+\left\{
+\begin{aligned}
+&\sum_{h\in\mathcal H}(x^h-e^h)=0,\\
+&\sum_{h\in\mathcal H}\theta^h=0,\\
+&(x^h,\theta^h)\in\arg\max_{(x,\theta)\in\mathcal B^h(p,\alpha)}u^h(x)
+\qquad \forall h\in\mathcal H.
+\end{aligned}
+\right.
+$$
+:::
+
 ## 3. General asset markets and no arbitrage
 
 Let $A\in\mathbb R^{S\times J}$ be the payoff matrix of $J$ assets across $S$ states, where column $j$ is the payoff vector of asset $j$. Let $q\in\mathbb R^J$ be the vector of asset prices.
