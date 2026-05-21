@@ -48,7 +48,7 @@
     }
 
     .fp-shell {
-      width: min(100%, 1000px);
+      width: min(100%, 980px);
       margin: 0 auto;
     }
 
@@ -73,14 +73,14 @@
 
     .fp-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(10px, 1.2vw, 14px);
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: clamp(8px, 1vw, 12px);
       align-items: start;
     }
 
     .fp-card {
       min-width: 0;
-      padding: clamp(11px, 1.3vw, 16px);
+      padding: clamp(10px, 1.1vw, 14px);
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -199,7 +199,7 @@
       line-height: 0;
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 440px) {
       .fp-grid,
       .formula-row {
         grid-template-columns: 1fr;
