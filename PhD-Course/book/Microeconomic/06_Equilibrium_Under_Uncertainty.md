@@ -190,6 +190,28 @@ In complete contingent-commodity markets, Walrasian equilibrium and Debreu-Walra
 
 Let $A\in\mathbb R^{S\times J}$ be the payoff matrix of $J$ assets across $S$ states, where column $j$ is the payoff vector of asset $j$. Let $q\in\mathbb R^J$ be the vector of asset prices.
 
+Write the payoff vectors as
+
+$$
+A=
+\begin{pmatrix}
+a_{11} & \cdots & a_{1J}\\
+\vdots & \ddots & \vdots\\
+a_{S1} & \cdots & a_{SJ}
+\end{pmatrix}
+=
+\big(a^1,\ldots,a^J\big),
+\qquad
+q=
+\begin{pmatrix}
+q_1\\
+\vdots\\
+q_J
+\end{pmatrix},
+$$
+
+where $a^j=(a_{1j},\ldots,a_{Sj})^\top$ is the payoff vector of asset $j$.
+
 A portfolio $\theta\in\mathbb R^J$ has date-0 cost $q^\top\theta$ and state payoff $A\theta$.
 
 :::{admonition} General equilibrium with incomplete markets (GEI)
