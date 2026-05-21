@@ -73,9 +73,9 @@
 
     .fp-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(8px, 1vw, 12px);
-      align-items: start;
+      align-items: stretch;
     }
 
     .fp-card {
@@ -147,9 +147,10 @@
 
     .formula-row {
       display: grid;
-      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(10px, 1.2vw, 14px);
       margin-top: 12px;
+      align-items: stretch;
     }
 
     .formula {
