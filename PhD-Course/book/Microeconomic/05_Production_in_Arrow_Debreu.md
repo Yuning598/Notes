@@ -16,7 +16,8 @@ tags:
 
 ## 1. Production in Arrow-Debreu
 
-There are $K$ firms with production sets $Y^k\subseteq\mathbb R^L$. A production economy equilibrium is
+:::{admonition} Equilibrium with production
+There are $K$ firms with production sets $Y^k\subseteq\mathbb R^L$. An equilibrium is
 
 $$
 (p,(c^h)_{h=1}^H,(y^k)_{k=1}^K)
@@ -35,6 +36,20 @@ y^k&\in\arg\max_{y\in Y^k}p\cdot y,\\
 $$
 
 Here $\delta_k^h$ is household $h$'s ownership share of firm $k$.
+:::
+
+:::{admonition} Pareto-optimality with production
+An allocation-production plan $\big((c^h)_{h=1}^H,(y^k)_{k=1}^K\big)$ is Pareto efficient if there is no other feasible plan $\big((\tilde c^h)_{h=1}^H,(\tilde y^k)_{k=1}^K\big)$ such that
+
+$$
+\begin{aligned}
+\sum_h(\tilde c^h-e^h)-\sum_k\tilde y^k&\le 0,\\
+u^h(\tilde c^h)&\ge u^h(c^h)\qquad \forall h,
+\end{aligned}
+$$
+
+with strict inequality for at least one household $h'$.
+:::
 
 :::{admonition} First Welfare Theorem with production
 If consumers maximize utility and firms maximize profits at prices $p$, then the allocation-production plan is Pareto efficient.
