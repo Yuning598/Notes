@@ -426,6 +426,23 @@ Thus, with $L$ goods, clearing $L-1$ markets implies the last market clears.
 
 ## 5. Core
 
+:::{admonition} Core in a pure exchange economy
+This section is still about the **pure exchange economy**
+
+$$
+\left\{
+\begin{aligned}
+&\text{pure exchange economy: }(u^h,e^h)_{h\in\mathcal H}\\
+&\text{Walrasian equilibrium: }(p,(c^h)_h)\\
+&\text{Pareto efficiency: no grand-coalition improvement}\\
+&\text{core: no coalition }S\subseteq\mathcal H\text{ can block}
+\end{aligned}
+\right.
+$$
+
+We only change the solution concept: from Walrasian equilibrium / Pareto efficiency to the **core**.
+:::
+
 :::{admonition} Definition (Core)
 A feasible allocation $(c^h)_{h\in\mathcal H}$ is in the core if there does not exist a coalition $S\subseteq\mathcal H$ and a blocking allocation $(\tilde c^h)_{h\in S}$ such that
 
@@ -443,15 +460,16 @@ with strict inequality for at least one $h\in S$.
 
 :::
 
-:::{admonition} Theorem (Walrasian allocations are in the core)
-Assume $(A2)$. A Walrasian equilibrium allocation is in the core.
+:::{admonition} Theorem (parallel to FWT: Walrasian allocations are in the core)
+Assume $(A2)$. A Walrasian equilibrium allocation is in the **core**.
 
 **Proof sketch.** The proof strategy is essentially parallel to the first welfare theorem: if a coalition could block a Walrasian allocation, each blocking member would be weakly better off and one would be strictly better off. By the same revealed-preference budget argument as in FWT, the coalition's proposed bundles would cost strictly more than the coalition's endowment, contradicting coalition feasibility.
 
 **Remark.** This guarantees that the core is nonempty for any pure exchange economy for which there exists a Walrasian equilibrium.
 :::
 
-:::{admonition} Conjecture (Core convergence)
+
+:::{admonition} Conjecture (parallel to SWT: core convergence)
 As the number of agents becomes very large, any allocation which is in the core will be a Walrasian equilibrium allocation.
 
 **Assumption $(A4')$.** For all agents $h\in\mathcal H$, $u^h(\cdot)$ is strictly concave on its domain, i.e. for all $x,y\in\mathbb R_+^L$ and $\lambda\in(0,1)$,
