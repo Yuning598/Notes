@@ -16,8 +16,8 @@ tags:
 
 ## 1. Production in Arrow-Debreu
 
-:::{admonition} Consumer assumptions
-For all $h\in\mathcal H$,
+:::{admonition} Assumptions for existence of Walrasian equilibrium in a production economy
+Consumer side, for all $h\in\mathcal H$:
 
 $$
 \begin{aligned}
@@ -27,10 +27,8 @@ $$
 \text{(A4)}\quad &u^h \text{ is concave on its domain}.
 \end{aligned}
 $$
-:::
 
-:::{admonition} Production assumptions
-For all $k\in\mathcal K$,
+Production side, for all $k\in\mathcal K$:
 
 $$
 \begin{aligned}
@@ -44,10 +42,10 @@ Recall:
 
 $$
 \begin{aligned}
-f \text{ is concave}
-\ &\iff\ Y \text{ is convex},\\
-f \text{ exhibits DRS or CRS}
-\ &\text{if }Y \text{ is convex}.
+Y \text{ convex}
+\ &\iff\ f \text{ concave},\\
+Y \text{ convex}
+\ &\implies\ f \text{ exhibits DRS or CRS}.
 \end{aligned}
 $$
 :::
