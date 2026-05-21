@@ -50,6 +50,8 @@ Y \text{ convex}
 $$
 :::
 
+## 2. Firm vs household production equivalence
+
 :::{admonition} Firm production economy
 Let $K$ firms have production sets $Y^k\subseteq\mathbb R^L$, and let $\delta_k^h$ be household $h$'s ownership share of firm $k$. An equilibrium is
 
@@ -241,17 +243,6 @@ Under convex production sets and convex preferences, every interior Pareto effic
 <div style="width:100%;max-width:1120px;margin:0 auto;">
   <iframe src="/PhD-Course/production-welfare-theorems-widget.html" title="Production Welfare Theorems" loading="lazy" style="width:100%;height:610px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
-
-
-## 2. Firm vs household production equivalence
-
-The slides show that if households own firm technologies by shares $\delta_k^h$, we can define household production sets
-
-$$
-\bar Y^h=\sum_k\delta_k^hY^k.
-$$
-
-Under the relevant assumptions, an equilibrium with firms is equivalent to an equilibrium in which households directly operate their share of production technologies. This is useful for welfare proofs because firm profits enter household budget constraints as ownership income.
 
 ## 3. Planner characterization of Pareto efficiency
 
