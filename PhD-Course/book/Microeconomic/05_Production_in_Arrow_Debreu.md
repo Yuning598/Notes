@@ -97,7 +97,94 @@ $$
 $$
 :::
 
-In the firm economy, production is chosen by firms and profits are distributed through shares. In the household economy, the share-weighted production set is attached to each household, so the household chooses consumption and production jointly.
+:::{admonition} Equivalence of firm and household production economies
+Let
+
+$$
+\bar y^h=\sum_{k\in\mathcal K}\delta_k^h y^k,
+\qquad
+Y^h=\sum_{k\in\mathcal K}\delta_k^h Y^k.
+$$
+
+Then
+
+$$
+\boxed{
+(p,(c^h)_{h=1}^H,(y^k)_{k=1}^K)\text{ is a firm equilibrium}
+\iff
+(p,(c^h,\bar y^h)_{h=1}^H)\text{ is a household production equilibrium}.
+}
+$$
+:::
+
+^prop-5-1
+
+**Proof.**
+
+**Firm $\Rightarrow$ household.** Set $\bar y^h=\sum_k\delta_k^h y^k$. Then
+
+$$
+\begin{aligned}
+p\cdot c^h
+\ &\le\ p\cdot e^h+\sum_k\delta_k^h\,p\cdot y^k\\
+\ &=\ p\cdot e^h+p\cdot\bar y^h.
+\end{aligned}
+$$
+
+Market clearing becomes
+
+$$
+\begin{aligned}
+\sum_h(c^h-e^h-\bar y^h)
+\ &=\ \sum_h(c^h-e^h)-\sum_h\sum_k\delta_k^h y^k\\
+\ &=\ \sum_h(c^h-e^h)-\sum_k\Big(\sum_h\delta_k^h\Big)y^k\\
+\ &=\ \sum_h(c^h-e^h)-\sum_k y^k\\
+\ &=\ 0.
+\end{aligned}
+$$
+
+If $y\in Y^h$ and $p\cdot y>p\cdot\bar y^h$, write $y=\sum_k\delta_k^h z^k$ with $z^k\in Y^k$. Then
+
+$$
+\begin{aligned}
+p\cdot y
+\ &=\ \sum_k\delta_k^h\,p\cdot z^k
+\ >\ \sum_k\delta_k^h\,p\cdot y^k
+\ =\ p\cdot\bar y^h,
+\end{aligned}
+$$
+
+so some firm $k$ would satisfy $p\cdot z^k>p\cdot y^k$, contradicting firm profit maximization. Hence $\bar y^h\in\arg\max_{y\in Y^h}p\cdot y$.
+
+**Household $\Rightarrow$ firm.** Let $\bar y^h\in Y^h=\sum_k\delta_k^hY^k$ and choose a decomposition
+
+$$
+\bar y^h=\sum_k\delta_k^h y^k,
+\qquad y^k\in Y^k.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\sum_h(c^h-e^h)-\sum_k y^k
+\ &=\ \sum_h(c^h-e^h)-\sum_h\bar y^h\\
+\ &=\ \sum_h(c^h-e^h-\bar y^h)\\
+\ &=\ 0.
+\end{aligned}
+$$
+
+Moreover,
+
+$$
+\begin{aligned}
+p\cdot\bar y^h
+\ &=\ \sum_k\delta_k^h\,p\cdot y^k,
+\end{aligned}
+$$
+
+so the household budget constraint is exactly the firm-economy budget constraint. If some firm $k$ had a profitable deviation $z^k\in Y^k$ with $p\cdot z^k>p\cdot y^k$, then household $h$ would obtain a higher income by replacing its share of that firm's plan, contradicting household optimality. Therefore each firm must maximize profit.
+:::
 
 :::{admonition} Pareto-optimality with production
 An allocation-production plan $\big((c^h)_{h=1}^H,(y^k)_{k=1}^K\big)$ is Pareto efficient if there is no other feasible plan $\big((\tilde c^h)_{h=1}^H,(\tilde y^k)_{k=1}^K\big)$ such that
@@ -156,7 +243,7 @@ Under convex production sets and convex preferences, every interior Pareto effic
 </div>
 
 
-## 2. Firms vs household production
+## 2. Firm vs household production equivalence
 
 The slides show that if households own firm technologies by shares $\delta_k^h$, we can define household production sets
 
