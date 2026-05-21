@@ -81,7 +81,7 @@ $$
 An equilibrium is
 
 $$
-(p,(c^h,y^h)_{h=1}^H)
+(p,(c^h,\bar y^h)_{h=1}^H)
 $$
 
 such that
@@ -89,32 +89,32 @@ such that
 $$
 \left\{
 \begin{aligned}
-&\text{budget: } p\cdot c^h\le p\cdot e^h+p\cdot y^h\\
-&\text{household problem: } (c^h,y^h)\in\arg\max_{\substack{c\in\mathbb R_+^L,\ y\in Y^h\\ p\cdot c\le p\cdot e^h+p\cdot y}}u^h(c)\\
-&\text{market clearing: } \sum_h(c^h-e^h-y^h)=0
+&\text{budget: } p\cdot c^h\le p\cdot e^h+p\cdot \bar y^h\\
+&\text{household problem: } (c^h,\bar y^h)\in\arg\max_{\substack{c\in\mathbb R_+^L,\ y\in Y^h\\ p\cdot c\le p\cdot e^h+p\cdot y}}u^h(c)\\
+&\text{market clearing: } \sum_h(c^h-e^h-\bar y^h)=0
 \end{aligned}
 \right.
 $$
 :::
 
 :::{admonition} Equivalence of firm and household production economies
-Let
+Under (A2) and (A5), if $(p,(c^h)_{h\in\mathcal H},(y^k)_{k\in\mathcal K})$ is a firm production equilibrium, then
 
 $$
-\bar y^h=\sum_{k\in\mathcal K}\delta_k^h y^k,
-\qquad
-Y^h=\sum_{k\in\mathcal K}\delta_k^h Y^k.
+\left(
+p,\left(c^h,\sum_{k\in\mathcal K}\delta_k^h y^k\right)_{h\in\mathcal H}
+\right)
 $$
 
-Then
+is a household production equilibrium. Furthermore, if $(p,(c^h,\bar y^h)_{h\in\mathcal H})$ is a household production equilibrium, then there exist $(y^k)_{k\in\mathcal K}$ such that
 
 $$
-\boxed{
-(p,(c^h)_{h=1}^H,(y^k)_{k=1}^K)\text{ is a firm equilibrium}
-\iff
-(p,(c^h,\bar y^h)_{h=1}^H)\text{ is a household production equilibrium}.
-}
+\left(
+p,(c^h)_{h\in\mathcal H},(y^k)_{k\in\mathcal K}
+\right)
 $$
+
+is a firm production equilibrium.
 :::
 
 ^prop-5-1
