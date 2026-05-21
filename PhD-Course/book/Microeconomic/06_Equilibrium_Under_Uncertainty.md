@@ -123,6 +123,43 @@ $$
 Prices $(p,\alpha)$ and allocations $\big((x^h,\theta^h)\big)_{h\in\mathcal H}$ constitute an Arrow security markets equilibrium if and only if there exist Debreu prices $\rho\in\Delta_+^{L(S+1)-1}$ such that $\big(\rho,(x^h)_{h\in\mathcal H}\big)$ constitute a Walrasian equilibrium.
 :::
 
+Proof:
+Write the contingent price vector as
+
+$$
+\rho(0)=p_0,\qquad \rho_{\ell s}=\alpha_s p_\ell(s),\quad s=1,\ldots,S.
+$$
+
+**Arrow security $\Rightarrow$ Walrasian.** If $(x,\theta)\in\mathcal B^h(p,\alpha)$, then
+
+$$
+\begin{aligned}
+p_0\cdot(x(0)-e^h(0))+\alpha\cdot\theta&\le 0,\\
+p(s)\cdot(x(s)-e^h(s))-\theta_s&\le 0,\qquad s=1,\ldots,S.
+\end{aligned}
+$$
+
+Multiplying the second line by $\alpha_s$ and summing over $s$ yields
+
+$$
+\begin{aligned}
+\rho\cdot(x-e^h)
+&=p_0\cdot(x(0)-e^h(0))+\sum_{s=1}^S\alpha_s p(s)\cdot(x(s)-e^h(s))\\
+&\le 0.
+\end{aligned}
+$$
+
+Hence every Arrow-feasible bundle is $\rho$-budget feasible. If $u^h(x)>u^h(x^h)$ and $\rho\cdot(x-e^h)\le0$, set $\theta_s=p(s)\cdot(x(s)-e^h(s))$. Then $(x,\theta)\in\mathcal B^h(p,\alpha)$, contradicting Arrow security optimality. Therefore $(\rho,(x^h)_h)$ is a Walrasian equilibrium.
+
+**Walrasian $\Rightarrow$ Arrow security.** Conversely, if $(\rho,(x^h)_h)$ is a Walrasian equilibrium, choose $p_0=\rho(0)$ and factor each state block as $\rho_{\ell s}=\alpha_s p_\ell(s)$ with $p_1(s)=1$. For each $h$, let
+
+$$
+\theta_s^h=p(s)\cdot(x^h(s)-e^h(s)).
+$$
+
+Then $(x^h,\theta^h)\in\mathcal B^h(p,\alpha)$, and any Arrow-feasible $(x,\theta)$ satisfies $\rho\cdot(x-e^h)\le0$. Since $x^h$ is $\rho$-optimal, it is also Arrow-optimal. Hence $(p,\alpha,((x^h,\theta^h))_h)$ is an Arrow security markets equilibrium.
+:::
+
 :::{admonition} Equilibrium concepts at a glance
 $$
 \begin{aligned}
