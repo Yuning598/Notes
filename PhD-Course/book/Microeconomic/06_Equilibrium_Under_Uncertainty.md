@@ -119,6 +119,10 @@ $$
 $$
 :::
 
+:::{admonition} Theorem (Arrow security markets and Debreu prices)
+Prices $(p,\alpha)$ and allocations $\big((x^h,\theta^h)\big)_{h\in\mathcal H}$ constitute an Arrow security markets equilibrium if and only if there exist Debreu prices $\rho\in\Delta_+^{L(S+1)-1}$ such that $\big(\rho,(x^h)_{h\in\mathcal H}\big)$ constitute a Walrasian equilibrium.
+:::
+
 ## 3. General asset markets and no arbitrage
 
 Let $A\in\mathbb R^{S\times J}$ be the payoff matrix of $J$ assets across $S$ states, where column $j$ is the payoff vector of asset $j$. Let $q\in\mathbb R^J$ be the vector of asset prices.
