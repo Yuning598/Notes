@@ -141,3 +141,83 @@ $$
 $$
 
 Under the relevant assumptions, an equilibrium with firms is equivalent to an equilibrium in which households directly operate their share of production technologies. This is useful for welfare proofs because firm profits enter household budget constraints as ownership income.
+
+## 3. Planner characterization of Pareto efficiency
+
+:::{admonition} Pareto efficiency as a planner problem
+Take two consumers and one production technology. Let $x^h$ and $y^h$ denote consumer $h$'s consumption of goods $x$ and $y$, let $\bar x$ be the economy's total endowment of good $x$, and let
+
+$$
+\begin{aligned}
+z&=\bar x-x^1-x^2,\\
+y^1+y^2&=f(z).
+\end{aligned}
+$$
+
+Equivalently,
+
+$$
+y^1+y^2=f(\bar x-x^1-x^2).
+$$
+
+Pareto efficiency means: for a fixed utility level $c$ of consumer 2, consumer 1 is already at the frontier. Hence any Pareto efficient allocation solves
+
+$$
+\left\{
+\begin{aligned}
+\max_{x^1,y^1,x^2,y^2}\quad &u^1(x^1,y^1)\\
+\text{s.t.}\quad &u^2(x^2,y^2)=c,\\
+&y^1+y^2=f(\bar x-x^1-x^2).
+\end{aligned}
+\right.
+$$
+
+This is a planner problem: fixing $c$ pins down consumer 2's utility, and the maximization traces out the utility possibility frontier. If a Pareto efficient allocation were not a solution for any $c$, then one could improve consumer 1 without lowering consumer 2, contradicting Pareto efficiency.
+:::
+
+Write the Lagrangian as
+
+$$
+\begin{aligned}
+\mathcal L
+&= u^1(x^1,y^1)
+ + \lambda\big[u^2(x^2,y^2)-c\big]\\
+&\quad + \mu\big[f(\bar x-x^1-x^2)-y^1-y^2\big].
+\end{aligned}
+$$
+
+The FOCs are
+
+$$
+\left\{
+\begin{aligned}
+\frac{\partial\mathcal L}{\partial x^1}:&\quad u_x^1-\mu f'(z)=0,\\
+\frac{\partial\mathcal L}{\partial y^1}:&\quad u_y^1-\mu=0,\\
+\frac{\partial\mathcal L}{\partial x^2}:&\quad \lambda u_x^2-\mu f'(z)=0,\\
+\frac{\partial\mathcal L}{\partial y^2}:&\quad \lambda u_y^2-\mu=0.
+\end{aligned}
+\right.
+$$
+
+Thus
+
+$$
+\begin{aligned}
+\frac{u_x^1}{u_y^1}
+&=
+f'(z),\\
+\frac{u_x^2}{u_y^2}
+&=
+f'(z).
+\end{aligned}
+$$
+
+Hence
+
+$$
+\boxed{
+MRS^1=MRS^2=MRT.
+}
+$$
+
+So the common marginal rate of substitution across consumers must equal the marginal rate of transformation in production.
