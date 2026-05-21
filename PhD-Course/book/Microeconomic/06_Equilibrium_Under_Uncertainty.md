@@ -160,6 +160,18 @@ $$
 Then $(x^h,\theta^h)\in\mathcal B^h(p,\alpha)$, and any Arrow-feasible $(x,\theta)$ satisfies $\rho\cdot(x-e^h)\le0$. Since $x^h$ is $\rho$-optimal, it is also Arrow-optimal. Hence $(p,\alpha,((x^h,\theta^h))_h)$ is an Arrow security markets equilibrium.
 :::
 
+:::{admonition} Market structures at a glance
+$$
+\left\{
+\begin{aligned}
+&\text{Debreu-Walras equilibrium} &&: \text{直接交易所有 state-contingent goods}\\
+&\text{Arrow security markets equilibrium} &&: \text{每个 state 一个 Arrow security，市场完备}\\
+&\text{GEI} &&: \text{资产数量不足或 payoff 不满秩，市场不完备}
+\end{aligned}
+\right.
+$$
+:::
+
 :::{admonition} Equilibrium concepts at a glance
 $$
 \begin{aligned}
