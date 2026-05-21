@@ -47,6 +47,28 @@ $$
 $$
 :::
 
+:::{admonition} Walrasian equilibrium in the Arrow-Debreu model
+Let $\rho\in\Delta^{L(S+1)}$ be Debreu prices and let each household $h$ have initial endowment
+
+$$
+e^h=\big(e^h(0),e^h(1),\ldots,e^h(S)\big)\in\mathbb R_{++}^{L(S+1)}.
+$$
+
+An equilibrium consists of prices $\rho\in\Delta^{L(S+1)}$ and an allocation $(x^h)_{h\in\mathcal H}\in\mathbb R_+^{HL(S+1)}$ such that
+
+$$
+\left\{
+\begin{aligned}
+&\sum_{h\in\mathcal H}(x^h-e^h)=0,\\
+&u^h(x)>u^h(x^h)\ \Longrightarrow\ \rho\cdot x>\rho\cdot e^h
+\qquad \forall h\in\mathcal H.
+\end{aligned}
+\right.
+$$
+
+We call $\rho$ Debreu prices.
+:::
+
 The Arrow-Debreu model treats each commodity-state pair as a different good. Therefore the standard existence and welfare theorems apply if all contingent commodities are traded.
 
 ## 2. Arrow securities and Debreu prices
