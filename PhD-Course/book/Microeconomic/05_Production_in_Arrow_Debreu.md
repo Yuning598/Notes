@@ -16,6 +16,42 @@ tags:
 
 ## 1. Production in Arrow-Debreu
 
+:::{admonition} Consumer assumptions
+For all $h\in\mathcal H$,
+
+$$
+\begin{aligned}
+\text{(A1)}\quad &e^h\in\mathbb R_{++}^L,\\
+\text{(A2)}\quad &u^h \text{ is increasing},\\
+\text{(A3)}\quad &u^h \text{ is continuous on its domain},\\
+\text{(A4)}\quad &u^h \text{ is concave on its domain}.
+\end{aligned}
+$$
+:::
+
+:::{admonition} Production assumptions
+For all $k\in\mathcal K$,
+
+$$
+\begin{aligned}
+\text{(A5)}\quad &Y^k \text{ is closed and convex},\\
+\text{(A6)}\quad &0\in Y^k,\ \mathbb R_-^L\subseteq Y^k,\\
+\text{(A7)}\quad &\text{if }Y=\sum_{k\in\mathcal K}Y^k,\ \text{assume }Y\cap(-Y)=\{0\}.
+\end{aligned}
+$$
+
+Recall:
+
+$$
+\begin{aligned}
+f \text{ is concave}
+\ &\iff\ Y \text{ is convex},\\
+f \text{ exhibits DRS or CRS}
+\ &\text{if }Y \text{ is convex}.
+\end{aligned}
+$$
+:::
+
 :::{admonition} Equilibrium with production
 There are $K$ firms with production sets $Y^k\subseteq\mathbb R^L$. An equilibrium is
 
@@ -26,13 +62,16 @@ $$
 such that
 
 $$
+\left\{
 \begin{aligned}
-c^h&\in\arg\max_{x\ge0}u^h(x)
-\quad\text{s.t.}\quad
-p\cdot x\le p\cdot e^h+\sum_k\delta_k^h p\cdot y^k,\\
-y^k&\in\arg\max_{y\in Y^k}p\cdot y,\\
-\sum_h(c^h-e^h)-\sum_k y^k&=0.
+&c^h\in\arg\max u^h(c)
+\quad
+\text{s.t. }
+p\cdot c\le p\cdot e^h+\sum_k\delta_k^h p\cdot y^k\\
+&y^k\in\arg\max_{y\in Y^k}p\cdot y\\
+&\sum_h(c^h-e^h)-\sum_k y^k=0
 \end{aligned}
+\right.
 $$
 
 Here $\delta_k^h$ is household $h$'s ownership share of firm $k$.
