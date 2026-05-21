@@ -33,6 +33,20 @@ v_{h0}(x_h(0))
 \sum_{s=1}^S\pi_{hs}v_{hs}(x_h(s)).
 $$
 
+:::{admonition} Preferences
+For each household $h$, utility is $u^h:\mathbb R_+^{L(S+1)}\to\mathbb R$ and we assume
+
+$$
+\begin{aligned}
+\text{(D1)}\quad &u^h \text{ is at least } C^2 \text{ on the interior of the consumption set},\\
+\text{(D2)}\quad &D u^h(x)\gg 0 \quad \forall x\in\mathbb R_{++}^{L(S+1)},\\
+\text{(D3)}\quad &D^2 u^h(x) \text{ is negative definite} \quad \forall x\in\mathbb R_{++}^{L(S+1)},\\
+\text{(D4)}\quad &\operatorname{cl}\{x:u^h(x)>u^h(\bar x)\}\subseteq \mathbb R_{++}^{L(S+1)}
+\quad \forall \bar x\in\mathbb R_{++}^{L(S+1)}.
+\end{aligned}
+$$
+:::
+
 The Arrow-Debreu model treats each commodity-state pair as a different good. Therefore the standard existence and welfare theorems apply if all contingent commodities are traded.
 
 ## 2. Arrow securities and Debreu prices
