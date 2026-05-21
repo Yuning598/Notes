@@ -175,6 +175,57 @@ $$
 
 Thus $f$ is concave.
 
+:::{admonition} Proposition
+Assume $0\in Y$ and free disposal.
+
+$$
+\begin{aligned}
+Y \text{ is convex}
+\ &\implies\ f \text{ exhibits DRS},\\
+Y \text{ is a cone}
+\ &\implies\ f \text{ exhibits CRS}.
+\end{aligned}
+$$
+
+Indeed, if $Y$ is convex, then for any $( -x, f(x))\in Y$ and $\lambda\in[0,1]$,
+
+$$
+\begin{aligned}
+(-\lambda x,\lambda f(x))
+&=\lambda(-x,f(x))+(1-\lambda)(0,0)\\
+&\in Y,
+\end{aligned}
+$$
+
+so by definition
+
+$$
+\begin{aligned}
+f(\lambda x)\ge \lambda f(x),\qquad \lambda\in[0,1].
+\end{aligned}
+$$
+
+If $Y$ is a cone, then for any $\lambda>0$,
+
+$$
+\begin{aligned}
+(-\lambda x,\lambda f(x))\in Y
+\ &\implies\ f(\lambda x)\ge \lambda f(x),\\
+(-\lambda x,f(\lambda x))\in Y
+\ &\implies\ \left(-x,\lambda^{-1}f(\lambda x)\right)\in Y\\
+\ &\implies\ f(x)\ge \lambda^{-1}f(\lambda x).
+\end{aligned}
+$$
+
+Hence
+
+$$
+\begin{aligned}
+f(\lambda x)=\lambda f(x),\qquad \lambda>0.
+\end{aligned}
+$$
+:::
+
 ## 3. CRS iff production set is a cone
 
 :::{admonition} Proposition
