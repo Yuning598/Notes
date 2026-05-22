@@ -16,32 +16,33 @@ tags:
 
 # 07 Principal-Agent Models, Moral Hazard, and Screening
 
-Source map: EF8070 **Principal-Agent Models** slides 1-37; **Principal-Agent Models: Monopolistic Screening** slides 1-53; homework links: H5 Q1-Q6.  
-Core cards: [Microeconomic/cards/Moral hazard binding constraints](Microeconomic/cards/Moral hazard binding constraints), [Microeconomic/cards/MLRP and optimal wage monotonicity](Microeconomic/cards/MLRP and optimal wage monotonicity), [Microeconomic/cards/Single crossing and monotonicity](Microeconomic/cards/Single crossing and monotonicity), [Microeconomic/cards/No distortion at the top](Microeconomic/cards/No distortion at the top), [Microeconomic/cards/Envelope theorem in screening](Microeconomic/cards/Envelope theorem in screening), [Microeconomic/cards/Myerson-Satterthwaite impossibility](Microeconomic/cards/Myerson-Satterthwaite impossibility).
 
-## 1. Information economics taxonomy
+## 1. The Basic Models
 
-:::{admonition} Definition (Asymmetric information)
-Asymmetric information exists when different agents possess different payoff-relevant information. It can generate strategic behavior and market inefficiencies.
+:::{admonition} The basic models in information economics
+$$
+\left\{
+\begin{aligned}
+&1.\ \text{Moral Hazard (Hidden Actions)}\\
+&\qquad \text{one player takes an action that is not perfectly observed}\\[0.25em]
+&2.\ \text{Adverse Selection (Hidden Information)}\\
+&\qquad \text{one player has private information about his type}\\
+&\qquad a.\ \text{Signaling: the informed player moves first}\\
+&\qquad \qquad i.\ \text{one uninformed player}\\
+&\qquad \qquad ii.\ \text{competing uninformed players}\\
+&\qquad b.\ \text{Screening: the uninformed player moves first}\\
+&\qquad \qquad i.\ \text{one uninformed player}\\
+&\qquad \qquad ii.\ \text{competing uninformed players}\\[0.25em]
+&3.\ \text{Mechanism Design}\\
+&\qquad \text{a group of privately informed agents plays a game designed by an uninformed party}
+\end{aligned}
+\right.
+$$
 
+This chapter covers the moral-hazard model in detail, and the screening model under adverse selection.
 :::
 
-Main models from the slides:
-
-$$
-\begin{aligned}
-\text{Moral hazard / hidden action}
-&:\ \text{agent takes an unobservable action},\\
-\text{Adverse selection / hidden information}
-&:\ \text{agent has private type},\\
-\text{Signaling}
-&:\ \text{informed player moves first},\\
-\text{Screening}
-&:\ \text{uninformed player moves first}.
-\end{aligned}
-$$
-
-## 2. Hidden action principal-agent model
+## 2. Moral Hazard (Hidden Actions): principal-agent model
 
 ### Players, timing, information
 
@@ -511,7 +512,7 @@ $$
 
 Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
 
-## 9. Screening: hidden information
+## 9. Adverse Selection (Hidden Information): Screening
 
 Now output/effort is observable, but agent's cost type is private.
 
