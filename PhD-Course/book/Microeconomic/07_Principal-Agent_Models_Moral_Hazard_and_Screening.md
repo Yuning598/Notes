@@ -17,8 +17,6 @@ tags:
 # 07 Principal-Agent Models, Moral Hazard, and Screening
 
 
-## 1. The Basic Models
-
 :::{admonition} The basic models in information economics
 $$
 \left\{
@@ -42,9 +40,9 @@ $$
 This chapter covers the moral-hazard model in detail, and the screening model under adverse selection.
 :::
 
-## 2. Moral Hazard (Hidden Actions): principal-agent model
+## 1. Moral Hazard (Hidden Actions): principal-agent model
 
-### 2.1 Players, timing, information
+### 1.1 Players, timing, information
 
 - Principal owns a project.
 - Agent chooses effort $e\in\{0,1\}$, where $e=1$ is high effort.
@@ -66,7 +64,7 @@ $$
 w:X\to\mathbb R_+,\qquad x\mapsto w(x).
 $$
 
-### 2.2 First-best benchmark: effort observable
+### 1.2 First-best benchmark: effort observable
 
 If effort is observable, the principal can choose $e$ and wages directly.
 
@@ -158,7 +156,7 @@ $$
 
 Interpretation: marginal productivity gain must exceed compensation for effort cost.
 
-### 2.3 Second-best: effort unobservable
+### 1.3 Second-best: effort unobservable
 
 To induce high effort, add incentive compatibility.
 
@@ -186,7 +184,7 @@ $$
 
 Thus $w_H>w_L$. Incentives require risk exposure.
 
-#### 2.3.1 Binding-constraint solution
+#### 1.3.1 Binding-constraint solution
 
 At the optimum, both IR and IC bind. Let
 
@@ -253,7 +251,7 @@ $$
 
 If $w_L^{SB}$ violates limited liability or utility domain restrictions, the limited-liability solution applies.
 
-### 2.4 Low effort implementation
+### 1.4 Low effort implementation
 
 To induce low effort, the relaxed problem without IC gives full insurance:
 
@@ -283,7 +281,7 @@ $$
 V_1^{SB}\ge V_0.
 $$
 
-### 2.5 Risk-neutral agent with limited liability
+### 1.5 Risk-neutral agent with limited liability
 
 Suppose $u(w)=w$, $\bar u=0$.
 
@@ -393,7 +391,7 @@ $$
 $$
 
 
-### 2.6 Moral hazard optimization templates
+### 1.6 Moral hazard optimization templates
 
 :::{admonition} Moral hazard: max + s.t.
 **Binary output.**
@@ -427,7 +425,7 @@ $$
 $$
 :::
 
-### 2.7 Continuous output and MLRP
+### 1.7 Continuous output and MLRP
 
 Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
 
@@ -484,7 +482,7 @@ $$
 
 Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
 
-## 3. Adverse Selection (Hidden Information): Screening
+## 2. Adverse Selection (Hidden Information): Screening
 
 Now output/effort is observable, but agent's cost type is private.
 
@@ -516,7 +514,7 @@ $$
 
 Higher-cost types dislike output more.
 
-### 3.1 First-best screening
+### 2.1 First-best screening
 
 If $\theta$ is known, principal solves
 
@@ -551,7 +549,7 @@ $$
 
 since \(S''<0\) and \(L<H\).
 
-#### 3.1.1 Why first-best is not incentive compatible
+#### 2.1.1 Why first-best is not incentive compatible
 
 
 First-best menu:
@@ -578,7 +576,7 @@ $$
 
 Thus the low-cost firm would lie. The first-best menu is not incentive compatible.
 
-#### 3.1.2 Two-type second-best screening
+#### 2.1.2 Two-type second-best screening
 
 
 Define information rents:
@@ -702,7 +700,7 @@ $$
 
 The inefficient type is distorted downward to reduce the efficient type's information rent.
 
-#### 3.1.3 Continuum of types and envelope formula
+#### 2.1.3 Continuum of types and envelope formula
 
 
 Let $\theta\in[0,1]$, with cdf $F$ and pdf $f>0$. Agent utility:
@@ -824,7 +822,7 @@ $$
 
 The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
-### 3.2 Adverse selection optimization templates
+### 2.2 Adverse selection optimization templates
 
 :::{admonition} Adverse selection: max + s.t.
 **Binary types, direct transfer form.**
@@ -910,7 +908,7 @@ $$
 $$
 :::
 
-## 4. The Bilateral Trading Environment
+## 3. The Bilateral Trading Environment
 
 :::{admonition} Bilateral trade
 There is one buyer with value $v\in[\underline v,\bar v]$ and one seller with cost $c\in[\underline c,\bar c]$. Types are private and independent. Allocation $q(v,c)\in[0,1]$ is the probability of trade, and transfers $t_b,t_s$ determine payoffs
@@ -1054,4 +1052,3 @@ $$
 $$
 
 Therefore the principal does **not** induce high effort; the worker exerts low effort.
-
