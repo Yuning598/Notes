@@ -42,7 +42,7 @@ This chapter covers the moral-hazard model in detail, and the screening model un
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
-  <iframe src="/PhD-Course/mechanism_design_fb_sb_widget.html" title="Mechanism Design FB SB Widget" loading="lazy" style="width:100%;height:720px;border:0;display:block;border-radius:16px;"></iframe>
+  <iframe src="/PhD-Course/mechanism_design_fb_sb_widget.html" title="Mechanism Design FB SB Widget" loading="lazy" style="width:100%;height:600px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
 ```
 
@@ -863,7 +863,7 @@ For $q(\cdot)$ to be nonincreasing, the virtual cost function needs to be nondec
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
-  <iframe src="/PhD-Course/principal_indifference_fb_decomposition.html" title="Principal Indifference FB Decomposition" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+  <iframe src="/PhD-Course/principal_indifference_fb_decomposition.html" title="Principal Indifference FB Decomposition" loading="lazy" style="width:100%;height:680px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
 ```
 
