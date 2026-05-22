@@ -840,7 +840,6 @@ The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
 **信息情形：双边交易**
 
-:::{admonition} Bilateral trading environment
 There is one buyer with value $v\in[\underline v,\bar v]$ and one seller with cost $c\in[\underline c,\bar c]$. Types are private and independent. Let $q\in[0,1]$ denote the probability that the buyer obtains the good, and let $t_b,t_s$ denote expected monetary transfers.
 
 The ex post payoffs are
@@ -855,9 +854,9 @@ $$
 (\mathrm{OL})\qquad [\underline c,\bar c]\cap[\underline v,\bar v]
 \ \text{is a nondegenerate interval.}
 $$
-:::
 
-:::{admonition} Revelation mechanism
+#### 3.1 Revelation mechanism
+
 A revelation mechanism is a triple of functions $\langle q,t_b,t_s\rangle$ with
 
 $$
@@ -872,9 +871,9 @@ $$
 u_b(v,c):=vq(v,c)+t_b(v,c),\qquad
 u_s(v,c):=-cq(v,c)+t_s(v,c).
 $$
-:::
 
-:::{admonition} First-best efficiency
+#### 3.2 First-best efficiency
+
 Two conditions are necessary and sufficient for $\langle q,t_b,t_s\rangle$ to be (first-best) efficient.
 
 The first is that the trading rule $q$ maximizes ex post surplus:
@@ -926,17 +925,17 @@ Let each agent's reservation utility be zero. The participation constraints are
 $$
 (\mathrm{IR})\qquad U_b(\cdot)\ge0,\qquad U_s(\cdot)\ge0.
 $$
-:::
 
-:::{admonition} Theorem 2 (Generalized Myerson-Satterthwaite Theorem)
+**Theorem 2 (Generalized Myerson-Satterthwaite Theorem)**
+
 Given $(\mathrm{OL})$, no incentive-compatible (revelation) mechanism of the form $\langle q^*,t_b,t_s\rangle$ satisfies both $(\mathrm{NES})$ and $(\mathrm{IR})$.
-:::
 
-:::{admonition} Corollary 3 (Myerson \& Satterthwaite, 1983)
+**Corollary 3 (Myerson \& Satterthwaite, 1983)**
+
 Given $(\mathrm{OL})$, no efficient allocation rule satisfying $(\mathrm{IR})$ can be implemented.
-:::
 
-:::{admonition} Proof of Corollary 3
+**Proof of Corollary 3**
+
 Suppose $\langle q,t_b,t_s\rangle$ is efficient, and satisfies IC and IR.
 
 Since it is efficient, $\langle q,t_b,t_s\rangle$ satisfies BB and $q=q^*$ a.e. Hence, since
@@ -946,15 +945,15 @@ $$
 $$
 
 $\langle q,t_b,t_s\rangle=\langle q^*,t_b,t_s\rangle$ is incentive compatible and satisfies NES and IR. This contradicts Theorem 2.
-:::
 
-:::{admonition} Remark
+**Remark**
+
 - The logic of the Myerson-Satterthwaite inefficiency result is that the cost of eliciting private information is more than the maximal expected surplus that can be generated.
 - A subsidizing third party can thus restore efficiency.
 - This is made clear in the upcoming proof.
-:::
 
-:::{admonition} Our present use of Theorem 1
+**Our present use of Theorem 1**
+
 We shall apply it to both the buyer and seller in the bilateral trade environment.
 
 To apply it to the seller, the statement becomes $Q_s(c)$ nonincreasing, and
@@ -968,9 +967,9 @@ To apply it to the buyer, the statement becomes $Q_b(v)$ nondecreasing, and
 $$
 U_b(v)=U_b(\underline v)+\int_{\underline v}^{v}Q_b(z)\,dz.
 $$
-:::
 
-:::{admonition} A simple proof of the generalized MS theorem
+**A simple proof of the generalized MS theorem**
+
 This proof is based on Williams (1999). We prove it for the case $\bar v\le \bar c$ and $\underline c\le \underline v$.
 
 In this case the efficient trading rule $q^*$ satisfies $q^*(\bar v,\cdot)=0$ and $q^*(\cdot,\bar c)=0$. Define the maximal surplus function
@@ -1043,7 +1042,6 @@ $$
 $$
 
 contrary to $(\mathrm{IR})$. This proves the theorem.
-:::
 
 ## Exercises
 
