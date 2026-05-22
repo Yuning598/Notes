@@ -920,9 +920,7 @@ $$
 
 #### 3.2 First-best efficiency
 
-Two conditions are necessary and sufficient for $\langle q,t_b,t_s\rangle$ to be (first-best) efficient.
-
-The first is that the trading rule $q$ maximizes ex post surplus:
+The first-best benchmark is characterized by the efficient allocation rule and budget balance.
 
 $$
 q^*(v,c):=
@@ -932,44 +930,8 @@ q^*(v,c):=
 \end{cases}
 $$
 
-The second is budget balance:
-
 $$
 (\mathrm{BB})\qquad t_b(\cdot)+t_s(\cdot)=0.
-$$
-
-BB implies the weaker condition, No Expected Subsidy:
-
-$$
-(\mathrm{NES})\qquad E_{c,v}\{t_b(v,c)+t_s(v,c)\}\le 0.
-$$
-
-To write the interim incentive constraints, define
-
-$$
-Q_b(v):=E_c q(v,c),\qquad Q_s(c):=E_v q(v,c),
-$$
-$$
-T_b(v):=E_c t_b(v,c),\qquad T_s(c):=E_v t_s(v,c).
-$$
-
-The interim payoff functions are
-
-$$
-U_b(v):=vQ_b(v)+T_b(v),\qquad U_s(c):=T_s(c)-cQ_s(c).
-$$
-
-The incentive compatibility constraints are
-
-$$
-(\mathrm{IC})\qquad U_b(v)\ge vQ_b(\hat v)+T_b(\hat v),\qquad
-U_s(c)\ge T_s(\hat c)-cQ_s(\hat c).
-$$
-
-Let each agent's reservation utility be zero. The participation constraints are
-
-$$
-(\mathrm{IR})\qquad U_b(\cdot)\ge0,\qquad U_s(\cdot)\ge0.
 $$
 
 :::{admonition} Theorem 2 (Generalized Myerson-Satterthwaite Theorem)
@@ -980,7 +942,8 @@ Given $(\mathrm{OL})$, no incentive-compatible (revelation) mechanism of the for
 Given $(\mathrm{OL})$, no efficient allocation rule satisfying $(\mathrm{IR})$ can be implemented.
 :::
 
-:::{admonition} Proof of Corollary 3
+#### Proof of Corollary 3
+
 Suppose $\langle q,t_b,t_s\rangle$ is efficient, and satisfies IC and IR.
 
 Since it is efficient, $\langle q,t_b,t_s\rangle$ satisfies BB and $q=q^*$ a.e. Hence, since
@@ -990,7 +953,6 @@ $$
 $$
 
 $\langle q,t_b,t_s\rangle=\langle q^*,t_b,t_s\rangle$ is incentive compatible and satisfies NES and IR. This contradicts Theorem 2.
-:::
 
 :::{admonition} Remark
 - The logic of the Myerson-Satterthwaite inefficiency result is that the cost of eliciting private information is more than the maximal expected surplus that can be generated.
@@ -1014,7 +976,8 @@ U_b(v)=U_b(\underline v)+\int_{\underline v}^{v}Q_b(z)\,dz.
 $$
 :::
 
-:::{admonition} A simple proof of the generalized MS theorem
+#### Proof of Theorem 2
+
 This proof is based on Williams (1999). We prove it for the case $\bar v\le \bar c$ and $\underline c\le \underline v$.
 
 In this case the efficient trading rule $q^*$ satisfies $q^*(\bar v,\cdot)=0$ and $q^*(\cdot,\bar c)=0$. Define the maximal surplus function
@@ -1087,7 +1050,6 @@ $$
 $$
 
 contrary to $(\mathrm{IR})$. This proves the theorem.
-:::
 
 ## Exercises
 
