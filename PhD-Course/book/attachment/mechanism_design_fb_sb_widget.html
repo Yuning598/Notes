@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanism Design FB/SB Interactive Widget</title>
+</head>
+<body style="margin:0; padding:0; background:#fff;">
+<div class="md-card" id="md-container">
+  <style>
+    .md-card {
+      --panel: #ffffff;
+      --bg: #f6f8fb;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #d9e2ec;
+      --grid: #edf2f7;
+      --axis: #0f172a;
+      --blue: #2563eb;
+      --red: #dc2626;
+      --orange: #ea580c;
+      --green: #16a34a;
+      --purple: #7c3aed;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+
+      width: min(100%, 1220px);
+      margin: 10px auto;
+      padding: 12px;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      container-type: inline-size;
+    }
+
+    .md-card * { box-sizing: border-box; }
+
+    .md-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .md-header h2 {
+      margin: 0;
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .md-mode {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      min-width: 220px;
+    }
+
+    .md-mode button,
+    .md-tab button {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 7px 9px;
+      color: var(--text);
+      background: #f8fafc;
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+      white-space: nowrap;
+    }
+
+    .md-mode button.is-active,
+    .md-tab button.is-active {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .md-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(390px, 0.92fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .md-visual,
+    .md-side {
+      min-width: 0;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .md-side {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr auto;
+      gap: 8px;
+      min-height: 0;
+    }
+
+    .md-tab {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin: 0;
+    }
+
+    .md-tab button { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+    .md-canvas-wrap {
+      width: 100%;
+      aspect-ratio: 1.45 / 1;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .md-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .md-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .md-kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .md-kpi {
+      min-width: 0;
+      padding: 5px 7px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .md-kpi b {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--text);
+      font-size: 0.68rem;
+      line-height: 1.2;
+    }
+
+    .md-kpi span {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      line-height: 1.12;
+      overflow-wrap: anywhere;
+    }
+
+    .md-distortion {
+      display: none;
+      margin-top: 0;
+      padding: 6px 8px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 10px;
+      color: #7c2d12;
+      font-size: 0.70rem;
+      line-height: 1.18;
+    }
+
+    .md-distortion.is-visible { display: block; }
+    .md-distortion b { color: #9a3412; }
+
+    .md-distortion .math {
+      display: block;
+      margin-top: 4px;
+      color: #0f172a;
+      font-family: "Cambria Math", "STIX Two Math", "Times New Roman", Georgia, serif;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .md-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      margin-top: 0;
+    }
+
+    .md-control {
+      min-width: 0;
+      padding: 5px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .md-control label {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 4px;
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .md-control span {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-weight: 700;
+    }
+
+    .md-control input {
+      width: 100%;
+      accent-color: var(--blue);
+    }
+
+    .md-section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      margin: 0;
+    }
+
+    .md-section-title h3 {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.25;
+    }
+
+    .md-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 7px;
+      color: var(--blue);
+      background: #eef4ff;
+      border: 1px solid #dbe7ff;
+      border-radius: 999px;
+      font-size: 0.70rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .md-summary {
+      margin: 0;
+      color: #334155;
+      font-size: 0.76rem;
+      line-height: 1.32;
+    }
+
+    .md-system {
+      display: grid;
+      grid-template-columns: 12px minmax(0, 1fr);
+      gap: 4px;
+      padding: 6px 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: auto;
+      min-height: 0;
+      max-height: 230px;
+    }
+
+    .md-brace {
+      color: var(--axis);
+      font-family: "Times New Roman", Cambria, Georgia, serif;
+      font-size: 3.25rem;
+      line-height: .86;
+      transform: scaleX(.55);
+      transform-origin: left center;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+
+    .md-lines {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .md-line {
+      min-width: 0;
+      color: #0f172a;
+      font-family: "Cambria Math", "STIX Two Math", "Times New Roman", Georgia, serif;
+      font-size: clamp(0.70rem, 0.82vw, 0.82rem);
+      line-height: 1.18;
+      white-space: normal;
+      overflow-wrap: normal;
+    }
+
+    .md-line .tag {
+      margin-left: 6px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .md-line .op {
+      font-weight: 800;
+      margin-right: 0.35rem;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .md-line .indent {
+      display: inline-block;
+      padding-left: 0.55rem;
+    }
+
+    .md-line .var { font-style: italic; }
+
+    .md-line sub,
+    .md-line sup {
+      font-size: 0.74em;
+      line-height: 0;
+    }
+
+    .md-right-tools {
+      display: grid;
+      gap: 6px;
+      min-height: 0;
+    }
+
+    @container (max-width: 820px) {
+      .md-header,
+      .md-layout { grid-template-columns: 1fr; }
+      .md-mode { min-width: 0; }
+      .md-tab { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md-system { max-height: none; }
+      .md-right-tools { gap: 6px; }
+    }
+
+    @media (max-width: 520px) {
+      .md-card { padding: 10px; }
+      .md-tab { grid-template-columns: 1fr; }
+      .md-controls { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <header class="md-header">
+    <h2>机制设计：First Best / Second Best 可视化</h2>
+    <div class="md-mode" role="group" aria-label="Information case">
+      <button type="button" id="mode-fb" class="is-active">First Best</button>
+      <button type="button" id="mode-sb">Second Best</button>
+    </div>
+  </header>
+
+  <main class="md-layout">
+    <section class="md-visual">
+      <div class="md-canvas-wrap">
+        <canvas id="md-canvas"></canvas>
+      </div>
+      <div class="md-legend" id="md-legend"></div>
+    </section>
+
+    <section class="md-side">
+      <nav class="md-tab" role="group" aria-label="Mechanism model tabs">
+        <button type="button" data-case="mh2" class="is-active">MH 二元产出</button>
+        <button type="button" data-case="mhc">MH 连续产出</button>
+        <button type="button" data-case="as2">AS 二元类型</button>
+        <button type="button" data-case="asc">AS 连续类型</button>
+        <button type="button" data-case="rent">租金/虚拟成本</button>
+        <button type="button" data-case="bt">Bilateral Trading</button>
+      </nav>
+
+      <div class="md-section-title">
+        <h3 id="md-title"></h3>
+        <span class="md-badge" id="md-badge"></span>
+      </div>
+      <p class="md-summary" id="md-summary"></p>
+      <div class="md-system" aria-label="optimization problem">
+        <div class="md-brace">{</div>
+        <div class="md-lines" id="md-lines"></div>
+      </div>
+
+      <div class="md-right-tools">
+        <div class="md-kpis" id="md-kpis"></div>
+        <div class="md-distortion" id="md-distortion"></div>
+        <div class="md-controls" id="md-controls"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  (() => {
+    const canvas = document.querySelector("#md-canvas");
+    const ctx = canvas.getContext("2d");
+    const tabButtons = [...document.querySelectorAll(".md-tab button")];
+    const fbButton = document.querySelector("#mode-fb");
+    const sbButton = document.querySelector("#mode-sb");
+    const controlsBox = document.querySelector("#md-controls");
+    const legendBox = document.querySelector("#md-legend");
+    const kpisBox = document.querySelector("#md-kpis");
+    const distortionBox = document.querySelector("#md-distortion");
+    const titleEl = document.querySelector("#md-title");
+    const badgeEl = document.querySelector("#md-badge");
+    const summaryEl = document.querySelector("#md-summary");
+    const linesEl = document.querySelector("#md-lines");
+
+    const state = {
+      info: "fb",
+      model: "mh2",
+      q1: 0.75,
+      q0: 0.35,
+      C: 0.22,
+      L: 0.35,
+      H: 0.85,
+      lambda: 0.55,
+      risk: 0.65,
+    };
+
+    const colors = {
+      text: "#1f2937",
+      muted: "#64748b",
+      grid: "#edf2f7",
+      axis: "#0f172a",
+      blue: "#2563eb",
+      red: "#dc2626",
+      orange: "#ea580c",
+      green: "#16a34a",
+      purple: "#7c3aed",
+      white: "#ffffff",
+    };
+
+    function setupCanvasForHiDpi() {
+      const ratio = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width * ratio);
+      canvas.height = Math.round(rect.height * ratio);
+      canvas.dataset.cssWidth = rect.width;
+      canvas.dataset.cssHeight = rect.height;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    function W() { return Number(canvas.dataset.cssWidth) || canvas.clientWidth || 520; }
+    function Hh() { return Number(canvas.dataset.cssHeight) || canvas.clientHeight || 280; }
+    function clearCanvas() { ctx.clearRect(0, 0, W(), Hh()); }
+    function px(x, minX, maxX, pad = 44) { return pad + ((x - minX) / (maxX - minX)) * (W() - 2 * pad); }
+    function py(y, minY, maxY, pad = 34) { return Hh() - pad - ((y - minY) / (maxY - minY)) * (Hh() - 2 * pad); }
+
+    function drawAxes({ xLabel = "", yLabel = "", minX = 0, maxX = 1, minY = 0, maxY = 1 }) {
+      const pad = 34;
+      ctx.save();
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let i = 1; i < 5; i++) {
+        const x = pad + (i / 5) * (W() - 2 * pad);
+        const y = pad + (i / 5) * (Hh() - 2 * pad);
+        ctx.beginPath(); ctx.moveTo(x, pad); ctx.lineTo(x, Hh() - pad); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W() - pad, y); ctx.stroke();
+      }
+      ctx.strokeStyle = colors.axis;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(pad, Hh() - pad);
+      ctx.lineTo(W() - pad, Hh() - pad);
+      ctx.lineTo(W() - pad - 8, Hh() - pad - 5);
+      ctx.moveTo(W() - pad, Hh() - pad);
+      ctx.lineTo(W() - pad - 8, Hh() - pad + 5);
+      ctx.moveTo(pad, Hh() - pad);
+      ctx.lineTo(pad, pad);
+      ctx.lineTo(pad - 5, pad + 8);
+      ctx.moveTo(pad, pad);
+      ctx.lineTo(pad + 5, pad + 8);
+      ctx.stroke();
+      ctx.fillStyle = colors.axis;
+      ctx.font = "700 12px system-ui, sans-serif";
+      ctx.fillText(xLabel, W() - pad - 52, Hh() - pad + 24);
+      ctx.fillText(yLabel, pad + 8, pad - 15);
+      ctx.restore();
+    }
+
+    function drawText(text, x, y, opts = {}) {
+      ctx.save();
+      ctx.font = `${opts.weight ?? 750} ${opts.size ?? 12}px system-ui, sans-serif`;
+      ctx.textAlign = opts.align ?? "left";
+      ctx.textBaseline = opts.baseline ?? "middle";
+      if (opts.halo !== false) {
+        ctx.lineWidth = opts.haloWidth ?? 4;
+        ctx.strokeStyle = "rgba(255,255,255,0.92)";
+        ctx.strokeText(text, x, y);
+      }
+      ctx.fillStyle = opts.color ?? colors.text;
+      ctx.fillText(text, x, y);
+      ctx.restore();
+    }
+
+    function line(points, color, width = 2, dashed = false) {
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.setLineDash(dashed ? [7, 6] : []);
+      ctx.beginPath();
+      points.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function dot(x, y, color, r = 5) {
+      ctx.save(); ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    }
+
+    function arrow(from, to, color, width = 2) {
+      const angle = Math.atan2(to.y - from.y, to.x - from.x);
+      const size = 8;
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = width;
+      ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(to.x, to.y);
+      ctx.lineTo(to.x - size * Math.cos(angle - Math.PI / 6), to.y - size * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(to.x - size * Math.cos(angle + Math.PI / 6), to.y - size * Math.sin(angle + Math.PI / 6));
+      ctx.closePath(); ctx.fill(); ctx.restore();
+    }
+
+    function bar(x, y, width, height, color, label, value) {
+      ctx.save();
+      ctx.fillStyle = color; ctx.fillRect(x, y, width, height);
+      ctx.strokeStyle = "rgba(15,23,42,.22)"; ctx.strokeRect(x, y, width, height);
+      ctx.restore();
+      drawText(label, x + width / 2, Hh() - 18, { align: "center", size: 11, color: colors.text });
+      drawText(value, x + width / 2, y - 10, { align: "center", size: 11, color });
+    }
+
+    function qFB(theta) { return Math.min(4.5, 1 / Math.max(theta * theta, 0.04)); }
+    function cTheta(theta) { return state.L + (state.H - state.L) * theta; }
+    function qFBContinuous(theta) { const c = cTheta(theta); return Math.min(4.5, 1 / Math.max(c * c, 0.04)); }
+    function qSBContinuous(theta) { const vc = cTheta(theta) + state.lambda * theta; return Math.min(4.5, 1 / Math.max(vc * vc, 0.04)); }
+    function qSB2(type) {
+      if (type === "L") return qFB(state.L);
+      const virtualH = state.H + (state.lambda / (1 - state.lambda)) * (state.H - state.L);
+      return Math.min(4.5, 1 / Math.max(virtualH * virtualH, 0.04));
+    }
+
+    function drawMHBinary() {
+      clearCanvas();
+      const maxWage = 1.4;
+      drawAxes({ xLabel: "output state", yLabel: "wage", minY: 0, maxY: maxWage });
+      const base = Hh() - 34;
+      const scale = (Hh() - 68) / maxWage;
+      let wL, wH;
+      if (state.info === "fb") { const flat = state.C + 0.18; wL = flat; wH = flat; }
+      else { wL = 0; wH = state.C / Math.max(state.q1 - state.q0, 0.05); }
+      wH = Math.min(wH, 1.3);
+      const x1 = W() * 0.28, x2 = W() * 0.62, bw = Math.min(75, W() * 0.15);
+      bar(x1, base - wL * scale, bw, wL * scale, colors.blue, "x_L", `w_L=${wL.toFixed(2)}`);
+      bar(x2, base - wH * scale, bw, wH * scale, state.info === "fb" ? colors.blue : colors.red, "x_H", `w_H=${wH.toFixed(2)}`);
+      if (state.info === "sb") {
+        line([{ x: x1 + bw, y: base - wL * scale }, { x: x2, y: base - wH * scale }], colors.orange, 2.5, true);
+        drawText("IC needs wage spread", W() * 0.40, Hh() * 0.25, { color: colors.orange });
+      } else {
+        drawText("effort observable: no IC wedge", W() * 0.35, Hh() * 0.25, { color: colors.green });
+      }
+    }
+
+    function drawMHContinuous() {
+      clearCanvas();
+      drawAxes({ xLabel: "output x", yLabel: "w(x)", minY: 0, maxY: 1 });
+      const pts = [];
+      const steep = 4 + 10 * state.risk;
+      const amplitude = 0.30 + 0.45 * state.risk;
+      for (let i = 0; i <= 100; i++) {
+        const x = i / 100;
+        const w = state.info === "fb" ? 0.28 + 0.22 * state.risk : 0.12 + amplitude / (1 + Math.exp(-steep * (x - 0.55)));
+        pts.push({ x: px(x, 0, 1), y: py(w, 0, 1) });
+      }
+      line(pts, state.info === "fb" ? colors.blue : colors.red, 3);
+      drawText(state.info === "fb" ? "full insurance: flat wage" : "MLRP ⇒ higher output gets higher wage", W() * 0.28, Hh() * 0.28, { color: state.info === "fb" ? colors.blue : colors.red });
+    }
+
+    function drawASBinary() {
+      clearCanvas();
+      drawAxes({ xLabel: "type", yLabel: "quantity q", minY: 0, maxY: 4.8 });
+      const base = Hh() - 34;
+      const scale = (Hh() - 68) / 4.8;
+      const qLFB = qFB(state.L), qHFB = qFB(state.H);
+      const qL = state.info === "fb" ? qLFB : qSB2("L");
+      const qH = state.info === "fb" ? qHFB : qSB2("H");
+      const x1 = W() * 0.28, x2 = W() * 0.62, bw = Math.min(75, W() * 0.15);
+      bar(x1, base - qL * scale, bw, qL * scale, colors.green, "L low cost", `q_L=${qL.toFixed(2)}`);
+      bar(x2, base - qH * scale, bw, qH * scale, state.info === "fb" ? colors.blue : colors.orange, "H high cost", `q_H=${qH.toFixed(2)}`);
+      if (state.info === "sb") {
+        const yFBH = base - qHFB * scale, ySBH = base - qH * scale;
+        ctx.save(); ctx.strokeStyle = colors.blue; ctx.lineWidth = 2; ctx.setLineDash([6, 5]); ctx.strokeRect(x2 - 8, yFBH, bw + 16, qHFB * scale); ctx.restore();
+        arrow({ x: x2 + bw + 16, y: yFBH }, { x: x2 + bw + 16, y: ySBH }, colors.orange, 2.3);
+        drawText("no distortion", x1 - 5, base - qL * scale - 28, { color: colors.green, size: 11 });
+        drawText("downward distortion", x2 + bw + 26, (yFBH + ySBH) / 2, { color: colors.orange, size: 11 });
+      } else {
+        drawText("type observable: efficient q for each type", W() * 0.22, Hh() * 0.23, { color: colors.blue });
+      }
+    }
+
+    function drawASContinuous() {
+      clearCanvas();
+      drawAxes({ xLabel: "cost type θ", yLabel: "quantity q(θ)", minY: 0, maxY: 4.8 });
+      const fb = [], sb = [];
+      for (let i = 1; i <= 100; i++) {
+        const theta = i / 100;
+        fb.push({ x: px(theta, 0, 1), y: py(qFBContinuous(theta), 0, 4.8) });
+        sb.push({ x: px(theta, 0, 1), y: py(qSBContinuous(theta), 0, 4.8) });
+      }
+      if (state.info === "sb") {
+        ctx.save(); ctx.fillStyle = "rgba(234,88,12,0.14)"; ctx.beginPath();
+        fb.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+        [...sb].reverse().forEach((p) => ctx.lineTo(p.x, p.y));
+        ctx.closePath(); ctx.fill(); ctx.restore();
+      }
+      line(fb, colors.blue, state.info === "fb" ? 3 : 1.8, state.info !== "fb");
+      if (state.info === "sb") line(sb, colors.red, 3);
+      drawText("q_FB(θ)", W() * 0.20, Hh() * 0.22, { color: colors.blue });
+      if (state.info === "sb") {
+        drawText("q_SB(θ)", W() * 0.45, Hh() * 0.48, { color: colors.red });
+        drawText("orange area = output distortion", W() * 0.32, Hh() * 0.62, { color: colors.orange, size: 11 });
+      }
+    }
+
+    function drawRentVirtualCost() {
+      clearCanvas();
+      drawAxes({ xLabel: "cost type θ", yLabel: "cost / rent", minY: 0, maxY: 2.2 });
+      const trueCost = [], virtualCost = [], rent = [];
+      for (let i = 0; i <= 100; i++) {
+        const theta = i / 100;
+        const cost = cTheta(theta);
+        const vc = cost + state.lambda * theta;
+        const r = Math.max(0, 1 - theta) * state.lambda;
+        trueCost.push({ x: px(theta, 0, 1), y: py(cost, 0, 2.2) });
+        virtualCost.push({ x: px(theta, 0, 1), y: py(vc, 0, 2.2) });
+        rent.push({ x: px(theta, 0, 1), y: py(state.info === "fb" ? 0 : r, 0, 2.2) });
+      }
+      line(trueCost, colors.blue, 2.6);
+      drawText("true cost θ", W() * 0.25, Hh() * 0.55, { color: colors.blue });
+      if (state.info === "sb") {
+        line(virtualCost, colors.red, 3);
+        line(rent, colors.orange, 2.8, true);
+        drawText("virtual cost θ+F/f", W() * 0.42, Hh() * 0.28, { color: colors.red });
+        drawText("information rent U(θ)", W() * 0.20, Hh() * 0.23, { color: colors.orange });
+      } else {
+        line(rent, colors.green, 2.6, true);
+        drawText("FB: U(θ)=0", W() * 0.55, Hh() * 0.72, { color: colors.green });
+      }
+      const mx = px(state.lambda, 0, 1), my = py(cTheta(state.lambda), 0, 2.2);
+      line([{ x: mx, y: py(0, 0, 2.2) }, { x: mx, y: py(2.2, 0, 2.2) }], colors.purple, 1.7, true);
+      dot(mx, my, colors.purple, 5);
+      drawText(`θ=${state.lambda.toFixed(2)}`, mx + 8, my - 10, { color: colors.purple, size: 11 });
+    }
+
+    function drawBilateralTrading() {
+      clearCanvas();
+      drawAxes({ xLabel: "seller cost c", yLabel: "buyer value v", minY: 0, maxY: 1 });
+      const left = px(0, 0, 1), right = px(1, 0, 1), bottom = py(0, 0, 1), top = py(1, 0, 1);
+      const wedge = 0.06 + 0.28 * state.lambda;
+      ctx.save(); ctx.fillStyle = state.info === "fb" ? "rgba(22,163,74,0.14)" : "rgba(37,99,235,0.10)";
+      ctx.beginPath(); ctx.moveTo(left, top); ctx.lineTo(right, top); ctx.lineTo(right, bottom); ctx.closePath(); ctx.fill(); ctx.restore();
+      line([{ x: left, y: bottom }, { x: right, y: top }], colors.axis, 2.4);
+      drawText("v = c", W() * 0.57, Hh() * 0.52, { color: colors.axis, size: 11 });
+      if (state.info === "fb") {
+        drawText("trade region: v ≥ c", W() * 0.50, Hh() * 0.26, { color: colors.green });
+      } else {
+        line([{ x: px(0, 0, 1), y: py(wedge, 0, 1) }, { x: px(1 - wedge, 0, 1), y: py(1, 0, 1) }], colors.red, 3, true);
+        drawText("no-trade wedge", W() * 0.46, Hh() * 0.33, { color: colors.red });
+        drawText("some efficient trades lost", W() * 0.39, Hh() * 0.72, { color: colors.orange, size: 11 });
+      }
+    }
+
+    const formulaData = {
+      mh2: {
+        title: "Moral Hazard：二元产出", badge: "hidden action",
+        summaryFB: "努力可观察：只补偿参与约束，没有 IC。",
+        summarySB: "努力不可观察：工资必须诱导高努力，因此多出 IC。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>w</span><sub>H</sub>, <span class='var'>w</span><sub>L</sub></sub> &nbsp; <span class='var'>q</span><sub>1</sub>(<span class='var'>x</span><sub>H</sub> &minus; <span class='var'>w</span><sub>H</sub>) + (1&minus;<span class='var'>q</span><sub>1</sub>)(<span class='var'>x</span><sub>L</sub> &minus; <span class='var'>w</span><sub>L</sub>)",
+          "<span class='op'>s.t.</span> <span class='var'>q</span><sub>1</sub><span class='var'>w</span><sub>H</sub> + (1&minus;<span class='var'>q</span><sub>1</sub>)<span class='var'>w</span><sub>L</sub> &minus; <span class='var'>C</span> &ge; ū <span class='tag'>(IR)</span>",
+          "<span class='indent'><span class='var'>w</span><sub>H</sub>, <span class='var'>w</span><sub>L</sub> &ge; 0 <span class='tag'>(LL, if imposed)</span></span>"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>w</span><sub>H</sub>, <span class='var'>w</span><sub>L</sub></sub> &nbsp; <span class='var'>q</span><sub>1</sub>(<span class='var'>x</span><sub>H</sub> &minus; <span class='var'>w</span><sub>H</sub>) + (1&minus;<span class='var'>q</span><sub>1</sub>)(<span class='var'>x</span><sub>L</sub> &minus; <span class='var'>w</span><sub>L</sub>)",
+          "<span class='op'>s.t.</span> <span class='var'>q</span><sub>1</sub><span class='var'>w</span><sub>H</sub> + (1&minus;<span class='var'>q</span><sub>1</sub>)<span class='var'>w</span><sub>L</sub> &minus; <span class='var'>C</span> &ge; ū <span class='tag'>(IR)</span>",
+          "<span class='indent'><span class='var'>q</span><sub>1</sub><span class='var'>w</span><sub>H</sub> + (1&minus;<span class='var'>q</span><sub>1</sub>)<span class='var'>w</span><sub>L</sub> &minus; <span class='var'>C</span> &ge; <span class='var'>q</span><sub>0</sub><span class='var'>w</span><sub>H</sub> + (1&minus;<span class='var'>q</span><sub>0</sub>)<span class='var'>w</span><sub>L</sub> <span class='tag'>(IC)</span></span>",
+          "<span class='indent'><span class='var'>w</span><sub>H</sub>, <span class='var'>w</span><sub>L</sub> &ge; 0 <span class='tag'>(LL, if imposed)</span></span>"
+        ]
+      },
+      mhc: {
+        title: "Moral Hazard：连续产出", badge: "hidden action",
+        summaryFB: "努力可观察：工资只需满足高努力下 IR。",
+        summarySB: "努力不可观察：产出作为信号，工资随产出提供激励。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>w</span>(&middot;)</sub> &nbsp; &int;[<span class='var'>x</span> &minus; <span class='var'>w</span>(<span class='var'>x</span>)] <span class='var'>f</span>(<span class='var'>x</span>|1)d<span class='var'>x</span>",
+          "<span class='op'>s.t.</span> &int;<span class='var'>u</span>(<span class='var'>w</span>(<span class='var'>x</span>)) <span class='var'>f</span>(<span class='var'>x</span>|1)d<span class='var'>x</span> &minus; <span class='var'>C</span> &ge; ū <span class='tag'>(IR)</span>",
+          "<span class='indent'><span class='var'>w</span>(<span class='var'>x</span>) &ge; 0, &forall;<span class='var'>x</span> <span class='tag'>(LL)</span></span>"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>w</span>(&middot;)</sub> &nbsp; &int;[<span class='var'>x</span> &minus; <span class='var'>w</span>(<span class='var'>x</span>)] <span class='var'>f</span>(<span class='var'>x</span>|1)d<span class='var'>x</span>",
+          "<span class='op'>s.t.</span> &int;<span class='var'>u</span>(<span class='var'>w</span>(<span class='var'>x</span>)) <span class='var'>f</span>(<span class='var'>x</span>|1)d<span class='var'>x</span> &minus; <span class='var'>C</span> &ge; ū <span class='tag'>(IR)</span>",
+          "<span class='indent'>&int;<span class='var'>u</span>(<span class='var'>w</span>(<span class='var'>x</span>)) <span class='var'>f</span>(<span class='var'>x</span>|1)d<span class='var'>x</span> &minus; <span class='var'>C</span> &ge; &int;<span class='var'>u</span>(<span class='var'>w</span>(<span class='var'>x</span>)) <span class='var'>f</span>(<span class='var'>x</span>|0)d<span class='var'>x</span> <span class='tag'>(IC)</span></span>",
+          "<span class='indent'><span class='var'>w</span>(<span class='var'>x</span>) &ge; 0, &forall;<span class='var'>x</span> <span class='tag'>(LL)</span></span>"
+        ]
+      },
+      as2: {
+        title: "Adverse Selection：二元类型", badge: "hidden type",
+        summaryFB: "类型可观察：只需要各类型 IR。",
+        summarySB: "类型不可观察：菜单必须满足两类报真 IC。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(L), <span class='var'>q</span>(H), <span class='var'>t</span>(L), <span class='var'>t</span>(H)</sub> &nbsp; &lambda;[S(<span class='var'>q</span>(L))&minus;<span class='var'>t</span>(L)] + (1&minus;&lambda;)[S(<span class='var'>q</span>(H))&minus;<span class='var'>t</span>(H)]",
+          "<span class='op'>s.t.</span> <span class='var'>t</span>(L) &minus; L<span class='var'>q</span>(L) &ge; 0 <span class='tag'>(IR<sub>L</sub>)</span>",
+          "<span class='indent'><span class='var'>t</span>(H) &minus; H<span class='var'>q</span>(H) &ge; 0 <span class='tag'>(IR<sub>H</sub>)</span></span>"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(L), <span class='var'>q</span>(H), <span class='var'>t</span>(L), <span class='var'>t</span>(H)</sub> &nbsp; &lambda;[S(<span class='var'>q</span>(L))&minus;<span class='var'>t</span>(L)] + (1&minus;&lambda;)[S(<span class='var'>q</span>(H))&minus;<span class='var'>t</span>(H)]",
+          "<span class='op'>s.t.</span> <span class='var'>t</span>(L) &minus; L<span class='var'>q</span>(L) &ge; 0 <span class='tag'>(IR<sub>L</sub>)</span>",
+          "<span class='indent'><span class='var'>t</span>(H) &minus; H<span class='var'>q</span>(H) &ge; 0 <span class='tag'>(IR<sub>H</sub>)</span></span>",
+          "<span class='indent'><span class='var'>t</span>(L) &minus; L<span class='var'>q</span>(L) &ge; <span class='var'>t</span>(H) &minus; L<span class='var'>q</span>(H) <span class='tag'>(IC<sub>L</sub>)</span></span>",
+          "<span class='indent'><span class='var'>t</span>(H) &minus; H<span class='var'>q</span>(H) &ge; <span class='var'>t</span>(L) &minus; H<span class='var'>q</span>(L) <span class='tag'>(IC<sub>H</sub>)</span></span>"
+        ]
+      },
+      asc: {
+        title: "Adverse Selection：连续类型", badge: "hidden type",
+        summaryFB: "类型可观察：逐点按真实成本配置。",
+        summarySB: "类型不可观察：IC 变成 envelope 与单调性，代入后出现虚拟成本。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(&middot;), <span class='var'>t</span>(&middot;)</sub> &nbsp; &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; <span class='var'>t</span>(&theta;)] f(&theta;)d&theta;",
+          "<span class='op'>s.t.</span> <span class='var'>t</span>(&theta;) &minus; &theta;<span class='var'>q</span>(&theta;) &ge; 0, &forall;&theta; <span class='tag'>(IR)</span>"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(&middot;), <span class='var'>U</span>(&middot;)</sub> &nbsp; &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; &theta;<span class='var'>q</span>(&theta;) &minus; <span class='var'>U</span>(&theta;)] f(&theta;)d&theta;",
+          "<span class='op'>s.t.</span> <span class='var'>U</span>&prime;(&theta;) = &minus;<span class='var'>q</span>(&theta;) <span class='tag'>(Envelope/IC)</span>",
+          "<span class='indent'><span class='var'>q</span>&prime;(&theta;) &le; 0 <span class='tag'>(MON/IC)</span></span>",
+          "<span class='indent'><span class='var'>U</span>(&theta;) &ge; 0, &forall;&theta; <span class='tag'>(IR)</span></span>",
+          "<span class='indent'>or: <span class='op'>max</span><sub><span class='var'>q</span>(&middot;)</sub> &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; (&theta;+F(&theta;)/f(&theta;))<span class='var'>q</span>(&theta;)]f(&theta;)d&theta;</span>"
+        ]
+      },
+      rent: {
+        title: "Adverse Selection：信息租金与虚拟成本", badge: "rent / virtual cost",
+        summaryFB: "FB 无需信息租金；SB 中租金进入目标函数并变成虚拟成本。",
+        summarySB: "租金链条：IC ⇒ envelope ⇒ U(θ)=∫θ¹q(s)ds ⇒ virtual cost。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(&middot;), <span class='var'>U</span>(&middot;)</sub> &nbsp; &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; &theta;<span class='var'>q</span>(&theta;) &minus; <span class='var'>U</span>(&theta;)]f(&theta;)d&theta;",
+          "<span class='op'>s.t.</span> <span class='var'>U</span>(&theta;) &ge; 0 <span class='tag'>(IR)</span>",
+          "<span class='indent'>FB: <span class='var'>U</span>(&theta;)=0, &nbsp; S&prime;(<span class='var'>q</span><sup>FB</sup>(&theta;))=&theta;</span>"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>q</span>(&middot;), <span class='var'>U</span>(&middot;)</sub> &nbsp; &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; &theta;<span class='var'>q</span>(&theta;) &minus; <span class='var'>U</span>(&theta;)]f(&theta;)d&theta;",
+          "<span class='op'>s.t.</span> <span class='var'>U</span>&prime;(&theta;) = &minus;<span class='var'>q</span>(&theta;) <span class='tag'>(Envelope/IC)</span>",
+          "<span class='indent'><span class='var'>U</span>(1)=0, &nbsp; <span class='var'>U</span>(&theta;)=&int;<sub>&theta;</sub><sup>1</sup><span class='var'>q</span>(s)ds <span class='tag'>(Rent)</span></span>",
+          "<span class='indent'>=&gt; <span class='op'>max</span><sub><span class='var'>q</span>(&middot;)</sub> &int;<sub>0</sub><sup>1</sup>[S(<span class='var'>q</span>(&theta;)) &minus; (&theta;+F(&theta;)/f(&theta;))<span class='var'>q</span>(&theta;)]f(&theta;)d&theta;</span>"
+        ]
+      },
+      bt: {
+        title: "Bilateral Trading Environment", badge: "two-sided private info",
+        summaryFB: "买方价值 v、卖方成本 c 可观察时，v≥c 的交易有效率。",
+        summarySB: "v 和 c 都是私人信息时，IC、IR 与 BB 一般导致 no-trade wedge。",
+        fb: [
+          "<span class='op'>max</span><sub><span class='var'>x</span>(v,c)&in;[0,1]</sub> &nbsp; &int;&int;(v-c)<span class='var'>x</span>(v,c)f(v)g(c)dvdc",
+          "<span class='op'>s.t.</span> <span class='var'>x</span>(v,c)=1 if v&ge;c, &nbsp; <span class='var'>x</span>(v,c)=0 if v&lt;c"
+        ],
+        sb: [
+          "<span class='op'>max</span><sub><span class='var'>x</span>,t<sub>B</sub>,t<sub>S</sub></sub> &nbsp; &int;&int;(v-c)<span class='var'>x</span>(v,c)f(v)g(c)dvdc",
+          "<span class='op'>s.t.</span> v<span class='var'>x</span>(v,c)-t<sub>B</sub>(v,c) &ge; v<span class='var'>x</span>(&hat;v,c)-t<sub>B</sub>(&hat;v,c) <span class='tag'>(IC<sub>B</sub>)</span>",
+          "<span class='indent'>t<sub>S</sub>(v,c)-c<span class='var'>x</span>(v,c) &ge; t<sub>S</sub>(v,&hat;c)-c<span class='var'>x</span>(v,&hat;c) <span class='tag'>(IC<sub>S</sub>)</span></span>",
+          "<span class='indent'>v<span class='var'>x</span>(v,c)-t<sub>B</sub>(v,c) &ge;0, &nbsp; t<sub>S</sub>(v,c)-c<span class='var'>x</span>(v,c)&ge;0 <span class='tag'>(IR)</span></span>",
+          "<span class='indent'>t<sub>B</sub>(v,c) &ge; t<sub>S</sub>(v,c) <span class='tag'>(BB)</span></span>"
+        ]
+      }
+    };
+
+    function renderLines(lines) {
+      linesEl.replaceChildren(...lines.map((line) => {
+        const div = document.createElement("div");
+        div.className = "md-line";
+        div.innerHTML = line;
+        return div;
+      }));
+    }
+
+    function renderControls() {
+      const specs = [];
+      if (state.model === "mh2") specs.push(["q1", "q₁", 0.55, 0.95, 0.01], ["q0", "q₀", 0.05, 0.50, 0.01], ["C", "C", 0.08, 0.42, 0.01]);
+      else if (state.model === "mhc") specs.push(["risk", "signal", 0.20, 1.00, 0.01]);
+      else if (state.model === "as2") specs.push(["L", "L", 0.20, 0.60, 0.01], ["H", "H", 0.65, 1.20, 0.01], ["lambda", "λ", 0.20, 0.80, 0.01]);
+      else if (state.model === "asc" || state.model === "rent") specs.push(["L", "low cost", 0.20, 0.60, 0.01], ["H", "high cost", 0.65, 1.20, 0.01], ["lambda", state.model === "rent" ? "rent" : "distortion", 0.20, 0.80, 0.01]);
+      else if (state.model === "bt") specs.push(["lambda", state.info === "fb" ? "sample" : "wedge", 0.20, 0.80, 0.01]);
+
+      controlsBox.replaceChildren(...specs.map(([key, label, min, max, step]) => {
+        const wrap = document.createElement("div");
+        wrap.className = "md-control";
+        const lab = document.createElement("label");
+        const left = document.createElement("span");
+        left.textContent = label;
+        left.style.fontFamily = "system-ui, sans-serif";
+        left.style.color = "#1f2937";
+        const val = document.createElement("span");
+        val.textContent = Number(state[key]).toFixed(2);
+        const input = document.createElement("input");
+        input.type = "range"; input.min = min; input.max = max; input.step = step; input.value = state[key];
+        input.addEventListener("input", () => {
+          state[key] = Number(input.value);
+          if (key === "q1" && state.q1 <= state.q0 + 0.05) state.q1 = state.q0 + 0.05;
+          if (key === "q0" && state.q0 >= state.q1 - 0.05) state.q0 = state.q1 - 0.05;
+          if (key === "L" && state.L >= state.H - 0.05) state.L = state.H - 0.05;
+          if (key === "H" && state.H <= state.L + 0.05) state.H = state.L + 0.05;
+          input.value = state[key];
+          val.textContent = Number(state[key]).toFixed(2);
+          renderMetrics(); renderDistortion(); drawCurrent();
+        });
+        lab.append(left, val); wrap.append(lab, input); return wrap;
+      }));
+    }
+
+    function renderLegend() {
+      const items = {
+        mh2: state.info === "fb" ? [[colors.blue, "flat wage"], [colors.green, "no IC"]] : [[colors.red, "reward"], [colors.orange, "IC wedge"]],
+        mhc: state.info === "fb" ? [[colors.blue, "flat wage"]] : [[colors.red, "incentive wage"]],
+        as2: state.info === "fb" ? [[colors.green, "L output"], [colors.blue, "H output"]] : [[colors.green, "no distortion"], [colors.orange, "distortion"]],
+        asc: state.info === "fb" ? [[colors.blue, "FB allocation"]] : [[colors.blue, "FB benchmark"], [colors.red, "SB allocation"], [colors.orange, "distortion area"]],
+        rent: state.info === "fb" ? [[colors.blue, "true cost"], [colors.green, "zero rent"]] : [[colors.blue, "true cost"], [colors.red, "virtual cost"], [colors.orange, "rent"]],
+        bt: state.info === "fb" ? [[colors.green, "trade region"], [colors.axis, "v=c"]] : [[colors.red, "no-trade wedge"], [colors.orange, "lost gains"]],
+      }[state.model];
+      legendBox.replaceChildren(...items.map(([color, text]) => {
+        const span = document.createElement("span");
+        span.innerHTML = `<i class="dot" style="background:${color}"></i>${text}`;
+        return span;
+      }));
+    }
+
+    function renderMetrics() {
+      const fmt = (x) => Number.isFinite(x) ? x.toFixed(3) : "—";
+      const items = [];
+      if (state.model === "mh2") {
+        const spread = state.C / Math.max(state.q1 - state.q0, 0.05);
+        items.push(["IC wedge", state.info === "fb" ? "none" : `w_H-w_L=${fmt(spread)}`]);
+        items.push(["effort gain", `(q₁-q₀)=${fmt(state.q1 - state.q0)}`]);
+      } else if (state.model === "mhc") {
+        items.push(["wage schedule", state.info === "fb" ? "flat" : "increasing"]);
+        items.push(["signal", fmt(state.risk)]);
+      } else if (state.model === "as2") {
+        const qLFB = qFB(state.L), qHFB = qFB(state.H), qLSB = qSB2("L"), qHSB = qSB2("H");
+        items.push(["q_L", fmt(state.info === "fb" ? qLFB : qLSB)]);
+        items.push(["q_H", fmt(state.info === "fb" ? qHFB : qHSB)]);
+        if (state.info === "sb") items.push(["Δq_H", fmt(qHFB - qHSB)]);
+      } else if (state.model === "asc") {
+        const gap = qFBContinuous(0.5) - qSBContinuous(0.5);
+        items.push(["top", "no distortion"]);
+        items.push(["mid distortion", state.info === "fb" ? "none" : fmt(gap)]);
+      } else if (state.model === "rent") {
+        const theta = state.lambda;
+        items.push(["θ", fmt(theta)]);
+        items.push(["virtual cost", state.info === "fb" ? "none" : fmt(cTheta(theta) + state.lambda * theta)]);
+        items.push(["rent", state.info === "fb" ? "0" : fmt((1 - theta) * state.lambda)]);
+      } else if (state.model === "bt") {
+        const wedge = 0.06 + 0.28 * state.lambda;
+        if (state.info === "sb") items.push(["no-trade wedge", fmt(wedge)]);
+        else items.push(["sample c", fmt(state.lambda)]);
+      }
+      kpisBox.replaceChildren(...items.map(([k, v]) => {
+        const el = document.createElement("div");
+        el.className = "md-kpi";
+        el.innerHTML = `<b>${k}</b><span>${v}</span>`;
+        return el;
+      }));
+    }
+
+    function renderDistortion() {
+      let html = "";
+      if (state.model === "as2" && state.info === "sb") {
+        const qHFB = qFB(state.H), qHSB = qSB2("H");
+        html = `<b>产出扭曲：</b>低成本类型无扭曲，高成本类型向下扭曲。<span class="math">q<sup>SB</sup>(L)=q<sup>FB</sup>(L), &nbsp; q<sup>SB</sup>(H)&lt;q<sup>FB</sup>(H), &nbsp; Δq<sub>H</sub>=${(qHFB - qHSB).toFixed(3)}</span>`;
+      } else if (state.model === "asc" && state.info === "sb") {
+        html = `<b>产出扭曲：</b>虚拟成本高于真实成本，所以 SB 曲线低于 FB 曲线。<span class="math">S'(q<sup>FB</sup>(θ))=θ, &nbsp; S'(q<sup>SB</sup>(θ))=θ+F(θ)/f(θ)&gt;θ</span>`;
+      } else if (state.model === "rent" && state.info === "sb") {
+        html = `<b>租金—扭曲链条：</b>IC 使低成本类型获得租金；为降低租金，principal 用虚拟成本压低产量。<span class="math">U(θ)=∫<sub>θ</sub><sup>1</sup>q(s)ds, &nbsp; c<sup>v</sup>(θ)=θ+F(θ)/f(θ)</span>`;
+      }
+      distortionBox.innerHTML = html;
+      distortionBox.classList.toggle("is-visible", Boolean(html));
+    }
+
+    function renderRightPanel() {
+      const data = formulaData[state.model];
+      titleEl.textContent = data.title;
+      badgeEl.textContent = state.info === "fb" ? "First Best" : "Second Best";
+      summaryEl.textContent = state.info === "fb" ? data.summaryFB : data.summarySB;
+      renderLines(state.info === "fb" ? data.fb : data.sb);
+    }
+
+    function drawCurrent() {
+      if (state.model === "mh2") drawMHBinary();
+      if (state.model === "mhc") drawMHContinuous();
+      if (state.model === "as2") drawASBinary();
+      if (state.model === "asc") drawASContinuous();
+      if (state.model === "rent") drawRentVirtualCost();
+      if (state.model === "bt") drawBilateralTrading();
+    }
+
+    function update() {
+      fbButton.classList.toggle("is-active", state.info === "fb");
+      sbButton.classList.toggle("is-active", state.info === "sb");
+      tabButtons.forEach((b) => b.classList.toggle("is-active", b.dataset.case === state.model));
+      renderRightPanel(); renderLegend(); renderControls(); renderMetrics(); renderDistortion(); drawCurrent();
+    }
+
+    function initialize() {
+      setupCanvasForHiDpi();
+      fbButton.addEventListener("click", () => { state.info = "fb"; update(); });
+      sbButton.addEventListener("click", () => { state.info = "sb"; update(); });
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => { state.model = button.dataset.case; update(); });
+      });
+      window.addEventListener("resize", () => { setupCanvasForHiDpi(); drawCurrent(); });
+      update();
+    }
+
+    initialize();
+  })();
+</script>
+</body>
+</html>
