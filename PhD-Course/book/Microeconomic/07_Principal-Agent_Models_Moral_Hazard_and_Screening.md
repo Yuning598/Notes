@@ -601,8 +601,7 @@ $$
 \right.
 $$
 
-IC implies monotonicity
--
+#### 2.1.2.1 IC implies monotonicity
 
 Add $IC_L$ and $IC_H$:
 
@@ -620,8 +619,7 @@ $$
 q_L\ge q_H.
 $$
 
-Binding constraints
--
+#### 2.1.2.2 Binding constraints
 
 At the optimum:
 
@@ -763,8 +761,7 @@ $$
 
 Thus $q$ is nonincreasing.
 
-Envelope formula
--
+#### 2.1.3.1 Envelope formula
 
 Under IC,
 
