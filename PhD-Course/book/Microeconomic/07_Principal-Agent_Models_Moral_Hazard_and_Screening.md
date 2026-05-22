@@ -932,16 +932,15 @@ $$
 (\mathrm{IR})\qquad U_b(\cdot)\ge0,\qquad U_s(\cdot)\ge0.
 $$
 
-**Theorem 2 (Generalized Myerson-Satterthwaite Theorem)**
-
+:::{admonition} Theorem 2 (Generalized Myerson-Satterthwaite Theorem)
 Given $(\mathrm{OL})$, no incentive-compatible (revelation) mechanism of the form $\langle q^*,t_b,t_s\rangle$ satisfies both $(\mathrm{NES})$ and $(\mathrm{IR})$.
+:::
 
-**Corollary 3 (Myerson \& Satterthwaite, 1983)**
-
+:::{admonition} Corollary 3 (Myerson \& Satterthwaite, 1983)
 Given $(\mathrm{OL})$, no efficient allocation rule satisfying $(\mathrm{IR})$ can be implemented.
+:::
 
-**Proof of Corollary 3**
-
+:::{admonition} Proof of Corollary 3
 Suppose $\langle q,t_b,t_s\rangle$ is efficient, and satisfies IC and IR.
 
 Since it is efficient, $\langle q,t_b,t_s\rangle$ satisfies BB and $q=q^*$ a.e. Hence, since
@@ -951,15 +950,15 @@ $$
 $$
 
 $\langle q,t_b,t_s\rangle=\langle q^*,t_b,t_s\rangle$ is incentive compatible and satisfies NES and IR. This contradicts Theorem 2.
+:::
 
-**Remark**
-
+:::{admonition} Remark
 - The logic of the Myerson-Satterthwaite inefficiency result is that the cost of eliciting private information is more than the maximal expected surplus that can be generated.
 - A subsidizing third party can thus restore efficiency.
 - This is made clear in the upcoming proof.
+:::
 
-**Our present use of Theorem 1**
-
+:::{admonition} Our present use of Theorem 1
 We shall apply it to both the buyer and seller in the bilateral trade environment.
 
 To apply it to the seller, the statement becomes $Q_s(c)$ nonincreasing, and
@@ -973,9 +972,9 @@ To apply it to the buyer, the statement becomes $Q_b(v)$ nondecreasing, and
 $$
 U_b(v)=U_b(\underline v)+\int_{\underline v}^{v}Q_b(z)\,dz.
 $$
+:::
 
-**A simple proof of the generalized MS theorem**
-
+:::{admonition} A simple proof of the generalized MS theorem
 This proof is based on Williams (1999). We prove it for the case $\bar v\le \bar c$ and $\underline c\le \underline v$.
 
 In this case the efficient trading rule $q^*$ satisfies $q^*(\bar v,\cdot)=0$ and $q^*(\cdot,\bar c)=0$. Define the maximal surplus function
@@ -1048,6 +1047,7 @@ $$
 $$
 
 contrary to $(\mathrm{IR})$. This proves the theorem.
+:::
 
 ## Exercises
 
