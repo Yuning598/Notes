@@ -430,10 +430,15 @@ Higher-cost types dislike output more.
 If $\theta$ is known, principal solves
 
 $$
-\max_q S(q)-\theta q,
+\left\{
+\begin{aligned}
+\max_q\quad & S(q)-\theta q\\
+\text{s.t.}\quad & IR_\theta:\ t-\theta q\ge 0
+\end{aligned}
+\right.
 $$
 
-with transfer set to bind IR:
+with transfer set to bind $IR_\theta$:
 
 $$
 t-\theta q=0
@@ -491,15 +496,20 @@ $$
 U_L=t_L-Lq_L,\qquad U_H=t_H-Hq_H.
 $$
 
-Constraints:
+The principal's problem is
 
 $$
+\left\{
 \begin{aligned}
-IC_L:\quad &U_L\ge U_H+(H-L)q_H,\\
-IC_H:\quad &U_H\ge U_L-(H-L)q_L,\\
-IR_L:\quad &U_L\ge0,\\
-IR_H:\quad &U_H\ge0.
+\max_{q_L,q_H,t_L,t_H}\quad
+&\lambda\bigl[S(q_L)-t_L\bigr]+(1-\lambda)\bigl[S(q_H)-t_H\bigr]\\
+\text{s.t.}\quad
+&IC_L:\ U_L\ge U_H+(H-L)q_H,\\
+&IC_H:\ U_H\ge U_L-(H-L)q_L,\\
+&IR_L:\ U_L\ge0,\\
+&IR_H:\ U_H\ge0.
 \end{aligned}
+\right.
 $$
 
 IC implies monotonicity
