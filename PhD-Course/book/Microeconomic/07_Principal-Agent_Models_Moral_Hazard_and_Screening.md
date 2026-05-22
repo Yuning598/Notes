@@ -393,6 +393,63 @@ $$
 $$
 
 
+### 2.7 Continuous output and MLRP
+
+Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
+
+$$
+\frac{f(x\mid 1)}{f(x\mid 0)}
+\quad\text{is increasing in }x.
+$$
+
+MLRP implies FOSD: high effort makes high output more likely.
+
+The high-effort second-best problem is
+
+$$
+\begin{aligned}
+\max_{w(\cdot)}\quad
+&\int_{\underline x}^{\bar x}[x-w(x)]f(x\mid1)\,dx\\
+\text{s.t.}\quad
+&\int u(w(x))f(x\mid1)\,dx-C\ge \bar u,\\
+&\int u(w(x))[f(x\mid1)-f(x\mid0)]\,dx\ge C.
+\end{aligned}
+$$
+
+FOC with multipliers $\lambda,\mu$:
+
+$$
+\begin{aligned}
+-f(x\mid1)
++\lambda u'(w(x))f(x\mid1)
++\mu u'(w(x))[f(x\mid1)-f(x\mid0)]
+=0.
+\end{aligned}
+$$
+
+Divide by $f(x\mid1)$:
+
+$$
+\begin{aligned}
+1
+=
+u'(w(x))
+\left[
+\lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right)
+\right].
+\end{aligned}
+$$
+
+Thus
+
+$$
+\frac{1}{u'(w(x))}
+=
+\lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right).
+$$
+
+Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
+
 ## 3. Adverse Selection (Hidden Information): Screening
 
 Now output/effort is observable, but agent's cost type is private.
@@ -765,6 +822,148 @@ $$
 
 Intuition: truthful information revelation requires giving information rents to both sides. The total rent needed to elicit private information can exceed the expected surplus available from efficient trade.
 
+## 4. Mechanism design templates
+
+:::{admonition} Unified notation
+$$
+\left\{
+\begin{aligned}
+&x_H>x_L &&\text{good / bad output}\\
+&q_1=\Pr(x_H\mid e=1),\quad q_0=\Pr(x_H\mid e=0),\quad q_1>q_0\\
+&C &&\text{high effort cost}\\
+&w_H,w_L &&\text{wages in the good/bad output states}\\
+&\bar u &&\text{reservation utility}
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.1 Moral hazard: binary output
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{w_H,w_L}\quad
+& q_1(x_H-w_H)+(1-q_1)(x_L-w_L)\\
+\text{s.t.}\quad
+&IR:\ q_1u(w_H)+(1-q_1)u(w_L)-C\ge \bar u\\
+&IC:\ q_1u(w_H)+(1-q_1)u(w_L)-C\ge q_0u(w_H)+(1-q_0)u(w_L)\\
+&LL:\ w_H,w_L\ge0\quad\text{(if limited liability)}
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.2 Moral hazard: continuous output
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{w(\cdot)}\quad
+&\int_{\underline x}^{\bar x}[x-w(x)]f(x\mid1)\,dx\\
+\text{s.t.}\quad
+&IR:\ \int u(w(x))f(x\mid1)\,dx-C\ge \bar u\\
+&IC:\ \int u(w(x))f(x\mid1)\,dx-C\ge \int u(w(x))f(x\mid0)\,dx\\
+&LL:\ w(x)\ge0,\ \forall x\quad\text{(if limited liability)}
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.3 Adverse selection: binary types, direct transfer form
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{q(L),q(H),t(L),t(H)}\quad
+&\lambda[S(q(L))-t(L)]+(1-\lambda)[S(q(H))-t(H)]\\
+\text{s.t.}\quad
+&IR_L:\ t(L)-Lq(L)\ge0\\
+&IR_H:\ t(H)-Hq(H)\ge0\\
+&IC_L:\ t(L)-Lq(L)\ge t(H)-Lq(H)\\
+&IC_H:\ t(H)-Hq(H)\ge t(L)-Hq(L)
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.4 Adverse selection: binary types, rent form
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{q(L),q(H),U(L),U(H)}\quad
+&\lambda[S(q(L))-Lq(L)-U(L)]+(1-\lambda)[S(q(H))-Hq(H)-U(H)]\\
+\text{s.t.}\quad
+&IR_L:\ U(L)\ge0\\
+&IR_H:\ U(H)\ge0\\
+&IC_L:\ U(L)\ge U(H)+(H-L)q(H)\\
+&IC_H:\ U(H)\ge U(L)-(H-L)q(L)
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.5 Adverse selection: continuous types, direct transfer form
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{q(\cdot),t(\cdot)}\quad
+&\int_0^1 [S(q(\theta))-t(\theta)]f(\theta)\,d\theta\\
+\text{s.t.}\quad
+&IC:\ t(\theta)-\theta q(\theta)\ge t(\hat\theta)-\theta q(\hat\theta),\ \forall \theta,\hat\theta\\
+&IR:\ t(\theta)-\theta q(\theta)\ge0,\ \forall \theta
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.6 Adverse selection: continuous types, rent form
+
+:::{admonition} Optimization problem
+$$
+\left\{
+\begin{aligned}
+\max_{q(\cdot),U(\cdot)}\quad
+&\int_0^1 [S(q(\theta))-\theta q(\theta)-U(\theta)]f(\theta)\,d\theta\\
+\text{s.t.}\quad
+&Envelope:\ U'(\theta)=-q(\theta)\\
+&Monotonicity:\ q'(\theta)\le0\\
+&IR:\ U(\theta)\ge0,\ \forall \theta
+\end{aligned}
+\right.
+$$
+:::
+
+### 4.7 Adverse selection: continuous types, virtual cost form
+
+:::{admonition} Optimization problem
+$$
+\max_{q(\cdot)}
+\int_0^1
+\left[
+S(q(\theta))-\left(\theta+\frac{F(\theta)}{f(\theta)}\right)q(\theta)
+\right]f(\theta)\,d\theta
+$$
+
+s.t.
+
+$$
+\left\{
+\begin{aligned}
+&Monotonicity:\ q'(\theta)\le0\\
+&Feasibility:\ q(\theta)\ge0
+\end{aligned}
+\right.
+$$
+:::
+
 ## Exercises
 
 ### H5 Q1 numerical template: JR 8.16
@@ -884,59 +1083,3 @@ $$
 
 Therefore the principal does **not** induce high effort; the worker exerts low effort.
 
-### 2.7 Continuous output and MLRP
-
-Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
-
-$$
-\frac{f(x\mid 1)}{f(x\mid 0)}
-\quad\text{is increasing in }x.
-$$
-
-MLRP implies FOSD: high effort makes high output more likely.
-
-The high-effort second-best problem is
-
-$$
-\begin{aligned}
-\max_{w(\cdot)}\quad
-&\int_{\underline x}^{\bar x}[x-w(x)]f(x\mid1)\,dx\\
-\text{s.t.}\quad
-&\int u(w(x))f(x\mid1)\,dx-C\ge \bar u,\\
-&\int u(w(x))[f(x\mid1)-f(x\mid0)]\,dx\ge C.
-\end{aligned}
-$$
-
-FOC with multipliers $\lambda,\mu$:
-
-$$
-\begin{aligned}
--f(x\mid1)
-+\lambda u'(w(x))f(x\mid1)
-+\mu u'(w(x))[f(x\mid1)-f(x\mid0)]
-=0.
-\end{aligned}
-$$
-
-Divide by $f(x\mid1)$:
-
-$$
-\begin{aligned}
-1
-=
-u'(w(x))
-\left[
-\lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right)
-\right].
-\end{aligned}
-$$
-
-Thus
-
-$$
-\frac{1}{u'(w(x))}
-=
-\lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right).
-$$
-
-Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
