@@ -40,9 +40,11 @@ $$
 This chapter covers the moral-hazard model in detail, and the screening model under adverse selection.
 :::
 
-## 1. Moral Hazard (Hidden Actions): principal-agent model
+## 1. Moral Hazard
 
-### 1.1 Players, timing, information
+**信息情形：二元产出**
+
+:::{admonition} Agent / action structure
 
 - Principal owns a project.
 - Agent chooses effort $e\in\{0,1\}$, where $e=1$ is high effort.
@@ -64,7 +66,9 @@ $$
 w:X\to\mathbb R_+,\qquad x\mapsto w(x).
 $$
 
-### 1.2 First-best benchmark: effort observable
+:::
+
+**情形：First Best，努力可观察**
 
 If effort is observable, the principal can choose $e$ and wages directly.
 
@@ -156,7 +160,7 @@ $$
 
 Interpretation: marginal productivity gain must exceed compensation for effort cost.
 
-### 1.3 Second-best: effort unobservable
+**情形：Second Best，努力不可观察**
 
 To induce high effort, add incentive compatibility.
 
@@ -184,7 +188,7 @@ $$
 
 Thus $w_H>w_L$. Incentives require risk exposure.
 
-#### 1.3.1 Binding-constraint solution
+**Binding-constraint solution**
 
 At the optimum, both IR and IC bind. Let
 
@@ -251,7 +255,7 @@ $$
 
 If $w_L^{SB}$ violates limited liability or utility domain restrictions, the limited-liability solution applies.
 
-### 1.4 Low effort implementation
+**情形：Low effort implementation**
 
 To induce low effort, the relaxed problem without IC gives full insurance:
 
@@ -281,7 +285,7 @@ $$
 V_1^{SB}\ge V_0.
 $$
 
-### 1.5 Risk-neutral agent with limited liability
+**情形：Risk-neutral agent with limited liability**
 
 Suppose $u(w)=w$, $\bar u=0$.
 
@@ -391,7 +395,7 @@ $$
 $$
 
 
-### 1.6 Moral hazard optimization templates
+**Moral hazard optimization templates**
 
 :::{admonition} Moral hazard: max + s.t.
 **Binary output.**
@@ -425,7 +429,9 @@ $$
 $$
 :::
 
-### 1.7 Continuous output and MLRP
+**信息情形：连续产出**
+
+**Agent / action structure:**
 
 Suppose output $x\in[\underline x,\bar x]$ has density $f(x\mid e)>0$. The family satisfies monotone likelihood ratio property $MLRP$ if
 
@@ -482,7 +488,11 @@ $$
 
 Under MLRP, $f(x\mid1)/f(x\mid0)$ increases in $x$, so $f(x\mid0)/f(x\mid1)$ decreases. If $\mu>0$, the right-hand side increases in $x$. Since $u''<0$, $1/u'(w)$ increases with $w$, hence $w(x)$ increases with output.
 
-## 2. Adverse Selection (Hidden Information): Screening
+## 2. Adverse Selection
+
+**信息情形：二元类型**
+
+:::{admonition} Agent / type structure
 
 Now output/effort is observable, but agent's cost type is private.
 
@@ -514,7 +524,9 @@ $$
 
 Higher-cost types dislike output more.
 
-### 2.1 First-best screening
+:::
+
+**情形：First Best，类型可观察**
 
 If $\theta$ is known, principal solves
 
@@ -549,7 +561,7 @@ $$
 
 since \(S''<0\) and \(L<H\).
 
-#### 2.1.1 Why first-best is not incentive compatible
+**Why first-best is not incentive compatible**
 
 
 First-best menu:
@@ -576,7 +588,7 @@ $$
 
 Thus the low-cost firm would lie. The first-best menu is not incentive compatible.
 
-#### 2.1.2 Two-type second-best screening
+**情形：Second Best，类型不可观察**
 
 
 Define information rents:
@@ -601,7 +613,7 @@ $$
 \right.
 $$
 
-#### 2.1.2.1 IC implies monotonicity
+**IC implies monotonicity**
 
 Add $IC_L$ and $IC_H$:
 
@@ -619,7 +631,7 @@ $$
 q_L\ge q_H.
 $$
 
-#### 2.1.2.2 Binding constraints
+**Binding constraints**
 
 At the optimum:
 
@@ -698,7 +710,9 @@ $$
 
 The inefficient type is distorted downward to reduce the efficient type's information rent.
 
-#### 2.1.3 Continuum of types and envelope formula
+**信息情形：连续类型**
+
+**Agent / type structure:**
 
 
 Let $\theta\in[0,1]$, with cdf $F$ and pdf $f>0$. Agent utility:
@@ -761,7 +775,7 @@ $$
 
 Thus $q$ is nonincreasing.
 
-#### 2.1.3.1 Envelope formula
+**Envelope formula**
 
 Under IC,
 
@@ -819,7 +833,7 @@ $$
 
 The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
-### 2.2 Adverse selection optimization templates
+**Adverse selection optimization templates**
 
 :::{admonition} Adverse selection: max + s.t.
 **Binary types, direct transfer form.**
