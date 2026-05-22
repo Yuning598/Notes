@@ -83,7 +83,7 @@
 
     .md-layout {
       display: grid;
-      grid-template-columns: minmax(280px, 1.04fr) minmax(280px, 0.96fr);
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
       gap: 12px;
       align-items: stretch;
     }
@@ -351,7 +351,7 @@
       min-height: 0;
     }
 
-    @container (max-width: 620px) {
+    @container (max-width: 440px) {
       .md-header,
       .md-layout { grid-template-columns: 1fr; }
       .md-mode { min-width: 0; }
@@ -361,7 +361,7 @@
       .md-right-tools { gap: 6px; }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 440px) {
       .md-card { padding: 10px; }
       .md-header,
       .md-layout { grid-template-columns: 1fr; }

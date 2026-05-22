@@ -881,62 +881,24 @@ u_b=vq+t_b,\qquad u_s=-cq+t_s.
 $$
 
 :::{admonition} Bilateral trading conditions at a glance
-- Overlap:
-
-  $$
-  (\mathrm{OL})\qquad [\underline c,\bar c]\cap[\underline v,\bar v]
-  \ \text{is a nondegenerate interval.}
-  $$
-
-- First-best allocation:
-
-  $$
-  q^*(v,c)=
-  \begin{cases}
-  1,& v\ge c,\\
-  0,& v<c.
-  \end{cases}
-  $$
-
-- Budget balance:
-
-  $$
-  (\mathrm{BB})\qquad t_b(\cdot)+t_s(\cdot)=0.
-  $$
-
-- No expected subsidy:
-
-  $$
-  (\mathrm{NES})\qquad E_{c,v}\{t_b(v,c)+t_s(v,c)\}\le 0.
-  $$
-
-- Interim objects:
-
-  $$
-  Q_b(v):=E_c q(v,c),\qquad Q_s(c):=E_v q(v,c),
-  $$
-  $$
-  T_b(v):=E_c t_b(v,c),\qquad T_s(c):=E_v t_s(v,c).
-  $$
-
-- Interim payoffs:
-
-  $$
-  U_b(v):=vQ_b(v)+T_b(v),\qquad U_s(c):=T_s(c)-cQ_s(c).
-  $$
-
-- Incentive compatibility:
-
-  $$
-  (\mathrm{IC})\qquad U_b(v)\ge vQ_b(\hat v)+T_b(\hat v),\qquad
-  U_s(c)\ge T_s(\hat c)-cQ_s(\hat c).
-  $$
-
-- Participation:
-
-  $$
-  (\mathrm{IR})\qquad U_b(\cdot)\ge0,\qquad U_s(\cdot)\ge0.
-  $$
+$$
+\left\{
+\begin{aligned}
+(\mathrm{OL})\ &[\underline c,\bar c]\cap[\underline v,\bar v]\ \text{is a nondegenerate interval.}\\
+q^*(v,c)\ &=\ \begin{cases}
+1,& v\ge c,\\
+0,& v<c
+\end{cases}\\
+(\mathrm{BB})\ &t_b(\cdot)+t_s(\cdot)=0.\\
+(\mathrm{NES})\ &E_{c,v}\{t_b(v,c)+t_s(v,c)\}\le 0.\\
+Q_b(v)\ &=\ E_c q(v,c),\qquad Q_s(c)=E_v q(v,c).\\
+T_b(v)\ &=\ E_c t_b(v,c),\qquad T_s(c)=E_v t_s(v,c).\\
+U_b(v)\ &=\ vQ_b(v)+T_b(v),\qquad U_s(c)=T_s(c)-cQ_s(c).\\
+(\mathrm{IC})\ &U_b(v)\ge vQ_b(\hat v)+T_b(\hat v),\qquad U_s(c)\ge T_s(\hat c)-cQ_s(\hat c).\\
+(\mathrm{IR})\ &U_b(\cdot)\ge0,\qquad U_s(\cdot)\ge0.
+\end{aligned}
+\right.
+$$
 :::
 
 #### 3.1 Revelation mechanism
