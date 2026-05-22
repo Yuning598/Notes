@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production Economy Welfare Theorems</title>
+</head>
+<body style="margin:0; padding:0; background:#fff;">
+<div class="pw-card" id="pw-container">
+  <style>
+    .pw-card {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #d9e2ec;
+      --grid: #edf2f7;
+      --axis: #0f172a;
+      --blue: #2563eb;
+      --blue-soft: rgba(37, 99, 235, 0.12);
+      --red: #dc2626;
+      --red-soft: rgba(220, 38, 38, 0.12);
+      --orange: #ea580c;
+      --green: #16a34a;
+      --green-soft: rgba(22, 163, 74, 0.15);
+      --purple: #7c3aed;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+
+      width: min(100%, 1060px);
+      margin: 20px auto;
+      padding: clamp(14px, 2vw, 20px);
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      user-select: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      container-type: inline-size;
+    }
+
+    .pw-card * { box-sizing: border-box; }
+
+    .pw-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px 18px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .pw-header h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+    }
+
+    .pw-header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.78rem, 1.05vw, 0.88rem);
+      line-height: 1.45;
+    }
+
+    .pw-mode {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      min-width: 240px;
+    }
+
+    .pw-mode button {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 11px;
+      color: var(--text);
+      background: #f8fafc;
+      font-weight: 780;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    .pw-mode button.is-active {
+      color: #fff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .pw-layout {
+      display: grid;
+      grid-template-columns: minmax(330px, 1.18fr) minmax(280px, 0.82fr);
+      gap: clamp(14px, 2vw, 20px);
+      align-items: start;
+    }
+
+    .pw-stage {
+      position: relative;
+      width: min(100%, 560px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 2px solid var(--axis);
+      border-radius: 14px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .pw-stage canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .pw-panel {
+      min-width: 0;
+      padding: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font-size: 0.9rem;
+    }
+
+    .pw-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    .pw-row:last-child { margin-bottom: 0; }
+
+    .pw-label {
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .pw-label--red { color: var(--red); }
+    .pw-label--blue { color: var(--blue); }
+    .pw-label--orange { color: var(--orange); }
+    .pw-label--green { color: var(--green); }
+
+    .pw-value {
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .pw-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .pw-divider {
+      height: 1px;
+      margin: 12px 0;
+      background: var(--border);
+      border: 0;
+    }
+
+    .pw-note {
+      display: grid;
+      gap: 8px;
+      color: #334155;
+      font-size: 0.86rem;
+      line-height: 1.46;
+    }
+
+    .pw-note strong { color: var(--text); }
+
+    .pw-formula {
+      margin-top: 12px;
+      padding: 11px 12px;
+      color: #0f172a;
+      background: #eef4ff;
+      border: 1px solid #dbe7ff;
+      border-radius: 12px;
+      line-height: 1.55;
+      overflow-x: auto;
+    }
+
+    .pw-math {
+      font-family: "Times New Roman", Cambria, Georgia, serif;
+      font-size: 1.02em;
+      white-space: nowrap;
+    }
+
+    .pw-math sup,
+    .pw-math sub {
+      font-size: 0.72em;
+      line-height: 0;
+    }
+
+    @container (max-width: 760px) {
+      .pw-header,
+      .pw-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .pw-mode {
+        min-width: 0;
+      }
+
+      .pw-stage {
+        width: min(100%, 520px);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .pw-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .pw-value {
+        text-align: left;
+      }
+
+      .pw-label {
+        white-space: normal;
+      }
+    }
+  </style>
+
+  <header class="pw-header">
+    <div>
+      <h3>生产经济下的福利定理</h3>
+      <p>图中横纵轴是两种最终消费品；蓝色区域是可行消费集合，蓝色边界是生产可能性边界。</p>
+    </div>
+    <div class="pw-mode" role="group" aria-label="Welfare theorem mode">
+      <button type="button" id="pw-fwt" class="is-active">FWT</button>
+      <button type="button" id="pw-swt">SWT</button>
+    </div>
+  </header>
+
+  <section class="pw-layout">
+    <div class="pw-stage">
+      <canvas id="pw-canvas"></canvas>
+    </div>
+
+    <section class="pw-panel" aria-live="polite">
+      <div class="pw-row">
+        <span class="pw-label pw-label--red" id="pw-point-label">均衡消费 c*</span>
+        <span class="pw-value" id="pw-val-c"></span>
+      </div>
+      <div class="pw-row">
+        <span class="pw-label pw-label--blue" id="pw-endowment-label">初始禀赋 e</span>
+        <span class="pw-value" id="pw-val-e"></span>
+      </div>
+      <div class="pw-row">
+        <span class="pw-label pw-label--orange">净生产 y = c − e</span>
+        <span class="pw-value" id="pw-val-y"></span>
+      </div>
+      <div class="pw-row">
+        <span class="pw-label">支持价格比 p₁/p₂</span>
+        <span class="pw-value pw-mono" id="pw-val-p"></span>
+      </div>
+
+      <hr class="pw-divider" />
+
+      <div class="pw-note" id="pw-note"></div>
+
+      <div class="pw-formula">
+        <div class="pw-math" id="pw-formula-1"></div>
+        <div class="pw-math" id="pw-formula-2"></div>
+      </div>
+    </section>
+  </section>
+</div>
+
+<script>
+  (() => {
+    const canvas = document.querySelector("#pw-canvas");
+    const ctx = canvas.getContext("2d");
+
+    const fwtButton = document.querySelector("#pw-fwt");
+    const swtButton = document.querySelector("#pw-swt");
+    const pointLabel = document.querySelector("#pw-point-label");
+    const endowmentLabel = document.querySelector("#pw-endowment-label");
+    const valueC = document.querySelector("#pw-val-c");
+    const valueE = document.querySelector("#pw-val-e");
+    const valueY = document.querySelector("#pw-val-y");
+    const valueP = document.querySelector("#pw-val-p");
+    const note = document.querySelector("#pw-note");
+    const formula1 = document.querySelector("#pw-formula-1");
+    const formula2 = document.querySelector("#pw-formula-2");
+
+    const config = {
+      total: 100,
+      padding: 44,
+      hitRadius: 24,
+      frontierA: 96,
+      frontierB: 0.0086,
+    };
+
+    const colors = {
+      text: "#1f2937",
+      muted: "#64748b",
+      grid: "#edf2f7",
+      axis: "#0f172a",
+      feasibleFill: "rgba(37, 99, 235, 0.12)",
+      feasibleBorder: "#2563eb",
+      price: "#ea580c",
+      utility: "#16a34a",
+      endowment: "#2563eb",
+      equilibrium: "#dc2626",
+      swt: "#7c3aed",
+      production: "#ea580c",
+      white: "#ffffff",
+    };
+
+    const state = {
+      mode: "fwt",
+      isDragging: false,
+      xStar: 54,
+      endowment: { x: 82, y: 20 },
+    };
+
+    function getCanvasSize() {
+      return Number(canvas.dataset.cssSize) || canvas.clientWidth || 520;
+    }
+
+    function setupCanvasForHiDpi() {
+      const ratio = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      const size = Math.min(rect.width, rect.height);
+
+      canvas.width = Math.round(size * ratio);
+      canvas.height = Math.round(size * ratio);
+      canvas.dataset.cssSize = size;
+
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    function toCanvasPoint({ x, y }) {
+      const size = getCanvasSize();
+      const usable = size - 2 * config.padding;
+      return {
+        x: config.padding + (x / config.total) * usable,
+        y: config.padding + ((config.total - y) / config.total) * usable,
+      };
+    }
+
+    function toModelPoint({ x, y }) {
+      const size = getCanvasSize();
+      const usable = size - 2 * config.padding;
+      return {
+        x: ((x - config.padding) / usable) * config.total,
+        y: config.total - ((y - config.padding) / usable) * config.total,
+      };
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function frontier(x) {
+      return config.frontierA - config.frontierB * x * x;
+    }
+
+    function frontierSlope(x) {
+      return -2 * config.frontierB * x;
+    }
+
+    function currentPoint() {
+      return { x: state.xStar, y: frontier(state.xStar) };
+    }
+
+    function priceRatioAt(x) {
+      return -frontierSlope(x);
+    }
+
+    function utilityAlphaAt(point, priceRatio) {
+      const numerator = priceRatio * point.x;
+      return clamp(numerator / (point.y + numerator), 0.15, 0.85);
+    }
+
+    function formatPoint(point, digits = 1) {
+      return `(${point.x.toFixed(digits)}, ${point.y.toFixed(digits)})`;
+    }
+
+    function formatVector(point, digits = 1) {
+      return `(${point.x.toFixed(digits)}, ${point.y.toFixed(digits)})`;
+    }
+
+    function getPointerPosition(event) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+    }
+
+    function drawLine(from, to, options = {}) {
+      ctx.save();
+      ctx.strokeStyle = options.color ?? colors.text;
+      ctx.lineWidth = options.width ?? 2;
+      ctx.setLineDash(options.dashed ? [7, 6] : []);
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(to.x, to.y);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawCurve(points, options = {}) {
+      ctx.save();
+      ctx.strokeStyle = options.color ?? colors.text;
+      ctx.lineWidth = options.width ?? 2;
+      ctx.setLineDash(options.dashed ? [7, 6] : []);
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        const p = toCanvasPoint(point);
+        if (index === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawDot(point, options = {}) {
+      const p = toCanvasPoint(point);
+      ctx.save();
+      ctx.fillStyle = options.fill ?? colors.text;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, options.radius ?? 6, 0, Math.PI * 2);
+      ctx.fill();
+      if (options.stroke) {
+        ctx.strokeStyle = options.stroke;
+        ctx.lineWidth = options.strokeWidth ?? 2;
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawLabel(text, point, options = {}) {
+      const p = toCanvasPoint(point);
+      ctx.save();
+      ctx.font = `${options.weight ?? 760} ${options.size ?? 13}px system-ui, sans-serif`;
+      ctx.textAlign = options.align ?? "left";
+      ctx.textBaseline = options.baseline ?? "middle";
+      const x = p.x + (options.dx ?? 0);
+      const y = p.y + (options.dy ?? 0);
+      if (options.halo !== false) {
+        ctx.lineWidth = options.haloWidth ?? 4;
+        ctx.strokeStyle = "rgba(255,255,255,0.92)";
+        ctx.strokeText(text, x, y);
+      }
+      ctx.fillStyle = options.color ?? colors.text;
+      ctx.fillText(text, x, y);
+      ctx.restore();
+    }
+
+    function drawArrow(fromModel, toModel, options = {}) {
+      const from = toCanvasPoint(fromModel);
+      const to = toCanvasPoint(toModel);
+      const angle = Math.atan2(to.y - from.y, to.x - from.x);
+      ctx.save();
+      ctx.strokeStyle = options.color ?? colors.production;
+      ctx.fillStyle = options.color ?? colors.production;
+      ctx.lineWidth = options.width ?? 2.2;
+      ctx.setLineDash(options.dashed ? [7, 6] : []);
+      ctx.beginPath();
+      ctx.moveTo(from.x, from.y);
+      ctx.lineTo(to.x, to.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(to.x, to.y);
+      ctx.lineTo(to.x - 10 * Math.cos(angle - Math.PI / 6), to.y - 10 * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(to.x - 10 * Math.cos(angle + Math.PI / 6), to.y - 10 * Math.sin(angle + Math.PI / 6));
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawGridAndAxes() {
+      const size = getCanvasSize();
+      ctx.clearRect(0, 0, size, size);
+
+      ctx.save();
+      ctx.strokeStyle = colors.grid;
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 100; i += 20) {
+        const xA = toCanvasPoint({ x: i, y: 0 });
+        const xB = toCanvasPoint({ x: i, y: 100 });
+        const yA = toCanvasPoint({ x: 0, y: i });
+        const yB = toCanvasPoint({ x: 100, y: i });
+        ctx.beginPath();
+        ctx.moveTo(xA.x, xA.y);
+        ctx.lineTo(xB.x, xB.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(yA.x, yA.y);
+        ctx.lineTo(yB.x, yB.y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      const origin = toCanvasPoint({ x: 0, y: 0 });
+      const xEnd = toCanvasPoint({ x: 100, y: 0 });
+      const yEnd = toCanvasPoint({ x: 0, y: 100 });
+      drawLine(origin, xEnd, { color: colors.axis, width: 2 });
+      drawLine(origin, yEnd, { color: colors.axis, width: 2 });
+      drawLabel("c₁", { x: 94, y: -4.5 }, { size: 14, color: colors.axis });
+      drawLabel("c₂", { x: -6.5, y: 97 }, { size: 14, color: colors.axis });
+    }
+
+    function drawFeasibleSet() {
+      const frontierPoints = [];
+      for (let x = 0; x <= 100; x += 0.5) {
+        const y = clamp(frontier(x), 0, 100);
+        frontierPoints.push({ x, y });
+      }
+
+      ctx.save();
+      ctx.fillStyle = colors.feasibleFill;
+      ctx.beginPath();
+      let p0 = toCanvasPoint({ x: 0, y: 0 });
+      ctx.moveTo(p0.x, p0.y);
+      let pLeft = toCanvasPoint(frontierPoints[0]);
+      ctx.lineTo(pLeft.x, pLeft.y);
+      frontierPoints.forEach((point) => {
+        const p = toCanvasPoint(point);
+        ctx.lineTo(p.x, p.y);
+      });
+      const pRightBottom = toCanvasPoint({ x: 100, y: 0 });
+      ctx.lineTo(pRightBottom.x, pRightBottom.y);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      drawCurve(frontierPoints, { color: colors.feasibleBorder, width: 3 });
+      drawLabel("PPF / feasible frontier", { x: 42, y: 84 }, {
+        color: colors.feasibleBorder,
+        size: 12,
+        weight: 780,
+      });
+    }
+
+    function getPriceSegment(point, priceRatio) {
+      const candidates = [];
+      const lineY = (x) => point.y - priceRatio * (x - point.x);
+      const lineX = (y) => point.x - (y - point.y) / priceRatio;
+
+      const yAtLeft = lineY(0);
+      if (yAtLeft >= 0 && yAtLeft <= 100) candidates.push({ x: 0, y: yAtLeft });
+      const yAtRight = lineY(100);
+      if (yAtRight >= 0 && yAtRight <= 100) candidates.push({ x: 100, y: yAtRight });
+      const xAtBottom = lineX(0);
+      if (xAtBottom >= 0 && xAtBottom <= 100) candidates.push({ x: xAtBottom, y: 0 });
+      const xAtTop = lineX(100);
+      if (xAtTop >= 0 && xAtTop <= 100) candidates.push({ x: xAtTop, y: 100 });
+
+      if (candidates.length < 2) return null;
+      return [candidates[0], candidates[1]];
+    }
+
+    function pointOnPriceLine(point, priceRatio) {
+      let x = point.x - 22;
+      let y = point.y + priceRatio * 22;
+      if (x < 5 || y > 95) {
+        x = point.x + 18;
+        y = point.y - priceRatio * 18;
+      }
+      return { x: clamp(x, 5, 95), y: clamp(y, 5, 95) };
+    }
+
+    function drawPriceLine(point, priceRatio) {
+      const segment = getPriceSegment(point, priceRatio);
+      if (!segment) return;
+      drawLine(toCanvasPoint(segment[0]), toCanvasPoint(segment[1]), {
+        color: colors.price,
+        width: 2.4,
+        dashed: true,
+      });
+      drawLabel("supporting price line", { x: 6, y: segment[0].y - 4 }, {
+        color: colors.price,
+        size: 12,
+        weight: 780,
+      });
+    }
+
+    function drawUtility(point, priceRatio) {
+      const alpha = utilityAlphaAt(point, priceRatio);
+      const u = Math.pow(point.x, alpha) * Math.pow(point.y, 1 - alpha);
+      const curve = [];
+      for (let x = 1; x <= 100; x += 0.5) {
+        const y = Math.pow(u / Math.pow(x, alpha), 1 / (1 - alpha));
+        if (y >= 0 && y <= 100) curve.push({ x, y });
+      }
+      drawCurve(curve, { color: colors.utility, width: 2.2 });
+      drawLabel("indifference curve", { x: point.x + 6, y: point.y + 12 }, {
+        color: colors.utility,
+        size: 12,
+        weight: 780,
+      });
+    }
+
+    function drawScene() {
+      const point = currentPoint();
+      const priceRatio = priceRatioAt(point.x);
+      const endowment = state.mode === "swt"
+        ? pointOnPriceLine(point, priceRatio)
+        : state.endowment;
+      const productionVector = { x: point.x - endowment.x, y: point.y - endowment.y };
+
+      drawGridAndAxes();
+      drawFeasibleSet();
+      drawPriceLine(point, priceRatio);
+      drawUtility(point, priceRatio);
+
+      drawDot(endowment, {
+        fill: colors.endowment,
+        stroke: colors.white,
+        strokeWidth: 2,
+        radius: 6.5,
+      });
+      drawLabel(state.mode === "swt" ? "ē" : "e", endowment, {
+        dx: 8,
+        dy: 14,
+        color: colors.endowment,
+      });
+
+      drawArrow(endowment, point, {
+        color: colors.production,
+        width: 2.2,
+      });
+
+      drawDot(point, {
+        fill: state.mode === "swt" ? colors.swt : colors.equilibrium,
+        stroke: colors.white,
+        strokeWidth: 2,
+        radius: 7.5,
+      });
+      drawLabel(state.mode === "swt" ? "PE target" : "WE = PE", point, {
+        dx: 9,
+        dy: -10,
+        color: state.mode === "swt" ? colors.swt : colors.equilibrium,
+      });
+
+      updatePanel(point, endowment, productionVector, priceRatio);
+    }
+
+    function updatePanel(point, endowment, productionVector, priceRatio) {
+      const isSwt = state.mode === "swt";
+      pointLabel.textContent = isSwt ? "目标 PE 消费 c" : "均衡消费 c*";
+      endowmentLabel.textContent = isSwt ? "重分配后禀赋 ē" : "初始禀赋 e";
+
+      valueC.textContent = formatPoint(point);
+      valueE.textContent = formatPoint(endowment);
+      valueY.textContent = formatVector(productionVector);
+      valueP.textContent = priceRatio.toFixed(3);
+
+      if (isSwt) {
+        note.innerHTML = `
+          <div><strong>SWT:</strong> 从一个 Pareto efficient 点出发，凸性给出一条支持价格线。</div>
+          <div>把禀赋重分配到蓝点 ē，使预算线经过目标 PE 点，就可以把该 PE 点 decentralize 成一个生产经济均衡。</div>
+        `;
+        formula1.innerHTML = `<span>PE + convexity ⇒ supporting price p</span>`;
+        formula2.innerHTML = `<span>(p, (c<sup>h</sup>), (y<sup>k</sup>)) is WE after redistribution ē</span>`;
+      } else {
+        note.innerHTML = `
+          <div><strong>FWT:</strong> 若红点是生产经济的 Walrasian equilibrium，则消费者最优、企业利润最大化、市场清算同时成立。</div>
+          <div>价格线支撑可行集合，所以不存在另一个可行配置能让所有消费者更好。</div>
+        `;
+        formula1.innerHTML = `<span>WE ⇒ consumer optimality + firm profit maximization</span>`;
+        formula2.innerHTML = `<span>⇒ feasible allocation is Pareto efficient</span>`;
+      }
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      fwtButton.classList.toggle("is-active", mode === "fwt");
+      swtButton.classList.toggle("is-active", mode === "swt");
+      drawScene();
+    }
+
+    function startDrag(event) {
+      event.preventDefault();
+      const pointer = getPointerPosition(event);
+      const point = toCanvasPoint(currentPoint());
+      const distance = Math.hypot(pointer.x - point.x, pointer.y - point.y);
+      if (distance > config.hitRadius) return;
+      state.isDragging = true;
+      canvas.setPointerCapture?.(event.pointerId);
+    }
+
+    function doDrag(event) {
+      if (!state.isDragging) return;
+      event.preventDefault();
+      const pointer = getPointerPosition(event);
+      const model = toModelPoint(pointer);
+      state.xStar = clamp(model.x, 22, 88);
+      drawScene();
+    }
+
+    function endDrag(event) {
+      if (!state.isDragging) return;
+      state.isDragging = false;
+      canvas.releasePointerCapture?.(event.pointerId);
+    }
+
+    function initialize() {
+      setupCanvasForHiDpi();
+      drawScene();
+
+      fwtButton.addEventListener("click", () => setMode("fwt"));
+      swtButton.addEventListener("click", () => setMode("swt"));
+
+      canvas.addEventListener("pointerdown", startDrag);
+      canvas.addEventListener("pointermove", doDrag);
+      canvas.addEventListener("pointerup", endDrag);
+      canvas.addEventListener("pointercancel", endDrag);
+      canvas.addEventListener("pointerleave", endDrag);
+
+      window.addEventListener("resize", () => {
+        setupCanvasForHiDpi();
+        drawScene();
+      });
+    }
+
+    initialize();
+  })();
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Itô 公式
+# Itô process 与 Itô formula
 
 来源：[Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing#5.4.1 A Stochastic Growth Model](Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing#5.4.1 A Stochastic Growth Model)
 
@@ -6,8 +6,8 @@
 
 关联卡片：[Asset Pricing/Theoretical AP/cards/part2/连续时间组合选择问题](Asset Pricing/Theoretical AP/cards/part2/连续时间组合选择问题) · [Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划](Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划)
 
-:::{admonition} Definition (Itô Formula)
-若 $X_t$ 满足一维 Itô process
+:::{admonition} Definition (Itô formula)
+设 $X_t$ 满足一维 Itô process
 
 $$
 \begin{aligned}
@@ -28,7 +28,7 @@ $$
 
 ^def-ito-formula
 
-## 推导
+## 一维公式
 
 对增量做二阶 Taylor expansion：
 
@@ -67,9 +67,9 @@ dt^2&=0,\qquad dt\,dB_t=0,\qquad (dB_t)^2=dt.
 \end{aligned}
 $$
 
-于是得到一维 Itô 公式。
+于是得到一维 Itô formula。
 
-## 多维形式
+## 多维公式
 
 若
 
@@ -91,9 +91,9 @@ f_t\,dt
 \end{aligned}
 $$
 
-在 HJB / asset pricing 里，Itô 公式的作用是把 value function 沿状态过程展开，从而识别 drift 项和 quadratic variation 项。
+在 HJB / asset pricing 里，Itô formula 的作用是把 value function 沿状态过程展开，从而识别 drift 项和 quadratic variation 项。
 
-## 常用展开
+## 常用展开与记忆公式
 
 若
 

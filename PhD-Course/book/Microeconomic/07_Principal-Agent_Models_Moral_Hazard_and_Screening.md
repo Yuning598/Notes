@@ -138,6 +138,7 @@ $$
 
 #### 1.1.2 情形：First Best，努力可观察，Low effort
 
+:::{admonition} First best: effort observable, low effort
 $$
 w_H=w_L=u^{-1}(\bar u),
 $$
@@ -147,6 +148,7 @@ and
 $$
 V_0=q_0x_H+(1-q_0)x_L-u^{-1}(\bar u).
 $$
+:::
 
 High effort is first-best optimal iff
 
@@ -439,17 +441,21 @@ $$
 
 MLRP implies FOSD: high effort makes high output more likely.
 
-**High-effort second-best problem**
-
+:::{admonition} High-effort second-best problem
 $$
+\left\{
 \begin{aligned}
 \max_{w(\cdot)}\quad
 &\int_{\underline x}^{\bar x}[x-w(x)]f(x\mid1)\,dx\\
 \text{s.t.}\quad
-&\int u(w(x))f(x\mid1)\,dx-C\ge \bar u,\\
-&\int u(w(x))[f(x\mid1)-f(x\mid0)]\,dx\ge C.
+&\int u(w(x))f(x\mid1)\,dx-C\ge \bar u
+\qquad (IR)\\
+&\int u(w(x))[f(x\mid1)-f(x\mid0)]\,dx\ge C
+\qquad (IC)
 \end{aligned}
+\right.
 $$
+:::
 
 FOC with multipliers $\lambda,\mu$:
 
@@ -649,8 +655,7 @@ t_L&=Lq_L+(H-L)q_H.
 \end{aligned}
 $$
 
-Principal's expected payoff:
-
+:::{admonition} Reduced second-best screening problem
 $$
 \begin{aligned}
 \max_{q_L,q_H}\quad
@@ -667,6 +672,7 @@ $$
 .
 \end{aligned}
 $$
+:::
 
 FOC for $q_L$:
 
@@ -1061,6 +1067,7 @@ $$
 
 High effort with observable effort:
 
+:::{admonition} Exercise Part A: observable high-effort problem
 $$
 \begin{aligned}
 \max_{w_0,w_4}\quad
@@ -1069,6 +1076,7 @@ $$
 &\frac13(\sqrt{w_0}-1)+\frac23(\sqrt{w_4}-1)\ge0.
 \end{aligned}
 $$
+:::
 
 FOCs imply equal wages:
 
