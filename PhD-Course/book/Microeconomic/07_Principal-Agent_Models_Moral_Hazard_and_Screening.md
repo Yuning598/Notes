@@ -83,19 +83,6 @@ $$
 $$
 :::
 
-If effort is observable, the principal can choose $e$ and wages directly.
-
-For fixed high effort $e=1$, the principal solves
-
-$$
-\begin{aligned}
-\max_{w_H,w_L}\quad
-&q_1(x_H-w_H)+(1-q_1)(x_L-w_L)\\
-\text{s.t.}\quad
-&q_1u(w_H)+(1-q_1)u(w_L)-C\ge \bar u.
-\end{aligned}
-$$
-
 Lagrangian:
 
 $$
@@ -192,20 +179,6 @@ $$
 :::
 
 To induce high effort, add incentive compatibility.
-
-The principal solves
-
-$$
-\begin{aligned}
-\max_{w_H,w_L}\quad
-&q_1(x_H-w_H)+(1-q_1)(x_L-w_L)\\
-\text{s.t.}\quad
-&q_1u(w_H)+(1-q_1)u(w_L)-C\ge \bar u \qquad (IR)\\
-&q_1u(w_H)+(1-q_1)u(w_L)-C
-\ge
-q_0u(w_H)+(1-q_0)u(w_L) \qquad (IC).
-\end{aligned}
-$$
 
 IC simplifies to
 
@@ -555,17 +528,6 @@ $$
 $$
 :::
 
-If $\theta$ is known, principal solves
-
-$$
-\left\{
-\begin{aligned}
-\max_q\quad & S(q)-\theta q\\
-\text{s.t.}\quad & IR_\theta:\ t-\theta q\ge 0
-\end{aligned}
-\right.
-$$
-
 with transfer set to bind $IR_\theta$:
 
 $$
@@ -638,22 +600,6 @@ Define information rents:
 
 $$
 U_L=t_L-Lq_L,\qquad U_H=t_H-Hq_H.
-$$
-
-The principal's problem is
-
-$$
-\left\{
-\begin{aligned}
-\max_{q_L,q_H,t_L,t_H}\quad
-&\lambda\bigl[S(q_L)-t_L\bigr]+(1-\lambda)\bigl[S(q_H)-t_H\bigr]\\
-\text{s.t.}\quad
-&IC_L:\ U_L\ge U_H+(H-L)q_H,\\
-&IC_H:\ U_H\ge U_L-(H-L)q_L,\\
-&IR_L:\ U_L\ge0,\\
-&IR_H:\ U_H\ge0.
-\end{aligned}
-\right.
 $$
 
 **IC implies monotonicity**
