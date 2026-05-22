@@ -938,44 +938,6 @@ $$
 Given $(\mathrm{OL})$, no incentive-compatible (revelation) mechanism of the form $\langle q^*,t_b,t_s\rangle$ satisfies both $(\mathrm{NES})$ and $(\mathrm{IR})$.
 :::
 
-:::{admonition} Corollary 3 (Myerson \& Satterthwaite, 1983)
-Given $(\mathrm{OL})$, no efficient allocation rule satisfying $(\mathrm{IR})$ can be implemented.
-:::
-
-#### Proof of Corollary 3
-
-Suppose $\langle q,t_b,t_s\rangle$ is efficient, and satisfies IC and IR.
-
-Since it is efficient, $\langle q,t_b,t_s\rangle$ satisfies BB and $q=q^*$ a.e. Hence, since
-
-$$
-\mathrm{BB}\Rightarrow \mathrm{NES},
-$$
-
-$\langle q,t_b,t_s\rangle=\langle q^*,t_b,t_s\rangle$ is incentive compatible and satisfies NES and IR. This contradicts Theorem 2.
-
-:::{admonition} Remark
-- The logic of the Myerson-Satterthwaite inefficiency result is that the cost of eliciting private information is more than the maximal expected surplus that can be generated.
-- A subsidizing third party can thus restore efficiency.
-- This is made clear in the upcoming proof.
-:::
-
-:::{admonition} Our present use of Theorem 1
-We shall apply it to both the buyer and seller in the bilateral trade environment.
-
-To apply it to the seller, the statement becomes $Q_s(c)$ nonincreasing, and
-
-$$
-U_s(c)=U_s(\bar c)+\int_c^{\bar c}Q_s(z)\,dz.
-$$
-
-To apply it to the buyer, the statement becomes $Q_b(v)$ nondecreasing, and
-
-$$
-U_b(v)=U_b(\underline v)+\int_{\underline v}^{v}Q_b(z)\,dz.
-$$
-:::
-
 #### Proof of Theorem 2
 
 This proof is based on Williams (1999). We prove it for the case $\bar v\le \bar c$ and $\underline c\le \underline v$.
@@ -1050,6 +1012,44 @@ $$
 $$
 
 contrary to $(\mathrm{IR})$. This proves the theorem.
+
+:::{admonition} Corollary 3 (Myerson \& Satterthwaite, 1983)
+Given $(\mathrm{OL})$, no efficient allocation rule satisfying $(\mathrm{IR})$ can be implemented.
+:::
+
+#### Proof of Corollary 3
+
+Suppose $\langle q,t_b,t_s\rangle$ is efficient, and satisfies IC and IR.
+
+Since it is efficient, $\langle q,t_b,t_s\rangle$ satisfies BB and $q=q^*$ a.e. Hence, since
+
+$$
+\mathrm{BB}\Rightarrow \mathrm{NES},
+$$
+
+$\langle q,t_b,t_s\rangle=\langle q^*,t_b,t_s\rangle$ is incentive compatible and satisfies NES and IR. This contradicts Theorem 2.
+
+:::{admonition} Remark
+- The logic of the Myerson-Satterthwaite inefficiency result is that the cost of eliciting private information is more than the maximal expected surplus that can be generated.
+- A subsidizing third party can thus restore efficiency.
+- This is made clear in the upcoming proof.
+:::
+
+:::{admonition} Our present use of Theorem 1
+We shall apply it to both the buyer and seller in the bilateral trade environment.
+
+To apply it to the seller, the statement becomes $Q_s(c)$ nonincreasing, and
+
+$$
+U_s(c)=U_s(\bar c)+\int_c^{\bar c}Q_s(z)\,dz.
+$$
+
+To apply it to the buyer, the statement becomes $Q_b(v)$ nondecreasing, and
+
+$$
+U_b(v)=U_b(\underline v)+\int_{\underline v}^{v}Q_b(z)\,dz.
+$$
+:::
 
 ## Exercises
 
