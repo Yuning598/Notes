@@ -982,7 +982,7 @@ $$
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
-  <iframe src="/PhD-Course/bilateral_trading_environment_interactive.html" title="Bilateral Trading Environment Interactive" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+  <iframe src="/PhD-Course/bilateral_trading_environment_interactive.html" title="Bilateral Trading Environment Interactive" loading="lazy" style="width:100%;height:640px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
 ```
 
