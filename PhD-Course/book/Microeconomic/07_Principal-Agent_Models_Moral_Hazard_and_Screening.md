@@ -942,6 +942,8 @@ For $q(\cdot)$ to be nonincreasing, the virtual cost function needs to be nondec
 
 ## 3. The Bilateral Trading Environment
 
+This section studies bilateral trade with private values, private costs, and incentive constraints.
+
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
   <iframe src="/PhD-Course/principal_indifference_fb_decomposition.html" title="Principal Indifference FB Decomposition" loading="lazy" style="width:100%;height:680px;border:0;display:block;border-radius:16px;"></iframe>
