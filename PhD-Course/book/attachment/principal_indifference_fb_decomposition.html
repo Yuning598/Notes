@@ -31,12 +31,12 @@
       container-type:inline-size;
     }
     .fb-card *{box-sizing:border-box;}
-    .fb-head{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:12px;align-items:start;margin-bottom:10px;}
-    .fb-head h2{margin:0;font-size:clamp(1.08rem,1.65vw,1.32rem);letter-spacing:-.02em;line-height:1.03;max-width:16ch;justify-self:start;}
-    .fb-tabs{display:flex;flex-direction:column;gap:6px;width:240px;align-self:start;}
-    .fb-tabs button{width:100%;min-height:62px;border:1px solid var(--border);border-radius:10px;background:#fff;padding:8px 12px;font-size:.82rem;font-weight:850;line-height:1.15;cursor:pointer;color:var(--text);text-align:center;display:flex;align-items:center;justify-content:center;}
+    .fb-head{display:block;margin-bottom:10px;}
+    .fb-head h2{margin:0 0 8px;font-size:clamp(1.02rem,1.5vw,1.25rem);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .fb-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;min-width:0;}
+    .fb-tabs button{border:1px solid var(--border);border-radius:10px;background:#fff;padding:8px 12px;font-size:.82rem;font-weight:850;cursor:pointer;color:var(--text);white-space:nowrap;text-align:center;overflow:hidden;text-overflow:ellipsis;}
     .fb-tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff;}
-    .fb-layout{display:grid;grid-template-columns:minmax(260px,1.08fr) minmax(260px,.92fr);gap:12px;align-items:stretch;}
+    .fb-layout{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);gap:12px;align-items:stretch;}
     .fb-visual,.fb-side{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:12px;min-width:0;}
     .svg-wrap{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;aspect-ratio:1.18/1;}
     svg{width:100%;height:100%;display:block;}
@@ -55,11 +55,11 @@
     .fb-legend{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:8px;color:var(--muted);font-size:.78rem;}
     .fb-legend span{display:inline-flex;align-items:center;gap:6px;}
     .dot{width:9px;height:9px;border-radius:99px;display:inline-block;}
-    .fb-side{display:grid;grid-template-rows:auto auto auto 1fr;gap:10px;}
+    .fb-side{display:grid;grid-template-rows:auto auto auto 1fr;gap:8px;}
     .fb-title{display:flex;justify-content:space-between;gap:8px;align-items:baseline;}
     .fb-title h3{margin:0;font-size:1rem;}
     .badge{font-size:.72rem;font-weight:850;color:var(--blue);background:#eef4ff;border:1px solid #dbe7ff;border-radius:999px;padding:3px 8px;white-space:nowrap;}
-    .summary{margin:0;color:#334155;font-size:.84rem;line-height:1.42;}
+    .summary{margin:0;color:#334155;font-size:.82rem;line-height:1.34;}
     .system{display:grid;grid-template-columns:16px minmax(0,1fr);gap:7px;background:#fff;border:1px solid var(--border);border-radius:13px;padding:9px 10px;overflow:auto;}
     .brace{font-family:"Times New Roman",Georgia,serif;font-size:4.2rem;line-height:.85;transform:scaleX(.55);transform-origin:left center;color:var(--axis);align-self:center;}
     .lines{display:grid;gap:5px;align-content:center;}
@@ -70,7 +70,7 @@
     .line .var{font-style:italic;}
     .line sub,.line sup{font-size:.72em;line-height:0;}
     .insight{display:grid;gap:7px;align-content:start;}
-    .box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px 11px;font-size:.90rem;line-height:1.42;color:#334155;}
+    .box{background:#fff;border:1px solid var(--border);border-radius:12px;padding:9px 10px;font-size:.84rem;line-height:1.34;color:#334155;}
     .box b{color:#0f172a;}
     .box .math{display:block;margin-top:4px;font-family:"Cambria Math","STIX Two Math","Times New Roman",Georgia,serif;color:#0f172a;white-space:nowrap;overflow:auto;}
     .controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px;}
@@ -78,16 +78,9 @@
     .control label{display:flex;justify-content:space-between;gap:8px;font-size:.76rem;font-weight:850;margin-bottom:5px;}
     .control label span:last-child{color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
     .control input{width:100%;accent-color:var(--blue);}
-    @container(max-width:600px){
-      .fb-head,.fb-layout{grid-template-columns:1fr;}
-      .fb-tabs{width:100%;}
-      .controls{grid-template-columns:1fr;}
-      .svg-wrap{aspect-ratio:1.15/1;}
-    }
-
-    @media (max-width:520px){
-      .fb-head,.fb-layout{grid-template-columns:1fr;}
-      .fb-tabs{width:100%;}
+    @container(max-width:780px){
+      .fb-layout{grid-template-columns:1fr;}
+      .fb-tabs{min-width:0;grid-template-columns:1fr;}
       .controls{grid-template-columns:1fr;}
       .svg-wrap{aspect-ratio:1.15/1;}
     }
@@ -191,9 +184,9 @@
     const x1=X(1.05), y1=Y(1.82), x2=X(2.75), y2=Y(0.62);
     svg.append(el('line',{x1,y1,x2,y2,class:'line-gray'}));
     svg.append(el('path',{d:`M ${x2} ${y2} l -3 -12 M ${x2} ${y2} l -11 -4`,class:'line-gray'}));
-    svg.append(text(X(1.20),Y(1.88),'Higher principal payoff','svg-label'));
+    svg.append(text(X(1.20),Y(1.88),'Higher payoff','svg-label'));
     svg.lastChild.setAttribute('fill','#7c3aed');
-    svg.append(text(X(2.04),Y(.30),'Higher payoff direction','svg-label'));
+    svg.append(text(X(2.04),Y(.30),'Southeast improves Π','svg-label'));
   }
 
   function drawFB(){
@@ -207,13 +200,13 @@
     svg.append(el('circle',{cx:X(qL),cy:Y(tL),r:6,fill:'#0f172a',class:'pt'}));
     svg.append(text(X(qH)-18,Y(tH)-22,'(S′⁻¹(H), H S′⁻¹(H))','svg-label','end'));
     svg.append(text(X(qL)+12,Y(tL)-18,'(S′⁻¹(L), L S′⁻¹(L))','svg-label'));
-    svg.append(text(X(qH)+18,Y(tH)-70,'H-type zero-rent locus','svg-label'));
+    svg.append(text(X(qH)+18,Y(tH)-70,'H zero-rent','svg-label'));
     svg.lastChild.setAttribute('fill','#2563eb');
-    svg.append(text(X(qL)-16,Y(tL)+35,'L-type zero-rent locus','svg-label','end'));
+    svg.append(text(X(qL)-16,Y(tL)+35,'L zero-rent','svg-label','end'));
     svg.lastChild.setAttribute('fill','#16a34a');
-    svg.append(text(X(qH)+42,Y(tH)+32,'Principal indifference curve','svg-label'));
+    svg.append(text(X(qH)+42,Y(tH)+32,'Principal curve','svg-label'));
     svg.lastChild.setAttribute('fill','#7c3aed');
-    svg.append(text(X(qL)+18,Y(tL)-42,'Principal indifference curve','svg-label'));
+    svg.append(text(X(qL)+18,Y(tL)-42,'Principal curve','svg-label'));
     svg.lastChild.setAttribute('fill','#ea580c');
     svg.append(el('line',{x1:X(qH),y1:Y(0),x2:X(qH),y2:Y(tH),class:'line-gray dash'}));
     svg.append(el('line',{x1:X(qL),y1:Y(0),x2:X(qL),y2:Y(tL),class:'line-gray dash'}));
@@ -238,13 +231,13 @@
     svg.append(text(X(qH)+18,Y(tH)-22,'H-type contract','svg-label'));
     svg.append(text(X(qH)+18,Y(tH)+24,'L reports H','svg-label'));
     svg.lastChild.setAttribute('fill','#ef4444');
-    svg.append(text(X(qL)+14,Y(tLIC)-20,'IC requires higher L transfer','svg-label'));
+    svg.append(text(X(qL)+14,Y(tLIC)-20,'raise L transfer','svg-label'));
     svg.lastChild.setAttribute('fill','#16a34a');
-    svg.append(text(X(qMax*.58),Y(st.L*qMax*.58+rent)-16,'L-type IC locus through H contract','svg-label'));
+    svg.append(text(X(qMax*.58),Y(st.L*qMax*.58+rent)-16,'L IC locus through H','svg-label'));
     svg.lastChild.setAttribute('fill','#16a34a');
 
     svg.append(el('line',{x1:X(qL),y1:Y(st.L*qL),x2:X(qL),y2:Y(tLIC),class:'line-gray dash'}));
-    svg.append(text(X(qL)-10,(Y(st.L*qL)+Y(tLIC))/2,'Information rent','svg-label','end'));
+    svg.append(text(X(qL)-10,(Y(st.L*qL)+Y(tLIC))/2,'Info rent','svg-label','end'));
     svg.lastChild.setAttribute('fill','#ea580c');
   }
 
@@ -276,7 +269,7 @@
     if(st.view==='indiff'){
       sideTitle.textContent='Principal indifference curves';
       badge.textContent='profit = S(q)-t';
-      summary.textContent='横轴表示产量 q，纵轴表示转移支付 t。委托人收益为 Π=S(q)-t，因此较高产量与较低转移支付均提高委托人收益。';
+      summary.textContent='横轴为产量 q，纵轴为转移支付 t。委托人收益 Π=S(q)-t；q 上升、t 下降都会提高 Π。';
       formula.innerHTML=`
         <div class="line"><span class="op">payoff</span> &Pi;(<span class="var">q</span>,<span class="var">t</span>)=S(<span class="var">q</span>)-<span class="var">t</span></div>
         <div class="line"><span class="op">indiff.</span> <span class="var">t</span>=S(<span class="var">q</span>)-&Pi;</div>
@@ -289,7 +282,7 @@
       const qL=qStar(st.L), qH=qStar(st.H), tL=tStar(st.L), tH=tStar(st.H);
       sideTitle.textContent='First-best allocation';
       badge.textContent='type observable';
-      summary.textContent='First best 中类型可观察，因此只需满足各类型的参与约束。紫色和橙色曲线为委托人无差异曲线，蓝色和绿色直线为代理人的零租金约束；最优点由切点给出。';
+      summary.textContent='First best 中类型可观察，只需满足各类型参与约束。紫/橙为委托人无差异曲线，蓝/绿为代理人零租金约束；最优点由切点给出。';
       formula.innerHTML=`
         <div class="line"><span class="op">max</span><sub><span class="var">q</span>(&theta;), <span class="var">t</span>(&theta;)</sub> S(<span class="var">q</span>(&theta;))-<span class="var">t</span>(&theta;)</div>
         <div class="line"><span class="op">s.t.</span> <span class="var">t</span>(&theta;)-&theta;<span class="var">q</span>(&theta;)&ge;0 <span class="tag">(IR)</span></div>
@@ -304,7 +297,7 @@
       const tLIC=st.L*qL+rent;
       sideTitle.textContent='Low-cost mimicry and incentive compatibility';
       badge.textContent='type unobservable';
-      summary.textContent='类型不可观察时，低成本类型 L 可能选择高成本类型 H 的合同。若 H 合同位于 L 型零租金线之上，则 L 型选择该合同可获得正信息租金。';
+      summary.textContent='类型不可观察时，低成本类型 L 可能选择 H 型合同。若 H 合同位于 L 型零租金线之上，L 型可获得正信息租金。';
       formula.innerHTML=`
         <div class="line"><span class="op">H contract</span> <span class="var">t</span><sub>H</sub>=H<span class="var">q</span><sub>H</sub></div>
         <div class="line"><span class="op">mimic payoff</span> U<sub>L</sub>(H)=<span class="var">t</span><sub>H</sub>-L<span class="var">q</span><sub>H</sub>=(H-L)<span class="var">q</span><sub>H</sub>&gt;0</div>
