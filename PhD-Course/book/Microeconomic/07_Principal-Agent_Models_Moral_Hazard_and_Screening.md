@@ -940,9 +940,7 @@ Clearly, $U(1)=0$: the least efficient type gets no information rent.
 
 For $q(\cdot)$ to be nonincreasing, the virtual cost function needs to be nondecreasing.
 
-## 3. The Bilateral Trading Environment
-
-This section studies bilateral trade with private values, private costs, and incentive constraints.
+The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
@@ -950,7 +948,9 @@ This section studies bilateral trade with private values, private costs, and inc
 </div>
 ```
 
-The term $F(\theta)/f(\theta)$ is the rent-extraction distortion.
+## 3. The Bilateral Trading Environment {#bilateral-trading-environment}
+
+This section studies bilateral trade with private values, private costs, and incentive constraints.
 
 There is one buyer with value $v\in[\underline v,\bar v]$ and one seller with cost $c\in[\underline c,\bar c]$. Types are private and independent. Let $q\in[0,1]$ denote the probability that the buyer obtains the good, and let $t_b,t_s$ denote expected monetary transfers.
 
