@@ -4,7 +4,11 @@
 
 :::{admonition} Definition (Assumptions for Random Effects Estimator)
 
-1.  **Random Sample**: The sample $$\{y_i, Z_i\}\tag{5.1.2}$$ is i.i.d. This is satisfied in most popular panels, such as the Panel Study of Income Dynamics (PSID) and the National Longitudinal Survey (NLS).
+1.  **Random Sample**: The sample
+$$
+\{y_i, Z_i\}\tag{5.1.2}
+$$
+is i.i.d. This is satisfied in most popular panels, such as the Panel Study of Income Dynamics (PSID) and the National Longitudinal Survey (NLS).
 
 2.  **System of $M$ linear equations**:
 
@@ -21,7 +25,11 @@ $$
 $$
 i.e., $\mathbb{E}(\varepsilon_i \otimes x_i) = 0$, where $x_i$ is the union of $(z_{i1}, \dots, z_{iM})$.
 
-4.  **Identification**: $$\mathbb{E}(Z_i \otimes x_i)\tag{5.1.4}$$ is of full column rank.
+4.  **Identification**:
+$$
+\mathbb{E}(Z_i \otimes x_i)\tag{5.1.4}
+$$
+is of full column rank.
 
 
 5.  **Conditional Homoskedasticity**:
@@ -31,7 +39,11 @@ $$
 \tag{5.1.5}
 $$
 
-6.  **Nonsingularity**: $$\mathbb{E}(g_i g_i')\tag{5.1.6}$$ is nonsingular, where $g_i \equiv \varepsilon_i \otimes x_i$.
+6.  **Nonsingularity**:
+$$
+\mathbb{E}(g_i g_i')\tag{5.1.6}
+$$
+is nonsingular, where $g_i \equiv \varepsilon_i \otimes x_i$.
 
 
 Under conditional homoskedasticity, $\mathbb{E}(g_i g_i') = \Sigma \otimes \mathbb{E}(x_i x_i')$.

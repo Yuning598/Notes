@@ -9,9 +9,13 @@ Links: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [07_DiD_RD_N
 
 :::{admonition} Definition (Potential outcomes)
 For binary treatment $D\in\{0,1\}$, each unit has two potential outcomes:
-$$ Y_i(1),\qquad Y_i(0). $$
+$$
+Y_i(1),\qquad Y_i(0).
+$$
 Observed outcome is
-$$ Y_i=D_iY_i(1)+(1-D_i)Y_i(0). $$
+$$
+Y_i=D_iY_i(1)+(1-D_i)Y_i(0).
+$$
 
 **Definition (SUTVA):**
 Stable Unit Treatment Value Assumption requires: no interference across units and no hidden versions of treatment。Then each unit's observed outcome under a treatment status equals the corresponding potential outcome。
@@ -50,13 +54,26 @@ $$
 
 #### Proof of Lemma (Difference in means identifies ATE under random assignment)
 
-$$ E[Y\mid D=1]-E[Y\mid D=0]=ATE. $$
+$$
+E[Y\mid D=1]-E[Y\mid D=0]=ATE.
+$$
 
-$$ Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D. $$
+$$
+Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D.
+$$
 
-$$ \begin{aligned} E[Y\mid D=1] &=E[Y(1)\mid D=1]\\ &=E[Y(1)],\\ E[Y\mid D=0] &=E[Y(0)\mid D=0]\\ &=E[Y(0)]. \end{aligned} $$
+$$
+\begin{aligned}
+E[Y\mid D=1] &=E[Y(1)\mid D=1]\\
+&=E[Y(1)],\\
+E[Y\mid D=0] &=E[Y(0)\mid D=0]\\
+&=E[Y(0)].
+\end{aligned}
+$$
 Therefore
-$$ E[Y\mid D=1]-E[Y\mid D=0]=E[Y(1)-Y(0)]. $$
+$$
+E[Y\mid D=1]-E[Y\mid D=0]=E[Y(1)-Y(0)].
+$$
 
 **结论：** Randomization turns missing counterfactual means into observed group means。
 
@@ -65,24 +82,38 @@ PS4 Q2's heterogeneous treatment model $Y_i=\alpha_i+\beta_iD_i$ with $(\alpha_i
 ### 3. Unconfoundedness and CATE identification
 
 :::{admonition} Definition (Unconfoundedness and overlap)
-$$ (Y(1),Y(0))\perp D\mid X. $$
+$$
+(Y(1),Y(0))\perp D\mid X.
+$$
 Overlap:
-$$ 0<p(X)=P(D=1\mid X)<1\quad\text{a.s.} $$
+$$
+0<p(X)=P(D=1\mid X)<1\quad\text{a.s.}
+$$
+:::
 
-**Lemma:** CATE identification
-**WTS：**
-$$ CATE(x)=E[Y\mid D=1,X=x]-E[Y\mid D=0,X=x]. $$
+:::{admonition} Lemma (CATE identification)
+$$
+CATE(x)=E[Y\mid D=1,X=x]-E[Y\mid D=0,X=x].
+$$
+:::
 
-**联立系统：**
-$$ Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X. $$
+#### Proof of Lemma (CATE identification)
 
-**连续求解：**
-$$ \begin{aligned} E[Y\mid D=1,X=x] &=E[Y(1)\mid D=1,X=x]\\ &=E[Y(1)\mid X=x],\\ E[Y\mid D=0,X=x] &=E[Y(0)\mid D=0,X=x]\\ &=E[Y(0)\mid X=x]. \end{aligned} $$
+$$
+Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X.
+$$
+
+$$
+\begin{aligned}
+E[Y\mid D=1,X=x] &=E[Y(1)\mid D=1,X=x]\\
+&=E[Y(1)\mid X=x],\\
+E[Y\mid D=0,X=x] &=E[Y(0)\mid D=0,X=x]\\
+&=E[Y(0)\mid X=x].
+\end{aligned}
+$$
 Difference gives $E[Y(1)-Y(0)\mid X=x]$。
 
-**结论：** selection on observables makes within-X treated and control groups comparable。
-
-:::
+selection on observables makes within-X treated and control groups comparable。
 
 ATE from CATE:
 
@@ -93,22 +124,35 @@ $$
 ### 4. Propensity score weighting
 
 :::{admonition} Definition (Propensity score)
-$$ p(X)=P(D=1\mid X). $$
+$$
+p(X)=P(D=1\mid X).
+$$
+:::
 
-**Lemma:** Inverse probability weighting identifies ATE
-**WTS：**
-$$ E\left[\frac{DY}{p(X)}\right]=E[Y(1)], \qquad E\left[\frac{(1-D)Y}{1-p(X)}\right]=E[Y(0)]. $$
+:::{admonition} Lemma (Inverse probability weighting identifies ATE)
+$$
+E\left[\frac{DY}{p(X)}\right]=E[Y(1)], \qquad E\left[\frac{(1-D)Y}{1-p(X)}\right]=E[Y(0)].
+$$
+:::
 
-**联立系统：**
-$$ Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X. $$
+#### Proof of Lemma (Inverse probability weighting identifies ATE)
 
-**连续求解：**
-$$ \begin{aligned} E\left[\frac{DY}{p(X)}\right] &=E\left[\frac{DY(1)}{p(X)}\right]\\ &=E\left[E\left[\frac{DY(1)}{p(X)}\mid X\right]\right]\\ &=E\left[\frac{E[D\mid X]E[Y(1)\mid X]}{p(X)}\right]\\ &=E[E[Y(1)\mid X]]\\ &=E[Y(1)]. \end{aligned} $$
+$$
+Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X.
+$$
+
+$$
+\begin{aligned}
+E\left[\frac{DY}{p(X)}\right] &=E\left[\frac{DY(1)}{p(X)}\right]\\
+&=E\left[E\left[\frac{DY(1)}{p(X)}\mid X\right]\right]\\
+&=E\left[\frac{E[D\mid X]E[Y(1)\mid X]}{p(X)}\right]\\
+&=E[E[Y(1)\mid X]]\\
+&=E[Y(1)].
+\end{aligned}
+$$
 The control expression is analogous。
 
-**结论：** IPW reweights observed outcomes to reconstruct the full population potential-outcome mean。
-
-:::
+IPW reweights observed outcomes to reconstruct the full population potential-outcome mean。
 
 ### 5. Propensity score balancing
 
@@ -119,16 +163,30 @@ PS5 Q3 asks to prove the propensity score result。
 
 #### Proof of Lemma (Propensity score is a balancing score)
 
-$$ D\perp X\mid p(X). $$
+$$
+D\perp X\mid p(X).
+$$
 
-$$ p(X)=P(D=1\mid X). $$
+$$
+p(X)=P(D=1\mid X).
+$$
 
 **连续求解：** For any value $p$,
-$$ \begin{aligned} P(D=1\mid X=x,p(X)=p) &=P(D=1\mid X=x)\\ &=p(x)\\ &=p. \end{aligned} $$
+$$
+\begin{aligned}
+P(D=1\mid X=x,p(X)=p) &=P(D=1\mid X=x)\\
+&=p(x)\\
+&=p.
+\end{aligned}
+$$
 Also
-$$ P(D=1\mid p(X)=p)=E[P(D=1\mid X)\mid p(X)=p]=p. $$
+$$
+P(D=1\mid p(X)=p)=E[P(D=1\mid X)\mid p(X)=p]=p.
+$$
 Thus
-$$ P(D=1\mid X=x,p(X)=p)=P(D=1\mid p(X)=p). $$
+$$
+P(D=1\mid X=x,p(X)=p)=P(D=1\mid p(X)=p).
+$$
 
 **结论：** Conditional on $p(X)$, treatment status no longer depends on the full $X$。
 
@@ -172,9 +230,15 @@ Slides define matching by imputing missing potential outcomes using nearest obse
 
 :::{admonition} Definition (Matching estimator with $M$ matches)
 Let $\mathcal M_i^C$ be the $M$ closest controls to treated unit $i$, and $\mathcal M_i^T$ the $M$ closest treated units to control unit $i$. Then
-$$ \hat Y_{i1}=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j, $$
-$$ \hat Y_{i0}=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i, $$
-$$ \widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}). $$
+$$
+\hat Y_{i1}=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j,
+$$
+$$
+\hat Y_{i0}=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i,
+$$
+$$
+\widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+$$
 
 :::
 
@@ -247,18 +311,39 @@ $$
 
 #### Proof of Lemma (LATE theorem)
 
-$$ \frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]} =E[Y(1)-Y(0)\mid D(1)>D(0)]. $$
+$$
+\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]} =E[Y(1)-Y(0)\mid D(1)>D(0)].
+$$
 
 **联立系统：** Observed treatment and outcome:
-$$ D=ZD(1)+(1-Z)D(0), $$
-$$ Y=Y(0)+D(Y(1)-Y(0)). $$
+$$
+D=ZD(1)+(1-Z)D(0),
+$$
+$$
+Y=Y(0)+D(Y(1)-Y(0)).
+$$
 
 **连续求解：** By independence,
-$$ \begin{aligned} E[D\mid Z=1]-E[D\mid Z=0] &=E[D(1)-D(0)]. \end{aligned} $$
+$$
+\begin{aligned}
+E[D\mid Z=1]-E[D\mid Z=0] &=E[D(1)-D(0)].
+\end{aligned}
+$$
 For outcomes,
-$$ \begin{aligned} E[Y\mid Z=1]-E[Y\mid Z=0] &=E[Y(0)+D(1)(Y(1)-Y(0))]\\ &\quad -E[Y(0)+D(0)(Y(1)-Y(0))]\\ &=E[(D(1)-D(0))(Y(1)-Y(0))]. \end{aligned} $$
+$$
+\begin{aligned}
+E[Y\mid Z=1]-E[Y\mid Z=0] &=E[Y(0)+D(1)(Y(1)-Y(0))]\\
+&\quad -E[Y(0)+D(0)(Y(1)-Y(0))]\\
+&=E[(D(1)-D(0))(Y(1)-Y(0))].
+\end{aligned}
+$$
 Under monotonicity, $D(1)-D(0)=1$ for compliers and 0 otherwise。Thus
-$$ \begin{aligned} \frac{E[(D(1)-D(0))\tau]}{E[D(1)-D(0)]} &=\frac{E[\tau\mathbf 1\{C\}]}{P(C)}\\ &=E[\tau\mid C]. \end{aligned} $$
+$$
+\begin{aligned}
+\frac{E[(D(1)-D(0))\tau]}{E[D(1)-D(0)]} &=\frac{E[\tau\mathbf 1\{C\}]}{P(C)}\\
+&=E[\tau\mid C].
+\end{aligned}
+$$
 
 **结论：** IV identifies the average treatment effect for compliers, not necessarily ATE。
 
@@ -302,7 +387,9 @@ So $Y\sim U[0,1]$。This lets the latent selection variable $U_D$ be normalized 
 ### 5. Roy model and selection
 
 :::{admonition} Definition (Nonparametric Roy / selection model)
-$$ Y=DY_1+(1-D)Y_0, \qquad D=1[U_D\le p(Z)], $$
+$$
+Y=DY_1+(1-D)Y_0, \qquad D=1[U_D\le p(Z)],
+$$
 where $U_D\sim U[0,1]$ and $(Y_0,Y_1,U_D)\perp Z$。
 
 :::
@@ -310,7 +397,9 @@ where $U_D\sim U[0,1]$ and $(Y_0,Y_1,U_D)\perp Z$。
 The key economic object is selection on gains：individuals with low $U_D$ are more likely to take treatment。
 
 :::{admonition} Definition (Marginal Treatment Effect)
-$$ MTE(u)=E[Y_1-Y_0\mid U_D=u]. $$
+$$
+MTE(u)=E[Y_1-Y_0\mid U_D=u].
+$$
 It is the treatment effect for individuals indifferent at margin $u$。
 
 :::
@@ -324,30 +413,51 @@ Slides stress that ATE, ATT, LATE and IV estimands are weighted averages of MTE�
 
 #### Proof of Lemma (ATE is integral of MTE)
 
-$$ ATE=\int_0^1MTE(u)du. $$
+$$
+ATE=\int_0^1MTE(u)du.
+$$
 
-$$ U_D\sim U[0,1]. $$
+$$
+U_D\sim U[0,1].
+$$
 
-$$ \begin{aligned} E[Y_1-Y_0] &=E[E[Y_1-Y_0\mid U_D]]\\ &=\int_0^1E[Y_1-Y_0\mid U_D=u]du\\ &=\int_0^1MTE(u)du. \end{aligned} $$
+$$
+\begin{aligned}
+E[Y_1-Y_0] &=E[E[Y_1-Y_0\mid U_D]]\\
+&=\int_0^1E[Y_1-Y_0\mid U_D=u]du\\
+&=\int_0^1MTE(u)du.
+\end{aligned}
+$$
 
 **结论：** ATE weights all margins equally。
 
 :::{admonition} Lemma (LATE weights MTE over changed margins)
-**WTS：** If $p(z)>p(z')$,
-$$ LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)du}{p(z)-p(z')}. $$
+If $p(z)>p(z')$,
+$$
+LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)du}{p(z)-p(z')}.
+$$
+:::
 
-**联立系统：**
-$$ D=1[U_D\le p(Z)]. $$
+#### Proof of Lemma (LATE weights MTE over changed margins)
 
-**连续求解：** The first stage is
-$$ E[D\mid Z=z]-E[D\mid Z=z']=p(z)-p(z'). $$
+$$
+D=1[U_D\le p(Z)].
+$$
+
+The first stage is
+$$
+E[D\mid Z=z]-E[D\mid Z=z']=p(z)-p(z').
+$$
 The reduced form is
-$$ \begin{aligned} E[Y\mid Z=z]-E[Y\mid Z=z'] &=\int_0^{p(z)}MTE(u)du-\int_0^{p(z')}MTE(u)du\\ &=\int_{p(z')}^{p(z)}MTE(u)du. \end{aligned} $$
+$$
+\begin{aligned}
+E[Y\mid Z=z]-E[Y\mid Z=z'] &=\int_0^{p(z)}MTE(u)du-\int_0^{p(z')}MTE(u)du\\
+&=\int_{p(z')}^{p(z)}MTE(u)du.
+\end{aligned}
+$$
 Ratio gives the result。
 
-**结论：** IV identifies treatment effects for individuals whose treatment status is shifted by the instrument。
-
-:::
+IV identifies treatment effects for individuals whose treatment status is shifted by the instrument。
 
 PS5 Q2 asks for untreated-group effect:
 

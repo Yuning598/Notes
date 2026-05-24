@@ -3,182 +3,358 @@
 Source: EF8090 slides, PDF pp. 7-19; PS1 Q1, Q3-Q5, Q7.  
 Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [cards/Law_of_Iterated_Expectations](cards/Law_of_Iterated_Expectations) | [cards/Projection_vs_CEF](cards/Projection_vs_CEF) | [cards/Variance_Decomposition](cards/Variance_Decomposition)
 
-## 1. 从 conditional expectation 开始
+## 1. Conditional expectation function
 
-EF8090 第一部分的核心对象是 **conditional expectation function**。回归模型只是对 CEF 施加线性、非线性或非参数形式限制后的结果。
+EF8090 第一部分的核心对象是 **conditional expectation function**。OLS、IV、propensity score 和 matching 都是在不同信息集上做 projection。
 
 :::{admonition} Definition (Conditional Expectation Function)
 令 $(Y,X)$ 有联合分布，且 $E|Y|<\infty$。CEF 定义为
-$$ m(x)=E[Y\mid X=x]. $$
-在连续情形，若条件密度存在，则
-$$ E[Y\mid X=x]=\int y f_{Y\mid X}(y\mid x)dy. $$
 
+$$
+m(x)=E[Y\mid X=x].
+$$
+
+若条件密度存在，则
+
+$$
+E[Y\mid X=x]
+=\int y f_{Y\mid X}(y\mid x)\,dy.
+$$
 :::
 
-Law of Iterated Expectation、conditioning theorem、CEF error 的 orthogonality。它们构成后面 OLS、IV、propensity score 和 matching 的共同语言。
-
 :::{admonition} Lemma (Law of iterated expectations)
-$$ E[E(Y\mid X)]=E[Y]. $$
+若 $E|Y|<\infty$，则
+
+$$
+E[E[Y\mid X]]=E[Y].
+$$
 :::
 
 #### Proof of Lemma (Law of iterated expectations)
 
+连续情形下，
+
+$$
+\left\{
+\begin{aligned}
+f_{Y,X}(y,x)&=f_{Y\mid X}(y\mid x)f_X(x),\\
+E[Y\mid X=x]&=\int y f_{Y\mid X}(y\mid x)\,dy.
+\end{aligned}
+\right.
+$$
+
+因此
+
 $$
 \begin{aligned}
-E[E(Y\mid X)]
-&=\int \left\{\int y f_{Y\mid X}(y\mid x)dy\right\} f_X(x)dx \\
-&=\int\int y f_{Y\mid X}(y\mid x)f_X(x)dydx \\
-&=\int\int y f_{Y,X}(y,x)dydx \\
-&=\int y f_Y(y)dy \\
+E[E[Y\mid X]]
+&=\int E[Y\mid X=x] f_X(x)\,dx\\
+&=\int \left[\int y f_{Y\mid X}(y\mid x)\,dy\right] f_X(x)\,dx\\
+&=\int\int y f_{Y\mid X}(y\mid x) f_X(x)\,dy\,dx\\
+&=\int\int y f_{Y,X}(y,x)\,dy\,dx\\
+&=\int y\left[\int f_{Y,X}(y,x)\,dx\right]dy\\
+&=\int y f_Y(y)\,dy\\
 &=E[Y].
 \end{aligned}
 $$
 
-更一般地，课件写出
+更一般地，
 
 $$
 E[E(Y\mid X_1,X_2)\mid X_1]=E(Y\mid X_1).
 $$
 
-这在 panel / DiD / propensity score 里非常常见：增加信息集再投影回较小信息集，不会改变较小信息集上的最优预测。
-
 :::{admonition} Lemma (Conditioning theorem)
-若 $g(X)$ 是 $X$ 的函数，则
-$$ E[g(X)Y\mid X]=g(X)E[Y\mid X]. $$
+若 $g(X)$ 是 $X$ 的函数，且 $E|g(X)Y|<\infty$，则
+
+$$
+E[g(X)Y\mid X]=g(X)E[Y\mid X].
+$$
 :::
 
 #### Proof of Lemma (Conditioning theorem)
 
+条件在 $X$ 上时，$g(X)$ 已知。对任意 $X$ 的可测集合 $A$，
+
 $$
 \begin{aligned}
-E[g(X)Y]
-&=E\{E[g(X)Y\mid X]\} \\
-&=E\{g(X)E[Y\mid X]\}.
+E[1_A g(X)Y]
+&=E\{E[1_A g(X)Y\mid X]\}\\
+&=E\{1_A g(X)E[Y\mid X]\}.
 \end{aligned}
 $$
 
-## 2. CEF error 的 orthogonality
+由 conditional expectation 的定义可得
+
+$$
+E[g(X)Y\mid X]=g(X)E[Y\mid X].
+$$
+
+## 2. CEF error orthogonality
 
 :::{admonition} Definition (CEF error)
 令
-$$ e=Y-m(X)=Y-E[Y\mid X]. $$
+
+$$
+e=Y-m(X)=Y-E[Y\mid X].
+$$
+
 则 $e$ 是 CEF error。
-
-**Lemma:** CEF error 与任意 $X$ 的函数正交
-**WTS：** 对任何满足可积条件的 $h(X)$，
-$$ E[h(X)e]=0. $$
-
-**联立系统：**
-$$ e=Y-E[Y\mid X], \qquad E[e\mid X]=0. $$
-
-**连续求解：**
-$$ \begin{aligned} E[h(X)e] &=E\{E[h(X)e\mid X]\} \\ &=E\{h(X)E[e\mid X]\} \\ &=E[h(X)\cdot 0] \\ &=0. \end{aligned} $$
-
-**结论：** CEF error 不仅均值为零，而且与所有 $X$ 的可积函数正交。课件称 $E[e\mid X]=0$ 为 mean independence，而不是 full independence。
-
 :::
+
+:::{admonition} Lemma (CEF error orthogonality)
+对任何满足可积条件的 $h(X)$，
+
+$$
+E[h(X)e]=0.
+$$
+:::
+
+#### Proof of Lemma (CEF error orthogonality)
+
+先证明 conditional mean zero：
+
+$$
+\begin{aligned}
+E[e\mid X]
+&=E[Y-E[Y\mid X]\mid X]\\
+&=E[Y\mid X]-E[E[Y\mid X]\mid X]\\
+&=E[Y\mid X]-E[Y\mid X]\\
+&=0.
+\end{aligned}
+$$
+
+再用 conditioning theorem：
+
+$$
+\begin{aligned}
+E[h(X)e]
+&=E\{E[h(X)e\mid X]\}\\
+&=E\{h(X)E[e\mid X]\}\\
+&=E[h(X)\cdot 0]\\
+&=0.
+\end{aligned}
+$$
+
+因此 CEF error 不仅均值为零，而且与所有 $X$ 的可积函数正交。课件称 $E[e\mid X]=0$ 为 mean independence，不是 full independence。
 
 ## 3. Conditional variance and total variance
 
 :::{admonition} Definition (Conditional variance)
-$$ \sigma^2(X)=\operatorname{Var}(Y\mid X)=E[(Y-E[Y\mid X])^2\mid X]=E[e^2\mid X]. $$
-若 $\sigma^2(X)$ 不依赖 $X$，称为 homoskedastic；否则为 heteroskedastic。
+CEF residual 的条件方差为
 
+$$
+\sigma^2(X)
+=\operatorname{Var}(Y\mid X)
+=E[(Y-E[Y\mid X])^2\mid X]
+=E[e^2\mid X].
+$$
+
+若 $\sigma^2(X)$ 不依赖 $X$，称为 homoskedastic；否则为 heteroskedastic。
 :::
 
-PS1 Q1 要求证明 conditional variance 的两个基本恒等式。
-
 :::{admonition} Lemma (Conditional variance formula)
-$$ \operatorname{Var}(Y\mid X)=E[Y^2\mid X]-E[Y\mid X]^2. $$
+若 $E[Y^2]<\infty$，则
+
+$$
+\operatorname{Var}(Y\mid X)
+=E[Y^2\mid X]-E[Y\mid X]^2.
+$$
 :::
 
 #### Proof of Lemma (Conditional variance formula)
 
+令 $m(X)=E[Y\mid X]$。则
+
 $$
 \begin{aligned}
 \operatorname{Var}(Y\mid X)
-&=E[(Y-m(X))^2\mid X] \\
-&=E[Y^2-2Y m(X)+m(X)^2\mid X] \\
-&=E[Y^2\mid X]-2m(X)E[Y\mid X]+m(X)^2 \\
-&=E[Y^2\mid X]-m(X)^2.
+&=E[(Y-m(X))^2\mid X]\\
+&=E[Y^2-2Ym(X)+m(X)^2\mid X]\\
+&=E[Y^2\mid X]-2m(X)E[Y\mid X]+m(X)^2\\
+&=E[Y^2\mid X]-2m(X)^2+m(X)^2\\
+&=E[Y^2\mid X]-m(X)^2\\
+&=E[Y^2\mid X]-E[Y\mid X]^2.
 \end{aligned}
 $$
 
 :::{admonition} Lemma (Law of total variance)
-$$ \operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]). $$
+若 $E[Y^2]<\infty$，则
+
+$$
+\operatorname{Var}(Y)
+=E[\operatorname{Var}(Y\mid X)]
++\operatorname{Var}(E[Y\mid X]).
+$$
 :::
 
 #### Proof of Lemma (Law of total variance)
 
+令 $m(X)=E[Y\mid X]$、$e=Y-m(X)$。由 LIE，
+
+$$
+E[Y]=E[m(X)].
+$$
+
+于是
+
 $$
 \begin{aligned}
 \operatorname{Var}(Y)
-&=E[(Y-EY)^2] \\
-&=E[(e+m(X)-EY)^2] \\
-&=E[e^2]+2E[e(m(X)-EY)]+E[(m(X)-EY)^2] \\
-&=E\{E[e^2\mid X]\}+2E\{(m(X)-EY)E[e\mid X]\}+\operatorname{Var}(m(X)) \\
-&=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]).
+&=E[(Y-E[Y])^2]\\
+&=E[(e+m(X)-E[m(X)])^2]\\
+&=E[e^2]
+  +2E[e(m(X)-E[m(X)])]
+  +E[(m(X)-E[m(X)])^2]\\
+&=E\{E[e^2\mid X]\}
+  +2E\{(m(X)-E[m(X)])E[e\mid X]\}
+  +\operatorname{Var}(m(X))\\
+&=E[\operatorname{Var}(Y\mid X)]
+  +2E\{(m(X)-E[m(X)])\cdot 0\}
+  +\operatorname{Var}(E[Y\mid X])\\
+&=E[\operatorname{Var}(Y\mid X)]
+  +\operatorname{Var}(E[Y\mid X]).
 \end{aligned}
 $$
 
-## 4. CEF is the best predictor
-
-课件证明了 CEF 是 MSE 意义下的最优预测函数。
+## 4. CEF as best predictor
 
 :::{admonition} Lemma (CEF minimizes mean squared prediction error)
-CEF minimizes mean squared prediction error
-**WTS：** 对任意可测函数 $g(X)$，
-$$ E[(Y-g(X))^2]\ge E[(Y-m(X))^2]. $$
+对任意可测函数 $g(X)$，
 
-**联立系统：**
-$$ Y=m(X)+e, \qquad E[e\mid X]=0. $$
+$$
+E[(Y-g(X))^2]\ge E[(Y-m(X))^2].
+$$
 
-**连续求解：**
-$$ \begin{aligned} E[(Y-g(X))^2] &=E[(e+m(X)-g(X))^2] \\ &=E[e^2]+2E[e(m(X)-g(X))]+E[(m(X)-g(X))^2] \\ &=E[e^2]+2E\{(m(X)-g(X))E[e\mid X]\}+E[(m(X)-g(X))^2] \\ &=E[e^2]+E[(m(X)-g(X))^2] \\ &\ge E[e^2] \\ &=E[(Y-m(X))^2]. \end{aligned} $$
-
-**结论：** CEF 是所有 $X$ 的函数中 MSE 最小的 predictor。
-
+等号成立当且仅当 $g(X)=m(X)$ a.s.
 :::
 
-PS1 Q3 的密度版本就是同一命题：先写 $m^*(x)=\int y f(y\mid x)dy$，再对每个 $x$ 点态最小化 $\int(y-m(x))^2f(y\mid x)dy$。
+#### Proof of Lemma (CEF minimizes mean squared prediction error)
+
+令 $e=Y-m(X)$，则 $E[e\mid X]=0$。对任意 $g(X)$，
+
+$$
+\begin{aligned}
+E[(Y-g(X))^2]
+&=E[(e+m(X)-g(X))^2]\\
+&=E[e^2]
+  +2E[e(m(X)-g(X))]
+  +E[(m(X)-g(X))^2]\\
+&=E[e^2]
+  +2E\{(m(X)-g(X))E[e\mid X]\}
+  +E[(m(X)-g(X))^2]\\
+&=E[e^2]+E[(m(X)-g(X))^2]\\
+&\ge E[e^2]\\
+&=E[(Y-m(X))^2].
+\end{aligned}
+$$
+
+其中
+
+$$
+E[(m(X)-g(X))^2]=0
+\Longleftrightarrow
+g(X)=m(X)\quad a.s.
+$$
+
+PS1 Q3 的密度版本是同一个命题：先写 $m^*(x)=\int y f(y\mid x)\,dy$，再对每个 $x$ 点态最小化 $\int (y-m(x))^2 f(y\mid x)\,dy$。
 
 ## 5. Best linear predictor and projection coefficient
 
-课件从 CEF 转向 linear projection：即使 $m(X)$ 不是线性的，也可以在所有线性函数中找 MSE 最小的 $X'\beta$。
+课件从 CEF 转向 **linear projection**：即使 $m(X)$ 不是线性的，也可以在所有线性函数中找 MSE 最小的 $X'\beta$。
 
 :::{admonition} Definition (Linear projection coefficient)
 在 $E[Y^2]<\infty$、$E\|X\|^2<\infty$、$E[XX']$ 正定下，定义
-$$ \beta^*=\arg\min_b E[(Y-X'b)^2]. $$
 
-**Lemma:** Best linear predictor formula
-**WTS：**
-$$ \beta^*=(E[XX'])^{-1}E[XY]. $$
-
-**联立系统：**
-$$ Q=E[XX'], \qquad q=E[XY], \qquad d(b)=E[(Y-X'b)^2]. $$
-
-**连续求解：**
-$$ \begin{aligned} d(b) &=E[Y^2-2Y X'b+b'XX'b] \\ &=E[Y^2]-2b'E[XY]+b'E[XX']b \\ &=E[Y^2]-2b'q+b'Qb. \end{aligned} $$
-FOC gives
-$$ \begin{aligned} 0 &=\frac{\partial d(b)}{\partial b}\bigg|_{b=\beta^*} \\ &=-2q+2Q\beta^*, \end{aligned} $$
-hence
-$$ \begin{aligned} Q\beta^*&=q,\\ \beta^*&=Q^{-1}q=(E[XX'])^{-1}E[XY]. \end{aligned} $$
-
-**结论：** 线性投影系数只依赖二阶矩。其投影误差 $v=Y-X'\beta^*$ 满足 $E[Xv]=0$，但一般不满足 $E[v\mid X]=0$。
-
+$$
+\beta^*=\arg\min_b E[(Y-X'b)^2].
+$$
 :::
 
-PS1 Q4 要求证明 $X'\beta$ 是 CEF 的 best linear approximation。关键是把 $Y=m(X)+e$ 代入：
+:::{admonition} Lemma (Best linear predictor formula)
+令 $Q=E[XX']$、$q=E[XY]$。若 $Q$ 正定，则
+
+$$
+\beta^*=Q^{-1}q=(E[XX'])^{-1}E[XY].
+$$
+:::
+
+#### Proof of Lemma (Best linear predictor formula)
+
+目标函数为
+
+$$
+\begin{aligned}
+d(b)
+&=E[(Y-X'b)^2]\\
+&=E[Y^2-2Y X'b+b'XX'b]\\
+&=E[Y^2]-2b'E[XY]+b'E[XX']b\\
+&=E[Y^2]-2b'q+b'Qb.
+\end{aligned}
+$$
+
+一阶条件：
+
+$$
+\begin{aligned}
+0
+&=\left.\frac{\partial d(b)}{\partial b}\right|_{b=\beta^*}\\
+&=-2q+2Q\beta^*.
+\end{aligned}
+$$
+
+因为 $Q$ 正定，所以解唯一：
+
+$$
+\begin{aligned}
+Q\beta^*&=q,\\
+\beta^*&=Q^{-1}q\\
+&=(E[XX'])^{-1}E[XY].
+\end{aligned}
+$$
+
+投影误差 $v=Y-X'\beta^*$ 满足
+
+$$
+\begin{aligned}
+E[Xv]
+&=E[X(Y-X'\beta^*)]\\
+&=E[XY]-E[XX']\beta^*\\
+&=q-QQ^{-1}q\\
+&=0.
+\end{aligned}
+$$
+
+一般而言，$E[Xv]=0$ 不推出 $E[v\mid X]=0$。
+
+:::{admonition} Lemma (Linear projection is best linear approximation to CEF)
+若 $m(X)=E[Y\mid X]$，则最小化 $E[(Y-X'b)^2]$ 等价于最小化 $E[(m(X)-X'b)^2]$。
+:::
+
+#### Proof of Lemma (Linear projection is best linear approximation to CEF)
+
+将 $Y=m(X)+e$ 代入：
 
 $$
 \begin{aligned}
 E[(Y-X'b)^2]
 &=E[(m(X)-X'b+e)^2]\\
-&=E[(m(X)-X'b)^2]+E[e^2],
+&=E[(m(X)-X'b)^2]
+  +2E[e(m(X)-X'b)]
+  +E[e^2]\\
+&=E[(m(X)-X'b)^2]
+  +2E\{(m(X)-X'b)E[e\mid X]\}
+  +E[e^2]\\
+&=E[(m(X)-X'b)^2]+E[e^2].
 \end{aligned}
 $$
 
-因为交叉项为零。所以最小化 $Y$ 的 MSE 与最小化 $m(X)$ 的线性近似误差等价。
+由于 $E[e^2]$ 与 $b$ 无关，
+
+$$
+\arg\min_b E[(Y-X'b)^2]
+=\arg\min_b E[(m(X)-X'b)^2].
+$$
 
 ## 6. Binary regressor and linear probability model
 
@@ -186,33 +362,55 @@ PS1 Q5 的重点是区分 **best linear predictor interpretation** 和 **causal 
 
 $$
 Y=\beta_0+\beta_1X+U,
-\qquad X\in\{0,1\},
+\qquad
+X\in\{0,1\},
 $$
 
 且带截距的线性投影被解释为 BLP，则
 
 $$
-\beta_0=E[Y\mid X=0],
-\qquad
-\beta_1=E[Y\mid X=1]-E[Y\mid X=0].
+\left\{
+\begin{aligned}
+\beta_0&=E[Y\mid X=0],\\
+\beta_1&=E[Y\mid X=1]-E[Y\mid X=0].
+\end{aligned}
+\right.
 $$
 
-因此 $E[U\mid X]=0$，也有 $E[XU]=0$。但若把该式解释为因果模型，则 $\beta_1$ 是否等于条件均值差，取决于是否满足选择独立性或外生性。
+因此 $E[U\mid X]=0$，也有 $E[XU]=0$。若把该式解释为因果模型，则 $\beta_1$ 是否等于因果效应，取决于是否满足选择独立性或外生性。
 
 :::{admonition} Lemma (Linear probability model is heteroskedastic)
-Linear probability model is heteroskedastic
-**WTS：** 若 $Y\in\{0,1\}$ 且 $E[Y\mid X]=X'\beta=p(X)$，则
-$$ \operatorname{Var}(U\mid X)=p(X)(1-p(X)). $$
+若 $Y\in\{0,1\}$ 且 $E[Y\mid X]=X'\beta=p(X)$，则
 
-**联立系统：**
-$$ U=Y-p(X), \qquad Y^2=Y. $$
-
-**连续求解：**
-$$ \begin{aligned} \operatorname{Var}(U\mid X) &=E[U^2\mid X] \\ &=E[(Y-p(X))^2\mid X] \\ &=E[Y^2\mid X]-2p(X)E[Y\mid X]+p(X)^2 \\ &=p(X)-2p(X)^2+p(X)^2 \\ &=p(X)(1-p(X)). \end{aligned} $$
-
-**结论：** 除非 $p(X)$ 是常数，否则 LPM 的误差方差依赖 $X$，因此 homoskedasticity 通常不合理。
-
+$$
+\operatorname{Var}(U\mid X)=p(X)(1-p(X)).
+$$
 :::
+
+#### Proof of Lemma (Linear probability model is heteroskedastic)
+
+令 $U=Y-p(X)$。因为 $Y\in\{0,1\}$，所以 $Y^2=Y$。并且
+
+$$
+E[U\mid X]=E[Y\mid X]-p(X)=0.
+$$
+
+因此
+
+$$
+\begin{aligned}
+\operatorname{Var}(U\mid X)
+&=E[U^2\mid X]-E[U\mid X]^2\\
+&=E[U^2\mid X]\\
+&=E[(Y-p(X))^2\mid X]\\
+&=E[Y^2-2Yp(X)+p(X)^2\mid X]\\
+&=E[Y^2\mid X]-2p(X)E[Y\mid X]+p(X)^2\\
+&=p(X)-2p(X)^2+p(X)^2\\
+&=p(X)(1-p(X)).
+\end{aligned}
+$$
+
+除非 $p(X)$ 是常数，否则 LPM 的误差方差依赖 $X$，因此 homoskedasticity 通常不合理。
 
 ## 7. 和后续主题的连接
 

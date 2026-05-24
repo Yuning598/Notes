@@ -9,11 +9,17 @@ Links: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Infe
 
 :::{admonition} Definition (Maximum likelihood estimator)
 若 $X_1,\ldots,X_n$ iid with density $p_\theta(x)$，likelihood is
-$$ \ell_n(\theta)=\prod_{i=1}^np_\theta(X_i). $$
+$$
+\ell_n(\theta)=\prod_{i=1}^np_\theta(X_i).
+$$
 Log-likelihood normalized by $n$ is
-$$ L_n(\theta)=\frac1n\sum_{i=1}^n\log p_\theta(X_i). $$
+$$
+L_n(\theta)=\frac1n\sum_{i=1}^n\log p_\theta(X_i).
+$$
 MLE is
-$$ \hat\theta\in\arg\max_{\theta\in\Theta}L_n(\theta). $$
+$$
+\hat\theta\in\arg\max_{\theta\in\Theta}L_n(\theta).
+$$
 
 :::
 
@@ -38,11 +44,22 @@ PS3 Q2: Poisson $X_i\sim\operatorname{Poisson}(\lambda)$。
 
 #### Proof of Lemma (Poisson MLE)
 
-$$ \hat\lambda=\bar X. $$
+$$
+\hat\lambda=\bar X.
+$$
 
-$$ p_\lambda(x)=e^{-\lambda}\frac{\lambda^x}{x!}. $$
+$$
+p_\lambda(x)=e^{-\lambda}\frac{\lambda^x}{x!}.
+$$
 
-$$ \begin{aligned} \log\ell_n(\lambda) &=\sum_i[-\lambda+X_i\log\lambda-\log(X_i!)]\\ &=-n\lambda+\left(\sum_iX_i\right)\log\lambda+\text{const},\\ \frac{\partial\log\ell_n}{\partial\lambda} &=-n+\frac{\sum_iX_i}{\lambda}=0,\\ \hat\lambda&=\bar X. \end{aligned} $$
+$$
+\begin{aligned}
+\log\ell_n(\lambda) &=\sum_i[-\lambda+X_i\log\lambda-\log(X_i!)]\\
+&=-n\lambda+\left(\sum_iX_i\right)\log\lambda+\text{const},\\
+\frac{\partial\log\ell_n}{\partial\lambda} &=-n+\frac{\sum_iX_i}{\lambda}=0,\\
+\hat\lambda&=\bar X.
+\end{aligned}
+$$
 
 **结论：** Poisson mean MLE equals sample mean。
 
@@ -61,70 +78,125 @@ PS3 Q1 asks for MLE and Fisher information for $Y_i\sim N(\mu,\sigma^2)$。Let $
 
 #### Proof of Lemma (Normal MLE)
 
-$$ \hat\mu=\bar Y, \qquad \hat\sigma^2=\frac1n\sum_i(Y_i-\bar Y)^2. $$
+$$
+\hat\mu=\bar Y, \qquad \hat\sigma^2=\frac1n\sum_i(Y_i-\bar Y)^2.
+$$
 
-$$ \log\ell(\mu,s)=-\frac n2\log(2\pi)-\frac n2\log s-\frac1{2s}\sum_i(Y_i-\mu)^2. $$
+$$
+\log\ell(\mu,s)=-\frac n2\log(2\pi)-\frac n2\log s-\frac1{2s}\sum_i(Y_i-\mu)^2.
+$$
 
-$$ \begin{aligned} \frac{\partial\log\ell}{\partial\mu} &=\frac1s\sum_i(Y_i-\mu)=0 \quad\Rightarrow\quad \hat\mu=\bar Y,\\ \frac{\partial\log\ell}{\partial s} &=-\frac n{2s}+\frac1{2s^2}\sum_i(Y_i-\mu)^2=0\\ &\Rightarrow \hat s=\frac1n\sum_i(Y_i-\hat\mu)^2. \end{aligned} $$
+$$
+\begin{aligned}
+\frac{\partial\log\ell}{\partial\mu} &=\frac1s\sum_i(Y_i-\mu)=0 \quad\Rightarrow\quad \hat\mu=\bar Y,\\
+\frac{\partial\log\ell}{\partial s} &=-\frac n{2s}+\frac1{2s^2}\sum_i(Y_i-\mu)^2=0\\
+&\Rightarrow \hat s=\frac1n\sum_i(Y_i-\hat\mu)^2.
+\end{aligned}
+$$
 
 **结论：** Normal MLE 的 variance estimator uses $n$，not $n-1$。
 
 :::{admonition} Lemma (Fisher information for $(\mu,\sigma^2)$)
-**WTS：** 单个 observation 的 Fisher information is
-$$ I_1(\mu,s)= \begin{pmatrix} 1/s&0\\ 0&1/(2s^2) \end{pmatrix}. $$
-
-**联立系统：** Score components:
-$$ S_\mu=\frac{Y-\mu}{s}, \qquad S_s=-\frac1{2s}+\frac{(Y-\mu)^2}{2s^2}. $$
-
-**连续求解：**
-$$ \begin{aligned} E[S_\mu^2] &=E[(Y-\mu)^2]/s^2=s/s^2=1/s,\\ E[S_\mu S_s] &=E\left[\frac{Y-\mu}{s}\left(-\frac1{2s}+\frac{(Y-\mu)^2}{2s^2}\right)\right]=0,\\ E[S_s^2] &=\operatorname{Var}\left(\frac{(Y-\mu)^2}{2s^2}\right)\\ &=\frac1{4s^4}\operatorname{Var}((Y-\mu)^2)\\ &=\frac1{4s^4}(2s^2)=\frac1{2s^2}. \end{aligned} $$
-
-**结论：** Sample information is $I_n=nI_1$。CRLB for estimating $\mu$ is $s/n$，and $\operatorname{Var}(\bar Y)=s/n$，so $\bar Y$ is efficient even if $s$ is unknown。
-
+单个 observation 的 Fisher information is
+$$
+I_1(\mu,s)= \begin{pmatrix} 1/s&0\\ 0&1/(2s^2) \end{pmatrix}.
+$$
 :::
+
+#### Proof of Lemma (Fisher information for $(\mu,\sigma^2)$)
+
+Score components:
+$$
+S_\mu=\frac{Y-\mu}{s}, \qquad S_s=-\frac1{2s}+\frac{(Y-\mu)^2}{2s^2}.
+$$
+
+$$
+\begin{aligned}
+E[S_\mu^2] &=E[(Y-\mu)^2]/s^2=s/s^2=1/s,\\
+E[S_\mu S_s] &=E\left[\frac{Y-\mu}{s}\left(-\frac1{2s}+\frac{(Y-\mu)^2}{2s^2}\right)\right]=0,\\
+E[S_s^2] &=\operatorname{Var}\left(\frac{(Y-\mu)^2}{2s^2}\right)\\
+&=\frac1{4s^4}\operatorname{Var}((Y-\mu)^2)\\
+&=\frac1{4s^4}(2s^2)=\frac1{2s^2}.
+\end{aligned}
+$$
+
+Sample information is $I_n=nI_1$。CRLB for estimating $\mu$ is $s/n$，and $\operatorname{Var}(\bar Y)=s/n$，so $\bar Y$ is efficient even if $s$ is unknown。
 
 ### 4. Fisher information identities
 
 :::{admonition} Definition (Fisher information)
 For scalar $\theta$,
-$$ I_1(\theta)=E\left[\left(\frac{\partial\log f(Y;\theta)}{\partial\theta}\right)^2\right]. $$
+$$
+I_1(\theta)=E\left[\left(\frac{\partial\log f(Y;\theta)}{\partial\theta}\right)^2\right].
+$$
 Under regularity conditions,
-$$ I_1(\theta)=-E\left[\frac{\partial^2\log f(Y;\theta)}{\partial\theta^2}\right]. $$
-
-**Lemma:** Score has mean zero
-**WTS：**
-$$ E[S_\theta(Y)]=0. $$
-
-**联立系统：**
-$$ S_\theta(y)=\frac{\partial\log f(y;\theta)}{\partial\theta} =\frac{\partial f(y;\theta)/\partial\theta}{f(y;\theta)}. $$
-
-**连续求解：**
-$$ \begin{aligned} E[S_\theta(Y)] &=\int \frac{\partial f(y;\theta)/\partial\theta}{f(y;\theta)}f(y;\theta)dy\\ &=\int \frac{\partial f(y;\theta)}{\partial\theta}dy\\ &=\frac{\partial}{\partial\theta}\int f(y;\theta)dy\\ &=\frac{\partial}{\partial\theta}1\\ &=0. \end{aligned} $$
-
-**结论：** Fisher information is score variance。
-
+$$
+I_1(\theta)=-E\left[\frac{\partial^2\log f(Y;\theta)}{\partial\theta^2}\right].
+$$
 :::
+
+:::{admonition} Lemma (Score has mean zero)
+$$
+E[S_\theta(Y)]=0.
+$$
+:::
+
+#### Proof of Lemma (Score has mean zero)
+
+$$
+S_\theta(y)=\frac{\partial\log f(y;\theta)}{\partial\theta} =\frac{\partial f(y;\theta)/\partial\theta}{f(y;\theta)}.
+$$
+
+$$
+\begin{aligned}
+E[S_\theta(Y)] &=\int \frac{\partial f(y;\theta)/\partial\theta}{f(y;\theta)}f(y;\theta)dy\\
+&=\int \frac{\partial f(y;\theta)}{\partial\theta}dy\\
+&=\frac{\partial}{\partial\theta}\int f(y;\theta)dy\\
+&=\frac{\partial}{\partial\theta}1\\
+&=0.
+\end{aligned}
+$$
+
+Fisher information is score variance。
 
 ### 5. Cramer-Rao lower bound
 
 :::{admonition} Lemma (Scalar Cramer-Rao bound)
 Scalar Cramer-Rao bound
-**WTS：** 若 $\hat\theta$ unbiased for $\theta$，则
-$$ \operatorname{Var}(\hat\theta)\ge \frac1{I(\theta)}. $$
-
-**联立系统：**
-$$ E[\hat\theta]=\theta, \qquad S_\theta(Y)=\partial\log f(Y;\theta)/\partial\theta. $$
-
-**连续求解：** Differentiate unbiasedness:
-$$ \begin{aligned} 1 &=\frac{\partial}{\partial\theta}\int \hat\theta(y)f(y;\theta)dy\\ &=\int \hat\theta(y)\frac{\partial f(y;\theta)}{\partial\theta}dy\\ &=E[\hat\theta S_\theta(Y)]. \end{aligned} $$
-Since $E[S_\theta]=0$,
-$$ E[\hat\theta S_\theta]=E[(\hat\theta-\theta)S_\theta]. $$
-Cauchy-Schwarz gives
-$$ \begin{aligned} 1^2 &=\{E[(\hat\theta-\theta)S_\theta]\}^2\\ &\le E[(\hat\theta-\theta)^2]E[S_\theta^2]\\ &=\operatorname{Var}(\hat\theta)I(\theta). \end{aligned} $$
-
-**结论：** $\operatorname{Var}(\hat\theta)\ge I(\theta)^{-1}$。
-
+若 $\hat\theta$ unbiased for $\theta$，则
+$$
+\operatorname{Var}(\hat\theta)\ge \frac1{I(\theta)}.
+$$
 :::
+
+#### Proof of Lemma (Scalar Cramer-Rao bound)
+
+$$
+E[\hat\theta]=\theta, \qquad S_\theta(Y)=\partial\log f(Y;\theta)/\partial\theta.
+$$
+
+Differentiate unbiasedness:
+$$
+\begin{aligned}
+1 &=\frac{\partial}{\partial\theta}\int \hat\theta(y)f(y;\theta)dy\\
+&=\int \hat\theta(y)\frac{\partial f(y;\theta)}{\partial\theta}dy\\
+&=E[\hat\theta S_\theta(Y)].
+\end{aligned}
+$$
+Since $E[S_\theta]=0$,
+$$
+E[\hat\theta S_\theta]=E[(\hat\theta-\theta)S_\theta].
+$$
+Cauchy-Schwarz gives
+$$
+\begin{aligned}
+1^2 &=\{E[(\hat\theta-\theta)S_\theta]\}^2\\
+&\le E[(\hat\theta-\theta)^2]E[S_\theta^2]\\
+&=\operatorname{Var}(\hat\theta)I(\theta).
+\end{aligned}
+$$
+
+$\operatorname{Var}(\hat\theta)\ge I(\theta)^{-1}$。
 
 课件还给出 vector/matrix version。若 $\hat\theta$ unbiased，
 
@@ -200,16 +272,30 @@ $$
 
 #### Proof of Lemma (Argmax consistency of MLE)
 
-$$ \hat\theta\xrightarrow{p}\theta_0. $$
+$$
+\hat\theta\xrightarrow{p}\theta_0.
+$$
 
-$$ \sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\xrightarrow{p}0, $$
+$$
+\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\xrightarrow{p}0,
+$$
 and for every $\varepsilon>0$,
-$$ \sup_{\theta\notin B_\varepsilon(\theta_0)}L(\theta)<L(\theta_0). $$
+$$
+\sup_{\theta\notin B_\varepsilon(\theta_0)}L(\theta)<L(\theta_0).
+$$
 
 **连续求解：** Since $\hat\theta$ maximizes $L_n$,
-$$ L_n(\hat\theta)\ge L_n(\theta_0). $$
+$$
+L_n(\hat\theta)\ge L_n(\theta_0).
+$$
 Uniform convergence gives
-$$ \begin{aligned} L(\hat\theta) &\ge L_n(\hat\theta)-\sup_\theta|L_n(\theta)-L(\theta)|\\ &\ge L_n(\theta_0)-\sup_\theta|L_n(\theta)-L(\theta)|\\ &\ge L(\theta_0)-2\sup_\theta|L_n(\theta)-L(\theta)|. \end{aligned} $$
+$$
+\begin{aligned}
+L(\hat\theta) &\ge L_n(\hat\theta)-\sup_\theta|L_n(\theta)-L(\theta)|\\
+&\ge L_n(\theta_0)-\sup_\theta|L_n(\theta)-L(\theta)|\\
+&\ge L(\theta_0)-2\sup_\theta|L_n(\theta)-L(\theta)|.
+\end{aligned}
+$$
 Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\hat\theta$ must enter every neighborhood of $\theta_0$ with probability tending to one。
 
 **结论：** MLE consistency needs identification plus uniform convergence。
@@ -223,21 +309,38 @@ Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\h
 
 #### Proof of Lemma (MLE asymptotic normality)
 
-$$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}). $$
+$$
+\sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}).
+$$
 
 **联立系统：** Define score and Hessian:
-$$ S_n(\theta)=\frac1n\sum_i s_i(\theta), \qquad H_n(\theta)=\frac1n\sum_i \frac{\partial s_i(\theta)}{\partial\theta'}. $$
+$$
+S_n(\theta)=\frac1n\sum_i s_i(\theta), \qquad H_n(\theta)=\frac1n\sum_i \frac{\partial s_i(\theta)}{\partial\theta'}.
+$$
 FOC:
-$$ S_n(\hat\theta)=0. $$
+$$
+S_n(\hat\theta)=0.
+$$
 
 **连续求解：** Taylor expansion around $\theta_0$:
-$$ \begin{aligned} 0 &=S_n(\hat\theta)\\ &=S_n(\theta_0)+H_n(\bar\theta)(\hat\theta-\theta_0). \end{aligned} $$
+$$
+\begin{aligned}
+0 &=S_n(\hat\theta)\\
+&=S_n(\theta_0)+H_n(\bar\theta)(\hat\theta-\theta_0).
+\end{aligned}
+$$
 Rearranging:
-$$ \sqrt n(\hat\theta-\theta_0) =-[H_n(\bar\theta)]^{-1}\sqrt n S_n(\theta_0). $$
+$$
+\sqrt n(\hat\theta-\theta_0) =-[H_n(\bar\theta)]^{-1}\sqrt n S_n(\theta_0).
+$$
 Under regularity,
-$$ H_n(\bar\theta)\xrightarrow{p}-I(\theta_0), \qquad \sqrt nS_n(\theta_0)\xrightarrow{d}N(0,I(\theta_0)). $$
+$$
+H_n(\bar\theta)\xrightarrow{p}-I(\theta_0), \qquad \sqrt nS_n(\theta_0)\xrightarrow{d}N(0,I(\theta_0)).
+$$
 Slutsky gives
-$$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}). $$
+$$
+\sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}).
+$$
 
 **结论：** ML reaches the Cramer-Rao bound asymptotically under regularity。
 
@@ -245,15 +348,21 @@ $$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}). $
 
 :::{admonition} Definition (ML Wald test)
 If $H_0:r(\theta)=0$ has $q$ restrictions,
-$$ W=n r(\hat\theta)'[R\hat I^{-1}R']^{-1}r(\hat\theta)\xrightarrow{d}\chi_q^2. $$
+$$
+W=n r(\hat\theta)'[R\hat I^{-1}R']^{-1}r(\hat\theta)\xrightarrow{d}\chi_q^2.
+$$
 
 **Definition (Likelihood ratio test):**
 Let $\hat\theta$ be unrestricted MLE and $\tilde\theta$ restricted MLE under $H_0$。
-$$ LR=2\{\log\ell_n(\hat\theta)-\log\ell_n(\tilde\theta)\}\xrightarrow{d}\chi_q^2. $$
+$$
+LR=2\{\log\ell_n(\hat\theta)-\log\ell_n(\tilde\theta)\}\xrightarrow{d}\chi_q^2.
+$$
 
 **Definition (Lagrange multiplier test):**
 LM uses the restricted estimator and the score evaluated at it:
-$$ LM=S_n(\tilde\theta)'\hat I(\tilde\theta)^{-1}S_n(\tilde\theta) $$
+$$
+LM=S_n(\tilde\theta)'\hat I(\tilde\theta)^{-1}S_n(\tilde\theta)
+$$
 with the appropriate $n$-scaling depending on whether $S_n$ is averaged or summed. Under $H_0$, $LM\to_d\chi_q^2$。
 
 :::
@@ -276,18 +385,24 @@ $$
 
 :::{admonition} Lemma (Wald z-test for a Bernoulli rate)
 Wald z-test for a Bernoulli rate
-**WTS：** Test $H_0:p=p_0$ using
-$$ Z=\sqrt n\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)}}. $$
-
-**联立系统：**
-$$ \sqrt n(\hat p-p_0)\to_d N(0,p_0(1-p_0)). $$
-
-**连续求解：** Standardize:
-$$ Z=\frac{\sqrt n(\hat p-p_0)}{\sqrt{p_0(1-p_0)}}\to_dN(0,1). $$
-
-**结论：** Slides obtain $Z\approx0.953$ using null variance, or $Z\approx0.889$ using variance evaluated at $\hat p$。Neither rejects conventional levels。
-
+Test $H_0:p=p_0$ using
+$$
+Z=\sqrt n\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)}}.
+$$
 :::
+
+#### Proof of Lemma (Wald z-test for a Bernoulli rate)
+
+$$
+\sqrt n(\hat p-p_0)\to_d N(0,p_0(1-p_0)).
+$$
+
+Standardize:
+$$
+Z=\frac{\sqrt n(\hat p-p_0)}{\sqrt{p_0(1-p_0)}}\to_dN(0,1).
+$$
+
+Slides obtain $Z\approx0.953$ using null variance, or $Z\approx0.889$ using variance evaluated at $\hat p$。Neither rejects conventional levels。
 
 PS3 Q3 uses the same logic for sunny days in March: under $p_0=198/365$, $\hat p=10/31$,
 

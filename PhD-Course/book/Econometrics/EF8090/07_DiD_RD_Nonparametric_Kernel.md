@@ -10,25 +10,41 @@ Links: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) 
 Two groups $D_i\in\{0,1\}$, two periods $Post_t\in\{0,1\}$。Treatment group receives treatment only in post period。
 
 :::{admonition} Definition (Difference-in-differences estimand)
-$$ \tau_{DiD}=[E(Y\mid D=1,Post=1)-E(Y\mid D=1,Post=0)] -[E(Y\mid D=0,Post=1)-E(Y\mid D=0,Post=0)]. $$
+$$
+\tau_{DiD}=[E(Y\mid D=1,Post=1)-E(Y\mid D=1,Post=0)] -[E(Y\mid D=0,Post=1)-E(Y\mid D=0,Post=0)].
+$$
 
 **Definition (Common trends assumption):**
 In the absence of treatment, treated and control groups would have experienced the same average change:
-$$ E[Y_0(1)-Y_0(0)\mid D=1]=E[Y_0(1)-Y_0(0)\mid D=0]. $$
-
-**Lemma:** DiD identifies ATT under common trends
-**WTS：**
-$$ \tau_{DiD}=E[Y_1(1)-Y_0(1)\mid D=1]. $$
-
-**联立系统：** Observed:
-$$ Y_{it}=D_iPost_tY_{1t}+(1-D_iPost_t)Y_{0t}. $$
-
-**连续求解：**
-$$ \begin{aligned} \tau_{DiD} &=\{E[Y_1(1)\mid D=1]-E[Y_0(0)\mid D=1]\}\\ &\quad -\{E[Y_0(1)\mid D=0]-E[Y_0(0)\mid D=0]\}\\ &=E[Y_1(1)-Y_0(1)\mid D=1]\\ &\quad +\{E[Y_0(1)-Y_0(0)\mid D=1]-E[Y_0(1)-Y_0(0)\mid D=0]\}\\ &=ATT+0. \end{aligned} $$
-
-**结论：** DiD subtracts off the untreated counterfactual trend using control group trend。
-
+$$
+E[Y_0(1)-Y_0(0)\mid D=1]=E[Y_0(1)-Y_0(0)\mid D=0].
+$$
 :::
+
+:::{admonition} Lemma (DiD identifies ATT under common trends)
+$$
+\tau_{DiD}=E[Y_1(1)-Y_0(1)\mid D=1].
+$$
+:::
+
+#### Proof of Lemma (DiD identifies ATT under common trends)
+
+Observed:
+$$
+Y_{it}=D_iPost_tY_{1t}+(1-D_iPost_t)Y_{0t}.
+$$
+
+$$
+\begin{aligned}
+\tau_{DiD} &=\{E[Y_1(1)\mid D=1]-E[Y_0(0)\mid D=1]\}\\
+&\quad -\{E[Y_0(1)\mid D=0]-E[Y_0(0)\mid D=0]\}\\
+&=E[Y_1(1)-Y_0(1)\mid D=1]\\
+&\quad +\{E[Y_0(1)-Y_0(0)\mid D=1]-E[Y_0(1)-Y_0(0)\mid D=0]\}\\
+&=ATT+0.
+\end{aligned}
+$$
+
+DiD subtracts off the untreated counterfactual trend using control group trend。
 
 ### 2. DiD as regression
 
@@ -61,12 +77,22 @@ This is the same FWL result as [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra
 
 #### Proof of Lemma (Group fixed effects residualization)
 
-$$ \tilde\beta=\hat\beta. $$
+$$
+\tilde\beta=\hat\beta.
+$$
 
-$$ \dot Y_i=Y_i-\bar Y_{F_i}, \qquad \dot X_i=X_i-\bar X_{F_i}. $$
+$$
+\dot Y_i=Y_i-\bar Y_{F_i}, \qquad \dot X_i=X_i-\bar X_{F_i}.
+$$
 
 **连续求解：** Let $D_F$ be group dummy matrix。FWL gives
-$$ \begin{aligned} \hat\beta &=(X'M_{D_F}X)^{-1}X'M_{D_F}Y\\ &=\left(\sum_i\dot X_i\dot X_i'\right)^{-1}\left(\sum_i\dot X_i\dot Y_i\right)\\ &=\tilde\beta. \end{aligned} $$
+$$
+\begin{aligned}
+\hat\beta &=(X'M_{D_F}X)^{-1}X'M_{D_F}Y\\
+&=\left(\sum_i\dot X_i\dot X_i'\right)^{-1}\left(\sum_i\dot X_i\dot Y_i\right)\\
+&=\tilde\beta.
+\end{aligned}
+$$
 
 **结论：** Fixed effects coefficients are OLS coefficients after removing group means。
 
@@ -82,37 +108,48 @@ $$
 
 :::{admonition} Lemma (Unit FE only identifies treated before-after change)
 Unit FE only identifies treated before-after change
-**WTS：** coefficient on $D_{it}$ after unit demeaning equals
-$$ \hat\beta_{unit}=\bar Y_1^{post}-\bar Y_1^{pre}. $$
-
-**联立系统：** Unit FE removes $\alpha_i$，so identifying variation in $D_{it}=D_i1[t\ge t^*]$ exists only within treated units；never-treated units have no within variation in $D_{it}$。
-
-**连续求解：** For treated units, within-transformed treatment is positive in post and negative in pre。The coefficient reduces to the contrast between treated post and treated pre means。
-
-**结论：** This is a before-after estimator, not a DiD estimator；it does not subtract control trends。
-
+coefficient on $D_{it}$ after unit demeaning equals
+$$
+\hat\beta_{unit}=\bar Y_1^{post}-\bar Y_1^{pre}.
+$$
 :::
+
+#### Proof of Lemma (Unit FE only identifies treated before-after change)
+
+Unit FE removes $\alpha_i$，so identifying variation in $D_{it}=D_i1[t\ge t^*]$ exists only within treated units；never-treated units have no within variation in $D_{it}$。
+
+For treated units, within-transformed treatment is positive in post and negative in pre。The coefficient reduces to the contrast between treated post and treated pre means。
+
+This is a before-after estimator, not a DiD estimator；it does not subtract control trends。
 
 :::{admonition} Lemma (Time FE only identifies post treated-control difference)
-**WTS：** coefficient equals
-$$ \hat\beta_{time}=\bar Y_1^{post}-\bar Y_0^{post}. $$
-
-**结论：** Time FE removes common time shocks but not permanent treated-control level differences；it is a post-period cross-sectional contrast。
-
+coefficient equals
+$$
+\hat\beta_{time}=\bar Y_1^{post}-\bar Y_0^{post}.
+$$
 :::
+
+#### Proof of Lemma (Time FE only identifies post treated-control difference)
+
+Time FE removes common time shocks but not permanent treated-control level differences；it is a post-period cross-sectional contrast。
 
 :::{admonition} Lemma (Unit and time FE identify the DiD contrast)
-**WTS：** double demeaning coefficient equals
-$$ \hat\beta_{ddmn}=\bar Y_1^{post}-\bar Y_1^{pre}-\bar Y_0^{post}+\bar Y_0^{pre}. $$
-
-**联立系统：** TWFE residualizes both unit and time components。The remaining variation is the interaction-like component of treatment。
-
-**连续求解：** The double-demeaned treatment is positive only for treated-post cells relative to what unit means and time means predict。Regressing double-demeaned $Y$ on double-demeaned $D$ recovers the cell contrast
-$$ (1,post)-(1,pre)-(0,post)+(0,pre). $$
-
-**结论：** TWFE in the 2x2 design equals canonical DiD。
-
+double demeaning coefficient equals
+$$
+\hat\beta_{ddmn}=\bar Y_1^{post}-\bar Y_1^{pre}-\bar Y_0^{post}+\bar Y_0^{pre}.
+$$
 :::
+
+#### Proof of Lemma (Unit and time FE identify the DiD contrast)
+
+TWFE residualizes both unit and time components。The remaining variation is the interaction-like component of treatment。
+
+The double-demeaned treatment is positive only for treated-post cells relative to what unit means and time means predict。Regressing double-demeaned $Y$ on double-demeaned $D$ recovers the cell contrast
+$$
+(1,post)-(1,pre)-(0,post)+(0,pre).
+$$
+
+TWFE in the 2x2 design equals canonical DiD。
 
 ### 5. Pre-trends and event studies
 
@@ -128,7 +165,9 @@ Pre-treatment coefficients $\tau_k$ for $k<0$ are pre-trend checks。They do not
 
 :::{admonition} Definition (Triple differences)
 If there is another comparison dimension $S\in\{0,1\}$, DDD is
-$$ DDD=DiD(S=1)-DiD(S=0). $$
+$$
+DDD=DiD(S=1)-DiD(S=0).
+$$
 It removes shocks common to treated/control over time within both $S$ groups and differential time shocks shared across treatment states。
 
 :::
@@ -150,9 +189,13 @@ Slides highlight clustered standard errors and the problem of one treated group�
 
 :::{admonition} Definition (Sharp regression discontinuity)
 Let $R$ be running variable and $c$ cutoff。Treatment is deterministically assigned:
-$$ D=1[R\ge c]. $$
+$$
+D=1[R\ge c].
+$$
 Sharp RD estimand is
-$$ \tau_{SRD}=\lim_{r\downarrow c}E[Y\mid R=r]-\lim_{r\uparrow c}E[Y\mid R=r]. $$
+$$
+\tau_{SRD}=\lim_{r\downarrow c}E[Y\mid R=r]-\lim_{r\uparrow c}E[Y\mid R=r].
+$$
 
 :::
 
@@ -179,11 +222,17 @@ This is a local Wald estimand。It parallels LATE: the estimand is for units ind
 
 #### Proof of Lemma (Fuzzy RD is a Wald ratio)
 
-$$ \tau_{FRD}=\frac{\Delta_Y(c)}{\Delta_D(c)}. $$
+$$
+\tau_{FRD}=\frac{\Delta_Y(c)}{\Delta_D(c)}.
+$$
 
 **联立系统：** Define
-$$ \Delta_Y(c)=\lim_{r\downarrow c}E[Y\mid R=r]-\lim_{r\uparrow c}E[Y\mid R=r], $$
-$$ \Delta_D(c)=\lim_{r\downarrow c}E[D\mid R=r]-\lim_{r\uparrow c}E[D\mid R=r]. $$
+$$
+\Delta_Y(c)=\lim_{r\downarrow c}E[Y\mid R=r]-\lim_{r\uparrow c}E[Y\mid R=r],
+$$
+$$
+\Delta_D(c)=\lim_{r\downarrow c}E[D\mid R=r]-\lim_{r\uparrow c}E[D\mid R=r].
+$$
 
 **连续求解：** In a local neighborhood of $c$, assignment $Z=1[R\ge c]$ acts as an instrument。The local reduced form is $\Delta_Y(c)$，and local first stage is $\Delta_D(c)$。Wald logic gives ratio。
 
@@ -213,18 +262,28 @@ $$
 
 #### Proof of Lemma (Local linear fuzzy RD as 2SLS)
 
-$$ \hat\beta=\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}. $$
+$$
+\hat\beta=\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}.
+$$
 
 **联立系统：** Estimate within bandwidth:
-$$ Y_i=\alpha+\beta D_i+\gamma(R_i-c)+\delta Z_i(R_i-c)+u_i, $$
+$$
+Y_i=\alpha+\beta D_i+\gamma(R_i-c)+\delta Z_i(R_i-c)+u_i,
+$$
 using $Z_i$ as excluded instrument for $D_i$。The included controls allow separate slopes on each side but a discontinuity through $D_i$。
 
 **连续求解：** First stage local linear regression of $D$ on $Z$, constant, $R-c$, $Z(R-c)$ produces a fitted discontinuity
-$$ \hat\alpha_D^1-\hat\alpha_D^0. $$
+$$
+\hat\alpha_D^1-\hat\alpha_D^0.
+$$
 Reduced form local linear regression of $Y$ on the same controls and $Z$ produces a fitted discontinuity
-$$ \hat\alpha_Y^1-\hat\alpha_Y^0. $$
+$$
+\hat\alpha_Y^1-\hat\alpha_Y^0.
+$$
 In just-identified IV, coefficient equals reduced form divided by first stage:
-$$ \hat\beta=\frac{\widehat{RF}}{\widehat{FS}} =\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}. $$
+$$
+\hat\beta=\frac{\widehat{RF}}{\widehat{FS}} =\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}.
+$$
 
 **结论：** The 2SLS specification is exactly the fuzzy RD local Wald estimator with local linear fits。
 
@@ -232,7 +291,9 @@ $$ \hat\beta=\frac{\widehat{RF}}{\widehat{FS}} =\frac{\hat\alpha_Y^1-\hat\alpha_
 
 :::{admonition} Definition (Kernel estimator)
 For nonparametric regression $g(x)=E[Y\mid X=x]$, Nadaraya-Watson estimator:
-$$ \hat g(x)=\frac{\sum_iY_iK_h(X_i-x)}{\sum_iK_h(X_i-x)}, \qquad K_h(u)=K(u/h). $$
+$$
+\hat g(x)=\frac{\sum_iY_iK_h(X_i-x)}{\sum_iK_h(X_i-x)}, \qquad K_h(u)=K(u/h).
+$$
 
 :::
 
@@ -240,20 +301,31 @@ Slides' key intuition：smaller $h$ uses nearby observations and has lower bias 
 
 :::{admonition} Lemma (Bias-variance tradeoff for kernel regression)
 Bias-variance tradeoff for kernel regression
-**WTS：** in univariate case,
-$$ MSE(\hat g(x))=O((nh)^{-1})+O(h^4). $$
-
-**联立系统：** Under smoothness,
-$$ \operatorname{Bias}(\hat g(x))=O(h^2), \qquad \operatorname{Var}(\hat g(x))=O((nh)^{-1}). $$
-
-**连续求解：**
-$$ \begin{aligned} MSE &=\operatorname{Var}+\operatorname{Bias}^2\\ &=O((nh)^{-1})+O(h^4). \end{aligned} $$
-Equating rates:
-$$ h^4\asymp (nh)^{-1} \quad\Rightarrow\quad h^5\asymp n^{-1} \quad\Rightarrow\quad h\asymp n^{-1/5}. $$
-
-**结论：** Optimal bandwidth shrinks with $n$, but not too fast。
-
+in univariate case,
+$$
+MSE(\hat g(x))=O((nh)^{-1})+O(h^4).
+$$
 :::
+
+#### Proof of Lemma (Bias-variance tradeoff for kernel regression)
+
+Under smoothness,
+$$
+\operatorname{Bias}(\hat g(x))=O(h^2), \qquad \operatorname{Var}(\hat g(x))=O((nh)^{-1}).
+$$
+
+$$
+\begin{aligned}
+MSE &=\operatorname{Var}+\operatorname{Bias}^2\\
+&=O((nh)^{-1})+O(h^4).
+\end{aligned}
+$$
+Equating rates:
+$$
+h^4\asymp (nh)^{-1} \quad\Rightarrow\quad h^5\asymp n^{-1} \quad\Rightarrow\quad h\asymp n^{-1/5}.
+$$
+
+Optimal bandwidth shrinks with $n$, but not too fast。
 
 ### 6. Curse of dimensionality
 
