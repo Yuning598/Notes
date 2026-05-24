@@ -1,6 +1,6 @@
 # 08 Finite-Sample Properties of OLS
 
-## 0. Chapter Roadmap
+## Roadmap
 
 1. The Classical Linear Regression Model  
 2. The Algebra of Least Squares  
@@ -12,9 +12,9 @@
 
 ---
 
-## 1. The Classical Linear Regression Model
+## Classical Linear Regression Model
 
-### 1.1 Linearity and Matrix Notation
+### Linear Regression Matrix Form
 
 :::{admonition} Definition (Assumption 1.1 (Linearity))
 
@@ -58,7 +58,7 @@ Chapter 1 Examples
 
 :::
 
-### 1.2 Strict Exogeneity
+### Strict Exogeneity
 
 :::{admonition} Definition (Assumption 1.2 (Strict Exogeneity))
 
@@ -86,7 +86,7 @@ E(\varepsilon_i)=0,\quad i=1,\dots,n.
 \tag{1.1.8}
 $$
 
-### 1.3 Other Core Assumptions
+### Rank, Homoskedasticity, and Normality
 
 :::{admonition} Definition (Assumption 1.3 (No Multicollinearity))
 $\text{rank}(\mathbf{X})=K$ with probability 1.
@@ -131,7 +131,7 @@ $$
 
 即使存在某些时点的当期正交，也不自动推出对整段样本路径的 strict exogeneity。
 
-### 1.4 Random Sample vs Fixed Regressors
+### Random Sampling vs Fixed Regressors
 
 在 i.i.d. random sample 设定中：
 
@@ -172,9 +172,9 @@ $$
 
 ---
 
-## 2. The Algebra of Least Squares
+## Least-Squares Algebra
 
-### 2.1 OLS as SSR Minimization
+### OLS as SSR Minimization
 
 对任意候选值 $\tilde{\boldsymbol{\omega}}$，定义
 
@@ -255,7 +255,7 @@ $$
 
 :::
 
-### 2.2 Projection and Residual Algebra
+### Projection and Residual Algebra
 
 $$
 \hat{\mathbf{y}}=\mathbf{X}\mathbf{b},\quad
@@ -328,7 +328,7 @@ $$
 
 ---
 
-## 3. Finite-Sample Properties of OLS
+## Finite-Sample Properties of OLS
 
 :::{admonition} Proposition
 Proposition 1.1 (Finite-Sample Properties of OLS)
@@ -425,7 +425,7 @@ $$
 
 ---
 
-## 4. Hypothesis Testing Under Normality
+## Exact Tests under Normality
 
 :::{admonition} Definition (Assumption 1.5 (Normality))
 $\boldsymbol{\varepsilon}\mid \mathbf{X}$ jointly normal, i.e.
@@ -645,9 +645,9 @@ $$
 
 ---
 
-## 5. Relation to Maximum Likelihood
+## OLS and Gaussian Likelihood
 
-### 5.1 Conditional vs Joint Likelihood
+### Conditional and Joint Likelihood
 
 联合密度分解：
 
@@ -660,7 +660,7 @@ $$
 
 在线性回归里通常不参数化 $f(\mathbf{X};\rho)$，直接最大化条件似然 $f(\mathbf{y}\mid\mathbf{X};\varpi)$。
 
-### 5.2 Normal Likelihood
+### Gaussian Likelihood for OLS
 
 在 Assumptions 1.1, 1.2, 1.4, 1.5 下：
 
@@ -760,7 +760,7 @@ $$
 
 :::
 
-### 5.3 Cramer-Rao Bound and BUE
+### Cramer-Rao Bound and Best Unbiased Estimation
 
 score 与信息矩阵定义：
 
@@ -895,7 +895,7 @@ $$
 
 :::
 
-### 5.4 F-test as Likelihood Ratio
+### F Test as Likelihood Ratio
 
 受限似然（$H_0:\mathbf{R}\boldsymbol{\omega}=\mathbf{r}$）：
 
@@ -929,7 +929,7 @@ $$
 
 ---
 
-## 6. Generalized Least Squares (GLS)
+## Generalized Least Squares (GLS)
 
 放宽球形误差为：
 
@@ -1062,11 +1062,11 @@ $$
 
 ---
 
-## 7. Application: Returns to Scale in Electricity Supply
+## Returns to Scale in Electricity Supply
 
 Nerlove (1961) 横截面数据（145 家电力公司）用于检验规模报酬与成本函数限制。
 
-### 7.1 Cobb-Douglas and Cost Equation
+### Cobb-Douglas Cost Equation
 
 生产函数（示意）：
 
@@ -1119,7 +1119,7 @@ $$
 \tag{1.7.5}
 $$
 
-### 7.2 Homogeneity Restriction and Tests
+### Homogeneity Restrictions and Tests
 
 同质性限制：
 
@@ -1168,7 +1168,7 @@ $$
 
 故不能拒绝同质性限制。
 
-### 7.3 Constant Returns to Scale
+### Constant Returns to Scale Restriction
 
 检验
 
@@ -1188,7 +1188,7 @@ Residual Plot (slide 68)
 
 ---
 
-## 8. Links
+## Cross-References
 
 - 下一章：[Econometrics/MS8956/09_Large_Sample_Theory](Econometrics/MS8956/09_Large_Sample_Theory)
 - 内生性与 IV/GMM：[Econometrics/MS8956/10_Single_Equation_GMM](Econometrics/MS8956/10_Single_Equation_GMM)

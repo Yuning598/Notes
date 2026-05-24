@@ -3,7 +3,7 @@
 Source: EF8090 slides, PDF pp. 7-19; PS1 Q1, Q3-Q5, Q7.  
 Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [cards/Law_of_Iterated_Expectations](cards/Law_of_Iterated_Expectations) | [cards/Projection_vs_CEF](cards/Projection_vs_CEF) | [cards/Variance_Decomposition](cards/Variance_Decomposition)
 
-## 1. Conditional expectation function
+## Conditional expectation function
 
 EF8090 第一部分的核心对象是 **conditional expectation function**。OLS、IV、propensity score 和 matching 都是在不同信息集上做 projection。
 
@@ -90,7 +90,7 @@ $$
 E[g(X)Y\mid X]=g(X)E[Y\mid X].
 $$
 
-## 2. CEF error orthogonality
+## CEF error orthogonality
 
 :::{admonition} Definition (CEF error)
 令
@@ -138,7 +138,7 @@ $$
 
 因此 CEF error 不仅均值为零，而且与所有 $X$ 的可积函数正交。课件称 $E[e\mid X]=0$ 为 mean independence，不是 full independence。
 
-## 3. Conditional variance and total variance
+## Conditional variance and total variance
 
 :::{admonition} Definition (Conditional variance)
 CEF residual 的条件方差为
@@ -217,7 +217,7 @@ $$
 \end{aligned}
 $$
 
-## 4. CEF as best predictor
+## CEF as best predictor
 
 :::{admonition} Lemma (CEF minimizes mean squared prediction error)
 对任意可测函数 $g(X)$，
@@ -259,7 +259,7 @@ $$
 
 PS1 Q3 的密度版本是同一个命题：先写 $m^*(x)=\int y f(y\mid x)\,dy$，再对每个 $x$ 点态最小化 $\int (y-m(x))^2 f(y\mid x)\,dy$。
 
-## 5. Best linear predictor and projection coefficient
+## Best linear predictor and projection coefficient
 
 课件从 CEF 转向 **linear projection**：即使 $m(X)$ 不是线性的，也可以在所有线性函数中找 MSE 最小的 $X'\beta$。
 
@@ -356,7 +356,7 @@ $$
 =\arg\min_b E[(m(X)-X'b)^2].
 $$
 
-## 6. Binary regressor and linear probability model
+## Binary regressor and linear probability model
 
 PS1 Q5 的重点是区分 **best linear predictor interpretation** 和 **causal interpretation**。若
 
@@ -412,7 +412,7 @@ $$
 
 除非 $p(X)$ 是常数，否则 LPM 的误差方差依赖 $X$，因此 homoskedasticity 通常不合理。
 
-## 7. 和后续主题的连接
+## Cross-References to Later Topics
 
 - OLS 是 $E[X(Y-X'\beta)]=0$ 的样本版本，见 [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)。
 - Heteroskedasticity 不破坏 OLS consistency，但会破坏错误的标准误，见 [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)。

@@ -1,6 +1,6 @@
 # 09 Large-Sample Theory
 
-## 0. Chapter Roadmap
+## Roadmap
 
 1. Modes of convergence  
 2. Stochastic-process classes and dependence conditions  
@@ -17,9 +17,9 @@
 
 ---
 
-## 1. Modes of Convergence
+## Modes of Convergence
 
-### 1.1 Convergence in Probability
+### Convergence in Probability
 
 :::{admonition} Definition (Convergence in Probability)
 
@@ -32,7 +32,7 @@ $$
 
 :::
 
-### 1.2 Almost Sure Convergence
+### Almost-Sure Convergence
 
 :::{admonition} Definition (Almost Sure Convergence)
 
@@ -58,7 +58,7 @@ $$
 
 :::
 
-### 1.3 Convergence in Distribution and Tools
+### Convergence in Distribution and Limit Tools
 
 - $x_n\xrightarrow{d}x$ 表示分布函数逐点收敛于极限分布的连续点。
 - 多元情形使用 Cramer-Wold device。
@@ -68,9 +68,9 @@ $$
 
 ---
 
-## 2. Stochastic Processes and Dependence
+## Stochastic Processes and Dependence
 
-### 2.1 Stationarity and Covariance Structure
+### Stationarity and Autocovariance Structure
 
 协方差平稳过程满足：
 
@@ -94,7 +94,7 @@ S=\sum_{j=-\infty}^{\infty}\gamma_j.
 \tag{2.2.3}
 $$
 
-### 2.2 Martingale and Martingale Difference
+### Martingales and Martingale Differences
 
 令 $\mathcal{F}_{t-1}$ 为信息集，martingale 条件：
 
@@ -124,7 +124,7 @@ E(u_tu_{t-j})=0,\ j\ge 1.
 \tag{2.2.7}
 $$
 
-### 2.3 Serial Independence vs MDS
+### Serial Independence vs Martingale Difference
 
 弱于 i.i.d. 的关键无序列相关条件可写为
 
@@ -158,9 +158,9 @@ $$
 
 ---
 
-## 3. Asymptotic Distribution of OLS
+## Asymptotic Distribution of OLS
 
-### 3.1 Model and Assumptions
+### OLS Asymptotic Model and Assumptions
 
 :::{admonition} Definition (Assumption 2.1 (Linearity))
 
@@ -178,7 +178,7 @@ $$
 
 :::
 
-### 3.2 OLS Expansion
+### OLS Linear Expansion
 
 $$
 \sqrt{n}(b-\beta)=Q_n^{-1}\cdot \frac{1}{\sqrt{n}}\sum_{i=1}^n x_i\varepsilon_i,
@@ -216,9 +216,9 @@ $$
 
 ---
 
-## 4. Robust Hypothesis Testing
+## Robust Hypothesis Testing
 
-### 4.1 Linear Restrictions
+### Wald Tests for Linear Restrictions
 
 检验
 
@@ -237,7 +237,7 @@ n(Rb-r)'[R\widehat{\mathrm{Avar}}(b)R']^{-1}(Rb-r)
 \tag{2.4.2}
 $$
 
-### 4.2 Local Alternatives and Asymptotic Power
+### Local Alternatives and Asymptotic Power
 
 局部备择：
 
@@ -254,7 +254,7 @@ W_n\xrightarrow{d}\chi^2_q(\lambda),\quad
 \tag{2.4.4}
 $$
 
-### 4.3 Nonlinear Hypotheses
+### Nonlinear Wald Hypotheses
 
 对 $H_0:g(\beta)=0$，delta method 线性化后可得
 
@@ -268,7 +268,7 @@ $$
 
 ---
 
-## 5. Estimating Long-Run Covariance Components
+## Estimating Long-Run Covariance Components
 
 定义 moment：
 
@@ -296,9 +296,9 @@ $$
 
 ---
 
-## 6. Conditional Homoskedasticity and Classical Statistics
+## Conditional Homoskedasticity and Classical Statistics
 
-### 6.1 Assumption and Implications
+### Homoskedasticity Assumption and Implications
 
 :::{admonition} Definition (Assumption 2.7)
 
@@ -340,7 +340,7 @@ Link to Chapter 1
 
 ---
 
-## 7. Testing Conditional Homoskedasticity
+## Testing Conditional Homoskedasticity
 
 从一致估计对象出发，构造
 
@@ -375,7 +375,7 @@ $$
 
 ---
 
-## 8. WLS with Estimated Variance Function
+## WLS with Estimated Variance Function
 
 假设
 
@@ -400,7 +400,7 @@ $$
 
 ---
 
-## 9. Best Linear Predictor
+## Best Linear Predictor
 
 在所有线性预测器 $a+b'z$ 中，最优线性预测系数满足正交投影条件，典型结果：
 
@@ -422,9 +422,9 @@ $$
 
 ---
 
-## 10. Serial Correlation Tests
+## Serial Correlation Tests
 
-### 10.1 Box-Pierce and Ljung-Box
+### Box-Pierce and Ljung-Box Tests
 
 样本自相关（基于真误差）：
 
@@ -454,7 +454,7 @@ Q_{BP},Q_{LB}\xrightarrow{d}\chi^2_m.
 \tag{2.10.5}
 $$
 
-### 10.2 Residual-Based ACF Corrections
+### Residual-Based ACF Corrections
 
 回归残差定义与协方差估计：
 
@@ -492,7 +492,7 @@ Q^*=f(\hat r_1,\dots,\hat r_m).
 \tag{2.10.10}
 $$
 
-### 10.3 Predetermined Regressors (Not Strictly Exogenous)
+### Predetermined Regressors and Serial Correlation
 
 关键正交条件调整为
 
@@ -547,7 +547,7 @@ $$
 
 ---
 
-## 11. Application: Efficient Market Hypothesis
+## Efficient Market Hypothesis
 
 课程应用围绕 ex-post real interest rate 的可预测性展开，核心检验是“是否存在序列相关 / 是否可被名义利率线性预测”。
 
@@ -571,9 +571,9 @@ $$
 
 ---
 
-## 12. Time Regression with Deterministic Trend
+## Time Regression with Deterministic Trend
 
-### 12.1 Model and OLS
+### Trend Regression Model and OLS
 
 $$
 y_t=\alpha+\delta t+\varepsilon_t.
@@ -612,7 +612,7 @@ n(n+1)/2 & n(n+1)(2n+1)/6
 \tag{2.12.5}
 $$
 
-### 12.2 Rate Matrix and Asymptotic Law
+### Trend-Regression Rate Matrix and Limit Law
 
 $$
 \Upsilon_n=
@@ -677,14 +677,14 @@ $$
 
 ---
 
-## 13. Links
+## Cross-References
 
 - 上一章：[Econometrics/MS8956/08_Finite_Sample_Properties_of_OLS](Econometrics/MS8956/08_Finite_Sample_Properties_of_OLS)
 - 下一章：[Econometrics/MS8956/10_Single_Equation_GMM](Econometrics/MS8956/10_Single_Equation_GMM)
 
 ---
 
-## Appendix A. 你最初的 Chap2 草稿（恢复保留）
+## Original Large-Sample Draft Appendix
 
 :::{admonition} Note
 说明
@@ -692,7 +692,7 @@ $$
 
 :::
 
-### A.1 Model Specification
+### Original Draft Model Specification
 
 #### A.1.1 The Time Trend Model
 
@@ -716,7 +716,7 @@ y_t=\mathbf{x}_t'\boldsymbol{\beta}+\varepsilon_t,\quad
 \quad (2.12.2)
 $$
 
-### A.2 Definitions & Key Concepts
+### Original Draft Definitions
 
 #### A.2.1 时间趋势 (Time Trend)
 
@@ -736,7 +736,7 @@ $$
 其中 $f(t)$ 为确定性函数（如 $\alpha+\delta t$），$\varepsilon_t$ 为平稳过程，则称 $y_t$ 趋势平稳。  
 去趋势后得到平稳序列；这与单位根过程（需差分）不同。
 
-### A.3 Asymptotic Properties (渐近性质推导)
+### Original Draft Asymptotic Derivations
 
 #### A.3.1 OLS Estimator
 

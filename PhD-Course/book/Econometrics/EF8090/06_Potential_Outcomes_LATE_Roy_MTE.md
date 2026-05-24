@@ -3,9 +3,9 @@
 Source: consolidated from 10_Potential_Outcomes_ATE_Matching.md and 11_LATE_Roy_MTE.md.
 Links: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel) | [cards/Potential_Outcomes_ATE_ATT_CATE](cards/Potential_Outcomes_ATE_ATT_CATE) | [cards/LATE_Compliers](cards/LATE_Compliers) | [cards/MTE_Weights](cards/MTE_Weights)
 
-## 10 Potential Outcomes, ATE, Propensity Score, and Matching
+## Potential Outcomes and Selection on Observables
 
-### 1. Neyman-Rubin causal model
+### Neyman-Rubin Potential Outcomes
 
 :::{admonition} Definition (Potential outcomes)
 For binary treatment $D\in\{0,1\}$, each unit has two potential outcomes:
@@ -34,7 +34,7 @@ $$
 CATE(x)=E[Y(1)-Y(0)\mid X=x].
 $$
 
-### 2. Randomized trial and simple ATE estimator
+### Randomized Trial ATE Estimator
 
 If treatment is randomly assigned,
 
@@ -79,7 +79,7 @@ $$
 
 PS4 Q2's heterogeneous treatment model $Y_i=\alpha_i+\beta_iD_i$ with $(\alpha_i,\beta_i)\perp D_i$ gives BLP slope $E[\beta_i]$。
 
-### 3. Unconfoundedness and CATE identification
+### Unconfoundedness and CATE Identification
 
 :::{admonition} Definition (Unconfoundedness and overlap)
 $$
@@ -121,7 +121,7 @@ $$
 ATE=E[CATE(X)].
 $$
 
-### 4. Propensity score weighting
+### Propensity-Score Weighting
 
 :::{admonition} Definition (Propensity score)
 $$
@@ -154,7 +154,7 @@ The control expression is analogous。
 
 IPW reweights observed outcomes to reconstruct the full population potential-outcome mean。
 
-### 5. Propensity score balancing
+### Propensity-Score Balancing
 
 PS5 Q3 asks to prove the propensity score result。
 
@@ -202,7 +202,7 @@ $$
 p(x)=P(D=1\mid X=x)=P(D=1\mid b(X)=b(x))\equiv f(b(x)).
 $$
 
-### 6. Regression adjustment and doubly robust / orthogonal score
+### Regression Adjustment and Orthogonal Scores
 
 Slides combine regression adjustment and propensity score weighting。Define
 
@@ -224,7 +224,7 @@ $$
 
 This connects to modern double/debiased machine learning, though EF8090 slides keep the emphasis on intuition。
 
-### 7. Matching estimator
+### Matching Estimator
 
 Slides define matching by imputing missing potential outcomes using nearest observations in the other treatment group。
 
@@ -250,7 +250,7 @@ $$
 
 If the match is exact, $X_i=X_j$，the correction disappears。
 
-### 8. What the older notes add
+### Additional Results from Older Notes
 
 The older notes keep the estimands in a compact form:
 
@@ -276,9 +276,9 @@ $$
 
 That is the clean one-line statement of why IPW recovers potential-outcome means.
 
-## 11 LATE, Roy Model, and Marginal Treatment Effects
+## Local Treatment Effects and Selection Models
 
-### 1. LATE setting
+### LATE Compliance Setting
 
 Slides introduce LATE through Angrist's draft lottery setting：instrument affects treatment take-up, but treatment is not perfectly determined by the instrument。
 
@@ -304,7 +304,7 @@ $$
 \end{array}
 $$
 
-### 2. Wald estimand equals LATE
+### Wald Estimand as LATE
 
 :::{admonition} Lemma (LATE theorem)
 :::
@@ -347,7 +347,7 @@ $$
 
 **结论：** IV identifies the average treatment effect for compliers, not necessarily ATE。
 
-### 3. Estimating compliance shares
+### Compliance Share Estimation
 
 PS4 Q6 asks whether always-taker, never-taker, and complier shares are estimable。
 Under independence and monotonicity:
@@ -374,7 +374,7 @@ $$
 
 where $DF$ are defiers。This is hard to interpret as a clean average treatment effect。
 
-### 4. Probability integral transform
+### Probability Integral Transform
 
 PS5 Q1 supports the Roy/MTE normalization。If $X$ has continuous strictly increasing cdf $F$, define $Y=F(X)$。Then
 
@@ -384,7 +384,7 @@ $$
 
 So $Y\sim U[0,1]$。This lets the latent selection variable $U_D$ be normalized to uniform。
 
-### 5. Roy model and selection
+### Roy Selection Model
 
 :::{admonition} Definition (Nonparametric Roy / selection model)
 $$
@@ -404,7 +404,7 @@ It is the treatment effect for individuals indifferent at margin $u$。
 
 :::
 
-### 6. MTE weights
+### MTE Weighting Formula
 
 Slides stress that ATE, ATT, LATE and IV estimands are weighted averages of MTE。
 
@@ -479,7 +479,7 @@ $$
 
 Divide by $P[D=0]$。
 
-### 7. Vytlacil equivalence and policy effects
+### Vytlacil Equivalence and Policy Effects
 
 Slides state Vytlacil's equivalence: monotonicity in the LATE model corresponds to a latent index selection model
 
@@ -491,7 +491,7 @@ Thus LATE and MTE frameworks are not separate worlds；LATE is a special weighte
 
 Policy relevant treatment effect changes the distribution of $p(Z)$ under a policy and compares average outcomes before and after policy。MTE is useful because once $MTE(u)$ is identified or modeled, many policy counterfactuals become alternative weighting schemes over $u$。
 
-### 8. What the older notes add
+### Additional Results from Older Notes
 
 The older notes make the normalization step explicit:
 

@@ -3,9 +3,9 @@
 Source: consolidated from 09_IV_2SLS_Weak_Instruments.md.
 Links: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Weak_Instruments](cards/Weak_Instruments)
 
-## 09 IV, 2SLS, and Weak Instruments
+## IV Identification and 2SLS
 
-### 1. Why IV
+### Motivation for IV
 
 课件用 ability bias 作为动机。目标模型是
 
@@ -32,7 +32,7 @@ $$
 
 :::
 
-### 2. Just-identified IV
+### Just-Identified IV Estimator
 
 如果 $Z$ 与 $X$ 维度相同且 $E[ZX']$ 可逆：
 
@@ -69,7 +69,7 @@ $$
 \hat\beta_{IV}=(Z'X)^{-1}Z'Y.
 $$
 
-### 3. Two-stage least squares
+### Two-Stage Least Squares
 
 当 instruments 多于 endogenous regressors 时，用 2SLS。
 
@@ -99,7 +99,7 @@ $$
 
 2SLS residual 与 fitted endogenous component 正交，而不是与 raw endogenous regressors 正交。
 
-### 4. Wald estimator
+### Binary-Instrument Wald Estimator
 
 Binary instrument case:
 
@@ -119,7 +119,7 @@ $$
 
 在 constant treatment effect 下，Wald identifies $\beta$。在 heterogeneous effect 下，它会变成 LATE，见 [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)。
 
-### 5. Variance of 2SLS
+### 2SLS Asymptotic Variance
 
 在 homoskedasticity 下，课件给出 2SLS variance 的简化表达：
 
@@ -138,7 +138,7 @@ $$
 
 where $\Omega=E[Z_iZ_i'u_i^2]$。
 
-### 6. Hausman exogeneity and overidentification tests
+### Hausman and Overidentification Tests
 
 :::{admonition} Definition (Hausman test for exogeneity)
 Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error。Statistic:
@@ -157,7 +157,7 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
 
 注意：overidentification test 只能检验 instruments 之间是否互相一致，不能证明每个 instrument 都 valid。
 
-### 7. Weak instruments
+### Weak-Instrument Diagnostics
 
 Weak instruments mean first-stage relevance is weak。课件强调：weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
 
@@ -178,7 +178,7 @@ $$
 
 relevance 接近零时，分母接近零，估计量 extremely noisy。
 
-### 8. PS5 Q4: residualized 2SLS through FWL
+### Residualized 2SLS through FWL
 
 Consider outcome $Y$, endogenous scalar $D$, controls $X$, excluded instruments $Z$，with $X$ containing constant。Let $M_X=I-P_X$。The coefficient on $D$ in 2SLS with controls is
 
@@ -223,7 +223,7 @@ $$
 
 which is PS5 Q4(b)。
 
-### 9. Measurement error and Frisch bounds
+### Measurement Error and Frisch Bounds
 
 PS4 Q3 studies $\hat X=X+V$ with $E[V]=E[XV]=E[UV]=0$。Then
 

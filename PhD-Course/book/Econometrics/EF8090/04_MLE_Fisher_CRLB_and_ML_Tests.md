@@ -3,9 +3,9 @@
 Source: consolidated from 07_MLE_Fisher_CRLB.md and 08_MLE_Asymptotics_and_ML_Tests.md.
 Links: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [cards/Fisher_Information_CRLB](cards/Fisher_Information_CRLB) | [cards/ML_Wald_LR_LM](cards/ML_Wald_LR_LM)
 
-## 07 MLE, Fisher Information, and Cramer-Rao Bound
+## Likelihood, Information, and Efficiency
 
-### 1. Maximum likelihood estimator
+### Maximum Likelihood Estimator
 
 :::{admonition} Definition (Maximum likelihood estimator)
 若 $X_1,\ldots,X_n$ iid with density $p_\theta(x)$，likelihood is
@@ -25,7 +25,7 @@ $$
 
 Conditional MLE similarly maximizes $\prod_i p_\theta(Y_i\mid X_i)$。课件例子包括 Bernoulli、normal、conditional binary response。
 
-### 2. Bernoulli and Poisson examples
+### Bernoulli and Poisson Likelihoods
 
 For Bernoulli $X_i\in\{0,1\}$, $P(X_i=1)=p$：
 
@@ -69,7 +69,7 @@ $$
 2.1\pm1.96\sqrt{2.1/10}\approx[1.20,3.00].
 $$
 
-### 3. Normal MLE and Fisher information
+### Normal MLE and Fisher Information
 
 PS3 Q1 asks for MLE and Fisher information for $Y_i\sim N(\mu,\sigma^2)$。Let $s=\sigma^2$。
 
@@ -122,7 +122,7 @@ $$
 
 Sample information is $I_n=nI_1$。CRLB for estimating $\mu$ is $s/n$，and $\operatorname{Var}(\bar Y)=s/n$，so $\bar Y$ is efficient even if $s$ is unknown。
 
-### 4. Fisher information identities
+### Fisher Information Identities
 
 :::{admonition} Definition (Fisher information)
 For scalar $\theta$,
@@ -159,7 +159,7 @@ $$
 
 Fisher information is score variance。
 
-### 5. Cramer-Rao lower bound
+### Cramer-Rao Lower Bound
 
 :::{admonition} Lemma (Scalar Cramer-Rao bound)
 Scalar Cramer-Rao bound
@@ -204,7 +204,7 @@ $$
 \operatorname{Var}(\hat\theta)\succeq I(\theta)^{-1}.
 $$
 
-### 6. Boundary MLE: uniform distribution
+### Boundary MLE for Uniform Distribution
 
 PS3 Q4: $X_i\sim U(\theta,2\theta)$, $\theta>0$。Likelihood:
 
@@ -232,7 +232,7 @@ $$
 
 where the problem set uses the scale parameterization $F(x)=1-e^{-x/\lambda}$。
 
-### 7. Binary response likelihood and separation
+### Binary-Response Likelihood and Separation
 
 For binary $Y_i$, conditional model:
 
@@ -255,9 +255,9 @@ $$
 PS3 Q5 的 logit 数据可以被一个阈值完全分开：positive observations have larger $x$ than negative observations。于是 log-likelihood 沿着某个方向趋近 supremum，但没有 finite maximizer，MLE 不存在。见 [cards/Separation_in_Logit](cards/Separation_in_Logit)。
 
 
-## 08 MLE Asymptotics and ML Tests
+## MLE Asymptotics and Likelihood-Based Tests
 
-### 1. Consistency of MLE
+### Consistency of MLE
 
 课件 supplement 里把 MLE consistency 写成 extremum estimator 的形式。设
 
@@ -302,7 +302,7 @@ Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\h
 
 课件给出的 sufficient conditions 包括 compact $\Theta$、continuity、unique maximizer，以及 dominated uniform law of large numbers。
 
-### 2. Asymptotic normality of MLE
+### MLE Asymptotic Normality
 
 :::{admonition} Lemma (MLE asymptotic normality)
 :::
@@ -344,7 +344,7 @@ $$
 
 **结论：** ML reaches the Cramer-Rao bound asymptotically under regularity。
 
-### 3. ML Wald, LR, and LM tests
+### ML Wald, LR, and LM Tests
 
 :::{admonition} Definition (ML Wald test)
 If $H_0:r(\theta)=0$ has $q$ restrictions,
@@ -369,7 +369,7 @@ with the appropriate $n$-scaling depending on whether $S_n$ is averaged or summe
 
 Wald looks at distance of unrestricted estimator from the null; LR looks at log-likelihood loss from imposing the null; LM looks at slope of the likelihood at the restricted estimator。
 
-### 4. Boston shooting example as binomial test
+### Boston Shooting Binomial Test
 
 Slides use a Bernoulli/binomial approximation. National rate is 30 shootings per 365 days, so
 
@@ -412,7 +412,7 @@ $$
 
 A two-sided 5% test rejects the “typical month” null。
 
-### 5. Binary response model and existence
+### Binary-Response Existence Conditions
 
 For logit/probit, asymptotic normality requires finite interior maximizer and identification。PS3 Q5's data create perfect separation, so the MLE does not exist. This is not a numerical bug; it is a failure of the objective to attain a finite maximum.
 
@@ -428,7 +428,7 @@ $$
 I(\theta_0)=E[s_i(\theta_0)s_i(\theta_0)']=-E[H_i(\theta_0)].
 $$
 
-### 6. Joint likelihood and seemingly separate equations
+### Joint Likelihood for Separate Equations
 
 PS3 Q6 asks about estimating two equations separately or jointly:
 

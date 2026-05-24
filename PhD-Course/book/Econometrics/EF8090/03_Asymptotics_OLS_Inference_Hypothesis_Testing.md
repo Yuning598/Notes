@@ -3,9 +3,9 @@
 Source: consolidated from 04_Asymptotic_Tools.md, 05_OLS_Asymptotics_and_Robust_Inference.md, and 06_Hypothesis_Testing.md.
 Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [cards/Delta_Method](cards/Delta_Method) | [cards/Wald_Test_Matrix_R](cards/Wald_Test_Matrix_R)
 
-## 04 Asymptotic Tools
+## Probability Limits and Distributional Tools
 
-### 1. Why asymptotics
+### Motivation for Asymptotic Approximation
 
 课件的动机很直接：有限样本正态分布依赖 strong distributional assumptions。若只假设 iid、矩存在和 exogeneity，通常依赖 large-sample approximation。三大工具是：
 
@@ -29,7 +29,7 @@ $$
 
 依概率收敛通常用于 consistency；依分布收敛用于 limiting distribution 和 inference。
 
-### 2. WLLN via Chebyshev
+### WLLN via Chebyshev
 
 :::{admonition} Lemma (Weak Law of Large Numbers under finite variance)
 Weak Law of Large Numbers under finite variance
@@ -58,7 +58,7 @@ sample mean converges in probability to population mean。
 
 向量版本直接对每个元素应用 WLLN；矩阵版本同理逐元素应用。
 
-### 3. CLT and Cramer-Wold
+### CLT and Cramer-Wold
 
 :::{admonition} Lemma (Lindeberg-Levy CLT)
 Lindeberg-Levy CLT
@@ -93,7 +93,7 @@ $$
 
 多元 CLT 可以通过任意线性组合的一元 CLT 来证明。
 
-### 4. Continuous mapping and Slutsky
+### Continuous mapping and Slutsky
 
 :::{admonition} Lemma (Continuous Mapping Theorem)
 Continuous Mapping Theorem
@@ -118,7 +118,7 @@ $$
 
 estimated standard error 可以替代 true standard error。
 
-### 5. Delta method
+### Delta Method
 
 :::{admonition} Lemma (Delta method)
 Delta method
@@ -174,7 +174,7 @@ $$
 n\hat\beta=n\hat\mu^2=(\sqrt n\hat\mu)^2\xrightarrow{d}v^2\chi_1^2.
 $$
 
-### 6. Stochastic order symbols
+### Stochastic Order Symbols
 
 :::{admonition} Definition (Stochastic order)
 $$
@@ -204,7 +204,7 @@ $$
 
 bounded-in-probability 乘以 vanishing-in-probability 仍然 vanishes。
 
-### 7. PS2 Q1 true/false guide
+### Convergence Counterexamples
 
 - $a$ True: convergence in probability is stable under addition.
 - $b$ False: let $X_n=n$ with probability $1/n$, and $0$ otherwise. Then $X_n\to_p0$, $X_n\ge0$, but $E[X_n]=1$.
@@ -212,9 +212,9 @@ bounded-in-probability 乘以 vanishing-in-probability 仍然 vanishes。
 - $d$ False: even if moments match, convergence in probability to a particular random variable need not hold. For example let $X_n$ be independent copies with the same distribution as $X$; all moments match, but $X_n\not\to_p X$ unless degenerate.
 
 
-## 05 OLS Asymptotics and Robust Inference
+## OLS Large-Sample Inference
 
-### 1. Linear projection model and assumptions
+### Linear Projection Model and Assumptions
 
 课件在渐近 OLS 部分使用 linear projection model：
 
@@ -233,7 +233,7 @@ $$
 
 :::
 
-### 2. Consistency of OLS
+### Consistency of OLS
 
 :::{admonition} Lemma (OLS consistency)
 :::
@@ -275,7 +275,7 @@ $$
 
 **结论：** OLS consistency 来自 sample moments 收敛和正交条件。
 
-### 3. Asymptotic normality
+### OLS Asymptotic Normality
 
 :::{admonition} Lemma (Asymptotic distribution of OLS)
 :::
@@ -322,7 +322,7 @@ $$
 V=Q^{-1}\Omega Q^{-1}=\sigma^2Q^{-1}.
 $$
 
-### 4. Covariance matrix estimation
+### Asymptotic Covariance Estimation
 
 课件讨论估计 $V$。一般 heteroskedastic case：
 
@@ -366,7 +366,7 @@ $$
 
 若错误使用 homoskedastic covariance $\hat\sigma^2\hat Q^{-1}$ 而真实 heteroskedastic，则 t/Wald 的 limiting distribution 不正确。这是课件第 107 页附近的重点。
 
-### 5. Functions of OLS and standard errors
+### Functions of OLS and Standard Errors
 
 若 $\theta=r(\beta)$，$r$ 可微，则
 
@@ -383,7 +383,7 @@ $$
 =\sqrt{\frac1n R(\hat\beta)\hat V R(\hat\beta)'}.
 $$
 
-### 6. t-statistic and confidence interval
+### t Statistic and Confidence Interval
 
 :::{admonition} Definition (Asymptotic t-statistic)
 对 scalar $\theta=r(\beta)$，
@@ -411,7 +411,7 @@ $$
 \left|\frac{\hat\theta-\theta_0}{\widehat{se}(\hat\theta)}\right|>1.96.
 $$
 
-### 7. Residual variance consistency and limiting distribution
+### Residual-Variance Consistency and Limit Law
 
 PS2 Q6 关注
 
@@ -456,9 +456,9 @@ $$
 residualization 不影响 $s^2$ 的 first-order limiting distribution。
 
 
-## 06 Hypothesis Testing
+## Wald Inference and Test Power
 
-### 1. Testing framework
+### Hypothesis-Testing Framework
 
 课件把假设检验写成：
 
@@ -488,7 +488,7 @@ $$
 
 :::
 
-### 2. t-test
+### t Test for One Restriction
 
 若 scalar parameter $\theta=r(\beta)$，并且
 
@@ -511,7 +511,7 @@ $$
 
 :::
 
-### 3. Wald test for multiple restrictions
+### Wald Test for Multiple Restrictions
 
 设 $\sqrt n(\hat\beta-\beta)\to_dN(0,V)$，要检验
 
@@ -548,7 +548,7 @@ $$
 
 **结论：** Wald test 用估计值离 null restriction 的距离衡量证据强弱。
 
-### 4. PS2 Q4: Wald test with matrix restrictions
+### Matrix Restrictions in Wald Tests
 
 给定
 
@@ -604,7 +604,7 @@ $$
 W_n>\chi^2_{2,1-\alpha}.
 $$
 
-### 5. Confidence interval and test duality
+### Confidence Intervals and Test Duality
 
 PS2 Q5: parameter of interest $\theta=R'\beta$，where $R$ is $k\times1$。若 $\hat V_{\hat\beta}$ estimates $\operatorname{Var}(\hat\beta\mid X)$，则
 
@@ -635,7 +635,7 @@ Under $H_0$, the statistic converges to $N(0,1)$, so rejection probability tends
 
 Wald CI 和 two-sided Wald/t test 是同一个检验的两种表达。
 
-### 6. Consistency of tests
+### Test Consistency
 
 课件最后强调 power。一个检验 consistent，意味着 fixed alternative 下 rejection probability 趋于 1。
 

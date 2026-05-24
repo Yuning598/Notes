@@ -3,9 +3,9 @@
 Source: consolidated from 12_DiD_Fixed_Effects_Event_Study.md and 13_RD_Nonparametric_Kernel.md.
 Links: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/DID_Common_Trends](cards/DID_Common_Trends) | [cards/TWFE_Event_Study](cards/TWFE_Event_Study) | [cards/RD_Wald_Estimand](cards/RD_Wald_Estimand) | [cards/Kernel_Bandwidth_Bias_Variance](cards/Kernel_Bandwidth_Bias_Variance)
 
-## 12 Difference-in-Differences, Fixed Effects, and Event Studies
+## Panel Treatment Effects and Fixed Effects
 
-### 1. The simplest 2x2 DiD
+### Two-by-Two DiD Estimand
 
 Two groups $D_i\in\{0,1\}$, two periods $Post_t\in\{0,1\}$。Treatment group receives treatment only in post period。
 
@@ -46,7 +46,7 @@ $$
 
 DiD subtracts off the untreated counterfactual trend using control group trend。
 
-### 2. DiD as regression
+### DiD Regression Representation
 
 The 2x2 regression:
 
@@ -68,7 +68,7 @@ $$
 Y_{it}=\alpha_i+\lambda_t+\sum_{\ell\ne -1}\tau_\ell 1[t-G_i=\ell]+u_{it}.
 $$
 
-### 3. PS6 Q1: fixed effects via group demeaning
+### Fixed Effects via Group Demeaning
 
 This is the same FWL result as [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)。With group $F_i$, regression of $Y$ on $X$ and group dummies has the same $X$ coefficient as regression of within-group demeaned variables。
 
@@ -96,7 +96,7 @@ $$
 
 **结论：** Fixed effects coefficients are OLS coefficients after removing group means。
 
-### 4. PS6 Q2: unit FE, time FE, and double demeaning
+### Unit FE, Time FE, and Double Demeaning
 
 Treatment starts at $t^*$ for treated units and continues afterwards。Define post/pre group means:
 
@@ -151,7 +151,7 @@ $$
 
 TWFE in the 2x2 design equals canonical DiD。
 
-### 5. Pre-trends and event studies
+### Pre-Trends and Event Studies
 
 Slides warn that eyeballing can mislead。Formal event study estimates leads and lags around treatment:
 
@@ -161,7 +161,7 @@ $$
 
 Pre-treatment coefficients $\tau_k$ for $k<0$ are pre-trend checks。They do not prove common trends, but large pre-trend deviations are evidence against the design。
 
-### 6. Triple differences
+### Triple-Differences Estimand
 
 :::{admonition} Definition (Triple differences)
 If there is another comparison dimension $S\in\{0,1\}$, DDD is
@@ -174,18 +174,18 @@ It removes shocks common to treated/control over time within both $S$ groups and
 
 In regression form, DDD is the coefficient on the triple interaction $D_i\times Post_t\times S_i$。
 
-### 7. Staggered treatment timing and TWFE caution
+### Staggered Timing and TWFE Caution
 
 Slides discuss variable treatment timing。When treatment effects are heterogeneous over cohorts or event time, static TWFE can compare already-treated units to newly-treated units and create non-convex weights。Event-study and modern DiD estimators avoid using inappropriate comparisons by defining cohort-time specific treatment effects first, then aggregating transparently。
 
-### 8. Inference issues
+### DiD Inference Issues
 
 Slides highlight clustered standard errors and the problem of one treated group。If there is only one treated aggregate unit, increasing individual sample size $N$ may not make the treatment effect estimator consistent because the treated group time-series shock does not average out。Possible fixes require stronger assumptions, more treated clusters, randomization inference, or designs with credible untreated units informing treated counterfactuals。
 
 
-## 13 Regression Discontinuity and Nonparametric Kernel Methods
+## Discontinuity Designs and Local Smoothing
 
-### 1. Sharp RD
+### Sharp RD Identification
 
 :::{admonition} Definition (Sharp regression discontinuity)
 Let $R$ be running variable and $c$ cutoff。Treatment is deterministically assigned:
@@ -207,7 +207,7 @@ $$
 
 and similarly for $Y(1)$ if needed。Then discontinuity in observed outcome at cutoff is attributed to treatment。
 
-### 2. Fuzzy RD as local IV
+### Fuzzy RD as Local IV
 
 If treatment probability jumps but not from 0 to 1, RD is fuzzy:
 
@@ -238,7 +238,7 @@ $$
 
 **结论：** Fuzzy RD = local IV at cutoff。
 
-### 3. Local polynomial regression
+### Local Polynomial Regression
 
 Slides use local linear estimation。On each side of the cutoff, estimate
 
@@ -249,7 +249,7 @@ $$
 
 where $s\in\{0,1\}$ denotes left/right side。Then $\hat\alpha_1-\hat\alpha_0$ estimates $\Delta_Y(c)$。Analogously for $D$。
 
-### 4. PS6 Q3: local linear fuzzy RD equals 2SLS coefficient
+### Local Linear Fuzzy RD as 2SLS
 
 Problem set defines right/left local linear intercepts $\hat\alpha_Y^1,\hat\alpha_Y^0$ and $\hat\alpha_D^1,\hat\alpha_D^0$，using uniform kernel and bandwidth $h$。It then asks to show that 2SLS with outcome $Y$, endogenous $D$, controls constant, $R-c$, $Z(R-c)$, and instrument $Z=1[R\ge c]$，within $[c-h,c+h]$，satisfies
 
@@ -287,7 +287,7 @@ $$
 
 **结论：** The 2SLS specification is exactly the fuzzy RD local Wald estimator with local linear fits。
 
-### 5. Kernels and bandwidth
+### Kernels and Bandwidth Choice
 
 :::{admonition} Definition (Kernel estimator)
 For nonparametric regression $g(x)=E[Y\mid X=x]$, Nadaraya-Watson estimator:
@@ -327,7 +327,7 @@ $$
 
 Optimal bandwidth shrinks with $n$, but not too fast。
 
-### 6. Curse of dimensionality
+### Curse of Dimensionality
 
 If $q$ input variables and each bandwidth is $h$, slides state
 
@@ -347,7 +347,7 @@ $$
 
 As $q$ increases, convergence slows sharply。
 
-### 7. Cross-validation
+### Cross-Validation for Bandwidth Selection
 
 Leave-one-out CV:
 
@@ -365,7 +365,7 @@ $$
 
 K-fold CV is analogous, leaving out a fold instead of one observation。
 
-### 8. What the older notes add
+### Additional Results from Older Notes
 
 The old notes make the rate intuition more explicit:
 
