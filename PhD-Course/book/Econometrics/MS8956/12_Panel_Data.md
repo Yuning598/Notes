@@ -1,6 +1,6 @@
 # 12 Panel Data: Fixed Effects and Random Effects
 
-## Random Effects as Common-Coefficient GMM
+**Random Effects as Common-Coefficient GMM**
 
 :::{admonition} Definition (Assumptions for Random Effects Estimator)
 
@@ -54,7 +54,7 @@ Under conditional homoskedasticity, $\mathbb{E}(g_i g_i') = \Sigma \otimes \math
 
 ---
 
-## Error-Components Model
+**Error-Components Model**
 
 :::{admonition} Note
 Error Components
@@ -110,7 +110,7 @@ Hence, if $\mathbb{E}(z_{im}\varepsilon_i)\neq 0$, Random Effects is inconsisten
 
 ^orth-5-1-8
 
-### Production Function with Firm Heterogeneity
+## Production Function with Firm Heterogeneity
 
 $$
 \log(Q_{im}) = \phi_0 + \phi_1 \log(L_{im}) + u_i + v_{im}
@@ -134,7 +134,7 @@ $$
 
 ^ex-5-1-prod
 
-### Wage Equation with Individual Heterogeneity
+## Wage Equation with Individual Heterogeneity
 
 $$
 \left\{
@@ -183,7 +183,7 @@ $$
 
 ^ex-5-2-wage
 
-### Between Transformation with Group Means
+## Between Transformation with Group Means
 
 存在一个常用估计量 `fixed-effects estimator`，它对 `(5.1.8a)` 失效是 robust 的（见 [Orthogonality (5.1.8)](#^orth-5-1-8))。
 
@@ -208,7 +208,7 @@ $$
 
 ^group-means-5-1-10
 
-### Error-Components Reparameterization
+## Error-Components Reparameterization
 
 为说明变换后可识别性（与 [Group Means (5.1.10)](#^group-means-5-1-10) 和 [Example 5.2](#^ex-5-2-wage) 对应），将回归元分解为
 
@@ -285,7 +285,7 @@ $$
 
 ^reparam-5-1-15
 
-## Fixed-Effects Estimator
+**Fixed-Effects Estimator**
 
 承接 [FE identification (5.1.15)](#^reparam-5-1-15)，Fixed-Effects Estimator 通过组内去均值变换消除 $\varepsilon_i$，并据此构造可估计的样本矩条件。
 
@@ -453,7 +453,7 @@ $$
 
 分母不是 $Mn-\#\beta$，因为 within transformation 等价于为每个个体去掉一个 group mean，自由度再减少 $n$。
 
-### Random Effects vs Fixed Effects
+## Random Effects vs Fixed Effects
 
 Comparing `(5.2.6)` with `(5.1.8)`, the orthogonality conditions not required by the fixed-effects estimator are
 
@@ -504,7 +504,7 @@ and is asymptotically $\chi^2$ with $\#\beta$ degrees of freedom.
 
 ^prop-5-2
 
-### Relaxing Conditional Homoskedasticity
+## Relaxing Conditional Homoskedasticity
 
 :::{admonition} Proposition
 Proposition 5.3 (Fixed-Effects Estimator without Conditional Homoskedasticity)
@@ -532,11 +532,11 @@ where $\hat{\eta}_i\equiv \tilde{y}_i-\tilde{F}_i\hat{\beta}_{FE}$.
 
 :::
 
-## Growth Convergence Panel Application
+**Growth Convergence Panel Application**
 
 研究国家的经济增长率（Do poor economies grow faster than rich economies?）。
 
-### Growth-Convergence Estimation Equation
+## Growth-Convergence Estimation Equation
 
 Do poor economies grow faster than rich economies? 这一节先推导可估计方程，再讨论如何一致估计收敛速度。
 
@@ -634,7 +634,7 @@ $$
 \quad \text{for country } i.
 $$
 
-### Growth Regression Error Term
+## Growth Regression Error Term
 
 应用计量中，常见做法是先从理论得到无误差项方程，再附加误差项用于估计。向 `(5.4.8)` 加入 $\eta_{im}$ 得
 
@@ -658,7 +658,7 @@ $$
 
 在 conditional convergence 设定下，还可加入政治稳定、金融中介发展程度等变量来控制 $\alpha_i$。但通常仍有一部分 $\alpha_i$ 无法完全观测，会进入误差并与回归元 $y_{i,m-1}$ 相关，因此更稳妥做法是将 $\alpha_i$ 视作 unobservable fixed effect。
 
-### Speed-of-Convergence Consistency
+## Speed-of-Convergence Consistency
 
 给定 $M+1$ 个时点 $t_0,t_1,\dots,t_M$，方程 `(5.4.10)` 对 $m=1,\dots,M$ 构成一个动态的 $M$-equation system。虽然可对该系统应用 fixed-effects 技术，但在动态面板中并不一致，因为部分回归元是其他方程的被解释变量滞后值。
 

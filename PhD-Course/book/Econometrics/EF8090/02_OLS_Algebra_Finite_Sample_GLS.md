@@ -3,9 +3,9 @@
 Source: consolidated from 02_OLS_Algebra_FWL_OVB.md and 03_OLS_Finite_Sample_Gauss_Markov_GLS.md.
 Links: [01_CEF_and_Linear_Projection](01_CEF_and_Linear_Projection) | [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [cards/FWL_Theorem](cards/FWL_Theorem) | [cards/Gauss_Markov](cards/Gauss_Markov) | [cards/GLS_Whitening](cards/GLS_Whitening)
 
-## OLS Algebra and Partialling-Out
+**OLS Algebra and Partialling-Out**
 
-### OLS as Moments and Least Squares
+## OLS as Moments and Least Squares
 
 课件先从 projection coefficient 出发：
 
@@ -68,7 +68,7 @@ $$
 
 OLS residual 与每一列 regressors 样本正交。
 
-### Projection and Residual-Maker Matrices
+## Projection and Residual-Maker Matrices
 
 :::{admonition} Definition (Projection and annihilator matrices)
 $$
@@ -127,7 +127,7 @@ $$
 TSS=ESS+SSR.
 $$
 
-### Frisch-Waugh-Lovell Partialling-Out
+## Frisch-Waugh-Lovell Partialling-Out
 
 设分块模型
 
@@ -191,7 +191,7 @@ $$
 
 原因是 $(M_1X_2)'Y=X_2'M_1Y=(M_1X_2)'M_1Y$。若 $X_1'X_2=0$，则 $M_1X_2=X_2$，因此可以直接回归 $Y$ on $X_2$。
 
-### Omitted Variable Bias via FWL
+## Omitted Variable Bias via FWL
 
 课件用 FWL 推出 omitted variable bias。设真实模型为
 
@@ -234,7 +234,7 @@ $$
 
 **结论：** bias 的符号由 $\beta_2$ 和 omitted variable 与 included regressor 的 covariance 共同决定。
 
-### Fixed Effects as Residualization
+## Fixed Effects as Residualization
 
 PS1 Q8(c) 与 PS6 Q1 都在用同一个 FWL 逻辑。个体固定效应模型：
 
@@ -285,7 +285,7 @@ $$
 
 dummy controls 本质上就是把变量投影到 dummy span 的正交补上。
 
-### Perfect Collinearity and Nonidentification
+## Perfect Collinearity and Nonidentification
 
 PS1 Q6 说明：若 $X_3=\alpha_1X_1+\alpha_2X_2$，则 $E[XX']$ 不可逆，$\beta$ 不唯一。不要用 generalized inverse；直接把线性函数写成
 
@@ -305,9 +305,9 @@ $$
 可识别。最佳线性预测应写成 $Y$ on $(X_1,X_2)$ 的投影，而不是试图估计唯一的 $(\beta_1,\beta_2,\beta_3)$。
 
 
-## Finite-Sample Properties and GLS
+**Finite-Sample Properties and GLS**
 
-### Finite-Sample Regression Model
+## Finite-Sample Regression Model
 
 课件在 finite-sample 部分考虑条件于 $X$ 的性质。基本模型写作
 
@@ -373,7 +373,7 @@ $$
 
 **结论：** 若 $D=\sigma^2I$，则 $\operatorname{Var}(\hat\beta\mid X)=\sigma^2(X'X)^{-1}$。
 
-### Gauss-Markov Theorem
+## Gauss-Markov Theorem
 
 :::{admonition} Lemma (Gauss-Markov theorem)
 Gauss-Markov theorem
@@ -425,7 +425,7 @@ $$
 
 OLS 在所有线性无偏估计量中条件方差最小。
 
-### GLS as Whitening Transformation
+## GLS as Whitening Transformation
 
 若 $D\neq \sigma^2I$ 且 $D$ 已知，OLS 仍无偏，但不再 BLUE。课件引入 GLS。
 
@@ -469,7 +469,7 @@ $$
 
 GLS 用 $D^{-1}$ 给 observations 加权，使 transformed errors spherical。
 
-### Error-Variance and Covariance Estimation
+## Error-Variance and Covariance Estimation
 
 课件先讨论
 
@@ -500,7 +500,7 @@ $$
 
 若 homoskedasticity 被错误地假设，标准误会错误；但 $\hat\beta$ 本身的无偏性不依赖 homoskedasticity。
 
-### Comparing Linear Unbiased Estimators
+## Comparing Linear Unbiased Estimators
 
 模型为
 
@@ -567,7 +567,7 @@ $$
 
 三者条件无偏，但 $\hat\beta$ 是 BLUE，优先使用 OLS。
 
-### Partialling-Out and Coefficient Variance
+## Partialling-Out and Coefficient Variance
 
 在模型
 
