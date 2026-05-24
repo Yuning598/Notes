@@ -1,4 +1,4 @@
-# 09 Large-Sample Theory
+# 09 Convergence, OLS Limits, and Robust Tests
 
 ## Roadmap
 

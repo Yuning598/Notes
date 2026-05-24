@@ -1,4 +1,4 @@
-# 02 OLS Algebra, Finite Sample, Gauss-Markov, and GLS
+# 02 OLS Algebra, Partialling-Out, and GLS
 
 Source: consolidated from 02_OLS_Algebra_FWL_OVB.md and 03_OLS_Finite_Sample_Gauss_Markov_GLS.md.
 Links: [01_CEF_and_Linear_Projection](01_CEF_and_Linear_Projection) | [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [cards/FWL_Theorem](cards/FWL_Theorem) | [cards/Gauss_Markov](cards/Gauss_Markov) | [cards/GLS_Whitening](cards/GLS_Whitening)

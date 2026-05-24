@@ -1,4 +1,4 @@
-# 03 Asymptotics, OLS Inference, and Hypothesis Testing
+# 03 Probability Limits, OLS Asymptotics, and Wald Tests
 
 Source: consolidated from 04_Asymptotic_Tools.md, 05_OLS_Asymptotics_and_Robust_Inference.md, and 06_Hypothesis_Testing.md.
 Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [cards/Delta_Method](cards/Delta_Method) | [cards/Wald_Test_Matrix_R](cards/Wald_Test_Matrix_R)

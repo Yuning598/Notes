@@ -1,4 +1,4 @@
-# 07 DiD, Regression Discontinuity, and Nonparametric Kernel Methods
+# 07 DiD, RD, and Kernel Smoothing
 
 Source: consolidated from 12_DiD_Fixed_Effects_Event_Study.md and 13_RD_Nonparametric_Kernel.md.
 Links: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/DID_Common_Trends](cards/DID_Common_Trends) | [cards/TWFE_Event_Study](cards/TWFE_Event_Study) | [cards/RD_Wald_Estimand](cards/RD_Wald_Estimand) | [cards/Kernel_Bandwidth_Bias_Variance](cards/Kernel_Bandwidth_Bias_Variance)

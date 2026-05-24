@@ -1,4 +1,4 @@
-# 05 IV, 2SLS, and Weak Instruments
+# 05 IV Identification, 2SLS, and Weak Instruments
 
 Source: consolidated from 09_IV_2SLS_Weak_Instruments.md.
 Links: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Weak_Instruments](cards/Weak_Instruments)

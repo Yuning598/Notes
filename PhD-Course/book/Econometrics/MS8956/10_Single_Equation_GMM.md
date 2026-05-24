@@ -1,4 +1,4 @@
-# 10 Single-Equation GMM
+# 10 Single-Equation IV-GMM
 
 ## Working Market-Equilibrium Model
 

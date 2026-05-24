@@ -1,4 +1,4 @@
-# 04 MLE, Fisher Information, CRLB, and ML Tests
+# 04 Likelihood, Fisher Information, and ML Tests
 
 Source: consolidated from 07_MLE_Fisher_CRLB.md and 08_MLE_Asymptotics_and_ML_Tests.md.
 Links: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [cards/Fisher_Information_CRLB](cards/Fisher_Information_CRLB) | [cards/ML_Wald_LR_LM](cards/ML_Wald_LR_LM)

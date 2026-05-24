@@ -1,4 +1,4 @@
-# 12 Panel Data
+# 12 Panel Data: Fixed Effects and Random Effects
 
 ## Random Effects as Common-Coefficient GMM
 

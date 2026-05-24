@@ -1,4 +1,4 @@
-# 11 Multiple Equation GMM
+# 11 System GMM, 3SLS, and SUR
 
 ## Multiple-Equation Moment Model
 

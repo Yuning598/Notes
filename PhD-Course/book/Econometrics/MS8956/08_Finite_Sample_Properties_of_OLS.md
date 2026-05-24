@@ -1,4 +1,4 @@
-# 08 Finite-Sample Properties of OLS
+# 08 Finite-Sample OLS, Exact Tests, and GLS
 
 ## Roadmap
 

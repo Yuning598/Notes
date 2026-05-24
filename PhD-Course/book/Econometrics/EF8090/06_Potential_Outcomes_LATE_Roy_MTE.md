@@ -1,4 +1,4 @@
-# 06 Potential Outcomes, LATE, Roy Model, and MTE
+# 06 Potential Outcomes, LATE, and Selection Models
 
 Source: consolidated from 10_Potential_Outcomes_ATE_Matching.md and 11_LATE_Roy_MTE.md.
 Links: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel) | [cards/Potential_Outcomes_ATE_ATT_CATE](cards/Potential_Outcomes_ATE_ATT_CATE) | [cards/LATE_Compliers](cards/LATE_Compliers) | [cards/MTE_Weights](cards/MTE_Weights)
