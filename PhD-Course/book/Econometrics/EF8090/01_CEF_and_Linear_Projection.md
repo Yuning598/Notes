@@ -5,7 +5,7 @@ Links: [00-MOC_EF8090_Econometrics](00-MOC_EF8090_Econometrics) | [02_OLS_Algebr
 
 ## 1. 从 conditional expectation 开始
 
-EF8090 第一部分的核心对象不是 OLS，而是 **conditional expectation function**。回归模型只是对 CEF 施加线性、非线性或非参数形式限制后的结果。
+EF8090 第一部分的核心对象是 **conditional expectation function**。回归模型只是对 CEF 施加线性、非线性或非参数形式限制后的结果。
 
 :::{admonition} Definition (Conditional Expectation Function)
 令 $(Y,X)$ 有联合分布，且 $E|Y|<\infty$。CEF 定义为
@@ -15,22 +15,24 @@ $$ E[Y\mid X=x]=\int y f_{Y\mid X}(y\mid x)dy. $$
 
 :::
 
-课件随后强调三件事：Law of Iterated Expectation、conditioning theorem、CEF error 的 orthogonality。它们构成后面 OLS、IV、propensity score 和 matching 的共同语言。
+Law of Iterated Expectation、conditioning theorem、CEF error 的 orthogonality。它们构成后面 OLS、IV、propensity score 和 matching 的共同语言。
 
-:::{admonition} Lemma
-Law of Iterated Expectations
-**WTS：**
+:::{admonition} Lemma (Law of iterated expectations)
 $$ E[E(Y\mid X)]=E[Y]. $$
-
-**联立系统：**
-$$ f_{Y,X}(y,x)=f_{Y\mid X}(y\mid x)f_X(x), \qquad E(Y\mid X=x)=\int y f_{Y\mid X}(y\mid x)dy. $$
-
-**连续求解：**
-$$ \begin{aligned} E[E(Y\mid X)] &=\int \left\{\int y f_{Y\mid X}(y\mid x)dy\right\} f_X(x)dx \\ &=\int\int y f_{Y\mid X}(y\mid x)f_X(x)dydx \\ &=\int\int y f_{Y,X}(y,x)dydx \\ &=\int y f_Y(y)dy \\ &=E[Y]. \end{aligned} $$
-
-**结论：** 先对 $Y$ 做条件平均，再对 $X$ 做无条件平均，等于直接对 $Y$ 做无条件平均。
-
 :::
+
+#### Proof of Lemma (Law of iterated expectations)
+
+$$
+\begin{aligned}
+E[E(Y\mid X)]
+&=\int \left\{\int y f_{Y\mid X}(y\mid x)dy\right\} f_X(x)dx \\
+&=\int\int y f_{Y\mid X}(y\mid x)f_X(x)dydx \\
+&=\int\int y f_{Y,X}(y,x)dydx \\
+&=\int y f_Y(y)dy \\
+&=E[Y].
+\end{aligned}
+$$
 
 更一般地，课件写出
 
@@ -40,20 +42,20 @@ $$
 
 这在 panel / DiD / propensity score 里非常常见：增加信息集再投影回较小信息集，不会改变较小信息集上的最优预测。
 
-:::{admonition} Lemma
-Conditioning theorem
-**WTS：** 若 $g(X)$ 是 $X$ 的函数，则
+:::{admonition} Lemma (Conditioning theorem)
+若 $g(X)$ 是 $X$ 的函数，则
 $$ E[g(X)Y\mid X]=g(X)E[Y\mid X]. $$
-
-**联立系统：**
-$$ g(X)\in\sigma(X),\qquad E|g(X)Y|<\infty. $$
-
-**连续求解：**
-$$ \begin{aligned} E[g(X)Y] &=E\{E[g(X)Y\mid X]\} \\ &=E\{g(X)E[Y\mid X]\}. \end{aligned} $$
-
-**结论：** 条件在 $X$ 上时，任何 $X$ 的函数都可以从条件期望里拿出来。
-
 :::
+
+#### Proof of Lemma (Conditioning theorem)
+
+$$
+\begin{aligned}
+E[g(X)Y]
+&=E\{E[g(X)Y\mid X]\} \\
+&=E\{g(X)E[Y\mid X]\}.
+\end{aligned}
+$$
 
 ## 2. CEF error 的 orthogonality
 
@@ -86,38 +88,44 @@ $$ \sigma^2(X)=\operatorname{Var}(Y\mid X)=E[(Y-E[Y\mid X])^2\mid X]=E[e^2\mid X
 
 PS1 Q1 要求证明 conditional variance 的两个基本恒等式。
 
-:::{admonition} Lemma
-Conditional variance formula
-**WTS：**
+:::{admonition} Lemma (Conditional variance formula)
 $$ \operatorname{Var}(Y\mid X)=E[Y^2\mid X]-E[Y\mid X]^2. $$
-
-**联立系统：**
-$$ m(X)=E[Y\mid X], \qquad \operatorname{Var}(Y\mid X)=E[(Y-m(X))^2\mid X]. $$
-
-**连续求解：**
-$$ \begin{aligned} \operatorname{Var}(Y\mid X) &=E[(Y-m(X))^2\mid X] \\ &=E[Y^2-2Y m(X)+m(X)^2\mid X] \\ &=E[Y^2\mid X]-2m(X)E[Y\mid X]+m(X)^2 \\ &=E[Y^2\mid X]-2m(X)^2+m(X)^2 \\ &=E[Y^2\mid X]-m(X)^2. \end{aligned} $$
-
-**结论：** 条件方差等于条件二阶矩减去条件均值平方。
-
-**Lemma:** Law of total variance
-**WTS：**
-$$ \operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]). $$
-
-**联立系统：**
-$$ m(X)=E[Y\mid X], \qquad e=Y-m(X), \qquad E[e\mid X]=0. $$
-
-**连续求解：**
-$$ \begin{aligned} \operatorname{Var}(Y) &=E[(Y-EY)^2] \\ &=E[(e+m(X)-EY)^2] \\ &=E[e^2]+2E[e(m(X)-EY)]+E[(m(X)-EY)^2] \\ &=E\{E[e^2\mid X]\}+2E\{(m(X)-EY)E[e\mid X]\}+\operatorname{Var}(m(X)) \\ &=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]). \end{aligned} $$
-
-**结论：** 总不确定性 = 条件内不确定性的平均 + 条件均值本身的横截面变化。
-
 :::
+
+#### Proof of Lemma (Conditional variance formula)
+
+$$
+\begin{aligned}
+\operatorname{Var}(Y\mid X)
+&=E[(Y-m(X))^2\mid X] \\
+&=E[Y^2-2Y m(X)+m(X)^2\mid X] \\
+&=E[Y^2\mid X]-2m(X)E[Y\mid X]+m(X)^2 \\
+&=E[Y^2\mid X]-m(X)^2.
+\end{aligned}
+$$
+
+:::{admonition} Lemma (Law of total variance)
+$$ \operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]). $$
+:::
+
+#### Proof of Lemma (Law of total variance)
+
+$$
+\begin{aligned}
+\operatorname{Var}(Y)
+&=E[(Y-EY)^2] \\
+&=E[(e+m(X)-EY)^2] \\
+&=E[e^2]+2E[e(m(X)-EY)]+E[(m(X)-EY)^2] \\
+&=E\{E[e^2\mid X]\}+2E\{(m(X)-EY)E[e\mid X]\}+\operatorname{Var}(m(X)) \\
+&=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]).
+\end{aligned}
+$$
 
 ## 4. CEF is the best predictor
 
 课件证明了 CEF 是 MSE 意义下的最优预测函数。
 
-:::{admonition} Lemma
+:::{admonition} Lemma (CEF minimizes mean squared prediction error)
 CEF minimizes mean squared prediction error
 **WTS：** 对任意可测函数 $g(X)$，
 $$ E[(Y-g(X))^2]\ge E[(Y-m(X))^2]. $$
@@ -191,7 +199,7 @@ $$
 
 因此 $E[U\mid X]=0$，也有 $E[XU]=0$。但若把该式解释为因果模型，则 $\beta_1$ 是否等于条件均值差，取决于是否满足选择独立性或外生性。
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Linear probability model is heteroskedastic)
 Linear probability model is heteroskedastic
 **WTS：** 若 $Y\in\{0,1\}$ 且 $E[Y\mid X]=X'\beta=p(X)$，则
 $$ \operatorname{Var}(U\mid X)=p(X)(1-p(X)). $$
@@ -211,4 +219,3 @@ $$ \begin{aligned} \operatorname{Var}(U\mid X) &=E[U^2\mid X] \\ &=E[(Y-p(X))^2\
 - OLS 是 $E[X(Y-X'\beta)]=0$ 的样本版本，见 [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB)。
 - Heteroskedasticity 不破坏 OLS consistency，但会破坏错误的标准误，见 [05_OLS_Asymptotics_and_Robust_Inference](05_OLS_Asymptotics_and_Robust_Inference)。
 - Propensity score 的 balancing 证明本质上也是 conditioning theorem，见 [10_Potential_Outcomes_ATE_Matching](10_Potential_Outcomes_ATE_Matching)。
-

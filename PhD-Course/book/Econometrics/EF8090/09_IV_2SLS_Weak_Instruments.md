@@ -30,22 +30,20 @@ $$ \text{Validity/exclusion: }E[Zu]=0. $$
 
 如果 $Z$ 与 $X$ 维度相同且 $E[ZX']$ 可逆：
 
-:::{admonition} Lemma
-IV identification
-**WTS：**
+:::{admonition} Lemma (IV identification)
+:::
+
+#### Proof of Lemma (IV identification)
+
 $$ \beta=E[ZX']^{-1}E[ZY]. $$
 
-**联立系统：**
 $$ Y=X'\beta+u, \qquad E[Zu]=0. $$
 
-**连续求解：**
 $$ \begin{aligned} E[ZY] &=E[Z(X'\beta+u)]\\ &=E[ZX']\beta+E[Zu]\\ &=E[ZX']\beta. \end{aligned} $$
 If $E[ZX']$ is invertible,
 $$ \beta=E[ZX']^{-1}E[ZY]. $$
 
 **结论：** IV 用 $Z$ 提供的外生 variation 来识别 $X$ 的 causal effect。
-
-:::
 
 Sample analog:
 
@@ -129,7 +127,7 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
 
 Weak instruments mean first-stage relevance is weak。课件强调：weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
 
-:::{admonition} Lemma
+:::{admonition} Lemma (First-stage weakness inflates IV variance)
 First-stage weakness inflates IV variance
 **WTS：** scalar just-identified IV 的 variance 随 $\operatorname{Cov}(Z,X)$ 变小而爆炸。
 
@@ -157,7 +155,7 @@ $$
 P_{M_XZ}=M_XZ[(M_XZ)'(M_XZ)]^{-1}(M_XZ)'.
 $$
 
-:::{admonition} Lemma
+:::{admonition} Lemma (2SLS coefficient equals simple IV with residualized fitted first stage)
 2SLS coefficient equals simple IV with residualized fitted first stage
 **WTS：** If $\hat D=M_XP_{[X,Z]}D=P_{M_XZ}M_XD$, then
 $$ \hat\beta=\frac{\sum_i(Y_i-\bar Y)(\hat D_i-\bar{\hat D})}{\sum_i(D_i-\bar D)(\hat D_i-\bar{\hat D})}. $$

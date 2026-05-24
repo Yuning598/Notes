@@ -43,22 +43,20 @@ E[Y\mid D=1]-E[Y\mid D=0]
 =E[Y(1)]-E[Y(0)]=ATE.
 $$
 
-:::{admonition} Lemma
-Difference in means identifies ATE under random assignment
-**WTS：**
+:::{admonition} Lemma (Difference in means identifies ATE under random assignment)
+:::
+
+#### Proof of Lemma (Difference in means identifies ATE under random assignment)
+
 $$ E[Y\mid D=1]-E[Y\mid D=0]=ATE. $$
 
-**联立系统：**
 $$ Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D. $$
 
-**连续求解：**
 $$ \begin{aligned} E[Y\mid D=1] &=E[Y(1)\mid D=1]\\ &=E[Y(1)],\\ E[Y\mid D=0] &=E[Y(0)\mid D=0]\\ &=E[Y(0)]. \end{aligned} $$
 Therefore
 $$ E[Y\mid D=1]-E[Y\mid D=0]=E[Y(1)-Y(0)]. $$
 
 **结论：** Randomization turns missing counterfactual means into observed group means。
-
-:::
 
 PS4 Q2's heterogeneous treatment model $Y_i=\alpha_i+\beta_iD_i$ with $(\alpha_i,\beta_i)\perp D_i$ gives BLP slope $E[\beta_i]$。
 
@@ -114,12 +112,13 @@ The control expression is analogous。
 
 PS5 Q3 asks to prove the propensity score result。
 
-:::{admonition} Lemma
-Propensity score is a balancing score
-**WTS：**
+:::{admonition} Lemma (Propensity score is a balancing score)
+:::
+
+#### Proof of Lemma (Propensity score is a balancing score)
+
 $$ D\perp X\mid p(X). $$
 
-**联立系统：**
 $$ p(X)=P(D=1\mid X). $$
 
 **连续求解：** For any value $p$,
@@ -130,8 +129,6 @@ Thus
 $$ P(D=1\mid X=x,p(X)=p)=P(D=1\mid p(X)=p). $$
 
 **结论：** Conditional on $p(X)$, treatment status no longer depends on the full $X$。
-
-:::
 
 If $(Y(1),Y(0))\perp D\mid X$, then combining balancing with Rosenbaum-Rubin logic gives
 

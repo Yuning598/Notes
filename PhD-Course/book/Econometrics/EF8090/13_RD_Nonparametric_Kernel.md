@@ -31,9 +31,11 @@ $$
 
 This is a local Wald estimand。It parallels LATE: the estimand is for units induced into treatment by crossing the cutoff。
 
-:::{admonition} Lemma
-Fuzzy RD is a Wald ratio
-**WTS：**
+:::{admonition} Lemma (Fuzzy RD is a Wald ratio)
+:::
+
+#### Proof of Lemma (Fuzzy RD is a Wald ratio)
+
 $$ \tau_{FRD}=\frac{\Delta_Y(c)}{\Delta_D(c)}. $$
 
 **联立系统：** Define
@@ -43,8 +45,6 @@ $$ \Delta_D(c)=\lim_{r\downarrow c}E[D\mid R=r]-\lim_{r\uparrow c}E[D\mid R=r]. 
 **连续求解：** In a local neighborhood of $c$, assignment $Z=1[R\ge c]$ acts as an instrument。The local reduced form is $\Delta_Y(c)$，and local first stage is $\Delta_D(c)$。Wald logic gives ratio。
 
 **结论：** Fuzzy RD = local IV at cutoff。
-
-:::
 
 ## 3. Local polynomial regression
 
@@ -65,9 +65,11 @@ $$
 \hat\beta=\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}.
 $$
 
-:::{admonition} Lemma
-Local linear fuzzy RD as 2SLS
-**WTS：**
+:::{admonition} Lemma (Local linear fuzzy RD as 2SLS)
+:::
+
+#### Proof of Lemma (Local linear fuzzy RD as 2SLS)
+
 $$ \hat\beta=\frac{\hat\alpha_Y^1-\hat\alpha_Y^0}{\hat\alpha_D^1-\hat\alpha_D^0}. $$
 
 **联立系统：** Estimate within bandwidth:
@@ -83,8 +85,6 @@ $$ \hat\beta=\frac{\widehat{RF}}{\widehat{FS}} =\frac{\hat\alpha_Y^1-\hat\alpha_
 
 **结论：** The 2SLS specification is exactly the fuzzy RD local Wald estimator with local linear fits。
 
-:::
-
 ## 5. Kernels and bandwidth
 
 :::{admonition} Definition (Kernel estimator)
@@ -95,7 +95,7 @@ $$ \hat g(x)=\frac{\sum_iY_iK_h(X_i-x)}{\sum_iK_h(X_i-x)}, \qquad K_h(u)=K(u/h).
 
 Slides' key intuition：smaller $h$ uses nearby observations and has lower bias but higher variance；larger $h$ uses more observations and has lower variance but higher bias。
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Bias-variance tradeoff for kernel regression)
 Bias-variance tradeoff for kernel regression
 **WTS：** in univariate case,
 $$ MSE(\hat g(x))=O((nh)^{-1})+O(h^4). $$

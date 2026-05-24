@@ -31,9 +31,11 @@ $$
 
 ## 2. Wald estimand equals LATE
 
-:::{admonition} Lemma
-LATE theorem
-**WTS：**
+:::{admonition} Lemma (LATE theorem)
+:::
+
+#### Proof of Lemma (LATE theorem)
+
 $$ \frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]} =E[Y(1)-Y(0)\mid D(1)>D(0)]. $$
 
 **联立系统：** Observed treatment and outcome:
@@ -48,8 +50,6 @@ Under monotonicity, $D(1)-D(0)=1$ for compliers and 0 otherwise。Thus
 $$ \begin{aligned} \frac{E[(D(1)-D(0))\tau]}{E[D(1)-D(0)]} &=\frac{E[\tau\mathbf 1\{C\}]}{P(C)}\\ &=E[\tau\mid C]. \end{aligned} $$
 
 **结论：** IV identifies the average treatment effect for compliers, not necessarily ATE。
-
-:::
 
 ## 3. Estimating compliance shares
 
@@ -108,20 +108,20 @@ It is the treatment effect for individuals indifferent at margin $u$。
 
 Slides stress that ATE, ATT, LATE and IV estimands are weighted averages of MTE。
 
-:::{admonition} Lemma
-ATE is integral of MTE
-**WTS：**
+:::{admonition} Lemma (ATE is integral of MTE)
+:::
+
+#### Proof of Lemma (ATE is integral of MTE)
+
 $$ ATE=\int_0^1MTE(u)du. $$
 
-**联立系统：**
 $$ U_D\sim U[0,1]. $$
 
-**连续求解：**
 $$ \begin{aligned} E[Y_1-Y_0] &=E[E[Y_1-Y_0\mid U_D]]\\ &=\int_0^1E[Y_1-Y_0\mid U_D=u]du\\ &=\int_0^1MTE(u)du. \end{aligned} $$
 
 **结论：** ATE weights all margins equally。
 
-**Lemma:** LATE weights MTE over changed margins
+:::{admonition} Lemma (LATE weights MTE over changed margins)
 **WTS：** If $p(z)>p(z')$,
 $$ LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)du}{p(z)-p(z')}. $$
 

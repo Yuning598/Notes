@@ -98,7 +98,7 @@ P_1=X_1(X_1'X_1)^{-1}X_1',
 M_1=I-P_1.
 $$
 
-:::{admonition} Lemma
+:::{admonition} Lemma (FWL theorem)
 FWL theorem
 **WTS：** 全模型中 $X_2$ 的 OLS 系数等于 residualized regression：
 $$ \hat\beta_2=(X_2'M_1X_2)^{-1}X_2'M_1Y. $$
@@ -145,20 +145,18 @@ $$
 
 则在 scalar $X_1$ 情形有：
 
-:::{admonition} Lemma
-Scalar omitted variable bias
-**WTS：**
+:::{admonition} Lemma (Scalar omitted variable bias)
+:::
+
+#### Proof of Lemma (Scalar omitted variable bias)
+
 $$ \beta_1^*=\beta_1+\frac{\operatorname{Cov}(X_1,X_2)}{\operatorname{Var}(X_1)}\beta_2. $$
 
-**联立系统：**
 $$ \beta_1^*=\operatorname{Var}(X_1)^{-1}\operatorname{Cov}(X_1,Y), \qquad Y=\beta_0+\beta_1X_1+\beta_2X_2+U. $$
 
-**连续求解：**
 $$ \begin{aligned} \operatorname{Cov}(X_1,Y) &=\operatorname{Cov}(X_1,\beta_0+\beta_1X_1+\beta_2X_2+U)\\ &=\beta_1\operatorname{Var}(X_1)+\beta_2\operatorname{Cov}(X_1,X_2)+\operatorname{Cov}(X_1,U)\\ &=\beta_1\operatorname{Var}(X_1)+\beta_2\operatorname{Cov}(X_1,X_2),\\ \beta_1^* &=\frac{\operatorname{Cov}(X_1,Y)}{\operatorname{Var}(X_1)}\\ &=\beta_1+\frac{\operatorname{Cov}(X_1,X_2)}{\operatorname{Var}(X_1)}\beta_2. \end{aligned} $$
 
 **结论：** bias 的符号由 $\beta_2$ 和 omitted variable 与 included regressor 的 covariance 共同决定。
-
-:::
 
 ## 5. Fixed effects as FWL residualization
 
@@ -190,7 +188,7 @@ $$
 
 因此 fixed effects OLS 等价于回归 demeaned outcome on demeaned covariates。
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Group demeaning solves dummy saturation)
 Group demeaning solves dummy saturation
 **WTS：** 若 $F_i\in\{1,\ldots,K\}$，回归 $Y$ on $X$ and group dummies 的 $X$ 系数等于回归 $\dot Y_i$ on $\dot X_i$，其中
 $$ \dot Y_i=Y_i-\bar Y_{F_i}, \qquad \dot X_i=X_i-\bar X_{F_i}. $$

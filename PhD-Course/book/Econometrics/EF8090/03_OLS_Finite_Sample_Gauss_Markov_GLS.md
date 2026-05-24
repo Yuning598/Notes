@@ -21,36 +21,35 @@ $$
 
 则允许 heteroskedasticity；若 $D=\sigma^2I$，就是 homoskedastic spherical errors。
 
-:::{admonition} Lemma
-Conditional unbiasedness of OLS
-**WTS：**
+:::{admonition} Lemma (Conditional unbiasedness of OLS)
+:::
+
+#### Proof of Lemma (Conditional unbiasedness of OLS)
+
 $$ E[\hat\beta\mid X]=\beta. $$
 
-**联立系统：**
 $$ \hat\beta=(X'X)^{-1}X'Y, \qquad Y=X\beta+e, \qquad E[e\mid X]=0. $$
 
-**连续求解：**
 $$ \begin{aligned} E[\hat\beta\mid X] &=E[(X'X)^{-1}X'Y\mid X]\\ &=(X'X)^{-1}X'E[Y\mid X]\\ &=(X'X)^{-1}X'X\beta\\ &=\beta. \end{aligned} $$
 
 **结论：** 在 $E[e\mid X]=0$ 下，OLS 条件无偏，因此也无条件无偏。
 
-**Lemma:** Conditional variance of OLS
-**WTS：**
+:::{admonition} Lemma (Conditional variance of OLS)
+:::
+
+#### Proof of Lemma (Conditional variance of OLS)
+
 $$ \operatorname{Var}(\hat\beta\mid X)=(X'X)^{-1}X'DX(X'X)^{-1}. $$
 
-**联立系统：**
 $$ \hat\beta-\beta=(X'X)^{-1}X'e, \qquad E[ee'\mid X]=D. $$
 
-**连续求解：**
 $$ \begin{aligned} \operatorname{Var}(\hat\beta\mid X) &=E[(\hat\beta-\beta)(\hat\beta-\beta)'\mid X]\\ &=E[(X'X)^{-1}X'ee'X(X'X)^{-1}\mid X]\\ &=(X'X)^{-1}X'E[ee'\mid X]X(X'X)^{-1}\\ &=(X'X)^{-1}X'DX(X'X)^{-1}. \end{aligned} $$
 
 **结论：** 若 $D=\sigma^2I$，则 $\operatorname{Var}(\hat\beta\mid X)=\sigma^2(X'X)^{-1}$。
 
-:::
-
 ## 2. Gauss-Markov theorem
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Gauss-Markov theorem)
 Gauss-Markov theorem
 **WTS：** 在 $E[e\mid X]=0$、$\operatorname{Var}(e\mid X)=\sigma^2I$ 下，OLS 是 Best Linear Unbiased Estimator。
 
@@ -151,7 +150,7 @@ $$
 \bar\beta=\frac1n\sum_i\frac{y_i}{x_i}.
 $$
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Conditional mean and variance comparison)
 Conditional mean and variance comparison
 **WTS：** 三者都无偏，但 $\hat\beta$ 方差最小。
 

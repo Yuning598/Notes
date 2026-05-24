@@ -54,20 +54,19 @@ $$
 
 This is the same FWL result as [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB)。With group $F_i$, regression of $Y$ on $X$ and group dummies has the same $X$ coefficient as regression of within-group demeaned variables。
 
-:::{admonition} Lemma
-Group fixed effects residualization
-**WTS：**
+:::{admonition} Lemma (Group fixed effects residualization)
+:::
+
+#### Proof of Lemma (Group fixed effects residualization)
+
 $$ \tilde\beta=\hat\beta. $$
 
-**联立系统：**
 $$ \dot Y_i=Y_i-\bar Y_{F_i}, \qquad \dot X_i=X_i-\bar X_{F_i}. $$
 
 **连续求解：** Let $D_F$ be group dummy matrix。FWL gives
 $$ \begin{aligned} \hat\beta &=(X'M_{D_F}X)^{-1}X'M_{D_F}Y\\ &=\left(\sum_i\dot X_i\dot X_i'\right)^{-1}\left(\sum_i\dot X_i\dot Y_i\right)\\ &=\tilde\beta. \end{aligned} $$
 
 **结论：** Fixed effects coefficients are OLS coefficients after removing group means。
-
-:::
 
 ## 4. PS6 Q2: unit FE, time FE, and double demeaning
 
@@ -79,7 +78,7 @@ $$
 \bar Y_d^{pre}=\frac1{t^*-1}\sum_{t=1}^{t^*-1}\bar Y_{dt}.
 $$
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Unit FE only identifies treated before-after change)
 Unit FE only identifies treated before-after change
 **WTS：** coefficient on $D_{it}$ after unit demeaning equals
 $$ \hat\beta_{unit}=\bar Y_1^{post}-\bar Y_1^{pre}. $$
@@ -90,13 +89,17 @@ $$ \hat\beta_{unit}=\bar Y_1^{post}-\bar Y_1^{pre}. $$
 
 **结论：** This is a before-after estimator, not a DiD estimator；it does not subtract control trends。
 
-**Lemma:** Time FE only identifies post treated-control difference
+:::
+
+:::{admonition} Lemma (Time FE only identifies post treated-control difference)
 **WTS：** coefficient equals
 $$ \hat\beta_{time}=\bar Y_1^{post}-\bar Y_0^{post}. $$
 
 **结论：** Time FE removes common time shocks but not permanent treated-control level differences；it is a post-period cross-sectional contrast。
 
-**Lemma:** Unit and time FE identify the DiD contrast
+:::
+
+:::{admonition} Lemma (Unit and time FE identify the DiD contrast)
 **WTS：** double demeaning coefficient equals
 $$ \hat\beta_{ddmn}=\bar Y_1^{post}-\bar Y_1^{pre}-\bar Y_0^{post}+\bar Y_0^{pre}. $$
 

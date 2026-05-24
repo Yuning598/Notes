@@ -25,7 +25,7 @@ $$ F_{Z_n}(z)\to F_Z(z). $$
 
 ## 2. WLLN via Chebyshev
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Weak Law of Large Numbers under finite variance)
 Weak Law of Large Numbers under finite variance
 **WTS：** 若 $Y_i$ iid, $E[Y_i]=\mu$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$，则
 $$ \bar Y_n\xrightarrow{p}\mu. $$
@@ -44,7 +44,7 @@ $$ \begin{aligned} P(|\bar Y_n-\mu|>\varepsilon) &\le \frac{\operatorname{Var}(\
 
 ## 3. CLT and Cramer-Wold
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Lindeberg-Levy CLT)
 Lindeberg-Levy CLT
 **WTS：** 若 $Y_i$ iid, $E[Y_i]=\mu$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$，则
 $$ \sqrt n(\bar Y_n-\mu)\xrightarrow{d}N(0,\sigma^2). $$
@@ -56,7 +56,9 @@ $$ \sqrt n(\bar Y_n-\mu)=\frac1{\sqrt n}\sum_{i=1}^n(Y_i-\mu). $$
 
 **结论：** sample average 的误差是 $O_p(n^{-1/2})$。
 
-**Lemma:** Cramer-Wold device
+:::
+
+:::{admonition} Lemma (Cramer-Wold device)
 **WTS：** 对随机向量 $Z_n\in\mathbb R^k$，若对每个 fixed $a\in\mathbb R^k$，
 $$ a'Z_n\xrightarrow{d}a'Z, $$
 则
@@ -68,14 +70,16 @@ $$ Z_n\xrightarrow{d}Z. $$
 
 ## 4. Continuous mapping and Slutsky
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Continuous Mapping Theorem)
 Continuous Mapping Theorem
 **WTS：** 若 $Z_n\xrightarrow{p}Z$，且 $g$ 连续，则
 $$ g(Z_n)\xrightarrow{p}g(Z). $$
 
 **结论：** sample moments 的连续函数也 consistent。例如 $\hat Q^{-1}\to_p Q^{-1}$ 需要 $Q$ nonsingular。
 
-**Lemma:** Slutsky theorem
+:::
+
+:::{admonition} Lemma (Slutsky theorem)
 **WTS：** 若 $X_n\xrightarrow{d}X$ 且 $Y_n\xrightarrow{p}c$，则
 $$ X_n+Y_n\xrightarrow{d}X+c, \qquad X_nY_n\xrightarrow{d}Xc. $$
 
@@ -85,7 +89,7 @@ $$ X_n+Y_n\xrightarrow{d}X+c, \qquad X_nY_n\xrightarrow{d}Xc. $$
 
 ## 5. Delta method
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Delta method)
 Delta method
 **WTS：** 若
 $$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,V), $$

@@ -13,12 +13,13 @@ L_n(\theta)=\frac1n\sum_i\log p_\theta(X_i),
 L(\theta)=E[\log p_\theta(X_i)].
 $$
 
-:::{admonition} Lemma
-Argmax consistency of MLE
-**WTS：**
+:::{admonition} Lemma (Argmax consistency of MLE)
+:::
+
+#### Proof of Lemma (Argmax consistency of MLE)
+
 $$ \hat\theta\xrightarrow{p}\theta_0. $$
 
-**联立系统：**
 $$ \sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\xrightarrow{p}0, $$
 and for every $\varepsilon>0$,
 $$ \sup_{\theta\notin B_\varepsilon(\theta_0)}L(\theta)<L(\theta_0). $$
@@ -31,15 +32,15 @@ Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\h
 
 **结论：** MLE consistency needs identification plus uniform convergence。
 
-:::
-
 课件给出的 sufficient conditions 包括 compact $\Theta$、continuity、unique maximizer，以及 dominated uniform law of large numbers。
 
 ## 2. Asymptotic normality of MLE
 
-:::{admonition} Lemma
-MLE asymptotic normality
-**WTS：**
+:::{admonition} Lemma (MLE asymptotic normality)
+:::
+
+#### Proof of Lemma (MLE asymptotic normality)
+
 $$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}). $$
 
 **联立系统：** Define score and Hessian:
@@ -57,8 +58,6 @@ Slutsky gives
 $$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}). $$
 
 **结论：** ML reaches the Cramer-Rao bound asymptotically under regularity。
-
-:::
 
 ## 3. ML Wald, LR, and LM tests
 
@@ -93,7 +92,7 @@ $$
 \hat p=35/365.
 $$
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Wald z-test for a Bernoulli rate)
 Wald z-test for a Bernoulli rate
 **WTS：** Test $H_0:p=p_0$ using
 $$ Z=\sqrt n\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)}}. $$

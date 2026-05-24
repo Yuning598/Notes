@@ -31,20 +31,18 @@ FOC gives $\hat p=\bar X$。如果所有 observation 都是 0 或 1，而 parame
 
 PS3 Q2: Poisson $X_i\sim\operatorname{Poisson}(\lambda)$。
 
-:::{admonition} Lemma
-Poisson MLE
-**WTS：**
+:::{admonition} Lemma (Poisson MLE)
+:::
+
+#### Proof of Lemma (Poisson MLE)
+
 $$ \hat\lambda=\bar X. $$
 
-**联立系统：**
 $$ p_\lambda(x)=e^{-\lambda}\frac{\lambda^x}{x!}. $$
 
-**连续求解：**
 $$ \begin{aligned} \log\ell_n(\lambda) &=\sum_i[-\lambda+X_i\log\lambda-\log(X_i!)]\\ &=-n\lambda+\left(\sum_iX_i\right)\log\lambda+\text{const},\\ \frac{\partial\log\ell_n}{\partial\lambda} &=-n+\frac{\sum_iX_i}{\lambda}=0,\\ \hat\lambda&=\bar X. \end{aligned} $$
 
 **结论：** Poisson mean MLE equals sample mean。
-
-:::
 
 给定数据 $2,0,3,1,3,2,4,1,3,2$，$\bar X=2.1$。Wald 95% CI:
 
@@ -56,20 +54,20 @@ $$
 
 PS3 Q1 asks for MLE and Fisher information for $Y_i\sim N(\mu,\sigma^2)$。Let $s=\sigma^2$。
 
-:::{admonition} Lemma
-Normal MLE
-**WTS：**
+:::{admonition} Lemma (Normal MLE)
+:::
+
+#### Proof of Lemma (Normal MLE)
+
 $$ \hat\mu=\bar Y, \qquad \hat\sigma^2=\frac1n\sum_i(Y_i-\bar Y)^2. $$
 
-**联立系统：**
 $$ \log\ell(\mu,s)=-\frac n2\log(2\pi)-\frac n2\log s-\frac1{2s}\sum_i(Y_i-\mu)^2. $$
 
-**连续求解：**
 $$ \begin{aligned} \frac{\partial\log\ell}{\partial\mu} &=\frac1s\sum_i(Y_i-\mu)=0 \quad\Rightarrow\quad \hat\mu=\bar Y,\\ \frac{\partial\log\ell}{\partial s} &=-\frac n{2s}+\frac1{2s^2}\sum_i(Y_i-\mu)^2=0\\ &\Rightarrow \hat s=\frac1n\sum_i(Y_i-\hat\mu)^2. \end{aligned} $$
 
 **结论：** Normal MLE 的 variance estimator uses $n$，not $n-1$。
 
-**Lemma:** Fisher information for $(\mu,\sigma^2)$
+:::{admonition} Lemma (Fisher information for $(\mu,\sigma^2)$)
 **WTS：** 单个 observation 的 Fisher information is
 $$ I_1(\mu,s)= \begin{pmatrix} 1/s&0\\ 0&1/(2s^2) \end{pmatrix}. $$
 
@@ -107,7 +105,7 @@ $$ \begin{aligned} E[S_\theta(Y)] &=\int \frac{\partial f(y;\theta)/\partial\the
 
 ## 5. Cramer-Rao lower bound
 
-:::{admonition} Lemma
+:::{admonition} Lemma (Scalar Cramer-Rao bound)
 Scalar Cramer-Rao bound
 **WTS：** 若 $\hat\theta$ unbiased for $\theta$，则
 $$ \operatorname{Var}(\hat\theta)\ge \frac1{I(\theta)}. $$
