@@ -37,21 +37,15 @@ parts:
         sections:
           - file: Econometrics/EF8090/cards/Projection_vs_CEF
           - file: Econometrics/EF8090/cards/Projection_Matrix
-      - file: Econometrics/EF8090/02_OLS_Algebra_FWL_OVB
-      - file: Econometrics/EF8090/03_OLS_Finite_Sample_Gauss_Markov_GLS
-      - file: Econometrics/EF8090/04_Asymptotic_Tools
-      - file: Econometrics/EF8090/05_OLS_Asymptotics_and_Robust_Inference
-      - file: Econometrics/EF8090/06_Hypothesis_Testing
-      - file: Econometrics/EF8090/07_MLE_Fisher_CRLB
-      - file: Econometrics/EF8090/08_MLE_Asymptotics_and_ML_Tests
-      - file: Econometrics/EF8090/09_IV_2SLS_Weak_Instruments
-      - file: Econometrics/EF8090/10_Potential_Outcomes_ATE_Matching
+      - file: Econometrics/EF8090/02_OLS_Algebra_Finite_Sample_GLS
+      - file: Econometrics/EF8090/03_Asymptotics_OLS_Inference_Hypothesis_Testing
+      - file: Econometrics/EF8090/04_MLE_Fisher_CRLB_and_ML_Tests
+      - file: Econometrics/EF8090/05_IV_2SLS_Weak_Instruments
+      - file: Econometrics/EF8090/06_Potential_Outcomes_LATE_Roy_MTE
         sections:
           - file: Econometrics/EF8090/cards/Potential_Outcomes_ATE_ATT_CATE
           - file: Econometrics/EF8090/cards/Propensity_Score_Balancing
-      - file: Econometrics/EF8090/11_LATE_Roy_MTE
-      - file: Econometrics/EF8090/12_DiD_Fixed_Effects_Event_Study
-      - file: Econometrics/EF8090/13_RD_Nonparametric_Kernel
+      - file: Econometrics/EF8090/07_DiD_RD_Nonparametric_Kernel
         sections:
           - file: Econometrics/EF8090/cards/RD_Wald_Estimand
       - file: Econometrics/MS8956/ART-Chap1 Finite-Sample Properties of OLS

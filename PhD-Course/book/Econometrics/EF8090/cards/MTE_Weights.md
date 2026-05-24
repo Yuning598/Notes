@@ -4,7 +4,7 @@ orphan: true
 
 # MTE Weights
 
-Parent: [11_LATE_Roy_MTE](11_LATE_Roy_MTE)
+Parent: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)
 
 :::{admonition} Definition (MTE)
 In \(D=1[U_D\le p(Z)]\),

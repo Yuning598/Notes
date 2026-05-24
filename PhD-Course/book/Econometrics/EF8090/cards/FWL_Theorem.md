@@ -4,7 +4,7 @@ orphan: true
 
 # FWL Theorem
 
-Parent: [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB)
+Parent: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)
 
 :::{admonition} Lemma
 Frisch-Waugh-Lovell

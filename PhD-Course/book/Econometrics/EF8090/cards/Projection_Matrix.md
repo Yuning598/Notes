@@ -4,7 +4,7 @@ orphan: true
 
 # Projection Matrix
 
-Parent: [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB)
+Parent: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)
 
 :::{admonition} Definition (Projection and residual maker)
 \[

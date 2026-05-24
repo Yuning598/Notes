@@ -1,9 +1,11 @@
-# 07 MLE, Fisher Information, and Cramer-Rao Bound
+# 04 MLE, Fisher Information, CRLB, and ML Tests
 
-Source: EF8090 slides, PDF pp. 133-162; PS3 Q1-Q5.  
-Links: [06_Hypothesis_Testing](06_Hypothesis_Testing) | [08_MLE_Asymptotics_and_ML_Tests](08_MLE_Asymptotics_and_ML_Tests) | [cards/Fisher_Information_CRLB](cards/Fisher_Information_CRLB) | [cards/Boundary_MLE_Uniform](cards/Boundary_MLE_Uniform) | [cards/Separation_in_Logit](cards/Separation_in_Logit)
+Source: consolidated from 07_MLE_Fisher_CRLB.md and 08_MLE_Asymptotics_and_ML_Tests.md.
+Links: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [cards/Fisher_Information_CRLB](cards/Fisher_Information_CRLB) | [cards/ML_Wald_LR_LM](cards/ML_Wald_LR_LM)
 
-## 1. Maximum likelihood estimator
+## 07 MLE, Fisher Information, and Cramer-Rao Bound
+
+### 1. Maximum likelihood estimator
 
 :::{admonition} Definition (Maximum likelihood estimator)
 若 $X_1,\ldots,X_n$ iid with density $p_\theta(x)$，likelihood is
@@ -17,7 +19,7 @@ $$ \hat\theta\in\arg\max_{\theta\in\Theta}L_n(\theta). $$
 
 Conditional MLE similarly maximizes $\prod_i p_\theta(Y_i\mid X_i)$。课件例子包括 Bernoulli、normal、conditional binary response。
 
-## 2. Bernoulli and Poisson examples
+### 2. Bernoulli and Poisson examples
 
 For Bernoulli $X_i\in\{0,1\}$, $P(X_i=1)=p$：
 
@@ -50,7 +52,7 @@ $$
 2.1\pm1.96\sqrt{2.1/10}\approx[1.20,3.00].
 $$
 
-## 3. Normal MLE and Fisher information
+### 3. Normal MLE and Fisher information
 
 PS3 Q1 asks for MLE and Fisher information for $Y_i\sim N(\mu,\sigma^2)$。Let $s=\sigma^2$。
 
@@ -81,7 +83,7 @@ $$ \begin{aligned} E[S_\mu^2] &=E[(Y-\mu)^2]/s^2=s/s^2=1/s,\\ E[S_\mu S_s] &=E\l
 
 :::
 
-## 4. Fisher information identities
+### 4. Fisher information identities
 
 :::{admonition} Definition (Fisher information)
 For scalar $\theta$,
@@ -103,7 +105,7 @@ $$ \begin{aligned} E[S_\theta(Y)] &=\int \frac{\partial f(y;\theta)/\partial\the
 
 :::
 
-## 5. Cramer-Rao lower bound
+### 5. Cramer-Rao lower bound
 
 :::{admonition} Lemma (Scalar Cramer-Rao bound)
 Scalar Cramer-Rao bound
@@ -130,7 +132,7 @@ $$
 \operatorname{Var}(\hat\theta)\succeq I(\theta)^{-1}.
 $$
 
-## 6. Boundary MLE: uniform distribution
+### 6. Boundary MLE: uniform distribution
 
 PS3 Q4: $X_i\sim U(\theta,2\theta)$, $\theta>0$。Likelihood:
 
@@ -158,7 +160,7 @@ $$
 
 where the problem set uses the scale parameterization $F(x)=1-e^{-x/\lambda}$。
 
-## 7. Binary response likelihood and separation
+### 7. Binary response likelihood and separation
 
 For binary $Y_i$, conditional model:
 
@@ -180,3 +182,147 @@ $$
 
 PS3 Q5 的 logit 数据可以被一个阈值完全分开：positive observations have larger $x$ than negative observations。于是 log-likelihood 沿着某个方向趋近 supremum，但没有 finite maximizer，MLE 不存在。见 [cards/Separation_in_Logit](cards/Separation_in_Logit)。
 
+
+## 08 MLE Asymptotics and ML Tests
+
+### 1. Consistency of MLE
+
+课件 supplement 里把 MLE consistency 写成 extremum estimator 的形式。设
+
+$$
+L_n(\theta)=\frac1n\sum_i\log p_\theta(X_i),
+\qquad
+L(\theta)=E[\log p_\theta(X_i)].
+$$
+
+:::{admonition} Lemma (Argmax consistency of MLE)
+:::
+
+#### Proof of Lemma (Argmax consistency of MLE)
+
+$$ \hat\theta\xrightarrow{p}\theta_0. $$
+
+$$ \sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\xrightarrow{p}0, $$
+and for every $\varepsilon>0$,
+$$ \sup_{\theta\notin B_\varepsilon(\theta_0)}L(\theta)<L(\theta_0). $$
+
+**连续求解：** Since $\hat\theta$ maximizes $L_n$,
+$$ L_n(\hat\theta)\ge L_n(\theta_0). $$
+Uniform convergence gives
+$$ \begin{aligned} L(\hat\theta) &\ge L_n(\hat\theta)-\sup_\theta|L_n(\theta)-L(\theta)|\\ &\ge L_n(\theta_0)-\sup_\theta|L_n(\theta)-L(\theta)|\\ &\ge L(\theta_0)-2\sup_\theta|L_n(\theta)-L(\theta)|. \end{aligned} $$
+Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\hat\theta$ must enter every neighborhood of $\theta_0$ with probability tending to one。
+
+**结论：** MLE consistency needs identification plus uniform convergence。
+
+课件给出的 sufficient conditions 包括 compact $\Theta$、continuity、unique maximizer，以及 dominated uniform law of large numbers。
+
+### 2. Asymptotic normality of MLE
+
+:::{admonition} Lemma (MLE asymptotic normality)
+:::
+
+#### Proof of Lemma (MLE asymptotic normality)
+
+$$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}). $$
+
+**联立系统：** Define score and Hessian:
+$$ S_n(\theta)=\frac1n\sum_i s_i(\theta), \qquad H_n(\theta)=\frac1n\sum_i \frac{\partial s_i(\theta)}{\partial\theta'}. $$
+FOC:
+$$ S_n(\hat\theta)=0. $$
+
+**连续求解：** Taylor expansion around $\theta_0$:
+$$ \begin{aligned} 0 &=S_n(\hat\theta)\\ &=S_n(\theta_0)+H_n(\bar\theta)(\hat\theta-\theta_0). \end{aligned} $$
+Rearranging:
+$$ \sqrt n(\hat\theta-\theta_0) =-[H_n(\bar\theta)]^{-1}\sqrt n S_n(\theta_0). $$
+Under regularity,
+$$ H_n(\bar\theta)\xrightarrow{p}-I(\theta_0), \qquad \sqrt nS_n(\theta_0)\xrightarrow{d}N(0,I(\theta_0)). $$
+Slutsky gives
+$$ \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}). $$
+
+**结论：** ML reaches the Cramer-Rao bound asymptotically under regularity。
+
+### 3. ML Wald, LR, and LM tests
+
+:::{admonition} Definition (ML Wald test)
+If $H_0:r(\theta)=0$ has $q$ restrictions,
+$$ W=n r(\hat\theta)'[R\hat I^{-1}R']^{-1}r(\hat\theta)\xrightarrow{d}\chi_q^2. $$
+
+**Definition (Likelihood ratio test):**
+Let $\hat\theta$ be unrestricted MLE and $\tilde\theta$ restricted MLE under $H_0$。
+$$ LR=2\{\log\ell_n(\hat\theta)-\log\ell_n(\tilde\theta)\}\xrightarrow{d}\chi_q^2. $$
+
+**Definition (Lagrange multiplier test):**
+LM uses the restricted estimator and the score evaluated at it:
+$$ LM=S_n(\tilde\theta)'\hat I(\tilde\theta)^{-1}S_n(\tilde\theta) $$
+with the appropriate $n$-scaling depending on whether $S_n$ is averaged or summed. Under $H_0$, $LM\to_d\chi_q^2$。
+
+:::
+
+Wald looks at distance of unrestricted estimator from the null; LR looks at log-likelihood loss from imposing the null; LM looks at slope of the likelihood at the restricted estimator。
+
+### 4. Boston shooting example as binomial test
+
+Slides use a Bernoulli/binomial approximation. National rate is 30 shootings per 365 days, so
+
+$$
+p_0=30/365.
+$$
+
+Boston has 35 shooting days/year, so
+
+$$
+\hat p=35/365.
+$$
+
+:::{admonition} Lemma (Wald z-test for a Bernoulli rate)
+Wald z-test for a Bernoulli rate
+**WTS：** Test $H_0:p=p_0$ using
+$$ Z=\sqrt n\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)}}. $$
+
+**联立系统：**
+$$ \sqrt n(\hat p-p_0)\to_d N(0,p_0(1-p_0)). $$
+
+**连续求解：** Standardize:
+$$ Z=\frac{\sqrt n(\hat p-p_0)}{\sqrt{p_0(1-p_0)}}\to_dN(0,1). $$
+
+**结论：** Slides obtain $Z\approx0.953$ using null variance, or $Z\approx0.889$ using variance evaluated at $\hat p$。Neither rejects conventional levels。
+
+:::
+
+PS3 Q3 uses the same logic for sunny days in March: under $p_0=198/365$, $\hat p=10/31$,
+
+$$
+Z=\frac{10/31-198/365}{\sqrt{(198/365)(1-198/365)/31}}\approx -2.45.
+$$
+
+A two-sided 5% test rejects the “typical month” null。
+
+### 5. Binary response model and existence
+
+For logit/probit, asymptotic normality requires finite interior maximizer and identification。PS3 Q5's data create perfect separation, so the MLE does not exist. This is not a numerical bug; it is a failure of the objective to attain a finite maximum.
+
+When the MLE exists and regularity conditions hold:
+
+$$
+\sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}),
+$$
+
+where
+
+$$
+I(\theta_0)=E[s_i(\theta_0)s_i(\theta_0)']=-E[H_i(\theta_0)].
+$$
+
+### 6. Joint likelihood and seemingly separate equations
+
+PS3 Q6 asks about estimating two equations separately or jointly:
+
+$$
+Y_i^A=X_i^A\beta_A+\varepsilon_i^A,
+\qquad
+Y_i^B=X_i^B\beta_B+\varepsilon_i^B,
+\qquad
+\varepsilon_i=(\varepsilon_i^A,\varepsilon_i^B)'\sim N(0,\Sigma).
+$$
+
+If regressors differ across equations and errors are correlated, joint MLE can improve efficiency relative to separate OLS. If each equation has the same regressors, separate OLS and GLS/SUR coincide for coefficients. This connects to Hayashi's multiple-equation GLS/SUR discussion, but EF8090 uses it mainly to practice writing conditional likelihood and Fisher information。

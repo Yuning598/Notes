@@ -4,7 +4,7 @@ orphan: true
 
 # Boundary MLE: Uniform(theta, 2theta)
 
-Parent: [07_MLE_Fisher_CRLB](07_MLE_Fisher_CRLB)
+Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
 :::{admonition} Lemma
 Uniform boundary estimator

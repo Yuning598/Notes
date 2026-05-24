@@ -4,7 +4,7 @@ orphan: true
 
 # MLE Consistency
 
-Parent: [08_MLE_Asymptotics_and_ML_Tests](08_MLE_Asymptotics_and_ML_Tests)
+Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
 :::{admonition} Lemma
 Extremum consistency

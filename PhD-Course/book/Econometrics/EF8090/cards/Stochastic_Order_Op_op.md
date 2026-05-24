@@ -4,7 +4,7 @@ orphan: true
 
 # Stochastic Order: Op and op
 
-Parent: [04_Asymptotic_Tools](04_Asymptotic_Tools)
+Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
 :::{admonition} Definition (Stochastic order)
 \[

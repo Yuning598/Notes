@@ -4,7 +4,7 @@ orphan: true
 
 # GLS Whitening
 
-Parent: [03_OLS_Finite_Sample_Gauss_Markov_GLS](03_OLS_Finite_Sample_Gauss_Markov_GLS)
+Parent: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)
 
 :::{admonition} Definition (GLS)
 If \(\operatorname{Var}(e\mid X)=D\),

@@ -4,7 +4,7 @@ orphan: true
 
 # Fixed Effects Demeaning
 
-Parent: [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB) | [12_DiD_Fixed_Effects_Event_Study](12_DiD_Fixed_Effects_Event_Study)
+Parent: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel)
 
 :::{admonition} Lemma
 Within transformation

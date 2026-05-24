@@ -4,7 +4,7 @@ orphan: true
 
 # Potential Outcomes: ATE, ATT, CATE
 
-Parent: [10_Potential_Outcomes_ATE_Matching](10_Potential_Outcomes_ATE_Matching)
+Parent: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)
 
 :::{admonition} Definition (Core estimands)
 \[

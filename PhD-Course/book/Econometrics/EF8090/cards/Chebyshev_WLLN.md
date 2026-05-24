@@ -4,7 +4,7 @@ orphan: true
 
 # Chebyshev WLLN
 
-Parent: [04_Asymptotic_Tools](04_Asymptotic_Tools)
+Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
 :::{admonition} Lemma
 WLLN from Chebyshev

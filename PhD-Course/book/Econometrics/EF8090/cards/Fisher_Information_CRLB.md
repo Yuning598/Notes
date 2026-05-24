@@ -4,7 +4,7 @@ orphan: true
 
 # Fisher Information and CRLB
 
-Parent: [07_MLE_Fisher_CRLB](07_MLE_Fisher_CRLB)
+Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
 :::{admonition} Definition (Fisher information)
 \[

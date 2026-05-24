@@ -4,7 +4,7 @@ orphan: true
 
 # Hausman and Sargan Tests
 
-Parent: [09_IV_2SLS_Weak_Instruments](09_IV_2SLS_Weak_Instruments)
+Parent: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments)
 
 :::{admonition} Definition (Hausman exogeneity test)
 Compares OLS and 2SLS. Under exogeneity both are consistent; under endogeneity only 2SLS is consistent.

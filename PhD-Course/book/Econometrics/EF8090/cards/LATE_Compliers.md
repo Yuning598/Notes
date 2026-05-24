@@ -4,7 +4,7 @@ orphan: true
 
 # LATE and Compliers
 
-Parent: [11_LATE_Roy_MTE](11_LATE_Roy_MTE)
+Parent: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)
 
 :::{admonition} Definition (Compliance types)
 Complier: \(D(1)=1,D(0)=0\). Always taker: \(1,1\). Never taker: \(0,0\). Defier: \(0,1\)。

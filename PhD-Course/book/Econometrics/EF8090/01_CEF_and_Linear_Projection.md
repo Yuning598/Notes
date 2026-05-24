@@ -1,7 +1,7 @@
 # 01 CEF and Linear Projection
 
 Source: EF8090 slides, PDF pp. 7-19; PS1 Q1, Q3-Q5, Q7.  
-Links: [00-MOC_EF8090_Econometrics](00-MOC_EF8090_Econometrics) | [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB) | [cards/Law_of_Iterated_Expectations](cards/Law_of_Iterated_Expectations) | [cards/Projection_vs_CEF](cards/Projection_vs_CEF) | [cards/Variance_Decomposition](cards/Variance_Decomposition)
+Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [cards/Law_of_Iterated_Expectations](cards/Law_of_Iterated_Expectations) | [cards/Projection_vs_CEF](cards/Projection_vs_CEF) | [cards/Variance_Decomposition](cards/Variance_Decomposition)
 
 ## 1. 从 conditional expectation 开始
 
@@ -216,6 +216,6 @@ $$ \begin{aligned} \operatorname{Var}(U\mid X) &=E[U^2\mid X] \\ &=E[(Y-p(X))^2\
 
 ## 7. 和后续主题的连接
 
-- OLS 是 $E[X(Y-X'\beta)]=0$ 的样本版本，见 [02_OLS_Algebra_FWL_OVB](02_OLS_Algebra_FWL_OVB)。
-- Heteroskedasticity 不破坏 OLS consistency，但会破坏错误的标准误，见 [05_OLS_Asymptotics_and_Robust_Inference](05_OLS_Asymptotics_and_Robust_Inference)。
-- Propensity score 的 balancing 证明本质上也是 conditioning theorem，见 [10_Potential_Outcomes_ATE_Matching](10_Potential_Outcomes_ATE_Matching)。
+- OLS 是 $E[X(Y-X'\beta)]=0$ 的样本版本，见 [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)。
+- Heteroskedasticity 不破坏 OLS consistency，但会破坏错误的标准误，见 [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)。
+- Propensity score 的 balancing 证明本质上也是 conditioning theorem，见 [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)。

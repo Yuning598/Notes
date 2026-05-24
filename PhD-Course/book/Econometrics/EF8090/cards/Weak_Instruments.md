@@ -4,7 +4,7 @@ orphan: true
 
 # Weak Instruments
 
-Parent: [09_IV_2SLS_Weak_Instruments](09_IV_2SLS_Weak_Instruments)
+Parent: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments)
 
 :::{admonition} Definition (Weak instruments)
 Instruments are weak when their correlation with endogenous regressors is close to zero in the relevant first stage.

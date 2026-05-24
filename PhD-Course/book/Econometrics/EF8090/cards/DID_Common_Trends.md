@@ -4,7 +4,7 @@ orphan: true
 
 # DiD Common Trends
 
-Parent: [12_DiD_Fixed_Effects_Event_Study](12_DiD_Fixed_Effects_Event_Study)
+Parent: [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel)
 
 :::{admonition} Definition (Common trends)
 \[

@@ -4,7 +4,7 @@ orphan: true
 
 # 2SLS as Projection
 
-Parent: [09_IV_2SLS_Weak_Instruments](09_IV_2SLS_Weak_Instruments)
+Parent: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments)
 
 :::{admonition} Definition (2SLS)
 \[

@@ -4,7 +4,7 @@ orphan: true
 
 # Separation in Logit
 
-Parent: [07_MLE_Fisher_CRLB](07_MLE_Fisher_CRLB) | [08_MLE_Asymptotics_and_ML_Tests](08_MLE_Asymptotics_and_ML_Tests)
+Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
 :::{admonition} Definition (Perfect separation)
 A binary response sample is perfectly separated if there exists \(b\) such that

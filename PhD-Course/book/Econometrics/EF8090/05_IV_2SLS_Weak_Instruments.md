@@ -1,9 +1,11 @@
-# 09 IV, 2SLS, and Weak Instruments
+# 05 IV, 2SLS, and Weak Instruments
 
-Source: EF8090 slides, PDF pp. 177-224; PS4 Q3-Q5, PS5 Q4.  
-Links: [08_MLE_Asymptotics_and_ML_Tests](08_MLE_Asymptotics_and_ML_Tests) | [10_Potential_Outcomes_ATE_Matching](10_Potential_Outcomes_ATE_Matching) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Hausman_and_Sargan](cards/Hausman_and_Sargan) | [cards/Weak_Instruments](cards/Weak_Instruments)
+Source: consolidated from 09_IV_2SLS_Weak_Instruments.md.
+Links: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Weak_Instruments](cards/Weak_Instruments)
 
-## 1. Why IV
+## 09 IV, 2SLS, and Weak Instruments
+
+### 1. Why IV
 
 课件用 ability bias 作为动机。目标模型是
 
@@ -26,7 +28,7 @@ $$ \text{Validity/exclusion: }E[Zu]=0. $$
 
 :::
 
-## 2. Just-identified IV
+### 2. Just-identified IV
 
 如果 $Z$ 与 $X$ 维度相同且 $E[ZX']$ 可逆：
 
@@ -51,7 +53,7 @@ $$
 \hat\beta_{IV}=(Z'X)^{-1}Z'Y.
 $$
 
-## 3. Two-stage least squares
+### 3. Two-stage least squares
 
 当 instruments 多于 endogenous regressors 时，用 2SLS。
 
@@ -71,7 +73,7 @@ $$ \begin{aligned} \hat\beta_{2SLS} &=(X'P_ZX)^{-1}X'P_ZY,\\ X'P_ZX\hat\beta_{2S
 
 :::
 
-## 4. Wald estimator
+### 4. Wald estimator
 
 Binary instrument case:
 
@@ -87,9 +89,9 @@ $$ \hat\beta_W=\frac{\bar Y_{Z=1}-\bar Y_{Z=0}}{\bar D_{Z=1}-\bar D_{Z=0}}. $$
 
 :::
 
-在 constant treatment effect 下，Wald identifies $\beta$。在 heterogeneous effect 下，它会变成 LATE，见 [11_LATE_Roy_MTE](11_LATE_Roy_MTE)。
+在 constant treatment effect 下，Wald identifies $\beta$。在 heterogeneous effect 下，它会变成 LATE，见 [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)。
 
-## 5. Variance of 2SLS
+### 5. Variance of 2SLS
 
 在 homoskedasticity 下，课件给出 2SLS variance 的简化表达：
 
@@ -108,7 +110,7 @@ $$
 
 where $\Omega=E[Z_iZ_i'u_i^2]$。
 
-## 6. Hausman exogeneity and overidentification tests
+### 6. Hausman exogeneity and overidentification tests
 
 :::{admonition} Definition (Hausman test for exogeneity)
 Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error。Statistic:
@@ -123,7 +125,7 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
 
 注意：overidentification test 只能检验 instruments 之间是否互相一致，不能证明每个 instrument 都 valid。
 
-## 7. Weak instruments
+### 7. Weak instruments
 
 Weak instruments mean first-stage relevance is weak。课件强调：weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
 
@@ -141,7 +143,7 @@ $$ \operatorname{Avar}(\hat\beta_{IV}) \approx \frac{E[Z^2u^2]}{(E[ZX])^2}. $$
 
 :::
 
-## 8. PS5 Q4: residualized 2SLS through FWL
+### 8. PS5 Q4: residualized 2SLS through FWL
 
 Consider outcome $Y$, endogenous scalar $D$, controls $X$, excluded instruments $Z$，with $X$ containing constant。Let $M_X=I-P_X$。The coefficient on $D$ in 2SLS with controls is
 
@@ -178,7 +180,7 @@ $$
 
 which is PS5 Q4(b)。
 
-## 9. Measurement error and Frisch bounds
+### 9. Measurement error and Frisch bounds
 
 PS4 Q3 studies $\hat X=X+V$ with $E[V]=E[XV]=E[UV]=0$。Then
 
@@ -197,4 +199,3 @@ $$
 $$
 
 Left bound is the attenuated regression of $Y$ on mismeasured $\hat X$。Right bound comes from $\operatorname{Var}(U)\ge0$。
-

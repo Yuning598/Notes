@@ -4,7 +4,7 @@ orphan: true
 
 # Kernel Bandwidth Bias-Variance Tradeoff
 
-Parent: [13_RD_Nonparametric_Kernel](13_RD_Nonparametric_Kernel)
+Parent: [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel)
 
 :::{admonition} Lemma
 Univariate kernel MSE

@@ -4,7 +4,7 @@ orphan: true
 
 # Wald Test with R Matrix
 
-Parent: [06_Hypothesis_Testing](06_Hypothesis_Testing)
+Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
 :::{admonition} Definition (Linear Wald test)
 For \(H_0:R\beta=r\),

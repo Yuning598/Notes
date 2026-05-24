@@ -4,7 +4,7 @@ orphan: true
 
 # Roy Model Selection
 
-Parent: [11_LATE_Roy_MTE](11_LATE_Roy_MTE)
+Parent: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)
 
 :::{admonition} Definition (Roy selection model)
 \[

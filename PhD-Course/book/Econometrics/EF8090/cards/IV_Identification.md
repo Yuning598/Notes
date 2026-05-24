@@ -4,7 +4,7 @@ orphan: true
 
 # IV Identification
 
-Parent: [09_IV_2SLS_Weak_Instruments](09_IV_2SLS_Weak_Instruments)
+Parent: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments)
 
 :::{admonition} Definition (IV conditions)
 For \(Y=X'\beta+u\), instruments \(Z\) require

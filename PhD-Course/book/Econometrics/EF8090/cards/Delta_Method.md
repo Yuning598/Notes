@@ -4,7 +4,7 @@ orphan: true
 
 # Delta Method
 
-Parent: [04_Asymptotic_Tools](04_Asymptotic_Tools) | [05_OLS_Asymptotics_and_Robust_Inference](05_OLS_Asymptotics_and_Robust_Inference)
+Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
 :::{admonition} Lemma
 Delta method
