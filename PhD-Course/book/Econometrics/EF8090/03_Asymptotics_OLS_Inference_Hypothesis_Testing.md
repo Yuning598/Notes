@@ -1,13 +1,8 @@
 # 03 Probability Limits, OLS Asymptotics, and Wald Tests
 
-Source: consolidated from 04_Asymptotic_Tools.md, 05_OLS_Asymptotics_and_Robust_Inference.md, and 06_Hypothesis_Testing.md.
-Links: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS) | [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [cards/Delta_Method](cards/Delta_Method) | [cards/Wald_Test_Matrix_R](cards/Wald_Test_Matrix_R)
-
-**Probability Limits and Distributional Tools**
-
 ## Motivation for Asymptotic Approximation
 
-课件的动机很直接：有限样本正态分布依赖 strong distributional assumptions。若只假设 iid、矩存在和 exogeneity，通常依赖 large-sample approximation。三大工具是：
+动机：有限样本正态分布依赖 strong distributional assumptions。若只假设 iid、矩存在和 exogeneity，通常依赖 large-sample approximation。三大工具是：
 
 $$
 \text{WLLN},\qquad \text{CLT},\qquad \text{CMT / Slutsky / Delta method}.
@@ -15,16 +10,18 @@ $$
 
 :::{admonition} Definition (Convergence in probability)
 随机变量 $Z_n$ 依概率收敛到 $Z$，记作 $Z_n\xrightarrow{p}Z$，若对任意 $\varepsilon>0$，
+
 $$
 \lim_{n\to\infty}P(|Z_n-Z|\le \varepsilon)=1.
 $$
+:::
 
-**Definition (Convergence in distribution):**
-$Z_n\xrightarrow{d}Z$ 若在 $F_Z$ 连续点 $z$ 上，
+:::{admonition} Definition (Convergence in distribution)
+$Z_n\xrightarrow{d}Z$ 若在 $F_Z$ 的连续点 $z$ 上，
+
 $$
 F_{Z_n}(z)\to F_Z(z).
 $$
-
 :::
 
 依概率收敛通常用于 consistency；依分布收敛用于 limiting distribution 和 inference。
@@ -32,8 +29,8 @@ $$
 ## WLLN via Chebyshev
 
 :::{admonition} Lemma (Weak Law of Large Numbers under finite variance)
-Weak Law of Large Numbers under finite variance
 若 $Y_i$ iid, $E[Y_i]=\mu$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$，则
+
 $$
 \bar Y_n\xrightarrow{p}\mu.
 $$
@@ -61,8 +58,8 @@ sample mean converges in probability to population mean。
 ## CLT and Cramer-Wold
 
 :::{admonition} Lemma (Lindeberg-Levy CLT)
-Lindeberg-Levy CLT
 若 $Y_i$ iid, $E[Y_i]=\mu$, $\operatorname{Var}(Y_i)=\sigma^2<\infty$，则
+
 $$
 \sqrt n(\bar Y_n-\mu)\xrightarrow{d}N(0,\sigma^2).
 $$
@@ -80,6 +77,7 @@ sample average 的误差是 $O_p(n^{-1/2})$。
 
 :::{admonition} Lemma (Cramer-Wold device)
 对随机向量 $Z_n\in\mathbb R^k$，若对每个 fixed $a\in\mathbb R^k$，
+
 $$
 a'Z_n\xrightarrow{d}a'Z,
 $$
@@ -96,8 +94,8 @@ $$
 ## Continuous mapping and Slutsky
 
 :::{admonition} Lemma (Continuous Mapping Theorem)
-Continuous Mapping Theorem
 若 $Z_n\xrightarrow{p}Z$，且 $g$ 连续，则
+
 $$
 g(Z_n)\xrightarrow{p}g(Z).
 $$
@@ -109,6 +107,7 @@ sample moments 的连续函数也 consistent。例如 $\hat Q^{-1}\to_p Q^{-1}$ 
 
 :::{admonition} Lemma (Slutsky theorem)
 若 $X_n\xrightarrow{d}X$ 且 $Y_n\xrightarrow{p}c$，则
+
 $$
 X_n+Y_n\xrightarrow{d}X+c, \qquad X_nY_n\xrightarrow{d}Xc.
 $$
@@ -121,8 +120,8 @@ estimated standard error 可以替代 true standard error。
 ## Delta Method
 
 :::{admonition} Lemma (Delta method)
-Delta method
 若
+
 $$
 \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,V),
 $$
@@ -227,6 +226,8 @@ $$
 如果有更强的 regression model $E[e_i\mid X_i]=0$，则自动推出 $E[X_ie_i]=0$。核心 assumptions 是：iid、二阶矩存在、$Q=E[X_iX_i']$ 正定。
 
 :::{admonition} Definition (Population matrices)
+在渐近 OLS 中，定义
+
 $$
 Q=E[X_iX_i'], \qquad \Omega=E[e_i^2X_iX_i'], \qquad V=Q^{-1}\Omega Q^{-1}.
 $$
@@ -236,6 +237,7 @@ $$
 ## Consistency of OLS
 
 :::{admonition} Lemma (OLS consistency)
+在 $Q$ 正定且 $E[X_ie_i]=0$ 下，OLS estimator consistent.
 :::
 
 #### Proof of Lemma (OLS consistency)
@@ -278,6 +280,11 @@ $$
 ## OLS Asymptotic Normality
 
 :::{admonition} Lemma (Asymptotic distribution of OLS)
+在 iid、$E[X_ie_i]=0$、$Q$ 正定且 $\Omega=E[e_i^2X_iX_i']$ 存在下，
+
+$$
+\sqrt n(\hat\beta-\beta)\xrightarrow{d}N(0,Q^{-1}\Omega Q^{-1}).
+$$
 :::
 
 #### Proof of Lemma (Asymptotic distribution of OLS)
@@ -335,6 +342,11 @@ $$
 $$
 
 :::{admonition} Lemma (Consistency of robust covariance estimator)
+在 $E[e_i^4]<\infty$ 且 $\hat\beta\xrightarrow{p}\beta$ 下，
+
+$$
+\hat V=\hat Q^{-1}\hat\Omega\hat Q^{-1}\xrightarrow{p}V.
+$$
 :::
 
 #### Proof of Lemma (Consistency of robust covariance estimator)
@@ -387,6 +399,7 @@ $$
 
 :::{admonition} Definition (Asymptotic t-statistic)
 对 scalar $\theta=r(\beta)$，
+
 $$
 t_n(\theta_0)=\frac{r(\hat\beta)-\theta_0}{\widehat{\operatorname{se}}(r(\hat\beta))}.
 $$
@@ -475,6 +488,8 @@ $$
 $$
 
 :::{admonition} Definition (Type I error, Type II error, power)
+设拒绝域为 $\{T_n>c\}$，则
+
 $$
 \text{Type I error}=P(\text{reject }H_0\mid H_0\text{ true}),
 $$
@@ -504,6 +519,7 @@ $$
 
 :::{admonition} Definition (p-value)
 双侧正态近似下，
+
 $$
 p=2\{1-\Phi(|t_n|)\}.
 $$
@@ -522,6 +538,7 @@ $$
 其中 $r(\beta)\in\mathbb R^q$。
 
 :::{admonition} Lemma (Wald statistic)
+Under $H_0:r(\beta)=0$, the Wald statistic converges to a $\chi_q^2$ limit.
 :::
 
 #### Proof of Lemma (Wald statistic)
@@ -578,6 +595,7 @@ R=\begin{pmatrix}
 $$
 
 :::{admonition} Lemma (Wald test for PS2 Q4)
+For the two linear restrictions in PS2 Q4, the Wald statistic is asymptotically $\chi_2^2$.
 :::
 
 #### Proof of Lemma (Wald test for PS2 Q4)
@@ -619,7 +637,6 @@ $$
 $$
 
 :::{admonition} Lemma (CI-test equivalence)
-CI-test equivalence
 Rule “reject $H_0:\theta=\theta_0$ iff $\theta_0\notin\hat C$” is asymptotic 5%.
 :::
 
@@ -640,8 +657,8 @@ Wald CI 和 two-sided Wald/t test 是同一个检验的两种表达。
 课件最后强调 power。一个检验 consistent，意味着 fixed alternative 下 rejection probability 趋于 1。
 
 :::{admonition} Lemma (Wald test consistency under fixed alternatives)
-Wald test consistency under fixed alternatives
 若 $r(\beta)\ne0$，则
+
 $$
 P(W_n>\chi^2_{q,1-\alpha})\to1.
 $$
