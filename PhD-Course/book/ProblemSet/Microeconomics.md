@@ -1,5 +1,15 @@
 # Microeconomics
 
+<style>
+details {
+  margin: 0 0 1.2em 0;
+}
+
+details > summary {
+  margin-bottom: 0.35em;
+}
+</style>
+
 ## Question 1
 
 Consider a two-period economy with two agents and a single consumption good. Agent $h$'s preferences over consumption streams $(c_1^h,c_2^h)$, where $c_i^h$ is the consumption of the good by $h$ in period $i$, are represented by the separable utility function
@@ -457,39 +467,45 @@ $$
 u^1+u^2=40+V_1=40+V_2 \quad(\text{Pareto efficient})
 $$
 - $V_1>V_2$
-  - $(y^1,y^2)=(2,0) \implies \left\{
+  - $(y^1,y^2)=(2,0)$:
+    $$
     \begin{aligned}
     &u^1=x^1+V_1=40-x^2+V_1\\
     &u^2=x^2\\
     &u=u^1+u^2=40+V_1
     \end{aligned}
-    \right. \quad(\text{Pareto efficient})$
+    $$
+    Pareto efficient.
 
-  - $(y^1,y^2)=(0,2) \implies \left\{
+  - $(y^1,y^2)=(0,2)$:
+    $$
     \begin{aligned}
     &u^1=x^1\\
     &u^2=x^2+V_2=40-x^1+V_2\\
     &u=u^1+u^2=40+V_2
     \end{aligned}
-    \right.$
+    $$
 
-假设存在Pareto improvement $(x^{1'},x^{2'}) \implies \left\{
-    \begin{aligned}
-    &u^{1'}=x^{1'}+V_1 \ge x^1\\
-    &u^{2'}=x^{2'} \ge x^2+V_2 \iff x^{1'} \le x^1 - V_2\\
-    &u'=u^{1'}+u^{2'}=40+V_1 \ge 40+V_2
-    \end{aligned}
-    \right.$
+Pareto improvement candidate $(x^{1'},x^{2'})$:
+$$
+\begin{aligned}
+&u^{1'}=x^{1'}+V_1 \ge x^1\\
+&u^{2'}=x^{2'} \ge x^2+V_2 \iff x^{1'} \le x^1 - V_2\\
+&u'=u^{1'}+u^{2'}=40+V_1 \ge 40+V_2
+\end{aligned}
+$$
 
-- $x^1 \ge V_2 \implies \left\{
-    \begin{aligned}
-    &x^{1'}=x^1-V_2\\
-    &x^{2'}=x^2+V_2\\
-    \end{aligned}
-    \right.$
-    - $V_2$可视为consumer 1用good x补偿给consumer 2的numerated value.
-    - $u^{1'}=x^1-V_2+V_1>u^1$，$u^{2'}=x^2+V_2=u^2$，存在Pareto improvement，矛盾。
-- $x^1 < V_2$，无法通过转移good x来实现Pareto improvement，该点是Pareto efficient的。
+Compensation case $x^1 \ge V_2$:
+$$
+\begin{aligned}
+&x^{1'}=x^1-V_2\\
+&x^{2'}=x^2+V_2
+\end{aligned}
+$$
+- $V_2$可视为consumer 1用good x补偿给consumer 2的numerated value.
+- $u^{1'}=x^1-V_2+V_1>u^1$，$u^{2'}=x^2+V_2=u^2$，存在Pareto improvement，矛盾。
+
+因此，$x^1 < V_2$ 时无法通过转移 good $x$ 实现 Pareto improvement，该点是 Pareto efficient 的。
 
 $$
 \begin{aligned}
