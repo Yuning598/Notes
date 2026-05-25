@@ -516,7 +516,7 @@ $$
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
-  <iframe src="/PhD-Course/testerror.html" title="Type I / Type II Error 与 Power 交互图" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+  <iframe src="/PhD-Course/testerror.html" title="Type I / Type II Error 与 Power 交互图" loading="lazy" style="width:100%;height:700px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
 ```
 
