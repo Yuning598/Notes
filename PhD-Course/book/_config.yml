@@ -12,6 +12,7 @@ sphinx:
     - sphinxcontrib.mermaid
   local_extensions:
     tikz_lexer: _ext
+    solution_block: _ext
   config:
     html_baseurl: https://yuning598.github.io/PhD-Course
     html_show_copyright: false

@@ -1,15 +1,5 @@
 # Microeconomics
 
-<style>
-details {
-  margin: 0 0 1.2em 0;
-}
-
-details > summary {
-  margin-bottom: 0.35em;
-}
-</style>
-
 ## Question 1
 
 Consider a two-period economy with two agents and a single consumption good. Agent $h$'s preferences over consumption streams $(c_1^h,c_2^h)$, where $c_i^h$ is the consumption of the good by $h$ in period $i$, are represented by the separable utility function
@@ -50,9 +40,7 @@ $$
 
 > (a) Show $c_1^h>c_2^h$ in a competitive equilibrium for this economy for $h=1,2$.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 Competitive equilibrium:
 
 Individual optimization: FOCs = 0.
@@ -78,13 +66,11 @@ $$
 $$
 which contradicts the FOCs. Therefore, $c_1^1>c_2^1$. Similarly, we can show $c_1^2>c_2^2$.
 
-</details>
+::::
 
 >(b) How does the answer to part (a) change if the good is storable, that is, endowment in period 1 can be held over to period 2?
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 Storable means:
 $$
 \begin{aligned}
@@ -127,13 +113,11 @@ $$
 
 所以，无论$p<1$还是$p=1$，$c_1^h>c_2^h$仍然成立。
 
-</details>
+::::
 
 >(c) How would the answer to part (b) change if the aggregate endowment of the good in period 1 is strictly less than the aggregate endowment in period 2?
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 当$\bar e_1<\bar e_2$时，市场清算条件为
 $$
 \begin{aligned}
@@ -178,7 +162,7 @@ $$
 \right.
 $$
 
-</details>
+::::
 
 ---
 
@@ -229,9 +213,7 @@ $$
 
 >(a) Compute the Arrow-Debreu equilibrium for this economy, where the farmers can trade contingent commodities before it is known whose farm might flood. What is the expected utility of each farmer?
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 $$
 \left\{
 \begin{aligned}
@@ -284,13 +266,11 @@ U^h
 \end{aligned}
 $$
 
-</details>
+::::
 
 >(b) Suppose now that there is probability $0$ that farmer 1's field will be flooded but the probability that farmer 2's field will be flooded is still $1/4$. How would your answer to part (a) change?
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 $$
 \pi_1=0,\qquad \pi_2=\frac14,\qquad \pi_3=\frac34
 $$
@@ -341,14 +321,12 @@ U^2&=0 + \frac14\ln75 + \frac34\ln150
 $$
 
 
-</details>
+::::
 
 
 >(c) Suppose now that weather forecasting becomes perfected so that it will be known whether or not there will be a flood at the time the contingent claims markets open. What will be known is whether there will be a flood, but not which farmer will be affected should there be a flood. How will this affect the ex ante utilities of the farmers?
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 如果天气预报是完美的，那么在交易开始时，农民们就会知道是否会有洪水发生，但不会知道哪个农民会受到影响。
 
 $$
@@ -412,7 +390,7 @@ U^h
 \end{aligned}
 $$
 
-</details>
+::::
 
 ---
 
@@ -450,9 +428,7 @@ $$
 
 >(a) Describe the Pareto efficient allocations in this economy.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 $$
 \left\{
 \begin{aligned}
@@ -521,13 +497,11 @@ V_1>V_2:
 \end{aligned}
 $$
 
-</details>
+::::
 
 >(b) Write conditions for a Walrasian equilibrium for this economy.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 $$
 CP:
 \left\{
@@ -579,13 +553,11 @@ $$
 	\right.
 $$
 
-</details>
+::::
 
 >(c) Does a Walrasian equilibrium always exist for such an economy? Either prove that it does or give a counterexample.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 - $V_1>V_2$，$p_y\in(V_2/2,V_1/2)$
 $$\left\{
 \begin{aligned}
@@ -606,13 +578,11 @@ $$\left\{\begin{aligned}
 \end{aligned}$$
 两种情况都满足市场清算条件，所以W.E exists.
 
-</details>
+::::
 
 >(d) If a Walrasian equilibrium exists for such an economy, is it Pareto efficient? Either explain why it is or provide a counterexample.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 $$
 \left\{
 \begin{aligned}
@@ -635,13 +605,11 @@ $$
 \right.
 $$
 
-</details>
+::::
 
 >(e) Suppose we replace the assumption $v^i(1)=0$ with $v^i(1)>0$, keeping all the other assumptions. Will a Walrasian equilibrium now always exist? Either explain why or give a counterexample.
 
-<details>
-<summary>Solution</summary>
-
+::::{solution}
 Construct:
 $$
 \left\{
@@ -723,4 +691,4 @@ D_1^y(p)+D_2^y(p)=
 $$
 which does not contain $2$ for any price, so there is no price that clears the market for good $y$. Therefore, a Walrasian equilibrium does not exist in this case.
 
-</details>
+::::

@@ -3,4 +3,29 @@
 {% block extrahead %}
   {{ super() }}
   <meta name="robots" content="noindex">
+  <style>
+    details.solution-block {
+      margin: 0 0 1.2em 0;
+    }
+
+    details.solution-block > summary {
+      cursor: pointer;
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      font-weight: 600;
+    }
+
+    details.solution-block > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.solution-block > summary::marker {
+      content: "";
+    }
+
+    details.solution-block[open] > summary {
+      margin-bottom: 0.4rem;
+    }
+  </style>
 {% endblock %}
