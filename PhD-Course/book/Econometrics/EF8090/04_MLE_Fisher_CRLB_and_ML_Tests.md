@@ -18,8 +18,6 @@ $$
 
 :::
 
-Conditional MLE similarly maximizes $\prod_i p_\theta(Y_i\mid X_i)$。课件例子包括 Bernoulli、normal、conditional binary response。
-
 ## Bernoulli and Poisson Likelihoods
 
 :::{admonition} Bernoulli model
@@ -33,14 +31,6 @@ $$
 
 If all observations are 0 or 1 and the parameter space is the open interval $(0,1)$, the MLE can fail to exist in the interior; the likelihood only attains a supremum at the boundary.
 :::
-
-For Bernoulli $X_i\in\{0,1\}$, $P(X_i=1)=p$：
-
-$$
-\ell_n(p)=\prod_ip^{X_i}(1-p)^{1-X_i},\qquad L_n(p)=\bar X\log p+(1-\bar X)\log(1-p).
-$$
-
-FOC gives $\hat p=\bar X$。如果所有 observation 都是 0 或 1，而 parameter space 是 open interval $(0,1)$，MLE 不存在，只存在 supremum at boundary。
 
 PS3 Q2: Poisson $X_i\sim\operatorname{Poisson}(\lambda)$。
 
@@ -229,7 +219,7 @@ $$
 
 $\operatorname{Var}(\hat\theta)\ge I(\theta)^{-1}$。
 
-课件还给出 vector/matrix version。若 $\hat\theta$ unbiased，
+Vector version: if $\hat\theta$ is unbiased,
 
 $$
 \operatorname{Var}(\hat\theta)\succeq I(\theta)^{-1}.
@@ -409,7 +399,7 @@ So Tobit combines a discrete mass at the censoring point with a continuous norma
 
 ## Consistency of MLE
 
-课件 supplement 里把 MLE consistency 写成 extremum estimator 的形式。设
+MLE consistency can be written in extremum-estimator form. Set
 
 $$
 L_n(\theta)=\frac1n\sum_i\log p_\theta(X_i),
@@ -435,7 +425,7 @@ $$
 \sup_{\theta\notin B_\varepsilon(\theta_0)}L(\theta)<L(\theta_0).
 $$
 
-**连续求解：** Since $\hat\theta$ maximizes $L_n$,
+Since $\hat\theta$ maximizes $L_n$,
 $$
 L_n(\hat\theta)\ge L_n(\theta_0).
 $$
@@ -449,9 +439,9 @@ L(\hat\theta) &\ge L_n(\hat\theta)-\sup_\theta|L_n(\theta)-L(\theta)|\\
 $$
 Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\hat\theta$ must enter every neighborhood of $\theta_0$ with probability tending to one。
 
-**结论：** MLE consistency needs identification plus uniform convergence。
+**结论：** MLE consistency needs identification plus uniform convergence.
 
-课件给出的 sufficient conditions 包括 compact $\Theta$、continuity、unique maximizer，以及 dominated uniform law of large numbers。
+Sufficient conditions: compact $\Theta$, continuity, unique maximizer, and dominated uniform law of large numbers.
 
 ## MLE Asymptotic Normality
 

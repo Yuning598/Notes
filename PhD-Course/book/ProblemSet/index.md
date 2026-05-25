@@ -1,8 +1,8 @@
-# Problem Set Index
+# ProblemSets
 
 This section collects the course problem sets and solution notes across the book.
 
-## Problem Sets
+## ProblemSets
 
 1. [Theoretical Asset Pricing](Theoretical%20Asset%20Pricing.md)
 1. [Empirical Asset Pricing](Empirical%20Asset%20Pricing.md)
