@@ -66,9 +66,9 @@ parts:
   - caption: ProblemSets
     chapters:
       - file: ProblemSet/index
-      - file: ProblemSet/Theoretical_Asset_Pricing
-      - file: ProblemSet/Empirical_Asset_Pricing
-      - file: ProblemSet/Corporate_Finance
+      - file: ProblemSet/Theoretical Asset Pricing
+      - file: ProblemSet/Empirical Asset Pricing
+      - file: ProblemSet/Corporate Finance
       - file: ProblemSet/Econometrics
       - file: ProblemSet/Microeconomics
       - file: ProblemSet/ProblemSet

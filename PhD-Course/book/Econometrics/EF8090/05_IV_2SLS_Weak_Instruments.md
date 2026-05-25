@@ -1,13 +1,12 @@
 # 05 IV Identification, 2SLS, and Weak Instruments
 
-Source: consolidated from 09_IV_2SLS_Weak_Instruments.md.
 Links: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Weak_Instruments](cards/Weak_Instruments)
 
 **IV Identification and 2SLS**
 
 ## Motivation for IV
 
-课件用 ability bias 作为动机。目标模型是
+动机：ability bias。目标模型是
 
 $$
 Y_i=\alpha+\beta S_i+v_i,
@@ -121,7 +120,7 @@ $$
 
 ## 2SLS Asymptotic Variance
 
-在 homoskedasticity 下，课件给出 2SLS variance 的简化表达：
+Homoskedasticity 下，2SLS variance 可写成：
 
 $$
 \operatorname{Avar}(\hat\beta_{2SLS})
@@ -159,7 +158,7 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
 
 ## Weak-Instrument Diagnostics
 
-Weak instruments mean first-stage relevance is weak。课件强调：weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
+Weak instruments mean first-stage relevance is weak。Weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
 
 :::{admonition} Lemma (First-stage weakness inflates IV variance)
 First-stage weakness inflates IV variance

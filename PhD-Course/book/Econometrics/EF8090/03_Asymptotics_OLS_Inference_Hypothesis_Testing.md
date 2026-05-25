@@ -72,7 +72,7 @@ $$
 \sqrt n(\bar Y_n-\mu)=\frac1{\sqrt n}\sum_{i=1}^n(Y_i-\mu).
 $$
 
-该标准化和的 moment generating function 收敛到正态分布的 mgf；课件把完整证明放在 CLT 部分。
+该标准化和的 moment generating function 收敛到正态分布的 mgf。
 
 sample average 的误差是 $O_p(n^{-1/2})$。
 
@@ -218,7 +218,7 @@ bounded-in-probability 乘以 vanishing-in-probability 仍然 vanishes。
 
 ## Linear Projection Model and Assumptions
 
-课件在渐近 OLS 部分使用 linear projection model：
+渐近 OLS 部分使用 linear projection model：
 
 $$
 Y_i=X_i'\beta+e_i,
@@ -341,7 +341,7 @@ $$
 
 ## Asymptotic Covariance Estimation
 
-课件讨论估计 $V$。一般 heteroskedastic case：
+一般 heteroskedastic case：
 
 $$
 \hat Q=\frac1n\sum_iX_iX_i',
@@ -386,7 +386,7 @@ $$
 
 **结论：** 用 residual 替换 true error 的误差在 large sample 下消失。
 
-若错误使用 homoskedastic covariance $\hat\sigma^2\hat Q^{-1}$ 而真实 heteroskedastic，则 t/Wald 的 limiting distribution 不正确。这是课件第 107 页附近的重点。
+若错误使用 homoskedastic covariance $\hat\sigma^2\hat Q^{-1}$ 而真实 heteroskedastic，则 t/Wald 的 limiting distribution 不正确。
 
 ## Functions of OLS and Standard Errors
 
@@ -484,7 +484,7 @@ residualization 不影响 $s^2$ 的 first-order limiting distribution。
 
 ## Hypothesis-Testing Framework
 
-课件把假设检验写成：
+假设检验写成：
 
 $$
 H_0:\theta=\theta_0
@@ -675,7 +675,7 @@ Wald CI 和 two-sided Wald/t test 是同一个检验的两种表达。
 
 ## Test Consistency
 
-课件最后强调 power。一个检验 consistent，意味着 fixed alternative 下 rejection probability 趋于 1。
+一个检验 consistent，意味着 fixed alternative 下 rejection probability 趋于 1。
 
 :::{admonition} Lemma (Wald test consistency under fixed alternatives)
 若 $r(\beta)\ne0$，则
