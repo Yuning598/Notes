@@ -1,4 +1,4 @@
-# Empirical Asset Pricing Problem Set
+# Empirical Asset Pricing
 
 ## Pointers
 

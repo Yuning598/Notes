@@ -1,4 +1,4 @@
-# Econometrics Problem Set
+# Econometrics
 
 ## Pointers
 

@@ -1,4 +1,4 @@
-# Theoretical Asset Pricing Problem Set
+# Theoretical Asset Pricing
 
 ## Pointers
 

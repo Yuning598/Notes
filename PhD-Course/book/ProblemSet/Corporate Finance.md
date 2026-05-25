@@ -1,4 +1,4 @@
-# Corporate Finance Problem Set
+# Corporate Finance
 
 ## Pointers
 
