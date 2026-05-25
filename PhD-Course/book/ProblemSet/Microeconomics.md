@@ -58,9 +58,13 @@ $$
 WTS: $c_1^h>c_2^h$ for $h=1,2$.
 
 Suppose $c_1^1\leq c_2^1$, then $c_1^2\geq c_2^2$ since $\bar e_1>\bar e_2$. Then, by the strict concavity of $u^h(\cdot)$, it means $u^{h''}(\cdot)<0$ and $u^{h'}(\cdot)$ is strictly decreasing, we have
-$$\frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} > \frac{u^{1'}(c_2^1)}{u^{1'}(c_2^1)}=1>\frac{\delta}{p}$$
+$$
+\frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} > \frac{u^{1'}(c_2^1)}{u^{1'}(c_2^1)}=1>\frac{\delta}{p}
+$$
 and
-$$\frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)} < \frac{u^{2'}(c_2^2)}{u^{2'}(c_2^2)}=1<\frac{\delta}{p}$$
+$$
+\frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)} < \frac{u^{2'}(c_2^2)}{u^{2'}(c_2^2)}=1<\frac{\delta}{p}
+$$
 which contradicts the FOCs. Therefore, $c_1^1>c_2^1$. Similarly, we can show $c_1^2>c_2^2$.
 
 </details>
@@ -135,7 +139,8 @@ $$
 根据Part(b)，储存条件为$p\le1$。
 
 - 当$p=1$时，$u^{h'}(c_1^h)=\delta u^{h'}(c_2^h)\Longrightarrow u^{h'}(c_1^h)<u^{h'}(c_2^h) \Longrightarrow c_1^h>c_2^h.$与$\sum_h c_1^h<\sum_h c_2^h$矛盾，所以$p=1$不可能是均衡价格。
-- 当$p<1$时，$s^h=0$，
+- 当$p<1$时，$s^h=0$。
+
 $$
 c_1^k<c_2^k
 \iff
@@ -182,10 +187,14 @@ $$
 $$
 
 Arrow-Debreu equilibrium 中，agent 在 date 0 选择完整的 contingent consumption plan：
-$$x^h=(x_1^h,x_2^h,x_3^h).$$
+$$
+x^h=(x_1^h,x_2^h,x_3^h)
+$$
 
 价格向量为：
-$$p=(p_1,p_2,p_3).$$
+$$
+p=(p_1,p_2,p_3)
+$$
 
 $$
 \begin{aligned}
@@ -223,7 +232,9 @@ $$
 \right.
 $$
 
-$$p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=\frac{1/4}{200}:\frac{1/4}{200}:\frac{1/2}{400}=1:1:1$$
+$$
+p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=\frac{1/4}{200}:\frac{1/4}{200}:\frac{1/2}{400}=1:1:1
+$$
 
 $$
 \begin{aligned}
@@ -232,7 +243,9 @@ m^2&=p\cdot e^2=200+0+200=400
 \end{aligned}
 $$
 
-$$x_s^h=\frac{\pi_s}{p_s}m^h$$
+$$
+x_s^h=\frac{\pi_s}{p_s}m^h
+$$
 
 Equilibrium allocation:
 $$
@@ -267,16 +280,22 @@ $$
 <details>
 <summary>Solution</summary>
 
-$$\pi_1=0,\qquad \pi_2=\frac14,\qquad \pi_3=\frac34$$
+$$
+\pi_1=0,\qquad \pi_2=\frac14,\qquad \pi_3=\frac34
+$$
 
-$$p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=0:\frac{1/4}{200}:\frac{3/4}{400}=0:2:3$$
+$$
+p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=0:\frac{1/4}{200}:\frac{3/4}{400}=0:2:3
+$$
 
 $$\begin{aligned}
 m^1&=p\cdot e^1=0\cdot0+200\cdot2+200\cdot3=1000\\
 m^2&=p\cdot e^2=200\cdot0+0\cdot2+200\cdot3=600
 \end{aligned}$$
 
-$$x_s^h=\frac{\pi_s}{p_s}m^h$$
+$$
+x_s^h=\frac{\pi_s}{p_s}m^h
+$$
 
 $$
 \begin{aligned}
