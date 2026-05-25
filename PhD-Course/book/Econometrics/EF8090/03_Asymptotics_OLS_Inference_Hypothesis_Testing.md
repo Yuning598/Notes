@@ -514,6 +514,12 @@ $$
 
 :::
 
+```{raw} html
+<div style="width:100%;max-width:1120px;margin:0 auto;">
+  <iframe src="/PhD-Course/testerror.html" title="Type I / Type II Error 与 Power 交互图" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+</div>
+```
+
 ## t Test for One Restriction
 
 若 scalar parameter $\theta=r(\beta)$，并且
@@ -537,6 +543,8 @@ $$
 若 $p<\alpha$，拒绝 $H_0$。
 
 :::
+
+![p-value](../../attachment/image-20260525.png)
 
 ## Wald Test for Multiple Restrictions
 
