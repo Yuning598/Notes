@@ -43,6 +43,7 @@ $$
 $$
 
 Chebyshev inequality gives
+
 $$
 \begin{aligned}
 P(|\bar Y_n-\mu|>\varepsilon) &\le \frac{\operatorname{Var}(\bar Y_n)}{\varepsilon^2}\\
@@ -135,6 +136,7 @@ $$
 #### Proof of Lemma (Delta method)
 
 Taylor expansion:
+
 $$
 g(\hat\theta)=g(\theta_0)+G(\hat\theta-\theta_0)+r_n, \qquad r_n=o_p(\|\hat\theta-\theta_0\|).
 $$
@@ -194,6 +196,7 @@ $$
 #### Proof of Lemma (Algebra of $o_p$ and $O_p$)
 
 For the product, if $X_n=O_p(1)$ and $Y_n=o_p(1)$, then for any $\varepsilon>0$, choose $M$ so that $P(|X_n|>M)<\varepsilon/2$. Then
+
 $$
 \begin{aligned}
 P(|X_nY_n|>\delta) &\le P(|X_n|>M)+P(|Y_n|>\delta/M)\\
@@ -263,10 +266,13 @@ $$
 \end{aligned}
 $$
 By WLLN,
+
 $$
 \hat Q\xrightarrow{p}Q, \qquad \frac1n\sum_iX_ie_i\xrightarrow{p}E[X_ie_i]=0.
 $$
+
 By CMT,
+
 $$
 \hat Q^{-1}\xrightarrow{p}Q^{-1}.
 $$
@@ -298,16 +304,20 @@ $$
 $$
 
 **连续求解：** Multiply by $\sqrt n$：
+
 $$
 \begin{aligned}
 \sqrt n(\hat\beta-\beta) &=\hat Q^{-1}\left(\frac1{\sqrt n}\sum_iX_ie_i\right).
 \end{aligned}
 $$
 By multivariate CLT,
+
 $$
 \frac1{\sqrt n}\sum_iX_ie_i\xrightarrow{d}N(0,\Omega).
 $$
+
 By Slutsky,
+
 $$
 \begin{aligned}
 \sqrt n(\hat\beta-\beta) &\xrightarrow{d}Q^{-1}N(0,\Omega)\\
@@ -462,6 +472,7 @@ $$
 \sqrt n(s^2-\sigma^2) =\sqrt n\left(\frac1n\sum_i e_i^2-\sigma^2\right)+o_p(1).
 $$
 By CLT,
+
 $$
 \sqrt n\left(\frac1n\sum_i e_i^2-\sigma^2\right)\xrightarrow{d}N(0,\operatorname{Var}(e_i^2)).
 $$
@@ -552,6 +563,7 @@ R(\beta)=\frac{\partial r(\beta)}{\partial\beta'}, \qquad \sqrt n(r(\hat\beta)-r
 $$
 
 **连续求解：** Under $H_0$, $r(\beta)=0$, so
+
 $$
 \begin{aligned}
 \sqrt n r(\hat\beta) &=\sqrt n(r(\hat\beta)-r(\beta))\\
@@ -612,6 +624,7 @@ $$
 \sqrt n R(\hat\beta-\beta)\to_dN(0,R\Sigma R').
 $$
 Under $H_0$, $R\beta=0$, so
+
 $$
 \sqrt n R\hat\beta\to_dN(0,R\Sigma R').
 $$
