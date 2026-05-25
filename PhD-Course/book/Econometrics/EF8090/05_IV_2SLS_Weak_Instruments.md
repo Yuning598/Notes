@@ -158,7 +158,7 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
 
 ## Weak-Instrument Diagnostics
 
-Weak instruments mean first-stage relevance is weak。Weak IV 会导致 2SLS bias toward OLS、standard normal/chi-square approximation 失效、confidence interval coverage 错误。经验上常看 first-stage F-statistic，但真实诊断依赖设计和 estimator。
+Weak instruments imply weak first-stage relevance and can make 2SLS drift toward OLS, invalidate standard normal/chi-square approximations, and spoil confidence-interval coverage。经验上常看 first-stage F-statistic，但真实诊断依赖 design and estimator。
 
 :::{admonition} Lemma (First-stage weakness inflates IV variance)
 First-stage weakness inflates IV variance

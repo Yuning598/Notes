@@ -66,12 +66,13 @@ parts:
   - caption: ProblemSets
     chapters:
       - file: ProblemSet/index
-      - file: ProblemSet/Theoretical Asset Pricing
-      - file: ProblemSet/Empirical Asset Pricing
-      - file: ProblemSet/Corporate Finance
-      - file: ProblemSet/Econometrics
-      - file: ProblemSet/Microeconomics
-      - file: ProblemSet/ProblemSet
+        sections:
+          - file: ProblemSet/Theoretical Asset Pricing
+          - file: ProblemSet/Empirical Asset Pricing
+          - file: ProblemSet/Corporate Finance
+          - file: ProblemSet/Econometrics
+          - file: ProblemSet/Microeconomics
+          - file: ProblemSet/ProblemSet
   - caption: Cross-Course Links
     chapters:
       - file: Cross-Course/index
