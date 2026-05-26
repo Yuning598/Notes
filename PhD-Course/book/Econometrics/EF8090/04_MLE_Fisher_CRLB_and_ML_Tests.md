@@ -404,60 +404,80 @@ So Tobit combines a discrete mass at the censoring point with a continuous norma
 ### Consistency of MLE
 
 :::{admonition} MLE consistency roadmap
-Set
 $$
-L_n(\theta)=\frac1n\sum_i\log p_\theta(X_i),
-\qquad
-L(\theta)=E[\log p_\theta(X_i)].
+\begin{aligned}
+L_n(\theta)&=\frac1n\sum_i\log p_\theta(X_i),\\
+L(\theta)&=E[\log p_\theta(X_i)].
+\end{aligned}
 $$
-MLE consistency is obtained by combining the four lemmas below: identification, approximate argmax consistency, compactness/continuity separation, and a uniform law of large numbers.
+MLE consistency is obtained by combining identification, approximate argmax consistency, compactness/continuity, and a uniform law of large numbers.
 :::
 
 :::{admonition} Lemma 1 (Identification)
-Suppose for all $\theta\neq\theta_0$ that
 $$
-P\{p_\theta(Y\mid X)>p_{\theta_0}(Y\mid X)\}>0.
+\begin{aligned}
+P\{p_\theta(Y\mid X)>p_{\theta_0}(Y\mid X)\}&>0, \qquad \forall \theta\neq\theta_0,\\
+L(\theta)=E[\log p_\theta(Y\mid X)]&\text{ is uniquely maximized at }\theta=\theta_0.
+\end{aligned}
 $$
-Then
-$$
-L(\theta)=E[\log p_\theta(Y\mid X)]
-$$
-is uniquely maximized over $\theta\in\Theta$ at $\theta=\theta_0$.
 :::
 
 :::{admonition} Lemma 2 (Approximate argmax consistency)
-Let $\{\hat\theta_n:n\ge1\}$ be an estimator sequence such that
 $$
-L_n(\hat\theta_n)\ge L_n(\theta_0)-o_p(1).
+\begin{aligned}
+L_n(\hat\theta_n)&\ge L_n(\theta_0)-o_p(1),\\
+\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|&\xrightarrow{p}0,\\
+\sup_{\theta\in\Theta\setminus B_\delta(\theta_0)}L(\theta)&<L(\theta_0), \qquad \forall \delta>0,\\
+\hat\theta_n&\xrightarrow{p}\theta_0.
+\end{aligned}
 $$
-Suppose that
-$$
-\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\xrightarrow{p}0
-$$
-as $n\to\infty$ and for all $\delta>0$ that
-$$
-\sup_{\theta\in\Theta\setminus B_\delta(\theta_0)}L(\theta)<L(\theta_0).
-$$
-Then $\hat\theta_n\xrightarrow{p}\theta_0$ as $n\to\infty$.
 :::
 
 :::{admonition} Lemma 3 (Compactness / continuity)
-Suppose $\Theta$ is compact, $L(\theta)$ is continuous, and $L(\theta)$ is uniquely maximized over $\theta\in\Theta$ at $\theta=\theta_0$. Then, for all $\delta>0$,
 $$
+\begin{aligned}
+\Theta\text{ is compact},\qquad L(\theta)\text{ is continuous},\qquad
+L(\theta)\text{ is uniquely maximized over }\theta\in\Theta\text{ at }\theta=\theta_0,\\
 \sup_{\theta\in\Theta\setminus B_\delta(\theta_0)}L(\theta)<L(\theta_0).
+\end{aligned}
 $$
 :::
 
 :::{admonition} Lemma 4 (Uniform law of large numbers)
-Let $X_i$ be an i.i.d. sequence of random variables with distribution $P$ on $\mathbb R^d$. Denote by $S$ the support of $P$, and let $\Theta\subset\mathbb R^k$ be compact. Let $f:\Theta\times S\to\mathbb R$ be such that $f(\theta,x)$ is continuous in $\theta$ for each $x\in S$. Suppose there exists $F:S\to\mathbb R$ such that
 $$
-|f(\theta,x)|\le F(x)
-$$
-for all $\theta\in\Theta$ and $x\in S$, and $E[F(X_i)]<\infty$. Then
-$$
-\sup_{\theta\in\Theta}\left|\frac1n\sum_{i=1}^n f(\theta,X_i)-E[f(\theta,X_i)]\right|\xrightarrow{p}0.
+\begin{aligned}
+X_i&\text{ are i.i.d. on }\mathbb R^d,\qquad S=\operatorname{supp}(P),\qquad \Theta\subset\mathbb R^k\text{ compact},\\
+f:\Theta\times S&\to\mathbb R,\qquad f(\theta,x)\text{ continuous in }\theta\ \forall x\in S,\\
+|f(\theta,x)|&\le F(x),\qquad E[F(X_i)]<\infty,\\
+\sup_{\theta\in\Theta}\left|\frac1n\sum_{i=1}^n f(\theta,X_i)-E[f(\theta,X_i)]\right|&\xrightarrow{p}0.
+\end{aligned}
 $$
 :::
+
+#### Proof of MLE consistency
+
+$$
+\hat\theta_n\in\arg\max_{\theta\in\Theta}L_n(\theta).
+$$
+
+$$
+L_n(\hat\theta_n)\ge L_n(\theta_0).
+$$
+
+$$
+\begin{aligned}
+L(\hat\theta_n)
+&\ge L_n(\hat\theta_n)-\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\\
+&\ge L_n(\theta_0)-\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\\
+&\ge L(\theta_0)-2\sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|.
+\end{aligned}
+$$
+
+Therefore $\hat\theta_n$ must enter every neighborhood of $\theta_0$ with probability tending to one. Hence
+
+$$
+\hat\theta_n\xrightarrow{p}\theta_0.
+$$
 
 ### Asymptotic Normality and Efficiency
 
@@ -467,7 +487,10 @@ Under the usual interiority and regularity conditions, the MLE is asymptotically
 
 :::{admonition} Notation (score and Hessian)
 $$
-S_n(\theta)=\frac1n\sum_i s_i(\theta), \qquad H_n(\theta)=\frac1n\sum_i \frac{\partial s_i(\theta)}{\partial\theta'}.
+\begin{aligned}
+S_n(\theta)&=\frac1n\sum_i s_i(\theta),\\
+H_n(\theta)&=\frac1n\sum_i \frac{\partial s_i(\theta)}{\partial\theta'}.
+\end{aligned}
 $$
 
 $$
@@ -483,7 +506,7 @@ $$
 
 $$
 \begin{aligned}
-0 &=S_n(\hat\theta)\\
+0&=S_n(\hat\theta)\\
 &=S_n(\theta_0)+H_n(\bar\theta)(\hat\theta-\theta_0).
 \end{aligned}
 $$
@@ -497,8 +520,10 @@ H_n(\bar\theta)\xrightarrow{p}-I(\theta_0), \qquad \sqrt nS_n(\theta_0)\xrightar
 $$
 
 $$
-\sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}).
+\sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I(\theta_0)^{-1}I(\theta_0)I(\theta_0)^{-1})=N(0,I(\theta_0)^{-1}).
 $$
+
+The asymptotic covariance equals the inverse Fisher information, so the MLE is asymptotically efficient.
 
 ## ML Wald, LR, and LM Tests
 
