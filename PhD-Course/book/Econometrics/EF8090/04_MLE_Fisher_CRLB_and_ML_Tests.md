@@ -399,7 +399,9 @@ $$
 So Tobit combines a discrete mass at the censoring point with a continuous normal density above it.
 :::
 
-## Consistency of MLE
+## MLE Asymptotic Properties
+
+### Consistency of MLE
 
 MLE consistency can be written in extremum-estimator form. Set
 
@@ -451,7 +453,7 @@ Therefore $L(\hat\theta)$ cannot stay below $L(\theta_0)$ by a fixed gap, so $\h
 
 Sufficient conditions: compact $\Theta$, continuity, unique maximizer, and dominated uniform law of large numbers.
 
-## MLE Asymptotic Normality
+### Asymptotic Normality and Efficiency
 
 :::{admonition} Lemma (MLE asymptotic normality)
 Under the usual interiority and regularity conditions, the MLE is asymptotically normal with covariance $I(\theta_0)^{-1}$.
@@ -502,7 +504,7 @@ $$
 \sqrt n(\hat\theta-\theta_0)\xrightarrow{d}N(0,I^{-1}I I^{-1})=N(0,I^{-1}).
 $$
 
-**结论：** ML reaches the Cramer-Rao bound asymptotically under regularity。
+**Asymptotic efficiency：** ML reaches the Cramer-Rao bound asymptotically under regularity。
 
 ## ML Wald, LR, and LM Tests
 
