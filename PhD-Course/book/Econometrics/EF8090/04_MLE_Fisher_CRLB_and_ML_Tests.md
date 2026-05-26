@@ -541,15 +541,17 @@ If $H_0:r(\theta)=0$ has $q$ restrictions,
 $$
 W=n r(\hat\theta)'[R\hat I^{-1}R']^{-1}r(\hat\theta)\xrightarrow{d}\chi_q^2.
 $$
+:::
 
-**Definition (Likelihood ratio test):**
+:::{admonition} Definition (Likelihood ratio test)
 Let $\hat\theta$ be unrestricted MLE and $\tilde\theta$ restricted MLE under $H_0$。
 
 $$
 LR=2\{\log\ell_n(\hat\theta)-\log\ell_n(\tilde\theta)\}\xrightarrow{d}\chi_q^2.
 $$
+:::
 
-**Definition (Lagrange multiplier test):**
+:::{admonition} Definition (Lagrange multiplier test)
 LM uses the restricted estimator and the score evaluated at it:
 
 $$
