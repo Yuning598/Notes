@@ -136,20 +136,23 @@ where $\Omega=E[Z_iZ_i'u_i^2]$。
 ## Hausman and Overidentification Tests
 
 :::{admonition} Definition (Hausman test for exogeneity)
-Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error。
+Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error.
 
-Statistic:
 $$
 H=(\hat\beta_{OLS}-\hat\beta_{2SLS})' [\widehat{\operatorname{Var}}(\hat\beta_{2SLS})-\widehat{\operatorname{Var}}(\hat\beta_{OLS})]^{-1} (\hat\beta_{OLS}-\hat\beta_{2SLS}).
 $$
 :::
 
 :::{admonition} Definition (Overidentification test)
-若 instruments 数量超过 endogenous regressors，可检验 sample moments 是否过大：
+若 instruments 数量超过 endogenous regressors，可检验 sample moments 是否过大。
 $$
-J=n\hat g(\hat\beta)'\hat W\hat g(\hat\beta), \qquad \hat g(\hat\beta)=\frac1n\sum_iZ_i(Y_i-X_i'\hat\beta).
+\begin{aligned}
+J&=n\hat g(\hat\beta)'\hat W\hat g(\hat\beta),\\
+\hat g(\hat\beta)&=\frac1n\sum_i Z_i(Y_i-X_i'\hat\beta).
+\end{aligned}
 $$
-Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
+
+Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$.
 :::
 
 注意：overidentification test 只能检验 instruments 之间是否互相一致，不能证明每个 instrument 都 valid。
