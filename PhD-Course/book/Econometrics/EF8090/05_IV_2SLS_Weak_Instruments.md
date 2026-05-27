@@ -1,9 +1,5 @@
 # 05 IV Identification, 2SLS, and Weak Instruments
 
-Links: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests) | [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/IV_Identification](cards/IV_Identification) | [cards/TwoSLS_as_Projection](cards/TwoSLS_as_Projection) | [cards/Weak_Instruments](cards/Weak_Instruments)
-
-**IV Identification and 2SLS**
-
 ## Motivation for IV
 
 动机：ability bias。目标模型是
@@ -140,18 +136,20 @@ where $\Omega=E[Z_iZ_i'u_i^2]$。
 ## Hausman and Overidentification Tests
 
 :::{admonition} Definition (Hausman test for exogeneity)
-Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error。Statistic:
+Null: endogenous regressors are actually exogenous, so OLS and 2SLS differ only by sampling error。
+
+Statistic:
 $$
 H=(\hat\beta_{OLS}-\hat\beta_{2SLS})' [\widehat{\operatorname{Var}}(\hat\beta_{2SLS})-\widehat{\operatorname{Var}}(\hat\beta_{OLS})]^{-1} (\hat\beta_{OLS}-\hat\beta_{2SLS}).
 $$
+:::
 
-**Definition (Overidentification test):**
+:::{admonition} Definition (Overidentification test)
 若 instruments 数量超过 endogenous regressors，可检验 sample moments 是否过大：
 $$
 J=n\hat g(\hat\beta)'\hat W\hat g(\hat\beta), \qquad \hat g(\hat\beta)=\frac1n\sum_iZ_i(Y_i-X_i'\hat\beta).
 $$
 Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$。
-
 :::
 
 注意：overidentification test 只能检验 instruments 之间是否互相一致，不能证明每个 instrument 都 valid。
