@@ -157,6 +157,54 @@ Under validity and correct specification, $J\to_d\chi^2_{\#Z-\#X}$.
 
 注意：overidentification test 只能检验 instruments 之间是否互相一致，不能证明每个 instrument 都 valid。
 
+#### Hausman derivation
+
+Under $H_0$, OLS and 2SLS are both consistent for the same $\beta_0$。Their difference therefore isolates efficiency loss under exogeneity:
+
+$$
+\sqrt n(\hat\beta_{OLS}-\hat\beta_{2SLS})\xrightarrow{d}N\!\left(0,\,V_{2SLS}-V_{OLS}\right).
+$$
+
+Replacing population variances by consistent estimators gives the quadratic form
+
+$$
+H=(\hat\beta_{OLS}-\hat\beta_{2SLS})' [\widehat{\operatorname{Var}}(\hat\beta_{2SLS})-\widehat{\operatorname{Var}}(\hat\beta_{OLS})]^{-1} (\hat\beta_{OLS}-\hat\beta_{2SLS}),
+$$
+
+so under $H_0$,
+
+$$
+H\xrightarrow{d}\chi^2_{\dim(\beta)}.
+$$
+
+In finite samples the variance difference need not be positive semidefinite, so the regression-based Hausman form is often easier to compute in practice.
+
+#### Overidentification derivation
+
+Let $\hat u_i=Y_i-X_i'\hat\beta$. The overidentifying restrictions are exactly the sample analogues of
+
+$$
+E[Z_i u_i]=0.
+$$
+
+Define the sample moment vector
+
+$$
+\hat g(\hat\beta)=\frac1n\sum_i Z_i\hat u_i.
+$$
+
+With an optimal weight matrix $\hat W\to_p \Omega^{-1}$ and $\Omega=E[Z_iZ_i'u_i^2]$, the GMM criterion becomes
+
+$$
+J=n\hat g(\hat\beta)'\hat W\hat g(\hat\beta),
+$$
+
+and under the null
+
+$$
+J\xrightarrow{d}\chi^2_{\#Z-\#X}.
+$$
+
 ## Weak-Instrument Diagnostics
 
 Weak instruments imply weak first-stage relevance and can make 2SLS drift toward OLS, invalidate standard normal/chi-square approximations, and spoil confidence-interval coverage。经验上常看 first-stage F-statistic，但真实诊断依赖 design and estimator。
