@@ -179,6 +179,8 @@ $$
 
 In finite samples the variance difference need not be positive semidefinite, so the regression-based Hausman form is often easier to compute in practice.
 
+The practical reading is: if OLS and 2SLS differ more than can be explained by their sampling variation, the exogeneity null is rejected.
+
 #### Overidentification derivation
 
 Let $\hat u_i=Y_i-X_i'\hat\beta$. The overidentifying restrictions are exactly the sample analogues of
@@ -204,6 +206,18 @@ and under the null
 $$
 J\xrightarrow{d}\chi^2_{\#Z-\#X}.
 $$
+
+#### Overidentification mechanics
+
+In the linear model, the same idea can be read as a residual orthogonality check. Estimate the structural equation by 2SLS, obtain residuals $\hat u_i$, and then ask whether the residuals are still orthogonal to the full instrument set:
+
+$$
+\frac1n\sum_i Z_i\hat u_i \approx 0.
+$$
+
+If the model is homoskedastic and linear, the overidentification statistic is equivalent to the familiar auxiliary-regression form $nR^2$, where $R^2$ comes from regressing $\hat u$ on the full instrument list. Large values mean some overidentifying restriction fails.
+
+This is why the test cannot prove that every individual instrument is valid: it only checks whether the whole set of moment restrictions is jointly consistent.
 
 ## Weak-Instrument Diagnostics
 
