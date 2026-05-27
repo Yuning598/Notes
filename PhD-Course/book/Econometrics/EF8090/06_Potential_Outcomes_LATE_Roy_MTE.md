@@ -1,9 +1,5 @@
 # 06 Potential Outcomes, LATE, and Selection Models
 
-Source: consolidated from 10_Potential_Outcomes_ATE_Matching.md and 11_LATE_Roy_MTE.md.
-Links: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments) | [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel) | [cards/Potential_Outcomes_ATE_ATT_CATE](cards/Potential_Outcomes_ATE_ATT_CATE) | [cards/LATE_Compliers](cards/LATE_Compliers) | [cards/MTE_Weights](cards/MTE_Weights)
-
-**Potential Outcomes and Selection on Observables**
 
 ## Neyman-Rubin Potential Outcomes
 
@@ -16,8 +12,9 @@ Observed outcome is
 $$
 Y_i=D_iY_i(1)+(1-D_i)Y_i(0).
 $$
+:::
 
-**Definition (SUTVA):**
+:::{admonition} Definition (SUTVA)
 Stable Unit Treatment Value Assumption requires: no interference across units and no hidden versions of treatment。Then each unit's observed outcome under a treatment status equals the corresponding potential outcome。
 
 :::
@@ -75,7 +72,7 @@ $$
 E[Y\mid D=1]-E[Y\mid D=0]=E[Y(1)-Y(0)].
 $$
 
-**结论：** Randomization turns missing counterfactual means into observed group means。
+Randomization turns missing counterfactual means into observed group means。
 
 PS4 Q2's heterogeneous treatment model $Y_i=\alpha_i+\beta_iD_i$ with $(\alpha_i,\beta_i)\perp D_i$ gives BLP slope $E[\beta_i]$。
 
@@ -171,7 +168,6 @@ $$
 p(X)=P(D=1\mid X).
 $$
 
-**连续求解：** For any value $p$,
 $$
 \begin{aligned}
 P(D=1\mid X=x,p(X)=p) &=P(D=1\mid X=x)\\
@@ -188,7 +184,7 @@ $$
 P(D=1\mid X=x,p(X)=p)=P(D=1\mid p(X)=p).
 $$
 
-**结论：** Conditional on $p(X)$, treatment status no longer depends on the full $X$。
+Conditional on $p(X)$, treatment status no longer depends on the full $X$。
 
 If $(Y(1),Y(0))\perp D\mid X$, then combining balancing with Rosenbaum-Rubin logic gives
 
@@ -315,7 +311,6 @@ $$
 \frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]} =E[Y(1)-Y(0)\mid D(1)>D(0)].
 $$
 
-**联立系统：** Observed treatment and outcome:
 $$
 D=ZD(1)+(1-Z)D(0),
 $$
@@ -323,29 +318,19 @@ $$
 Y=Y(0)+D(Y(1)-Y(0)).
 $$
 
-**连续求解：** By independence,
 $$
 \begin{aligned}
-E[D\mid Z=1]-E[D\mid Z=0] &=E[D(1)-D(0)].
-\end{aligned}
-$$
-For outcomes,
-$$
-\begin{aligned}
-E[Y\mid Z=1]-E[Y\mid Z=0] &=E[Y(0)+D(1)(Y(1)-Y(0))]\\
-&\quad -E[Y(0)+D(0)(Y(1)-Y(0))]\\
-&=E[(D(1)-D(0))(Y(1)-Y(0))].
-\end{aligned}
-$$
-Under monotonicity, $D(1)-D(0)=1$ for compliers and 0 otherwise。Thus
-$$
-\begin{aligned}
-\frac{E[(D(1)-D(0))\tau]}{E[D(1)-D(0)]} &=\frac{E[\tau\mathbf 1\{C\}]}{P(C)}\\
-&=E[\tau\mid C].
+E[D\mid Z=1]-E[D\mid Z=0] &=E[D(1)-D(0)],\\
+E[Y\mid Z=1]-E[Y\mid Z=0] &=E[(D(1)-D(0))(Y(1)-Y(0))].
 \end{aligned}
 $$
 
-**结论：** IV identifies the average treatment effect for compliers, not necessarily ATE。
+$$
+\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]}
+=E[Y(1)-Y(0)\mid D(1)>D(0)].
+$$
+
+IV identifies the average treatment effect for compliers, not necessarily ATE。
 
 ## Compliance Share Estimation
 
@@ -429,7 +414,7 @@ E[Y_1-Y_0] &=E[E[Y_1-Y_0\mid U_D]]\\
 \end{aligned}
 $$
 
-**结论：** ATE weights all margins equally。
+ATE weights all margins equally。
 
 :::{admonition} Lemma (LATE weights MTE over changed margins)
 If $p(z)>p(z')$,
