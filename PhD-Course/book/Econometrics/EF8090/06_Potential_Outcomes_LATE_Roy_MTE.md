@@ -218,11 +218,16 @@ P(D=1\mid X=x,p(X)=p) &=P(D=1\mid X=x)\\
 &=p.
 \end{aligned}
 $$
-Also
+
 $$
-P(D=1\mid p(X)=p)=E[P(D=1\mid X)\mid p(X)=p]=p.
+\begin{aligned}
+P(D=1\mid p(X)=p)
+&=E[P(D=1\mid X)\mid p(X)=p]\\
+&=E[p(X)\mid p(X)=p]\\
+&=p.
+\end{aligned}
 $$
-Thus
+
 $$
 P(D=1\mid X=x,p(X)=p)=P(D=1\mid p(X)=p).
 $$
@@ -311,12 +316,42 @@ ATE=E[Y(1)-Y(0)].
 $$
 They differ only in how they fill in the missing counterfactual.
 
-- Difference in means: $\widehat{ATE}_{DM}=\bar Y_1-\bar Y_0$. Fill the missing outcome with the opposite group mean; this needs random assignment.
-- IPW: reweight observed outcomes by $\hat e(X)$ and $1-\hat e(X)$. It uses the propensity score to recover population means without explicit outcome imputation.
-- Regression adjustment / $\widehat{ATE}_3$: fill missing outcomes with $\hat g_1(X)$ and $\hat g_0(X)$. This is efficient when the outcome model is informative.
-- AIPW / orthogonal / $\widehat{ATE}_4$: combine regression adjustment with weighted residual correction. This is doubly robust and orthogonal.
-- Matching: fill missing outcomes with nearest-neighbor outcomes. This is intuitive but can have finite-match bias.
-- Bias-corrected matching: matching plus regression correction. This reduces local mismatch bias.
+**Difference in means**
+$$
+\widehat{ATE}_{DM}=\bar Y_1-\bar Y_0.
+$$
+
+**IPW**
+$$
+\widehat{ATE}_{IPW}
+=\frac1n\sum_i\left[\frac{D_iY_i}{\hat e(X_i)}-\frac{(1-D_i)Y_i}{1-\hat e(X_i)}\right].
+$$
+
+**Regression adjustment / $\widehat{ATE}_3$**
+$$
+\widehat{ATE}_3
+=\frac1n\sum_i\big[\hat g_1(X_i)-\hat g_0(X_i)\big].
+$$
+
+**AIPW / orthogonal / $\widehat{ATE}_4$**
+$$
+\widehat{ATE}_4
+=\frac1n\sum_i\Big[
+\frac{D_i\big(Y_i-\hat g_1(X_i)\big)}{\hat e(X_i)}
+-\frac{(1-D_i)\big(Y_i-\hat g_0(X_i)\big)}{1-\hat e(X_i)}
++\hat g_1(X_i)-\hat g_0(X_i)
+\Big].
+$$
+
+**Matching**
+$$
+\widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+$$
+
+**Bias-corrected matching**
+$$
+\widehat{ATE}_M^{bc}=\frac1n\sum_i(\tilde Y_{i1}-\tilde Y_{i0}).
+$$
 
 Shared identities:
 $$
