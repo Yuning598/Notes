@@ -304,27 +304,27 @@ $$
 
 If the match is exact, $X_i=X_j$, the correction disappears.
 
+:::{admonition} ATE estimators in one frame
+All estimators target the same object:
 $$
-ATE=E[CATE(X)].
+ATE=E[Y(1)-Y(0)].
+$$
+They differ only in how they fill in the missing counterfactual.
+
+- Difference in means: $\widehat{ATE}_{DM}=\bar Y_1-\bar Y_0$. Fill the missing outcome with the opposite group mean; this needs random assignment.
+- IPW: reweight observed outcomes by $\hat e(X)$ and $1-\hat e(X)$. It uses the propensity score to recover population means without explicit outcome imputation.
+- Regression adjustment / $\widehat{ATE}_3$: fill missing outcomes with $\hat g_1(X)$ and $\hat g_0(X)$. This is efficient when the outcome model is informative.
+- AIPW / orthogonal / $\widehat{ATE}_4$: combine regression adjustment with weighted residual correction. This is doubly robust and orthogonal.
+- Matching: fill missing outcomes with nearest-neighbor outcomes. This is intuitive but can have finite-match bias.
+- Bias-corrected matching: matching plus regression correction. This reduces local mismatch bias.
+
+Shared identities:
+$$
+ATE=E[CATE(X)],\qquad g_d(x)=E[Y(d)\mid X=x],\qquad e(x)=P(D=1\mid X=x).
 $$
 
-For any balancing score $b(X)$,
-
-$$
-(Y(1),Y(0))\perp D\mid b(X)
-$$
-
-whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment. The propensity score is the canonical minimal such score.
-
-IPW identities:
-
-$$
-E\left[\frac{DY}{p(X)}\right]=E[Y(1)],
-\qquad
-E\left[\frac{(1-D)Y}{1-p(X)}\right]=E[Y(0)].
-$$
-
-That is the clean one-line statement of why IPW recovers potential-outcome means.
+For any balancing score $b(X)$, $(Y(1),Y(0))\perp D\mid b(X)$ whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment. The propensity score is the canonical minimal such score.
+:::
 
 ## LATE and Selection Models
 
