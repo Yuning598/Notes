@@ -291,19 +291,23 @@ Slides define matching by imputing missing potential outcomes using nearest obse
 
 :::{admonition} Definition (Matching estimator with $M$ matches)
 * Nearest-neighbor sets
+
   * $\mathcal M_i^C$: the $M$ closest controls to treated unit $i$
   * $\mathcal M_i^T$: the $M$ closest treated units to control unit $i$
 * Imputed potential outcomes
-$$
-\hat Y_{i1}=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j
-$$
-$$
-\hat Y_{i0}=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i
-$$
+
+  $$
+  \hat Y_{i1}=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j
+  $$
+
+  $$
+  \hat Y_{i0}=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i
+  $$
 * Matching ATE estimator
-$$
-\widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
-$$
+
+  $$
+  \widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+  $$
 
 :::
 
@@ -311,68 +315,86 @@ $$
 
 * Bias-corrected matching adjusts matched outcomes by estimated regression functions:
 
-$$
-Y_j+\hat g_d(X_i)-\hat g_d(X_j).
-$$
+  $$
+  Y_j+\hat g_d(X_i)-\hat g_d(X_j).
+  $$
 
 * If the match is exact, $X_i=X_j$, the correction disappears.
 
 :::{admonition} ATE estimators in one frame
-All estimators target the same object:
-$$
-ATE=E[Y(1)-Y(0)].
-$$
-They differ only in how they fill in the missing counterfactual.
+* Target object
+
+  $$
+  ATE=E[Y(1)-Y(0)].
+  $$
+
+  All estimators differ only in how they fill in the missing counterfactual.
 
 * Difference in means
-$$
-\widehat{ATE}_{DM}=\bar Y_1-\bar Y_0.
-$$
-Uses only treated and control sample means.
+
+  $$
+  \widehat{ATE}_{DM}=\bar Y_1-\bar Y_0.
+  $$
+
+  Uses only treated and control sample means.
 
 * IPW
-$$
-\widehat{ATE}_{IPW}
-=\frac1n\sum_i\left[\frac{D_iY_i}{\hat e(X_i)}-\frac{(1-D_i)Y_i}{1-\hat e(X_i)}\right].
-$$
-Reweights observed outcomes by the propensity score.
+
+  $$
+  \widehat{ATE}_{IPW}
+  =\frac1n\sum_i\left[\frac{D_iY_i}{\hat e(X_i)}-\frac{(1-D_i)Y_i}{1-\hat e(X_i)}\right].
+  $$
+
+  Reweights observed outcomes by the propensity score.
 
 * Regression adjustment
-$$
-\widehat{ATE}_3
-=\frac1n\sum_i\big[\hat g_1(X_i)-\hat g_0(X_i)\big].
-$$
-Uses fitted conditional means.
+
+  $$
+  \widehat{ATE}_3
+  =\frac1n\sum_i\big[\hat g_1(X_i)-\hat g_0(X_i)\big].
+  $$
+
+  Uses fitted conditional means.
 
 * AIPW / orthogonal
-$$
-\widehat{ATE}_4
-=\frac1n\sum_i\Big[
-\frac{D_i\big(Y_i-\hat g_1(X_i)\big)}{\hat e(X_i)}
--\frac{(1-D_i)\big(Y_i-\hat g_0(X_i)\big)}{1-\hat e(X_i)}
-+\hat g_1(X_i)-\hat g_0(X_i)
-\Big].
-$$
-Combines regression adjustment with weighted residual correction.
+
+  $$
+  \widehat{ATE}_4
+  =\frac1n\sum_i\Big[
+  \frac{D_i\big(Y_i-\hat g_1(X_i)\big)}{\hat e(X_i)}
+  -\frac{(1-D_i)\big(Y_i-\hat g_0(X_i)\big)}{1-\hat e(X_i)}
+  +\hat g_1(X_i)-\hat g_0(X_i)
+  \Big].
+  $$
+
+  Combines regression adjustment with weighted residual correction.
 
 * Matching
-$$
-\widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
-$$
-Uses nearest-neighbor outcomes.
+
+  $$
+  \widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+  $$
+
+  Uses nearest-neighbor outcomes.
 
 * Bias-corrected matching
-$$
-\widehat{ATE}_M^{bc}=\frac1n\sum_i(\tilde Y_{i1}-\tilde Y_{i0}).
-$$
-Matching plus regression correction.
+
+  $$
+  \widehat{ATE}_M^{bc}=\frac1n\sum_i(\tilde Y_{i1}-\tilde Y_{i0}).
+  $$
+
+  Matching plus regression correction.
 
 * Shared identities
+
   * $ATE=E[CATE(X)]$
   * $g_d(x)=E[Y(d)\mid X=x]$
   * $e(x)=P(D=1\mid X=x)$
 
-For any balancing score $b(X)$, $(Y(1),Y(0))\perp D\mid b(X)$ whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment. The propensity score is the canonical minimal such score.
+* Balancing score
+
+  * For any balancing score $b(X)$, $(Y(1),Y(0))\perp D\mid b(X)$ whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment.
+  * The propensity score is the canonical minimal such score.
 :::
 
 ## LATE and Selection Models
@@ -463,34 +485,44 @@ $$
 where $DF$ are defiers. This is hard to interpret as a clean average treatment effect.
 
 :::{admonition} LATE in one frame
-All LATE objects use the same potential-outcome system:
-$$
-Y=DY(1)+(1-D)Y(0), \qquad D=D(Z).
-$$
-The identifying variation is the instrument-induced shift in treatment take-up:
-$$
-E[D\mid Z=1]-E[D\mid Z=0].
-$$
-The reduced form shift is
-$$
-E[Y\mid Z=1]-E[Y\mid Z=0].
-$$
-The Wald ratio combines them:
-$$
-LATE=\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]}
-=E[Y(1)-Y(0)\mid D(1)>D(0)].
-$$
-The estimand is the complier effect, not ATE in general.
+* Potential outcome system
 
-Complier logic:
-$$
-\begin{aligned}
-\text{never taker} &:\ D(0)=D(1)=0,\\
-\text{complier} &:\ D(0)=0,\ D(1)=1,\\
-\text{always taker} &:\ D(0)=D(1)=1.
-\end{aligned}
-$$
-Monotonicity rules out defiers.
+  $$
+  Y=DY(1)+(1-D)Y(0),\qquad D=D(Z).
+  $$
+
+* Identifying variation
+
+  $$
+  E[D\mid Z=1]-E[D\mid Z=0].
+  $$
+
+* Reduced form shift
+
+  $$
+  E[Y\mid Z=1]-E[Y\mid Z=0].
+  $$
+
+* Wald ratio
+
+  $$
+  LATE=\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]}
+  =E[Y(1)-Y(0)\mid D(1)>D(0)].
+  $$
+
+  The estimand is the complier effect, not ATE in general.
+
+* Complier logic
+
+  $$
+  \begin{aligned}
+  \text{never taker} &:\ D(0)=D(1)=0,\\
+  \text{complier} &:\ D(0)=0,\ D(1)=1,\\
+  \text{always taker} &:\ D(0)=D(1)=1.
+  \end{aligned}
+  $$
+
+  Monotonicity rules out defiers.
 :::
 
 ## Roy and MTE
@@ -613,32 +645,43 @@ $$
 * Policy relevant treatment effect changes the distribution of $p(Z)$ under a policy and compares average outcomes before and after policy. MTE is useful because once $MTE(u)$ is identified or modeled, many policy counterfactuals become alternative weighting schemes over $u$.
 
 :::{admonition} Roy/MTE in one frame
-The selection model is
-$$
-D=1[U_D\le p(Z)],\qquad U_D\sim U[0,1].
-$$
-The normalization is
-$$
-X\sim F \Longrightarrow F(X)\sim U[0,1].
-$$
-The marginal treatment effect is
-$$
-MTE(u)=E[Y_1-Y_0\mid U_D=u].
-$$
-All familiar objects are weighted averages of MTE:
-$$
-ATE=\int_0^1MTE(u)\,du,
-$$
-$$
-LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)\,du}{p(z)-p(z')},
-$$
-$$
-E[Y_1-Y_0\mid D=0]=\int_0^1MTE(u)\frac{P[p(Z)<u]}{P[D=0]}du.
-$$
-Interpretation:
-$$
-\text{ATE weights all }u\text{ equally},\qquad
-\text{LATE weights the margin shifted by }Z,\qquad
-\text{ATT/ATU weight selected margins.}
-$$
+* Selection model
+
+  $$
+  D=1[U_D\le p(Z)],\qquad U_D\sim U[0,1].
+  $$
+
+* Normalization
+
+  $$
+  X\sim F \Longrightarrow F(X)\sim U[0,1].
+  $$
+
+* Marginal treatment effect
+
+  $$
+  MTE(u)=E[Y_1-Y_0\mid U_D=u].
+  $$
+
+* Weighted averages of MTE
+
+  $$
+  ATE=\int_0^1MTE(u)\,du,
+  $$
+
+  $$
+  LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)\,du}{p(z)-p(z')},
+  $$
+
+  $$
+  E[Y_1-Y_0\mid D=0]=\int_0^1MTE(u)\frac{P[p(Z)<u]}{P[D=0]}du.
+  $$
+
+* Interpretation
+
+  $$
+  \text{ATE weights all }u\text{ equally},\qquad
+  \text{LATE weights the margin shifted by }Z,\qquad
+  \text{ATT/ATU weight selected margins.}
+  $$
 :::
