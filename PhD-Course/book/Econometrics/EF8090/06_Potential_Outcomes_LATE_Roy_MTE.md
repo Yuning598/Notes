@@ -1,7 +1,7 @@
 # 06 Potential Outcomes, LATE, and Selection Models
 
 
-## Neyman-Rubin Potential Outcomes
+## Potential Outcomes
 
 :::{admonition} Definition (Potential outcomes)
 For binary treatment $D\in\{0,1\}$, each unit has two potential outcomes.
@@ -43,7 +43,7 @@ $$
 CATE(x)=E[Y(1)-Y(0)\mid X=x].
 $$
 
-## Randomized Trial ATE Estimator
+### Randomized ATE
 
 If treatment is randomly assigned,
 
@@ -61,7 +61,7 @@ $$
 :::{admonition} Lemma (Difference in means identifies ATE under random assignment)
 :::
 
-#### Proof of Lemma (Difference in means identifies ATE under random assignment)
+**Proof.**
 
 $$
 E[Y\mid D=1]-E[Y\mid D=0]=ATE.
@@ -93,7 +93,7 @@ $$
 
 PS4 Q2's heterogeneous treatment model $Y_i=\alpha_i+\beta_iD_i$ with $(\alpha_i,\beta_i)\perp D_i$ gives BLP slope $E[\beta_i]$.
 
-## Unconfoundedness and CATE Identification
+### Unconfoundedness
 
 :::{admonition} Definition (Unconfoundedness and overlap)
 $$
@@ -111,7 +111,7 @@ CATE(x)=E[Y\mid D=1,X=x]-E[Y\mid D=0,X=x].
 $$
 :::
 
-#### Proof of Lemma (CATE identification)
+**Proof.**
 
 $$
 Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X.
@@ -137,7 +137,7 @@ $$
 ATE=E[CATE(X)].
 $$
 
-## Propensity-Score Weighting
+### IPW
 
 :::{admonition} Definition (Propensity score)
 $$
@@ -151,7 +151,7 @@ E\left[\frac{DY}{p(X)}\right]=E[Y(1)], \qquad E\left[\frac{(1-D)Y}{1-p(X)}\right
 $$
 :::
 
-#### Proof of Lemma (Inverse probability weighting identifies ATE)
+**Proof.**
 
 $$
 Y=DY(1)+(1-D)Y(0), \qquad (Y(1),Y(0))\perp D\mid X.
@@ -177,14 +177,14 @@ $$
 =\frac1n\sum_i\left[\frac{D_iY_i}{p(X_i)}-\frac{(1-D_i)Y_i}{1-p(X_i)}\right].
 $$
 
-## Propensity-Score Balancing
+### Balancing Score
 
 PS5 Q3 asks to prove the propensity score result.
 
 :::{admonition} Lemma (Propensity score is a balancing score)
 :::
 
-#### Proof of Lemma (Propensity score is a balancing score)
+**Proof.**
 
 $$
 D\perp X\mid p(X).
@@ -224,7 +224,7 @@ $$
 p(x)=P(D=1\mid X=x)=P(D=1\mid b(X)=b(x))\equiv f(b(x)).
 $$
 
-## Regression Adjustment and Orthogonal Scores
+### Orthogonal Score
 
 Slides combine regression adjustment and propensity score weighting. Define
 
@@ -246,7 +246,7 @@ $$
 
 This connects to modern double/debiased machine learning, though EF8090 slides keep the emphasis on intuition.
 
-## Matching Estimator
+### Matching
 
 Slides define matching by imputing missing potential outcomes using nearest observations in the other treatment group.
 
@@ -274,10 +274,6 @@ $$
 
 If the match is exact, $X_i=X_j$, the correction disappears.
 
-## Additional Results from Older Notes
-
-The older notes keep the estimands in a compact form:
-
 $$
 ATE=E[CATE(X)].
 $$
@@ -290,7 +286,7 @@ $$
 
 whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment. The propensity score is the canonical minimal such score.
 
-The old notes also keep the IPW identities explicit:
+IPW identities:
 
 $$
 E\left[\frac{DY}{p(X)}\right]=E[Y(1)],
@@ -300,9 +296,9 @@ $$
 
 That is the clean one-line statement of why IPW recovers potential-outcome means.
 
-**Local Treatment Effects and Selection Models**
+## LATE and Selection Models
 
-## LATE Compliance Setting
+### LATE Setup
 
 Slides introduce LATE through Angrist's draft lottery setting: instrument affects treatment take-up, but treatment is not perfectly determined by the instrument.
 
@@ -328,12 +324,12 @@ $$
 \end{array}
 $$
 
-## Wald Estimand as LATE
+### Wald = LATE
 
 :::{admonition} Lemma (LATE theorem)
 :::
 
-#### Proof of Lemma (LATE theorem)
+**Proof.**
 
 $$
 \frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]} =E[Y(1)-Y(0)\mid D(1)>D(0)].
@@ -360,7 +356,7 @@ $$
 
 IV identifies the average treatment effect for compliers, not necessarily ATE.
 
-## Compliance Share Estimation
+### Compliance Shares
 
 PS4 Q6 asks whether always-taker, never-taker, and complier shares are estimable.
 Under independence and monotonicity:
@@ -387,7 +383,9 @@ $$
 
 where $DF$ are defiers. This is hard to interpret as a clean average treatment effect.
 
-## Probability Integral Transform
+## Roy and MTE
+
+### Normalization
 
 PS5 Q1 supports the Roy/MTE normalization. If $X$ has continuous strictly increasing cdf $F$, define $Y=F(X)$. Then
 
@@ -397,7 +395,7 @@ $$
 
 So $Y\sim U[0,1]$. This lets the latent selection variable $U_D$ be normalized to uniform.
 
-## Roy Selection Model
+### Roy Model
 
 :::{admonition} Definition (Nonparametric Roy / selection model)
 $$
@@ -417,14 +415,14 @@ It is the treatment effect for individuals indifferent at margin $u$.
 
 :::
 
-## MTE Weighting Formula
+### MTE Weights
 
 Slides stress that ATE, ATT, LATE and IV estimands are weighted averages of MTE.
 
 :::{admonition} Lemma (ATE is integral of MTE)
 :::
 
-#### Proof of Lemma (ATE is integral of MTE)
+**Proof.**
 
 $$
 ATE=\int_0^1MTE(u)du.
@@ -451,7 +449,7 @@ LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)du}{p(z)-p(z')}.
 $$
 :::
 
-#### Proof of Lemma (LATE weights MTE over changed margins)
+**Proof.**
 
 $$
 D=1[U_D\le p(Z)].
@@ -492,7 +490,7 @@ $$
 
 Divide by $P[D=0]$.
 
-## Vytlacil Equivalence and Policy Effects
+### Vytlacil and Policy
 
 Slides state Vytlacil's equivalence: monotonicity in the LATE model corresponds to a latent index selection model
 
@@ -504,17 +502,9 @@ Thus LATE and MTE frameworks are not separate worlds; LATE is a special weighted
 
 Policy relevant treatment effect changes the distribution of $p(Z)$ under a policy and compares average outcomes before and after policy. MTE is useful because once $MTE(u)$ is identified or modeled, many policy counterfactuals become alternative weighting schemes over $u$.
 
-## Additional Results from Older Notes
-
-The older notes make the normalization step explicit:
-
 $$
 X\sim F \quad\Longrightarrow\quad F(X)\sim U[0,1].
 $$
-
-That is the clean way to think about the latent selection variable in Roy-type models: after normalization, the marginal individual is indexed by $u\in[0,1]$.
-
-They also keep the weighting logic visible:
 
 $$
 ATE=\int_0^1 MTE(u)\,du.
@@ -527,4 +517,4 @@ E[Y_1-Y_0\mid D=0]
 =\int_0^1 MTE(u)\frac{P[p(Z)<u]}{P[D=0]}du.
 $$
 
-The point is that the estimand is a weighted average over the margins not selected into treatment.
+Weighted average over margins not selected into treatment.
