@@ -4,18 +4,30 @@
 ## Neyman-Rubin Potential Outcomes
 
 :::{admonition} Definition (Potential outcomes)
-For binary treatment $D\in\{0,1\}$, each unit has two potential outcomes:
+For binary treatment $D\in\{0,1\}$, each unit has two potential outcomes.
 $$
 Y_i(1),\qquad Y_i(0).
 $$
-Observed outcome is
+Observed outcome:
 $$
 Y_i=D_iY_i(1)+(1-D_i)Y_i(0).
 $$
 :::
 
 :::{admonition} Definition (SUTVA)
-Stable Unit Treatment Value Assumption requires: no interference across units and no hidden versions of treatment。Then each unit's observed outcome under a treatment status equals the corresponding potential outcome。
+SUTVA has two parts.
+
+No interference:
+$$
+Y_i(d_1,\dots,d_n)=Y_i(d_i).
+$$
+
+No hidden versions of treatment:
+$$
+Y_i(d,v)=Y_i(d), \qquad d\in\{0,1\}.
+$$
+
+Then each unit's observed outcome under a treatment status equals the corresponding potential outcome.
 
 :::
 
