@@ -91,11 +91,13 @@ $$
 \widehat{ATE}_{DM}=\bar Y_{D=1}-\bar Y_{D=0}.
 $$
 
-* PS4 Q2's heterogeneous treatment model
-  $$
-  Y_i=\alpha_i+\beta_iD_i
-  $$
-  with $(\alpha_i,\beta_i)\perp D_i$ gives BLP slope $E[\beta_i]$.
+For a heterogeneous treatment model,
+
+$$
+Y_i=\alpha_i+\beta_iD_i.
+$$
+
+If $(\alpha_i,\beta_i)\perp D_i$, the BLP slope is $E[\beta_i]$.
 
 ### Unconfoundedness
 
@@ -141,7 +143,7 @@ $$
 ATE=E[CATE(X)].
 $$
 
-Course notation: regression adjustment is the ATE_3 estimator.
+Regression adjustment is the $ATE_3$ estimator:
 
 $$
 \widehat{ATE}_3
@@ -200,8 +202,6 @@ $$
 
 ### Balancing Score
 
-PS5 Q3 asks to prove the propensity score result.
-
 :::{admonition} Lemma (Propensity score is a balancing score)
 :::
 
@@ -244,7 +244,7 @@ $$
 (Y(1),Y(0))\perp D\mid p(X).
 $$
 
-* PS5 Q3 also asks: if $b(X)$ is any balancing score, then $p(X)$ is a function of $b(X)$:
+If $b(X)$ is any balancing score, then $p(X)$ is a function of $b(X)$:
 
 $$
 p(x)=P(D=1\mid X=x)=P(D=1\mid b(X)=b(x))\equiv f(b(x)).
@@ -252,7 +252,7 @@ $$
 
 ### Orthogonal Score
 
-Slides combine regression adjustment and propensity score weighting. Define
+Regression adjustment and propensity weighting combine through the orthogonal score. Define
 
 $$
 \mu_d(x)=E[Y\mid D=d,X=x].
@@ -270,7 +270,7 @@ $$
 E[\psi(W;\eta_0)]=ATE.
 $$
 
-Course notation: the orthogonal / doubly robust estimator is ATE_4.
+The orthogonal / doubly robust estimator is $ATE_4$:
 
 $$
 \widehat{ATE}_4
@@ -283,125 +283,117 @@ $$
 
 If either the propensity score or the outcome regressions are correctly specified, this score remains valid to first order.
 
-This connects to modern double/debiased machine learning, though EF8090 slides keep the emphasis on intuition.
-
 ### Matching
 
-Slides define matching by imputing missing potential outcomes using nearest observations in the other treatment group.
+Matching imputes missing potential outcomes using nearest observations in the other treatment group.
 
 :::{admonition} Definition (Matching estimator with $M$ matches)
-* Nearest-neighbor sets
+$\mathcal M_i^C$ is the $M$ closest controls to treated unit $i$, and $\mathcal M_i^T$ is the $M$ closest treated units to control unit $i$.
 
-  * $\mathcal M_i^C$: the $M$ closest controls to treated unit $i$
-  * $\mathcal M_i^T$: the $M$ closest treated units to control unit $i$
-* Imputed potential outcomes
-
-  $$
-  \hat Y_{i1}=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j
-  $$
-
-  $$
-  \hat Y_{i0}=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i
-  $$
-* Matching ATE estimator
-
-  $$
-  \widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
-  $$
+$$
+\begin{aligned}
+\hat Y_{i1}
+&=D_iY_i+(1-D_i)\frac1M\sum_{j\in\mathcal M_i^T}Y_j,\\
+\hat Y_{i0}
+&=D_i\frac1M\sum_{j\in\mathcal M_i^C}Y_j+(1-D_i)Y_i,\\
+\widehat{ATE}_M
+&=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+\end{aligned}
+$$
 
 :::
 
-* Matching targets $ATE$; compare $\widehat{ATE}_M$ with $ATE$.
+Matching targets $ATE$; compare $\widehat{ATE}_M$ with $ATE$.
 
-* Bias-corrected matching adjusts matched outcomes by estimated regression functions:
+Bias-corrected matching adjusts matched outcomes by estimated regression functions:
 
-  $$
-  Y_j+\hat g_d(X_i)-\hat g_d(X_j).
-  $$
+$$
+Y_j+\hat g_d(X_i)-\hat g_d(X_j).
+$$
 
-* If the match is exact, $X_i=X_j$, the correction disappears.
+If the match is exact, $X_i=X_j$, the correction disappears.
 
 :::{admonition} ATE estimators in one frame
-* Target object
+All estimators target the same object:
 
-  $$
-  ATE=E[Y(1)-Y(0)].
-  $$
+$$
+ATE=E[Y(1)-Y(0)].
+$$
 
-  All estimators differ only in how they fill in the missing counterfactual.
+They differ only in how they fill in the missing counterfactual.
 
-* Difference in means
+**Difference in means.**
 
-  $$
-  \widehat{ATE}_{DM}=\bar Y_1-\bar Y_0.
-  $$
+$$
+\widehat{ATE}_{DM}=\bar Y_1-\bar Y_0.
+$$
 
-  Uses only treated and control sample means.
+Uses only treated and control sample means.
 
-* IPW
+**IPW.**
 
-  $$
-  \widehat{ATE}_{IPW}
-  =\frac1n\sum_i\left[\frac{D_iY_i}{\hat e(X_i)}-\frac{(1-D_i)Y_i}{1-\hat e(X_i)}\right].
-  $$
+$$
+\widehat{ATE}_{IPW}
+=\frac1n\sum_i\left[\frac{D_iY_i}{\hat e(X_i)}-\frac{(1-D_i)Y_i}{1-\hat e(X_i)}\right].
+$$
 
-  Reweights observed outcomes by the propensity score.
+Reweights observed outcomes by the propensity score.
 
-* Regression adjustment
+**Regression adjustment.**
 
-  $$
-  \widehat{ATE}_3
-  =\frac1n\sum_i\big[\hat g_1(X_i)-\hat g_0(X_i)\big].
-  $$
+$$
+\widehat{ATE}_3
+=\frac1n\sum_i\big[\hat g_1(X_i)-\hat g_0(X_i)\big].
+$$
 
-  Uses fitted conditional means.
+Uses fitted conditional means.
 
-* AIPW / orthogonal
+**AIPW / orthogonal.**
 
-  $$
-  \widehat{ATE}_4
-  =\frac1n\sum_i\Big[
-  \frac{D_i\big(Y_i-\hat g_1(X_i)\big)}{\hat e(X_i)}
-  -\frac{(1-D_i)\big(Y_i-\hat g_0(X_i)\big)}{1-\hat e(X_i)}
-  +\hat g_1(X_i)-\hat g_0(X_i)
-  \Big].
-  $$
+$$
+\widehat{ATE}_4
+=\frac1n\sum_i\Big[
+\frac{D_i\big(Y_i-\hat g_1(X_i)\big)}{\hat e(X_i)}
+-\frac{(1-D_i)\big(Y_i-\hat g_0(X_i)\big)}{1-\hat e(X_i)}
++\hat g_1(X_i)-\hat g_0(X_i)
+\Big].
+$$
 
-  Combines regression adjustment with weighted residual correction.
+Combines regression adjustment with weighted residual correction.
 
-* Matching
+**Matching.**
 
-  $$
-  \widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
-  $$
+$$
+\widehat{ATE}_M=\frac1n\sum_i(\hat Y_{i1}-\hat Y_{i0}).
+$$
 
-  Uses nearest-neighbor outcomes.
+Uses nearest-neighbor outcomes.
 
-* Bias-corrected matching
+**Bias-corrected matching.**
 
-  $$
-  \widehat{ATE}_M^{bc}=\frac1n\sum_i(\tilde Y_{i1}-\tilde Y_{i0}).
-  $$
+$$
+\widehat{ATE}_M^{bc}=\frac1n\sum_i(\tilde Y_{i1}-\tilde Y_{i0}).
+$$
 
-  Matching plus regression correction.
+Matching plus regression correction.
 
-* Shared identities
+Shared identities:
 
-  * $ATE=E[CATE(X)]$
-  * $g_d(x)=E[Y(d)\mid X=x]$
-  * $e(x)=P(D=1\mid X=x)$
+- $ATE=E[CATE(X)]$
+- $g_d(x)=E[Y(d)\mid X=x]$
+- $e(x)=P(D=1\mid X=x)$
 
-* Balancing score
+Balancing score:
 
-  * For any balancing score $b(X)$, $(Y(1),Y(0))\perp D\mid b(X)$ whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment.
-  * The propensity score is the canonical minimal such score.
+- For any balancing score $b(X)$, $(Y(1),Y(0))\perp D\mid b(X)$ whenever it holds given $X$ and $b(X)$ is sufficient to balance treatment assignment.
+- The propensity score is the canonical minimal such score.
 :::
 
 ## LATE and Selection Models
 
 ### LATE Setup
 
-Slides introduce LATE through Angrist's draft lottery setting: instrument affects treatment take-up, but treatment is not perfectly determined by the instrument.
+LATE applies when an instrument affects treatment take-up, but treatment is not perfectly determined by the instrument.
 
 Let $Z\in\{0,1\}$ be instrument, $D(z)\in\{0,1\}$ potential treatment, and $Y(d)$ potential outcome.
 
@@ -459,7 +451,6 @@ IV identifies the average treatment effect for compliers, not necessarily ATE.
 
 ### Compliance Shares
 
-PS4 Q6 asks whether always-taker, never-taker, and complier shares are estimable.
 Under independence and monotonicity:
 
 $$
@@ -485,203 +476,331 @@ $$
 where $DF$ are defiers. This is hard to interpret as a clean average treatment effect.
 
 :::{admonition} LATE in one frame
-* Potential outcome system
+Potential-outcome system:
 
-  $$
-  Y=DY(1)+(1-D)Y(0),\qquad D=D(Z).
-  $$
+$$
+Y=DY(1)+(1-D)Y(0),\qquad D=D(Z).
+$$
 
-* Identifying variation
+Identifying variation:
 
-  $$
-  E[D\mid Z=1]-E[D\mid Z=0].
-  $$
+$$
+E[D\mid Z=1]-E[D\mid Z=0].
+$$
 
-* Reduced form shift
+Reduced-form shift:
 
-  $$
-  E[Y\mid Z=1]-E[Y\mid Z=0].
-  $$
+$$
+E[Y\mid Z=1]-E[Y\mid Z=0].
+$$
 
-* Wald ratio
+Wald ratio:
 
-  $$
-  LATE=\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]}
-  =E[Y(1)-Y(0)\mid D(1)>D(0)].
-  $$
+$$
+LATE=\frac{E[Y\mid Z=1]-E[Y\mid Z=0]}{E[D\mid Z=1]-E[D\mid Z=0]}
+=E[Y(1)-Y(0)\mid D(1)>D(0)].
+$$
 
-  The estimand is the complier effect, not ATE in general.
+The estimand is the complier effect, not ATE in general.
 
-* Complier logic
+Complier logic:
 
-  $$
-  \begin{aligned}
-  \text{never taker} &:\ D(0)=D(1)=0,\\
-  \text{complier} &:\ D(0)=0,\ D(1)=1,\\
-  \text{always taker} &:\ D(0)=D(1)=1.
-  \end{aligned}
-  $$
+$$
+\begin{aligned}
+\text{never taker} &:\ D(0)=D(1)=0,\\
+\text{complier} &:\ D(0)=0,\ D(1)=1,\\
+\text{always taker} &:\ D(0)=D(1)=1.
+\end{aligned}
+$$
 
-  Monotonicity rules out defiers.
+Monotonicity rules out defiers.
 :::
 
 ## Roy and MTE
 
-### Normalization
+### Selection Model and MTE
 
-* PS5 Q1 supports the Roy/MTE normalization. If $X$ has continuous strictly increasing cdf $F$, define $Y=F(X)$. Then
+:::{admonition} Definition (Roy selection model)
+Outcome is generated by the selected potential outcome:
 
 $$
-P(Y\le y)=P(F(X)\le y)=P(X\le F^{-1}(y))=F(F^{-1}(y))=y.
+Y=DY_1+(1-D)Y_0.
 $$
 
-* So $Y\sim U[0,1]$. This lets the latent selection variable $U_D$ be normalized to uniform.
+Treatment follows a latent-index rule:
 
-### Roy Model
-
-:::{admonition} Definition (Nonparametric Roy / selection model)
 $$
-Y=DY_1+(1-D)Y_0, \qquad D=1[U_D\le p(Z)],
+D=1[U_D\le p(Z)],\qquad U_D\sim U[0,1],
 $$
-where $U_D\sim U[0,1]$ and $(Y_0,Y_1,U_D)\perp Z$.
 
+with $(Y_0,Y_1,U_D)\perp Z$.
 :::
 
-* The key economic object is selection on gains: individuals with low $U_D$ are more likely to take treatment.
+:::{admonition} Definition (Marginal treatment effect)
+The marginal treatment effect is the treatment effect for units whose latent resistance to treatment is $u$:
 
-:::{admonition} Definition (Marginal Treatment Effect)
 $$
 MTE(u)=E[Y_1-Y_0\mid U_D=u].
 $$
-It is the treatment effect for individuals indifferent at margin $u$.
-
 :::
 
-### MTE Weights
+The normalization $U_D\sim U[0,1]$ is without loss if the latent variable has a continuous strictly increasing cdf $F$:
 
-Slides stress that ATE, ATT, LATE and IV estimands are weighted averages of MTE.
+$$
+\begin{aligned}
+Y=F(X)
+&\Longrightarrow
+P(Y\le y)=P(F(X)\le y)\\
+&=P(X\le F^{-1}(y))\\
+&=F(F^{-1}(y))=y.
+\end{aligned}
+$$
 
-:::{admonition} Lemma (ATE is integral of MTE)
+### MTE as a Weighting Device
+
+:::{admonition} Weighted averages of MTE
+Different treatment-effect parameters put different weights on the same marginal treatment effects:
+
+$$
+\begin{aligned}
+ATE
+&=\int_0^1MTE(u)\,du,\\
+LATE(z,z')
+&=\frac{\int_{p(z')}^{p(z)}MTE(u)\,du}{p(z)-p(z')},\\
+ATU
+&=E[Y_1-Y_0\mid D=0]
+=\int_0^1MTE(u)\frac{P[p(Z)<u]}{P[D=0]}\,du.
+\end{aligned}
+$$
+:::
+
+For LATE, the first stage and reduced form are
+
+$$
+\begin{aligned}
+E[D\mid Z=z]-E[D\mid Z=z']
+&=p(z)-p(z'),\\
+E[Y\mid Z=z]-E[Y\mid Z=z']
+&=\int_{p(z')}^{p(z)}MTE(u)\,du.
+\end{aligned}
+$$
+
+For the untreated-group effect,
+
+$$
+\begin{aligned}
+E[(Y_1-Y_0)\mathbf 1\{D=0\}]
+&=E[(Y_1-Y_0)\mathbf 1\{U_D>p(Z)\}]\\
+&=\int_0^1E[Y_1-Y_0\mid U_D=u]P[p(Z)<u]\,du\\
+&=\int_0^1MTE(u)P[p(Z)<u]\,du.
+\end{aligned}
+$$
+
+### Fully Parametric Roy Model
+
+:::{admonition} Parametric Roy model (Heckman selection correction)
+Assume linear potential outcomes and normal selection:
+
+$$
+\left\{
+\begin{aligned}
+Y_d &=X'\beta_d+V_d,\qquad d=0,1,\\
+D &=1[U\le W'\gamma],\qquad W=(X,Z).
+\end{aligned}
+\right.
+$$
+
+Then the treatment-effect heterogeneity decomposes as
+
+$$
+Y_1-Y_0=X'(\beta_1-\beta_0)+(V_1-V_0).
+$$
+:::
+
+For the selected treated group,
+
+$$
+\begin{aligned}
+E[Y\mid W,D=1]
+&=E[Y_1\mid W,U\le W'\gamma]\\
+&=X'\beta_1+E[V_1\mid W,U\le W'\gamma]\\
+&=X'\beta_1+\rho_1\lambda(W'\gamma).
+\end{aligned}
+$$
+
+Thus identification proceeds as
+
+$$
+\begin{aligned}
+D\text{ probit on }W
+&\Longrightarrow \hat\gamma,\ \lambda(W'\hat\gamma),\\
+Y\text{ on }X\text{ and }\lambda(W'\hat\gamma)\text{ among }D=1
+&\Longrightarrow \beta_1,\rho_1.
+\end{aligned}
+$$
+
+:::{admonition} Critique (parametric identification)
+Point identification can come from the nonlinearity of $\lambda(W'\gamma)$, even when the excluded instrument $Z$ is weak or absent:
+
+$$
+X \not\parallel \lambda(X'\gamma)
+\quad\Longrightarrow\quad
+\beta_1,\rho_1\text{ can be separately fit by functional form.}
+$$
+
+The identifying power is therefore partly parametric, not purely design-based.
+:::
+
+### Nonparametric Identification
+
+:::{admonition} Lemma (local IV identifies MTE)
+If $P=p(Z)$ is continuously distributed, then for all $u$ in the interior support of $P$,
+
+$$
+\left.\frac{\partial}{\partial p}E[Y\mid P=p]\right|_{p=u}
+=MTE(u).
+$$
 :::
 
 **Proof.**
 
 $$
-ATE=\int_0^1MTE(u)du.
-$$
-
-$$
-U_D\sim U[0,1].
-$$
-
-$$
 \begin{aligned}
-E[Y_1-Y_0] &=E[E[Y_1-Y_0\mid U_D]]\\
-&=\int_0^1E[Y_1-Y_0\mid U_D=u]du\\
-&=\int_0^1MTE(u)du.
+E[Y\mid P=p]
+&=E[DY_1+(1-D)Y_0\mid P=p]\\
+&=E[Y_0]+E[D(Y_1-Y_0)\mid P=p]\\
+&=E[Y_0]+E[1\{U_D\le p\}(Y_1-Y_0)]\\
+&=E[Y_0]+\int_0^p E[Y_1-Y_0\mid U_D=u]\,du\\
+&=E[Y_0]+\int_0^p MTE(u)\,du.
 \end{aligned}
 $$
 
-* ATE weights all margins equally.
+Therefore
 
-:::{admonition} Lemma (LATE weights MTE over changed margins)
-If $p(z)>p(z')$,
 $$
-LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)du}{p(z)-p(z')}.
+\frac{\partial}{\partial p}E[Y\mid P=p]=MTE(p).
+$$
+
+This is pointwise identification. ATE needs the whole curve:
+
+$$
+ATE=\int_0^1MTE(u)\,du.
+$$
+
+If $P$ has support only on a small interval, common parameters outside that interval require extrapolation.
+
+### Discrete Instruments and Parametric MTE
+
+When $Z$ is discrete, $P=p(Z)$ has finite support, so the derivative in the local-IV formula is not directly available. A parametric restriction on $u\mapsto E[Y_d\mid U_D=u]$ restores identification.
+
+:::{admonition} Linear MTE specification (Brinch-Mogstad-Wiswall)
+Assume
+
+$$
+E[Y_d\mid U_D=u]=\alpha_d+\beta_d u,\qquad d=0,1.
+$$
+
+Then
+
+$$
+MTE(u)=(\alpha_1-\alpha_0)+(\beta_1-\beta_0)u.
 $$
 :::
 
-**Proof.**
-
-$$
-D=1[U_D\le p(Z)].
-$$
-
-The first stage is
-$$
-E[D\mid Z=z]-E[D\mid Z=z']=p(z)-p(z').
-$$
-The reduced form is
-$$
-\begin{aligned}
-E[Y\mid Z=z]-E[Y\mid Z=z'] &=\int_0^{p(z)}MTE(u)du-\int_0^{p(z')}MTE(u)du\\
-&=\int_{p(z')}^{p(z)}MTE(u)du.
-\end{aligned}
-$$
-Ratio gives the result.
-
-* IV identifies treatment effects for individuals whose treatment status is shifted by the instrument.
-
-* PS5 Q2 asks for the untreated-group effect:
-
-$$
-E[Y_1-Y_0\mid D=0]
-=\int_0^1MTE(u)\frac{P[p(Z)<u]}{P[D=0]}du.
-$$
-
-* Derivation:
+For treated units at propensity score $P=p$,
 
 $$
 \begin{aligned}
-E[\tau\mathbf 1\{D=0\}]
-&=E[\tau\mathbf 1\{U_D>p(Z)\}]\\
-&=\int_0^1E[\tau\mid U_D=u]P[p(Z)<u]du\\
-&=\int_0^1MTE(u)P[p(Z)<u]du.
+E[Y\mid D=1,P=p]
+&=E[Y_1\mid U_D\le p]\\
+&=\frac1p\int_0^p(\alpha_1+\beta_1u)\,du\\
+&=\alpha_1+\frac{\beta_1}{2}p.
 \end{aligned}
 $$
 
-* Divide by $P[D=0]$.
-
-### Vytlacil and Policy
-
-* Slides state Vytlacil's equivalence: monotonicity in the LATE model corresponds to a latent index selection model
+For untreated units,
 
 $$
-D=1[p(Z)\ge U_D].
+\begin{aligned}
+E[Y\mid D=0,P=p]
+&=E[Y_0\mid U_D>p]\\
+&=\frac{1}{1-p}\int_p^1(\alpha_0+\beta_0u)\,du\\
+&=\alpha_0+\frac{\beta_0}{2}(1+p).
+\end{aligned}
 $$
 
-* Thus LATE and MTE frameworks are not separate worlds; LATE is a special weighted average of MTE.
+Thus regressing $Y$ on $P$ separately by $D=d$ identifies $\alpha_d,\beta_d$. Two support points in $P$ are enough for the linear case, so a binary instrument can identify the full linear MTE curve.
 
-* Policy relevant treatment effect changes the distribution of $p(Z)$ under a policy and compares average outcomes before and after policy. MTE is useful because once $MTE(u)$ is identified or modeled, many policy counterfactuals become alternative weighting schemes over $u$.
+### Linear-in-Parameters MTE
+
+:::{admonition} General linear-in-parameters specification
+Let the marginal treatment response be
+
+$$
+m(d,u,x)=E[Y_d\mid U_D=u,X=x]=\sum_{k=1}^K\theta_k b_k(d,u,x),
+$$
+
+where $b_k$ are known basis functions.
+:::
+
+Observed conditional means integrate over the selected part of $U_D$:
+
+$$
+\bar b_k(d,x,z)
+\equiv
+\frac{d}{p(x,z)}\int_0^{p(x,z)} b_k(1,u,x)\,du
++\frac{1-d}{1-p(x,z)}\int_{p(x,z)}^1 b_k(0,u,x)\,du.
+$$
+
+Therefore
+
+$$
+E[Y\mid D=d,X=x,Z=z]
+=\sum_{k=1}^K\theta_k\bar b_k(d,x,z).
+$$
+
+Identification reduces to a rank condition in the transformed regressors:
+
+$$
+\operatorname{rank}E[\bar b(D,X,Z)\bar b(D,X,Z)']=K.
+$$
+
+### Separability and Estimation
+
+:::{admonition} Separability
+If
+
+$$
+m(d,u,x)=g_d(u)+h_d(x),
+$$
+
+then heterogeneity in $u$ does not interact with $x$. Support requirements can use the unconditional support of $P=p(Z)$ rather than the support of $P$ conditional on every $X=x$.
+:::
+
+The estimation logic is:
+
+$$
+\begin{aligned}
+\hat p(X,Z)
+&\Longrightarrow \widehat P_i,\\
+\frac{\partial}{\partial p}E[Y\mid X=x,P=p]
+&\Longrightarrow MTE(x,p),\\
+MTE(x,u)
+&=E[Y_1\mid X=x,U_D=u]-E[Y_0\mid X=x,U_D=u].
+\end{aligned}
+$$
 
 :::{admonition} Roy/MTE in one frame
-* Selection model
-
-  $$
-  D=1[U_D\le p(Z)],\qquad U_D\sim U[0,1].
-  $$
-
-* Normalization
-
-  $$
-  X\sim F \Longrightarrow F(X)\sim U[0,1].
-  $$
-
-* Marginal treatment effect
-
-  $$
-  MTE(u)=E[Y_1-Y_0\mid U_D=u].
-  $$
-
-* Weighted averages of MTE
-
-  $$
-  ATE=\int_0^1MTE(u)\,du,
-  $$
-
-  $$
-  LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)\,du}{p(z)-p(z')},
-  $$
-
-  $$
-  E[Y_1-Y_0\mid D=0]=\int_0^1MTE(u)\frac{P[p(Z)<u]}{P[D=0]}du.
-  $$
-
-* Interpretation
-
-  $$
-  \text{ATE weights all }u\text{ equally},\qquad
-  \text{LATE weights the margin shifted by }Z,\qquad
-  \text{ATT/ATU weight selected margins.}
-  $$
+$$
+\left\{
+\begin{aligned}
+&D=1[U_D\le p(Z)],\qquad U_D\sim U[0,1],\\
+&MTE(u)=E[Y_1-Y_0\mid U_D=u],\\
+&E[Y\mid P=p]=E[Y_0]+\int_0^pMTE(u)\,du,\\
+&\partial_p E[Y\mid P=p]=MTE(p),\\
+&ATE=\int_0^1MTE(u)\,du,\\
+&LATE(z,z')=\frac{\int_{p(z')}^{p(z)}MTE(u)\,du}{p(z)-p(z')}.
+\end{aligned}
+\right.
+$$
 :::
