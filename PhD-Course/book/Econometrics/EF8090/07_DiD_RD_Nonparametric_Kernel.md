@@ -1,10 +1,5 @@
 # 07 DiD, RD, and Kernel Smoothing
 
-Source: consolidated from 12_DiD_Fixed_Effects_Event_Study.md and 13_RD_Nonparametric_Kernel.md.
-Links: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE) | [cards/DID_Common_Trends](cards/DID_Common_Trends) | [cards/TWFE_Event_Study](cards/TWFE_Event_Study) | [cards/Kernel_Bandwidth_Bias_Variance](cards/Kernel_Bandwidth_Bias_Variance)
-
-**Panel Treatment Effects and Fixed Effects**
-
 ## Two-by-Two DiD Estimand
 
 Two groups $D_i\in\{0,1\}$, two periods $Post_t\in\{0,1\}$。Treatment group receives treatment only in post period。
@@ -180,6 +175,8 @@ $$
 \omega^{TWFE}_{g,t}\not\ge 0\ \text{in general}.
 $$
 
+![TWFE](../../attachment/image-20260528-1.png)
+
 ## Triple-Differences Estimand
 
 :::{admonition} Definition (Triple differences)
@@ -351,3 +348,36 @@ CV(h)=\sum_i(Y_i-\hat y_{i,h})^2,
 \qquad
 \hat h=\arg\min_hCV(h).
 $$
+
+### Local Constant vs Local Linear
+
+Local constant regression is the Nadaraya-Watson estimator above: it averages nearby outcomes with kernel weights.
+
+Local linear regression fits a first-order approximation in the local window:
+
+$$
+(\hat a(x),\hat b(x))
+=\arg\min_{a,b}\sum_i K_h(X_i-x)\big(Y_i-a-b(X_i-x)\big)^2,
+\qquad
+\hat g_{LL}(x)=\hat a(x).
+$$
+
+Compared with local constant smoothing, local linear regression typically has smaller boundary bias, so it is the default choice in RD applications.
+
+### Kernel Smoothing Summary
+
+Bias-variance tradeoff:
+
+$$
+h \downarrow \Rightarrow \text{bias}\downarrow,\ \text{variance}\uparrow;
+\qquad
+h \uparrow \Rightarrow \text{bias}\uparrow,\ \text{variance}\downarrow.
+$$
+
+Optimal univariate bandwidth balances the two at
+
+$$
+h\asymp n^{-1/5}.
+$$
+
+In higher dimensions, the effective sample size shrinks like $nh^q$, so nonparametric estimation suffers quickly from the curse of dimensionality.
