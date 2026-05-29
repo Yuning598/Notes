@@ -69,6 +69,7 @@ $$
 
 **结论：** GS 的数学结构是“正态学习 + 线性需求 + 线性清算”，因此价格系数可以通过线性恒等式逐项求出。
 
+:::{admonition} Definition (Grossman-Stiglitz Setup)
 存在一个风险资产（到期支付为 $v$）和一个无风险资产：
 
 $$
@@ -86,6 +87,8 @@ s|v \sim N\!\left(v,\frac{1}{\rho_s}\right).
 \end{equation}$$
 - informed agent $I$: 观察私人信号 $s$
 - uninformed agent $U$: 观察价格 $p$
+
+:::
 
 **符号**
 - $v$：风险资产终值/支付
@@ -108,6 +111,7 @@ p=\alpha \bar v+\beta s-\gamma X,
 $$
 所以价格里同时包含关于 $v$ 的信息（来自 $s$）和噪声（来自 $X$）。
 
+:::{admonition} Definition (CARA Utility and Wealth Mapping)
 两类投资者都具有 CARA 效用（相关卡片：[CARA 效用](Asset Pricing/Theoretical AP/cards/CARA 效用 - 常绝对风险厌恶)；对比：[CRRA 效用](Asset Pricing/Theoretical AP/cards/CRRA 效用 - 常相对风险厌恶)、[二次效用](Asset Pricing/Theoretical AP/cards/二次效用 - Mean-Variance 基础)）：
 $$
 
@@ -177,16 +181,21 @@ $$
 - 购买 $X_i$ 单位风险资产时，每单位都按同一个给定价格 $p$ 成交，预算约束可以直接写成 $M_i+X_i p=m_i$；
 - 若投资者具有市场势力，则价格会依赖于其下单量，问题将变成战略交易而非竞争均衡。
 
+:::
+
 ---
 
 ### 10.2.2 贝叶斯更新
 
 #### Informed Agents
+:::{admonition} Definition (Bayesian Learning Primitives)
 这里用到一个基础的贝叶斯学习框架（见卡片：[贝叶斯更新](Asset Pricing/Theoretical AP/cards/贝叶斯更新 - 先验、信号、似然、后验)）：
 - **先验（prior）**：在观察信号之前，对未知变量 $v$ 的原始信念，这里是 $v\sim N(\bar v,1/\rho_v)$。
 - **信号（signal）**：投资者观察到的带噪信息，这里是 $s=v+\varepsilon$，其中 $\varepsilon\sim N(0,1/\rho_s)$。
 - **似然（likelihood）**：若真实值是 $v$，观察到信号 $s$ 的概率密度，即 $n(s\mid v)$。
 - **后验（posterior）**：观察到信号 $s$ 之后，对 $v$ 的更新信念，即 $v\mid s$。
+
+:::
 
 三者关系就是 Bayes 法则：
 $$
@@ -847,6 +856,7 @@ Find the coefficients of the equilibrium price $\alpha,\beta,\gamma$. Show that 
 
 ### 10.3.1 Setup
 
+:::{admonition} Definition (Glosten-Milgrom Sequential Trading Setup)
 **sequential trading**：一次只来一个 trader、一次只交易一股，所以做市商每看到一笔订单，就立刻用这笔订单更新对 $V$ 的信念，再重新报 bid / ask。
 
 **Asset value**: Binary with prior
@@ -873,6 +883,8 @@ $$
 \end{array}
 \quad \begin{pmatrix} V_H \\ V_L \end{pmatrix}
 $$
+
+:::
 
 做市商观察到的是订单方向，而不是真实价值，因此买价和卖价都取“条件期望价值”。
 
@@ -1068,6 +1080,7 @@ $$
 
 ### 10.4.1 Setup
 
+:::{admonition} Definition (One-period Kyle Setup)
 **资产基本面**（不确定性的来源）：
 风险资产终值 $v$ 满足
 
@@ -1096,6 +1109,8 @@ $$
 $$
 p=E[v|X]=E[v|x+Z_u].
 $$
+
+:::
 
 ## 10.4.2 线性均衡猜测
 
