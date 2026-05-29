@@ -2,11 +2,11 @@
 
 ## 📌 相关理论链接
 
-- **基准理论**：[[MM_and_Tax_Theory]] - MM 完美市场假设
-- **互补理论**：[[Financial_Distress_Theory]] - 成长期权与困境成本
-- **对比理论**：[[Pecking_Order_Theory]] - 不同的杠杆预测
-- **应用**：[[Payout_Policy_Theory]] - 自由现金流与派息
-- **整合框架**：[[00_Theory_Integration]] - 代理成本在 trade-off 中的角色
+- **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 完美市场假设
+- **互补理论**：[Financial_Distress_Theory](Financial_Distress_Theory.md) - 成长期权与困境成本
+- **对比理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - 不同的杠杆预测
+- **应用**：[Payout_Policy_Theory](Payout_Policy_Theory.md) - 自由现金流与派息
+- **整合框架**：[00_Theory_Integration](00_Theory_Integration.md) - 代理成本在 trade-off 中的角色
 
 ---
 

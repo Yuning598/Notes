@@ -9,8 +9,6 @@ This section collects the corporate finance notes, paper summaries, and applied 
 
 ---
 
-# EF8084 Final Review：Core Questions to Memorize
-
 ## Part 1：Corporate Financial Policy
 
 MM benchmark says financial policy is irrelevant if markets are perfect, information is symmetric, there are no taxes, and financial policy does not affect cash flows.  

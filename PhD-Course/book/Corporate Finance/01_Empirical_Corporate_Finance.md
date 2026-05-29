@@ -870,7 +870,7 @@ Myers (1977) 的核心是：当 debt risky 时，equity 和 debt 的 payoff 会�
 
 :::{admonition} Note
 + Example
-![[Pasted image 20260418145309.png]]
+![Pasted image 20260418145309.png](Pasted image 20260418145309.png)
 - Setup
 - $t=0$: assets in place generate $30m$ cash.
 - $t=1$: base firm value is $150m$ in $H$ and $100m$ in $L$, each with prob. $0.5$.
@@ -921,7 +921,7 @@ $$
 
 :::{admonition} Note
 + Example
-![[Pasted image 20260418152524.png]]
+![Pasted image 20260418152524.png](Pasted image 20260418152524.png)
 - Setup
 - ongoing project yields $35m$ cash at $t=0$.
 - safe project: cost $25m$, payoff $40m$ in $H$, $20m$ in $L$.

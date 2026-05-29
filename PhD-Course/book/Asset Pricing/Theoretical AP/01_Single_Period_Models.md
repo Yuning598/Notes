@@ -126,7 +126,7 @@ $$
 
 :::
 
-![[Pasted image 20260421232321.png]]
+![Pasted image 20260421232321.png](Pasted image 20260421232321.png)
 
 $$
 \begin{aligned}
@@ -2205,7 +2205,7 @@ $$
 
 $$
 直观上，若某个 frontier portfolio 的 expected return 还低于 GMV，则沿 frontier 向 GMV 移动会同时提高 expected return 并降低 variance；因此它不是 efficient。反过来，GMV 右侧的 frontier points 才是真正的 mean-variance trade-off 区域。
-![[attachment/Pasted image 20260423100816.png]]
+![attachment/Pasted image 20260423100816.png](attachment/Pasted image 20260423100816.png)
 
 
 :::
@@ -2218,7 +2218,7 @@ $$
 
 关联卡片：[Asset Pricing/Theoretical AP/cards/part1/CML 与 Tangency Portfolio](Asset Pricing/Theoretical AP/cards/part1/CML 与 Tangency Portfolio)
 
-![[attachment/Pasted image 20260423100917.png]]
+![attachment/Pasted image 20260423100917.png](attachment/Pasted image 20260423100917.png)
 
 #### 3.1.1 One Risky Asset and One Risk-Free Asset
 

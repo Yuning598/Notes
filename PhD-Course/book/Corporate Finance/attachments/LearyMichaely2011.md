@@ -19,9 +19,9 @@ This paper studies what drives dividend smoothing: which firm characteristics ar
 
 ## 4. Figure Slots
 
-![[attachment/Pasted image 20260502100602.png]]
+![attachment/Pasted image 20260502100602.png](attachment/Pasted image 20260502100602.png)
 
-![[attachment/Pasted image 20260502100609.png]]
+![attachment/Pasted image 20260502100609.png](attachment/Pasted image 20260502100609.png)
 
 ## 5. Notes
 - Add any regression tables, figures, or slide screenshots here.

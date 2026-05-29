@@ -6,7 +6,7 @@
 Do dividend announcements contain information about future cash flows, as reflected in announcement-window CARs?
 
 ## 2. Figure / Evidence
-![[Pasted image 20260421200909.png]]
+![Pasted image 20260421200909.png](Pasted image 20260421200909.png)
 
 $$
 \begin{aligned}

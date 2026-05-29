@@ -1,5 +1,24 @@
 # 公司金融理论知识图谱与整合
 
+## 📚 理论笔记导航
+
+本笔记整合公司金融六大核心理论，提供理论对比、决策框架、公式速查和考试模板。
+
+### 理论笔记列表
+
+1. **[MM 定理与税基资本结构理论](MM_and_Tax_Theory.md)** - MM 命题、Miller 个人税、非债务税盾、税盾价值估算
+2. **[代理理论](Agency_Theory.md)** - 资产替代、投资不足、自由现金流、成长期权与杠杆
+3. **[Pecking Order 与信息不对称理论](Pecking_Order_Theory.md)** - Myers-Majluf 稀释成本、融资优先顺序、债务信号
+4. **[派息政策理论](Payout_Policy_Theory.md)** - 股利无关性、税基理论、信号理论、股利 vs. 回购、生命周期理论
+5. **[财务困境成本理论](Financial_Distress_Theory.md)** - 破产成本、Fire Sales、清算价值与债务契约
+6. **[SEO 理论](../SEO_Theory.md)** - 逆向选择、市场择时、公告效应
+
+### ⚠️ [常见错误与易混淆点](Common_Mistakes.md) 🔥
+
+19 个常见错误详解、理论预测对比、公式易错点、考试陷阱识别
+
+---
+
 ## 1. 核心理论框架总览
 
 ### 1.1 企业价值分解
@@ -12,18 +31,27 @@ $$
 
 **理论演进**：
 
-```
-MM (1958) Irrelevance
-    ↓ 引入公司税
-MM (1963) Tax Shield
-    ↓ 引入个人税
-Miller (1977) Personal Tax
-    ↓ 引入非债务税盾
-DeAngelo-Masulis (1980)
-    ↓ 引入破产成本
-Trade-Off Theory
-    ↓ 引入代理成本
-Comprehensive Theory
+```mermaid
+graph TD
+    A["MM (1958) Irrelevance<br/>完美市场假设"] 
+    B["MM (1963) Tax Shield<br/>V_L = V_U + T_C D"]
+    C["Miller (1977) Personal Tax<br/>个人税削弱税盾优势"]
+    D["DeAngelo-Masulis (1980)<br/>非债务税盾替代效应"]
+    E["Trade-Off Theory<br/>税盾 vs. 困境成本"]
+    F["Comprehensive Theory<br/>税盾 - 困境成本 - 代理成本"]
+    
+    A -->|引入公司税| B
+    B -->|引入个人税| C
+    C -->|引入非债务税盾| D
+    D -->|引入破产成本| E
+    E -->|引入代理成本| F
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e1
+    style C fill:#fff4e1
+    style D fill:#fff4e1
+    style E fill:#ffe1e1
+    style F fill:#e1ffe1
 ```
 
 ---
@@ -146,48 +174,67 @@ $$
 
 ### 4.1 融资选择决策树
 
-```
-企业需要外部融资
-    ↓
-检查 1：信息不对称程度
-    ↓ 高
-    优先债务（Pecking Order）
-    ↓ 低
-检查 2：当前杠杆 vs. 目标杠杆
-    ↓ 低于目标
-    发行债务（Trade-Off）
-    ↓ 高于目标
-检查 3：成长期权价值
-    ↓ 高
-    发行股权（避免 Debt Overhang）
-    ↓ 低
-检查 4：自由现金流
-    ↓ 高
-    发行债务（约束 FCF）
-    ↓ 低
-    发行股权
+```mermaid
+graph TD
+    Start["企业需要外部融资"]
+    Check1{"信息不对称程度"}
+    Check2{"当前杠杆 vs. 目标杠杆"}
+    Check3{"成长期权价值"}
+    Check4{"自由现金流"}
+    
+    Debt1["发行债务<br/>(Pecking Order)"]
+    Debt2["发行债务<br/>(Trade-Off)"]
+    Debt3["发行债务<br/>(约束 FCF)"]
+    Equity1["发行股权<br/>(避免 Debt Overhang)"]
+    Equity2["发行股权"]
+    
+    Start --> Check1
+    Check1 -->|高| Debt1
+    Check1 -->|低| Check2
+    Check2 -->|低于目标| Debt2
+    Check2 -->|高于目标| Check3
+    Check3 -->|高| Equity1
+    Check3 -->|低| Check4
+    Check4 -->|高| Debt3
+    Check4 -->|低| Equity2
+    
+    style Start fill:#e1f5ff
+    style Debt1 fill:#fff4e1
+    style Debt2 fill:#fff4e1
+    style Debt3 fill:#fff4e1
+    style Equity1 fill:#ffe1e1
+    style Equity2 fill:#ffe1e1
 ```
 
 ---
 
 ### 4.2 派息决策决策树
 
-```
-企业有多余现金
-    ↓
-检查 1：现金流性质
-    ↓ 永久性
-    增加股利（Signaling）
-    ↓ 临时性
-检查 2：股价估值
-    ↓ 低估
-    股票回购（Vermaelen）
-    ↓ 合理估值
-检查 3：自由现金流 & 成长期权
-    ↓ 高 FCF & 低成长
-    增加派息（Jensen FCF）
-    ↓ 低 FCF & 高成长
-    保留现金（Financial Slack）
+```mermaid
+graph TD
+    Start["企业有多余现金"]
+    Check1{"现金流性质"}
+    Check2{"股价估值"}
+    Check3{"自由现金流 & 成长期权"}
+    
+    Div["增加股利<br/>(Signaling)"]
+    Buyback["股票回购<br/>(Vermaelen)"]
+    Payout["增加派息<br/>(Jensen FCF)"]
+    Retain["保留现金<br/>(Financial Slack)"]
+    
+    Start --> Check1
+    Check1 -->|永久性| Div
+    Check1 -->|临时性| Check2
+    Check2 -->|低估| Buyback
+    Check2 -->|合理估值| Check3
+    Check3 -->|高 FCF & 低成长| Payout
+    Check3 -->|低 FCF & 高成长| Retain
+    
+    style Start fill:#e1f5ff
+    style Div fill:#e1ffe1
+    style Buyback fill:#fff4e1
+    style Payout fill:#e1ffe1
+    style Retain fill:#ffe1e1
 ```
 
 ---
@@ -560,30 +607,32 @@ $$
 
 ## 10. 理论发展时间线
 
-```
-1958  MM Irrelevance (Modigliani & Miller)
-1961  MM Dividend Irrelevance
-1963  MM with Corporate Tax
-1970  Ex-dividend pricing (Elton & Gruber)
-1976  Agency Costs (Jensen & Meckling)
-1977  Debt Overhang (Myers)
-1977  Debt Signaling (Ross)
-1977  Miller Personal Tax
-1979  Dividend Signaling (Bhattacharya)
-1980  DeAngelo-Masulis (Non-debt tax shields)
-1981  Repurchase Signaling (Vermaelen)
-1984  Myers-Majluf (Pecking Order)
-1984  Monitoring Hypothesis (Easterbrook)
-1986  Free Cash Flow (Jensen)
-1990  Managerial Discretion (Stulz)
-1992  Smith-Watts (Growth Options)
-1995  Ikenberry et al. (Repurchase Undervaluation)
-1998  Pulvino (Fire Sales)
-2000  Graham (Tax Shield Value)
-2001  Fama-French (Disappearing Dividends)
-2002  Baker-Wurgler (Market Timing)
-2005  Benmelech et al. (Liquidation Value)
-2006  DeAngelo et al. (Life-Cycle Theory)
+```mermaid
+timeline
+    title 公司金融理论发展时间线
+    1958 : MM Irrelevance (Modigliani & Miller)
+    1961 : MM Dividend Irrelevance
+    1963 : MM with Corporate Tax
+    1970 : Ex-dividend pricing (Elton & Gruber)
+    1976 : Agency Costs (Jensen & Meckling)
+    1977 : Debt Overhang (Myers)
+         : Debt Signaling (Ross)
+         : Miller Personal Tax
+    1979 : Dividend Signaling (Bhattacharya)
+    1980 : DeAngelo-Masulis (Non-debt tax shields)
+    1981 : Repurchase Signaling (Vermaelen)
+    1984 : Myers-Majluf (Pecking Order)
+         : Monitoring Hypothesis (Easterbrook)
+    1986 : Free Cash Flow (Jensen)
+    1990 : Managerial Discretion (Stulz)
+    1992 : Smith-Watts (Growth Options)
+    1995 : Ikenberry et al. (Repurchase Undervaluation)
+    1998 : Pulvino (Fire Sales)
+    2000 : Graham (Tax Shield Value)
+    2001 : Fama-French (Disappearing Dividends)
+    2002 : Baker-Wurgler (Market Timing)
+    2005 : Benmelech et al. (Liquidation Value)
+    2006 : DeAngelo et al. (Life-Cycle Theory)
 ```
 
 ---

@@ -1224,25 +1224,25 @@ $$
 $$
 
 Case A: Parallel trends + placebo treatment（应估计为 0）  
-![[Snipaste_2026-04-11_21-01-46.png]]
+![Snipaste_2026-04-11_21-01-46.png](Snipaste_2026-04-11_21-01-46.png)
 
 - 图中 treated 与 control 的 pre-post 变化相同：$\Delta y_T=\Delta y_C$。
 - 因此 $\text{DiD}=0$，安慰剂检验通过。
 
 Case B: Parallel trends + true positive effect（可被 DiD 正确识别）  
-![[Snipaste_2026-04-11_21-02-12.png]]
+![Snipaste_2026-04-11_21-02-12.png](Snipaste_2026-04-11_21-02-12.png)
 
 - treated 组观测到的变化可分解为“共同趋势 + treatment jump”。
 - DiD 净掉共同趋势后得到正效应：$\text{DiD}>0$，且等于图中的竖直 gap。
 
 Case C: Nonparallel trends + placebo（假阳性）  
-![[Snipaste_2026-04-11_21-02-19.png]]
+![Snipaste_2026-04-11_21-02-19.png](Snipaste_2026-04-11_21-02-19.png)
 
 - 即使真实 treatment effect 为 0，treated 组的反事实趋势本来就更陡。
 - 于是 $\Delta y_T(0)>\Delta y_C(0)$，会机械地产生 $\text{DiD}>0$（把趋势差误判为 treatment effect）。
 
 Case D: Nonparallel trends + placebo（假阴性/反向偏误）  
-![[Snipaste_2026-04-11_21-02-27.png]]
+![Snipaste_2026-04-11_21-02-27.png](Snipaste_2026-04-11_21-02-27.png)
 
 - 图示中 $\Delta y_T=0$ 而 $\Delta y_C>0$，因此 $\text{DiD}<0$。
 - 这说明 nonparallel trends 不仅会制造“假阳性”，也可能制造“负向伪效应”。

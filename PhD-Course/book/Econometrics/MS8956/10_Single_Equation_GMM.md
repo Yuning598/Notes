@@ -931,7 +931,7 @@ $$
    - 轴长与特征值 $\lambda_k$ 的平方根成反比。
 3. **投影本质**: $\hat{\boldsymbol{\delta}}$ 是样本矩轨迹（由 $\boldsymbol{\delta}$ 变动生成的 $L$ 维超平面）与最小椭球体的**切点**。
 
-![[attachment/Pasted image 20260503104338.png]]
+![attachment/Pasted image 20260503104338.png](attachment/Pasted image 20260503104338.png)
 
 :::{admonition} Definition (Definition 3.1 (GMM Estimator))
 Let $\widehat{\mathbf{W}}$ be a $K \times K$ symmetric positive definite matrix, possibly dependent on the sample, such that $\widehat{\mathbf{W}} \xrightarrow{p} \mathbf{W}$ as $n \to \infty$. The **GMM estimator** of $\boldsymbol{\delta}$, denoted by $\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}})$, is defined as:

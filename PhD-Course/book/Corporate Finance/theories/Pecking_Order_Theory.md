@@ -2,12 +2,12 @@
 
 ## 📌 相关理论链接
 
-- **基准理论**：[[MM_and_Tax_Theory]] - MM 对称信息假设
-- **对比理论**：[[MM_and_Tax_Theory]] - 盈利与杠杆关系相反
-- **互补理论**：[[Agency_Theory]] - 投资不足与 debt overhang
-- **应用**：[[../SEO_Theory]] - 股权融资的逆向选择
-- **应用**：[[Payout_Policy_Theory]] - 回购信号理论
-- **整合框架**：[[00_Theory_Integration]] - Pecking Order vs. Trade-Off
+- **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 对称信息假设
+- **对比理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - 盈利与杠杆关系相反
+- **互补理论**：[Agency_Theory](Agency_Theory.md) - 投资不足与 debt overhang
+- **应用**：[../SEO_Theory](../SEO_Theory.md) - 股权融资的逆向选择
+- **应用**：[Payout_Policy_Theory](Payout_Policy_Theory.md) - 回购信号理论
+- **整合框架**：[00_Theory_Integration](00_Theory_Integration.md) - Pecking Order vs. Trade-Off
 
 ---
 

@@ -202,7 +202,7 @@ $$\begin{aligned}
 
 **System GMM Large-Sample Theory**
 
-单方程 GMM 的大样本理论可直接推广至多方程模型。回顾 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]、[Assumption 4.2](#^assumption-4-2)、[Assumption 4.6](#^assumption-4-6) 和 [Proposition 3.2](Econometrics/MS8956/10_Single_Equation_GMM#^proposition-3-2)。
+单方程 GMM 的大样本理论可直接推广至多方程模型。回顾 [Assumption 4.1](#^assumption-4-1)、[Assumption 4.2](#^assumption-4-2)、[Assumption 4.6](#^assumption-4-6) 和 [Proposition 3.2](Econometrics/MS8956/10_Single_Equation_GMM#^proposition-3-2)。
 
 - **Hypothesis testing (假设检验)**: 
 	- 可检验跨方程限制 (**cross-equation restrictions**)，如系数在不同方程间是否相等。 (见 [Econometrics/MS8956/cards/Example 4.2 (wage equation for two years)](Econometrics/MS8956/cards/Example 4.2 (wage equation for two years)))
@@ -210,7 +210,7 @@ $$\begin{aligned}
 :::{admonition} Proposition
 Proposition 4.1 (consistent estimation of contemporaneous error cross-equation moments)
 令 $\hat{\delta}_m$ 为 $\delta_m$ 的一致估计量，且令 $\hat{\epsilon}_{im} \equiv y_{im} - z'_{im}\hat{\delta}_m$ 为 $m = 1, 2, \dots, M$ 的隐含残差。
-在 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]] 和 [Assumption 4.2](#^assumption-4-2) 基础上，加上对于所有 $m,h (= 1, 2, \dots, M)$，$E(z_{im}z'_{ih})$ 存在且有限的假设：
+在 [Assumption 4.1](#^assumption-4-1) 和 [Assumption 4.2](#^assumption-4-2) 基础上，加上对于所有 $m,h (= 1, 2, \dots, M)$，$E(z_{im}z'_{ih})$ 存在且有限的假设：
 $$
 \hat{\sigma}_{mh} \xrightarrow{p} \sigma_{mh} \tag{4.3.1}
 $$
@@ -226,7 +226,7 @@ $$
 :::{admonition} Proposition
 Proposition 4.2 (consistent estimation of $S$, the asymptotic variance of $\bar{g}$)
 令 $\hat{\delta}_m$ 为 $\delta_m$ 的一致估计量，且令 $\hat{\epsilon}_{im} \equiv y_{im} - z'_{im}\hat{\delta}_m$ 为 $m = 1, 2, \dots, M$ 的隐含残差。
-在 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]、[Assumption 4.2](#^assumption-4-2) 和 [Assumption 4.6](#^assumption-4-6) 下，(4.3.2) 中给出的 $\hat{S}$ 是 $S$ 的一致估计量。
+在 [Assumption 4.1](#^assumption-4-1)、[Assumption 4.2](#^assumption-4-2) 和 [Assumption 4.6](#^assumption-4-6) 下，(4.3.2) 中给出的 $\hat{S}$ 是 $S$ 的一致估计量。
 :::
 
 ^prop-4-2
@@ -496,7 +496,7 @@ Understanding FIVE
 - **Efficient (有效性)**: 在条件同方差假设下，通过使用基于全系统信息的最优权重矩阵 $\widehat{S}^{-1}$，FIVE 在所有基于工具变量的线性系统估计量中实现了**最小的渐近方差**。
 
 **Proposition:** Proposition 4.4 (large-sample properties of FIVE)
-假设 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立。进一步假设对于所有 $m, h (= 1, 2, \dots, M)$，$\mathbb{E}(\mathbf{z}_{im}\mathbf{z}'_{ih})$ 存在且有限。令 $S$ 和 $\widehat{S}$ 分别如 [(4.5.2)](#^equation-4-5-2) 和 [(4.5.3)](#^equation-4-5-3) 所示。则：
+假设 [Assumption 4.1](#^assumption-4-1)- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立。进一步假设对于所有 $m, h (= 1, 2, \dots, M)$，$\mathbb{E}(\mathbf{z}_{im}\mathbf{z}'_{ih})$ 存在且有限。令 $S$ 和 $\widehat{S}$ 分别如 [(4.5.2)](#^equation-4-5-2) 和 [(4.5.3)](#^equation-4-5-3) 所示。则：
 - (a) $\widehat{S} \xrightarrow{p} S$;
 - (b) $\hat{\delta}_{\text{FIVE}}$ 是一致的、渐近正态的且有效的，其渐近方差 $\text{Avar}(\hat{\delta}_{\text{FIVE}})$ 由 [(4.3.3)](#^equation-4-3-3) 给出；
 - (c) [(4.3.4)](#^equation-4-3-4) 中给出的估计渐近方差是 $\text{Avar}(\hat{\delta}_{\text{FIVE}})$ 的一致估计量；
@@ -610,7 +610,7 @@ $$
 这表明 3SLS 实际上是在跨方程加权的同时，利用投影矩阵 $\mathbf{P}_X$ 对所有回归量进行了预投影处理，从而在全系统层面捕捉了同期相关性。
 
 **Proposition:** Proposition 4.4 (Large-sample properties of 3SLS as a case of FIVE)
-假设 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立。进一步假设对于所有 $m, h (= 1, 2, \dots, M)$，$\mathbb{E}(\mathbf{z}_{im}\mathbf{z}'_{ih})$ 存在且有限。令 $S$ 和 $\widehat{S}$ 分别如 [(4.5.9)](#^equation-4-5-9) 和 [(4.5.10)](#^equation-4-5-10) 所示。则：
+假设 [Assumption 4.1](#^assumption-4-1)- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立。进一步假设对于所有 $m, h (= 1, 2, \dots, M)$，$\mathbb{E}(\mathbf{z}_{im}\mathbf{z}'_{ih})$ 存在且有限。令 $S$ 和 $\widehat{S}$ 分别如 [(4.5.9)](#^equation-4-5-9) 和 [(4.5.10)](#^equation-4-5-10) 所示。则：
 - (a) $\widehat{S} \xrightarrow{p} S$;
 - (b) $\hat{\delta}_{\text{3SLS}}$ 是一致的、渐近正态的且有效的，其渐近方差 $\text{Avar}(\hat{\delta}_{\text{3SLS}})$ 由 [(4.5.15)](#^equation-4-5-15) 给出；
 - (c) 估计的渐近方差是 $\text{Avar}(\hat{\delta}_{\text{3SLS}})$ 的一致估计量；
@@ -689,7 +689,7 @@ $$\widehat{\text{Avar}}(\hat{\delta}_{\text{3SLS}}) = \begin{bmatrix}
 
 :::{admonition} Proposition
 Proposition 4.5 (large-sample properties of 3SLS)
-假设 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立，且 $\mathbf{x}_{im} = \mathbf{x}_i$。进一步假设 $\mathbb{E}(\mathbf{z}_{im}\mathbf{x}'_{ih})$ 存在且有限。令 $\widehat{\boldsymbol{\Sigma}}$ 为使用 2SLS 残差计算的矩阵。则：
+假设 [Assumption 4.1](#^assumption-4-1)- [4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立，且 $\mathbf{x}_{im} = \mathbf{x}_i$。进一步假设 $\mathbb{E}(\mathbf{z}_{im}\mathbf{x}'_{ih})$ 存在且有限。令 $\widehat{\boldsymbol{\Sigma}}$ 为使用 2SLS 残差计算的矩阵。则：
 - (a) $\hat{\delta}_{\text{3SLS}}$ 是一致的、渐近正态的且有效的，渐近方差由 [(4.5.15)](#^equation-4.5.15) 给出。
 - (b) 估计的渐近方差是其一致估计量。
 - (c) **Sargan's statistic**:
@@ -745,7 +745,7 @@ $$
 $$
 
 **Proposition:** Proposition 4.6 (large-sample properties of SUR)
-假设 [[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1)]]–[4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立，且 $\mathbf{x}_i = \text{union of } (\mathbf{z}_{i1}, \dots, \mathbf{z}_{iM})$。令 $\widehat{\boldsymbol{\Sigma}}$ 为使用 **OLS 残差**按 [(4.5.7)](#^equation-4-5-7) 计算的 $M \times M$ 误差跨方程矩估计矩阵。则：
+假设 [Assumption 4.1](#^assumption-4-1)–[4.5](#^assumption-4-5) 和 [Assumption 4.7](#^assumption-4-7) 成立，且 $\mathbf{x}_i = \text{union of } (\mathbf{z}_{i1}, \dots, \mathbf{z}_{iM})$。令 $\widehat{\boldsymbol{\Sigma}}$ 为使用 **OLS 残差**按 [(4.5.7)](#^equation-4-5-7) 计算的 $M \times M$ 误差跨方程矩估计矩阵。则：
 - (a) 由 [(4.5.12)](#^equation-4-5-12) 给出且其中 $\widehat{\mathbf{A}}_{mh}$ 和 $\hat{\mathbf{c}}_{mh}$ 分别由 [(4.5.13')](#^equation-4-5-13-prime) 和 [(4.5.14')](#^equation-4-5-14-prime) 定义的 $\hat{\delta}_{\text{SUR}}$ 是一致的、渐近正态的且有效的。其渐近方差 $\text{Avar}(\hat{\delta}_{\text{SUR}})$ 由 [(4.5.15)](#^equation-4-5-15) 给出，其中 $\mathbf{A}_{mh}$ 由 [(4.5.16')](#^equation-4-5-16-prime) 定义。
 - (b) 由 [(4.5.17)](#^equation-4-5-17) 给出且其中 $\widehat{\mathbf{A}}_{mh}$ 由 [(4.5.13')](#^equation-4-5-13-prime) 定义的估计渐近方差是 $\text{Avar}(\hat{\delta}_{\text{SUR}})$ 的一致估计量。
 - (c) **Sargan's statistic**:
@@ -1023,7 +1023,7 @@ $$
 
 ^equation-4-6-15
 
-此时，[[[#^assumption-4-1|Assumption 4.1](#^assumption-4-1-prime)']] 中的多方程系统可紧凑地写为：
+此时，[Assumption 4.1'](#^assumption-4-1-prime) 中的多方程系统可紧凑地写为：
 $$
 \mathbf{y}_i = \mathbf{Z}_i \boldsymbol{\delta} + \boldsymbol{\epsilon}_i \quad (i = 1, 2, \dots, n) \tag{4.6.1'}
 $$

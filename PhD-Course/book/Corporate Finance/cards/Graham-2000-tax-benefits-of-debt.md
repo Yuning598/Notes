@@ -78,7 +78,7 @@ $$
 
 - 经验图里最直观的结论是：gross tax benefit 明显高于 net tax benefit，二者之间的差额就是 money left on the table。
 
-![[attachment/Pasted image 20260418204311.png]]
+![attachment/Pasted image 20260418204311.png](attachment/Pasted image 20260418204311.png)
 
 - gross tax benefits of debt 可能看起来很大，比如占 firm value 的 10%。
 - 但 net tax benefits 往往小得多，接近 5% 左右。
@@ -90,7 +90,7 @@ $$
 
 Graham 的结论不是“debt tax shield 不重要”，而是“看起来很大的 gross benefit，落到 net marginal benefit 以后会小很多”。所以 leverage 的税动机需要连同 personal taxes、distress cost 和 unused debt capacity 一起读。
 
-![[attachment/Pasted image 20260418205222.png]]
+![attachment/Pasted image 20260418205222.png](attachment/Pasted image 20260418205222.png)
 
 这张表对应 kink-based regression 设定。可以读到的主线是：
 

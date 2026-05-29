@@ -20,7 +20,7 @@ Andrade and Kaplan 关心的是：**highly leveraged transactions 里的 distres
 
 ## What went wrong in distressed LBOs
 
-![[Pasted image 20260418210148.png]]
+![Pasted image 20260418210148.png](Pasted image 20260418210148.png)
 
 - 1980s 后期一部分 LBO 失败，不是因为杠杆本身必然坏，而是因为结构更激进、债务负担更重
 - 1984 后的交易更依赖 junk bond financing，利息负担和再融资压力都上去了
@@ -56,7 +56,7 @@ $$
 
 ## Value creation in buyouts
 
-![[Pasted image 20260418210410.png]]
+![Pasted image 20260418210410.png](Pasted image 20260418210410.png)
 
 
 ## Failed HLT
@@ -160,8 +160,8 @@ $$
 - interpretation：它们对应的是 value destruction 的渠道，而不只是 leverage 本身
 - interpretation：asset substitution 说明 distress 之后会出现风险转移和投资扭曲
 
-![[attachment/Pasted image 20260501161121.png]]
+![attachment/Pasted image 20260501161121.png](attachment/Pasted image 20260501161121.png)
 
-![[attachment/Pasted image 20260501162031.png]]
+![attachment/Pasted image 20260501162031.png](attachment/Pasted image 20260501162031.png)
 
-![[attachment/Pasted image 20260501162038.png]]
+![attachment/Pasted image 20260501162038.png](attachment/Pasted image 20260501162038.png)

@@ -2,10 +2,10 @@
 
 ## 📌 相关理论链接
 
-- **对比理论**：[[Pecking_Order_Theory]] - 盈利与杠杆关系相反
-- **互补理论**：[[Agency_Theory]] - 代理成本降低最优杠杆
-- **互补理论**：[[Financial_Distress_Theory]] - 困境成本降低最优杠杆
-- **整合框架**：[[00_Theory_Integration]] - 完整 trade-off 模型
+- **对比理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - 盈利与杠杆关系相反
+- **互补理论**：[Agency_Theory](Agency_Theory.md) - 代理成本降低最优杠杆
+- **互补理论**：[Financial_Distress_Theory](Financial_Distress_Theory.md) - 困境成本降低最优杠杆
+- **整合框架**：[00_Theory_Integration](00_Theory_Integration.md) - 完整 trade-off 模型
 
 ---
 

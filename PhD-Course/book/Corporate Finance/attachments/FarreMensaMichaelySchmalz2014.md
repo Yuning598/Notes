@@ -19,11 +19,11 @@ This review asks what the main empirical determinants of dividend policy are, an
 
 ## 4. Figure Slots
 
-![[attachment/Pasted image 20260502095730.png]]
+![attachment/Pasted image 20260502095730.png](attachment/Pasted image 20260502095730.png)
 
-![[attachment/Pasted image 20260502095742.png]]
+![attachment/Pasted image 20260502095742.png](attachment/Pasted image 20260502095742.png)
 
-![[attachment/Pasted image 20260502095957.png]]
+![attachment/Pasted image 20260502095957.png](attachment/Pasted image 20260502095957.png)
 
 ## 5. Notes
 - Add any figures from the review or the lecture slides here.

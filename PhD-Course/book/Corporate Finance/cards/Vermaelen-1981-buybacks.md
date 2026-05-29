@@ -78,9 +78,9 @@ Ikenberry et al. 把 open market repurchase 当成更适合检验 market underre
 - interpretation：open-market repurchase 不只是在做 payout；它还可能传递 undervaluation signal，而长期 `BHAR` 比短期 `CAR` 更能检验市场是否 underreact。
 
 
-![[attachment/Pasted image 20260501191806.png]]
+![attachment/Pasted image 20260501191806.png](attachment/Pasted image 20260501191806.png)
 
-![[attachment/Pasted image 20260501191816.png]]
+![attachment/Pasted image 20260501191816.png](attachment/Pasted image 20260501191816.png)
 
 ## Table 3 interpretation
 

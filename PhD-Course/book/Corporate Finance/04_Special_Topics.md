@@ -255,7 +255,7 @@ $$
 > 研究问题：州最低工资上调（state minimum wage increases）是否促进企业 IT 采用（IT adoption）？
 > 识别方法：跨州边界配对县（paired border counties）+ stacked DID（事件研究）。
 
-![[Pasted image 20260413155659.png]]
+![Pasted image 20260413155659.png](Pasted image 20260413155659.png)
 图左（Map of Treatment and Border Control Counties）：
 - 红色是处理组县（treatment），黄色是边界对照县（border control）。
 - 核心思想是只比较地理上相邻、经济环境相近但最低工资政策不同的县，降低不可观测异质性偏误。
@@ -273,7 +273,7 @@ $$
 ### 2.5 Minimum Wage and Capital Adjustment: Mixed Evidence（slide 26-27/61）
 
 **Gustafson and Kotter (2023)（slide 26）**
-![[Pasted image 20260413155725.png]]
+![Pasted image 20260413155725.png](Pasted image 20260413155725.png)
 
 图与结果（高信息）：
 - 研究对象：最低工资敏感行业（retail/restaurant/entertainment）的美国上市公司。
@@ -282,7 +282,7 @@ $$
 - 含义：劳动成本冲击可导致企业总资本开支收缩（至少在受约束州和相关行业中）。
 
 **Curtis, Garrett, Ohrn, Roberts, and Suarez-Serrato (2023)（slide 27）**
-![[Pasted image 20260413155732.png]]
+![Pasted image 20260413155732.png](Pasted image 20260413155732.png)
 
 图与结果（高信息）：
 - 资本成本下降型税收政策提高制造业工厂投资，同时提高就业。
@@ -1009,7 +1009,7 @@ Resume-based 补充测度（Cognism）：
 > 其中 $Y_i\in\{\text{Sales},\text{Employment},\text{Market Value}\}$。
 
 **图A：Long-difference OLS（slide 46）**
-![[Pasted image 20260413152226.png]]
+![Pasted image 20260413152226.png](Pasted image 20260413152226.png)
 
 图A结果解读：
 - $\beta$ 在三类结果变量上均为正且显著（约 $0.20\sim0.24$），加入 controls 后结论稳健。
@@ -1017,7 +1017,7 @@ Resume-based 补充测度（Cognism）：
 - 量级示例：若 $\Delta\text{ShareAIWorkers}=0.10$（10pp），则对应 $\Delta\log Y\approx 0.02\sim0.024$（约 2.0%–2.4%）。
 
 **图B：IV 结果（slide 47）**
-![[Pasted image 20260413152211.png]]
+![Pasted image 20260413152211.png](Pasted image 20260413152211.png)
 
 图B识别与结果解读：
 
@@ -1083,7 +1083,7 @@ $$
 > $$
 
 **图A：职业暴露度与工资（slide 49-50）**
-![[Pasted image 20260413152855.png]]
+![Pasted image 20260413152855.png](Pasted image 20260413152855.png)
 
 图A结果解读：
 - 横轴为年工资（2022），纵轴为 GenAI 暴露度；拟合线显著向上，表示高工资职业平均暴露度更高。
@@ -1091,21 +1091,21 @@ $$
 - 低暴露集中在体力/现场任务占比高的职业（如 maintenance、grounds cleaning、healthcare support）。
 
 **图B：ChatGPT 事件期市场反应（slide 51）**
-![[Pasted image 20260413153000.png]]
+![Pasted image 20260413153000.png](Pasted image 20260413153000.png)
 
 图B结果解读：
 - 在 ChatGPT event period（图中虚线区间）后，高 GenAI 暴露组合路径明显上行并持续高于低暴露组合。
 - 说明资本市场对“可被 GenAI 增强的岗位结构”给出更高定价。
 
 **图C：招聘与就业调整（slide 52）**
-![[Pasted image 20260413153005.png]]
+![Pasted image 20260413153005.png](Pasted image 20260413153005.png)
 
 图C结果解读：
 - `Post × GenAI Exp` 在高暴露招聘与高暴露就业上为负，表示事件后企业缩减高暴露岗位需求/配置。
 - `Post × GenAI Exp × ShareSupp` 为正，说明当补充型技能供给（complementary supply）更高时，收缩幅度更小。
 
 **图D：盈利预期与利润（slide 52）**
-![[Pasted image 20260413153010.png]]
+![Pasted image 20260413153010.png](Pasted image 20260413153010.png)
 
 图D结果解读：
 - `Post × GenAI Exp` 对分析师 EPS 预测、长期增长预测（LTG）和总利润（gross profit）为正且显著。
