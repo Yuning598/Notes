@@ -1,4 +1,4 @@
-# Trade-off Theory 与最优资本结构
+# Trade-off Theory and Optimal Capital Structure
 
 ## 📌 相关理论链接
 

@@ -1,9 +1,9 @@
-# Seasoned Equity Offerings (SEO) 理论
+# Seasoned Equity Offerings (SEO) Theory
 
 ## 📌 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - 完美市场下融资无关性
-- **基准理论**：[Tradeoff_Theory](Tradeoff_Theory.md) - SEO 作为 target leverage rebalancing
+- **资本结构基准**：[Tradeoff_Theory](Tradeoff_Theory.md) - target leverage rebalancing 只是 SEO 的一个机制
 - **互补理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - internal funds / debt / equity 的融资顺序
 - **互补理论**：[Payout_Policy_Theory](Payout_Policy_Theory.md) - repurchase 与 SEO 的对照
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 监控、控制权与代理成本
@@ -11,29 +11,29 @@
 
 ## 📌 目录
 
-- [1. 定义与背景](#1-定义与背景)
-- [2. 核心理论机制](#2-核心理论机制)
+- [1. Definition and Background](#1-definition-and-background)
+- [2. Core SEO Mechanisms](#2-core-seo-mechanisms)
   - [2.1 Adverse Selection Theory (Myers and Majluf 1984)](#21-adverse-selection-theory-myers-and-majluf-1984)
   - [2.2 Market Timing Theory (Baker and Wurgler 2002)](#22-market-timing-theory-baker-and-wurgler-2002)
   - [2.3 Signaling Theory (Ross 1977)](#23-signaling-theory-ross-1977)
   - [2.4 Cash Flow Signaling (Miller and Rock 1985)](#24-cash-flow-signaling-miller-and-rock-1985)
   - [2.5 Price Pressure Theory](#25-price-pressure-theory)
   - [2.6 Ownership and Monitoring Theory](#26-ownership-and-monitoring-theory)
-  - [2.7 Target Leverage Rebalancing](#27-target-leverage-rebalancing)
-- [3. SEO Flotation Methods 与理论预测](#3-seo-flotation-methods-与理论预测)
+  - [2.7 Target Leverage Rebalancing (Trade-off Application)](#27-target-leverage-rebalancing-trade-off-application)
+- [3. SEO Flotation Methods and Cost Trade-off](#3-seo-flotation-methods-and-cost-trade-off)
   - [3.1 Firm Commitment Offer](#31-firm-commitment-offer)
   - [3.2 Rights Offer](#32-rights-offer)
   - [3.3 Private Placement](#33-private-placement)
   - [3.4 Shelf Registration](#34-shelf-registration)
   - [3.5 Cost Trade-off and Summary](#35-cost-trade-off-and-summary)
-- [4. 理论机制的实证区分](#4-理论机制的实证区分)
-- [5. 理论整合框架](#5-理论整合框架)
-- [6. 关键实证证据总结](#6-关键实证证据总结)
-- [7. 政策实验设计思路](#7-政策实验设计思路)
-- [8. 理论与实证的对应关系](#8-理论与实证的对应关系)
-- [参考文献](#参考文献)
+- [4. Empirical Separation of Mechanisms](#4-empirical-separation-of-mechanisms)
+- [5. Integrated SEO Framework](#5-integrated-seo-framework)
+- [6. Key Empirical Evidence](#6-key-empirical-evidence)
+- [7. Policy Experiment Designs](#7-policy-experiment-designs)
+- [8. Theory-to-Evidence Mapping](#8-theory-to-evidence-mapping)
+- [References](#references)
 
-## 1. 定义与背景
+## 1. Definition and Background
 
 **Seasoned Equity Offering (SEO)**：已上市公司在 IPO 之后再次向市场发行股票以筹集外部股权资金的行为。
 
@@ -41,7 +41,27 @@
 - **Primary SEO**：公司发行新股，资金流入公司
 - **Secondary sale**：老股东出售持股，资金不流入公司
 
-## 2. 核心理论机制
+## 2. Core SEO Mechanisms
+
+SEO 是单独的 equity issuance 主题，不是 trade-off theory 的附录。课件里的核心问题是：
+
+$$
+\begin{aligned}
+\text{SEO announcement / issuance outcome}
+&\Longleftarrow
+\begin{cases}
+\text{adverse selection} \\
+\text{market timing} \\
+\text{cash-flow signaling} \\
+\text{price pressure} \\
+\text{ownership and monitoring} \\
+\text{target leverage rebalancing} \\
+\text{flotation cost trade-off}
+\end{cases}
+\end{aligned}
+$$
+
+其中 **target leverage rebalancing** 只是 capital-structure channel；SEO 自身还必须解释发行方式、公告效应、长期表现和 cross-sectional heterogeneity。
 
 ### 2.1 Adverse Selection Theory (Myers and Majluf 1984)
 
@@ -206,7 +226,7 @@ $$
 
 ---
 
-### 2.7 Target Leverage Rebalancing
+### 2.7 Target Leverage Rebalancing (Trade-off Application)
 
 **核心机制**：公司用 SEO 调整 leverage，使资本结构更接近 target leverage。理论基础见 [Tradeoff_Theory](Tradeoff_Theory.md)。
 
@@ -227,7 +247,7 @@ $$
 
 ---
 
-## 3. SEO Flotation Methods 与理论预测
+## 3. SEO Flotation Methods and Cost Trade-off
 
 ### 3.1 Firm Commitment Offer
 
@@ -317,7 +337,7 @@ $$
 
 ---
 
-## 4. 理论机制的实证区分
+## 4. Empirical Separation of Mechanisms
 
 ### 4.1 Adverse Selection vs. Market Timing
 
@@ -347,16 +367,18 @@ $$
 
 ---
 
-## 5. 理论整合框架
+## 5. Integrated SEO Framework
 
 $$
 \begin{aligned}
-\text{SEO announcement effect}
+\text{SEO outcomes}
 &= \underbrace{\text{adverse selection effect}}_{\text{信息不对称}}
++ \underbrace{\text{market timing effect}}_{\text{估值择时}}
 + \underbrace{\text{cash flow signal effect}}_{\text{融资需求揭示}}
 + \underbrace{\text{price pressure effect}}_{\text{供需压力}} \\
 &\quad + \underbrace{\text{ownership effect}}_{\text{监督与激励}}
 + \underbrace{\text{leverage rebalancing effect}}_{\text{资本结构调整}}
++ \underbrace{\text{flotation method effect}}_{\text{发行方式成本}}
 \end{aligned}
 $$
 
@@ -366,10 +388,11 @@ $$
 3. 用 **relative offer size / liquidity**区分 price pressure
 4. 用 **investor type / management sales**区分 ownership effect
 5. 用 **leverage deviation from target**区分 leverage rebalancing
+6. 用 **offer method / underwriting contract / participation rate**区分 flotation method effect
 
 ---
 
-## 6. 关键实证证据总结
+## 6. Key Empirical Evidence
 
 ### 6.1 Announcement Effects
 
@@ -399,9 +422,9 @@ $$
 
 ---
 
-## 7. 政策实验设计思路
+## 7. Policy Experiment Designs
 
-### 7.1 检验 Adverse Selection
+### 7.1 Test Adverse Selection
 
 **政策冲击**：监管要求部分公司在 SEO 前强制披露更细的项目用途、管理层持股变化和关键资产估值信息。
 
@@ -417,7 +440,7 @@ $$
 
 **预期**：$\beta > 0$（强制披露降低信息不对称 → CAR less negative）
 
-### 7.2 检验 Market Timing
+### 7.2 Test Market Timing
 
 **政策冲击**：监管对部分公司随机延长 SEO filing 到 issuance 的等待期，降低择时能力。
 
@@ -440,7 +463,7 @@ $$
 - $\beta < 0$（限制择时 → SEO probability 下降）
 - $\theta$ 对 long-run return：限制择时后，underperformance 减弱
 
-### 7.3 检验 Price Pressure
+### 7.3 Test Price Pressure
 
 **政策冲击**：交易所随机提高部分股票的临时流动性支持（market-making obligation）。
 
@@ -456,9 +479,47 @@ $$
 
 **预期**：$\beta > 0$（流动性支持 → price impact 减弱 → CAR less negative）
 
+### 7.4 Test Ownership and Monitoring
+
+**政策冲击**：指数纳入、机构投资者持股规则变化，或 private placement 披露规则改变。
+
+**DiD 设定**：
+
+$$
+\begin{aligned}
+CAR_i
+&=
+\alpha
++\beta(\text{Monitoring Investor}_i \times \text{Post}_t)
++\gamma'X_i
++\varepsilon_i.
+\end{aligned}
+$$
+
+**预期**：$\beta>0$。如果 SEO 引入的投资者能提供 certification 或 monitoring，announcement effect 应更不负或为正。
+
+### 7.5 Test Target Leverage Rebalancing
+
+**政策冲击**：税改或破产法改革改变 target leverage，使部分公司偏离目标杠杆更远。
+
+**DiD 设定**：
+
+$$
+\begin{aligned}
+\Pr(\text{SEO}_{it}=1)
+&=
+\alpha
++\beta(\text{Target Leverage Gap}_{i,t-1}\times \text{Post}_t)
++\gamma'X_{it}
++\varepsilon_{it}.
+\end{aligned}
+$$
+
+**预期**：$\beta>0$。若 SEO 用于 capital structure rebalancing，偏离 target leverage 越大的公司越可能发行 equity 来降杠杆。
+
 ---
 
-## 8. 理论与实证的对应关系
+## 8. Theory-to-Evidence Mapping
 
 | 理论机制              | 核心预测                                                     | 关键实证证据                                                 |
 | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -468,10 +529,11 @@ $$
 | Price pressure        | relative offer size ↑, liquidity ↓ → CAR ↓                   | Asquith and Mullins (1986) issue size effect                 |
 | Ownership-monitoring  | monitoring investor ↑ → CAR ↑; management sales ↑ → CAR ↓   | Wruck (1989), Masulis and Korwar (1986)                      |
 | Target leverage       | leverage deviation ↑ → SEO probability ↑                     | 税改自然实验（理论推导，实证较少）                           |
+| Flotation method      | rights / firm commitment / private placement imply different direct and indirect costs | Eckbo and Masulis (1992), Kothare (1997), Holderness and Pontiff (2016) |
 
 ---
 
-## 参考文献
+## References
 
 **核心理论**：
 - Myers and Majluf (1984), *Corporate Financing and Investment Decisions When Firms Have Information that Investors Do Not Have*, JFE
@@ -486,6 +548,8 @@ $$
 - Spiess and Affleck-Graves (1995), *Underperformance in Long-Run Stock Returns Following Seasoned Equity Offerings*, JFE
 - Wruck (1989), *Equity Ownership Concentration and Firm Value*, JFE
 - Eckbo and Masulis (1992), *Adverse Selection and the Rights Offer Paradox*, JFE
+- Kothare (1997), *The Effects of Equity Issues on Ownership Structure and Stock Liquidity*, JFE
+- Holderness and Pontiff (2016), rights offers and shareholder participation
 
 **市场条件**：
 - Choe, Masulis and Nanda (1993), *Common Stock Offerings across the Business Cycle*, JFE

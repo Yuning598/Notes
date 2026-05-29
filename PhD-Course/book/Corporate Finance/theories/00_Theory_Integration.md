@@ -7,12 +7,12 @@
 ### 理论笔记列表
 
 1. **[MM 定理与税基资本结构理论](MM_and_Tax_Theory.md)** - MM 命题、Miller 个人税、非债务税盾、税盾价值估算
-2. **[Trade-off Theory 与最优资本结构](Tradeoff_Theory.md)** - 税盾、困境成本、代理成本与目标杠杆
+2. **[Trade-off Theory and Optimal Capital Structure](Tradeoff_Theory.md)** - 税盾、困境成本、代理成本与目标杠杆
 3. **[代理理论](Agency_Theory.md)** - 资产替代、投资不足、自由现金流、成长期权与杠杆
 4. **[Pecking Order 与信息不对称理论](Pecking_Order_Theory.md)** - Myers-Majluf 稀释成本、融资优先顺序、债务信号
 5. **[派息政策理论](Payout_Policy_Theory.md)** - 股利无关性、税基理论、信号理论、股利 vs. 回购、生命周期理论
 6. **[财务困境成本理论](Financial_Distress_Theory.md)** - 破产成本、Fire Sales、清算价值与债务契约
-7. **[SEO 理论](SEO_Theory.md)** - 逆向选择、市场择时、公告效应
+7. **[Seasoned Equity Offerings (SEO) Theory](SEO_Theory.md)** - 逆向选择、市场择时、发行方式与公告效应
 
 ### ⚠️ [常见错误与易混淆点](Common_Mistakes.md) 🔥
 
