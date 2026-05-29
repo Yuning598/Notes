@@ -4,6 +4,7 @@ parts:
   - caption: Asset Pricing
     chapters:
       - file: Asset Pricing/index
+      - file: Asset Pricing/Empirical_Asset_Pricing
         sections:
           - file: Asset Pricing/Empirical AP/00-MOC_EF8083_Empirical_Asset_Pricing
           - file: Asset Pricing/Empirical AP/01_Volatility_ARCH_GARCH
@@ -15,6 +16,8 @@ parts:
           - file: Asset Pricing/Empirical AP/07_Behavioral_Empirical_AP_Overview
           - file: Asset Pricing/Empirical AP/08_Limits_to_Arbitrage_Prospect_Theory
           - file: Asset Pricing/Empirical AP/09_Beliefs_Attention_Sentiment_Credit
+      - file: Asset Pricing/Theoretical_Asset_Pricing
+        sections:
           - file: Asset Pricing/Theoretical AP/01_Single_Period_Models
           - file: Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing
           - file: Asset Pricing/Theoretical AP/03_Continuous_Time_Pricing_Options_Term_Structure
