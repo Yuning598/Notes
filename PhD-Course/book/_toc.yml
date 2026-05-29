@@ -29,6 +29,16 @@ parts:
       - file: Corporate Finance/02_Econometric_Methods_in_Corporate_Finance
       - file: Corporate Finance/03_Applied_Corporate_Finance_Theory
       - file: Corporate Finance/04_Special_Topics
+      - file: Corporate Finance/theories/README
+        sections:
+          - file: Corporate Finance/theories/00_Theory_Integration
+          - file: Corporate Finance/theories/Common_Mistakes
+          - file: Corporate Finance/theories/MM_and_Tax_Theory
+          - file: Corporate Finance/theories/Agency_Theory
+          - file: Corporate Finance/theories/Pecking_Order_Theory
+          - file: Corporate Finance/theories/Financial_Distress_Theory
+          - file: Corporate Finance/theories/Payout_Policy_Theory
+          - file: Corporate Finance/SEO_Theory
       - file: Corporate Finance/Theory_Reading_Guide
   - caption: Econometrics
     chapters:
