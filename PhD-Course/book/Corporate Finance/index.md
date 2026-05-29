@@ -140,7 +140,11 @@ lagged \(X\), peer average, endogenous policy exposure, instruments driven by co
 Always discuss:
 first-stage strength, exclusion restriction, weak IV risk, and LATE interpretation.
 
-## Part 4 Lecture 1：Labor and Corporate Finance
+## Part 4
+
+This part covers labor, ESG and AI, and creditor rights / debt contracts / real effects.
+
+### Labor and Corporate Finance
 
 Labor is not only a cost; it is also human capital, production input, and a source of financial frictions.
 
@@ -164,7 +168,7 @@ $$
 
 TFP means output unexplained by capital and labor.
 
-## Part 4 Lecture 2：ESG and AI
+### ESG and AI
 
 ESG and AI affect firms through labor, innovation, productivity, and valuation channels.
 
@@ -189,3 +193,38 @@ $$
 
 ESG is not only disclosure; it can reflect real labor, environmental, and governance investments.  
 AI is a general-purpose technology that changes product innovation, process efficiency, labor demand, and firm value.
+
+### Creditor Rights, Debt Contracts, and Real Effects
+
+Debt creates conflicts between equityholders and debtholders when debt is risky. Creditor rights and covenant design matter because they shape underinvestment, risk shifting, and restructuring speed.
+
+$$
+\begin{aligned}
+\text{debt agency cost}
+&\Longleftrightarrow
+\begin{cases}
+\text{underinvestment} \Rightarrow \text{positive NPV project rejected} \\
+\text{risk shifting} \Rightarrow \text{equity takes too much downside risk} \\
+\text{restructuring delay} \Rightarrow \text{distress lasts longer} \\
+\text{real effects} \Rightarrow \text{investment, hiring, customers, suppliers, and asset sales}
+\end{cases}
+\end{aligned}
+$$
+
+Stronger creditor protection and better covenant enforcement can raise debt capacity, but the main trade-off is that tighter debt contracts may also constrain flexibility.
+
+$$
+\begin{aligned}
+\text{creditor protection} \uparrow
+\Rightarrow \text{risk shifting} \downarrow
+\Rightarrow \text{debt agency cost} \downarrow
+\Rightarrow \text{debt capacity} \uparrow
+\end{aligned}
+$$
+
+Real effects are not only financial:
+- forced asset sales
+- lower investment
+- weaker hiring quality
+- customer and supplier losses
+- longer restructuring delays
