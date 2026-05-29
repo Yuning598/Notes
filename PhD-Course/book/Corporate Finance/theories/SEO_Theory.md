@@ -3,6 +3,7 @@
 ## 📌 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - 完美市场下融资无关性
+- **基准理论**：[Tradeoff_Theory](Tradeoff_Theory.md) - SEO 作为 target leverage rebalancing
 - **互补理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - internal funds / debt / equity 的融资顺序
 - **互补理论**：[Payout_Policy_Theory](Payout_Policy_Theory.md) - repurchase 与 SEO 的对照
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 监控、控制权与代理成本
@@ -18,7 +19,7 @@
   - [2.4 Cash Flow Signaling (Miller and Rock 1985)](#24-cash-flow-signaling-miller-and-rock-1985)
   - [2.5 Price Pressure Theory](#25-price-pressure-theory)
   - [2.6 Ownership and Monitoring Theory](#26-ownership-and-monitoring-theory)
-  - [2.7 Target Leverage Adjustment and Trade-off Theory](#27-target-leverage-adjustment-and-trade-off-theory)
+  - [2.7 Target Leverage Rebalancing](#27-target-leverage-rebalancing)
 - [3. SEO Flotation Methods 与理论预测](#3-seo-flotation-methods-与理论预测)
   - [3.1 Firm Commitment Offer](#31-firm-commitment-offer)
   - [3.2 Rights Offer](#32-rights-offer)
@@ -205,12 +206,9 @@ $$
 
 ---
 
-### 2.7 Target Leverage Adjustment and Trade-off Theory
+### 2.7 Target Leverage Rebalancing
 
-**核心机制**：公司用 SEO 调整 leverage，使资本结构更接近 target leverage。这里的 trade-off 主要是：
-- 高杠杆带来的 **tax shield**
-- 过高杠杆带来的 **financial distress cost**
-- 以及由 debt 约束带来的 **agency discipline**
+**核心机制**：公司用 SEO 调整 leverage，使资本结构更接近 target leverage。理论基础见 [Tradeoff_Theory](Tradeoff_Theory.md)。
 
 $$
 \begin{aligned}

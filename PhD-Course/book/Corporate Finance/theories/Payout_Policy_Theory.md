@@ -5,7 +5,7 @@
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 股利无关性
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 自由现金流与派息
 - **互补理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - 信号理论基础
-- **对比**：[../SEO_Theory](../SEO_Theory.md) - 股权融资 vs. 回购
+- **对比**：[SEO_Theory](SEO_Theory.md) - 股权融资 vs. 回购
 - **整合框架**：[00_Theory_Integration](00_Theory_Integration.md) - 派息决策树
 
 ---

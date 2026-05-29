@@ -2,16 +2,17 @@
 
 ## 📚 理论笔记导航
 
-本笔记整合公司金融六大核心理论，提供理论对比、决策框架、公式速查和考试模板。
+本笔记整合公司金融七大核心理论，提供理论对比、决策框架、公式速查和考试模板。
 
 ### 理论笔记列表
 
 1. **[MM 定理与税基资本结构理论](MM_and_Tax_Theory.md)** - MM 命题、Miller 个人税、非债务税盾、税盾价值估算
-2. **[代理理论](Agency_Theory.md)** - 资产替代、投资不足、自由现金流、成长期权与杠杆
-3. **[Pecking Order 与信息不对称理论](Pecking_Order_Theory.md)** - Myers-Majluf 稀释成本、融资优先顺序、债务信号
-4. **[派息政策理论](Payout_Policy_Theory.md)** - 股利无关性、税基理论、信号理论、股利 vs. 回购、生命周期理论
-5. **[财务困境成本理论](Financial_Distress_Theory.md)** - 破产成本、Fire Sales、清算价值与债务契约
-6. **[SEO 理论](../SEO_Theory.md)** - 逆向选择、市场择时、公告效应
+2. **[Trade-off Theory 与最优资本结构](Tradeoff_Theory.md)** - 税盾、困境成本、代理成本与目标杠杆
+3. **[代理理论](Agency_Theory.md)** - 资产替代、投资不足、自由现金流、成长期权与杠杆
+4. **[Pecking Order 与信息不对称理论](Pecking_Order_Theory.md)** - Myers-Majluf 稀释成本、融资优先顺序、债务信号
+5. **[派息政策理论](Payout_Policy_Theory.md)** - 股利无关性、税基理论、信号理论、股利 vs. 回购、生命周期理论
+6. **[财务困境成本理论](Financial_Distress_Theory.md)** - 破产成本、Fire Sales、清算价值与债务契约
+7. **[SEO 理论](SEO_Theory.md)** - 逆向选择、市场择时、公告效应
 
 ### ⚠️ [常见错误与易混淆点](Common_Mistakes.md) 🔥
 
@@ -56,7 +57,7 @@ graph TD
 
 ---
 
-## 2. 六大理论主题关系图
+## 2. 七大理论主题关系图
 
 ### 2.1 理论互补与冲突
 
@@ -641,8 +642,9 @@ timeline
 
 完整参考文献见各主题笔记：
 1. `MM_and_Tax_Theory.md`
-2. `Agency_Theory.md`
-3. `Pecking_Order_Theory.md`
-4. `Payout_Policy_Theory.md`
-5. `Financial_Distress_Theory.md`
-6. `SEO_Theory.md`（在上级目录）
+2. `Tradeoff_Theory.md`
+3. `Agency_Theory.md`
+4. `Pecking_Order_Theory.md`
+5. `Payout_Policy_Theory.md`
+6. `Financial_Distress_Theory.md`
+7. `SEO_Theory.md`

@@ -4,7 +4,7 @@
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 无破产成本假设
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 投资不足与困境成本
-- **应用**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - Trade-off theory 的成本端
+- **应用**：[Tradeoff_Theory](Tradeoff_Theory.md) - Trade-off theory 的成本端
 - **实证方法**：清算价值识别策略
 - **整合框架**：[00_Theory_Integration](00_Theory_Integration.md) - 困境成本在最优杠杆中的角色
 

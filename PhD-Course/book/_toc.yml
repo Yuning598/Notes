@@ -33,11 +33,12 @@ parts:
         sections:
           - file: Corporate Finance/theories/Common_Mistakes
           - file: Corporate Finance/theories/MM_and_Tax_Theory
+          - file: Corporate Finance/theories/Tradeoff_Theory
           - file: Corporate Finance/theories/Agency_Theory
           - file: Corporate Finance/theories/Pecking_Order_Theory
           - file: Corporate Finance/theories/Financial_Distress_Theory
           - file: Corporate Finance/theories/Payout_Policy_Theory
-          - file: Corporate Finance/SEO_Theory
+          - file: Corporate Finance/theories/SEO_Theory
       - file: Corporate Finance/Theory_Reading_Guide
   - caption: Econometrics
     chapters:
