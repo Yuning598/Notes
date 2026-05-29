@@ -27,6 +27,9 @@ sphinx:
     external_toc_exclude_missing: false
     suppress_warnings:
       - toc.not_included
+    myst_fence_as_directive:
+      - mermaid
+      - tikz
     mermaid_version: "10.6.1"
     mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
     tikz_proc_suite: GhostScript
