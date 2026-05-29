@@ -1,6 +1,6 @@
 # Trade-off Theory and Optimal Capital Structure
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - debt tax shield 的来源
 - **成本端**：[Financial_Distress_Theory](Financial_Distress_Theory.md) - expected distress costs
@@ -37,24 +37,10 @@ $$
 
 ## 2. 基准模型
 
-> [!definition] Trade-off valuation
-> 
-> $$
-> \begin{aligned}
-> V_L(D)
-> &=
-> V_U
-> + \underbrace{PV(\text{tax shield};D)}_{\text{benefit of debt}}
-> + \underbrace{PV(\text{agency discipline};D)}_{\text{free cash flow discipline}} \\
-> &\quad
-> - \underbrace{PV(\text{financial distress costs};D)}_{\text{bankruptcy and indirect costs}}
-> - \underbrace{PV(\text{debt agency costs};D)}_{\text{underinvestment / risk shifting}} .
-> \end{aligned}
-> $$
+```{admonition} Definition: Trade-off valuation
+:class: important
 
-^definition-tradeoff-valuation
-
-简化版本通常写成：
+简化版本通常写成 trade-off 估值：
 
 $$
 \begin{aligned}
@@ -69,10 +55,26 @@ $$
 其中 $C(D)$ 汇总 expected distress costs 和 debt agency costs，且满足：
 
 $$
-\begin{aligned}
 C'(D)>0,
 \qquad
 C''(D)>0.
+$$
+
+^definition-tradeoff-valuation
+```
+
+完整版本包含所有收益和成本项：
+
+$$
+\begin{aligned}
+V_L(D)
+&=
+V_U
++ \underbrace{PV(\text{tax shield};D)}_{\text{benefit of debt}}
++ \underbrace{PV(\text{agency discipline};D)}_{\text{free cash flow discipline}} \\
+&\quad
+- \underbrace{PV(\text{financial distress costs};D)}_{\text{bankruptcy and indirect costs}}
+- \underbrace{PV(\text{debt agency costs};D)}_{\text{underinvestment / risk shifting}} .
 \end{aligned}
 $$
 
@@ -80,24 +82,26 @@ $$
 
 ## 3. 最优杠杆推导
 
-> [!proposition] Interior optimal leverage
-> 
-> 若 tax shield 的边际收益递减或债务成本凸，则最优债务 $D^\ast$ 满足：
-> 
-> $$
-> \begin{aligned}
-> \frac{\partial V_L(D)}{\partial D}
-> &=
-> \frac{\partial PV(\text{tax shield};D)}{\partial D}
-> + \frac{\partial PV(\text{agency discipline};D)}{\partial D} \\
-> &\quad
-> - \frac{\partial PV(\text{financial distress costs};D)}{\partial D}
-> - \frac{\partial PV(\text{debt agency costs};D)}{\partial D}
-> =0.
-> \end{aligned}
-> $$
+```{admonition} Proposition: Interior optimal leverage
+:class: important
+
+若 tax shield 的边际收益递减或债务成本凸，则最优债务 $D^\ast$ 满足：
+
+$$
+\begin{aligned}
+\frac{\partial V_L(D)}{\partial D}
+&=
+\frac{\partial PV(\text{tax shield};D)}{\partial D}
++ \frac{\partial PV(\text{agency discipline};D)}{\partial D} \\
+&\quad
+- \frac{\partial PV(\text{financial distress costs};D)}{\partial D}
+- \frac{\partial PV(\text{debt agency costs};D)}{\partial D}
+=0.
+\end{aligned}
+$$
 
 ^prop-interior-optimal-leverage
+```
 
 在简化模型 $V_L(D)=V_U+\tau_C D-C(D)$ 下：
 

@@ -1,6 +1,6 @@
-# 财务困境成本理论
+# Financial Distress Costs Theory
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 无破产成本假设
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 投资不足与困境成本

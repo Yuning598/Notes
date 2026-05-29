@@ -1,6 +1,6 @@
 # Seasoned Equity Offerings (SEO) Theory
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - 完美市场下融资无关性
 - **资本结构基准**：[Tradeoff_Theory](Tradeoff_Theory.md) - target leverage rebalancing 只是 SEO 的一个机制

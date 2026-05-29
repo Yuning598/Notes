@@ -1,6 +1,6 @@
-# 派息政策理论（股利与回购）
+# Payout Policy Theory (Dividends and Repurchases)
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 股利无关性
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 自由现金流与派息

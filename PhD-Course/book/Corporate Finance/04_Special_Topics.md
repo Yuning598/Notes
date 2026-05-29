@@ -12,11 +12,13 @@ Important IV examples：
 
 ### Labor and Finance（Introduction, slide 3-4/61）
 
-> [!summary] Labor and Finance 是什么
-> - 研究 human capital 如何影响企业财务决策，以及财务政策如何反过来影响劳动结果。
-> - 融合 finance、labor economics、organizational economics、entrepreneurship。
-> - 关注 human capital 在 corporate policy、financial markets、household finance 中的作用。
-> - Human capital 指能提升生产率与竞争优势的技能、知识和经验。
+:::{admonition} Labor and Finance 是什么
+- 研究 human capital 如何影响企业财务决策，以及财务政策如何反过来影响劳动结果。
+- 融合 finance、labor economics、organizational economics、entrepreneurship。
+- 关注 human capital 在 corporate policy、financial markets、household finance 中的作用。
+- Human capital 指能提升生产率与竞争优势的技能、知识和经验。
+:::
+
 
 双向作用框架（from slide）：
 - `Labor Market (Demand & Supply) -> Finance`：影响投资（investment）、资本结构（capital structure）、企业边界（firm boundaries）。
@@ -46,14 +48,16 @@ Important IV examples：
 
 ### 1.1 Production Function（slide 10/61）
 
-> [!summary] Production Function
-> 产出由技术与投入共同决定：
-> $$
-> \begin{aligned}
-> Y_{it}=A_{it}F(K_{it},L_{it}),
-> \end{aligned}
-> $$
-> 其中 $Y_{it}$ 为产出，$A_{it}$ 为全要素生产率（TFP），$K_{it}$ 为资本，$L_{it}$ 为劳动。
+:::{admonition} Production Function
+产出由技术与投入共同决定：
+$$
+\begin{aligned}
+Y_{it}=A_{it}F(K_{it},L_{it}),
+\end{aligned}
+$$
+其中 $Y_{it}$ 为产出，$A_{it}$ 为全要素生产率（TFP），$K_{it}$ 为资本，$L_{it}$ 为劳动。
+:::
+
 
 Cobb–Douglas 特例：
 
@@ -86,15 +90,17 @@ $$
 
 ### 1.2 Marginal Product of Labor and Productivity Estimation（slide 11-12/61）
 
-> [!summary] Marginal Product of Labor（MPL）
-> 在 Cobb–Douglas 下：
-> $$
-> \begin{aligned}
-> MPL_{it}
-> =\frac{\partial Y_{it}}{\partial L_{it}}
-> =\beta\frac{Y_{it}}{L_{it}}.
-> \end{aligned}
-> $$
+:::{admonition} Marginal Product of Labor（MPL）
+在 Cobb–Douglas 下：
+$$
+\begin{aligned}
+MPL_{it}
+=\frac{\partial Y_{it}}{\partial L_{it}}
+=\beta\frac{Y_{it}}{L_{it}}.
+\end{aligned}
+$$
+:::
+
 
 竞争市场（competitive markets）下：
 
@@ -158,8 +164,10 @@ $$
 
 ### 2.1 Historical Waves of Automation and Labor Adjustment（slide 14-18/61）
 
-> [!summary] Brozen (1957) 的核心提醒
-> 对“技术替代劳动”的担忧在历史上反复出现，但每一轮技术变革通常伴随任务重组（task reallocation）与新岗位创造，而非单向、永久的就业坍缩。
+:::{admonition} Brozen (1957) 的核心提醒
+对“技术替代劳动”的担忧在历史上反复出现，但每一轮技术变革通常伴随任务重组（task reallocation）与新岗位创造，而非单向、永久的就业坍缩。
+:::
+
 
 Historical Waves of Automation and Labor Adjustment：
 - First Industrial Revolution（late 18th–early 19th）  
@@ -178,9 +186,11 @@ Historical Waves of Automation and Labor Adjustment：
 
 ### 2.2 Types of Automation: Brozen (1957)（slide 19-20/61）
 
-> [!summary] 两大类自动化机制
-> - **Automation as Adaptation（适应型）**：在既有生产函数下，企业沿投入组合调整（更多资本深化）。
-> - **Automation from Invention（发明型）**：技术前沿变化，单位投入需求下降（生产前沿外移）。
+:::{admonition} 两大类自动化机制
+- **Automation as Adaptation（适应型）**：在既有生产函数下，企业沿投入组合调整（更多资本深化）。
+- **Automation from Invention（发明型）**：技术前沿变化，单位投入需求下降（生产前沿外移）。
+:::
+
 
 1) Automation as Adaptation: Capital Deepening  
 - 总资本存量增长提高边际生产率（marginal productivity），推升工资。  
@@ -204,8 +214,10 @@ Historical Waves of Automation and Labor Adjustment：
 
 ### 2.3 Ouimet, Simintzi, and Ye (2025): Opioids, Labor Supply, and IT Substitution（slide 21-23/61）
 
-> [!summary] Research Question
-> 阿片危机（opioid crisis）如何影响企业价值，以及企业在劳动与信息技术（IT）之间的投入选择？
+:::{admonition} Research Question
+阿片危机（opioid crisis）如何影响企业价值，以及企业在劳动与信息技术（IT）之间的投入选择？
+:::
+
 
 定义（Opioid 是什么）：
 - **Opioid（阿片类药物）**：作用于阿片受体（opioid receptors）的镇痛药物（包括处方止痛药和非法阿片）；长期/过量使用会提高依赖与成瘾风险，并可能损害劳动能力与健康。
@@ -251,9 +263,11 @@ $$
 
 ### 2.4 Dai and Qiu (2024): Minimum Wage Increases and IT Adoption（slide 25/61）
 
-> [!summary] 这页图在说什么
-> 研究问题：州最低工资上调（state minimum wage increases）是否促进企业 IT 采用（IT adoption）？
-> 识别方法：跨州边界配对县（paired border counties）+ stacked DID（事件研究）。
+:::{admonition} 这页图在说什么
+研究问题：州最低工资上调（state minimum wage increases）是否促进企业 IT 采用（IT adoption）？
+识别方法：跨州边界配对县（paired border counties）+ stacked DID（事件研究）。
+:::
+
 
 ![Pasted image 20260413155659.png](Pasted image 20260413155659.png)
 图左（Map of Treatment and Border Control Counties）：
@@ -295,8 +309,10 @@ $$
 
 ### 2.6 Tuzel and Zhang (2021): Tax Incentives, Routine Tasks, and Skill Upgrading（slide 28/61）
 
-> [!summary] Main Finding
-> 州级投资税收激励（state investment tax incentives）使符合条件企业增加设备投资与高技能用工；同时在最多约两年滞后后，routine-task employment 下降。
+:::{admonition} Main Finding
+州级投资税收激励（state investment tax incentives）使符合条件企业增加设备投资与高技能用工；同时在最多约两年滞后后，routine-task employment 下降。
+:::
+
 
 任务结构测度（Routine-Task Intensity, RTI）：
 - 数据基础：DOT / O*NET / OEWS（课件口径）。
@@ -334,10 +350,12 @@ $$
 
 ### 3.1 Build or Buy? Hiring vs Acquiring Talent（slide 30/61）
 
-> [!summary] Acquisition of Human Capital: Build or Buy
-> 企业获取人力资本主要有两条路径：
-> - **Build（Hiring / Organic Talent Acquisition）**：在外部劳动力市场招聘并内部整合。
-> - **Buy（Acquiring / Talent-Driven M&A）**：通过并购直接获取已成型团队与组织能力。
+:::{admonition} Acquisition of Human Capital: Build or Buy
+企业获取人力资本主要有两条路径：
+- **Build（Hiring / Organic Talent Acquisition）**：在外部劳动力市场招聘并内部整合。
+- **Buy（Acquiring / Talent-Driven M&A）**：通过并购直接获取已成型团队与组织能力。
+:::
+
 
 Build（Hiring）的典型约束：
 - labor supply 有限、流动性约束（mobility constraints）、匹配摩擦（matching frictions）。
@@ -354,10 +372,12 @@ Buy（Acquiring）的典型特征：
 
 ### 3.2 Beaumont, Hebert, and Lyonnet (2025): Human-Capital Distance and Entry Mode（slide 31-32/61）
 
-> [!summary] Main Findings
-> - 当进入“人力资本相近”的行业时，企业更倾向于通过招聘（build）获取人力资本。
-> - 当进入“人力资本较远”的行业时，企业更倾向于通过并购（buy）获取已整合的人力资本与组织能力。
-> - 在远距离行业中仅靠 build 的企业存在持续性绩效劣势（durable underperformance）。
+:::{admonition} Main Findings
+- 当进入“人力资本相近”的行业时，企业更倾向于通过招聘（build）获取人力资本。
+- 当进入“人力资本较远”的行业时，企业更倾向于通过并购（buy）获取已整合的人力资本与组织能力。
+- 在远距离行业中仅靠 build 的企业存在持续性绩效劣势（durable underperformance）。
+:::
+
 
 数据与测度（slide 信息）：
 - 法国行政数据：工资、工时、细职业编码等。
@@ -379,14 +399,16 @@ $$
 
 ### 3.3 Bartik Instrument（slide 34-35/61）
 
-> [!summary] 结构方程与内生性
-> 目标是识别本地就业增长对工资增长的影响（inverse labor-supply elasticity）：
-> $$
-> \begin{aligned}
-> y_l=\rho+\beta_0 x_l+\epsilon_l,
-> \end{aligned}
-> $$
-> 其中 $y_l$ 是地区 $l$ 的工资增长，$x_l$ 是本地就业增长，且 $\operatorname{Cov}(x_l,\epsilon_l)\neq 0$。
+:::{admonition} 结构方程与内生性
+目标是识别本地就业增长对工资增长的影响（inverse labor-supply elasticity）：
+$$
+\begin{aligned}
+y_l=\rho+\beta_0 x_l+\epsilon_l,
+\end{aligned}
+$$
+其中 $y_l$ 是地区 $l$ 的工资增长，$x_l$ 是本地就业增长，且 $\operatorname{Cov}(x_l,\epsilon_l)\neq 0$。
+:::
+
 
 shift-share 分解（Bartik 的基础）：
 
@@ -416,10 +438,12 @@ $$
 
 ### 3.4 Beaumont, Hebert, and Lyonnet (2025): HC Bartik（slide 36/61）
 
-> [!summary] HC Bartik 的核心思想
-> 用“进入行业 incumbents 的人力资本结构变化”作为外生冲击，结合企业初始职业结构，构造针对企业-行业对 $(g,n)$ 的 shift-share 工具变量。
-> - `share`：$\hat s_{g,i,03}$（企业 $g$ 在 2003 年的职业结构）
-> - `shift`：$\Delta\hat s_{n,i,03,11}$（行业 $n$ 的 incumbents 在 2003-2011 的职业结构变化）
+:::{admonition} HC Bartik 的核心思想
+用“进入行业 incumbents 的人力资本结构变化”作为外生冲击，结合企业初始职业结构，构造针对企业-行业对 $(g,n)$ 的 shift-share 工具变量。
+- `share`：$\hat s_{g,i,03}$（企业 $g$ 在 2003 年的职业结构）
+- `shift`：$\Delta\hat s_{n,i,03,11}$（行业 $n$ 的 incumbents 在 2003-2011 的职业结构变化）
+:::
+
 
 写法一（直接 shift-share）：
 
@@ -463,10 +487,12 @@ $$
 
 ### 4.1 Labor Mobility and Noncompete Agreements（slide 44-45/61）
 
-> [!summary] Labor Mobility（劳动力流动）
-> - 劳动力在雇主（employers）、职业（occupations）、行业（industries）与地区（regions）之间流动的能力。
-> - 对企业（firms）而言，流动性决定招聘成本、匹配摩擦（search/matching frictions）、员工外部选择（outside options）与议价能力（bargaining power）。
-> - 流动性摩擦会影响企业劳动调整成本，并进一步影响资本结构与投资决策。
+:::{admonition} Labor Mobility（劳动力流动）
+- 劳动力在雇主（employers）、职业（occupations）、行业（industries）与地区（regions）之间流动的能力。
+- 对企业（firms）而言，流动性决定招聘成本、匹配摩擦（search/matching frictions）、员工外部选择（outside options）与议价能力（bargaining power）。
+- 流动性摩擦会影响企业劳动调整成本，并进一步影响资本结构与投资决策。
+:::
+
 
 流动性摩擦来源（slide 44）：
 - 移民约束（immigration constraints，如 green card 限制）。
@@ -504,8 +530,10 @@ NCA（Noncompete Agreements）要点（slide 45）：
 
 ### 5.1 Framework（slide 51/61）
 
-> [!summary] 核心框架
-> 传统资本结构模型（capital structure）主要围绕物质资本融资；但企业还依赖人力资本（human capital），其特征是不可被“拥有”、可退出并议价、受失业风险与劳动监管影响。
+:::{admonition} 核心框架
+传统资本结构模型（capital structure）主要围绕物质资本融资；但企业还依赖人力资本（human capital），其特征是不可被“拥有”、可退出并议价、受失业风险与劳动监管影响。
+:::
+
 
 在 trade-off theory 下，劳动市场摩擦可作为额外债务成本进入目标函数：
 
@@ -564,10 +592,12 @@ Defined Benefit (DB) pension：
 
 ### 7.1 Labor Welfare and Corporate Finance（slide 6/61）
 
-> [!summary] Framework
-> - 企业在追求劳动成本最小化时，也会投资工人技能、生产率与安全福祉（worker safety and well-being）。
-> - 金融政策（leverage / liquidity / governance / performance pressure）会改变企业在 labor welfare 上的投资激励。
-> - 劳动福利影响生产率、运营风险、诉讼暴露与企业价值（firm value）。
+:::{admonition} Framework
+- 企业在追求劳动成本最小化时，也会投资工人技能、生产率与安全福祉（worker safety and well-being）。
+- 金融政策（leverage / liquidity / governance / performance pressure）会改变企业在 labor welfare 上的投资激励。
+- 劳动福利影响生产率、运营风险、诉讼暴露与企业价值（firm value）。
+:::
+
 
 核心映射（课堂口径）：
 - workplace safety 是一种真实投资决策（real investment margin），可观察金融压力如何传导到工人结果（worker outcomes）。
@@ -603,9 +633,11 @@ Defined Benefit (DB) pension：
 
 ### 8.1 Shareholder Primacy vs Stakeholder Theory（slide 3/61）
 
-> [!summary] Two Views of Corporate Purpose
-> - **Shareholder Primacy（股东至上）**：公司目标是最大化股东价值（shareholder value maximization）。
-> - **Stakeholder Theory（利益相关者理论）**：公司应为所有受影响群体创造价值，而不只服务股东。
+:::{admonition} Two Views of Corporate Purpose
+- **Shareholder Primacy（股东至上）**：公司目标是最大化股东价值（shareholder value maximization）。
+- **Stakeholder Theory（利益相关者理论）**：公司应为所有受影响群体创造价值，而不只服务股东。
+:::
+
 
 Stakeholder Theory 的课堂要点：
 - 经典来源：Freeman (1984), *Strategic Management: A Stakeholder Approach*。
@@ -632,9 +664,11 @@ ESG 三个维度（与公司金融映射）：
 
 ### 9.1 Measuring Firms’ E&S Practices（slide 13/61）
 
-> [!summary] 传统 E&S 测度的问题
-> - 常见指标来自外部评级（MSCI、Refinitiv）、企业披露（10-K、sustainability report）与媒体文本。
-> - 这些指标偏“外部视角”（outside view），存在噪声、评级分歧（rating disagreement）与策略性披露（greenwashing）风险。
+:::{admonition} 传统 E&S 测度的问题
+- 常见指标来自外部评级（MSCI、Refinitiv）、企业披露（10-K、sustainability report）与媒体文本。
+- 这些指标偏“外部视角”（outside view），存在噪声、评级分歧（rating disagreement）与策略性披露（greenwashing）风险。
+:::
+
 
 图对应信息（Berg et al., 2022）：
 - 不同 ESG/E&S 评级之间相关性有限，评级机构间分歧在公司层面普遍存在。
@@ -667,19 +701,23 @@ ESG 三个维度（与公司金融映射）：
 
 ### 10.1 Green Human Capital and Labor Demand（slide 21/61）
 
-> [!summary] Labor Demand in Implementing E&S Practices
-> - 企业的 E&S 承诺（commitment）直接反映在其招聘决策（hiring decisions）中。
-> - E&S 投资需要专门的人力资本（specialized human capital），例如环境工程、合规、气候科学与绿色运营。
-> - 招聘启事（job postings）揭示了企业对绿色技能（green skills）的真实需求——超越了单纯的披露与评级。
+:::{admonition} Labor Demand in Implementing E&S Practices
+- 企业的 E&S 承诺（commitment）直接反映在其招聘决策（hiring decisions）中。
+- E&S 投资需要专门的人力资本（specialized human capital），例如环境工程、合规、气候科学与绿色运营。
+- 招聘启事（job postings）揭示了企业对绿色技能（green skills）的真实需求——超越了单纯的披露与评级。
+:::
+
 
 对公司金融的含义：
 - 观察企业的 green labor demand 是检验其真实 E&S 投资意愿的“行为视角”（behavioral perspective），比传统的 ESG 披露更难造假。
 
 ### 10.2 Measuring Green Human Capital（slide 22/61）
 
-> [!summary] Measurement Approaches
-> 如何在实证中测度企业的绿色人力资本（Green Human Capital）？
-> - 核心逻辑：从岗位任务/技能（skills）或人员履历（resumes）出发。
+:::{admonition} Measurement Approaches
+如何在实证中测度企业的绿色人力资本（Green Human Capital）？
+- 核心逻辑：从岗位任务/技能（skills）或人员履历（resumes）出发。
+:::
+
 
 主流数据源与测度（以 Darendeli, Law, and Shen, 2022 为例）：
 - **数据源**：Lightcast (formerly Burning Glass)，提供详细的招聘岗位文本、雇主身份、发布日期、所需技能、职业代码等。
@@ -708,8 +746,10 @@ $$
 
 ### 10.4 Discussions: Signals, Greenwashing, and Real Capabilities（slide 25/61）
 
-> [!summary] Discussions: What information is captured by job postings?
-> - **捕捉的是需求而非结果**：Job postings 衡量的是企业的劳动力需求（labor demand），并不必然等同于实际招聘落地（realized hiring）或最终的劳动力结构组成。
+:::{admonition} Discussions: What information is captured by job postings?
+- **捕捉的是需求而非结果**：Job postings 衡量的是企业的劳动力需求（labor demand），并不必然等同于实际招聘落地（realized hiring）或最终的劳动力结构组成。
+:::
+
 
 Greenwashing（漂绿）与真实能力的辨析：
 - 招聘启事可以作为企业投资绿色人力资本的信号（signal），这比单纯的文本披露更进一步。
@@ -727,9 +767,11 @@ Greenwashing（漂绿）与真实能力的辨析：
 
 ### 11.1 Trade-offs Across E & S Dimensions（slide 27/61）
 
-> [!summary] Balancing E & S Practices
-> - 此前讨论的是企业如何在 E&S 目标与财务目标（financial objectives）之间做权衡。
-> - 实际上，E&S 经常被视为一个单一概念（single construct），但企业在不同维度（dimensions）之间也面临权衡（trade-offs）。
+:::{admonition} Balancing E & S Practices
+- 此前讨论的是企业如何在 E&S 目标与财务目标（financial objectives）之间做权衡。
+- 实际上，E&S 经常被视为一个单一概念（single construct），但企业在不同维度（dimensions）之间也面临权衡（trade-offs）。
+:::
+
 
 E 与 S 投资可能会在以下方面产生竞争（compete for）：
 - 财务资源（Financial resources）
@@ -741,8 +783,10 @@ E 与 S 投资可能会在以下方面产生竞争（compete for）：
 
 ### 11.2 Empirical Evidence on E & S Substitution（slide 28/61）
 
-> [!summary] Empirical Evidence
-> 两篇最新工作论文展示了环境（E）与社会（S）维度的替代效应（substitution）证据。
+:::{admonition} Empirical Evidence
+两篇最新工作论文展示了环境（E）与社会（S）维度的替代效应（substitution）证据。
+:::
+
 
 **Huang, Li, and Zhou (2025)**：
 - **政策冲击**：州层面实施 E-Verify mandates（要求雇主核实新员工的工作授权，从而减少非法劳工雇佣及相关的工作场所剥削——这是一种 **Social improvement**）。
@@ -762,12 +806,14 @@ E 与 S 投资可能会在以下方面产生竞争（compete for）：
 
 ### 12.1 Heat Risk and Workplace Safety（slide 30/61）
 
-> [!summary] Heat Risk Facts（US context）
-> - 长期趋势：美国气温变化呈持续上升（slide 图示，source: NASA/GISS & EPA）。
-> - 截面暴露：各州升温幅度存在明显异质性（地图图示）。
-> - 具体时间点：**2024年8月（August 2024）** 是 NOAA 175-year record 中最热的 8 月。
-> - 劳动健康含义：极端高温（extreme heat）已成为关键天气相关死亡与伤害风险来源之一（课堂引用 Biden, 2021）。
-> - 数量级：当前每年约 **120,000** 起高温相关伤害，若缺乏适应措施，至 **2050** 年可能升至 **450,000**（Atlantic Council, 2021）。
+:::{admonition} Heat Risk Facts（US context）
+- 长期趋势：美国气温变化呈持续上升（slide 图示，source: NASA/GISS & EPA）。
+- 截面暴露：各州升温幅度存在明显异质性（地图图示）。
+- 具体时间点：**2024年8月（August 2024）** 是 NOAA 175-year record 中最热的 8 月。
+- 劳动健康含义：极端高温（extreme heat）已成为关键天气相关死亡与伤害风险来源之一（课堂引用 Biden, 2021）。
+- 数量级：当前每年约 **120,000** 起高温相关伤害，若缺乏适应措施，至 **2050** 年可能升至 **450,000**（Atlantic Council, 2021）。
+:::
+
 
 对企业与公司金融（Corporate Finance）的映射：
 - 高温暴露提升用工成本（injury, absenteeism, turnover）并压低劳动生产率（labor productivity）。
@@ -787,12 +833,14 @@ E 与 S 投资可能会在以下方面产生竞争（compete for）：
 
 ### 12.2 Heat-Induced Labor Costs（slide 31/61）
 
-> [!summary] Heat → Labor Cost Channels
-> - 高温暴露（heat exposure）会引发疾病，损害工人的体能与认知表现（physical and cognitive performance）。
-> - 极端高温会降低劳动生产率（labor productivity），进而压低经营收入（operating revenues）。
-> - 极端高温会降低劳动供给（labor force supply），表现为缺勤、工时下降、离职上升。
-> - 企业需增加预防与适应投入（preventive measures），并提高 compensation package 与 medical care。
-> - 若发生热伤害/致死事件，企业面临声誉损失（reputational damage）与诉讼风险（litigation risk）。
+:::{admonition} Heat → Labor Cost Channels
+- 高温暴露（heat exposure）会引发疾病，损害工人的体能与认知表现（physical and cognitive performance）。
+- 极端高温会降低劳动生产率（labor productivity），进而压低经营收入（operating revenues）。
+- 极端高温会降低劳动供给（labor force supply），表现为缺勤、工时下降、离职上升。
+- 企业需增加预防与适应投入（preventive measures），并提高 compensation package 与 medical care。
+- 若发生热伤害/致死事件，企业面临声誉损失（reputational damage）与诉讼风险（litigation risk）。
+:::
+
 
 文献锚点（slide cited）：
 - 健康与认知损伤：Luber and McGeehin (2008); Mora et al. (2017); LoPalo (2023)。
@@ -819,9 +867,11 @@ E 与 S 投资可能会在以下方面产生竞争（compete for）：
 
 ### 12.3 Mechanism: Human Capital Efficiency and Labor Market Frictions（slide 32/61）
 
-> [!summary] Core Mechanism
-> 人力资本效率（efficiency of human capital）下降 + 劳动力市场摩擦（labor market frictions）上升  
-> $\Longrightarrow$ 单位产出的劳动成本（labor cost per unit of output）上升。
+:::{admonition} Core Mechanism
+人力资本效率（efficiency of human capital）下降 + 劳动力市场摩擦（labor market frictions）上升  
+$\Longrightarrow$ 单位产出的劳动成本（labor cost per unit of output）上升。
+:::
+
 
 紧凑表达：
 
@@ -848,10 +898,12 @@ $$
 
 ### 12.4 Mitigation, Adaptation, and Transition（slide 33/61）
 
-> [!summary] 三个概念要严格区分
-> - **Mitigation（减缓）**：减少温室气体排放，降低气候变化幅度（长期“降源”）。
-> - **Adaptation（适应）**：提升对物理气候冲击的韧性（应对 heat/flood/extreme weather）。
-> - **Transition（转型）**：因气候政策与监管变化带来的经营调整（carbon tax、emission standard、disclosure rules）。
+:::{admonition} 三个概念要严格区分
+- **Mitigation（减缓）**：减少温室气体排放，降低气候变化幅度（长期“降源”）。
+- **Adaptation（适应）**：提升对物理气候冲击的韧性（应对 heat/flood/extreme weather）。
+- **Transition（转型）**：因气候政策与监管变化带来的经营调整（carbon tax、emission standard、disclosure rules）。
+:::
+
 
 在企业层面的对应动作：
 - mitigation：节能改造、低碳技术替代、供应链减排。
@@ -870,13 +922,15 @@ $$
 
 ### 12.5 Adaptation to Heat Risk and Real Impact（slide 36/61）
 
-> [!summary] Empirical Evidence: How Firms Adapt to Heat Risk
-> - **Pankratz and Schiller (2024)**：高温风险扰动供应链，企业转向预期热暴露更低的供应商。
-> - **Acharya, Bhardwaj, Tomunen (2024)**：多地企业将就业从高温受影响县转移到较少受影响县。
-> - **Ponticelli, Xu, Zeume (2024)**：高温提升小工厂能耗并压低生产率；长期看工厂数量下降、地方劳动力市场集中度上升。
-> - **Xiao (2024)**：企业通过资本深化（capital deepening）缓解热致劳动效率损失。
-> - **Xiao (2025)**：高温风险抑制企业进入与就业创造；高质量创业者与在位企业扩张仅能部分对冲总体进入下滑。
-> - **Ortiz-Molina, Xiao, Zheng (2023)**：高温疾病防护标准（HIPS）推动受影响工厂增加 IT 投资。
+:::{admonition} Empirical Evidence: How Firms Adapt to Heat Risk
+- **Pankratz and Schiller (2024)**：高温风险扰动供应链，企业转向预期热暴露更低的供应商。
+- **Acharya, Bhardwaj, Tomunen (2024)**：多地企业将就业从高温受影响县转移到较少受影响县。
+- **Ponticelli, Xu, Zeume (2024)**：高温提升小工厂能耗并压低生产率；长期看工厂数量下降、地方劳动力市场集中度上升。
+- **Xiao (2024)**：企业通过资本深化（capital deepening）缓解热致劳动效率损失。
+- **Xiao (2025)**：高温风险抑制企业进入与就业创造；高质量创业者与在位企业扩张仅能部分对冲总体进入下滑。
+- **Ortiz-Molina, Xiao, Zheng (2023)**：高温疾病防护标准（HIPS）推动受影响工厂增加 IT 投资。
+:::
+
 
 机制归纳（从“冲击”到“重配”）：
 - 运营重配：供应链、就业与产能在地区间重新配置（reallocation）。
@@ -895,9 +949,11 @@ $$
 
 ### 12.6 Ortiz-Molina, Xiao and Zheng (2023): HIPS Policy Variation（slide 37/61）
 
-> [!summary] Why This Slide Matters
-> Table B.1 展示了美国各州 Heat Illness Prevention Standards（HIPS）的**采用/待定**进展、实施年份与覆盖范围（indoor/outdoor）。
-> 这类跨州、跨时间政策差异为识别热风险治理效果提供了准自然实验（quasi-experiment）基础。
+:::{admonition} Why This Slide Matters
+Table B.1 展示了美国各州 Heat Illness Prevention Standards（HIPS）的**采用/待定**进展、实施年份与覆盖范围（indoor/outdoor）。
+这类跨州、跨时间政策差异为识别热风险治理效果提供了准自然实验（quasi-experiment）基础。
+:::
+
 
 识别直觉（identification intuition）：
 - 横截面差异：有些州已实施 HIPS，有些州仍处于 pending/未实施。
@@ -915,9 +971,11 @@ $$
 
 ### 12.7 Additional Readings（slide 38/61）
 
-> [!summary] Reading Pool for Extension
-> - **Asset Pricing**：温度敏感度、错定价（mispricing）与可预测收益（predictable returns）。
-> - **Credit Access**：极端温度冲击与低收入家庭信贷可得性（如 payday loans）。
+:::{admonition} Reading Pool for Extension
+- **Asset Pricing**：温度敏感度、错定价（mispricing）与可预测收益（predictable returns）。
+- **Credit Access**：极端温度冲击与低收入家庭信贷可得性（如 payday loans）。
+:::
+
 
 课件列出的文献（slide cited）：
 - Cuculiza, Kumar, Xin, and Zhang (2025), *Temperature sensitivity, mispricing, and predictable returns*, *Management Science* (forthcoming)。
@@ -931,11 +989,13 @@ $$
 
 ### 13.1 AI and Corporate Finance（slide 40/61）
 
-> [!summary] AI as a General-Purpose Technology（GPT）
-> - AI 是通用技术（general-purpose technology），会重塑生产函数、劳动需求与企业组织方式。
-> - labor demand and skill composition（岗位结构与技能结构重配）。
-> - investment in computing, GPUs, data infrastructure, and intangible capital（算力/数据/无形资本投入）。
-> - organization structure and firm boundaries（组织结构与企业边界调整）。
+:::{admonition} AI as a General-Purpose Technology（GPT）
+- AI 是通用技术（general-purpose technology），会重塑生产函数、劳动需求与企业组织方式。
+- labor demand and skill composition（岗位结构与技能结构重配）。
+- investment in computing, GPUs, data infrastructure, and intangible capital（算力/数据/无形资本投入）。
+- organization structure and firm boundaries（组织结构与企业边界调整）。
+:::
+
 
 Financial implications（公司金融视角）：
 - 增长与规模化（growth opportunities and scalability）：AI 可放大规模报酬与市场扩张速度。
@@ -957,10 +1017,12 @@ $$
 
 ### 13.2 Babina et al. (2024): Measurement, Identification, and Mechanisms（slide 41-48/61）
 
-> [!summary] Research Question
-> 企业层面的 AI 投资是否提升增长（growth）？主要通过哪条渠道实现？
-> - product innovation（产品创新）？
-> - process innovation / cost reduction（流程创新/降本）？
+:::{admonition} Research Question
+企业层面的 AI 投资是否提升增长（growth）？主要通过哪条渠道实现？
+- product innovation（产品创新）？
+- process innovation / cost reduction（流程创新/降本）？
+:::
+
 
 核心贡献：构建企业级 AI 投资强度（firm-level AI intensity）指标。
 
@@ -996,17 +1058,19 @@ Resume-based 补充测度（Cognism）：
 - 可作为解释变量进入 growth/valuation 回归，检验 AI 投资与企业成长路径的关系。
 - 也可用于异质性分析：高 AI intensity 企业是否更偏向 product innovation 或 cost-reducing process innovation。
 
-> [!summary] 识别设定（2010→2018 long-difference）
-> $$
-> \begin{aligned}
-> \Delta \log Y_i
-> = \beta\,\Delta \text{ShareAIWorkers}_i
-> + \Gamma' \Delta X_i
-> + \text{Industry FE}
-> + \varepsilon_i,
-> \end{aligned}
-> $$
-> 其中 $Y_i\in\{\text{Sales},\text{Employment},\text{Market Value}\}$。
+:::{admonition} 识别设定（2010→2018 long-difference）
+$$
+\begin{aligned}
+\Delta \log Y_i
+= \beta\,\Delta \text{ShareAIWorkers}_i
++ \Gamma' \Delta X_i
++ \text{Industry FE}
++ \varepsilon_i,
+\end{aligned}
+$$
+其中 $Y_i\in\{\text{Sales},\text{Employment},\text{Market Value}\}$。
+:::
+
 
 **图A：Long-difference OLS（slide 46）**
 ![Pasted image 20260413152226.png](Pasted image 20260413152226.png)
@@ -1041,9 +1105,11 @@ $$
 
 **机制分解（slide 48/61）**
 
-> [!summary] Main Takeaway
-> 更高 AI intensity 与更高的 sales growth、employment growth、market valuation 相关；
-> 机制上更支持 **product innovation**，而非 **process innovation / cost reduction**。
+:::{admonition} Main Takeaway
+更高 AI intensity 与更高的 sales growth、employment growth、market valuation 相关；
+机制上更支持 **product innovation**，而非 **process innovation / cost reduction**。
+:::
+
 
 机制证据（支持 product innovation）：
 - 更多产品专利（more product patents）。
@@ -1067,20 +1133,22 @@ $$
 
 ### 13.3 Eisfeldt et al. (2025): GenAI Exposure and Firm Outcomes（slide 49-52/61）
 
-> [!summary] 测度定义（用于后续所有图）
-> - 任务暴露度：$X^T\in\{0,\ 0.5,\ 1\}$（无暴露/需要额外支持才可显著提效/可直接显著提效）。
-> - 职业暴露度：
-> $$
-> \begin{aligned}
-> X^O=\frac{\sum_{T\in O}X^T}{\sum_{T\in O}1}.
-> \end{aligned}
-> $$
-> - 企业暴露度：
-> $$
-> \begin{aligned}
-> X^f=\sum_{O\in f}\text{EmpShare}_{f,O}\times X^O.
-> \end{aligned}
-> $$
+:::{admonition} 测度定义（用于后续所有图）
+- 任务暴露度：$X^T\in\{0,\ 0.5,\ 1\}$（无暴露/需要额外支持才可显著提效/可直接显著提效）。
+- 职业暴露度：
+$$
+\begin{aligned}
+X^O=\frac{\sum_{T\in O}X^T}{\sum_{T\in O}1}.
+\end{aligned}
+$$
+- 企业暴露度：
+$$
+\begin{aligned}
+X^f=\sum_{O\in f}\text{EmpShare}_{f,O}\times X^O.
+\end{aligned}
+$$
+:::
+
 
 **图A：职业暴露度与工资（slide 49-50）**
 ![Pasted image 20260413152855.png](Pasted image 20260413152855.png)

@@ -1,6 +1,6 @@
-# Pecking Order 与信息不对称理论
+# Pecking Order and Asymmetric Information Theory
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 对称信息假设
 - **对比理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - 盈利与杠杆关系相反

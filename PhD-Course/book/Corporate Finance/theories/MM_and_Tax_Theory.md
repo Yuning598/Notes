@@ -1,6 +1,6 @@
-# MM 定理与税基资本结构理论
+# MM Propositions and Tax-Based Capital Structure Theory
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **对比理论**：[Pecking_Order_Theory](Pecking_Order_Theory.md) - 盈利与杠杆关系相反
 - **互补理论**：[Agency_Theory](Agency_Theory.md) - 代理成本降低最优杠杆

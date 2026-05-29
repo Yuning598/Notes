@@ -1,6 +1,6 @@
-# 代理理论与资本结构
+# Agency Theory and Capital Structure
 
-## 📌 相关理论链接
+## 相关理论链接
 
 - **基准理论**：[MM_and_Tax_Theory](MM_and_Tax_Theory.md) - MM 完美市场假设
 - **互补理论**：[Financial_Distress_Theory](Financial_Distress_Theory.md) - 成长期权与困境成本

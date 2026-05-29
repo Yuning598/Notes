@@ -1,6 +1,6 @@
-# 公司金融理论知识图谱与整合
+# Corporate Finance Theory Integration and Knowledge Map
 
-## 📚 理论笔记导航
+## 理论笔记导航
 
 本笔记整合公司金融七大核心理论，提供理论对比、决策框架、公式速查和考试模板。
 
