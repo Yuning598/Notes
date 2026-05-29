@@ -19,5 +19,5 @@ Vermaelen asks how repurchase tender offers can credibly signal undervaluation a
 
 ## 3. Course Use
 - used together with <a href="../01_Empirical_Corporate_Finance.html#sec-signaling-cost-types">the main note</a> to illustrate non-dissipative signaling in buybacks
-- complements [Vermaelen (1981)](../cards/Vermaelen-1981-buybacks) on repurchase signaling
+- complements [Vermaelen (1981)](../Corporate%20Finance/cards/Vermaelen-1981-buybacks.md) on repurchase signaling
 

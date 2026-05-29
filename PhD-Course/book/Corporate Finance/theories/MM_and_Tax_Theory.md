@@ -285,11 +285,21 @@ $$
 
 ## 3. DeAngelo and Masulis (1980)
 
-### 3.1 核心贡献
+### Question
 
-**问题**：Miller (1977) 假设所有企业面临相同税率。DeAngelo and Masulis (1980) 引入 **非债务税盾**（non-debt tax shields），如折旧、投资税收抵免。
+Do non-debt tax shields substitute for debt tax shields, and therefore reduce optimal leverage?
 
-**核心机制**：
+### Identification
+
+Cross-sectional comparison across firms with different depreciation, investment tax credits, and profitability volatility. The key proxy is the marginal tax rate:
+
+$$
+\begin{aligned}
+\text{Marginal tax rate} = T_C \times \Pr(\text{taxable income} > 0)
+\end{aligned}
+$$
+
+### Main finding
 
 $$
 \begin{aligned}
@@ -300,67 +310,25 @@ $$
 \end{aligned}
 $$
 
-**边际税率**：
+### Interpretation
 
-$$
-\begin{aligned}
-\text{Marginal tax rate} = T_C \times \Pr(\text{taxable income} > 0)
-\end{aligned}
-$$
+Depreciation and investment tax credits reduce taxable income and make firms more likely to sit in the zero-tax region, so the incremental benefit of debt falls. Profitability volatility matters because it raises the probability that tax shields cannot be used.
 
-非债务税盾（折旧、R&D 抵免）降低应税收入，使企业更可能进入零税率区间。
+### Exam takeaway
 
----
-
-### 3.2 最优资本结构
-
-**企业价值**：
-
-$$
-\begin{aligned}
-V_L = V_U + T_C D - PV(\text{distress costs}) - PV(\text{lost tax shields})
-\end{aligned}
-$$
-
-其中 $PV(\text{lost tax shields})$ 是因破产或低盈利无法使用税盾的损失。
-
-**最优杠杆一阶条件**：
-
-$$
-\begin{aligned}
-\frac{\partial V_L}{\partial D} = T_C - \frac{\partial PV(\text{distress})}{\partial D} - \frac{\partial PV(\text{lost shields})}{\partial D} = 0
-\end{aligned}
-$$
-
-**跨企业差异**：
-
-$$
-\begin{aligned}
-\text{non-debt tax shields} \uparrow
-&\Rightarrow \frac{\partial PV(\text{lost shields})}{\partial D} \uparrow \\
-&\Rightarrow \text{optimal leverage} \downarrow
-\end{aligned}
-$$
-
-**实证预测**：
-- H1：$\text{depreciation / investment tax credit} \uparrow \Rightarrow \text{leverage} \downarrow$
-- H2：$\text{profitability volatility} \uparrow \Rightarrow \text{lost tax shields} \uparrow \Rightarrow \text{leverage} \downarrow$
+High depreciation, high ITC, or volatile profitability imply lower leverage because non-debt tax shields crowd out debt tax shields.
 
 ---
 
 ## 4. Graham (2000)
 
-### 4.1 研究问题
+### Question
 
-**核心问题**：债务税盾价值到底有多大？企业是否充分利用税盾？
+How large is the debt tax shield, and do firms fully exploit it?
 
-**方法**：模拟企业边际税率分布，估算债务税盾价值。
+### Identification
 
----
-
-### 4.2 边际税率模拟
-
-**边际税率定义**：
+Estimate expected marginal tax rates by simulating future earnings paths, allowing for NOL carryforward/carryback, and then discount the implied interest tax shields.
 
 $$
 \begin{aligned}
@@ -368,25 +336,17 @@ MTR_t = \frac{\partial \text{Tax}_t}{\partial \text{Income}_t}
 \end{aligned}
 $$
 
-**模拟方法**：
-1. 用历史盈利数据估计盈利过程（AR 模型）
-2. 模拟未来盈利路径（考虑 NOL carryforward/carryback）
-3. 计算每条路径的边际税率
-4. 取期望得到 $E[MTR_t]$
-
-**税盾价值**：
-
 $$
 \begin{aligned}
 PV(\text{tax shield}) = \sum_{t=1}^{\infty} \frac{E[MTR_t] \times r_D D}{(1+r)^t}
 \end{aligned}
 $$
 
----
+### Main finding
 
-### 4.3 主要发现
-
-**发现 1**：债务税盾价值占企业价值 **5-10%**
+- Debt tax shield value is about **5-10%** of firm value.
+- This is far below the MM (1963) benchmark.
+- Actual leverage is below the tax-optimal leverage.
 
 $$
 \begin{aligned}
@@ -394,56 +354,31 @@ $$
 \end{aligned}
 $$
 
-远低于 MM (1963) 的 $T_C D / V_L \approx 0.35$（若 $T_C=0.35$, $D/V_L=1$）。
-
-**发现 2**：企业实际杠杆低于税收最优水平
-
 $$
 \begin{aligned}
 \text{actual leverage} < \text{tax-optimal leverage}
 \end{aligned}
 $$
 
-保守估计：企业可以增加杠杆使税盾价值再提升 **7.5%**。
+### Interpretation
 
-**发现 3**：边际税率分布高度异质
+The tax shield is valuable but much smaller than the simple MM benchmark because many firms have low or zero marginal tax rates in bad states. Non-tax frictions such as distress and agency costs keep leverage below the tax-optimal level.
 
-- 高盈利企业：$MTR \approx T_C$（statutory rate）
-- 低盈利 / 亏损企业：$MTR \approx 0$（无法使用税盾）
+### Exam takeaway
 
-**经济含义**：
-- 税盾价值重要但不是唯一因素
-- 企业可能因非税成本（distress, agency）保持保守杠杆
+Remember the 5-10% estimate, the simulation-based MTR design, and the gap between actual leverage and tax-optimal leverage.
 
 ---
 
 ## 5. Graham and Tucker (2006)
 
-### 5.1 核心机制
+### Question
 
-**问题**：税收庇护（tax shelters）可替代债务税盾。
+Do tax shelters substitute for debt as a tax-minimization tool?
 
-**Tax shelters**：通过复杂交易结构降低应税收入的合法避税手段（如转移定价、离岸实体）。
+### Identification
 
-**替代效应**：
-
-$$
-\begin{aligned}
-\text{tax shelters} \uparrow
-&\Rightarrow \text{effective tax rate} \downarrow \\
-&\Rightarrow \text{debt tax shield value} \downarrow \\
-&\Rightarrow \text{optimal leverage} \downarrow
-\end{aligned}
-$$
-
----
-
-### 5.2 实证策略
-
-**识别 tax shelter users**：
-- 用 IRS 审计数据、媒体报道、诉讼记录识别使用 tax shelters 的企业
-
-**DiD 设定**：
+Classify shelter users using IRS audit data, media reports, and litigation records, then compare their leverage with non-users while controlling for observables.
 
 $$
 \begin{aligned}
@@ -451,13 +386,9 @@ $$
 \end{aligned}
 $$
 
-**预期**：$\beta < 0$（使用 tax shelters 的企业杠杆率更低）
+### Main finding
 
----
-
-### 5.3 主要发现
-
-**发现 1**：Tax shelter users 杠杆率显著更低
+- Tax shelter users have lower leverage, about **5%** below non-users.
 
 $$
 \begin{aligned}
@@ -465,14 +396,13 @@ $$
 \end{aligned}
 $$
 
-**发现 2**：Tax shelters 与债务是替代关系
+### Interpretation
 
-- 企业在 tax shelters 和债务之间权衡
-- 两者都降低税负，但 tax shelters 无财务困境成本
+If a firm can lower taxes through shelters, the marginal benefit of debt falls. Shelters and debt both reduce tax burden, but shelters do not create financial distress costs, so they substitute for debt.
 
-**政策含义**：
-- 打击 tax shelters 可能提高企业杠杆率
-- 税收政策影响资本结构不只通过税率，还通过避税工具可得性
+### Exam takeaway
+
+Tax shelters down, leverage down. A crackdown on shelters should push firms back toward debt tax shields and higher leverage.
 
 ---
 

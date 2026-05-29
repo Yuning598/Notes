@@ -1864,7 +1864,7 @@ $$\begin{aligned}
 
 :::
 
-1. [Farre-Mensa, Michaely and Schmalz (2014)](attachments/FarreMensaMichaelySchmalz2014.md), *Dividend Policy Review*
+1. [Farre-Mensa, Michaely and Schmalz (2014)](../attachment/FarreMensaMichaelySchmalz2014.md), *Dividend Policy Review*
    - test object：dividend policy 的主要 empirical determinants。
    - finding：investor demand、taxes、agency、signaling 和 lifecycle 都能解释部分 payout behavior。
    - interpretation：transaction-cost channel 常作为辅助机制，而不是唯一解释。
@@ -1989,7 +1989,7 @@ $$
 
 **Empirical papers**
 
-1. [Leary and Michaely (2011)](attachments/LearyMichaely2011.md), *Determinants of Dividend Smoothing: Empirical Evidence*
+1. [Leary and Michaely (2011)](../attachment/LearyMichaely2011.md), *Determinants of Dividend Smoothing: Empirical Evidence*
    - test object：dividend smoothing 的 cross-sectional determinants，以及哪些 firm characteristics 会让 smoothing 更强或更弱。
    - finding：
       - summary statistics：样本覆盖长期 dividend policy 数据，重点比较年龄、规模、dividend yield、earnings / return volatility、analyst coverage、growth、governance 和 institutional holdings。
@@ -2125,7 +2125,7 @@ $$
 
 **Empirical paper**
 
-1. [Modigliani and Miller (1961)](attachments/ModiglianiMiller1961.md), *Dividend Policy, Growth, and the Valuation of Shares*
+1. [Modigliani and Miller (1961)](../attachment/ModiglianiMiller1961.md), *Dividend Policy, Growth, and the Valuation of Shares*
    - test object：在 perfect capital markets 下，dividend policy 是否影响 firm valuation。
    - finding：dividend policy 不影响 firm value；value 由 investment policy 和 future cash flows 决定。
    - interpretation：MM propositions 是 payout relevance 的 benchmark；一旦发现 dividend matters，必须指出是哪类 friction 破坏了 MM assumptions。
@@ -2245,7 +2245,7 @@ $t_d$ 和 $t_g$ 的相对大小不是公司决定的，而是由 **tax code + in
 
 **Empirical paper**
 
-1. [Allen and Michaely (2003)](attachments/AllenMichaely2003.md), *Payout Policy*
+1. [Allen and Michaely (2003)](../attachment/AllenMichaely2003.md), *Payout Policy*
    - test object：tax clientele 是否能解释 dividend recipients 的 composition，以及 dividend-paying stocks 的 holder base 是否会按税率分层。
    - finding：
       - phenomenon：individuals 仍然收到超过 $50\%$ 的 corporate dividends（资本利得税更低，本应该有更多的capital gains）
@@ -2469,7 +2469,7 @@ $$
    - finding：price drop 通常小于 dividend，符合 dividend tax penalty。
    - interpretation：ex-date price ratio 可用于推断市场边际税负，但也可能受交易成本和微观结构影响。
 
-2. [Kalay (1982)](attachments/Kalay1982.md), ex-dividend day prices
+2. [Kalay (1982)](../attachment/Kalay1982.md), ex-dividend day prices
    - test object：short-term traders 是否约束 ex-date price drop。
    - 如果除息前买入、除息后卖出，忽略税时利润，无套利要求利润不能为正，反向套利利润也不为正
      $$  
@@ -2624,7 +2624,7 @@ $$
 
 1. [Kalay (1982)](#sec-kalay-1982)
 
-2. [Michaely and Vila (1986)](attachments/MichaelyVila1986.md), dividend tax clientele / arbitrage trading
+2. [Michaely and Vila (1986)](../attachment/MichaelyVila1986.md), dividend tax clientele / arbitrage trading
    - test object：heterogeneous tax clienteles 是否带来 ex-date trading。
    - finding：投资者异质性和交易成本共同决定 price drop 和 volume。
    - interpretation：ex-date 是 tax clientele 和 arbitrage 的共同检验场景。
@@ -3069,7 +3069,7 @@ $$
 
 **Empirical paper**（Event Study）
 
-1. [Aharony and Swary (1980)](attachments/AharonySwary1980.md), dividend announcements
+1. [Aharony and Swary (1980)](../attachment/AharonySwary1980.md), dividend announcements
 	- test object：dividend changes 是否带来 announcement-window $CAR$。
 	- finding：dividend decrease 对应负 $CAR$，dividend increase 对应正 $CAR$。
 	- interpretation：dividend change 是 management 对 future cash flow 的公开信号。
@@ -3269,12 +3269,12 @@ $$
    - finding：payout 与 governance 的关系不是单向替代，可能存在 complementarity。
    - interpretation：agency channel 的经验预测依赖制度环境和治理变量定义。
 
-4. [Allen, Bernardo and Welch (2000)](attachments/AllenBernardoWelch2000.md), *A Theory of Dividends Based on Tax Clienteles*
+4. [Allen, Bernardo and Welch (2000)](../attachment/AllenBernardoWelch2000.md), *A Theory of Dividends Based on Tax Clienteles*
    - test object：firms 是否会通过 dividends attract institutional investors，从而降低 agency costs。
    - finding：dividends attract institutional investors，institutions 的 monitoring 可以压低 agency costs，但也意味着 firms 必须持续 smooth dividends 以 retain institutions.
    - interpretation：dividend 既是 tax-clientele / information-clientele 的结果，也是治理与 monitoring 的产物；一旦机构投资者偏好形成，payout policy 会带有更强的 smoothing pressure。 #agency #tax-clientele 
 
-5. [John and Knyazeva (2006)](attachments/JohnKnyazeva2006.md), *Payout Policy, Agency Conflicts, and Corporate Governance*
+5. [John and Knyazeva (2006)](../attachment/JohnKnyazeva2006.md), *Payout Policy, Agency Conflicts, and Corporate Governance*
    - test object：美国内部治理质量与 payout 的关系，尤其是 governance quality 是否支持 substitution hypothesis.
    - finding：部分证据支持 good governance firms 更少依赖 dividend。
    - interpretation：在强市场制度内，dividend 可能替代较弱的治理机制；好的 governance 本身就降低了对 dividend 的需求。 #agency 
@@ -3524,14 +3524,14 @@ Share repurchase 不是单一机制，而是一组可检验 hypotheses：tax adv
      - empirical results：announcement return 随 repurchase premium、repurchased fraction 和 insider incentives 上升而更大。
    - interpretation：正反应可以混合 signaling、tax savings、agency reduction 和 leverage adjustment；其中大额高溢价 tender offer 最接近 costly undervaluation signal。
 
-2. [Jagannathan, Stephens and Weisbach (2000)](attachments/JagannathanStephensWeisbach2000.md), *Financial Flexibility and the Choice between Dividends and Stock Repurchases*
+2. [Jagannathan, Stephens and Weisbach (2000)](../attachment/JagannathanStephensWeisbach2000.md), *Financial Flexibility and the Choice between Dividends and Stock Repurchases*
    - test object：firms 在什么 cash-flow state 下选择 repurchase 而不是 dividend。
    - finding：
      - summary statistics：repurchase activity 与 more temporary cash-flow increases 相关；dividend increases 与 more persistent earnings 相关。
      - empirical results：控制 firm characteristics 后，temporary cash flows 更预测 repurchases，persistent cash flows 更预测 dividends。
    - interpretation：repurchase 是 flexible payout，不要求公司承诺未来维持同等现金流出；因此它和 dividend 不是同一 payout shock。
 
-3. [Peyer and Vermaelen (2009)](attachments/PeyerVermaelen2009.md), *The Nature and Persistence of Buyback Anomalies*
+3. [Peyer and Vermaelen (2009)](../attachment/PeyerVermaelen2009.md), *The Nature and Persistence of Buyback Anomalies*
    - test object：哪些 buyback characteristics 能预测更持久的 post-buyback abnormal return。
    - finding：
      - summary statistics：low market-to-book、small size、prior price decline 和 explicit undervaluation statement 常出现在更强 buyback anomaly 中。
@@ -3610,7 +3610,7 @@ Share repurchase 不是单一机制，而是一组可检验 hypotheses：tax adv
 
 **Empirical paper**
 
-1. [Jagannathan, Stephens and Weisbach (2000)](attachments/JagannathanStephensWeisbach2000.md), *Financial Flexibility and the Choice between Dividends and Stock Repurchases*
+1. [Jagannathan, Stephens and Weisbach (2000)](../attachment/JagannathanStephensWeisbach2000.md), *Financial Flexibility and the Choice between Dividends and Stock Repurchases*
 
 **Ideal policy change**
 
@@ -3732,7 +3732,7 @@ Managers 比市场更了解 firm value。若股票被低估，公司用现金回
      - empirical results：更高 premium、更大 repurchase fraction 和 insider retention 提高 signal credibility。
    - interpretation：buyback 可以是 costly signal；管理层若夸大低估，需要用高价回购并承担持股价值再分配成本。
 
-2. [Peyer and Vermaelen (2009)](attachments/PeyerVermaelen2009.md)
+2. [Peyer and Vermaelen (2009)](../attachment/PeyerVermaelen2009.md)
    - test object：buyback anomaly 是否集中在更像 cheap stock 的 firms。
    - finding：
      - summary statistics：low market-to-book、small size、prior price decline、explicit undervaluation statement 对应更强 anomaly。
@@ -3796,7 +3796,7 @@ Dividend increase 是较强的 continuing commitment；repurchase 则是 flexibl
 
 **Empirical paper**
 
-1. [Jagannathan, Stephens and Weisbach (2000)](attachments/JagannathanStephensWeisbach2000.md)
+1. [Jagannathan, Stephens and Weisbach (2000)](../attachment/JagannathanStephensWeisbach2000.md)
    - test object：dividends 与 repurchases 是否对应不同 cash-flow persistence。
    - finding：
      - summary statistics：repurchases 更关联 temporary cash flows；dividends 更关联 persistent cash flows。
