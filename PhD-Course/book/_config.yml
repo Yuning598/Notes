@@ -30,6 +30,7 @@ sphinx:
     myst_fence_as_directive:
       - mermaid
       - tikz
+    tikz_latex_preamble: "% keep standalone TikZ builds from inheriting JupyterBook's LaTeX preamble"
     mermaid_version: "10.6.1"
     mermaid_init_js: "mermaid.initialize({startOnLoad:true});"
     tikz_proc_suite: GhostScript
