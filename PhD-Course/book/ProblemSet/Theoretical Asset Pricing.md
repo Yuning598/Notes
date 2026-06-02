@@ -28,8 +28,7 @@ D
 \begin{pmatrix}
 1 & 1 & 1 \\
 1.2 & 1.0 & 0.8
-\end{pmatrix}^{\top}
-=
+\end{pmatrix}^{\top} =
 \begin{pmatrix}
 1 & 1.2 \\
 1 & 1.0 \\
@@ -710,8 +709,7 @@ $$
 \Delta(c)
 &:=E\big[CE_I(s)-CE_U(p)\big]\\
 &=-c+\frac{1}{2\lambda}E\left[
-\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)}
--
+\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)} -
 \frac{(E[v\mid p]-p)^2}{\operatorname{Var}(v\mid p)}
 \right].
 \end{aligned}
@@ -721,8 +719,7 @@ $$
 \begin{aligned}
 c^*
 &=\frac{1}{2\lambda}E\left[
-\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)}
--
+\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)} -
 \frac{(E[v\mid p]-p)^2}{\operatorname{Var}(v\mid p)}
 \right].
 \end{aligned}
@@ -752,8 +749,7 @@ $$
 \begin{aligned}
 c^*
 &=\frac{1}{2\lambda}E\left[
-\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)}
--
+\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)} -
 \frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)}
 \right]\\
 &=0.
@@ -822,8 +818,7 @@ $$
 在 agent $j$ 的主观测度下：
 
 $$
-\frac{d\delta_t}{\delta_t}
-=
+\frac{d\delta_t}{\delta_t} =
 \hat\mu_t^jdt+\sigma dB_t^j.
 $$
 两个 agent 对 drift 的信念不同，所以他们的 Brownian motion 也不同。令 $\beta_t^{12}$ 满足：
@@ -846,8 +841,7 @@ $$
 agent $i$ 的 FOC 是：
 
 $$
-c_t^i
-=
+c_t^i =
 e^{-\rho_i t}\frac{1}{\varphi_i\xi_t^i}.
 $$
 
@@ -909,8 +903,7 @@ $$
 所以：
 
 $$
-\frac{1}{\xi_t^2}
-=
+\frac{1}{\xi_t^2} =
 \frac{\xi_t^{21}}{\xi_t^1}.
 $$
 
@@ -935,8 +928,7 @@ $$
 定义 $\eta_t=\eta_t^{21}=c_t^2/c_t^1$，则：
 
 $$
-\eta_t
-=
+\eta_t =
 \frac{\varphi_1}{\varphi_2}
 e^{-(\rho_2-\rho_1)t}
 \xi_t^{21}.
@@ -993,8 +985,7 @@ $$
 -\frac12\int_0^t (\beta_s^{12})^2\,ds, \\
 \xi_t^{21}
 &=
-\frac{dP^2}{dP^1}\bigg|_{\mathcal F_t}
-=
+\frac{dP^2}{dP^1}\bigg|_{\mathcal F_t} =
 \exp\!\left(
 -\int_0^t \beta_s^{12}\,dB_s^1
 -\frac12\int_0^t (\beta_s^{12})^2\,ds
@@ -1002,8 +993,7 @@ $$
 \frac{d\xi_t^{21}}{\xi_t^{21}}
 &=
 d\log \xi_t^{21}
-+\frac12(d\log \xi_t^{21})^2
-=
++\frac12(d\log \xi_t^{21})^2 =
 -\beta_t^{12}dB_t^1.
 \end{aligned}
 $$
@@ -1032,10 +1022,8 @@ $$
 \begin{aligned}
 \xi_t^{21}
 &=
-\frac{\xi_t^1}{\xi_t^2}
-=
-\frac{e^{-\rho_1 t}}{\varphi_1 c_t^1}\cdot \frac{\varphi_2 c_t^2}{e^{-\rho_2 t}}
-=
+\frac{\xi_t^1}{\xi_t^2} =
+\frac{e^{-\rho_1 t}}{\varphi_1 c_t^1}\cdot \frac{\varphi_2 c_t^2}{e^{-\rho_2 t}} =
 \frac{\varphi_2}{\varphi_1}e^{-(\rho_1-\rho_2)t}\eta_t \\
 &\implies
 \eta_t=\frac{\varphi_1}{\varphi_2}e^{-(\rho_2-\rho_1)t}\xi_t^{21} \\
@@ -1054,16 +1042,14 @@ $$
 由消费清算式：
 
 $$
-\delta_t
-=
+\delta_t =
 e^{-\rho_1t}\frac{1+\eta_t}{\varphi_1\xi_t^1},
 $$
 
 得到：
 
 $$
-\xi_t^1
-=
+\xi_t^1 =
 e^{-\rho_1t}
 \frac{1+\eta_t}{\varphi_1\delta_t}.
 $$
@@ -1099,16 +1085,13 @@ d\log\xi_t^1
 &=
 -\rho_1dt
 +
-d\log(1+\eta_t)
--
+d\log(1+\eta_t) -
 d\log\delta_t \\[3pt]
 &=
 -\rho_1dt
 +
-h_t\left[-(\rho_2-\rho_1)dt-\beta_t^{12}dB_t^1\right]
--
-\frac{1}{2}h_t^2(\beta_t^{12})^2dt
--
+h_t\left[-(\rho_2-\rho_1)dt-\beta_t^{12}dB_t^1\right] -
+\frac{1}{2}h_t^2(\beta_t^{12})^2dt -
 \left[
 \left(\hat\mu_t^1-\frac{1}{2}\sigma^2\right)dt
 +
@@ -1121,8 +1104,7 @@ h_t\left[-(\rho_2-\rho_1)dt-\beta_t^{12}dB_t^1\right]
 -\hat\mu_t^1
 +\frac{1}{2}\sigma^2
 -\frac{1}{2}h_t^2(\beta_t^{12})^2
-\right]dt
--
+\right]dt -
 \left(\sigma+h_t\beta_t^{12}\right)dB_t^1.
 \end{aligned}
 $$
@@ -1144,8 +1126,7 @@ d\log\xi_t^1
 -\hat\mu_t^1
 +\sigma^2
 +h_t\sigma\beta_t^{12}
-\right]dt
--
+\right]dt -
 \left(\sigma+h_t\beta_t^{12}\right)dB_t^1.
 \end{aligned}
 $$
@@ -1214,16 +1195,14 @@ $$
 其中 $r_t$ 是 short rate，$\theta_t$ 是 market price of risk；本题在 agent $1$ 的测度下写成 $dB_t^1$ 与 $\theta_t^1$。
 
 $$
-\frac{d\xi_t^1}{\xi_t^1}
-=
+\frac{d\xi_t^1}{\xi_t^1} =
 -r_tdt-\theta_t^1dB_t^1.
 $$
 
 因此：
 
 $$
-\theta_t^1
-=
+\theta_t^1 =
 \sigma+\frac{\eta_t}{1+\eta_t}\beta_t^{12}.
 $$
 
@@ -1237,10 +1216,8 @@ r_t
 +
 \frac{\eta_t}{1+\eta_t}(\rho_2-\rho_1)
 +
-\hat\mu_t^1
--
-\frac{\eta_t}{1+\eta_t}\sigma\beta_t^{12}
--
+\hat\mu_t^1 -
+\frac{\eta_t}{1+\eta_t}\sigma\beta_t^{12} -
 \sigma^2 \\[3pt]
 &=
 \frac{
@@ -1260,8 +1237,7 @@ $$
 所以：
 
 $$
-\theta_t^2
-=
+\theta_t^2 =
 \sigma-\frac{1}{1+\eta_t}\beta_t^{12}.
 $$
 
@@ -1269,12 +1245,10 @@ $$
 
 $$
 \boxed{
-\theta_t^1
-=
+\theta_t^1 =
 \sigma+\frac{\eta_t}{1+\eta_t}\beta_t^{12},
 \qquad
-\theta_t^2
-=
+\theta_t^2 =
 \sigma-\frac{1}{1+\eta_t}\beta_t^{12}.
 }
 $$
@@ -1292,8 +1266,7 @@ $$
 \begin{aligned}
 \text{stock payoff flow}
 &=
-\text{dividend flow}
-=
+\text{dividend flow} =
 \delta_tdt.
 \end{aligned}
 $$
@@ -1318,8 +1291,7 @@ $$
 因此 price-dividend ratio 是“未来 dividend growth”乘上“未来 SPD discount”的条件期望。
 
 $$
-S_t
-=
+S_t =
 \frac{1}{\xi_t^1}
 E_t^1
 \left[
@@ -1331,8 +1303,7 @@ $$
 由消费清算式可得：
 
 $$
-\xi_s^1\delta_s
-=
+\xi_s^1\delta_s =
 \frac{e^{-\rho_1s}}{\varphi_1}
 +
 \frac{e^{-\rho_2s}}{\varphi_2}\xi_s^{21}.
@@ -1368,8 +1339,7 @@ $$
 再利用 $\xi_t^1=e^{-\rho_1t}(1+\eta_t)/(\varphi_1\delta_t)$，得到：
 
 $$
-S_t
-=
+S_t =
 \frac{
 \frac{1}{\rho_1}
 +
@@ -1382,8 +1352,7 @@ $$
 所以 price-dividend ratio 是：
 
 $$
-\frac{S_t}{\delta_t}
-=
+\frac{S_t}{\delta_t} =
 \frac{
 \frac{1}{\rho_1}
 +
@@ -1402,8 +1371,7 @@ $$
 设 $q(\eta_t)=S_t/\delta_t$，即：
 
 $$
-q(\eta_t)
-=
+q(\eta_t) =
 \frac{
 \frac{1}{\rho_1}
 +
@@ -1432,22 +1400,19 @@ $$
 d\log q(\eta_t)
 &=
 \left[
-\frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
--
+\frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2} -
 \frac{\eta_t}{1+\eta_t}
 \right]\frac{d\eta_t}{\eta_t}
 +\cdots dt \\
 &=
 \left[
-\frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
--
+\frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2} -
 \frac{\eta_t}{1+\eta_t}
 \right]\left[-\beta_t^{12}dB_t^1\right]
 +\cdots dt \\
 &=
 \left[
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right]\beta_t^{12}dB_t^1
 +\cdots dt.
@@ -1457,16 +1422,14 @@ $$
 又因为 $S_t=\delta_tq(\eta_t)$，所以
 
 $$
-\frac{dS_t}{S_t}
-=
+\frac{dS_t}{S_t} =
 \cdots
 +
 \left[
 \sigma
 +
 \left(
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right)
 \beta_t^{12}
@@ -1477,13 +1440,11 @@ $$
 
 $$
 \boxed{
-\sigma_{S,t}
-=
+\sigma_{S,t} =
 \sigma
 +
 \left[
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right]\beta_t^{12}.
 }
@@ -1522,8 +1483,7 @@ $$
 因此 agent $j$ 的 wealth 是未来消费 stream 的现值：
 
 $$
-W_t^j
-=
+W_t^j =
 \frac{1}{\xi_t^j}
 E_t^j
 \left[
@@ -1535,8 +1495,7 @@ $$
 由 FOC：
 
 $$
-\xi_s^j c_s^j
-=
+\xi_s^j c_s^j =
 \frac{e^{-\rho_js}}{\varphi_j}.
 $$
 
@@ -1560,27 +1519,23 @@ $$
 因此：
 
 $$
-W_t^1
-=
+W_t^1 =
 \frac{\delta_t}{\rho_1(1+\eta_t)},
 \qquad
-W_t^2
-=
+W_t^2 =
 \frac{\eta_t\delta_t}{\rho_2(1+\eta_t)}.
 $$
 
 并且：
 
 $$
-W_t^1+W_t^2
-=
+W_t^1+W_t^2 =
 \frac{
 \frac{1}{\rho_1}
 +
 \frac{\eta_t}{\rho_2}
 }
-{1+\eta_t}\delta_t
-=
+{1+\eta_t}\delta_t =
 S_t.
 $$
 
@@ -1601,8 +1556,7 @@ $$
 &=
 \pi_t^jW_t^j,
 \qquad
-\text{bond wealth}
-=
+\text{bond wealth} =
 (1-\pi_t^j)W_t^j, \\
 \text{stock shares}
 &=
@@ -1617,20 +1571,17 @@ dW_t^j
 &=
 \underbrace{(1-\pi_t^j)W_t^jr_tdt}_{\text{bond return}}
 +
-\underbrace{\frac{\pi_t^jW_t^j}{S_t}(dS_t+\delta_tdt)}_{\text{stock price gain + dividend}}
--
+\underbrace{\frac{\pi_t^jW_t^j}{S_t}(dS_t+\delta_tdt)}_{\text{stock price gain + dividend}} -
 \underbrace{c_t^jdt}_{\text{consumption}}.
 \end{aligned}
 $$
 只有 $dS_t$ 含 Brownian shock，所以 wealth 的 diffusion coefficient 来自股票仓位。
 
 $$
-dW_t^j
-=
+dW_t^j =
 (1-\pi_t^j)W_t^jr_tdt
 +
-\frac{\pi_t^jW_t^j}{S_t}(dS_t+\delta_tdt)
--
+\frac{\pi_t^jW_t^j}{S_t}(dS_t+\delta_tdt) -
 c_t^jdt.
 $$
 
@@ -1642,8 +1593,7 @@ $$
 \begin{aligned}
 W_t^1
 &=
-\frac{c_t^1}{\rho_1}
-=
+\frac{c_t^1}{\rho_1} =
 \frac{\delta_t}{\rho_1(1+\eta_t)}, \\
 \frac{d\delta_t}{\delta_t}
 &=
@@ -1675,18 +1625,15 @@ $$
 所以其财富波动率是：
 
 $$
-\sigma_{W^1,t}
-=
-\sigma+\frac{\eta_t}{1+\eta_t}\beta_t^{12}
-=
+\sigma_{W^1,t} =
+\sigma+\frac{\eta_t}{1+\eta_t}\beta_t^{12} =
 \theta_t^1.
 $$
 
 因此：
 
 $$
-\pi_t^1\sigma_{S,t}
-=
+\pi_t^1\sigma_{S,t} =
 \theta_t^1.
 $$
 
@@ -1694,10 +1641,8 @@ $$
 
 $$
 \boxed{
-\pi_t^1
-=
-\frac{\theta_t^1}{\sigma_{S,t}}
-=
+\pi_t^1 =
+\frac{\theta_t^1}{\sigma_{S,t}} =
 \frac{
 \sigma+\frac{\eta_t}{1+\eta_t}\beta_t^{12}
 }
@@ -1705,8 +1650,7 @@ $$
 \sigma
 +
 \left[
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right]\beta_t^{12}
 }.
@@ -1719,8 +1663,7 @@ $$
 \begin{aligned}
 W_t^2
 &=
-\frac{c_t^2}{\rho_2}
-=
+\frac{c_t^2}{\rho_2} =
 \frac{\eta_t\delta_t}{\rho_2(1+\eta_t)}, \\
 \frac{d\delta_t}{\delta_t}
 &=
@@ -1757,10 +1700,8 @@ $$
 所以其财富波动率是：
 
 $$
-\sigma_{W^2,t}
-=
-\sigma-\frac{1}{1+\eta_t}\beta_t^{12}
-=
+\sigma_{W^2,t} =
+\sigma-\frac{1}{1+\eta_t}\beta_t^{12} =
 \theta_t^2.
 $$
 
@@ -1768,10 +1709,8 @@ $$
 
 $$
 \boxed{
-\pi_t^2
-=
-\frac{\theta_t^2}{\sigma_{S,t}}
-=
+\pi_t^2 =
+\frac{\theta_t^2}{\sigma_{S,t}} =
 \frac{
 \sigma-\frac{1}{1+\eta_t}\beta_t^{12}
 }
@@ -1779,8 +1718,7 @@ $$
 \sigma
 +
 \left[
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right]\beta_t^{12}
 }.
@@ -1826,8 +1764,7 @@ $$
 \sigma(W_t^1+W_t^2)
 +
 \beta_t^{12}\left[
-\frac{\eta_t}{1+\eta_t}W_t^1
--
+\frac{\eta_t}{1+\eta_t}W_t^1 -
 \frac{1}{1+\eta_t}W_t^2
 \right] \\
 &=
@@ -1835,8 +1772,7 @@ $$
 +
 \beta_t^{12}\frac{\eta_t\delta_t}{(1+\eta_t)^2}
 \left(
-\frac{1}{\rho_1}
--
+\frac{1}{\rho_1} -
 \frac{1}{\rho_2}
 \right).
 \end{aligned}
@@ -1852,8 +1788,7 @@ $$
 \sigma
 +
 \left(
-\frac{\eta_t}{1+\eta_t}
--
+\frac{\eta_t}{1+\eta_t} -
 \frac{\eta_t/\rho_2}{1/\rho_1+\eta_t/\rho_2}
 \right)\beta_t^{12}
 \right]
@@ -1868,8 +1803,7 @@ $$
 +
 \beta_t^{12}\frac{\eta_t\delta_t}{(1+\eta_t)^2}
 \left(
-\frac{1}{\rho_1}
--
+\frac{1}{\rho_1} -
 \frac{1}{\rho_2}
 \right).
 \end{aligned}
@@ -2022,8 +1956,7 @@ $$
 
 $$
 \boxed{
-P(t,T)
-=
+P(t,T) =
 \frac{
 P_1^{\mathrm{hom}}(t,T)
 +
@@ -2099,8 +2032,7 @@ $$
 
 所以
 $$
-G_j(t,T)
-=
+G_j(t,T) =
 E_t^{\widetilde Q^j}\!\left[
 \exp\!\left(\int_t^T(\sigma^2-\hat\mu_s^j)ds\right)
 \right].
@@ -2121,8 +2053,7 @@ $$
 
 于是
 $$
-\bar\mu_j^{Q}
-=
+\bar\mu_j^{Q} =
 \bar\mu_j-\frac{\nu_j\sigma}{\kappa_j}.
 $$
 
@@ -2181,8 +2112,7 @@ $$
 
 所以
 $$
-\hat\mu_{t+s}^j
-=
+\hat\mu_{t+s}^j =
 \bar\mu_j^Q
 +
 (\hat\mu_t^j-\bar\mu_j^Q)e^{-\kappa_j s}
@@ -2284,8 +2214,7 @@ $$
 $$
 M_X(u)
 :=
-E_t^{\widetilde Q^j}\!\left[e^{uX}\right]
-=
+E_t^{\widetilde Q^j}\!\left[e^{uX}\right] =
 \exp\!\left(
 u\,m_j(\tau)+\frac12u^2v_j(\tau)
 \right).
@@ -2342,8 +2271,7 @@ $$
 但两个 log agents 且 beliefs 不同的时候：
 
 $$
-\frac{S_t}{\delta_t}
-=
+\frac{S_t}{\delta_t} =
 \frac{
 1/\rho_1+\eta_t/\rho_2
 }
@@ -2353,8 +2281,7 @@ $$
 由于 $\eta_t$ 随 beliefs 差异随机波动，price-dividend ratio 也随机波动。因此：
 
 $$
-\sigma_{S,t}
-=
+\sigma_{S,t} =
 \sigma
 +
 \text{belief disagreement component}.
@@ -2483,16 +2410,14 @@ E[-e^{-aW}\mid\mathcal I]
 -\exp\!\left[
 -a
 \left(
-m_{\mathcal I}
--
+m_{\mathcal I} -
 \frac{a}{2}s_{\mathcal I}^2
 \right)
 \right], \\
 \max E[-e^{-aW}\mid\mathcal I]
 &\Longleftrightarrow
 \max \left\{
-m_{\mathcal I}
--
+m_{\mathcal I} -
 \frac{a}{2}s_{\mathcal I}^2
 \right\}.
 \end{aligned}
@@ -2516,13 +2441,11 @@ $$
 \begin{aligned}
 CE_{it}(x_{it})
 &=
-W_t+x_{it}(E_{it}[D_T]-P_t)
--
+W_t+x_{it}(E_{it}[D_T]-P_t) -
 \frac{a}{2}x_{it}^2\operatorname{Var}_{it}(D_T), \\
 0
 &=
-E_{it}[D_T]-P_t
--
+E_{it}[D_T]-P_t -
 a x_{it}\operatorname{Var}_{it}(D_T), \\
 x_{it}
 &=
@@ -2534,8 +2457,7 @@ $$
 在日期 $t$，group $i$ 的 news-watcher 选择持有 $x_{it}$ 股 risky asset，并错误地认为会一直持有到 $T$。题干里的 $P_t$ 是日期 $t$ 的 risky asset price，$D_T$ 是 $T$ 期一次性支付的 dividend/payoff，所以每股净收益是 $D_T-P_t$。safe asset 的 net return 为 0，因此没有额外利息项，terminal consumption 可以写成：
 
 $$
-c_T
-=
+c_T =
 W_t+x_{it}(D_T-P_t).
 $$
 
@@ -2652,7 +2574,6 @@ $$
 $$
 
 ```tikz
-\begin{document}
 \begin{tikzpicture}[>=stealth,scale=1.05,every node/.style={font=\scriptsize}]
   \draw[->,thick] (0,0) -- (5.2,0) node[right] {$a$};
   \draw[->,thick] (0,-2.1) -- (0,2.1) node[above] {$x_{it}(a)$};
@@ -2677,7 +2598,6 @@ $$
   \draw[dotted] (5,-0.27) -- (5,0);
   \node[below] at (5,0) {$a\uparrow$};
 \end{tikzpicture}
-\end{document}
 ```
 **position size 的绝对值**：
 $$
@@ -2696,8 +2616,7 @@ $$
 **（b）平均条件期望**
 在日期 $t$，所有人都已经完全知道 $\varepsilon_0,\ldots,\varepsilon_t$，所以公共部分是：
 $$
-D_t
-=
+D_t =
 D_0+\sum_{j=0}^t\varepsilon_j.
 $$
 
@@ -2795,8 +2714,7 @@ $$
 
 $$
 \boxed{
-P_t
-=
+P_t =
 D_t+\frac{1}{z}
 \left[
 (z-1)\varepsilon_{t+1}
@@ -2987,8 +2905,7 @@ P_{t+m}
 $$
 
 $$
-P_{t+m}
-=
+P_{t+m} =
 \begin{cases}
 \dfrac{m+1}{z}+\lambda P_{t+m-1},
 &0\leq m\leq \min\{j,z-1\},\\[6pt]
@@ -3491,7 +3408,8 @@ $$
 
 
 ## Textbook Exercise Q 1.2(a)
-![[PhD-Course/attachment/Pasted image 20260428115441.png]]
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428115441.png" alt="Pasted image 20260428115441.png">
 
 设 CRRA utility 为
 
@@ -3595,7 +3513,8 @@ $$
 ---
 
 ## Textbook Exercise Q 1.2(b,d)
-![[PhD-Course/attachment/Pasted image 20260428101237.png]]
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428101237.png" alt="Pasted image 20260428101237.png">
 
 设 $u(w)=\dfrac{w^{1-\rho}}{1-\rho}$，且 gamble 为
 
@@ -3616,20 +3535,17 @@ $$
 u(w)
 &= \frac12u(w-x_{\max})+\frac12u(w+y)\\
 &\Longleftrightarrow
-\frac{w^{1-\rho}}{1-\rho}
-=
+\frac{w^{1-\rho}}{1-\rho} =
 \frac12\left[
 \frac{(w-x_{\max})^{1-\rho}}{1-\rho}
 +
 \frac{(w+y)^{1-\rho}}{1-\rho}
 \right]\\
 &\Longleftrightarrow
-(w-x_{\max})^{1-\rho}
-=
+(w-x_{\max})^{1-\rho} =
 2w^{1-\rho}-(w+y)^{1-\rho}\\
 &\Longleftrightarrow
-x_{\max}
-=
+x_{\max} =
 w-\left(2w^{1-\rho}-(w+y)^{1-\rho}\right)^{\frac{1}{1-\rho}}.
 \end{aligned}
 $$
@@ -3688,7 +3604,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428104131.png]]
+.
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428104131.png" alt="Pasted image 20260428104131.png">
 
 1. 因为 $\tilde y$ 与 $\tilde R$ 独立，非金融收入只会乘上一个与 $\phi$ 无关的常数项：
 
@@ -3819,7 +3737,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428110613.png]]
+(=Pasted
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428110613.png" alt="Pasted image 20260428110613.png">
 
 **$\pi_{GMV}$ 和 $\pi_{mv}$**
 GMV portfolio 是 fully invested 下方差最小的组合：
@@ -3865,10 +3785,8 @@ $$
 $$
 因此整条 risky-only frontier 都落在 $\Sigma^{-1}\mu$ 与 $\Sigma^{-1}\iota$ 张成的二维空间里。为了选一个和 $\pi_{GMV}$ 不同、但仍然 fully invested 的 frontier fund，把 $\Sigma^{-1}\mu$ 归一化，使权重和为 1：
 $$
-\pi_{mv}
-=
-\frac{\Sigma^{-1}\mu}{\iota'\Sigma^{-1}\mu}
-=
+\pi_{mv} =
+\frac{\Sigma^{-1}\mu}{\iota'\Sigma^{-1}\mu} =
 \frac{\Sigma^{-1}\mu}{\mu'\Sigma^{-1}\iota}.
 $$
 因为 $\iota'\pi_{GMV}=1$ 且 $\iota'\pi_{mv}=1$，所以
@@ -3902,12 +3820,10 @@ $$
 &=\lambda\frac{\Sigma^{-1}\mu}{\mu'\Sigma^{-1}\iota}
 +(1-\lambda)\frac{\Sigma^{-1}\iota}{\iota'\Sigma^{-1}\iota}\\
 &\Longleftrightarrow
-\left(\delta-\frac{\lambda}{\mu'\Sigma^{-1}\iota}\right)\Sigma^{-1}\mu
-=
+\left(\delta-\frac{\lambda}{\mu'\Sigma^{-1}\iota}\right)\Sigma^{-1}\mu =
 \left(\delta R_f+\frac{1-\lambda}{\iota'\Sigma^{-1}\iota}\right)\Sigma^{-1}\iota\\
 &\Longleftrightarrow
-\left(\delta-\frac{\lambda}{\mu'\Sigma^{-1}\iota}\right)\mu
-=
+\left(\delta-\frac{\lambda}{\mu'\Sigma^{-1}\iota}\right)\mu =
 \left(\delta R_f+\frac{1-\lambda}{\iota'\Sigma^{-1}\iota}\right)\iota.
 \end{aligned}
 $$
@@ -3950,7 +3866,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428122408.png]]
+image
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428122408.png" alt="Pasted image 20260428122408.png">
 
 **设定**：这是 **CARA-normal portfolio choice**，$\theta'\widetilde{\mathbf x}$ 正态，最大化期望效用等价于最大化 certainty equivalent。
 
@@ -4050,7 +3968,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428125930.png]]
+20260428115441.png)=~s/
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428125930.png" alt="Pasted image 20260428125930.png">
 
 **设定**：date-1 财富为 $(w_0-c_0)R_f+\widetilde y$，其中 $E[\widetilde y]=0$。选择 $c_0$：
 
@@ -4127,7 +4047,9 @@ $$
 ---
 
 ## Textbook Exercise Q 6.1
-![[PhD-Course/attachment/Pasted image 20260428133349.png]]
+/%20/gr
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428133349.png" alt="Pasted image 20260428133349.png">
 
 **Factor model**
 核心是用少数 common factors 解释 assets 的 expected returns。详细定义见 [[PhD-Course/Asset Pricing/Part1#^prop-3-2-6-factor-models|Part1: General Factor Models]]、[[PhD-Course/Asset Pricing/Part1#^def-3-2-7-single-factor|Single-Factor Model]]、[[PhD-Course/Asset Pricing/Part1#^def-3-2-8-multifactor|Multifactor Model]]。
@@ -4248,10 +4170,8 @@ $$
 &=
 \delta\Sigma^{-1}(\mu-R_f\mathbf 1),
 \qquad
-\delta
-=
-\frac{\operatorname{var}(\widetilde R_*)}{E[\widetilde R_*]-R_f}
-=
+\delta =
+\frac{\operatorname{var}(\widetilde R_*)}{E[\widetilde R_*]-R_f} =
 \frac{\pi'\Sigma\pi}{\pi'(\mu-R_f\mathbf 1)}.
 \end{aligned}
 $$
@@ -4324,8 +4244,7 @@ E[\widetilde R_i]
 b'\operatorname{Var}(\widetilde F)\beta_i\\
 &=R_f+\lambda'\beta_i,
 \qquad
-\lambda
-=
+\lambda =
 \frac{E[\widetilde R_*]-R_f}{b'\operatorname{Var}(\widetilde F)b}
 \operatorname{Var}(\widetilde F)b.
 \end{aligned}
@@ -4346,7 +4265,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428141951.png]]
+.
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428141951.png" alt="Pasted image 20260428141951.png">
 
 **设定**：每个 type $h$ 的 signal $\widetilde w_m$ 条件分布为 normal，先验权重相同。令 state-$h$ density ratio 为 $\widetilde z_h=g_h(\widetilde w_m)$。
 
@@ -4481,8 +4402,7 @@ $$
 -\tau\log\eta
 =\widetilde w_m\\
 &\Longleftrightarrow
-\log\eta
-=
+\log\eta =
 \sum_{j=1}^H\frac{\tau_j}{\tau}
 \log(\lambda_j\alpha_j\widetilde z_j)
 -\frac{1}{\tau}\widetilde w_m,
@@ -4628,7 +4548,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428151130.png]]
+
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428151130.png" alt="Pasted image 20260428151130.png">
 
 **设定与 planner problem**
 
@@ -4700,8 +4622,7 @@ $$
 \begin{aligned}
 C_{ht}
 &=
-\frac{(\lambda_hZ_{ht})^{1/\rho}}{S_t}C_t
-=
+\frac{(\lambda_hZ_{ht})^{1/\rho}}{S_t}C_t =
 \frac{(\lambda_hZ_{ht})^{1/\rho}}
 {\sum_{j=1}^H(\lambda_jZ_{jt})^{1/\rho}}C_t.
 \end{aligned}
@@ -4764,8 +4685,7 @@ E_t\!\left[
 \right)^{1/\rho}\\
 &\le
 \sum_{h=1}^H
-\left(E_t[\widetilde x_h^\rho]\right)^{1/\rho}
-=
+\left(E_t[\widetilde x_h^\rho]\right)^{1/\rho} =
 \sum_{h=1}^H
 \left(E_t[\lambda_hZ_{h,t+1}]\right)^{1/\rho}\\
 &=
@@ -4782,7 +4702,8 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428151432.png]]
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428151432.png" alt="Pasted image 20260428151432.png">
 
 考点标签： #heterogeneous-beliefs #Markov-chain #fundamental-value
 
@@ -4917,7 +4838,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428155824.png]]
+class=note-image
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428155824.png" alt="Pasted image 20260428155824.png">
 
 **设定与候选均衡**
 
@@ -4998,8 +4921,7 @@ E[\widetilde\varepsilon_b]=0,\quad
 \beta_b
 &=
 \frac{\operatorname{cov}(\widetilde x,\widetilde y_b)}
-{\operatorname{var}(\widetilde y_b)}
-=
+{\operatorname{var}(\widetilde y_b)} =
 \frac{\operatorname{cov}(\widetilde x,\widetilde s+b\widetilde z)}
 {\operatorname{var}(\widetilde s+b\widetilde z)}\\
 &=
@@ -5050,8 +4972,7 @@ a_0
 \right],\\
 a_1
 &=
-\frac{\beta_b}{R_f}
-=
+\frac{\beta_b}{R_f} =
 \frac{1}{R_f}
 \frac{\operatorname{cov}(\widetilde x,\widetilde s)}
 {\operatorname{var}(\widetilde s)+b^2\operatorname{var}(\widetilde z)},\\
@@ -5066,7 +4987,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428162212.png]]
+
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428162212.png" alt="Pasted image 20260428162212.png">
 
 **设定**
 
@@ -5096,8 +5019,7 @@ $$
 $$
 \left\{
 \begin{aligned}
-&\theta_h
-=
+&\theta_h =
 \tau_h\phi_h
 \left(
 E[\widetilde x\mid \widetilde r_b,\widetilde s_h]
@@ -5109,13 +5031,11 @@ E[\widetilde x\mid \widetilde r_b,\widetilde s_h]
 \right.
 \Longleftrightarrow
 \begin{aligned}
-&R_fp(\widetilde x,\widetilde y)\int_0^1\tau_h\phi_h\,dh
-=
+&R_fp(\widetilde x,\widetilde y)\int_0^1\tau_h\phi_h\,dh =
 \int_0^1\tau_h\phi_h
 E[\widetilde x\mid \widetilde r_b,\widetilde s_h]\,dh
 -\widetilde y,\\
-&p(\widetilde x,\widetilde y)
-=
+&p(\widetilde x,\widetilde y) =
 \int_0^1
 \frac{\tau_h\phi_h}{\tau\phi}
 \frac{E[\widetilde x\mid \widetilde r_b,\widetilde s_h]}{R_f}\,dh
@@ -5185,16 +5105,14 @@ $$
 =(1-\beta)\operatorname{var}(\widetilde x),\\
 \operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y,\widetilde s_h)
 &=
-\underbrace{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)}_{A}
--
+\underbrace{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)}_{A} -
 \frac{
 \operatorname{cov}(\widetilde x,\widetilde s_h\mid \widetilde x+b\widetilde y)^2
 }{
 \operatorname{var}(\widetilde s_h\mid \widetilde x+b\widetilde y)
 }\\
 &=
-\underbrace{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)}_{A}
--
+\underbrace{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)}_{A} -
 \frac{
 \underbrace{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)^2}_{A^2}
 }{
@@ -5202,8 +5120,7 @@ $$
 +\operatorname{var}(\widetilde\varepsilon_h)}_{A+\operatorname{var}(\widetilde\varepsilon_h)}
 }\\
 &=
-A-\frac{A^2}{A+\operatorname{var}(\widetilde\varepsilon_h)}
-=
+A-\frac{A^2}{A+\operatorname{var}(\widetilde\varepsilon_h)} =
 A-\underbrace{\frac{A}{A+\operatorname{var}(\widetilde\varepsilon_h)}}_{\kappa_h}A\\
 &=
 (1-\kappa_h)\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)\\
@@ -5239,8 +5156,7 @@ $$
 \left(\frac{1}{A}+\frac{1}{\operatorname{var}(\widetilde\varepsilon_h)}\right)^{-1}\\
 &=
 \frac{A\operatorname{var}(\widetilde\varepsilon_h)}
-{A+\operatorname{var}(\widetilde\varepsilon_h)}
-=
+{A+\operatorname{var}(\widetilde\varepsilon_h)} =
 \left(
 1-\frac{A}{A+\operatorname{var}(\widetilde\varepsilon_h)}
 \right)A\\
@@ -5269,8 +5185,7 @@ $$
 }\\
 &=
 \frac{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)}
-{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)+\operatorname{var}(\widetilde\varepsilon_h)}
-=
+{\operatorname{var}(\widetilde x\mid \widetilde x+b\widetilde y)+\operatorname{var}(\widetilde\varepsilon_h)} =
 \frac{(1-\beta)\operatorname{var}(\widetilde x)}
 {(1-\beta)\operatorname{var}(\widetilde x)+\operatorname{var}(\widetilde\varepsilon_h)}.
 \end{aligned}
@@ -5284,16 +5199,14 @@ $$
 \operatorname{var}(\widetilde\varepsilon_h),\\
 \frac{1}{\phi_h\kappa_h}
 &=
-\frac{\sigma_h^2}{\kappa_h}
-=
+\frac{\sigma_h^2}{\kappa_h} =
 \frac{1-\kappa_h}{\kappa_h}(1-\beta)\operatorname{var}(\widetilde x)
 =\operatorname{var}(\widetilde\varepsilon_h).
 \end{aligned}
 $$
 
 所以
-$$\tau_h\phi_h\kappa_h
-=
+$$\tau_h\phi_h\kappa_h =
 \frac{\phi_h\kappa_h}{\alpha_h}
 =\frac{1}{\alpha_h\operatorname{var}(\widetilde\varepsilon_h)}$$
 
@@ -5421,10 +5334,8 @@ $$
 \Longleftrightarrow\quad
 b
 &=
--\frac{1}{\tau\phi\kappa}
-=
--\left(\int_0^1\tau_h\phi_h\kappa_h\,dh\right)^{-1}
-=
+-\frac{1}{\tau\phi\kappa} =
+-\left(\int_0^1\tau_h\phi_h\kappa_h\,dh\right)^{-1} =
 -\left(\int_0^1
 \frac{1}{\alpha_h\operatorname{var}(\widetilde\varepsilon_h)}
 \,dh\right)^{-1}.
@@ -5433,7 +5344,8 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428183959.png]]
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428183959.png" alt="Pasted image 20260428183959.png">
 
  #Kyle-model #CARA-normal #linear-equilibrium
 
@@ -5453,8 +5365,7 @@ E[\widetilde z]=0,
 \widetilde z\perp(\widetilde x,\widetilde\varepsilon),\\
 \widetilde v&=E[\widetilde x\mid\widetilde s],
 \qquad
-\sigma^2=\operatorname{var}(\widetilde x\mid\widetilde s)
-=
+\sigma^2=\operatorname{var}(\widetilde x\mid\widetilde s) =
 \left(
 \frac{1}{\operatorname{var}(\widetilde x)}
 +\frac{1}{\operatorname{var}(\widetilde\varepsilon)}
@@ -5492,8 +5403,7 @@ E[\widetilde v\mid\widetilde y]
 \lambda
 &=
 \frac{\operatorname{cov}(\widetilde v,a+\beta\widetilde v+\widetilde z)}
-{\operatorname{var}(a+\beta\widetilde v+\widetilde z)}
-=
+{\operatorname{var}(a+\beta\widetilde v+\widetilde z)} =
 \frac{\beta V}{\beta^2V+Z}.
 \end{aligned}
 \tag{19.1}
@@ -5528,8 +5438,7 @@ E[\widetilde\pi(\theta)\mid\widetilde s]
 -\frac{\alpha}{2}\theta^2(\sigma^2+\lambda^2Z)\\
 \frac{\partial CE}{\partial\theta}=0
 &\Longleftrightarrow
-\theta
-=
+\theta =
 \frac{\widetilde v-\delta}{2\lambda+\alpha\sigma^2+\alpha\lambda^2Z}\\
 &=
 \underbrace{\frac{-\delta}{2\lambda+\alpha\sigma^2+\alpha\lambda^2Z}}_{a}
@@ -5574,7 +5483,8 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428194818.png]]
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428194818.png" alt="Pasted image 20260428194818.png">
 
 **a. Brownian bridge 与价格过程**
 
@@ -5770,7 +5680,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428195122.png]]
+.
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428195122.png" alt="Pasted image 20260428195122.png">
 
 **解析** 本题只有三个 possible payoffs：
 
@@ -5857,7 +5769,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428203158.png]]
+(=Pasted
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428203158.png" alt="Pasted image 20260428203158.png">
 
 **解析** 两组偏好都化到同一个 utility inequality：
 
@@ -5899,7 +5813,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428204347.png]]
+image
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428204347.png" alt="Pasted image 20260428204347.png">
 
 **解析** 令
 
@@ -6012,7 +5928,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428205902.png]]
+20260428183959.png)=~s/
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428205902.png" alt="Pasted image 20260428205902.png">
 
 **解析** 对 CRRA weighted utility，式 (25.13) 可写成
 
@@ -6131,7 +6049,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428214804.png]]
+/%20/gr
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428214804.png" alt="Pasted image 20260428214804.png">
 
 **解析** LRT 表示 risk tolerance 线性：
 
@@ -6229,7 +6149,9 @@ $$
 
 ---
 
-![[PhD-Course/attachment/Pasted image 20260428221909.png]]
+.
+
+<img class="note-image" src="../attachment/Pasted%20image%2020260428221909.png" alt="Pasted image 20260428221909.png">
 
 **解析** 设 risky payoff vector 为 $\widetilde R\in\mathbb R^n$，投资组合持仓为 $\phi\in\mathbb R^n$：
 
@@ -6543,8 +6465,7 @@ $$
 
 $$
 \boxed{
-\frac{c_0}{w_0}
-=
+\frac{c_0}{w_0} =
 \frac{\delta^{-1/\rho}R_f^{1-1/\rho}}
 {1+\delta^{-1/\rho}R_f^{1-1/\rho}},
 \qquad
@@ -6743,8 +6664,7 @@ E[\widetilde R_i]-\alpha
 &=
 \beta_{i,*}\big(E[\widetilde R_*]-\alpha\big),
 \qquad
-\beta_{i,*}
-=
+\beta_{i,*} =
 \frac{\operatorname{cov}(\widetilde R_i,\widetilde R_*)}
 {\operatorname{var}(\widetilde R_*)},
 \end{aligned}
@@ -6861,8 +6781,7 @@ $$
 \begin{aligned}
 E[\widetilde R_i]-R_z
 &=\lambda\beta_i,\qquad
-\beta_i
-=
+\beta_i =
 \frac{\operatorname{cov}(\widetilde R_i,\widetilde R)}
 {\operatorname{var}(\widetilde R)}.
 \end{aligned}
@@ -6950,8 +6869,7 @@ $$
 \begin{aligned}
 E[\widetilde R]\ne R_z
 \quad\text{and}\quad
-E[\widetilde R_i]-R_z
-=
+E[\widetilde R_i]-R_z =
 \lambda
 \frac{\operatorname{cov}(\widetilde R_i,\widetilde R)}
 {\operatorname{var}(\widetilde R)}
@@ -8857,8 +8775,7 @@ e^{-\gamma(X_T^*+H(Y_T))}
 X_T^*+H(Y_T)
 &=-\frac{1}{\gamma}\log(yZ_T)\\
 \Longleftrightarrow\quad
-X_T^*
-=
+X_T^* =
 -H(Y_T)-\frac{1}{\gamma}\log(yZ_T).
 \end{aligned}
 $$
@@ -8877,8 +8794,7 @@ $$
 \begin{aligned}
 X_T^*
 &=
-\underbrace{-\frac{1}{\gamma}\log(yZ_T)}_{\text{CARA demand for total wealth}}
--
+\underbrace{-\frac{1}{\gamma}\log(yZ_T)}_{\text{CARA demand for total wealth}} -
 \underbrace{H(Y_T)}_{\text{external terminal endowment}}.
 \end{aligned}
 $$
@@ -8907,8 +8823,7 @@ $$
 \begin{aligned}
 \frac{dZ_t^\nu}{Z_t^\nu}
 &=-r_tdt-(\lambda_t^\nu)'dB_t,\qquad
-\lambda_t^\nu
-=
+\lambda_t^\nu =
 \sqrt{Y_t}\xi'(\xi\xi')^{-1}\eta_t+\nu_t,\qquad
 \xi\nu_t=0.
 \end{aligned}
@@ -8948,8 +8863,7 @@ $$
 \begin{aligned}
 \eta_t^{2/1}
 &=
-\frac{dP_t^2}{dP_t^1}
-=
+\frac{dP_t^2}{dP_t^1} =
 \exp\left[
 -\frac{1}{2}(\beta_1^2+\beta_2^2)t
 -\beta_1B_{1t}^1-\beta_2B_{2t}^1
@@ -9122,8 +9036,7 @@ $$
 \begin{aligned}
 \epsilon_t
 &=
-\frac{\zeta_t^{(2)}}{\zeta_t^{(1)}}
-=
+\frac{\zeta_t^{(2)}}{\zeta_t^{(1)}} =
 \frac{1-\alpha_1}{\alpha_1}
 \frac{c_{11,t}}{c_{12,t}}.
 \end{aligned}
@@ -9349,5 +9262,3 @@ $$
 在完全对称 case，heterogeneous beliefs 仍改变 individual allocation shares，但由于两位 agent 对两种 goods 的 taste weights 完全相同，$\omega_t$ 在 exchange rate 和 price-dividend ratio 中抵消；若 $\rho_i$ 或 $\alpha_i$ 不同，$\omega_t$ 不再抵消，belief disagreement 会直接进入 exchange rate 和 stock prices。
 
 ::::
-
----
