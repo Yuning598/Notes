@@ -1191,23 +1191,266 @@ E[\Pi^{(2)}\mid v=v_0]
 $$
 $v=v_0$ 只表示 realized value 恰好等于公开先验均值，并不表示知情者与公众拥有同样的信息；两期交易允许知情者先通过第一期订单流影响价格学习，再在第二期利用剩余误价继续交易，所以即使 $v=v_0$，条件利润仍可为正。
 
-## 10.4.7 One-period / Two-period / 连续时间对比
 
-|                           | One-period Kyle                                               | Two-period Kyle                                                                                                           | 连续时间 Back (1992)                                                |
-| ------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| **时间**                    | $t=0,1$                                                       | $t=0,1,2$                                                                                                                 | $t\in[0,1]$                                                     |
-| **噪声分布**                  | $u\sim N(0,\sigma^2)$                                         | $u_1,u_2\overset{iid}{\sim}N(0,\sigma^2/2)$                                                                               | $z_t\sim N(0,\sigma_z^2 t)$                                     |
-| **价值分布**                  | $v\sim N(v_0,\Sigma_0)$                                       | $v\sim N(v_0,\Sigma_0)$                                                                                                   | $\tilde v\sim N(\bar v,\sigma_v^2)$                             |
-| **信息泄露速度**                | $\lambda\beta=1/2$（一半）                                        | $\lambda_1\beta_1=\frac{y}{1+y}$（由 $y\approx0.445$ 决定）                                                                    | $\lambda=\sigma_v/\sigma_z$，$\Sigma_t=\sigma_v^2(1-t)$（线性衰减）    |
-| **价格形式**                  | $p=v_0+\lambda X$                                             | $p_1=v_0+\lambda_1 y_1$，$p_2=p_1+\lambda_2 y_2$                                                                           | $\hat v_t=\bar v+\lambda Y_t$                                   |
-| **价格方差**                  | $\operatorname{Var}(p)=\frac{1}{2}\Sigma_0$                   | $\operatorname{Var}(p_1)=\Sigma_1=\frac{\Sigma_0}{1+y}$，终值完全揭示                                                            | $\operatorname{Var}(\hat v_t)=\sigma_v^2 t$，终值 $t=1$ 完全揭示       |
-| **条件期望利润** $E[\Pi\mid v]$ | $\dfrac{\sigma}{2\sqrt{\Sigma_0}}\,d^2$                       | $\dfrac{\sigma\sqrt{y}}{\sqrt{2\Sigma_0}(1+y)}\,d^2+\dfrac{\sigma}{2\sqrt{2\Sigma_0}}\dfrac{d^2+\Sigma_0 y}{(1+y)^{3/2}}$ | ——                                                              |
-| **无条件期望利润** $E[\Pi]$      | $\dfrac{\sigma\sqrt{\Sigma_0}}{2}=0.5\,\sigma\sqrt{\Sigma_0}$ | $\approx0.6206\,\sigma\sqrt{\Sigma_0}$                                                                                    | $\sigma_v\sigma_z=2\cdot\dfrac{\sigma_v\sigma_z}{2}$（一期模型的 2 倍） |
-| **$v=v_0$ 时利润**           | $0$                                                           | $>0$（知情者仍能从剩余误价中获利）                                                                                                       | $>0$（即使 $\tilde v=\bar v$，Brownian bridge 仍驱动交易）                |
+### 10.5 离散多期 Kyle 模型
 
-[Kyle_Model](Asset Pricing/Theoretical AP/cards/Kyle_Model.html)（完整推导）
+::::{admonition} Definition (Discrete Multi-period Kyle Equilibrium)
+离散 $N$ 期 Kyle 均衡由线性知情交易、竞争做市商定价和后验方差递推共同给出。
+::::
 
-**核心规律**：随交易期数增加，$\lambda\beta$ 从 $1/2$ 趋近于 $1$（完全揭示），无条件利润从 $0.5$ 倍趋向 $1$ 倍（翻倍），知情者利润越高。
+基本系统：
+
+$$
+\left\{
+\begin{aligned}
+t&=1,\ldots,N,\\
+v&\sim N(p_0,\Sigma_0),\\
+u_t&\overset{i.i.d.}{\sim}N(0,\sigma_u^2),\qquad \operatorname{Cov}(v,u_t)=0,\\
+x_t&=\beta_t(v-p_{t-1}),\\
+y_t&=x_t+u_t,\\
+p_t&=E[v\mid y_1,\ldots,y_t]
+=p_{t-1}+\lambda_t y_t,\\
+V_{t-1}(v,p_{t-1})
+&=\alpha_{t-1}(v-p_{t-1})^2+\delta_{t-1}.
+\end{aligned}
+\right.
+$$
+
+#### 单期模型
+
+令 $d_0:=v-p_0$。知情者给定线性定价 $p_1=p_0+\lambda_1y_1$：
+
+$$
+\begin{aligned}
+\max_{x_1}\ E[(v-p_1)x_1\mid v]
+&=\max_{x_1}\ E[(v-p_0-\lambda_1(x_1+u_1))x_1\mid v]\\
+&=\max_{x_1}\ (d_0-\lambda_1x_1)x_1,\\
+0&=d_0-2\lambda_1x_1,\\
+x_1&=\frac{d_0}{2\lambda_1},\\
+\beta_1&=\frac{1}{2\lambda_1}.
+\end{aligned}
+$$
+
+做市商正态投影：
+
+$$
+\begin{aligned}
+\lambda_1
+&=\frac{\operatorname{Cov}(v,y_1)}
+{\operatorname{Var}(y_1)}
+=\frac{\beta_1\Sigma_0}{\beta_1^2\Sigma_0+\sigma_u^2}\\
+&=\frac{\frac{1}{2\lambda_1}\Sigma_0}
+{\frac{1}{4\lambda_1^2}\Sigma_0+\sigma_u^2},\\
+\lambda_1^2
+&=\frac{\Sigma_0}{4\sigma_u^2},\\
+\lambda_1
+&=\frac{1}{2}\sqrt{\frac{\Sigma_0}{\sigma_u^2}},\\
+\beta_1
+&=\frac{\sigma_u}{\sqrt{\Sigma_0}}.
+\end{aligned}
+$$
+
+#### 两期模型
+
+第二期是终端期，给定 $p_1$ 后
+
+$$
+\begin{aligned}
+V_1(v,p_1)
+&=\max_{x_2}\ E[(v-p_2)x_2\mid v,p_1]\\
+&=\frac{(v-p_1)^2}{4\lambda_2}.
+\end{aligned}
+$$
+
+第一期令 $d_0=v-p_0$ 且 $p_1=p_0+\lambda_1(x_1+u_1)$：
+
+$$
+\begin{aligned}
+V_0(v,p_0)
+&=\max_{x_1}\ E\left[
+x_1(v-p_1)+\frac{(v-p_1)^2}{4\lambda_2}
+\mid v,p_0
+\right]\\
+&=\max_{x_1}
+\left\{
+\begin{aligned}
+&x_1(d_0-\lambda_1x_1)\\
+&\quad+\frac{(d_0-\lambda_1x_1)^2+\lambda_1^2\sigma_u^2}{4\lambda_2}
+\end{aligned}
+\right\},\\
+0
+&=d_0-2\lambda_1x_1
+-\frac{2\lambda_1(d_0-\lambda_1x_1)}{4\lambda_2},\\
+\beta_1
+&=\frac{x_1}{d_0}
+=\frac{2\lambda_2-\lambda_1}{\lambda_1(4\lambda_2-\lambda_1)}.
+\end{aligned}
+$$
+
+#### 逆向动态规划
+
+令 $d_{t-1}:=v-p_{t-1}$。给定未来价值函数
+$V_t(v,p_t)=\alpha_t(v-p_t)^2+\delta_t$：
+
+$$
+\begin{aligned}
+V_{t-1}(v,p_{t-1})
+&=\max_{x_t}E\left[
+x_t(v-p_t)+V_t(v,p_t)
+\mid v,p_{t-1}
+\right]\\
+&=\max_{x_t}
+\left\{
+\begin{aligned}
+&x_t(d_{t-1}-\lambda_tx_t)\\
+&\quad+\alpha_t\left[(d_{t-1}-\lambda_tx_t)^2+\lambda_t^2\sigma_u^2\right]\\
+&\quad+\delta_t
+\end{aligned}
+\right\}.
+\end{aligned}
+$$
+
+FOC：
+
+$$
+\begin{aligned}
+0
+&=d_{t-1}-2\lambda_tx_t
+-2\alpha_t\lambda_t(d_{t-1}-\lambda_tx_t),\\
+x_t
+&=\frac{1-2\alpha_t\lambda_t}
+{2\lambda_t(1-\alpha_t\lambda_t)}d_{t-1},\\
+\beta_t
+&=\frac{1-2\alpha_t\lambda_t}
+{2\lambda_t(1-\alpha_t\lambda_t)},\\
+1-\lambda_t\beta_t
+&=\frac{1}{2(1-\alpha_t\lambda_t)}.
+\end{aligned}
+$$
+
+代回并匹配 $d_{t-1}^2$ 项：
+
+$$
+\begin{aligned}
+\alpha_{t-1}
+&=\beta_t(1-\lambda_t\beta_t)
++\alpha_t(1-\lambda_t\beta_t)^2\\
+&=
+\frac{1-2\alpha_t\lambda_t}
+{2\lambda_t(1-\alpha_t\lambda_t)}
+\frac{1}{2(1-\alpha_t\lambda_t)}
++\alpha_t\frac{1}{4(1-\alpha_t\lambda_t)^2}\\
+&=
+\frac{1-2\alpha_t\lambda_t+\alpha_t\lambda_t}
+{4\lambda_t(1-\alpha_t\lambda_t)^2}\\
+&=
+\frac{1}{4\lambda_t(1-\alpha_t\lambda_t)}.
+\end{aligned}
+$$
+
+常数项递推：
+
+$$
+\begin{aligned}
+\delta_{t-1}
+&=\delta_t+\alpha_t\lambda_t^2\sigma_u^2,
+\qquad
+\alpha_N=\delta_N=0.
+\end{aligned}
+$$
+
+#### 前向贝叶斯滤波
+
+条件于历史价格或订单流，$d_{t-1}=v-p_{t-1}$ 的后验方差为 $\Sigma_{t-1}$，且
+
+$$
+\left\{
+\begin{aligned}
+y_t&=\beta_t(v-p_{t-1})+u_t,\\
+\operatorname{Cov}(v,y_t\mid y_1,\ldots,y_{t-1})
+&=\beta_t\Sigma_{t-1},\\
+\operatorname{Var}(y_t\mid y_1,\ldots,y_{t-1})
+&=\beta_t^2\Sigma_{t-1}+\sigma_u^2.
+\end{aligned}
+\right.
+$$
+
+做市商的线性投影系数和后验方差更新为
+
+$$
+\begin{aligned}
+\lambda_t
+&=\frac{\operatorname{Cov}(v,y_t\mid y_1,\ldots,y_{t-1})}
+{\operatorname{Var}(y_t\mid y_1,\ldots,y_{t-1})}\\
+&=\frac{\beta_t\Sigma_{t-1}}
+{\beta_t^2\Sigma_{t-1}+\sigma_u^2},\\
+\Sigma_t
+&=\Sigma_{t-1}
+-\frac{\operatorname{Cov}(v,y_t\mid y_1,\ldots,y_{t-1})^2}
+{\operatorname{Var}(y_t\mid y_1,\ldots,y_{t-1})}\\
+&=\Sigma_{t-1}
+-\lambda_t\beta_t\Sigma_{t-1}\\
+&=(1-\lambda_t\beta_t)\Sigma_{t-1}.
+\end{aligned}
+$$
+
+#### 动态均衡差分系统
+
+离散多期 Kyle 均衡可写成前向-后向耦合系统：
+
+$$
+\left\{
+\begin{aligned}
+\beta_t
+&=\frac{1-2\alpha_t\lambda_t}
+{2\lambda_t(1-\alpha_t\lambda_t)},\\
+\alpha_{t-1}
+&=\frac{1}{4\lambda_t(1-\alpha_t\lambda_t)},\\
+\delta_{t-1}
+&=\delta_t+\alpha_t\lambda_t^2\sigma_u^2,\\
+\lambda_t
+&=\frac{\beta_t\Sigma_{t-1}}
+{\beta_t^2\Sigma_{t-1}+\sigma_u^2},\\
+\Sigma_t
+&=(1-\lambda_t\beta_t)\Sigma_{t-1},\\
+\alpha_N&=0,\qquad \delta_N=0,\qquad \Sigma_0\ \text{given}.
+\end{aligned}
+\right.
+$$
+
+#### 方差分解
+
+价格创新为 $p_t-p_{t-1}=\lambda_ty_t$，因此
+
+$$
+\begin{aligned}
+\operatorname{Var}(p_t)-\operatorname{Var}(p_{t-1})
+&=\operatorname{Var}(p_t-p_{t-1})\\
+&=\lambda_t^2\operatorname{Var}(y_t\mid y_1,\ldots,y_{t-1})\\
+&=\lambda_t^2(\beta_t^2\Sigma_{t-1}+\sigma_u^2)\\
+&=\lambda_t\beta_t\Sigma_{t-1}.
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\operatorname{Var}(p_t)
+&=\sum_{i=1}^t\lambda_i\beta_i\Sigma_{i-1},\\
+\Sigma_t
+&=(1-\lambda_t\beta_t)\Sigma_{t-1},\\
+\operatorname{Var}(p_t)+\Sigma_t
+&=\operatorname{Var}(p_{t-1})+\lambda_t\beta_t\Sigma_{t-1}
++(1-\lambda_t\beta_t)\Sigma_{t-1}\\
+&=\operatorname{Var}(p_{t-1})+\Sigma_{t-1}\\
+&=\Sigma_0.
+\end{aligned}
+$$
+
+多期 Kyle 的闭环是：做市商用订单流前向滤波 $(\lambda_t,\Sigma_t)$，知情者用未来利润逆向决定 $(\beta_t,\alpha_t)$；二者通过 $\lambda_t\beta_t$ 控制每期的信息揭示速度。
+
+
 
 ## 11. 连续时间 Kyle 模型（Back, 1992）
 
