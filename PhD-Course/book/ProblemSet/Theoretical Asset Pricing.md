@@ -1,5 +1,15 @@
 # Theoretical Asset Pricing
 
+## Pointers
+
+- [Course overview](../Asset%20Pricing/Theoretical_Asset_Pricing.md)
+- [Single-period models](../Asset%20Pricing/Theoretical%20AP/01_Single_Period_Models.md)
+- [Dynamic asset pricing](../Asset%20Pricing/Theoretical%20AP/02_Dynamic_Asset_Pricing.md)
+- [Continuous-time pricing, options, and term structure](../Asset%20Pricing/Theoretical%20AP/03_Continuous_Time_Pricing_Options_Term_Structure.md)
+- [Information, beliefs, and learning](../Asset%20Pricing/Theoretical%20AP/04_Information_Beliefs_and_Learning.md)
+
+Use this page as the entry point for theoretical asset-pricing review problems.
+
 
 ## Question 1. Market Completeness, State Prices, and Arrow Security
 Consider a two-period economy ($t=0, 1$) with three possible future states $\Omega = \{\omega_1, \omega_2, \omega_3\}$. The market contains two primary assets:
@@ -17,6 +27,8 @@ Assume there are no arbitrage opportunities in the market.
 4. Explain the arbitrage strategy if the price of this Arrow Security were to be $0.20$.
 
 #考点/资产定价 #考点/无套利 #考点/一价定律 #考点/市场完备性 #考点/状态价格 #考点/Arrow证券 #考点/风险中性测度 #考点/SDF #考点/套利策略
+
+::::{solution}
 
 ### 1.1 市场完备性 (Market Completeness)
 
@@ -113,7 +125,11 @@ $$
 $$
 所以这是一个套利组合：$t=0$ 时刻净流入 $0.05$，而 $t=1$ 时刻各状态下净支付都非负，且在 state 1 严格为正。
 
+::::
+
 ---
+
+
 
 ## Question 2. Representative Investor, Arrow Security Pricing, and Risk-Free Rate
 Consider a two-period economy ($t=0, 1$) with three possible future states at $t=1$, denoted by $s \in \{1, 2, 3\}$, each occurring with probability $\pi_s = 1/3$.
@@ -135,6 +151,8 @@ Aggregate endowment (consumption) at $t=0$ is $c_0$. Aggregate consumption at $t
 3. **Numerical Calculation**: Assume $c_0 = 1$, $\mathbf{c}_1 = (1.1, 1.0, 0.9)$, $\delta = 0.95$, and $\rho = 2$. Calculate the price of the Arrow Security for State 1 ($q_1$) and the risk-free rate $R_f$.
 
 #考点/代表性投资者 #考点/时间可加效用 #考点/CRRA #考点/Arrow证券 #考点/状态价格 #考点/风险自由利率 #考点/无套利 #考点/一价定律 #考点/SDF #考点/风险中性测度
+
+::::{solution}
 
 ### 2.1 Arrow Security Price ($q_j$) 的数学推导
 
@@ -230,11 +248,17 @@ $$
     $P_f = q_1 + q_2 + q_3 = 0.2617 + 0.3167 + 0.3909 = 0.9693$
     $R_f = 1 / 0.9693 \approx \mathbf{1.0317}$ (即 3.17% 的无风险利率)
 
+::::
+
 ---
+
+
 ## Question 3. Linear SDF Implies CAPM and MVF
 证明：如果 SDF $m$ 是市场组合收益率 $R_m$ 的线性函数，那么 CAPM 成立，且 $R_m$ 必须位于均值-方差有效边界（MVF）上。
 
 #考点/资产定价 #考点/SDF #考点/CAPM #考点/市场组合 #考点/均值-方差有效边界 #考点/MVF #考点/线性定价核
+
+::::{solution}
 
 ### 3.1 线性 SDF 推出 CAPM
 
@@ -265,13 +289,19 @@ E[R_i]-R_f
 $$
 这就是 CAPM. 又因为 $R_m$ 自己满足 $\beta_m=1$，并且它是同均值 risky portfolio 里方差最小的那个，所以 $R_m$ 必在 mean-variance efficient frontier 上。更完整的等价证明见 [[PhD-Course/Asset Pricing/Part1#^prop-3-2-4-mve|CAPM and Mean-Variance Efficiency]]。
 
+::::
+
 ---
+
+
 
 ## Question 4. State Prices, SDF, and Risk-Neutral Pricing
 
 State Prices, SDF, and Risk-Neutral Pricing
 
 #考点/状态价格 #考点/风险中性概率 #考点/风险中性定价 #考点/SDF #考点/一价定律
+
+::::{solution}
 
 设状态 $s$ 的 physical probability 为 $\pi_s$，SDF 为 $m_s$，state price 为 $q_s$，risk-neutral probability 为 $\psi_s$。
 
@@ -308,13 +338,19 @@ P
 $$
 这里 $E^{\mathbb Q}[X]:=\sum_s \psi_s X_s$ 是 risk-neutral expectation。等价地，也可写成 $P=E[mX]$。
 
+::::
+
 ---
+
+
 
 ## Question 5. No-Dividend Stock: American Call Equals European Call
 
 证明对于一个不支付红利（No Dividends）的股票，美式看涨期权（American Call Option）的价值等于欧式看涨期权（European Call Option），且提前行权（Early Exercise）永远不是最优的。
 
 #考点/期权定价 #考点/美式期权 #考点/欧式期权 #考点/提前行权 #考点/无红利股票 #考点/无套利 #考点/风险中性测度
+
+::::{solution}
 
 ### 5.1 美式看涨期权的提前行权条件
 
@@ -454,7 +490,11 @@ D&>K\big(e^{r(t_d-t)}-1\big),
 $$
 说明：**红利现值足够大时，提前行权为了拿红利是有可能最优的**。这就是有红利股票和无红利股票的本质差别。
 
+::::
+
 ---
+
+
 ## Question 6. American vs European Options as an Optimal Stopping Problem
 
 考虑无套利市场下的标的资产价格过程
@@ -520,6 +560,8 @@ $$
 8. （加分问）若把美式期权价格问题离散化到有限差分网格，说明：为什么欧式问题对应线性系统，而美式问题对应带 obstacle 的互补问题。
 
 #考点/最优停止 #考点/美式期权 #考点/欧式期权 #考点/自由边界 #考点/smooth_pasting #考点/风险中性定价 #考点/变分不等式
+
+::::{solution}
 
 ### 6.1 解析框架
 
@@ -615,7 +657,11 @@ $$
 6. **数值方法**
    欧式问题通常是线性 PDE；美式问题因为有 obstacle / early exercise constraint，会变成 free-boundary / complementarity problem。有限差分离散后，对应的是线性系统 vs. 带障碍约束的离散互补系统。
 
+::::
+
 ---
+
+
 ## Question 7. Grossman-Stiglitz：信息价值与最高支付意愿
 
 设代理人具有 CARA utility，风险厌恶系数为 $\lambda>0$，初始确定财富为 $m$。风险资产终值为 $v$，当前价格为 $p$，代理人选择持仓 $X$，则终值财富为
@@ -638,6 +684,8 @@ $$
 5. 解释为什么：若价格完全揭示私人信息，则不可能与正的信息获取成本同时成立。
 
 #考点/Grossman-Stiglitz #考点/信息价值 #考点/支付意愿 #考点/CARA #考点/确定性等价 #考点/贝叶斯学习 #考点/部分揭示均衡
+
+::::{solution}
 
 ### 7.1 任意信息集下的最优持仓与 certainty equivalent
 
@@ -779,7 +827,11 @@ $$
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 ## Question 8. Heterogeneous Beliefs with Log Utility（part4-Exercise5）
 
@@ -807,6 +859,8 @@ $$
 7. 解释这道题的经济含义：为什么 heterogeneous beliefs 会带来 stochastic valuation ratio 与 excess volatility。
 
 #考点/异质信念 #考点/log_utility #考点/消费分配 #考点/状态价格密度 #考点/短利率 #考点/市场风险价格 #考点/Lucas_tree #考点/股票波动率 #考点/零息债定价 #考点/市场清算
+
+::::{solution}
 
 **（1）基本设定**
 
@@ -2289,7 +2343,11 @@ $$
 
 所以这个模型可以产生 stochastic stock volatility，也可能产生 excess volatility。核心机制不是 log utility 本身，而是 **heterogeneous beliefs 使得财富权重 $\eta_t$ 随机变化，从而带来 valuation ratio 波动**。
 
+::::
+
 ---
+
+
 
 ## Question 9. 信息扩散与动量交易
 
@@ -2353,6 +2411,8 @@ Now we add another class of agents, called momentum-traders. Suppose that at the
 
 
 #考点/资产定价 #考点/信息扩散 #考点/动量交易 #考点/CARA-Normal #考点/市场清算 #考点/ARMA #考点/有限套利
+
+::::{solution}
 
 **信息扩散图示**
 
@@ -2952,7 +3012,11 @@ fully rational agents 会识别到价格偏离 fundamental value，因此在 und
 
 除非他们是风险中性、有无限资本、无约束，并且能完全承受中间价格波动，否则 mispricing 仍然可以存在。
 
+::::
+
 ---
+
+
 
 ## Question 10. 内幕交易与噪声交易
 
@@ -3003,6 +3067,8 @@ where linearity of the conditional expectation follows from joint normality. Vie
 **（e）** Now suppose that the insider is the CEO of the firm that is being valued, and he is overconfident about the prospects of his company. Specifically, he believes — incorrectly — that the terminal value of the firm will be $v^*=v+v_0$, where the constant $v_0>0$ is the insider’s overconfidence. If market makers know that the insider is overconfident and know $v_0$, what happens to the market price $p$ compared to the fully rational case? Is this result similar to the conclusions of the De Long et al paper? Why? What would happen to the price if the market makers were not aware of the insider’s overconfidence?
 
 #考点/资产定价 #考点/信息不对称 #考点/内幕交易 #考点/噪声交易 #考点/CARA-Normal #考点/Kyle模型 #考点/市场深度 #考点/过度自信
+
+::::{solution}
 
 回顾卡片：[[PhD-Course/QE-PS/cards/One-period Kyle 模型复习|One-period Kyle 模型复习]]
 
@@ -3404,12 +3470,18 @@ p-p^R=\lambda\beta v_0>0,
 }
 $$
 
+::::
+
 ---
+
+
 
 
 ## Textbook Exercise Q 1.2(a)
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428115441.png" alt="Pasted image 20260428115441.png">
+
+::::{solution}
 
 设 CRRA utility 为
 
@@ -3510,11 +3582,17 @@ $$
 }
 $$
 
+::::
+
 ---
+
+
 
 ## Textbook Exercise Q 1.2(b,d)
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428101237.png" alt="Pasted image 20260428101237.png">
+
+::::{solution}
 
 设 $u(w)=\dfrac{w^{1-\rho}}{1-\rho}$，且 gamble 为
 
@@ -3602,11 +3680,17 @@ $$
 
 其中 $\log(1-x/w)\le 0$，所以最后一步除以负数时不等号方向会反转。
 
+::::
+
 ---
+
+
 
 .
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428104131.png" alt="Pasted image 20260428104131.png">
+
+::::{solution}
 
 1. 因为 $\tilde y$ 与 $\tilde R$ 独立，非金融收入只会乘上一个与 $\phi$ 无关的常数项：
 
@@ -3686,7 +3770,11 @@ $$
 $$
 
 
+::::
+
 ---
+
+
 
 Show that, if there is a strictly positive SDF, then there are no arbitrage opportunities.
 
@@ -3737,9 +3825,13 @@ $$
 
 ---
 
+
+
 (=Pasted
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428110613.png" alt="Pasted image 20260428110613.png">
+
+::::{solution}
 
 **$\pi_{GMV}$ 和 $\pi_{mv}$**
 GMV portfolio 是 fully invested 下方差最小的组合：
@@ -3864,11 +3956,17 @@ $$
 
 矛盾。因此该 tangency portfolio 不存在。
 
+::::
+
 ---
+
+
 
 image
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428122408.png" alt="Pasted image 20260428122408.png">
+
+::::{solution}
 
 **设定**：这是 **CARA-normal portfolio choice**，$\theta'\widetilde{\mathbf x}$ 正态，最大化期望效用等价于最大化 certainty equivalent。
 
@@ -3966,11 +4064,17 @@ $$
 
 **结论**：最优 risky investment = risk tolerance $1/\alpha$ $\times$ mean-variance efficient demand $\Sigma^{-1}(\mu-R_f\iota)$；$\alpha$ 越大，risky position 越小。
 
+::::
+
 ---
+
+
 
 20260428115441.png)=~s/
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428125930.png" alt="Pasted image 20260428125930.png">
+
+::::{solution}
 
 **设定**：date-1 财富为 $(w_0-c_0)R_f+\widetilde y$，其中 $E[\widetilde y]=0$。选择 $c_0$：
 
@@ -4044,12 +4148,18 @@ $$
 
 **结论**：引入 mean-zero labor income risk 后，最优当期消费下降、储蓄上升；这就是 precautionary savings。
 
+::::
+
 ---
+
+
 
 ## Textbook Exercise Q 6.1
 /%20/gr
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428133349.png" alt="Pasted image 20260428133349.png">
+
+::::{solution}
 
 **Factor model**
 核心是用少数 common factors 解释 assets 的 expected returns。详细定义见 [[PhD-Course/Asset Pricing/Part1#^prop-3-2-6-factor-models|Part1: General Factor Models]]、[[PhD-Course/Asset Pricing/Part1#^def-3-2-7-single-factor|Single-Factor Model]]、[[PhD-Course/Asset Pricing/Part1#^def-3-2-8-multifactor|Multifactor Model]]。
@@ -4263,11 +4373,17 @@ E[\widetilde R_i]=R_f+\lambda'\beta_i.
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 .
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428141951.png" alt="Pasted image 20260428141951.png">
+
+::::{solution}
 
 **设定**：每个 type $h$ 的 signal $\widetilde w_m$ 条件分布为 normal，先验权重相同。令 state-$h$ density ratio 为 $\widetilde z_h=g_h(\widetilde w_m)$。
 
@@ -4546,11 +4662,17 @@ $$
 
 **结论**：异方差时 log ratio 含有 $\widetilde w_m^2/\sigma_j^2$ 项，sharing rule 不再只是 $\widetilde w_m$ 的 affine function。
 
+::::
+
 ---
 
 
 
+
+
 <img class="note-image" src="../attachment/Pasted%20image%2020260428151130.png" alt="Pasted image 20260428151130.png">
+
+::::{solution}
 
 **设定与 planner problem**
 
@@ -4700,10 +4822,16 @@ $$
 **结论**：heterogeneous-belief planner 等价于 representative agent with stochastic weight $Z_t$，且 $\rho>1$ 时 $Z_t$ 是 supermartingale。
 
 
+::::
+
 ---
 
 
+
+
 <img class="note-image" src="../attachment/Pasted%20image%2020260428151432.png" alt="Pasted image 20260428151432.png">
+
+::::{solution}
 
 考点标签： #heterogeneous-beliefs #Markov-chain #fundamental-value
 
@@ -4836,11 +4964,17 @@ $$
 
 结论成立。直观上，虽然 investor 2 自己的 fundamental value 更高，但在 state $0$，investor 1 给下一期进入 high-dividend state 的概率是 $1/2$，高于 investor 2 的 $1/3$，所以 investor 1 对 investor 2 的下一期 valuation 更乐观。
 
+::::
+
 ---
+
+
 
 class=note-image
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428155824.png" alt="Pasted image 20260428155824.png">
+
+::::{solution}
 
 **设定与候选均衡**
 
@@ -4985,11 +5119,17 @@ $$
 
 第三个方程由第二个方程自动推出。因此对任意 $b$，都可以用前两个方程定义 $a_0,a_1$，得到一个 reveal $\widetilde s+b\widetilde z$ 的 partially revealing equilibrium。
 
+::::
+
 ---
 
 
 
+
+
 <img class="note-image" src="../attachment/Pasted%20image%2020260428162212.png" alt="Pasted image 20260428162212.png">
+
+::::{solution}
 
 **设定**
 
@@ -5342,12 +5482,18 @@ b
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428183959.png" alt="Pasted image 20260428183959.png">
 
  #Kyle-model #CARA-normal #linear-equilibrium
+
+::::{solution}
 
 **设定与线性猜测**
 
@@ -5481,10 +5627,16 @@ $$
 
 最高次项为 $\alpha^2Z^3\lambda^5$，所以 $\lambda$ 是 fifth-order polynomial 的根。
 
+::::
+
 ---
 
 
+
+
 <img class="note-image" src="../attachment/Pasted%20image%2020260428194818.png" alt="Pasted image 20260428194818.png">
+
+::::{solution}
 
 **a. Brownian bridge 与价格过程**
 
@@ -5678,11 +5830,17 @@ $$
 
 因此 $P_1=\widetilde v$ 的策略达到所有策略的收益上界，所以是 optimal。
 
+::::
+
 ---
+
+
 
 .
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428195122.png" alt="Pasted image 20260428195122.png">
+
+::::{solution}
 
 **解析** 本题只有三个 possible payoffs：
 
@@ -5767,11 +5925,17 @@ $$
 
 
 
+::::
+
 ---
+
+
 
 (=Pasted
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428203158.png" alt="Pasted image 20260428203158.png">
+
+::::{solution}
 
 **解析** 两组偏好都化到同一个 utility inequality：
 
@@ -5811,11 +5975,17 @@ C\succ D.
 $$
 
 
+::::
+
 ---
+
+
 
 image
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428204347.png" alt="Pasted image 20260428204347.png">
+
+::::{solution}
 
 **解析** 令
 
@@ -5926,11 +6096,17 @@ $$
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 20260428183959.png)=~s/
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428205902.png" alt="Pasted image 20260428205902.png">
+
+::::{solution}
 
 **解析** 对 CRRA weighted utility，式 (25.13) 可写成
 
@@ -6047,11 +6223,17 @@ e^{-(\rho-2\gamma)\sigma^2/2},
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 /%20/gr
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428214804.png" alt="Pasted image 20260428214804.png">
+
+::::{solution}
 
 **解析** LRT 表示 risk tolerance 线性：
 
@@ -6147,11 +6329,17 @@ $$
 
 综上，monotone LRT utility 只能是 negative exponential、log、power、shifted log、shifted power 的 monotone affine transform。
 
+::::
+
 ---
+
+
 
 .
 
 <img class="note-image" src="../attachment/Pasted%20image%2020260428221909.png" alt="Pasted image 20260428221909.png">
+
+::::{solution}
 
 **解析** 设 risky payoff vector 为 $\widetilde R\in\mathbb R^n$，投资组合持仓为 $\phi\in\mathbb R^n$：
 
@@ -6234,7 +6422,11 @@ $$
 }
 $$
 
+::::
+
 ---
+
+
 
 
 **对比：有没有 risk-free asset**
@@ -6309,6 +6501,8 @@ $$
 
 ---
 
+
+
 ## Question 11. Risk-Free Asset and Beginning/End-of-Period Consumption
 
 Consider the portfolio choice problem with only a risk-free asset and with consumption at both the beginning and end of the period.
@@ -6328,6 +6522,8 @@ $$
 Show that the optimal consumption-to-wealth ratio $c_0/w_0$ is decreasing in $R_f$ if $\rho<1$ and increasing in $R_f$ if $\rho>1$.
 
 #考点/消费储蓄 #考点/CRRA #考点/风险自由资产 #考点/跨期选择 #考点/替代效应 #考点/EIS
+
+::::{solution}
 
 模型系统：
 
@@ -6475,7 +6671,11 @@ $$
 }
 $$
 
+::::
+
 ---
+
+
 
 **Verification theorem 怎么验证**
 
@@ -6536,6 +6736,8 @@ $$
 
 ---
 
+
+
 ## Question 5.3 No Tangency Portfolio When $R_f$ Equals GMV Return
 
 Suppose that the risk-free return is equal to the expected return of the global minimum variance portfolio:
@@ -6547,6 +6749,8 @@ $$
 \delta\Sigma^{-1}(\mu-R_f1)=\lambda\pi_\mu+(1-\lambda)\pi_1.
 $$
 Assume $\mu$ is not proportional to $1$.
+
+::::{solution}
 
 **解析** 记
 
@@ -6604,9 +6808,15 @@ $$
 
 但 $C=1'\Sigma^{-1}1>0$，矛盾。因此不存在 tangency portfolio。
 
+::::
+
 ---
 
+
+
 ## Question 6.1 Beta Pricing Implies $\widetilde R_*$ Is on the Mean-Variance Frontier
+
+::::{solution}
 
 **合并位置**
 这题已经在 [[#Q 6.1|Q 6.1]] 推导：beta-pricing by $\widetilde R_*$ $\Rightarrow$ $\widetilde R_*\in$ mean-variance frontier。核心公式见 [[#^qe-ps-q6-1-frontier-weight|Q 6.1 的 frontier 权重推导]]。
@@ -6636,11 +6846,17 @@ $$
 
 区别：with risk-free 时 $\pi$ 是 risky excess-return position，不要求 $1'\pi=1$；no risk-free 时 $\pi$ 是完整 risky portfolio，必须满足 $1'\pi=1$。
 
+::::
+
 ---
+
+
 
 ## Question 6.2 No-Risk-Free Beta Pricing and Mean-Variance Frontier
 
 Suppose there is no risk-free asset. Use the formula for frontier portfolios to show that a beta-pricing model is equivalent to the return $\widetilde R_*$ being on the mean-variance frontier and not equal to the global minimum variance return.
+
+::::{solution}
 
 **解析** 令
 
@@ -6750,13 +6966,19 @@ $$
 
 即 no-risk-free beta-pricing model 成立。
 
+::::
+
 ---
+
+
 
 ## Question 6.2A Single-Factor Return and Mean-Variance Frontier
 
 考点标签： #single-factor-model #zero-beta-return #mean-variance-frontier
 
 **题目** 证明：若一个 traded single-factor return $\widetilde R$ 给出 beta-pricing，且它不是 zero-beta return $R_z$（精确地说 $E[\widetilde R]\ne R_z$），则 $\widetilde R$ 在 no-risk-free 的 mean-variance frontier 上。
+
+::::{solution}
 
 **设定** 令 risky returns 向量为 $\widetilde R^{vec}$，single factor 是一个 traded portfolio return：
 
@@ -6886,7 +7108,11 @@ $$
 
 ^qe-ps-q6-2a-single-factor-frontier
 
+::::
+
 ---
+
+
 
 ## Question 6.3 Borrowing and Lending at Different Rates
 
@@ -6898,6 +7124,8 @@ Suppose each investor chooses a mean-variance efficient portfolio. Show that the
 $$
 R_\ell\le R_z\le R_b.
 $$
+
+::::{solution}
 
 **解析** 记
 
@@ -7000,7 +7228,11 @@ R_\ell\le R_z\le R_b.
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 ## Question 6.8 Limited Awareness and Positive Alpha
 
@@ -7016,6 +7248,8 @@ p_2=p_2^*-\frac{\alpha}{HR_f}\frac{H_U}{H_I}
 {\operatorname{var}(\widetilde x_1)}\right)<p_2^*.
 $$
 Then show that the beta-pricing relation has a positive alpha for asset 2.
+
+::::{solution}
 
 **题目直觉** 市场里有两类投资者：
 
@@ -7317,7 +7551,11 @@ $$
 
 因此 asset 2 有 positive alpha $A>0$，且共同 slope $\lambda$ 小于 standard CAPM market risk premium。
 
+::::
+
 ---
+
+
 
 ## Question 8.2 Marketed Consumption Processes
 
@@ -7329,6 +7567,8 @@ W_{t+1}&=(W_t-C_t)\pi_t'R_{t+1},\qquad t=0,\ldots,T-1,\\
 C_T&=W_T.
 \end{aligned}
 $$
+
+::::{solution}
 
 **思路** 对每个 $t\le T$，令 $W_{t,s}$ 表示复制 $C_t$ 的自融资财富过程，满足 $W_{t,t}=C_t$，并记
 
@@ -7357,7 +7597,11 @@ $$
 
 又因为 $W_T=W_{T,T}=C_T$，故所求 wealth/portfolio process 存在。
 
+::::
+
 ---
+
+
 
 ## Question 8.1 Marked Dividend Trees and SDFs
 
@@ -7412,6 +7656,8 @@ $$
 \mathbb E\!\left[\sum_{t=1}^\infty \delta^tD_t^{1-\rho}\right]<\infty.
 \end{aligned}
 $$
+
+::::{solution}
 
 **解析** 先把一期间对象联立：
 
@@ -7534,7 +7780,11 @@ $$
 \end{aligned}
 $$
 
+::::
+
 ---
+
+
 
 ## Question 9.1 Log Utility with i.i.d. Returns
 
@@ -7555,6 +7805,8 @@ V_t(w)&=(T-t)U+\log w,\\
 \pi_t^*&\in\arg\max_{\pi}\mathbb E[\log(\pi'R_{t+1})].
 \end{aligned}
 $$
+
+::::{solution}
 
 **解析** 用 backward induction。终端条件为
 
@@ -7590,7 +7842,11 @@ $$
 
 因此 log utility 下最优组合与当前财富 $w$ 和日期 $t$ 无关；每期都选择同一个 one-period log-optimal portfolio。
 
+::::
+
 ---
+
+
 
 ## Question 10.1 考场原题回忆：n Risky Assets + 0 Risk-Free Asset
 
@@ -7702,6 +7958,8 @@ $$
 ::::
 
 ---
+
+
 
 ## Question 10.2 考场原题回忆：CARA Endowment Economy and Budget Constraint
 
@@ -8114,9 +8372,13 @@ $$
 
 ---
 
+
+
 ## Question 10.3 考场原题回忆：Two Countries, Two Goods, Exchange Rate, Log Utility
 
 考点标签：#heterogeneous-beliefs #log_utility #exchange-rate #state-price-density #interest-rate #stock-price #pure-exchange-economy #two-country-two-good
+
+::::{solution}
 
 **合并位置**
 这题已合并到 [[#Question 10.7 考场题重构：Two-Country Two-Good Pure-Exchange Economy|10.7 考场题重构：Two-Country Two-Good Pure-Exchange Economy]]。10.7 保留完整的 optimization problems、goods clearing、FOC、allocation、exchange rate、interest rate、stock prices 和 symmetric case。
@@ -8140,7 +8402,11 @@ $$
 
 Likelihood ratio / belief weight 的动态、allocation shares 与 closed-form log-utility price-dividend ratio 统一看 10.7，避免这里和后文出现符号方向不一致。
 
+::::
+
 ---
+
+
 
 ## Question 10.4 考场原题回忆：Bid-Ask Spread and Risk Aversion
 
@@ -8319,6 +8585,8 @@ $$
 ::::
 
 ---
+
+
 
 ## Question 10.5 考场题重构：No-Risk-Free Mean-Variance Frontier
 
@@ -8563,6 +8831,8 @@ $$
 ::::
 
 ---
+
+
 
 ## Question 10.6 考场题重构：CARA Terminal Wealth, SPD, and Market Price of Risk
 
@@ -8832,6 +9102,8 @@ $$
 ::::
 
 ---
+
+
 
 ## Question 10.7 考场题重构：Two-Country Two-Good Pure-Exchange Economy
 
