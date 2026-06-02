@@ -21,7 +21,7 @@
 
 ### 10.2 Grossman-Stiglitz Model
 
-### 10.2.1 Setup
+#### 10.2.1 Setup
 
 ::::{admonition} Definition (Grossman-Stiglitz Setup)
 存在一个风险资产（到期支付 $v$）和一个无风险资产。风险资产基本面、噪声供给和私人信号满足
@@ -93,9 +93,9 @@ $$
 其中 $v$ 是风险资产终值，$p$ 是均衡价格，$X$ 是随机供给，$X_i$ 是投资者 $i$ 的风险资产持仓，$\rho_v,\rho_s,\rho_x$ 分别是先验、私人信号噪声和供给噪声的 precision。
 
 
-### 10.2.2 贝叶斯更新
+#### 10.2.2 贝叶斯更新
 
-#### Informed Agents
+##### Informed Agents
 
 ::::{admonition} Definition (Bayesian Learning Primitives)
 基础贝叶斯学习框架（[贝叶斯更新](Asset Pricing/Theoretical AP/cards/贝叶斯更新 - 先验、信号、似然、后验)）：
@@ -192,16 +192,12 @@ E_I[v\mid s]
 \frac{1/\rho_v}{(\rho_s+\rho_v)/(\rho_v\rho_s)}
 (s-\bar v)\\
 &=\frac{\rho_s s+\rho_v\bar v}{\rho_s+\rho_v},\\
-\operatorname{Var}_I(v\mid s)
-&=
-\frac{1}{\rho_v}
--
+\frac{1}{\rho_v} -
 \frac{(1/\rho_v)^2}{(\rho_s+\rho_v)/(\rho_v\rho_s)}\\
-&=\frac{1}{\rho_s+\rho_v}.
 \end{aligned}
 $$
 
-#### Uninformed Agents
+##### Uninformed Agents
 
 假设无知情者相信价格是线性的：
 $$
@@ -247,7 +243,7 @@ N\!\left(
 \right).
 $$
 
-### 10.2.3 CARA-Normal 下的最优需求
+#### 10.2.3 CARA-Normal 下的最优需求
 
 ::::{admonition} Lemma (CARA-Normal Position Demand)
 若 $v\mid\mathcal I_i$ 条件正态，财富为
@@ -394,7 +390,7 @@ $$
 $$
 也就是：你觉得资产越被低估，就持有越多；你越厌恶风险、或后验方差越大，就持有越少。
 
-### 10.2.4 Exercise 1：Equilibrium Price
+#### 10.2.4 Exercise 1：Equilibrium Price
 
 Find the coefficients of the equilibrium price $\alpha,\beta,\gamma$. Show that when $\rho_x=\infty$, the equilibrium price is fully revealing the informed agent’s signal $s$.
 
@@ -482,7 +478,7 @@ $$
 1. 噪声供给 $X$ 的方差越大，价格越不透明；
 2. 知情者风险厌恶越强（$\lambda_I$ 越大），价格中掺入的“策略性遮掩”越多。
 
-### 10.2.5 完全揭示与信息价值
+#### 10.2.5 完全揭示与信息价值
 
 若 $\rho_x=\infty$，则供给 $X$ 没有噪声，价格满足
 $$
@@ -601,7 +597,7 @@ $$
 
 ### 10.3 Glosten-Milgrom Sequential Trading Model
 
-### 10.3.1 Setup
+#### 10.3.1 Setup
 
 ::::{admonition} Definition (Glosten-Milgrom Sequential Trading Setup)
 **sequential trading**：一次只来一个 trader、一次只交易一股，所以做市商每看到一笔订单，就立刻用这笔订单更新对 $V$ 的信念，再重新报 bid / ask。
@@ -666,7 +662,7 @@ $$
 | **ask** | sell   | buy    | dealer 观察 trader 的买单，提高 ask（卖出价） |
 | **bid** | buy    | sell   | dealer 观察 trader 的卖单，降低 bid（买入价） |
 
-### 10.3.2 Pricing Rules and Bid-Ask Spread
+#### 10.3.2 Pricing Rules and Bid-Ask Spread
 
 ::::{admonition} Lemma (Positive Bid-Ask Spread from Adverse Selection)
 在二元价值与知情交易概率 $\mu>0$ 下，竞争做市商的报价满足
@@ -710,7 +706,7 @@ a-b>0.
 \end{aligned}
 $$
 
-#### 卖一价的推导
+##### 卖一价的推导
 
 若出现买单 $B$，则它可能来自：
 1. 知情者且消息好：概率 $\theta\mu$
@@ -746,7 +742,7 @@ a = E[V|B] &= \frac{\theta\mu V_H+(1-\mu)\gamma \bar V}{\theta\mu+(1-\mu)\gamma}
 $$
 做市商在 risk-neutral 且零利润竞争下，ask 就报这个后验均值；因为若他报得更低，遇到 informed buyer 时会亏损。
 
-#### 买一价的推导
+##### 买一价的推导
 
 若出现卖单 $S$，则它可能来自：
 1. 知情者且消息坏：概率 $(1-\theta)\mu$；
@@ -760,7 +756,7 @@ b = E[V|S] &= \frac{(1-\theta)\mu V_L+(1-\mu)(1-\gamma)\bar V}{(1-\theta)\mu+(1-
 \end{aligned}
 $$
 
-#### 买卖价差为正
+##### 买卖价差为正
 $$
 \begin{aligned}
 a-b
@@ -785,7 +781,7 @@ $$
 
 ### 10.4 One-period Kyle Model
 
-### 10.4.1 Setup
+#### 10.4.1 Setup
 
 ::::{admonition} Definition (One-period Kyle Setup)
 单期 Kyle 模型由 informed order、noise order flow 与竞争做市商定价组成：
@@ -804,7 +800,7 @@ $$
 
 知情者在 $t=0$ 知道 $v$，做市商只观察总订单流 $X$，观察不到 $x$ 与 $Z_u$ 的分解。$Z_u$ 是不携带基本面信息的流动性交易；若 $Z_u$ 与 $v$ 相关，就不再是纯噪声。
 
-## 10.4.2 线性均衡猜测
+#### 10.4.2 线性均衡猜测
 
 ::::{admonition} Lemma (One-Period Kyle Linear Equilibrium)
 在线性策略
@@ -906,7 +902,7 @@ $$
 
 这里 $\lambda$ 是 **Kyle's lambda**，衡量价格冲击强度：**订单流每增加一单位，价格上升 $\lambda$ 单位**。
 
-## 10.4.3 知情者最优反应
+#### 10.4.3 知情者最优反应
 
 知情者利润为 $\Pi(x;v,Z_u)=(v-p)x$。风险中性下，其最优反应满足
 $$
@@ -941,7 +937,7 @@ $$
   \beta=\frac{1}{2\lambda}.
 $$
 
-## 10.4.4 做市商的贝叶斯更新
+#### 10.4.4 做市商的贝叶斯更新
 
 由线性策略
 $$
@@ -1045,7 +1041,7 @@ $$
 $$
 因此均衡唯一。
 
-## 10.4.5 均衡价格与信息揭示程度
+#### 10.4.5 均衡价格与信息揭示程度
 
 代回均衡系数：
 $$
@@ -1069,7 +1065,7 @@ $$
 $$
 价格方差恰好等于先验不确定性的二分之一，因此常说：单期 Kyle 均衡中，价格“**揭示了一半信息**”。
 
-## 10.4.6 知情者利润
+#### 10.4.6 知情者利润
 
 知情者的利润来自两部分：与资产最终价值 $v$ 的差值，以及支付价格 $p$ 的差值。在单期模型中，知情者最后以价格 $p$ 买入（或卖出）$x$ 单位资产，随后以价值 $v$ 结算，因此利润为
 $$
@@ -1131,7 +1127,7 @@ $$
 
 为后面连续时间模型中的结果作了基准比较（连续时间模型中该利润恰好翻倍）。
 
-## Exercise 2
+##### Exercise 2
 
 ^exercise-kyle-two-period
 
@@ -1216,7 +1212,7 @@ V_{t-1}(v,p_{t-1})
 \right.
 $$
 
-#### 单期模型
+##### 单期模型
 
 令 $d_0:=v-p_0$。知情者给定线性定价 $p_1=p_0+\lambda_1y_1$：
 
@@ -1250,7 +1246,7 @@ $$
 \end{aligned}
 $$
 
-#### 两期模型
+##### 两期模型
 
 第二期是终端期，给定 $p_1$ 后
 
@@ -1287,7 +1283,7 @@ x_1(v-p_1)+\frac{(v-p_1)^2}{4\lambda_2}
 \end{aligned}
 $$
 
-#### 逆向动态规划
+##### 逆向动态规划
 
 令 $d_{t-1}:=v-p_{t-1}$。给定未来价值函数
 $V_t(v,p_t)=\alpha_t(v-p_t)^2+\delta_t$：
@@ -1359,7 +1355,7 @@ $$
 \end{aligned}
 $$
 
-#### 前向贝叶斯滤波
+##### 前向贝叶斯滤波
 
 条件于历史价格或订单流，$d_{t-1}=v-p_{t-1}$ 的后验方差为 $\Sigma_{t-1}$，且
 
@@ -1394,7 +1390,7 @@ $$
 \end{aligned}
 $$
 
-#### 动态均衡差分系统
+##### 动态均衡差分系统
 
 离散多期 Kyle 均衡可写成前向-后向耦合系统：
 
@@ -1418,7 +1414,7 @@ $$
 \right.
 $$
 
-#### 方差分解
+##### 方差分解
 
 价格创新为 $p_t-p_{t-1}=\lambda_ty_t$，因此
 
@@ -1491,7 +1487,7 @@ P_t&=\bar v+\lambda Y_t,\\
 \right.
 $$
 
-#### 做市商滤波
+##### 做市商滤波
 
 给定 $\theta_t$，订单流满足
 
@@ -1546,7 +1542,7 @@ $$
 \end{aligned}
 $$
 
-#### 知情者 HJB
+##### 知情者 HJB
 
 给定 $P_t=\bar v+\lambda Y_t$ 且 $\lambda\sigma_z=\sigma_v$，
 
@@ -1625,33 +1621,71 @@ P_1&=\tilde v.
 \end{aligned}
 $$
 
-#### 验证与利润
+##### 验证与利润
 
-对任意 admissible $\theta$，由 Itô 公式：
+::::{admonition} Verification Theorem (Continuous-time Kyle)
+若光滑候选函数 $J(t,P_t,v)$ 满足 HJB，且随机积分为真鞅，则验证只需四步。
 
-$$
-\begin{aligned}
-dJ(t,P_t,v)
-&=
-\left(J_t+\lambda\theta_tJ_p+\frac{1}{2}\sigma_v^2J_{pp}\right)dt
-+\sigma_vJ_p\,dB_t\\
-&=-(v-P_t)\theta_tdt
--\frac{\sigma_v}{\lambda}(v-P_t)dB_t.
-\end{aligned}
-$$
-
-积分并取期望：
+**1. Itô 展开**
 
 $$
 \begin{aligned}
-E\left[\int_0^1(v-P_t)\theta_tdt\right]
-&=
-E[J(0,P_0,v)-J(1,P_1,v)]\\
-&\le E[J(0,P_0,v)].
+J(1,P_1,v)
+&=J(0,P_0,v)
++\int_0^1
+\left(
+J_t+\lambda\theta_tJ_p+\frac{1}{2}\sigma_v^2J_{pp}
+\right)dt\\
+&\quad+\int_0^1\sigma_vJ_p\,dB_t.
 \end{aligned}
 $$
 
-候选均衡满足 $P_1=\tilde v$，故 $J(1,P_1,\tilde v)=0$，达到上界。事前期望利润为
+**2. 任意策略的上界**
+
+$$
+\begin{aligned}
+0
+&=\sup_{\theta}
+\left\{(v-P_t)\theta
++J_t+\lambda\theta J_p+\frac{1}{2}\sigma_v^2J_{pp}\right\}\\
+&\Longrightarrow
+J_t+\lambda\theta_tJ_p+\frac{1}{2}\sigma_v^2J_{pp}
+\le -(v-P_t)\theta_t,\\
+\mathbb E\left[\int_0^1(v-P_t)\theta_tdt\right]
+&\le
+J(0,P_0,v)-\mathbb E[J(1,P_1,v)].
+\end{aligned}
+$$
+
+**3. 候选最优策略取等**
+
+$$
+\begin{aligned}
+(v-P_t)\theta_t^*
++J_t+\lambda\theta_t^*J_p+\frac{1}{2}\sigma_v^2J_{pp}
+&=0,\\
+\mathbb E\left[\int_0^1(v-P_t)\theta_t^*dt\right]
+&=
+J(0,P_0,v)-\mathbb E[J(1,P_1,v)].
+\end{aligned}
+$$
+
+**4. 终端横截条件**
+
+$$
+\begin{aligned}
+P_1&=v,\\
+\mathbb E[J(1,P_1,v)]
+&=\mathbb E\left[\frac{(v-P_1)^2}{2\lambda}\right]=0,\\
+\mathbb E\left[\int_0^1(v-P_t)\theta_t^*dt\right]
+&=J(0,P_0,v)
+\ge
+\mathbb E\left[\int_0^1(v-P_t)\theta_tdt\right].
+\end{aligned}
+$$
+::::
+
+事前期望利润为
 
 $$
 \begin{aligned}
@@ -2570,7 +2604,7 @@ $$
 
 下面这些公式块不是各篇论文的完整原始设定，而是把它们相对于 Back (1992) 的关键变化，用同一套记号写成一个最小化的骨架推导，目的是更直观地看清楚机制差异。
 
-### 11.8.1 Insider Trading and Options (Back, RFS, 1993)
+#### 11.8.1 Insider Trading and Options (Back, RFS, 1993)
 
 衍生品的 payoff 是非线性的，因此做市商从订单流中学习 informed information 的方式不再像 Back (1992) 那样是线性高斯结构，学习问题会更复杂。核心问题是：衍生品交易如何改变信息不对称与价格发现。
 
@@ -2620,7 +2654,7 @@ G_{\Sigma}(\hat v_t,\Sigma_t)\dot \Sigma_t
 $$
 因此衍生品价格不再只由后验均值决定，而会显式依赖后验方差；这就是“非线性 payoff 让学习问题更复杂”的最直观公式原因。
 
-### 11.8.2 Multiple Insiders (Back, Cao and Willard, JF, 2000)
+#### 11.8.2 Multiple Insiders (Back, Cao and Willard, JF, 2000)
 
 这篇文章研究多个 informed traders 之间的竞争会如何影响信息不对称。
 
@@ -2674,7 +2708,7 @@ E[\tilde v\mid \mathcal F_t^Y]
 $$
 就能看到每个 insider 只对“自己额外那一部分残差信息”激进交易，竞争被软化，均衡就有可能恢复。
 
-### 11.8.3 Uncertainty of Informed Trading (Back, Crotty and Li, RFS, 2018)
+#### 11.8.3 Uncertainty of Informed Trading (Back, Crotty and Li, RFS, 2018)
 
 原始 Kyle 模型默认“知情者”总是有私人信息。进一步的问题是：如果潜在 informed trader 根本没有观察到信息事件，从而并未真正变成 informed，会发生什么？
 
@@ -2723,7 +2757,7 @@ $$
 $$
 只要 $\pi_t>0$ 且 $m_t^{(1)}\neq \bar v$，这个楔子就不为零；因此即便没有被信息事件激活，潜在 informed trader 仍然可能围绕“市场对激活概率的错误定价”进行战略交易。这也解释了为什么连续时间里会出现“未被激活却仍可获利”的现象。
 
-### 11.8.4 Corporate Activism and Liquidity (Back, Collin-Dufresne, Fos, Li, and Ljungqvist, Econometrica, 2018)
+#### 11.8.4 Corporate Activism and Liquidity (Back, Collin-Dufresne, Fos, Li, and Ljungqvist, Econometrica, 2018)
 
 corporate activist 对其 costly effort 是否能够改善公司价值拥有私人信息。
 
@@ -2753,7 +2787,7 @@ x^u(a)\ge \bar x
 $$
 这条不等式把“流动性”和“治理效率”直接连在一起：$\lambda$ 越高，买到控制权越贵，越不容易满足 activism 的启动条件；若该条件被破坏，最优决策就会从继续吸筹转向停止买入甚至卖出。
 
-#### Exercise 3：对数正态终值的扩展
+##### Exercise 3：对数正态终值的扩展
 
 Assume the log $\tilde v$ is normal $N(\mu,\sigma_v^2)$. Set
 $$
@@ -3088,7 +3122,7 @@ $$
 
 ### 12.1 可观测性、信念与学习
 
-### 12.1.1 纯交换经济
+#### 12.1.1 纯交换经济
 
 考虑连续时间设定下的一个存在单一易腐消费品的纯交换经济：
 总消费禀赋 $\delta_t$ 可被所有的代理人观察。代理人可以将**瞬时增长率**分解为：
@@ -3099,7 +3133,7 @@ $$
 - 因为瞬时增长率 $\tilde\mu_t$ 不可直接观察，代理人可能需要去学习 $\tilde\mu_t$ 的真实值。
 - 代理人需要一个关于 $\tilde\mu_t$ 动态的模型或先验信念 (prior beliefs)。
 
-### 12.1.2 先验信念与学习
+#### 12.1.2 先验信念与学习
 
 定义新的观测过程：
 $$
@@ -3111,7 +3145,7 @@ dY_t=\tilde\mu_t\,dt+\sigma\, dB_t.
 $$
 关于 $\tilde\mu_t$ 的学习问题转化为通过观测信号 $dY_t$ 对隐含状态进行推断的滤波问题。
 
-### 12.1.3 情形一：常数漂移的贝叶斯学习
+#### 12.1.3 情形一：常数漂移的贝叶斯学习
 
 ::::{admonition} Lemma (Learning an Unknown Constant Drift)
 若观察过程
@@ -3288,7 +3322,7 @@ $$
 $$
 因为随着时间 $t$ 的增加，长期样本均值会把常数漂移完全识别出来。
 
-#### 滤波方法 (Filtering Method)
+##### 滤波方法 (Filtering Method)
 
 除了使用贝叶斯更新方法，也可以直接应用连续时间滤波定理（Filtering Theorem）。在这个常数漂移模型 $d\tilde\mu_t=0$ 中，对应滤波理论的参数为：
 $$
@@ -3417,7 +3451,7 @@ d\hat\mu_t^i
 $$
 这正是下一节 OU 情形在 $\kappa_i=0$、状态噪声项为零时的特例。
 
-### 12.1.4 情形二：OU 漂移的滤波
+#### 12.1.4 情形二：OU 漂移的滤波
 
 [Asset Pricing/Theoretical AP/cards/OU 滤波 - Riccati 方程](Asset Pricing/Theoretical AP/cards/OU 滤波 - Riccati 方程)（OU 滤波）
 
@@ -3530,7 +3564,7 @@ $$
 $$
 也就是说，对代理人 $i$ 而言，真正进入其决策问题的不是不可观测的 $\tilde\mu_t$，而是可观测的滤波均值 $\hat\mu_t^i$ 及其对应的 innovation shock $\hat B_t^i$。
 
-### 12.1.5 不同信念之间的联系
+#### 12.1.5 不同信念之间的联系
 
 [Asset Pricing/Theoretical AP/cards/异质信念 - 创新布朗运动与状态价格密度](Asset Pricing/Theoretical AP/cards/异质信念 - 创新布朗运动与状态价格密度)（创新布朗运动与状态价格密度）
 
@@ -3672,11 +3706,11 @@ $$
 
 因此，所谓“信念差异”在连续时间中可以等价地表示成一个测度变换：不同代理人的主观概率，只是把同一个 innovation process 加上不同的漂移而已。
 
-## 12.2 最优投资与消费 (Optimal Investment and Consumption)
+### 12.2 最优投资与消费 (Optimal Investment and Consumption)
 
 经济中存在 $N$ 个代理人，他们将基于各自的滤波概率空间（filtered probability space）做出投资和消费决策。
 
-### 12.2.1 偏好 (Preferences)
+#### 12.2.1 偏好 (Preferences)
 
 代理人 $i$ 的终身期望效用 (life-time expected utility) 可以表示为：
 $$
@@ -3686,7 +3720,7 @@ $$
 - $\rho_i > 0$ 是时间折现率 (time discount rate)，代表偏好的跨期替代。
 - 代理人 $i$ 拥有总供给 $\delta$ 的 $\iota_i$ 份额禀赋，满足 $\sum_i \iota_i = 1$，即总份额标准化为 1。
 
-### 12.2.2 资产与状态价格 (Asset and State Prices)
+#### 12.2.2 资产与状态价格 (Asset and State Prices)
 
 [Asset Pricing/Theoretical AP/cards/异质信念 - 创新布朗运动与状态价格密度](Asset Pricing/Theoretical AP/cards/异质信念 - 创新布朗运动与状态价格密度)
 
@@ -3698,7 +3732,7 @@ $$
 $$
   其中 $r_t$ 是内生决定的无风险利率。
 
-#### 风险资产与风险价格
+##### 风险资产与风险价格
 
 **股票** (代表对总消费流 $\delta_t$ 的索取权) 价格 $S_t$ 的演化过程。它对于所有代理人而言，都遵循相同的动态，因此对任一代理人 $i$ 和 $j$，都可写成：
 $$
@@ -3734,7 +3768,7 @@ $$
 $$
 因此，风险价格之差恰好等于双方对隐藏增长率的滤波均值之差，经噪声波动率标准化之后的结果。
 
-#### 状态价格密度
+##### 状态价格密度
 
 代理人 $i$ 的状态价格密度定义为
 $$
@@ -3816,7 +3850,7 @@ $$
 $$
 也就是说，状态价格之比正好等于信念测度之比。
 
-#### 债券与股票定价
+##### 债券与股票定价
 先分两类写一般定价式。若一项资产只在时点 $T$ 支付终值 $X_T$，则其时点 $t$ 价格为
 $$
 \begin{aligned}
@@ -3861,7 +3895,7 @@ $$
 $$
 因此若取 $s=T$ 且 $A_T=1$，就得到零息债价格与代理人无关；若取 $A_s=\delta_s$ 再对 $s\in[t,\infty)$ 积分，就得到股票价格同样与代理人无关。
 
-### 12.2.3 最优消费：鞅方法
+#### 12.2.3 最优消费：鞅方法
 
 代理人 $i$ 求解：
 $$
@@ -3894,9 +3928,9 @@ $$
 c_t^i=(u_i')^{-1}(\phi_i e^{\rho_i t}\xi_t^i).
 $$
 
-## 12.3 均衡条件
+### 12.3 均衡条件
 
-### 12.3.1 消费市场出清
+#### 12.3.1 消费市场出清
 $$
 \sum_i c_t^i=\delta_t.
 $$
@@ -3907,7 +3941,7 @@ $$
 $$
 这条式子通常可用来反推出均衡状态价格密度 $\xi_t^i$，进一步得到 $r_t$、$\theta_t^i$、债券价格和股票价格。
 
-### 12.3.2 消费出清到金融市场出清
+#### 12.3.2 消费出清到金融市场出清
 由于无风险资产是内部供给，净头寸为零，因此金融市场出清条件为所有代理人的**财富总和等于股票总市值**：
 $$
 \sum_j W_t^j = S_t
@@ -3955,9 +3989,9 @@ $$
 $$
 这正是股票价格 $S_t$ 的定义。因此，消费市场出清蕴含了金融市场出清。
 
-## 12.4 对数效用例子
+### 12.4 对数效用例子
 
-### 12.4.1 同质经济
+#### 12.4.1 同质经济
 
 若经济中只有一个代表性代理人 $j$，其效用取 CRRA 形式，$\gamma_j>0$ 为 relative risk aversion coefficient，且 $c_t^j>0$、$\phi_j>0$、$\xi_t^j>0$：
 $$
@@ -4038,7 +4072,7 @@ $$
 $$
 在这个特例下，很多资产价格可以得到显式解。
 
-#### Exercise 4：含 OU 漂移的同质经济
+##### Exercise 4：含 OU 漂移的同质经济
 
 在一个同质经济中，当消费增长率的期望值服从 **OU 过程**时，均衡的资产价格行为。与 Vasicek 利率模型有密切关联。
 
@@ -4105,7 +4139,7 @@ $$
 
 综上，虽然这个模型结构优美，但它在定量上难以匹配资产定价中的几个关键“谜题”。
 
-### 12.4.3 两个对数效用代理人
+#### 12.4.3 两个对数效用代理人
 
 ::::{admonition} Lemma (Log Utility Sharing Rule with Heterogeneous Beliefs)
 两个对数效用代理人、主观密度过程为 $\eta_i$ 时，规划者一阶条件给出
@@ -4186,7 +4220,7 @@ c_t^i &= \frac{e^{-\rho_i t}}{\phi_i \xi_t^i} & \text{FOC} \\
 \end{aligned}
 $$
 
-### 12.4.4 股票价格
+#### 12.4.4 股票价格
 $$
 \begin{aligned}
 S_t
@@ -4214,7 +4248,7 @@ S_t
 \end{aligned}
 $$
 
-### 12.4.5 利率与风险价格
+#### 12.4.5 利率与风险价格
 $$
 \begin{aligned}
 d\xi_t^1
@@ -4263,7 +4297,7 @@ r_t
 $$
 Hence heterogeneous beliefs imply stochastic risk prices, stock volatility, and the equilibrium interest rate.
 
-#### Exercise 5: Continued with log utility with two agents
+##### Exercise 5: Continued with log utility with two agents
 
 **题目**
 
@@ -4356,7 +4390,7 @@ $$
 其中 $A(\tau)$ 由漂移项和方差项确定；若用题目提示的 Gaussian 计算或 Girsanov 变换，结果与上式等价。
 
 
-## 12.5 社会规划者方法 (Social Planner Approach)
+### 12.5 社会规划者方法 (Social Planner Approach)
 
 **核心思想**
 - 与其直接求市场均衡，不如先求一个社会规划者 (social planner) 的最优资源配置。
@@ -4408,7 +4442,7 @@ c_t^j=\frac{\omega_t^{ji}e^{-\rho_j t}}{\nu_t}.
 $$
 因此在 log utility 例子里，规划者解就是随机权重下的消费分配。
 
-## 12.6 其他相关模型 (Other Related Models)
+### 12.6 其他相关模型 (Other Related Models)
 
 - **Heterogeneity and Volatility Puzzles in International Finance**  
   Li and Muzere, JFQA, 2010.
