@@ -252,7 +252,7 @@ $$
 #### 推导核对：CARA-Normal 需求的一阶条件
 
 ::::{admonition} Lemma (CARA-Normal Position Demand)
-若 $v|\mathcal I_i\sim N(m_i^v,\sigma_i^2)$，财富为
+若 $v\mid\mathcal I_i$ 条件正态，财富为
 
 $$
 W_i=m_i+X_i(v-p),
@@ -261,35 +261,10 @@ $$
 且 $U_i(W)=-e^{-\lambda_iW}$，则最优持仓为
 
 $$
-X_i^*=\frac{m_i^v-p}{\lambda_i\sigma_i^2}.
+X_i^*
+=\frac{E_i[v]-p}{\lambda_i\operatorname{Var}_i(v)}.
 $$
 ::::
-
-条件于信息 $\mathcal I_i$，
-$$
-\begin{aligned}
-E_i[W_i]&=m_i+X_i(m_i^v-p),\\
-\operatorname{Var}_i(W_i)&=X_i^2\sigma_i^2.
-\end{aligned}
-$$
-CARA-normal 等价目标为
-$$
-\begin{aligned}
-\max_{X_i}\ E_i[W_i]-\frac{\lambda_i}{2}\operatorname{Var}_i(W_i).
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-\max_{X_i}\quad
-& m_i+X_i(m_i^v-p)-\frac{\lambda_i}{2}X_i^2\sigma_i^2,\\
-0
-&=\frac{\partial}{\partial X_i}\left[m_i+X_i(m_i^v-p)-\frac{\lambda_i}{2}X_i^2\sigma_i^2\right]\\
-&=m_i^v-p-\lambda_iX_i\sigma_i^2,\\
-X_i^*
-&=\frac{m_i^v-p}{\lambda_i\sigma_i^2}.
-\end{aligned}
-$$
 
 [CARA-Normal framework](Asset Pricing/Theoretical AP/cards/CARA-Normal framework - 均值方差等价与最优需求)（均值方差等价与最优需求）
 
@@ -299,17 +274,20 @@ W_i=m_i+(v-p)X_i
 $$
 也是正态。对 CARA 效用与正态分布：
 $$
-\mu_i\equiv E_i[W_i],\quad \sigma_i^2\equiv \operatorname{Var}_i(W_i),\quad W_i=\mu_i+\sigma_i Z,\ Z\sim N(0,1).
+\mu_{W,i}\equiv E_i[W_i],\quad
+\sigma_{W,i}^2\equiv \operatorname{Var}_i(W_i),\quad
+W_i=\mu_{W,i}+\sigma_{W,i}Z,\quad Z\sim N(0,1).
 $$
 
 $$
 \begin{aligned}
 E_i[-e^{-\lambda_i W_i}]
 &=-E_i[e^{-\lambda_i W_i}] \\
-&=-E_i\!\left[e^{-\lambda_i(\mu_i+\sigma_i Z)}\right]\\
-&=-e^{-\lambda_i\mu_i}\,E\!\left[e^{-(\lambda_i\sigma_i)Z}\right]\\
-&=-e^{-\lambda_i\mu_i}\,\exp\!\left(\frac{(\lambda_i\sigma_i)^2}{2}\right)\\
-&=-\exp\!\left(-\lambda_i\mu_i+\frac{\lambda_i^2}{2}\sigma_i^2\right).
+&=-E_i\!\left[e^{-\lambda_i(\mu_{W,i}+\sigma_{W,i}Z)}\right]\\
+&=-e^{-\lambda_i\mu_{W,i}}\,E\!\left[e^{-(\lambda_i\sigma_{W,i})Z}\right]\\
+&=-e^{-\lambda_i\mu_{W,i}}\,
+\exp\!\left(\frac{\lambda_i^2\sigma_{W,i}^2}{2}\right)\\
+&=-\exp\!\left(-\lambda_i\mu_{W,i}+\frac{\lambda_i^2}{2}\sigma_{W,i}^2\right).
 \end{aligned}
 $$
 
@@ -321,20 +299,30 @@ $$
 &\Longleftrightarrow
 \max_{X_i}\left\{E_i[W_i]-\frac{\lambda_i}{2}\operatorname{Var}_i(W_i)\right\} \\
 &=
-\max_{X_i}\left\{m_i+X_i(E_i[v]-p)-\frac{\lambda_i}{2}X_i^2\operatorname{Var}_i(v)\right\},
+\max_{X_i}\left\{
+m_i+X_i\big(E[v\mid\mathcal I_i]-p\big)
+-\frac{\lambda_i}{2}X_i^2\operatorname{Var}(v\mid\mathcal I_i)
+\right\},
 \end{aligned}
 $$
 对 $X_i$ 一阶条件：
 $$
 \begin{aligned}
 0
-&=\frac{\partial}{\partial X_i}\left[m_i+X_i(E_i[v]-p)-\frac{\lambda_i}{2}X_i^2\operatorname{Var}_i(v)\right]\\
-&=E_i[v]-p-\lambda_i X_i \operatorname{Var}_i(v).
+&=\frac{\partial}{\partial X_i}
+\left[
+m_i+X_i\big(E[v\mid\mathcal I_i]-p\big)
+-\frac{\lambda_i}{2}X_i^2\operatorname{Var}(v\mid\mathcal I_i)
+\right]\\
+&=E[v\mid\mathcal I_i]-p-\lambda_i X_i\operatorname{Var}(v\mid\mathcal I_i).
 \end{aligned}
 $$
 故最优需求为
 $$
-X_i=\frac{E_i[v]-p}{\lambda_i \operatorname{Var}_i(v)}.
+X_i
+=\frac{E[v\mid\mathcal I_i]-p}
+{\lambda_i\operatorname{Var}(v\mid\mathcal I_i)}
+=\frac{E_i[v]-p}{\lambda_i\operatorname{Var}_i(v)}.
 $$
 
 若只看知情者，令 $\lambda_I=\gamma$，由 $W_I=W_0+X_I(v-p)$ 与上面的知情者后验矩：
