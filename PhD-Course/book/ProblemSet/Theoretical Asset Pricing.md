@@ -10420,6 +10420,202 @@ $$
 
 ::::
 
+**Stock market clearing** 令 stock $k$ 的总供给为 $1$，并把 stock $2$ 的价格也用 good 1 计价。
+
+::::{solution}
+
+对 good $k$，agent 1 与 agent 2 的消费份额为
+
+$$
+\left\{
+\begin{aligned}
+c_{1k,t}
+&=\frac{D_t^k}{1+\omega_{k,t}},\\
+c_{2k,t}
+&=\frac{\omega_{k,t}D_t^k}{1+\omega_{k,t}}.
+\end{aligned}
+\right.
+$$
+
+因为 log utility 下 individual consumption stream 的 present value 等于 discount-rate 调整后的 consumption claim，得到两位 agent 对 stock $k$ dividend stream 的价值份额：
+
+$$
+\left\{
+\begin{aligned}
+W_{1k,t}
+&=
+\epsilon_t^{k-1}
+\frac{D_t^k}{\rho_1(1+\omega_{k,t})},\\
+W_{2k,t}
+&=
+\epsilon_t^{k-1}
+\frac{\omega_{k,t}D_t^k}{\rho_2(1+\omega_{k,t})}.
+\end{aligned}
+\right.
+$$
+
+其中 $\epsilon_t^{0}=1$，$\epsilon_t^{1}=\epsilon_t$。加总为
+
+$$
+\begin{aligned}
+W_{1k,t}+W_{2k,t}
+&=
+\epsilon_t^{k-1}D_t^k
+\frac{
+\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}
+}
+{1+\omega_{k,t}}
+=S_t^k.
+\end{aligned}
+$$
+
+因此若 $\varphi_{ik,t}$ 表示 agent $i$ 持有 stock $k$ 的 share，则
+
+$$
+\left\{
+\begin{aligned}
+\varphi_{1k,t}
+&=
+\frac{W_{1k,t}}{S_t^k}
+=
+\frac{\frac{1}{\rho_1}}
+{\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}},\\
+\varphi_{2k,t}
+&=
+\frac{W_{2k,t}}{S_t^k}
+=
+\frac{\frac{\omega_{k,t}}{\rho_2}}
+{\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}}.
+\end{aligned}
+\right.
+$$
+
+股票市场出清直接成立：
+
+$$
+\begin{aligned}
+\varphi_{1k,t}+\varphi_{2k,t}
+&=
+\frac{
+\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}
+}
+{\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}}
+=1,
+\qquad k=1,2.
+\end{aligned}
+$$
+
+经济含义是：relative belief weight $\omega_{k,t}$ 改变两位 agent 的 consumption claim 和 stock ownership share；但两人的 holdings 加总仍然等于每只 stock 的单位供给。
+
+::::
+
+**Stock volatility** 设
+
+::::{solution}
+
+$$
+\begin{aligned}
+G_k(\omega)
+&:=
+\frac{
+\frac{1}{\rho_1}+\frac{\omega}{\rho_2}
+}
+{1+\omega},
+\qquad
+S_t^{k,k}:=D_t^kG_k(\omega_{k,t})
+\end{aligned}
+$$
+
+表示 stock $k$ 用 good $k$ 计价的价格。定义 price-dividend ratio 对 belief weight 的 elasticity：
+
+$$
+\begin{aligned}
+\chi_{k,t}
+&:=
+\frac{\partial\log G_k(\omega_{k,t})}
+{\partial\log\omega_{k,t}}\\
+&=
+\frac{\frac{\omega_{k,t}}{\rho_2}}
+{\frac{1}{\rho_1}+\frac{\omega_{k,t}}{\rho_2}}
+-\frac{\omega_{k,t}}{1+\omega_{k,t}}.
+\end{aligned}
+$$
+
+由
+
+$$
+\left\{
+\begin{aligned}
+\frac{dD_t^k}{D_t^k}
+&=\mu_{k,t}dt+\sigma_{k,t}'dB_t^1,\\
+\frac{d\omega_{k,t}}{\omega_{k,t}}
+&=(\rho_1-\rho_2)dt-\beta'dB_t^1
+\end{aligned}
+\right.
+$$
+
+得到 own-good stock price 的 diffusion：
+
+$$
+\begin{aligned}
+\frac{dS_t^{k,k}}{S_t^{k,k}}
+&=
+\cdots dt+
+\left(\sigma_{k,t}-\chi_{k,t}\beta\right)'dB_t^1.
+\end{aligned}
+$$
+
+因此 own-good stock volatility vector 为
+
+$$
+\begin{aligned}
+\sigma_{S^{k,k},t}
+&=
+\sigma_{k,t}-\chi_{k,t}\beta.
+\end{aligned}
+$$
+
+对 good 1 计价的 stock $1$，直接有
+
+$$
+\begin{aligned}
+\sigma_{S^1,t}
+&=
+\sigma_{1,t}-\chi_{1,t}\beta.
+\end{aligned}
+$$
+
+对 good 1 计价的 stock $2$，因为 $S_t^2=\epsilon_tS_t^{2,2}$，且
+
+$$
+\begin{aligned}
+\frac{d\epsilon_t}{\epsilon_t}
+&=
+\cdots dt+
+\left[
+\sigma_{1,t}-\sigma_{2,t}
++(a_{1,t}-a_{2,t})\beta
+\right]'dB_t^1,
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\sigma_{S^2,t}
+&=
+\sigma_{\epsilon,t}+\sigma_{S^{2,2},t}\\
+&=
+\sigma_{1,t}
++(a_{1,t}-a_{2,t}-\chi_{2,t})\beta.
+\end{aligned}
+$$
+
+其中 $a_{k,t}=\omega_{k,t}/(1+\omega_{k,t})$。因此 heterogeneous beliefs 通过 $\beta$ 和 stochastic ownership weights 改变股票波动率；若 $\rho_1=\rho_2$，则 $G_k(\omega)$ 为常数，$\chi_{k,t}=0$，price-dividend ratio 本身不再贡献额外波动。
+
+::::
+
 **Heterogeneous beliefs 的 volatility channel** 因为
 
 ::::{solution}
