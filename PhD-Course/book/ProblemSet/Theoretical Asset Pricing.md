@@ -11131,7 +11131,9 @@ $$
 
 ## Question 32. Continuous-Time Complete Market, EMM, and Derivative Pricing
 
-**题目** 考虑 securities market model：
+**题目** 考虑 continuous-time securities market model。
+
+::::{collapse} Basic setup
 
 $$
 \left\{
@@ -11139,40 +11141,18 @@ $$
 &(\Omega,\mathcal F,\mathbb P),\qquad
 \mathcal T=[0,T],\\
 &Z_t=\text{one-dimensional Brownian motion under }\mathbb P,\\
-&\{\mathcal F_t\}=\text{standard filtration of }Z_t.
+&\{\mathcal F_t\}=\text{standard filtration of }Z_t,\\
+&\frac{dB_t}{B_t}=r\,dt,\\
+&\frac{dS_t}{S_t}=\mu_tdt+\sigma dZ_t,\\
+&d\mu_t=\kappa(\theta-\mu_t)dt-s\,dZ_t,\\
+&r,\sigma,\kappa,\theta,s=\text{constants},\qquad \sigma\ne0.
 \end{aligned}
 \right.
 $$
 
-市场中有 bond 和 stock。Bond price process 满足
+::::
 
-$$
-\begin{aligned}
-\frac{dB_t}{B_t}
-&=r\,dt.
-\end{aligned}
-$$
-
-Stock price process 满足
-
-$$
-\begin{aligned}
-\frac{dS_t}{S_t}
-&=\mu_tdt+\sigma dZ_t,
-\end{aligned}
-$$
-
-其中 $\sigma$ 是常数，且 $\mu_t$ 满足
-
-$$
-\begin{aligned}
-d\mu_t
-&=
-\kappa(\theta-\mu_t)dt-s\,dZ_t,
-\end{aligned}
-$$
-
-其中 $\kappa,\theta,s$ 是常数。
+其中 $B_t$ 是 bond price，$S_t$ 是 stock price，$\mu_t$ 是 stochastic stock drift。
 
 **（a）** Show that markets are complete, and determine the EMM.
 
