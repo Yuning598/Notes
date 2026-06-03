@@ -192,8 +192,11 @@ E_I[v\mid s]
 \frac{1/\rho_v}{(\rho_s+\rho_v)/(\rho_v\rho_s)}
 (s-\bar v)\\
 &=\frac{\rho_s s+\rho_v\bar v}{\rho_s+\rho_v},\\
+\operatorname{Var}_I(v\mid s)
+&=
 \frac{1}{\rho_v} -
 \frac{(1/\rho_v)^2}{(\rho_s+\rho_v)/(\rho_v\rho_s)}\\
+&=\frac{1}{\rho_s+\rho_v}.
 \end{aligned}
 $$
 

@@ -1,16 +1,5 @@
 # Theoretical Asset Pricing
 
-## Pointers
-
-- [Course overview](../Asset%20Pricing/Theoretical_Asset_Pricing.md)
-- [Single-period models](../Asset%20Pricing/Theoretical%20AP/01_Single_Period_Models.md)
-- [Dynamic asset pricing](../Asset%20Pricing/Theoretical%20AP/02_Dynamic_Asset_Pricing.md)
-- [Continuous-time pricing, options, and term structure](../Asset%20Pricing/Theoretical%20AP/03_Continuous_Time_Pricing_Options_Term_Structure.md)
-- [Information, beliefs, and learning](../Asset%20Pricing/Theoretical%20AP/04_Information_Beliefs_and_Learning.md)
-
-Use this page as the entry point for theoretical asset-pricing review problems.
-
-
 ## Question 1. Market Completeness, State Prices, and Arrow Security
 Consider a two-period economy ($t=0, 1$) with three possible future states $\Omega = \{\omega_1, \omega_2, \omega_3\}$. The market contains two primary assets:
 
@@ -26,7 +15,6 @@ Assume there are no arbitrage opportunities in the market.
 3. Calculate the no-arbitrage price range for an **Arrow Security** that pays $1$ if state $\omega_3$ occurs and $0$ otherwise.
 4. Explain the arbitrage strategy if the price of this Arrow Security were to be $0.20$.
 
-#考点/资产定价 #考点/无套利 #考点/一价定律 #考点/市场完备性 #考点/状态价格 #考点/Arrow证券 #考点/风险中性测度 #考点/SDF #考点/套利策略
 
 ::::{solution}
 
@@ -150,7 +138,6 @@ Aggregate endowment (consumption) at $t=0$ is $c_0$. Aggregate consumption at $t
 2. **Risk-Free Rate**: Derive the expression for the gross risk-free rate $R_f$ in this economy.
 3. **Numerical Calculation**: Assume $c_0 = 1$, $\mathbf{c}_1 = (1.1, 1.0, 0.9)$, $\delta = 0.95$, and $\rho = 2$. Calculate the price of the Arrow Security for State 1 ($q_1$) and the risk-free rate $R_f$.
 
-#考点/代表性投资者 #考点/时间可加效用 #考点/CRRA #考点/Arrow证券 #考点/状态价格 #考点/风险自由利率 #考点/无套利 #考点/一价定律 #考点/SDF #考点/风险中性测度
 
 ::::{solution}
 
@@ -256,7 +243,6 @@ $$
 ## Question 3. Linear SDF Implies CAPM and MVF
 证明：如果 SDF $m$ 是市场组合收益率 $R_m$ 的线性函数，那么 CAPM 成立，且 $R_m$ 必须位于均值-方差有效边界（MVF）上。
 
-#考点/资产定价 #考点/SDF #考点/CAPM #考点/市场组合 #考点/均值-方差有效边界 #考点/MVF #考点/线性定价核
 
 ::::{solution}
 
@@ -299,7 +285,6 @@ $$
 
 State Prices, SDF, and Risk-Neutral Pricing
 
-#考点/状态价格 #考点/风险中性概率 #考点/风险中性定价 #考点/SDF #考点/一价定律
 
 ::::{solution}
 
@@ -348,7 +333,6 @@ $$
 
 证明对于一个不支付红利（No Dividends）的股票，美式看涨期权（American Call Option）的价值等于欧式看涨期权（European Call Option），且提前行权（Early Exercise）永远不是最优的。
 
-#考点/期权定价 #考点/美式期权 #考点/欧式期权 #考点/提前行权 #考点/无红利股票 #考点/无套利 #考点/风险中性测度
 
 ::::{solution}
 
@@ -559,7 +543,6 @@ $$
 
 8. （加分问）若把美式期权价格问题离散化到有限差分网格，说明：为什么欧式问题对应线性系统，而美式问题对应带 obstacle 的互补问题。
 
-#考点/最优停止 #考点/美式期权 #考点/欧式期权 #考点/自由边界 #考点/smooth_pasting #考点/风险中性定价 #考点/变分不等式
 
 ::::{solution}
 
@@ -683,7 +666,6 @@ $$
 4. 推导她在交易前对信息的最高支付意愿 $c^*$。
 5. 解释为什么：若价格完全揭示私人信息，则不可能与正的信息获取成本同时成立。
 
-#考点/Grossman-Stiglitz #考点/信息价值 #考点/支付意愿 #考点/CARA #考点/确定性等价 #考点/贝叶斯学习 #考点/部分揭示均衡
 
 ::::{solution}
 
@@ -858,7 +840,6 @@ $$
 6. 推导零息债价格；若 $\hat\mu_t^j$ 服从 OU/Vasicek 过程，进一步写出 $G_j(t,T)$。
 7. 解释这道题的经济含义：为什么 heterogeneous beliefs 会带来 stochastic valuation ratio 与 excess volatility。
 
-#考点/异质信念 #考点/log_utility #考点/消费分配 #考点/状态价格密度 #考点/短利率 #考点/市场风险价格 #考点/Lucas_tree #考点/股票波动率 #考点/零息债定价 #考点/市场清算
 
 ::::{solution}
 
@@ -1933,7 +1914,6 @@ $$
 **复习卡片：zero-coupon bond pricing**
 关联：[[Radon-Nikodym density 与 Girsanov 复习]]；[[OU-Vasicek 过程复习]]
 
-考点：
 - 先把 $P(t,T)$ 写成 agent 1 的 SPD 定价式
 - 再用 $\xi_t^1=\xi_t^{21}\xi_t^2$ 把 agent 2 的项改写回 agent 1 的测度
 - 最后把 $G_j(t,T)$ 化成 OU 积分的 normal MGF
@@ -2410,7 +2390,6 @@ Now we add another class of agents, called momentum-traders. Suppose that at the
 **（g）** Now suppose you add a positive mass of fully rational agents. Will they eliminate all mispricing? Why?
 
 
-#考点/资产定价 #考点/信息扩散 #考点/动量交易 #考点/CARA-Normal #考点/市场清算 #考点/ARMA #考点/有限套利
 
 ::::{solution}
 
@@ -3081,7 +3060,6 @@ where linearity of the conditional expectation follows from joint normality. Vie
 
 **（e）** Now suppose that the insider is the CEO of the firm that is being valued, and he is overconfident about the prospects of his company. Specifically, he believes — incorrectly — that the terminal value of the firm will be $v^*=v+v_0$, where the constant $v_0>0$ is the insider’s overconfidence. If market makers know that the insider is overconfident and know $v_0$, what happens to the market price $p$ compared to the fully rational case? Is this result similar to the conclusions of the De Long et al paper? Why? What would happen to the price if the market makers were not aware of the insider’s overconfidence?
 
-#考点/资产定价 #考点/信息不对称 #考点/内幕交易 #考点/噪声交易 #考点/CARA-Normal #考点/Kyle模型 #考点/市场深度 #考点/过度自信
 
 ::::{solution}
 
@@ -4851,7 +4829,6 @@ $$
 
 ::::{solution}
 
-考点标签： #heterogeneous-beliefs #Markov-chain #fundamental-value
 
 **设定**：$D_t\in\{0,1\}$，$\delta=3/4$，fundamental value 定义为
 
@@ -6538,7 +6515,6 @@ $$
 
 Show that the optimal consumption-to-wealth ratio $c_0/w_0$ is decreasing in $R_f$ if $\rho<1$ and increasing in $R_f$ if $\rho>1$.
 
-#考点/消费储蓄 #考点/CRRA #考点/风险自由资产 #考点/跨期选择 #考点/替代效应 #考点/EIS
 
 ::::{solution}
 
@@ -6991,7 +6967,6 @@ $$
 
 ## Question 6.2A Single-Factor Return and Mean-Variance Frontier
 
-考点标签： #single-factor-model #zero-beta-return #mean-variance-frontier
 
 **题目** 证明：若一个 traded single-factor return $\widetilde R$ 给出 beta-pricing，且它不是 zero-beta return $R_z$（精确地说 $E[\widetilde R]\ne R_z$），则 $\widetilde R$ 在 no-risk-free 的 mean-variance frontier 上。
 
@@ -8393,7 +8368,6 @@ $$
 
 ## Question 10.3 考场原题回忆：Two Countries, Two Goods, Exchange Rate, Log Utility
 
-考点标签：#heterogeneous-beliefs #log_utility #exchange-rate #state-price-density #interest-rate #stock-price #pure-exchange-economy #two-country-two-good
 
 ::::{solution}
 
@@ -8607,7 +8581,6 @@ $$
 
 ## Question 10.5 考场题重构：No-Risk-Free Mean-Variance Frontier
 
-考点标签：#mean-variance-frontier #no-risk-free #GMV #two-fund-separation
 
 **题面重构** 考虑 one-period economy，有 $n$ 个 risky assets，没有 risk-free asset。令 risky returns 向量为
 
@@ -8853,7 +8826,6 @@ $$
 
 ## Question 10.6 考场题重构：CARA Terminal Wealth, SPD, and Market Price of Risk
 
-考点标签：#CARA #continuous-time #state-price-density #market-price-of-risk #incomplete-market #terminal-endowment
 
 **题面重构** 考虑 $[0,T]$ 上的 continuous-time economy。有 $N+1$ 个 traded assets。Asset $0$ 是 risk-free asset，assets $1,\dots,N$ 是 risky assets：
 
@@ -9124,7 +9096,6 @@ $$
 
 ## Question 10.7 考场题重构：Two-Country Two-Good Pure-Exchange Economy
 
-考点标签：#pure-exchange-economy #heterogeneous-beliefs #two-country-two-good #log_utility #exchange-rate #stock-price
 
 **题面重构** 考虑 continuous-time pure-exchange economy。两个国家 $i=1,2$，两种 perishable consumption goods $k=1,2$。没有 production、storage 或 investment technology。两种 goods 的 aggregate endowment 为 $D_t^1,D_t^2$。Good 1 是 numeraire，real exchange rate $\epsilon_t$ 是 good 2 以 good 1 计价的价格。
 
