@@ -1,13 +1,5 @@
 # 02 Dynamic Asset Pricing
 
-## 0. 本篇修改核对清单
-
-- [x] 先按主题主线重新梳理标题层级，避免多个一级标题或跳号造成阅读断点。
-- [x] 保留原有材料的核心信息，但把散落的推导合并到对应主题，不采用“只在文首叠加补丁”的方式。
-- [x] 对关键结论补充 **WTS → 联立系统 → 连续求解 → 结论** 的证明块。
-- [x] Obsidian callout 只保留 `[!definition]` 与 `[!lemma]`；原来的 proposition / theorem / property 统一转为 lemma，note / remark 改为普通说明文字。
-- [x] 对易混概念补充“符号约定 / 经济含义 / 边界条件”三类解释，减少公式跳步。
-
 
 ## Lecture 4. Arbitrage and Martingales
 
@@ -775,6 +767,239 @@ $$
 E_t^{\mathbb Q}[R_{t+1}]=1+r_t.
 \end{aligned}
 $$
+
+### Change of Numeraire: $\mathbb Q$、$\mathbb Q^k$ 与 $\mathbb Q^T$
+
+**Goal** 对比连续时间资产定价中 standard risk-neutral measure $\mathbb Q$、numeraire-specific risk-neutral measure $\mathbb Q^k$ 与 $T$-forward measure $\mathbb Q^T$ 的数学结构。核心是：换计价物（numeraire）等价于换 deflator，因此测度的 Girsanov kernel 会随计价尺度改变。
+
+**基本系统**
+
+$$
+\left\{
+\begin{aligned}
+\mathbb Q
+&:\quad
+\text{以基础货币滚动账户 }
+B_t=\exp\left(\int_0^t r_sds\right)
+\text{ 为 numeraire},\\
+\mathbb Q^k
+&:\quad
+\text{以商品/货币 }k\text{ 的滚动账户 }
+B_{k,t}=\exp\left(\int_0^t r_s^{(k)}ds\right)
+\text{ 为 numeraire},\\
+\mathbb Q^T
+&:\quad
+\text{以到期日为 }T\text{ 的零息债券 }P_k(t,T)
+\text{ 为 numeraire},\\
+S_t^{(k)}
+&:\quad
+\text{以商品 }k\text{ 计价的任意风险资产价格}.
+\end{aligned}
+\right.
+$$
+
+**$\mathbb Q$ 与 $\mathbb Q^k$ 的分化**
+
+在多商品或多国开放经济中，不同商品/国家可能对应不同 instant real risk-free rate $r_t^{(k)}$。因此以商品 $k$ 计价的资产，应该用商品 $k$ 的滚动账户 $B_{k,t}$ 贴现。
+
+根据 change of numeraire，在 $\mathbb Q^k$ 下：
+
+$$
+\begin{aligned}
+\frac{S_t^{(k)}}{B_{k,t}}
+&=
+E_t^{\mathbb Q^k}
+\left[
+\frac{S_T^{(k)}}{B_{k,T}}
+\right]\\
+&\Longleftrightarrow
+S_t^{(k)}
+=
+E_t^{\mathbb Q^k}
+\left[
+\exp\left(
+-\int_t^T r_s^{(k)}ds
+\right)
+S_T^{(k)}
+\right].
+\end{aligned}
+$$
+
+若从 physical measure $P$ 出发，标准本币风险中性测度与商品 $k$ 风险中性测度可写成
+
+$$
+\left\{
+\begin{aligned}
+dW_t^{\mathbb Q}
+&=dW_t^P+\lambda_tdt,\\
+dW_t^{\mathbb Q^k}
+&=dW_t^P+\lambda_t^{(k)}dt.
+\end{aligned}
+\right.
+$$
+
+在 two-good / heterogeneous-belief notation 中，常见地有
+
+$$
+\begin{aligned}
+\lambda_t^{(k)}
+&=
+\sigma_{k,t}+a_{k,t}\beta,
+\qquad
+a_{k,t}:=\frac{\omega_{k,t}}{1+\omega_{k,t}}.
+\end{aligned}
+$$
+
+所以两个风险中性 Brownian motion 的差异为
+
+$$
+\begin{aligned}
+dW_t^{\mathbb Q^k}
+&=
+dW_t^{\mathbb Q}
++(\lambda_t^{(k)}-\lambda_t)dt.
+\end{aligned}
+$$
+
+这说明 $\mathbb Q$ 与 $\mathbb Q^k$ 的区别不是“概率技巧”，而是计价物改变后，风险补偿所对应的价值尺度改变。
+
+**从滚动账户到零息债券：$T$-forward measure**
+
+在 $\mathbb Q^k$ 下，若 $r_s^{(k)}$ 随机，则
+
+$$
+\begin{aligned}
+S_t^{(k)}
+&=
+E_t^{\mathbb Q^k}
+\left[
+\exp\left(
+-\int_t^T r_s^{(k)}ds
+\right)
+S_T^{(k)}
+\right]
+\end{aligned}
+$$
+
+一般不能写成
+
+$$
+\begin{aligned}
+E_t^{\mathbb Q^k}
+\left[
+\exp\left(
+-\int_t^T r_s^{(k)}ds
+\right)
+S_T^{(k)}
+\right]
+&\ne
+E_t^{\mathbb Q^k}
+\left[
+\exp\left(
+-\int_t^T r_s^{(k)}ds
+\right)
+\right]
+E_t^{\mathbb Q^k}[S_T^{(k)}],
+\end{aligned}
+$$
+
+因为随机折现因子与 terminal payoff 之间可能有 nonzero covariance。
+
+为消去随机折现流，将 numeraire 从 rolling account $B_{k,t}$ 换成 zero-coupon bond $P_k(t,T)$。定义
+
+$$
+\begin{aligned}
+M_t^T
+&:=
+\left.
+\frac{d\mathbb Q^T}{d\mathbb Q^k}
+\right|_{\mathcal F_t}\\
+&=
+\frac{P_k(t,T)/P_k(0,T)}
+{B_{k,t}/B_{k,0}}\\
+&=
+\frac{P_k(t,T)}{P_k(0,T)}
+\exp\left(
+-\int_0^t r_s^{(k)}ds
+\right),
+\qquad B_{k,0}=1.
+\end{aligned}
+$$
+
+在 $\mathbb Q^T$ 下，任意以商品 $k$ 计价的资产相对于零息债券的价格为 martingale：
+
+$$
+\begin{aligned}
+\frac{S_t^{(k)}}{P_k(t,T)}
+&=
+E_t^{\mathbb Q^T}
+\left[
+\frac{S_T^{(k)}}{P_k(T,T)}
+\right]\\
+&=
+E_t^{\mathbb Q^T}
+\left[
+S_T^{(k)}
+\right],
+\qquad P_k(T,T)=1.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+S_t^{(k)}
+&=
+P_k(t,T)
+E_t^{\mathbb Q^T}
+\left[
+S_T^{(k)}
+\right].
+\end{aligned}
+$$
+
+若零息债券在 $\mathbb Q^k$ 下满足
+
+$$
+\begin{aligned}
+\frac{dP_k(t,T)}{P_k(t,T)}
+&=
+r_t^{(k)}dt+\sigma_P(t,T)'dW_t^{\mathbb Q^k},
+\end{aligned}
+$$
+
+则
+
+$$
+\begin{aligned}
+\frac{dM_t^T}{M_t^T}
+&=
+\sigma_P(t,T)'dW_t^{\mathbb Q^k}.
+\end{aligned}
+$$
+
+由 Girsanov theorem，$T$-forward measure 下的 Brownian motion 为
+
+$$
+\begin{aligned}
+dW_t^{\mathbb Q^T}
+&=
+dW_t^{\mathbb Q^k}-\sigma_P(t,T)dt.
+\end{aligned}
+$$
+
+这一步的经济含义是：用 $P_k(t,T)$ 作 numeraire 时，债券自身的风险载荷被吸收到测度变换中，远期定价只剩 terminal payoff 的 $\mathbb Q^T$ 条件期望。
+
+**结构对比**
+
+| 概率测度 | 核心计价物 (Numeraire) | Deflator / SDF component | 核心用途 |
+| --- | --- | --- | --- |
+| $\mathbb Q$ | 基础货币滚动账户 $B_t$ | $\exp\left(-\int_0^t r_sds\right)$ | 单一本币资产的标准 risk-neutral pricing |
+| $\mathbb Q^k$ | 商品 $k$ 滚动账户 $B_{k,t}$ | $\exp\left(-\int_0^t r_s^{(k)}ds\right)$ | 多商品 / 多国模型中的本地资产定价 |
+| $\mathbb Q^T$ | 零息债券 $P_k(t,T)$ | $P_k(t,T)$ | 剥离 stochastic interest-rate discounting，定价 forwards / derivatives |
+
+三者之间的区别，本质上是 asset pricing theorem 在不同价值尺度下的同一套 martingale pricing relation。换 numeraire 后，随机折现因子在“rolling account discounting”、“local risk-neutral discounting”与“terminal payoff forward pricing”之间代数变形。
 
 **Continuous-time**
 
@@ -1733,8 +1958,7 @@ Bellman Equation
 
 $$
 \begin{aligned}
-0
-=
+0 =
 \max_{c_t,\phi_t}
 \Big\{
 u(c_t)+D_t^{W,X}V(t,W_t,X_t)+V_t(t,W_t,X_t)
@@ -1891,8 +2115,7 @@ Bellman / HJB 中与控制变量有关的项可写成
 
 $$
 \begin{aligned}
-0
-=
+0 =
 \max_{c_t,\theta_t}
 \Big\{
 u(c_t)+V_t
@@ -2108,8 +2331,7 @@ $$
 
 $$
 \begin{aligned}
-0
-=
+0 =
 \max_{c_t,\phi_t}
 \Big\{
 &\frac{b\,c_t^{1-\gamma}}{1-\gamma}
@@ -2799,8 +3021,7 @@ $$
 
 $$
 \begin{aligned}
-\phi_t^*
-=
+\phi_t^* =
 -\frac{V_W}{W_tV_{WW}}\frac{\mu-r}{\sigma^2}
 -\frac{V_{WL}}{W_tV_{WW}}\frac{\sigma_L}{\sigma}
 -\frac{V_{Wy}}{W_tV_{WW}}\frac{\rho}{\sigma},
@@ -3298,8 +3519,7 @@ $$
 $$
 
 \begin{aligned}
-\phi_i
-=
+\phi_i =
 \frac{(1-\gamma)f_i-\widehat f_i'}
 {\gamma(1-\gamma)f_i-(2\gamma-1)\widehat f_i'-\widehat f_i''}
 \frac{\mu-r}{\sigma^2}
@@ -3349,8 +3569,7 @@ HJB 变成变分不等式：
 $$
 
 \begin{aligned}
-0
-=
+0 =
 \max\big\{
 -\beta V(X)+\mathcal D_XV(X)+g(X),\; h(X)-V(X)
 \big\}.
@@ -3361,8 +3580,7 @@ $$
 $$
 
 \begin{aligned}
-V(X)
-=
+V(X) =
 \max\left\{
 \underbrace{h(X)}_{\text{立刻停止}},
 \underbrace{g(X)\,dt+e^{-\beta dt}E[V(X_{t+dt})]}_{\text{继续一个 }dt}
@@ -3467,8 +3685,7 @@ $$
 $$
 
 \begin{aligned}
-0
-=
+0 =
 \max\big\{
 -\beta V(X)+\mathcal D_XV(X)+g(X),\;
 h(X)-V(X)
@@ -5132,4 +5349,3 @@ Pricing Long-Run Growth Risk
 **Lemma:** Return Predictability from Persistent Growth
 当 $\psi>1$ 且 $x_t$ 高度持久时，价格—股利比会对长期增长预期更敏感，从而有助于解释高股权溢价与回报可预测性。
 :::
-
