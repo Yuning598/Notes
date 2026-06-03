@@ -2522,7 +2522,7 @@ $$
 
 ::::
 
-## Question 8A. Log Utility、Filtering、Market Clearing 与 Vasicek Bond Pricing 综合推导
+## Question 9. Log Utility、Filtering、Market Clearing 与 Vasicek Bond Pricing 综合推导
 
 ::::{collapse} Basic setup
 
@@ -3275,7 +3275,7 @@ $$
 
 
 
-## Question 9. 信息扩散与动量交易
+## Question 10. 信息扩散与动量交易
 
 Consider an economy with two traded assets, a safe asset with net return zero, and a risky asset that makes a single dividend payment of
 
@@ -3922,7 +3922,7 @@ fully rational agents 会识别到价格偏离 fundamental value，因此在 und
 
 
 
-## Question 10. 内幕交易与噪声交易
+## Question 11. 内幕交易与噪声交易
 
 Consider a financial market with three types of agents: (i) an insider; (ii) market makers; and (iii) noise traders. The market is open for one period, and one risky financial asset is traded. Denote the terminal value of the asset by $v$, a normally distributed random variable with expected value zero and variance $\sigma_v^2$.
 
@@ -4371,7 +4371,7 @@ $$
 
 
 
-## Textbook Exercise Q 1.2(a)
+## Question 12. Textbook Exercise Q 1.2(a)
 
 **题目**
 
@@ -4484,7 +4484,7 @@ $$
 
 
 
-## Textbook Exercise Q 1.2(b,d)
+## Question 13. Textbook Exercise Q 1.2(b,d)
 
 **题目**
 
@@ -5074,7 +5074,7 @@ $$
 
 
 
-## Textbook Exercise Q 6.1
+## Question 14. Textbook Exercise Q 6.1
 
 **题目**
 
@@ -7441,7 +7441,7 @@ $$
 
 
 
-## Question 11. Risk-Free Asset and Beginning/End-of-Period Consumption
+## Question 15. Risk-Free Asset and Beginning/End-of-Period Consumption
 
 Consider the portfolio choice problem with only a risk-free asset and with consumption at both the beginning and end of the period.
 
@@ -7675,7 +7675,7 @@ $$
 
 
 
-## Question 5.3 No Tangency Portfolio When $R_f$ Equals GMV Return
+## Question 16. No Tangency Portfolio When $R_f$ Equals GMV Return
 
 Suppose that the risk-free return is equal to the expected return of the global minimum variance portfolio:
 
@@ -7755,7 +7755,7 @@ $$
 
 
 
-## Question 6.1 Beta Pricing Implies $\widetilde R_*$ Is on the Mean-Variance Frontier
+## Question 17. Beta Pricing Implies $\widetilde R_*$ Is on the Mean-Variance Frontier
 
 ::::{solution}
 
@@ -7793,7 +7793,7 @@ $$
 
 
 
-## Question 6.2 No-Risk-Free Beta Pricing and Mean-Variance Frontier
+## Question 18. No-Risk-Free Beta Pricing and Mean-Variance Frontier
 
 Suppose there is no risk-free asset. Use the formula for frontier portfolios to show that a beta-pricing model is equivalent to the return $\widetilde R_*$ being on the mean-variance frontier and not equal to the global minimum variance return.
 
@@ -7913,7 +7913,7 @@ $$
 
 
 
-## Question 6.2A Single-Factor Return and Mean-Variance Frontier
+## Question 19. Single-Factor Return and Mean-Variance Frontier
 
 
 **题目** 证明：若一个 traded single-factor return $\widetilde R$ 给出 beta-pricing，且它不是 zero-beta return $R_z$（精确地说 $E[\widetilde R]\ne R_z$），则 $\widetilde R$ 在 no-risk-free 的 mean-variance frontier 上。
@@ -8054,7 +8054,7 @@ $$
 
 
 
-## Question 6.3 Borrowing and Lending at Different Rates
+## Question 20. Borrowing and Lending at Different Rates
 
 Suppose investors can borrow and lend at different rates. Let $R_b$ denote the return on borrowing and $R_\ell$ the return on lending. Suppose
 
@@ -8177,7 +8177,7 @@ $$
 
 
 
-## Question 6.8 Limited Awareness and Positive Alpha
+## Question 21. Limited Awareness and Positive Alpha
 
 Assume there are $H$ investors with CARA utility and the same absolute risk aversion $\alpha$. There is a risk-free asset and two risky assets with jointly normal payoffs $\widetilde x=(\widetilde x_1,\widetilde x_2)'$, mean $\mu$, and nonsingular covariance matrix $\Sigma$. Let $H_U$ investors be unaware of asset 2 and invest only in asset 1 and the risk-free asset; let $H_I=H-H_U$. If all investors were aware, the equilibrium price would be
 
@@ -8504,7 +8504,7 @@ $$
 
 
 
-## Question 8.2 Marketed Consumption Processes
+## Question 22. Marketed Consumption Processes
 
 **题目** 设每期消费 $C_t$ 都是 marketed payoff。证明存在财富过程 $W$ 和组合过程 $\pi$ 使
 
@@ -8550,7 +8550,7 @@ $$
 
 
 
-## Question 8.1 Marked Dividend Trees and SDFs
+## Question 23. Marked Dividend Trees and SDFs
 
 **题目** 设有常数无风险收益率 $R_f$ 和单一 risky asset，其 dividend 满足
 
@@ -8733,7 +8733,7 @@ $$
 
 
 
-## Question 9.1 Log Utility with i.i.d. Returns
+## Question 24. Log Utility with i.i.d. Returns
 
 **题目** 考虑 terminal wealth 的动态投资问题，returns i.i.d.，投资者为 log utility。令
 
@@ -8795,7 +8795,7 @@ $$
 
 
 
-## Question 10.1 考场原题回忆：n Risky Assets + 0 Risk-Free Asset
+## Question 25. 考场原题回忆：n Risky Assets + 0 Risk-Free Asset
 
 #mean-variance #CARA-normal #no-risk-free #two-fund-separation
 
@@ -8908,7 +8908,7 @@ $$
 
 
 
-## Question 10.2 考场原题回忆：CARA Endowment Economy and Budget Constraint
+## Question 26. 考场原题回忆：CARA Endowment Economy and Budget Constraint
 
  CARA #continuous-time #budget-constraint #state-price-density #EMM #risk-neutral-measure #interest-rate #market-price-of-risk
 
@@ -9323,7 +9323,7 @@ $$
 
 
 
-## Question 10.3 考场原题回忆：Two Countries, Two Goods, Exchange Rate, Log Utility
+## Question 27. 考场原题回忆：Two Countries, Two Goods, Exchange Rate, Log Utility
 
 
 ::::{solution}
@@ -9356,7 +9356,7 @@ Likelihood ratio / belief weight 的动态、allocation shares 与 closed-form l
 
 
 
-## Question 10.4 考场原题回忆：Bid-Ask Spread and Risk Aversion
+## Question 28. 考场原题回忆：Bid-Ask Spread and Risk Aversion
 
 #bid-ask-spread #certainty-equivalent #risk-aversion #CARA-normal
 
@@ -9536,7 +9536,7 @@ $$
 
 
 
-## Question 10.5 考场题重构：No-Risk-Free Mean-Variance Frontier
+## Question 29. 考场题重构：No-Risk-Free Mean-Variance Frontier
 
 
 **题面重构** 考虑 one-period economy，有 $n$ 个 risky assets，没有 risk-free asset。令 risky returns 向量为
@@ -9781,7 +9781,7 @@ $$
 
 
 
-## Question 10.6 考场题重构：CARA Terminal Wealth, SPD, and Market Price of Risk
+## Question 30. 考场题重构：CARA Terminal Wealth, SPD, and Market Price of Risk
 
 
 **题面重构** 考虑 $[0,T]$ 上的 continuous-time economy。有 $N+1$ 个 traded assets。Asset $0$ 是 risk-free asset，assets $1,\dots,N$ 是 risky assets：
@@ -10068,7 +10068,7 @@ $$
 
 
 
-## Question 10.7 考场题重构：Two-Country Two-Good Pure-Exchange Economy
+## Question 31. 考场题重构：Two-Country Two-Good Pure-Exchange Economy
 
 
 **题面重构** 考虑 continuous-time pure-exchange economy。两个国家 $i=1,2$，两种 perishable consumption goods $k=1,2$。没有 production、storage 或 investment technology。两种 goods 的 aggregate endowment 为 $D_t^1,D_t^2$。Good 1 是 numeraire，real exchange rate $\epsilon_t$ 是 good 2 以 good 1 计价的价格。
@@ -11123,5 +11123,366 @@ S_t^2&=\epsilon_t\frac{D_t^2}{\rho}
 $$
 
 在完全对称 case，heterogeneous beliefs 仍改变 individual allocation shares，但由于两位 agent 对两种 goods 的 taste weights 完全相同，$\omega_t$ 在 exchange rate 和 price-dividend ratio 中抵消；若 $\rho_i$ 或 $\alpha_i$ 不同，$\omega_t$ 不再抵消，belief disagreement 会直接进入 exchange rate 和 stock prices。
+
+::::
+
+---
+
+
+## Question 32. Continuous-Time Complete Market, EMM, and Derivative Pricing
+
+**题目** 考虑 securities market model：
+
+$$
+\left\{
+\begin{aligned}
+&(\Omega,\mathcal F,\mathbb P),\qquad
+\mathcal T=[0,T],\\
+&Z_t=\text{one-dimensional Brownian motion under }\mathbb P,\\
+&\{\mathcal F_t\}=\text{standard filtration of }Z_t.
+\end{aligned}
+\right.
+$$
+
+市场中有 bond 和 stock。Bond price process 满足
+
+$$
+\begin{aligned}
+\frac{dB_t}{B_t}
+&=r\,dt.
+\end{aligned}
+$$
+
+Stock price process 满足
+
+$$
+\begin{aligned}
+\frac{dS_t}{S_t}
+&=\mu_tdt+\sigma dZ_t,
+\end{aligned}
+$$
+
+其中 $\sigma$ 是常数，且 $\mu_t$ 满足
+
+$$
+\begin{aligned}
+d\mu_t
+&=
+\kappa(\theta-\mu_t)dt-s\,dZ_t,
+\end{aligned}
+$$
+
+其中 $\kappa,\theta,s$ 是常数。
+
+**（a）** Show that markets are complete, and determine the EMM.
+
+::::{solution}
+
+市场中只有一个 Brownian shock $Z_t$，且 stock 的 diffusion loading 为 $\sigma$。只要
+
+$$
+\begin{aligned}
+\sigma\ne0,
+\end{aligned}
+$$
+
+stock span 了唯一的 Brownian risk，因此市场 complete，EMM 唯一。
+
+令 market price of risk 为 $\lambda_t$。Girsanov 变换写成
+
+$$
+\left\{
+\begin{aligned}
+dZ_t^{\mathbb Q}
+&=dZ_t+\lambda_tdt,\\
+dZ_t
+&=dZ_t^{\mathbb Q}-\lambda_tdt.
+\end{aligned}
+\right.
+$$
+
+在 $\mathbb Q$ 下，贴现 stock price 必须是 martingale，所以 stock drift 必须变成 $r$：
+
+$$
+\begin{aligned}
+\frac{dS_t}{S_t}
+&=\mu_tdt+\sigma(dZ_t^{\mathbb Q}-\lambda_tdt)\\
+&=(\mu_t-\sigma\lambda_t)dt+\sigma dZ_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+令 drift 等于 $r$：
+
+$$
+\begin{aligned}
+\mu_t-\sigma\lambda_t
+&=r\\
+\Longleftrightarrow\quad
+\lambda_t
+&=\frac{\mu_t-r}{\sigma}.
+\end{aligned}
+$$
+
+因此 EMM 的 density process 为
+
+$$
+\begin{aligned}
+\frac{d\mathbb Q}{d\mathbb P}\bigg|_{\mathcal F_t}
+&=
+\mathcal E
+\left(
+-\int_0^t\frac{\mu_u-r}{\sigma}\,dZ_u
+\right)\\
+&=
+\exp\left[
+-\int_0^t\frac{\mu_u-r}{\sigma}\,dZ_u
+-\frac12\int_0^t
+\left(\frac{\mu_u-r}{\sigma}\right)^2du
+\right].
+\end{aligned}
+$$
+
+结论：
+
+$$
+\begin{aligned}
+\text{market complete}
+&\Longleftrightarrow \sigma\ne0,\\
+dZ_t^{\mathbb Q}
+&=
+dZ_t+\frac{\mu_t-r}{\sigma}dt.
+\end{aligned}
+$$
+
+::::
+
+**（b）** Determine the stock price process under the EMM.
+
+::::{solution}
+
+由上题的 Girsanov relation，
+
+$$
+\begin{aligned}
+dZ_t
+&=
+dZ_t^{\mathbb Q}-\frac{\mu_t-r}{\sigma}dt.
+\end{aligned}
+$$
+
+代入 stock dynamics：
+
+$$
+\begin{aligned}
+\frac{dS_t}{S_t}
+&=
+\mu_tdt+\sigma
+\left(
+dZ_t^{\mathbb Q}-\frac{\mu_t-r}{\sigma}dt
+\right)\\
+&=
+\mu_tdt+\sigma dZ_t^{\mathbb Q}-(\mu_t-r)dt\\
+&=
+r\,dt+\sigma dZ_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+dS_t
+&=
+rS_tdt+\sigma S_tdZ_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+同时 $\mu_t$ 在 $\mathbb Q$ 下的过程为
+
+$$
+\begin{aligned}
+d\mu_t
+&=
+\kappa(\theta-\mu_t)dt
+-s\left(
+dZ_t^{\mathbb Q}-\frac{\mu_t-r}{\sigma}dt
+\right)\\
+&=
+\left[
+\kappa\theta-\kappa\mu_t+\frac{s}{\sigma}(\mu_t-r)
+\right]dt
+-s\,dZ_t^{\mathbb Q}\\
+&=
+\left[
+\kappa\theta-\frac{sr}{\sigma}
+-\left(\kappa-\frac{s}{\sigma}\right)\mu_t
+\right]dt
+-s\,dZ_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+若 $\kappa-\frac{s}{\sigma}\ne0$，可写成 OU form：
+
+$$
+\begin{aligned}
+d\mu_t
+&=
+\kappa^{\mathbb Q}
+\left(
+\theta^{\mathbb Q}-\mu_t
+\right)dt
+-s\,dZ_t^{\mathbb Q},
+\end{aligned}
+$$
+
+其中
+
+$$
+\begin{aligned}
+\kappa^{\mathbb Q}
+&=
+\kappa-\frac{s}{\sigma},\\
+\theta^{\mathbb Q}
+&=
+\frac{\kappa\theta-\frac{sr}{\sigma}}
+{\kappa-\frac{s}{\sigma}}.
+\end{aligned}
+$$
+
+::::
+
+**（c）** Characterize the price of a security that pays off $G(S_T)$ at time $T$.
+
+::::{solution}
+
+令 derivative price 为
+
+$$
+\begin{aligned}
+V_t
+&=
+v(t,S_t,\mu_t).
+\end{aligned}
+$$
+
+由 risk-neutral pricing：
+
+$$
+\begin{aligned}
+v(t,S,\mu)
+&=
+E_{t,S,\mu}^{\mathbb Q}
+\left[
+e^{-r(T-t)}G(S_T)
+\right].
+\end{aligned}
+$$
+
+在 $\mathbb Q$ 下的 state system 为
+
+$$
+\left\{
+\begin{aligned}
+dS_t
+&=
+rS_tdt+\sigma S_tdZ_t^{\mathbb Q},\\
+d\mu_t
+&=
+\left[
+\kappa\theta-\frac{sr}{\sigma}
+-\left(\kappa-\frac{s}{\sigma}\right)\mu_t
+\right]dt
+-s\,dZ_t^{\mathbb Q}.
+\end{aligned}
+\right.
+$$
+
+二次变差为
+
+$$
+\left\{
+\begin{aligned}
+(dS_t)^2
+&=\sigma^2S_t^2dt,\\
+dS_td\mu_t
+&=-s\sigma S_tdt,\\
+(d\mu_t)^2
+&=s^2dt.
+\end{aligned}
+\right.
+$$
+
+对 $v(t,S_t,\mu_t)$ 使用 Itô lemma：
+
+$$
+\begin{aligned}
+dv
+&=
+v_tdt+v_SdS+v_\mu d\mu
++\frac12v_{SS}(dS)^2
++v_{S\mu}dS\,d\mu
++\frac12v_{\mu\mu}(d\mu)^2.
+\end{aligned}
+$$
+
+在 $\mathbb Q$ 下，discounted derivative price $e^{-rt}v(t,S_t,\mu_t)$ 是 martingale，所以 drift condition 为
+
+$$
+\begin{aligned}
+0
+&=
+v_t
++rSv_S
++\left[
+\kappa\theta-\frac{sr}{\sigma}
+-\left(\kappa-\frac{s}{\sigma}\right)\mu
+\right]v_\mu\\
+&\quad
++\frac12\sigma^2S^2v_{SS}
+-s\sigma Sv_{S\mu}
++\frac12s^2v_{\mu\mu}
+-rv.
+\end{aligned}
+$$
+
+terminal condition 为
+
+$$
+\begin{aligned}
+v(T,S,\mu)
+&=
+G(S).
+\end{aligned}
+$$
+
+因此 payoff $G(S_T)$ 的价格由下面的 Feynman-Kac representation / PDE characterization 给出：
+
+$$
+\left\{
+\begin{aligned}
+v(t,S,\mu)
+&=
+E_{t,S,\mu}^{\mathbb Q}
+\left[
+e^{-r(T-t)}G(S_T)
+\right],\\
+0
+&=
+v_t
++rSv_S
++\left[
+\kappa\theta-\frac{sr}{\sigma}
+-\left(\kappa-\frac{s}{\sigma}\right)\mu
+\right]v_\mu\\
+&\quad
++\frac12\sigma^2S^2v_{SS}
+-s\sigma Sv_{S\mu}
++\frac12s^2v_{\mu\mu}
+-rv,\\
+v(T,S,\mu)
+&=G(S).
+\end{aligned}
+\right.
+$$
 
 ::::
