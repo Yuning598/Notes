@@ -10636,6 +10636,54 @@ $$
 \end{aligned}
 $$
 
+上式中的 $\sigma_{S^2,t}$ 是 stock $2$ 用 good $2$ 计价的 volatility。若用 good $1$ 计价，令
+
+$$
+\begin{aligned}
+\widetilde S_t^2
+&:=\epsilon_tS_t^2.
+\end{aligned}
+$$
+
+由 real exchange rate：
+
+$$
+\begin{aligned}
+d\log\epsilon_t
+&=
+d\log D_t^1-d\log D_t^2
++d\log(1+\omega_{2,t})
+-d\log(1+\omega_{1,t})\\
+&=
+\mu_{\epsilon,t}^{\log}dt
++\left[
+\sigma_{1,t}-\sigma_{2,t}
++(a_{1,t}-a_{2,t})\beta
+\right]'dB_t^1.
+\end{aligned}
+$$
+
+因此 good $1$ 计价的 stock $2$ volatility 为
+
+$$
+\begin{aligned}
+\sigma_{\widetilde S^2,t}
+&=
+\sigma_{\epsilon,t}+\sigma_{S^2,t}\\
+&=
+\left[
+\sigma_{1,t}-\sigma_{2,t}
++(a_{1,t}-a_{2,t})\beta
+\right]
++\left[
+\sigma_{2,t}-\chi_{2,t}\beta
+\right]\\
+&=
+\sigma_{1,t}
++(a_{1,t}-a_{2,t}-\chi_{2,t})\beta.
+\end{aligned}
+$$
+
 这个 volatility channel 来自 relative belief weight：
 
 $$
