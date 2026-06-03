@@ -10604,7 +10604,7 @@ $$
 \end{aligned}
 $$
 
-对 good 1 计价的 stock $1$，因为 $S_t^1=S_t^{1,1}$，所以
+分别令 $k=1,2$，得到两只 stock 的波动率：
 
 $$
 \begin{aligned}
@@ -10613,70 +10613,13 @@ d\log S_t^1
 d\log S_t^{1,1}\\
 &=
 \mu_{S^1,t}^{\log}dt
-+\left(\sigma_{1,t}-\chi_{1,t}\beta\right)'dB_t^1,
-\end{aligned}
-$$
-
-即
-
-$$
-\begin{aligned}
-\sigma_{S^1,t}
-&=
-\sigma_{1,t}-\chi_{1,t}\beta.
-\end{aligned}
-$$
-
-对 good 1 计价的 stock $2$，先由 exchange rate 推出
-
-$$
-\begin{aligned}
-d\log\epsilon_t
-&=
-d\log D_t^1-d\log D_t^2
-+d\log(1+\omega_{2,t})
--d\log(1+\omega_{1,t})\\
-&=
-\mu_{\epsilon,t}^{\log}dt
-+\sigma_{1,t}'dB_t^1-\sigma_{2,t}'dB_t^1
--a_{2,t}\beta'dB_t^1
-+a_{1,t}\beta'dB_t^1\\
-&=
-\mu_{\epsilon,t}^{\log}dt
-+\left[
-\sigma_{1,t}-\sigma_{2,t}
-+(a_{1,t}-a_{2,t})\beta
-\right]'dB_t^1.
-\end{aligned}
-$$
-
-又因为 $S_t^2=\epsilon_tS_t^{2,2}$，所以
-
-$$
-\begin{aligned}
++\left(\sigma_{1,t}-\chi_{1,t}\beta\right)'dB_t^1,\\
 d\log S_t^2
 &=
-d\log\epsilon_t+d\log S_t^{2,2}\\
+d\log S_t^{2,2}\\
 &=
 \mu_{S^2,t}^{\log}dt
-{}+\left[
-\sigma_{1,t}-\sigma_{2,t}
-+(a_{1,t}-a_{2,t})\beta
-\right]'dB_t^1
-+\left(\sigma_{2,t}-\chi_{2,t}\beta\right)'dB_t^1\\
-&=
-\mu_{S^2,t}^{\log}dt
-{}+\left[
-\sigma_{1,t}-\sigma_{2,t}
-+(a_{1,t}-a_{2,t})\beta
-+\sigma_{2,t}-\chi_{2,t}\beta
-\right]'dB_t^1\\
-&=
-\mu_{S^2,t}^{\log}dt
-{}+\left[
-\sigma_{1,t}
-+(a_{1,t}-a_{2,t}-\chi_{2,t})\beta
-\right]'dB_t^1.
+{}+\left(\sigma_{2,t}-\chi_{2,t}\beta\right)'dB_t^1.
 \end{aligned}
 $$
 
@@ -10684,14 +10627,16 @@ $$
 
 $$
 \begin{aligned}
+\sigma_{S^1,t}
+&=
+\sigma_{1,t}-\chi_{1,t}\beta,\\
 \sigma_{S^2,t}
 &=
-\sigma_{1,t}
-+(a_{1,t}-a_{2,t}-\chi_{2,t})\beta.
+\sigma_{2,t}-\chi_{2,t}\beta.
 \end{aligned}
 $$
 
-其中 $a_{k,t}=\omega_{k,t}/(1+\omega_{k,t})$。因此 heterogeneous beliefs 通过 $\beta$ 和 stochastic ownership weights 改变股票波动率；若 $\rho_1=\rho_2$，则 $G_k(\omega)$ 为常数，$\chi_{k,t}=0$，price-dividend ratio 本身不再贡献额外波动。
+因此 heterogeneous beliefs 通过 $\beta$ 和 stochastic ownership weights 改变股票波动率；若 $\rho_1=\rho_2$，则 $G_k(\omega)$ 为常数，$\chi_{k,t}=0$，price-dividend ratio 本身不再贡献额外波动。
 
 ::::
 
