@@ -10453,6 +10453,244 @@ $$
 
 ::::
 
+**Risk-free rates under two numeraires** 对 $k=1,2$，用 good $k$ 作为 numeraire 的 state-price density 为
+
+::::{solution}
+
+$$
+\begin{aligned}
+\zeta_t^{(k)}
+&\propto
+e^{-\rho_1t}\frac{1+\omega_{k,t}}{D_t^k},
+\qquad
+a_{k,t}:=\frac{\omega_{k,t}}{1+\omega_{k,t}}.
+\end{aligned}
+$$
+
+在 $P^1$ 下写系统：
+
+$$
+\left\{
+\begin{aligned}
+\frac{dD_t^k}{D_t^k}
+&=\mu_{k,t}dt+\sigma_{k,t}'dB_t^1,\\
+\frac{d\omega_{k,t}}{\omega_{k,t}}
+&=(\rho_1-\rho_2)dt-\beta'dB_t^1.
+\end{aligned}
+\right.
+$$
+
+因为
+
+$$
+\begin{aligned}
+\log \zeta_t^{(k)}
+&=
+\text{constant}
+-\rho_1t
++\log(1+\omega_{k,t})
+-\log D_t^k,
+\end{aligned}
+$$
+
+Itô lemma 给出：
+
+$$
+\begin{aligned}
+d\log(1+\omega_{k,t})
+&=
+a_{k,t}\frac{d\omega_{k,t}}{\omega_{k,t}}
+-\frac12a_{k,t}^2
+\left(\frac{d\omega_{k,t}}{\omega_{k,t}}\right)^2\\
+&=
+a_{k,t}(\rho_1-\rho_2)dt
+-a_{k,t}\beta'dB_t^1
+-\frac12a_{k,t}^2\beta'\beta\,dt,\\
+d\log D_t^k
+&=
+\left(\mu_{k,t}-\frac12\sigma_{k,t}'\sigma_{k,t}\right)dt
++\sigma_{k,t}'dB_t^1.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+d\log\zeta_t^{(k)}
+&=
+\left[
+-\rho_1
++a_{k,t}(\rho_1-\rho_2)
+-\mu_{k,t}
++\frac12\sigma_{k,t}'\sigma_{k,t}
+-\frac12a_{k,t}^2\beta'\beta
+\right]dt\\
+&\quad
+-(\sigma_{k,t}+a_{k,t}\beta)'dB_t^1.
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\frac{d\zeta_t^{(k)}}{\zeta_t^{(k)}}
+&=
+d\log\zeta_t^{(k)}
++\frac12(\sigma_{k,t}+a_{k,t}\beta)'(\sigma_{k,t}+a_{k,t}\beta)dt\\
+&=
+\left[
+-\rho_1
++a_{k,t}(\rho_1-\rho_2)
+-\mu_{k,t}
++\sigma_{k,t}'\sigma_{k,t}
++a_{k,t}\beta'\sigma_{k,t}
+\right]dt\\
+&\quad
+-(\sigma_{k,t}+a_{k,t}\beta)'dB_t^1.
+\end{aligned}
+$$
+
+和
+
+$$
+\begin{aligned}
+\frac{d\zeta_t^{(k)}}{\zeta_t^{(k)}}
+&=-r_t^{(k)}dt-(\theta_t^{(k)})'dB_t^1
+\end{aligned}
+$$
+
+对比，得到 good $k$ numeraire 下的 risk-free rate 与 market price of risk：
+
+$$
+\begin{aligned}
+r_t^{(k)}
+&=
+(1-a_{k,t})\rho_1+a_{k,t}\rho_2
++\mu_{k,t}
+-\sigma_{k,t}'\sigma_{k,t}
+-a_{k,t}\beta'\sigma_{k,t},\\
+\theta_t^{(k)}
+&=
+\sigma_{k,t}+a_{k,t}\beta.
+\end{aligned}
+$$
+
+当 $k=1$ 时就是 domestic good-1 interest rate；当 $k=2$ 时是 good-2 numeraire 下的 real interest rate。若要把 good-2 risk-free payoff 换成 good-1 价格，需要再乘当前 exchange rate $\epsilon_t$。
+
+::::
+
+**Zero-coupon bond pricing** 令 $P_t^{(k)}(T)$ 表示在 $t$ 时用 good $k$ 计价、到期 $T$ 支付 $1$ 单位 good $k$ 的零息债价格。
+
+::::{solution}
+
+由 SPD 定价公式：
+
+$$
+\begin{aligned}
+P_t^{(k)}(T)
+&=
+\frac{1}{\zeta_t^{(k)}}
+E_t^1\left[\zeta_T^{(k)}\right].
+\end{aligned}
+$$
+
+若用 good 1 计价，则
+
+$$
+\begin{aligned}
+\text{price of good-1 bond}
+&=P_t^{(1)}(T),\\
+\text{price of good-2 bond in good 1}
+&=
+\frac{1}{\zeta_t^{(1)}}
+E_t^1\left[\zeta_T^{(1)}\epsilon_T\right]\\
+&=
+\frac{1}{\zeta_t^{(1)}}
+E_t^1\left[\zeta_T^{(2)}\right]
+=
+\epsilon_tP_t^{(2)}(T),
+\end{aligned}
+$$
+
+其中使用 $\zeta_t^{(2)}=\epsilon_t\zeta_t^{(1)}$。
+
+定义 good $k$ 的 risk-neutral measure：
+
+$$
+\begin{aligned}
+dB_t^{Q,k}
+&=
+dB_t^1+\theta_t^{(k)}dt
+=dB_t^1+(\sigma_{k,t}+a_{k,t}\beta)dt.
+\end{aligned}
+$$
+
+则零息债价格也可以写成：
+
+$$
+\begin{aligned}
+P_t^{(k)}(T)
+&=
+E_t^{Q,k}
+\left[
+\exp\left(
+-\int_t^T r_s^{(k)}ds
+\right)
+\right].
+\end{aligned}
+$$
+
+在 $Q^k$ 下，状态过程为
+
+$$
+\left\{
+\begin{aligned}
+\frac{dD_t^k}{D_t^k}
+&=
+\left[
+\mu_{k,t}-\sigma_{k,t}'\theta_t^{(k)}
+\right]dt
++\sigma_{k,t}'dB_t^{Q,k},\\
+\frac{d\omega_{k,t}}{\omega_{k,t}}
+&=
+\left[
+\rho_1-\rho_2+\beta'\theta_t^{(k)}
+\right]dt
+-\beta'dB_t^{Q,k}.
+\end{aligned}
+\right.
+$$
+
+因此若把 bond price 写成 state function
+
+$$
+\begin{aligned}
+P_t^{(k)}(T)
+&=
+F^{(k)}(t,D_t^k,\omega_{k,t};T),
+\end{aligned}
+$$
+
+则它满足 Feynman-Kac PDE：
+
+$$
+\begin{aligned}
+0
+&=
+\partial_tF^{(k)}
++\mathcal L^{Q,k}F^{(k)}
+-r_t^{(k)}F^{(k)},\\
+F^{(k)}(T,D,\omega;T)
+&=1.
+\end{aligned}
+$$
+
+其中 $\mathcal L^{Q,k}$ 是上面 $Q^k$ dynamics 对应的 infinitesimal generator。除非进一步假设 $\mu_{k,t},\sigma_{k,t}$ 与 $\omega_{k,t}$ 的具体 affine / lognormal 结构，一般不会有简单 closed form；本题的核心定价式就是 SPD expectation 或等价的 risk-neutral discounting 形式。
+
+::::
+
 **Symmetric log-utility case** 若
 
 ::::{solution}
