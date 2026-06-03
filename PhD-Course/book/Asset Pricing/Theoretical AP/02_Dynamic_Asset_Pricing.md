@@ -45,7 +45,6 @@ S=(S_0,\ldots,S_N).
 $$
 :::
 
-^def-4-1-1-securities-market
 
 这就是说：每一期观察到的信息只能决定当期可交易的价格与股息，不能预知未来未揭示的状态。
 
@@ -134,7 +133,6 @@ $$
 $\theta_T=0$ 表示到终点 $T$ 必须平仓、关闭头寸。
 :::
 
-^def-4-1-2-trading-strategy
 
 :::{admonition} Definition (Cash Flow)
 cash flow 是一个 adapted process $c$。若策略 $\theta$ 在时点 $t$ 的现金流为
@@ -159,7 +157,6 @@ c_t<0
 $$
 :::
 
-^def-4-1-3-cash-flow
 
 :::{admonition} Lemma
 Self-Financing
@@ -192,53 +189,34 @@ W_t
 $$
 :::
 
-^prop-4-1-4-self-financing
 
 ### 4.1.3 Fundamental Theorem of Asset Pricing
 
 :::{admonition} Definition (Positive and Strictly Positive Processes)
 adapted process $X$ is positive iff
-$
+
+$$
 \begin{aligned}
 X_t\ge 0, \forall t,
 \end{aligned}
-$
+$$
+
 and strictly positive iff
-$
+
+$$
 \begin{aligned}
 X_t>0, \forall t.
 \end{aligned}
-$
-- $
-\begin{aligned}
-\mathcal L^+
-\end{aligned}
-$
-为 positive adapted processes 的集合，
-- $
-\begin{aligned}
-\mathcal L_0^+
-\end{aligned}
-$
-为 nonzero positive adapted processes 的集合，
-- $
-\begin{aligned}
-\mathcal L^{++}
-\end{aligned}
-$
-为 strictly positive adapted processes 的集合。
+$$
+
+- $\mathcal L^+$ 为 positive adapted processes 的集合；
+- $\mathcal L_0^+$ 为 nonzero positive adapted processes 的集合；
+- $\mathcal L^{++}$ 为 strictly positive adapted processes 的集合。
 :::
 
-^def-4-1-5-positive-processes
 
 :::{admonition} Definition (Arbitrage)
-arbitrage 是一个 marketable cash flow
-$
-\begin{aligned}
-c\in \mathcal L_0^+
-\end{aligned}
-$
-且初始成本不正。
+arbitrage 是一个 marketable cash flow $c\in \mathcal L_0^+$ 且初始成本不正。
 
 换句话说，
 
@@ -251,7 +229,6 @@ P(c_t>0)&>0 \text{ for some }t.
 $$
 :::
 
-^def-4-1-6-arbitrage
 
 :::{admonition} Definition (Linear Pricing Functional)
 一个函数 $\Psi:\mathcal L\to\mathbb R$ 若满足线性，则对 cash flow 给出价格；若还满足
@@ -264,7 +241,6 @@ $$
 则称它 strictly increasing.
 :::
 
-^def-4-1-7-pricing-functional
 
 :::{admonition} Lemma
 Fundamental Theorem of Asset Pricing
@@ -282,7 +258,6 @@ $$
 其中 $\mathcal M$ 是 attainable marketable cash flows 的集合。
 :::
 
-^thm-4-1-8-ftap
 
 no arbitrage 等价于：市场里存在一个对正现金流严格奖励、对可复制 cash flow 精确定价的 linear functional。  
 
@@ -359,7 +334,6 @@ $$
 简记为 $K_t[X]$。
 :::
 
-^def-4-1-9-state-price-operator
 
 :::{admonition} Lemma
 Security Prices and State Prices
@@ -384,7 +358,6 @@ $$
 因而一个证券的价格等于未来所有 dividends 与 time-$T$ price 的 discounted present value。
 :::
 
-^thm-4-1-10-security-prices-state-prices
 
 **说明：Derivation**
 从 $t=T-1$ 开始，
@@ -713,11 +686,11 @@ $$
 
 :::{admonition} Definition (EMM)
 等价鞅测度（equivalent martingale measure, EMM）$\mathbb Q$ 满足
-$
+$$
 \begin{aligned}
 \mathbb Q\sim P,
 \end{aligned}
-$
+$$
 且贴现价格过程在 $\mathbb Q$ 下是 martingale。
 
 记 money market account 为 $B_t=S_{0,t}$，则定价公式可写为
@@ -1206,7 +1179,6 @@ $$
 当且仅当市场 complete。
 :::
 
-^thm-4-4-2-complete-markets
 
 要让市场 complete，必须有足够多的 non-redundant securities 来张成 $d$ 个 independent Brownian motions；这和离散时间里“需要足够多的 non-redundant securities 才能覆盖所有 states of nature”是同一个想法。
 
@@ -1988,7 +1960,6 @@ $$
 
 :::
 
-^prop-5-1-bellman
 
 :::{admonition} Lemma
 Verification Theorem
@@ -2020,7 +1991,6 @@ $$
 
 :::
 
-^prop-5-1-verification
 
 
 ### 5.2 Optimal Portfolio Rule
@@ -2106,7 +2076,6 @@ $$
 
 :::
 
-^prop-5-2-optimal-portfolio
 
 第一项是 **myopic demand**，第二项是 **hedging demand**：当投资机会集会随状态变量变化时，投资者会额外持仓来对冲未来机会变化。
 
@@ -2425,7 +2394,6 @@ $$
 
 :::
 
-^prop-5-3-crra
 
 :::{admonition} Lemma
 Log Utility Consumption Rule
@@ -2442,7 +2410,6 @@ $$
 
 :::
 
-^prop-5-3-log-consumption
 
 **说明：+ 代回 HJB 的关键一步**
 将
@@ -3550,7 +3517,6 @@ $$
 其中 $g(X)$ 是 continuation region 的 flow payoff，$h(X)$ 是停止时的一次性 payoff。
 :::
 
-^def-5-5-optimal-stopping
 
 若最优停止只依赖当前状态 $X_t$，则 continuation region $D$ 与 stopping region $D^c$ 满足
 $$
@@ -3853,7 +3819,6 @@ $$
 	$$
 	这说明：当价格低于阈值时等待更优；当价格达到 $X^*$ 时立即卖出。
 
-^prop-5-5-sell-solution
 
 ---
 
