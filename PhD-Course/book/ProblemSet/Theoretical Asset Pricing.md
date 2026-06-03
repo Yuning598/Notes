@@ -2579,7 +2579,7 @@ $$
 Kalman-Bucy filter：
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 d\hat\mu_t^j
 &=\kappa_j(\bar\mu_j-\hat\mu_t^j)dt
@@ -2588,29 +2588,25 @@ d\bar B_t^j
 &=\frac{dX_t-\hat\mu_t^jdt}{\sigma}
 =\frac{d\delta_t/\delta_t-\hat\mu_t^jdt}{\sigma}.
 \end{aligned}
-}
+\right.
 $$
 
 因此在 agent $j$ 的信息集下，
 
 $$
-\boxed{
 \begin{aligned}
 \frac{d\delta_t}{\delta_t}
 &=\hat\mu_t^jdt+\sigma d\bar B_t^j.
 \end{aligned}
-}
 $$
 
 后验方差满足 Riccati equation：
 
 $$
-\boxed{
 \begin{aligned}
 \frac{d\Sigma_t^j}{dt}
 &=\nu_j^2-2\kappa_j\Sigma_t^j-\frac{(\Sigma_t^j)^2}{\sigma^2}.
 \end{aligned}
-}
 $$
 
 steady state 下，
@@ -2631,12 +2627,10 @@ $$
 所以 posterior mean 的 reduced-form dynamics 是
 
 $$
-\boxed{
 \begin{aligned}
 d\hat\mu_t^j
 &=\kappa_j(\bar\mu_j-\hat\mu_t^j)dt+\sigma_jd\bar B_t^j.
 \end{aligned}
-}
 $$
 
 #### 同质信念基准
@@ -2674,12 +2668,12 @@ $$
 与 $d\xi_t/\xi_t=-r_tdt-\theta_td\bar B_t$ 比较：
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 r_t&=\rho+\hat\mu_t-\sigma^2,\\
 \theta_t&=\sigma.
 \end{aligned}
-}
+\right.
 $$
 
 股票价格为 dividend stream 的现值：
@@ -2698,7 +2692,7 @@ $$
 因此
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 \frac{S_t}{\delta_t}&=\frac{1}{\rho},\\
 dR_t^S
@@ -2706,7 +2700,7 @@ dR_t^S
 =(\hat\mu_t+\rho)dt+\sigma d\bar B_t,\\
 \mu_{R,t}^S-r_t&=\sigma^2,\qquad \sigma_S=\sigma.
 \end{aligned}
-}
+\right.
 $$
 
 #### 异质信念下的消费分配
@@ -2745,7 +2739,7 @@ $$
 因此
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 c_t^j
 &=\omega_t^j\delta_t,\\
@@ -2754,7 +2748,7 @@ c_t^j
 {\lambda_1\eta_t^1+\lambda_2\eta_t^2},\\
 \omega_t^1+\omega_t^2&=1.
 \end{aligned}
-}
+\right.
 $$
 
 在 $P^j$ 下，同一个 $\delta_t$ 同时满足
@@ -2769,12 +2763,10 @@ $$
 所以
 
 $$
-\boxed{
 \begin{aligned}
 d\bar B_t^k
 &=d\bar B_t^j+\frac{\hat\mu_t^j-\hat\mu_t^k}{\sigma}dt.
 \end{aligned}
-}
 $$
 
 令
@@ -2791,18 +2783,15 @@ $$
 Girsanov theorem 给出
 
 $$
-\boxed{
 \begin{aligned}
 \frac{dR_t^{kj}}{R_t^{kj}}
 &=\frac{\Delta_t^{kj}}{\sigma}d\bar B_t^j.
 \end{aligned}
-}
 $$
 
 由于 $\omega_t^j=(1+R_t^{kj})^{-1}$，Ito lemma 得
 
 $$
-\boxed{
 \begin{aligned}
 \frac{d\omega_t^j}{\omega_t^j}
 &=(\omega_t^k)^2
@@ -2810,7 +2799,6 @@ $$
 -\omega_t^k
 \left(\frac{\Delta_t^{kj}}{\sigma}\right)d\bar B_t^j.
 \end{aligned}
-}
 $$
 
 由 $c_t^j=\omega_t^j\delta_t$，
@@ -2828,7 +2816,7 @@ $$
 其中
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 \mu_{c,t}^j
 &=\hat\mu_t^j-\omega_t^k\Delta_t^{kj}
@@ -2836,29 +2824,25 @@ $$
 \sigma_{c,t}^j
 &=\sigma-\omega_t^k\frac{\Delta_t^{kj}}{\sigma}.
 \end{aligned}
-}
+\right.
 $$
 
 定义平均信念
 
 $$
-\boxed{
 \begin{aligned}
 m_t
 &=\omega_t^1\hat\mu_t^1+\omega_t^2\hat\mu_t^2.
 \end{aligned}
-}
 $$
 
 则
 
 $$
-\boxed{
 \begin{aligned}
 \sigma_{c,t}^j
 &=\sigma+\frac{\hat\mu_t^j-m_t}{\sigma}.
 \end{aligned}
-}
 $$
 
 #### SDF、无风险利率与风险价格
@@ -2876,10 +2860,12 @@ $$
 比较 $d\xi_t^j/\xi_t^j=-r_tdt-\theta_t^jd\bar B_t^j$：
 
 $$
+\left\{
 \begin{aligned}
 r_t&=\rho+\mu_{c,t}^j-(\sigma_{c,t}^j)^2,\\
 \theta_t^j&=\sigma_{c,t}^j.
 \end{aligned}
+\right.
 $$
 
 化简 $r_t$：
@@ -2902,37 +2888,33 @@ $$
 所以
 
 $$
-\boxed{
 \begin{aligned}
 r_t
 &=\rho+m_t-\sigma^2\\
 &=\rho+\omega_t^1\hat\mu_t^1+\omega_t^2\hat\mu_t^2-\sigma^2,
 \end{aligned}
-}
 $$
 
 且
 
 $$
-\boxed{
 \begin{aligned}
 \theta_t^j
 &=\sigma+\frac{\hat\mu_t^j-m_t}{\sigma}.
 \end{aligned}
-}
 $$
 
 显式地，
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 \theta_t^1
 &=\sigma+\frac{\omega_t^2(\hat\mu_t^1-\hat\mu_t^2)}{\sigma},\\
 \theta_t^2
 &=\sigma+\frac{\omega_t^1(\hat\mu_t^2-\hat\mu_t^1)}{\sigma}.
 \end{aligned}
-}
+\right.
 $$
 
 #### 股票价格、财富与投资组合
@@ -2983,19 +2965,17 @@ $$
 代回：
 
 $$
-\boxed{
 \begin{aligned}
 S_t
 &=\delta_t\int_t^\infty e^{-\rho(s-t)}ds
 =\frac{\delta_t}{\rho}.
 \end{aligned}
-}
 $$
 
 在 agent $j$ 的主观测度下，
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 dR_t^S
 &=\frac{dS_t+\delta_tdt}{S_t}
@@ -3005,7 +2985,7 @@ dR_t^S
 &=\sigma^2+\hat\mu_t^j-m_t
 =\sigma\theta_t^j.
 \end{aligned}
-}
+\right.
 $$
 
 agent $j$ 的财富是未来消费流现值：
@@ -3023,14 +3003,14 @@ $$
 因此
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 W_t^j
 &=\frac{c_t^j}{\rho}
 =\omega_t^jS_t,\\
 W_t^1+W_t^2&=S_t.
 \end{aligned}
-}
+\right.
 $$
 
 由动态预算约束的扩散项，
@@ -3048,26 +3028,24 @@ $$
 得到
 
 $$
-\boxed{
 \begin{aligned}
 \pi_t^j
 &=\frac{\sigma_{c,t}^j}{\sigma}
 =1+\frac{\hat\mu_t^j-m_t}{\sigma^2}.
 \end{aligned}
-}
 $$
 
 显式地，
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 \pi_t^1
 &=1+\frac{\omega_t^2(\hat\mu_t^1-\hat\mu_t^2)}{\sigma^2},\\
 \pi_t^2
 &=1+\frac{\omega_t^1(\hat\mu_t^2-\hat\mu_t^1)}{\sigma^2}.
 \end{aligned}
-}
+\right.
 $$
 
 股票市场清算：
@@ -3090,13 +3068,11 @@ $$
 债券零净供给：
 
 $$
-\boxed{
 \begin{aligned}
 (1-\pi_t^1)W_t^1+(1-\pi_t^2)W_t^2
 &=(W_t^1+W_t^2)-(\pi_t^1W_t^1+\pi_t^2W_t^2)\\
 &=0.
 \end{aligned}
-}
 $$
 
 #### 零息债券价格
@@ -3140,12 +3116,10 @@ $$
 因此
 
 $$
-\boxed{
 \begin{aligned}
 P(t,T)
 &=\omega_t^1P_1^0(t,T)+\omega_t^2P_2^0(t,T).
 \end{aligned}
-}
 $$
 
 对 agent $i$，同质信念短利率为
@@ -3189,18 +3163,16 @@ $$
 其中
 
 $$
-\boxed{
 \begin{aligned}
 \bar\mu_i^Q
 &=\bar\mu_i-\frac{\sigma\sigma_i}{\kappa_i}.
 \end{aligned}
-}
 $$
 
 定义
 
 $$
-\boxed{
+\left\{
 \begin{aligned}
 \mathcal B_i(\tau)
 &=\frac{1-e^{-\kappa_i\tau}}{\kappa_i},\\
@@ -3211,7 +3183,7 @@ $$
 +\frac{1-e^{-2\kappa_i\tau}}{2\kappa_i}
 \right].
 \end{aligned}
-}
+\right.
 $$
 
 则
@@ -3231,7 +3203,6 @@ $$
 所以
 
 $$
-\boxed{
 \begin{aligned}
 P_i^0(t,T)
 &=\exp\left\{
@@ -3241,13 +3212,11 @@ P_i^0(t,T)
 +\frac12\mathcal V_i(\tau)
 \right\}.
 \end{aligned}
-}
 $$
 
 最终
 
 $$
-\boxed{
 \begin{aligned}
 P(t,T)
 &=\sum_{i=1}^2\omega_t^i
@@ -3258,13 +3227,11 @@ P(t,T)
 +\frac12\mathcal V_i(\tau)
 \right\}.
 \end{aligned}
-}
 $$
 
 #### 总结
 
 $$
-\boxed{
 \left\{
 \begin{aligned}
 c_t^j&=\omega_t^j\delta_t,\\
@@ -3277,7 +3244,6 @@ W_t^j&=\frac{c_t^j}{\rho}=\omega_t^jS_t,\\
 P(t,T)&=\omega_t^1P_1^0(t,T)+\omega_t^2P_2^0(t,T).
 \end{aligned}
 \right.
-}
 $$
 
 经济含义：同质 log utility 下 $S_t=\delta_t/\rho$，因此 $\sigma_S=\sigma$ 且 equity premium 为 $\sigma^2$，很难匹配 observed volatility 与 equity premium。异质信念会改变 wealth share、portfolio、risk price、short rate 与 bond price；但在相同 $\rho$ 的 one-good log version 中，股票 price-dividend ratio 仍为常数，额外波动主要进入财富分布、投资组合和利率期限结构。
