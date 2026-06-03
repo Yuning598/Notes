@@ -4396,6 +4396,8 @@ $$
 
 ## Textbook Exercise Q 1.2(a)
 
+**题目**
+
 ![Pasted image 20260428115441.png](../attachment/pasted-image-20260428115441.png)
 
 ::::{solution}
@@ -4507,6 +4509,8 @@ $$
 
 ## Textbook Exercise Q 1.2(b,d)
 
+**题目**
+
 ![Pasted image 20260428101237.png](../attachment/pasted-image-20260428101237.png)
 
 ::::{solution}
@@ -4603,6 +4607,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428104131.png](../attachment/pasted-image-20260428104131.png)
 
 ::::{solution}
@@ -4691,7 +4697,11 @@ $$
 
 
 
+**题目**
+
 Show that, if there is a strictly positive SDF, then there are no arbitrage opportunities.
+
+::::{solution}
 
 设市场中有 $n$ 个资产，价格向量为 $q$，期末 payoff 向量为 $\widetilde x$。若存在严格正 SDF $m>0$ a.s.，则
 
@@ -4738,9 +4748,13 @@ $$
 
 直觉是：严格正 SDF 会给任何非负且正概率严格为正的 payoff 严格正价格，所以不可能免费获得。
 
+::::
+
 ---
 
 
+
+**题目**
 
 ![Pasted image 20260428110613.png](../attachment/pasted-image-20260428110613.png)
 
@@ -4887,6 +4901,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428122408.png](../attachment/pasted-image-20260428122408.png)
 
 ::::{solution}
@@ -4996,6 +5012,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428125930.png](../attachment/pasted-image-20260428125930.png)
 
 ::::{solution}
@@ -5080,6 +5098,9 @@ $$
 
 
 ## Textbook Exercise Q 6.1
+
+**题目**
+
 ![Pasted image 20260428133349.png](../attachment/pasted-image-20260428133349.png)
 
 ::::{solution}
@@ -5301,6 +5322,8 @@ $$
 ---
 
 
+
+**题目**
 
 ![Pasted image 20260428141951.png](../attachment/pasted-image-20260428141951.png)
 
@@ -5587,6 +5610,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428151130.png](../attachment/pasted-image-20260428151130.png)
 
 ::::{solution}
@@ -5746,6 +5771,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428151432.png](../attachment/pasted-image-20260428151432.png)
 
 ::::{solution}
@@ -5883,6 +5910,8 @@ $$
 
 
 
+
+**题目**
 
 ![Pasted image 20260428155824.png](../attachment/pasted-image-20260428155824.png)
 
@@ -6038,6 +6067,8 @@ $$
 
 
 
+
+**题目**
 
 ![Pasted image 20260428162212.png](../attachment/pasted-image-20260428162212.png)
 
@@ -6406,6 +6437,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428183959.png](../attachment/pasted-image-20260428183959.png)
 
 ::::{solution}
@@ -6550,6 +6583,8 @@ $$
 
 
 
+
+**题目**
 
 ![Pasted image 20260428194818.png](../attachment/pasted-image-20260428194818.png)
 
@@ -6753,6 +6788,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428195122.png](../attachment/pasted-image-20260428195122.png)
 
 ::::{solution}
@@ -6846,6 +6883,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428203158.png](../attachment/pasted-image-20260428203158.png)
 
 ::::{solution}
@@ -6891,6 +6930,8 @@ $$
 ---
 
 
+
+**题目**
 
 ![Pasted image 20260428204347.png](../attachment/pasted-image-20260428204347.png)
 
@@ -7010,6 +7051,8 @@ $$
 ---
 
 
+
+**题目**
 
 ![Pasted image 20260428205902.png](../attachment/pasted-image-20260428205902.png)
 
@@ -7136,6 +7179,8 @@ $$
 
 
 
+**题目**
+
 ![Pasted image 20260428214804.png](../attachment/pasted-image-20260428214804.png)
 
 ::::{solution}
@@ -7239,6 +7284,8 @@ $$
 ---
 
 
+
+**题目**
 
 ![Pasted image 20260428221909.png](../attachment/pasted-image-20260428221909.png)
 
