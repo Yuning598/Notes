@@ -3647,7 +3647,7 @@ $$
 
 ## Textbook Exercise Q 1.2(a)
 
-![Pasted image 20260428115441.png](../attachment/Pasted%20image%2020260428115441.png)
+![Pasted image 20260428115441.png](../attachment/Pasted image 20260428115441.png)
 
 ::::{solution}
 
@@ -3758,7 +3758,7 @@ $$
 
 ## Textbook Exercise Q 1.2(b,d)
 
-![Pasted image 20260428101237.png](../attachment/Pasted%20image%2020260428101237.png)
+![Pasted image 20260428101237.png](../attachment/Pasted image 20260428101237.png)
 
 ::::{solution}
 
@@ -3854,7 +3854,7 @@ $$
 
 
 
-![Pasted image 20260428104131.png](../attachment/Pasted%20image%2020260428104131.png)
+![Pasted image 20260428104131.png](../attachment/Pasted image 20260428104131.png)
 
 ::::{solution}
 
@@ -3993,7 +3993,7 @@ $$
 
 
 
-![Pasted image 20260428110613.png](../attachment/Pasted%20image%2020260428110613.png)
+![Pasted image 20260428110613.png](../attachment/Pasted image 20260428110613.png)
 
 ::::{solution}
 
@@ -4138,7 +4138,7 @@ $$
 
 
 
-![Pasted image 20260428122408.png](../attachment/Pasted%20image%2020260428122408.png)
+![Pasted image 20260428122408.png](../attachment/Pasted image 20260428122408.png)
 
 ::::{solution}
 
@@ -4247,7 +4247,7 @@ $$
 
 
 
-![Pasted image 20260428125930.png](../attachment/Pasted%20image%2020260428125930.png)
+![Pasted image 20260428125930.png](../attachment/Pasted image 20260428125930.png)
 
 ::::{solution}
 
@@ -4331,7 +4331,7 @@ $$
 
 
 ## Textbook Exercise Q 6.1
-![Pasted image 20260428133349.png](../attachment/Pasted%20image%2020260428133349.png)
+![Pasted image 20260428133349.png](../attachment/Pasted image 20260428133349.png)
 
 ::::{solution}
 
@@ -4553,7 +4553,7 @@ $$
 
 
 
-![Pasted image 20260428141951.png](../attachment/Pasted%20image%2020260428141951.png)
+![Pasted image 20260428141951.png](../attachment/Pasted image 20260428141951.png)
 
 ::::{solution}
 
@@ -4838,7 +4838,7 @@ $$
 
 
 
-![Pasted image 20260428151130.png](../attachment/Pasted%20image%2020260428151130.png)
+![Pasted image 20260428151130.png](../attachment/Pasted image 20260428151130.png)
 
 ::::{solution}
 
@@ -4997,7 +4997,7 @@ $$
 
 
 
-![Pasted image 20260428151432.png](../attachment/Pasted%20image%2020260428151432.png)
+![Pasted image 20260428151432.png](../attachment/Pasted image 20260428151432.png)
 
 ::::{solution}
 
@@ -5135,7 +5135,7 @@ $$
 
 
 
-![Pasted image 20260428155824.png](../attachment/Pasted%20image%2020260428155824.png)
+![Pasted image 20260428155824.png](../attachment/Pasted image 20260428155824.png)
 
 ::::{solution}
 
@@ -5290,7 +5290,7 @@ $$
 
 
 
-![Pasted image 20260428162212.png](../attachment/Pasted%20image%2020260428162212.png)
+![Pasted image 20260428162212.png](../attachment/Pasted image 20260428162212.png)
 
 ::::{solution}
 
@@ -5657,7 +5657,7 @@ $$
 
 
 
-![Pasted image 20260428183959.png](../attachment/Pasted%20image%2020260428183959.png)
+![Pasted image 20260428183959.png](../attachment/Pasted image 20260428183959.png)
 
 #Kyle-model #CARA-normal #linear-equilibrium
 
@@ -5802,7 +5802,7 @@ $$
 
 
 
-![Pasted image 20260428194818.png](../attachment/Pasted%20image%2020260428194818.png)
+![Pasted image 20260428194818.png](../attachment/Pasted image 20260428194818.png)
 
 ::::{solution}
 
@@ -6004,7 +6004,7 @@ $$
 
 
 
-![Pasted image 20260428195122.png](../attachment/Pasted%20image%2020260428195122.png)
+![Pasted image 20260428195122.png](../attachment/Pasted image 20260428195122.png)
 
 ::::{solution}
 
@@ -6097,7 +6097,7 @@ $$
 
 
 
-![Pasted image 20260428203158.png](../attachment/Pasted%20image%2020260428203158.png)
+![Pasted image 20260428203158.png](../attachment/Pasted image 20260428203158.png)
 
 ::::{solution}
 
@@ -6143,7 +6143,7 @@ $$
 
 
 
-![Pasted image 20260428204347.png](../attachment/Pasted%20image%2020260428204347.png)
+![Pasted image 20260428204347.png](../attachment/Pasted image 20260428204347.png)
 
 ::::{solution}
 
@@ -6262,7 +6262,7 @@ $$
 
 
 
-![Pasted image 20260428205902.png](../attachment/Pasted%20image%2020260428205902.png)
+![Pasted image 20260428205902.png](../attachment/Pasted image 20260428205902.png)
 
 ::::{solution}
 
@@ -6387,7 +6387,7 @@ $$
 
 
 
-![Pasted image 20260428214804.png](../attachment/Pasted%20image%2020260428214804.png)
+![Pasted image 20260428214804.png](../attachment/Pasted image 20260428214804.png)
 
 ::::{solution}
 
@@ -6491,7 +6491,7 @@ $$
 
 
 
-![Pasted image 20260428221909.png](../attachment/Pasted%20image%2020260428221909.png)
+![Pasted image 20260428221909.png](../attachment/Pasted image 20260428221909.png)
 
 ::::{solution}
 
