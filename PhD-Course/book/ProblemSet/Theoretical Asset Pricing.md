@@ -10636,13 +10636,7 @@ $$
 \end{aligned}
 $$
 
-因此 heterogeneous beliefs 通过 $\beta$ 和 stochastic ownership weights 改变股票波动率；若 $\rho_1=\rho_2$，则 $G_k(\omega)$ 为常数，$\chi_{k,t}=0$，price-dividend ratio 本身不再贡献额外波动。
-
-::::
-
-**Heterogeneous beliefs 的 volatility channel** 因为
-
-::::{solution}
+这个 volatility channel 来自 relative belief weight：
 
 $$
 \begin{aligned}
@@ -10669,7 +10663,9 @@ $$
 \end{aligned}
 $$
 
-因此 disagreement shock $\beta'dB_t$ 会带来额外 exchange-rate volatility 与 stock-price volatility。核心不是 endowment 本身变得更 volatile，而是 beliefs 改变了 stochastic discounting 和 wealth/allocation weights。
+因此 disagreement shock $\beta'dB_t$ 会带来额外 exchange-rate volatility 与 stock-price volatility。核心不是 endowment 本身变得更 volatile，而是 beliefs 改变了 stochastic discounting、wealth/allocation weights 和 price-dividend ratio。
+
+若 $\rho_1=\rho_2$，则 $G_k(\omega)$ 为常数，$\chi_{k,t}=0$，price-dividend ratio 本身不再贡献额外波动。
 
 ::::
 
