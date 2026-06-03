@@ -2509,6 +2509,8 @@ $$
 
 ## Question 8A. Log Utility、Filtering、Market Clearing 与 Vasicek Bond Pricing 综合推导
 
+::::{collapse} Basic setup
+
 **完整设定**
 
 $$
@@ -2551,6 +2553,10 @@ $$
 &=-r_tdt-\theta_t^jd\bar B_t^j.
 \end{aligned}
 $$
+
+::::
+
+::::{solution}
 
 **Filtering 与 posterior mean**
 
@@ -3247,6 +3253,8 @@ P(t,T)&=\omega_t^1P_1^0(t,T)+\omega_t^2P_2^0(t,T).
 $$
 
 经济含义：同质 log utility 下 $S_t=\delta_t/\rho$，因此 $\sigma_S=\sigma$ 且 equity premium 为 $\sigma^2$，很难匹配 observed volatility 与 equity premium。异质信念会改变 wealth share、portfolio、risk price、short rate 与 bond price；但在相同 $\rho$ 的 one-good log version 中，股票 price-dividend ratio 仍为常数，额外波动主要进入财富分布、投资组合和利率期限结构。
+
+::::
 
 ---
 
