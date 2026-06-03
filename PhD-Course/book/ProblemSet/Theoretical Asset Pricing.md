@@ -11129,7 +11129,356 @@ $$
 ---
 
 
-## Question 32. Continuous-Time Complete Market, EMM, and Derivative Pricing
+## Question 32. Two-Country Two-Good Economy with Kalman Filtering
+
+**题目** 在 Question 31 的 two-country two-good pure-exchange economy 中，进一步假设两种 endowment 的 drift 不可直接观察。两位 agent 都观察到 $D_t^1,D_t^2$，但有不同 prior / state equation，因此形成不同 posterior beliefs。
+
+::::{collapse} Basic setup
+
+$$
+\left\{
+\begin{aligned}
+&i\in\{1,2\},\qquad k\in\{1,2\},\\
+&\frac{dD_t^k}{D_t^k}=\mu_{k,t}dt+\sigma_k dB_{k,t},\\
+&d\mu_{k,t}=\kappa_{ik}(\bar\mu_{ik}-\mu_{k,t})dt+\nu_{ik}dW_{k,t}^i
+\qquad \text{under agent }i\text{'s prior},\\
+&\hat\mu_{k,t}^i:=E_t^i[\mu_{k,t}],\\
+&\Sigma_{k,t}^i:=E_t^i[(\mu_{k,t}-\hat\mu_{k,t}^i)^2],\\
+&U_i=E^i\int_0^\infty e^{-\rho_i t}
+\left[
+\alpha_i\log c_{i1,t}+(1-\alpha_i)\log c_{i2,t}
+\right]dt,\\
+&c_{1k,t}+c_{2k,t}=D_t^k.
+\end{aligned}
+\right.
+$$
+
+::::
+
+**（a）Kalman-Bucy filter**
+
+::::{solution}
+
+令 observation growth 为
+
+$$
+\begin{aligned}
+dX_{k,t}
+&:=
+\frac{dD_t^k}{D_t^k}.
+\end{aligned}
+$$
+
+Agent $i$ 的 innovation process 定义为
+
+$$
+\begin{aligned}
+d\bar B_{k,t}^i
+&=
+\frac{dX_{k,t}-\hat\mu_{k,t}^i dt}{\sigma_k}.
+\end{aligned}
+$$
+
+因此在 agent $i$ 的 filtration 下，
+
+$$
+\begin{aligned}
+\frac{dD_t^k}{D_t^k}
+&=
+\hat\mu_{k,t}^i dt+\sigma_k d\bar B_{k,t}^i.
+\end{aligned}
+$$
+
+Kalman-Bucy filter 为
+
+$$
+\begin{aligned}
+d\hat\mu_{k,t}^i
+&=
+\kappa_{ik}(\bar\mu_{ik}-\hat\mu_{k,t}^i)dt
++\frac{\Sigma_{k,t}^i}{\sigma_k}d\bar B_{k,t}^i.
+\end{aligned}
+$$
+
+posterior variance 满足 Riccati equation：
+
+$$
+\begin{aligned}
+\frac{d\Sigma_{k,t}^i}{dt}
+&=
+\nu_{ik}^2
+-2\kappa_{ik}\Sigma_{k,t}^i
+-\frac{(\Sigma_{k,t}^i)^2}{\sigma_k^2}.
+\end{aligned}
+$$
+
+若 posterior variance 已到 steady state，则
+
+$$
+\begin{aligned}
+\Sigma_k^i
+&=
+\sigma_k^2
+\left[
+-\kappa_{ik}
++\sqrt{\kappa_{ik}^2+\frac{\nu_{ik}^2}{\sigma_k^2}}
+\right],
+\\
+d\hat\mu_{k,t}^i
+&=
+\kappa_{ik}(\bar\mu_{ik}-\hat\mu_{k,t}^i)dt
++\sigma_{\mu,ik}d\bar B_{k,t}^i,
+\qquad
+\sigma_{\mu,ik}:=\frac{\Sigma_k^i}{\sigma_k}.
+\end{aligned}
+$$
+
+::::
+
+**（b）Likelihood ratio from posterior disagreement**
+
+::::{solution}
+
+同一个 endowment process 在 agent 1 与 agent 2 的 filtered beliefs 下分别写成
+
+$$
+\left\{
+\begin{aligned}
+\frac{dD_t^k}{D_t^k}
+&=
+\hat\mu_{k,t}^1dt+\sigma_k d\bar B_{k,t}^1,\\
+\frac{dD_t^k}{D_t^k}
+&=
+\hat\mu_{k,t}^2dt+\sigma_k d\bar B_{k,t}^2.
+\end{aligned}
+\right.
+$$
+
+两式相等，得到 Brownian motion 的转换：
+
+$$
+\begin{aligned}
+d\bar B_{k,t}^2
+&=
+d\bar B_{k,t}^1
++\frac{\hat\mu_{k,t}^1-\hat\mu_{k,t}^2}{\sigma_k}dt.
+\end{aligned}
+$$
+
+定义 time-varying disagreement kernel：
+
+$$
+\begin{aligned}
+\beta_{k,t}^{21}
+&:=
+\frac{\hat\mu_{k,t}^1-\hat\mu_{k,t}^2}{\sigma_k}.
+\end{aligned}
+$$
+
+则 likelihood ratio $\eta_t^{2/1}=dP_t^2/dP_t^1$ 满足
+
+$$
+\begin{aligned}
+\frac{d\eta_t^{2/1}}{\eta_t^{2/1}}
+&=
+-\sum_{k=1}^2
+\beta_{k,t}^{21}d\bar B_{k,t}^1\\
+&=
+\sum_{k=1}^2
+\frac{\hat\mu_{k,t}^2-\hat\mu_{k,t}^1}{\sigma_k}
+d\bar B_{k,t}^1.
+\end{aligned}
+$$
+
+这一步把 Question 31 中外生常数 $\beta$ 替换成了由 Kalman filter 生成的 posterior disagreement：
+
+$$
+\begin{aligned}
+\beta
+\quad\leadsto\quad
+\beta_t^{21}
+=
+\left(
+\frac{\hat\mu_{1,t}^1-\hat\mu_{1,t}^2}{\sigma_1},
+\frac{\hat\mu_{2,t}^1-\hat\mu_{2,t}^2}{\sigma_2}
+\right)'.
+\end{aligned}
+$$
+
+::::
+
+**（c）Consumption sharing and relative belief weights**
+
+::::{solution}
+
+用 $P^1$ 作为 reference measure，planner problem 的 integrand 中 agent 2 的 marginal utility 要乘 likelihood ratio $\eta_t^{2/1}$。FOC 与 Question 31 相同，只是 relative belief weight 变为 stochastic filtering-driven process。
+
+对 good $k$，定义
+
+$$
+\begin{aligned}
+\omega_{k,t}
+&=
+A_k e^{-(\rho_2-\rho_1)t}\eta_t^{2/1},
+\end{aligned}
+$$
+
+其中 $A_k$ 吸收 budget multiplier 和 taste weights。于是
+
+$$
+\left\{
+\begin{aligned}
+c_{1k,t}
+&=
+\frac{D_t^k}{1+\omega_{k,t}},\\
+c_{2k,t}
+&=
+\frac{\omega_{k,t}D_t^k}{1+\omega_{k,t}}.
+\end{aligned}
+\right.
+$$
+
+由 Itô product rule，
+
+$$
+\begin{aligned}
+\frac{d\omega_{k,t}}{\omega_{k,t}}
+&=
+(\rho_1-\rho_2)dt
++\frac{d\eta_t^{2/1}}{\eta_t^{2/1}}\\
+&=
+(\rho_1-\rho_2)dt
+-\sum_{\ell=1}^2
+\beta_{\ell,t}^{21}d\bar B_{\ell,t}^1.
+\end{aligned}
+$$
+
+因此 $\omega_{k,t}$ 的随机波动不再来自外生 constant belief distortion，而是来自 posterior drift disagreement。
+
+::::
+
+**（d）Exchange rate, SDF, and interest rate**
+
+::::{solution}
+
+Exchange rate 仍由 agent 1 对两种 goods 的 FOC 比率给出：
+
+$$
+\begin{aligned}
+\epsilon_t
+&=
+\frac{1-\alpha_1}{\alpha_1}
+\frac{c_{11,t}}{c_{12,t}}\\
+&=
+\frac{1-\alpha_1}{\alpha_1}
+\frac{D_t^1}{D_t^2}
+\frac{1+\omega_{2,t}}{1+\omega_{1,t}}.
+\end{aligned}
+$$
+
+Good $k$ numeraire 下的 SDF 为
+
+$$
+\begin{aligned}
+\zeta_t^{(k)}
+&\propto
+e^{-\rho_1t}
+\frac{1+\omega_{k,t}}{D_t^k}.
+\end{aligned}
+$$
+
+设
+
+$$
+\begin{aligned}
+a_{k,t}
+&:=
+\frac{\omega_{k,t}}{1+\omega_{k,t}},
+\qquad
+\frac{dD_t^k}{D_t^k}
+=\hat\mu_{k,t}^1dt+\sigma_k d\bar B_{k,t}^1.
+\end{aligned}
+$$
+
+若只写出由 filtering disagreement 产生的 diffusion term，则
+
+$$
+\begin{aligned}
+\frac{d\zeta_t^{(k)}}{\zeta_t^{(k)}}
+&=
+\cdots dt
+-\left[
+\sigma_ke_k
++a_{k,t}\beta_t^{21}
+\right]'d\bar B_t^1,
+\end{aligned}
+$$
+
+其中 $e_k$ 是第 $k$ 个 unit vector，$\bar B_t^1=(\bar B_{1,t}^1,\bar B_{2,t}^1)'$。因此 good $k$ 的 market price of risk 为
+
+$$
+\begin{aligned}
+\theta_t^{(k)}
+&=
+\sigma_ke_k+a_{k,t}\beta_t^{21}.
+\end{aligned}
+$$
+
+对应 short rate 可由
+
+$$
+\begin{aligned}
+\frac{d\zeta_t^{(k)}}{\zeta_t^{(k)}}
+&=
+-r_t^{(k)}dt-(\theta_t^{(k)})'d\bar B_t^1
+\end{aligned}
+$$
+
+读取。结论是：posterior beliefs 不仅进入 relative wealth weights $\omega_{k,t}$，也进入 SDF volatility 与 risk-free rate。
+
+::::
+
+**（e）Economic interpretation**
+
+::::{solution}
+
+Question 31 中的 disagreement shock 是外生常数 $\beta$。加入 Kalman filtering 后：
+
+$$
+\begin{aligned}
+\beta_t^{21}
+&=
+\left(
+\frac{\hat\mu_{1,t}^1-\hat\mu_{1,t}^2}{\sigma_1},
+\frac{\hat\mu_{2,t}^1-\hat\mu_{2,t}^2}{\sigma_2}
+\right)'
+\end{aligned}
+$$
+
+由学习过程内生决定。新的传导链条是
+
+$$
+\begin{aligned}
+D_t^k\text{ observations}
+&\Longrightarrow
+\hat\mu_{k,t}^i\text{ updating}\\
+&\Longrightarrow
+\beta_t^{21}\text{ posterior disagreement}\\
+&\Longrightarrow
+\eta_t^{2/1},\omega_{k,t}\\
+&\Longrightarrow
+\epsilon_t,\zeta_t^{(k)},r_t^{(k)},S_t^k,P_t^{(k)}(T).
+\end{aligned}
+$$
+
+所以 Kalman filter 的作用不是只多一个 state variable，而是把 heterogeneous beliefs 的波动来源内生化：资产价格、exchange rate 和 bond price 的额外波动来自 learning-driven posterior disagreement。
+
+::::
+
+---
+
+
+## Question 33. Continuous-Time Complete Market, EMM, and Derivative Pricing
 
 **题目** 考虑 continuous-time securities market model。
 
