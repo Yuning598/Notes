@@ -12734,7 +12734,26 @@ V_CC\sigma_CdB_t^c+\sigma_xV_xdB_t^x.
 \end{aligned}
 $$
 
-由 recursive utility 的 dynamic programming equation，
+HJB 的本质是一个 $dt$ 时段内的 Bellman balance：当前瞬间 utility flow 加上 continuation value 的期望变化必须为零。也就是
+
+$$
+\begin{aligned}
+h(C,V)dt+E_t[dV_t]
+&=0.
+\end{aligned}
+$$
+
+直觉是：如果在 $dt$ 内获得即时效用 $h(C,V)dt$，那么剩余 continuation welfare 必须相应减少 $-E_t[dV_t]$，两者加总才维持最优值函数的一致性。由上面的 Itô expansion，
+
+$$
+\begin{aligned}
+E_t[dV_t]
+&=
+\mathcal L V(C,x)dt.
+\end{aligned}
+$$
+
+因此
 
 $$
 \begin{aligned}
