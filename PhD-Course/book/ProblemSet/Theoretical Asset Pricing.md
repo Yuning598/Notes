@@ -9132,7 +9132,7 @@ $$
 
 ::::
 
-**（2）Dynamic problem**
+**（2）Dynamic problem and HJB solution**
 
 ::::{solution}
 
@@ -9179,6 +9179,164 @@ r_t\left(W_t-\vartheta_t'S_t\right)dt+\vartheta_t'dS_t+e_tdt-c_tdt\\
 r_tW_t+\vartheta_t'I_{S_t}Y_t\eta_t+e_t-c_t
 \right]dt
 +\vartheta_t'I_{S_t}\sqrt{Y_t}\xi\,dB_t.
+\end{aligned}
+$$
+
+**HJB 求解** 把状态写成 $(W_t,Y_t)$，控制为 $(c_t,\pi_t)$。有限期限版本的 value function 可写为
+
+$$
+\begin{aligned}
+V(w,y,t)
+:=
+\sup_{\{c_s,\pi_s\}_{s\in[t,T]}}
+E_t\!\left[
+\int_t^T e^{-\rho(s-t)}u(c_s)ds
++e^{-\rho(T-t)}U(W_T)
+\right].
+\end{aligned}
+$$
+
+对应状态系统为
+
+$$
+\left\{
+\begin{aligned}
+dW_t
+&=
+\left[
+r_tW_t+\pi_t'Y_t\eta_t+e_t-c_t
+\right]dt
++\pi_t'\sqrt{Y_t}\xi\,dB_t,\\
+dY_t
+&=\mu(Y_t,t)dt+\sigma_Y(Y_t,t)'dB_t.
+\end{aligned}
+\right.
+$$
+
+因此 HJB 为
+
+$$
+\begin{aligned}
+0
+&=
+V_t-\rho V
++\sup_{c,\pi}
+\Bigg\{
+u(c)
++V_w\left[r_tw+\pi' y\eta_t+e_t-c\right]\\
+&\qquad
++V_y\mu(y,t)
++\frac12V_{yy}\sigma_Y(y,t)'\sigma_Y(y,t)\\
+&\qquad
++V_{wy}\pi'\sqrt y\,\xi\sigma_Y(y,t)
++\frac12V_{ww}\pi' y\xi\xi'\pi
+\Bigg\},
+\end{aligned}
+$$
+
+terminal condition 为
+
+$$
+\begin{aligned}
+V(w,y,T)=U(w).
+\end{aligned}
+$$
+
+消费 FOC：
+
+$$
+\begin{aligned}
+0
+&=u'(c_t^*)-V_w(W_t,Y_t,t)\\
+\Longleftrightarrow\qquad
+u'(c_t^*)
+&=V_w(W_t,Y_t,t).
+\end{aligned}
+$$
+
+若 $u(c)=-e^{-\gamma c}$，则
+
+$$
+\begin{aligned}
+u'(c)
+&=\gamma e^{-\gamma c},\\
+c_t^*
+&=
+-\frac{1}{\gamma}
+\log\!\left(
+\frac{V_w(W_t,Y_t,t)}{\gamma}
+\right).
+\end{aligned}
+$$
+
+组合 FOC：
+
+$$
+\begin{aligned}
+0
+&=
+Y_t\eta_tV_w
++\sqrt{Y_t}\xi\sigma_Y(Y_t,t)V_{wy}
++Y_t\xi\xi'\pi_t^*V_{ww}.
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\pi_t^*
+&=
+-(\xi\xi')^{-1}
+\left[
+\eta_t\frac{V_w}{V_{ww}}
++\frac{1}{\sqrt{Y_t}}\xi\sigma_Y(Y_t,t)\frac{V_{wy}}{V_{ww}}
+\right].
+\end{aligned}
+$$
+
+这就是 dynamic programming 下的最优 risky dollar position。第一项是 myopic demand，第二项是 state variable $Y_t$ 的 hedging demand。
+
+若使用 CARA 的指数仿射猜测
+
+$$
+\begin{aligned}
+V(w,y,t)
+&=
+-\exp\{-\gamma[A(t)w+F(y,t)]\},
+\end{aligned}
+$$
+
+则
+
+$$
+\begin{aligned}
+\frac{V_w}{V_{ww}}
+&=-\frac{1}{\gamma A(t)},\\
+\frac{V_{wy}}{V_{ww}}
+&=\frac{F_y(y,t)}{A(t)}.
+\end{aligned}
+$$
+
+代回得到
+
+$$
+\begin{aligned}
+\pi_t^*
+&=
+\frac{1}{\gamma A(t)}(\xi\xi')^{-1}\eta_t
+-\frac{F_y(Y_t,t)}{\sqrt{Y_t}A(t)}
+(\xi\xi')^{-1}\xi\sigma_Y(Y_t,t).
+\end{aligned}
+$$
+
+若 $Y_t$ 不可交易风险不需要 hedge，或 $F_y=0$，则只剩 myopic demand：
+
+$$
+\begin{aligned}
+\pi_t^*
+&=
+\frac{1}{\gamma A(t)}(\xi\xi')^{-1}\eta_t.
 \end{aligned}
 $$
 
