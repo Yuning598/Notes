@@ -11540,28 +11540,55 @@ $$
 
 ## Question 33. Continuous-Time Complete Market, EMM, and Derivative Pricing
 
-**题目** 考虑 continuous-time securities market model。
+**题目** We consider a securities market model consisting of a probability space $(\Omega,\mathcal F,\mathbb P)$, a time interval $\mathcal T=[0,T]$, an one-dimensional Brownian motion $Z$ on $(\Omega,\mathcal F,\mathbb P)$, the standard filtration $\{\mathcal F_t\}$ of $Z$, and two securities.
+
+The first security is a bond, with price process
+
+$$
+\begin{aligned}
+\frac{dB_t}{B_t}
+&=
+r\,dt.
+\end{aligned}
+$$
+
+The second security is a stock, with price process
+
+$$
+\begin{aligned}
+\frac{dS_t}{S_t}
+&=
+\mu_tdt+\sigma dZ_t,
+\end{aligned}
+$$
+
+where $\sigma$ is a constant, and $\mu_t$ is given by
+
+$$
+\begin{aligned}
+d\mu_t
+&=
+\kappa(\theta-\mu_t)dt-s\,dZ_t,
+\end{aligned}
+$$
+
+for some constants $\kappa,\theta$, and $s$.
 
 ::::{collapse} Basic setup
 
 $$
 \left\{
 \begin{aligned}
-&(\Omega,\mathcal F,\mathbb P),\qquad
-\mathcal T=[0,T],\\
-&Z_t=\text{one-dimensional Brownian motion under }\mathbb P,\\
-&\{\mathcal F_t\}=\text{standard filtration of }Z_t,\\
 &\frac{dB_t}{B_t}=r\,dt,\\
 &\frac{dS_t}{S_t}=\mu_tdt+\sigma dZ_t,\\
-&d\mu_t=\kappa(\theta-\mu_t)dt-s\,dZ_t,\\
-&r,\sigma,\kappa,\theta,s=\text{constants},\qquad \sigma\ne0.
+&d\mu_t=\kappa(\theta-\mu_t)dt-s\,dZ_t.
 \end{aligned}
 \right.
 $$
 
 ::::
 
-其中 $B_t$ 是 bond price，$S_t$ 是 stock price，$\mu_t$ 是 stochastic stock drift。
+其中 $B_t$ 是 bond price，$S_t$ 是 stock price，$\mu_t$ 是 stochastic stock drift。Basic setup 只把题干中的随机过程联立起来；概率空间、时间区间、filtration 和常数条件保留在原题表述中。
 
 **（a）** Show that markets are complete, and determine the EMM.
 
