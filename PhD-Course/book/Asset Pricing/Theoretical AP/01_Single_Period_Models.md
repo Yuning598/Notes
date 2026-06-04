@@ -101,7 +101,6 @@ u''\le 0.
 $$
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/Jensen 不等式与风险厌恶](Asset Pricing/Theoretical AP/cards/part1/Jensen 不等式与风险厌恶)
 
 :::{admonition} Definition (Jensen’s Inequality)
 若对任意满足 $E[\tilde w]=w$ 的随机财富 $\tilde w$，都有
@@ -109,6 +108,7 @@ $$
 $$
 u(w)\ge E[u(\tilde w)],
 $$
+
 则投资者是（弱）风险厌恶的。
 
 **Lemma:** Concavity and Jensen
@@ -117,6 +117,7 @@ Jensen 不等式给出
 $$
 u(E[\tilde w])\ge E[u(\tilde w)].
 $$
+
 若 $u$ 二阶可导，则凹性等价于
 
 $$
@@ -151,7 +152,6 @@ $$
 
 ### 1.2 Arrow-Pratt Risk Aversion
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/Arrow-Pratt 风险厌恶系数](Asset Pricing/Theoretical AP/cards/part1/Arrow-Pratt 风险厌恶系数)
 
 :::{admonition} Definition (Arrow-Pratt Risk Aversion Measures)
 Arrow-Pratt 风险厌恶测度定义为
@@ -263,7 +263,6 @@ $$
 **结论：** Arrow-Pratt 绝对风险厌恶系数是“小风险溢价对风险方差的一阶价格”。
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/确定性等价与风险溢价](Asset Pricing/Theoretical AP/cards/part1/确定性等价与风险溢价)
 
 :::{admonition} Definition (Certainty Equivalent and Risk Premium)
 设随机财富为 $\tilde w$，且
@@ -271,6 +270,7 @@ $$
 $$
 w=E[\tilde w].
 $$
+
 定义确定性等价 $x$ 与风险溢价 $\pi$ 为
 
 $$
@@ -280,6 +280,7 @@ u(w-\pi)&=E[u(\tilde w)], \\
 x&=w-\pi.
 \end{aligned}
 $$
+
 其中 $w$ 是随机财富的期望值，$x$ 是使投资者获得同样期望效用的确定性财富，$\pi$ 是为了把不确定财富 $\tilde w$ 替换成确定性财富 $w$ 而愿意支付的风险溢价。
 
 :::
@@ -310,7 +311,6 @@ $$
 
 ### 1.4 HARA and Classic Utility Functions
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/HARA - 线性风险容忍度](Asset Pricing/Theoretical AP/cards/part1/HARA - 线性风险容忍度) · [Asset Pricing/Theoretical AP/cards/part1/经典效用函数比较 - CARA, CRRA, Quadratic](Asset Pricing/Theoretical AP/cards/part1/经典效用函数比较 - CARA, CRRA, Quadratic)
 
 :::{admonition} Definition (HARA Risk Tolerance)
 若风险容忍度满足
@@ -318,11 +318,13 @@ $$
 $$
 \tau(w)=A+Bw,
 $$
+
 则该类效用属于 HARA 家族，且
 
 $$
 \alpha(w)=\frac{1}{A+Bw}.
 $$
+
 其中 $B$ 叫做 caution parameter；当 $B>0$ 时，$\alpha(w)$ 随财富上升而下降，故绝对风险厌恶是双曲线型（hyperbolic ARA）。
 
 **Definition (CARA, CRRA, and Quadratic Utility):**
@@ -388,6 +390,7 @@ p_i=E[\tilde m\tilde x_i],
 \qquad
 \tilde m=\frac{u'(\tilde w^*)}{\gamma},
 $$
+
 其中 $\gamma$ 是预算约束乘子。
 
 :::
@@ -454,7 +457,6 @@ $$
 **结论：** 单期组合选择的一阶条件已经包含 SDF 定价式；后面 SDF 不是新假设，而是最优边际效用的规范化表达。
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/组合选择问题 - 一阶条件](Asset Pricing/Theoretical AP/cards/part1/组合选择问题 - 一阶条件) · [Asset Pricing/Theoretical AP/cards/part1/分散化原理 - Idiosyncratic Risk 消失](Asset Pricing/Theoretical AP/cards/part1/分散化原理 - Idiosyncratic Risk 消失)
 
 :::{admonition} Definition (Single-Period Portfolio Choice Problem)
 投资者在单期内选择组合以最大化期望效用：
@@ -464,6 +466,7 @@ $$
 \phi_i=\theta_i p_i, \qquad \tilde R_i=\frac{\tilde x_i}{p_i}, \qquad \pi_i=\frac{\phi_i}{w_0}.
 \end{aligned}
 $$
+
 其中 $\phi_i$ 是投入资产 $i$ 的资金金额（dollar holding），$\tilde R_i$ 是资产 $i$ 的 gross return，$\pi_i$ 是资金权重（portfolio weight）。 $p_i$ 是资产价格，$\theta_i$ 是持有份额，$w_0$ 是初始财富，$\tilde y$ 是非金融收入，$\tilde x_i$ 是资产 $i$ 的随机 payoff。
 
 三种等价写法为
@@ -484,6 +487,7 @@ $$
 \tilde w=\tilde y+w_0\sum_{i=1}^n\pi_i\tilde R_i.
 \end{aligned}
 $$
+
 允许 $\theta_i<0$ 或 $\phi_i<0$，表示 short selling；正持仓是 long position。
 决策变量是 $\theta_i,\phi_i,\pi_i$，所以 FOC 对这些 choice variables 求偏导。
 
@@ -535,6 +539,7 @@ $$
 &=\phi \tilde R+(w_0-\phi)R_f=w_0R_f+\phi(\tilde R-R_f).
 \end{aligned}
 $$
+
 这里 $\phi>0$ 表示 long risky asset，$\phi<0$ 表示 short risky asset。
 
 **Lemma:** FOC and sign of optimal exposure
@@ -548,6 +553,7 @@ U''(\phi)
 &=E\!\left[u''\!\left(w_0R_f+\phi(\tilde R-R_f)\right)(\tilde R-R_f)^2\right]<0.
 \end{aligned}
 $$
+
 因为 $u''<0$，$U(\phi)$ 关于 $\phi$ 严格凹，所以只要看 $U'(0)$ 的符号即可：
 
 $$
@@ -556,6 +562,7 @@ U'(0)
 &=E\!\left[u'(w_0R_f)(\tilde R-R_f)\right]=u'(w_0R_f)\,E[\tilde R-R_f].
 \end{aligned}
 $$
+
 若 $\mu>R_f$，则 $E[\tilde R-R_f]>0$，所以 $U'(0)>0$；由于 $U$ 严格凹，最优点不能在 $\phi\le 0$，因此 $\phi^*>0$。
 若 $\mu<R_f$，则 $E[\tilde R-R_f]<0$，所以 $U'(0)<0$；由于 $U$ 严格凹，最优点不能在 $\phi\ge 0$，因此 $\phi^*<0$。
 因而
@@ -566,6 +573,7 @@ $$
 \mu<R_f &\Longrightarrow \phi^*<0.
 \end{aligned}
 $$
+
 风险溢价为正时，投资者应当持有正的风险资产头寸；风险溢价为负时，最优选择是做空风险资产、增加无风险资产配置。
 
 :::
@@ -709,6 +717,7 @@ Diversification via Equal Weighting
 $$
 \pi_i=\frac{1}{n},\qquad i=1,\ldots,n.
 $$
+
 因而组合收益为
 
 $$
@@ -718,6 +727,7 @@ $$
 =\frac{1}{n}\sum_{i=1}^n\tilde R_i.
 \end{aligned}
 $$
+
 组合财富为
 
 $$
@@ -726,6 +736,7 @@ $$
 &=w_0\tilde R_p.
 \end{aligned}
 $$
+
 从而
 
 $$
@@ -741,7 +752,6 @@ $$
 
 ### 1.6 CARA-Normal and Euler Equation
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/CARA-Normal 模型 - 最优风险暴露](Asset Pricing/Theoretical AP/cards/part1/CARA-Normal 模型 - 最优风险暴露) · [Asset Pricing/Theoretical AP/cards/part1/Euler 方程与 SDF](Asset Pricing/Theoretical AP/cards/part1/Euler 方程与 SDF)
 
 #### 1.6.1 CARA-Normal Model
 
@@ -754,6 +764,7 @@ CARA-Normal Demand
 $$
 \phi^*=\frac{E[\tilde R]-R_f}{\alpha\operatorname{Var}(\tilde R)}.
 $$
+
 多资产情形下，若超额收益向量 $\tilde R-R_f\iota$ 正态，
 
 $$
@@ -829,11 +840,13 @@ $$
 $$
 \tilde R\sim N(\mu,\sigma^2),\qquad u(w)=-e^{-\alpha w}.
 $$
+
 如果 $\tilde X\sim N(\mu_X,\sigma_X^2)$，则
 
 $$
 E[e^{\tilde X}]=e^{\mu_X+\frac12\sigma_X^2}.
 $$
+
 因而 CARA + Normal 下，expected utility 可以改写成 certainty equivalent。
 
 :::
@@ -1007,7 +1020,6 @@ $$
 
 ### 2.1 Definition of SDF
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Stochastic Discount Factor - 定义与基本关系](Asset Pricing/Theoretical AP/cards/part2/Stochastic Discount Factor - 定义与基本关系)
 
 :::{admonition} Definition (Stochastic Discount Factor)
 随机贴现因子（SDF）是任意随机变量 $\tilde m$，只要对每个资产 $i$ 都满足
@@ -1163,7 +1175,6 @@ $$
 
 ### 2.2 Arrow Securities, Risk-Neutral Probability, and SDF Existence
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Arrow securities 与 state prices](Asset Pricing/Theoretical AP/cards/part2/Arrow securities 与 state prices) · [Asset Pricing/Theoretical AP/cards/part2/无套利、Law of One Price 与 SDF](Asset Pricing/Theoretical AP/cards/part2/无套利、Law of One Price 与 SDF) · [Asset Pricing/Theoretical AP/cards/part2/风险中性概率 - 从 SDF 到 Q](Asset Pricing/Theoretical AP/cards/part2/风险中性概率 - 从 SDF 到 Q)
 
 #### 2.2.1 Law of One Price and Arbitrage
 
@@ -1260,6 +1271,7 @@ Law of One Price Implies an SDF on the Asset Span
 $$
 p=X'\Pi m,
 $$
+
 其中 $\Pi=\operatorname{diag}(P_1,\\ldots,P_S)$。若还要求无套利，则可选择严格正的 $m$。
 
 :::
@@ -1332,83 +1344,83 @@ $$
 - **Law of One Price $\iff$ Existence of SDF**
 	- **（$\Rightarrow$）**：若两个 portfolio 的 payoff 相同，则它们价格也相同。令状态 $j$ 的 Arrow security 价格为 $q_j$，并设
 
-		$$
+$$
 		  \begin{aligned}
 		  m(\omega_j)=\frac{q_j}{\Pr(\omega_j)}.
 		  \end{aligned}
-		  $$
+$$
 
 		  对任意 payoff $\tilde x$，有
 
-		  $$
+$$
 		  \begin{aligned}
 		  p
 		  &=\sum_{j=1}^k q_j\tilde x(\omega_j)
 		  =\sum_{j=1}^k m(\omega_j)\tilde x(\omega_j)\Pr(\omega_j)
 		  =E[\tilde m\tilde x].
 		  \end{aligned}
-		  $$
+$$
 
 		  所以存在 SDF。
 	- **（$\Leftarrow$）**：若 $p_i=E[\tilde m\tilde x_i]$ 对所有资产成立，而两个 portfolio 产生相同 payoff，即
 
-		  $$
+$$
 		  \begin{aligned}
 		  \sum_{i=1}^n\theta_i\tilde x_i=\sum_{i=1}^n\hat\theta_i\tilde x_i,
 		  \end{aligned}
-		  $$
+$$
 
-		  $$
+$$
 		  \begin{aligned}
 		  p'\theta
 		  &=E\!\left[\tilde m\sum_{i=1}^n\theta_i\tilde x_i\right]
 		  =E\!\left[\tilde m\sum_{i=1}^n\hat\theta_i\tilde x_i\right]
 		  =p'\hat\theta.
 		  \end{aligned}
-		  $$
+$$
 
 		  因此相同 payoff 必有相同价格。
 
 - **No Arbitrage $\Longrightarrow$ Law of One Price**
 	  若 Law of One Price 被破坏，存在两个 portfolio 满足相同 payoff 但不同价格。设它们的差组合为 $\Delta\theta=\theta-\hat\theta$，则
 
-	  $$
+$$
 	  \begin{aligned}
 	  \sum_{i=1}^n\Delta\theta_i\tilde x_i=0,
 	  \qquad
 	  p'\Delta\theta\neq 0.
 	  \end{aligned}
-	  $$
+$$
 
 	  若 $p'\Delta\theta<0$，买入 $\Delta\theta$ 就得到零未来 payoff、负初始成本；若 $p'\Delta\theta>0$，卖空 $\Delta\theta$ 即可。两种情况都构成套利，所以无套利必须推出 Law of One Price。
 
 - **No Arbitrage $\Longleftrightarrow$ Existence of Strictly Positive SDF**
 	- （$\Rightarrow$）在一期、有限状态模型里，无套利等价于存在一组严格正的 state prices $q_j>0$；再令
 
-	  $$
+$$
 	  \begin{aligned}
 	  \tilde m(\omega_j)=\frac{q_j}{\Pr(\omega_j)},
 	  \end{aligned}
-	  $$
+$$
 
 	  就得到严格正的 SDF。
 	- （$\Leftarrow$）若 $\tilde m>0$ a.s.，而 $\theta$ 是套利组合，则
 
-	  $$
+$$
 	  \begin{aligned}
 	  p'\theta
 	  &=E[\tilde m\tilde x_\theta]
 	  \le 0,
 	  \end{aligned}
-	  $$
+$$
 
 	  其中 $\tilde x_\theta\ge 0$ a.s.。但只要 $\Pr(\tilde x_\theta>0)>0$，就有
 
-	  $$
+$$
 	  \begin{aligned}
 	  E[\tilde m\tilde x_\theta]>0,
 	  \end{aligned}
-	  $$
+$$
 
 	  矛盾。因此严格正的 SDF 排除套利。
 
@@ -1436,46 +1448,45 @@ $$
 
 #### 2.2.4 Market Completeness and Uniqueness of the SDF
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/市场完备性与 SDF 唯一性](Asset Pricing/Theoretical AP/cards/part1/市场完备性与 SDF 唯一性)
 
 - **市场完备性（Market Completeness）**
   若在有限状态模型中，资产 payoff 的线性张成空间满足
 
-  $$
+$$
   \begin{aligned}
   \mathcal S=\operatorname{span}\{\tilde x_1,\dots,\tilde x_n\}=\mathbb R^k,
   \end{aligned}
-  $$
+$$
 
   则市场完备。直观上，市场 payoff 已经把整个状态空间张满了，因此每个 Arrow payoff 都可复制。
 
 - **SDF 的唯一性（Uniqueness of the SDF）**
   若 Law of One Price 成立且市场完备，则每个 Arrow payoff $1_{\{\omega_j\}}$ 的价格 $q_j$ 唯一，从而
 
-  $$
+$$
   \begin{aligned}
   q_j=E[\tilde m1_{\{\omega_j\}}]=\tilde m(\omega_j)\Pr(\omega_j),
   \end{aligned}
-  $$
+$$
 
   即
 
-  $$
+$$
   \begin{aligned}
   \tilde m(\omega_j)=\frac{q_j}{\Pr(\omega_j)}.
   \end{aligned}
-  $$
+$$
 
   所以 SDF 唯一（a.s.）。详细证明见 [Asset Pricing/Theoretical AP/cards/part1/市场完备性与 SDF 唯一性](Asset Pricing/Theoretical AP/cards/part1/市场完备性与 SDF 唯一性)。
 
 - **风险中性概率的唯一性（Uniqueness of the Risk-Neutral Probability）**
   若无风险资产 $R_f$ 存在，则
 
-  $$
+$$
   \begin{aligned}
   Q(A)=R_fE[\tilde m1_A].
   \end{aligned}
-  $$
+$$
 
   因为 $\tilde m$ 唯一，所以 $Q$ 也唯一。
 
@@ -1542,7 +1553,6 @@ $$
 
 ### 2.3 Risk Premia and Hansen-Jagannathan Bound
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Hansen-Jagannathan bound](Asset Pricing/Theoretical AP/cards/part2/Hansen-Jagannathan bound)
 
 若 $p_i>0$，定义 gross return
 
@@ -1588,13 +1598,13 @@ $$
 \ge
 \sup_{\tilde R}\frac{|E[\tilde R]-R_f|}{\operatorname{std}(\tilde R)}.
 $$
+
 再用 $E[\tilde m]=1/R_f$ 得到结论；若 $\tilde m$ 太平滑，就无法解释足够大的 Sharpe ratio。
 
 :::
 
 ### 2.4 Mean-Variance Frontier without a Risk-Free Asset
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/GMV 组合 - 全局最小方差组合](Asset Pricing/Theoretical AP/cards/part2/GMV 组合 - 全局最小方差组合) · [Asset Pricing/Theoretical AP/cards/part2/Mean-Variance Frontier - 无风险资产缺失情形](Asset Pricing/Theoretical AP/cards/part2/Mean-Variance Frontier - 无风险资产缺失情形) · [Asset Pricing/Theoretical AP/cards/part2/Two-Fund Separation Theorem](Asset Pricing/Theoretical AP/cards/part2/Two-Fund Separation Theorem) · [Asset Pricing/Theoretical AP/cards/part2/Mean-Variance Efficiency](Asset Pricing/Theoretical AP/cards/part2/Mean-Variance Efficiency) · [Asset Pricing/Theoretical AP/cards/part1/风险资产期望收益向量 μ](Asset Pricing/Theoretical AP/cards/part1/风险资产期望收益向量 μ) · [Asset Pricing/Theoretical AP/cards/part1/GMV 与 Mean-Variance Frontier 的区别](Asset Pricing/Theoretical AP/cards/part1/GMV 与 Mean-Variance Frontier 的区别)
 
 $$
 A=\mu'\Sigma^{-1}\mu,
@@ -1629,6 +1639,7 @@ $$
 \right.
 \end{aligned}
 $$
+
 由第一式左乘 $\Sigma^{-1}$，
 
 $$
@@ -1637,6 +1648,7 @@ $$
 &=\lambda \Sigma^{-1}\iota.
 \end{aligned}
 $$
+
 再代回预算约束
 
 $$
@@ -1649,6 +1661,7 @@ $$
 \lambda=\frac{1}{\iota'\Sigma^{-1}\iota},
 \end{aligned}
 $$
+
 代回 $\pi=\lambda\Sigma^{-1}\iota$，得到
 
 $$
@@ -1657,6 +1670,7 @@ $$
 &=\frac{\Sigma^{-1}\iota}{\iota'\Sigma^{-1}\iota}.
 \end{aligned}
 $$
+
 由 $\Sigma\succ 0$ 可知目标函数严格凸，故该解唯一。
 进一步可得 GMV 的期望收益与方差：
 
@@ -1744,11 +1758,13 @@ A=\mu'\Sigma^{-1}\mu,
 \quad C=\iota'\Sigma^{-1}\iota,
 \quad D=AC-B^2.
 $$
+
 对目标期望收益 $\mu_p$，前沿组合为
 
 $$
 \pi(\mu_p)=\frac{C\mu_p-B}{D}\Sigma^{-1}\mu+\frac{A-B\mu_p}{D}\Sigma^{-1}\iota,
 $$
+
 方差为
 
 $$
@@ -1863,6 +1879,7 @@ $$
 \qquad
 \iota'\pi=1.
 $$
+
 其中
 
 $$
@@ -1873,6 +1890,7 @@ $$
 \sigma_p&=\sqrt{\pi'\Sigma\pi}. &&
 \end{aligned}
 $$
+
 因为 $\sqrt{\cdot}$ 单调递增，最小化 $\pi'\Sigma\pi$ 与最小化 $\sigma_p$ 是等价的；写成 $\frac12\pi'\Sigma\pi$ 只是为了求导更方便。
 
 在给定 $\mu_{target}$ 的前提下，收益已经被约束住了，此时剩下要比较的是“谁更稳”：
@@ -1884,6 +1902,7 @@ $$
 \quad\Longrightarrow\quad
 \text{在所有满足同一目标收益的组合中，选择方差最小者}.
 $$
+
 若反过来只最大化收益，而不约束风险，则只会把权重推向高收益、高波动资产，问题本身没有有效的风险控制；均值—方差分析要刻画的是 risk-return trade-off，所以标准形式是“给定收益，最小化风险”。
 
 
@@ -1963,6 +1982,7 @@ Mean-Variance Frontier Equation VS Global Minimum Variance
 $$
 \sigma_p^2=\frac{A-2B\mu_{target}+C\mu_{target}^2}{AC-B^2}.
 $$
+
 这里 $\mu_{target}$ 是**事先指定的目标收益**：对每一个给定的 $\mu_{target}$，都先在满足
 
 $$
@@ -1970,6 +1990,7 @@ $$
 \mu'\pi=\mu_{target},\qquad \iota'\pi=1
 \end{aligned}
 $$
+
 的组合里找方差最小者；当 $\mu_{target}$ 改变时，最优组合 $\pi$ 也随之改变，所有这些最优点连起来就是 mean-variance frontier。
 
 GMV 则是这个框架中的特例：
@@ -1983,6 +2004,7 @@ $$
 \iota'\pi=1.
 \end{aligned}
 $$
+
 它不预先固定收益，只在 full investment 约束下寻找方差最小的单点；该点恰好位于 frontier 的最低处。
 :::
 
@@ -2047,6 +2069,8 @@ $$
 
 > 记号上，$\pi$ 表示给定 $\mu_{target}$ 时的最优权重；$\pi_u$ 与 $\pi_{GMV}$ 是两只固定的基组合：
 > $$
+
+$$
 \begin{aligned}
 \pi_u
 &=\frac{1}{B}\Sigma^{-1}\mu, \qquad
@@ -2057,6 +2081,7 @@ $$
 \iota'\pi_{GMV}=1, \qquad
 \mu'\pi_{GMV}=\frac{B}{C}.
 \end{aligned}
+$$
 
 $$
 > 因此当 $B\neq 0$ 时，前面的解可以写成
@@ -2070,13 +2095,15 @@ $$
 
 > 再由 $\mu_{target}=\mu'\pi$ 可得
 >$$
+
+$$
 \begin{aligned}
 \mu_{target}
 &=\lambda\,\mu'\pi_u+(1-\lambda)\mu'\pi_{GMV} \\
 &=\lambda\frac{A}{B}+(1-\lambda)\frac{B}{C},
 \end{aligned}
-
 $$
+
 > 从而验证上式中的 $\lambda$。
 > “先定义 $\pi_u$ 和 $\pi_{GMV}$，再把一般最优组合写成它们的线性组合”的原因：它们是两只固定锚点，$\pi$ 只是随目标收益变化的最优点。
 
@@ -2085,13 +2112,14 @@ $$
 :::{admonition} Lemma
 Two-Fund Separation Theorem
 任意两个位于 mean-variance frontier 上的组合都张成整条前沿。更具体地，若 $\pi_a,\pi_b$ 都在 frontier 上，则对任意第三个 frontier 组合 $\pi_c$，存在某个 $\lambda$ 使得
+
 $$
 \begin{aligned}
 \pi_c
 &=\lambda\pi_a+(1-\lambda)\pi_b.
 \end{aligned}
-
 $$
+
 因而 frontier 上的任意组合都可以表示成两个 frontier 组合的加权平均；若再要求收益高于 GMV，则得到 efficient frontier.
 
 :::
@@ -2099,83 +2127,83 @@ $$
 **说明：+ Proof**
 ##### Proof when the Risk-Free Component is Zero
 若 $B=0$，则任意 frontier 组合满足
-$$
 
+$$
 \begin{aligned}
 \pi_i
 &=\frac{\mu\prime\pi_i}{A}\Sigma^{-1}\mu+\pi_{GMV},
 \qquad i\in\{a,b,c\}.
 \end{aligned}
-
 $$
+
 frontier 上不同组合对应不同 expected return，因此 $\mu\prime\pi_a\neq\mu\prime\pi_b$。于是
-$$
 
+$$
 \begin{aligned}
 \lambda\pi_a+(1-\lambda)\pi_b
 &=\frac{\lambda\mu\prime\pi_a+(1-\lambda)\mu\prime\pi_b}{A}\Sigma^{-1}\mu+\pi_{GMV}.
 \end{aligned}
-
 $$
+
 取
-$$
 
+$$
 \begin{aligned}
 \lambda
 &=\frac{\mu\prime\pi_c-\mu\prime\pi_b}{\mu\prime\pi_a-\mu\prime\pi_b},
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 \lambda\pi_a+(1-\lambda)\pi_b
 &=\pi_c.
 \end{aligned}
-
 $$
+
 
 **说明：Proof**
 ##### Proof when the Risk-Free Component is Nonzero
 若 $B\neq 0$，则每个 frontier 组合都可写成
-$$
 
+$$
 \begin{aligned}
 \pi_i
 &=\lambda_i\pi_u+(1-\lambda_i)\pi_{GMV},
 \qquad i\in\{a,b,c\}.
 \end{aligned}
-
 $$
+
 由于 $\pi_a\neq\pi_b$，故 $\lambda_a\neq\lambda_b$。于是
-$$
 
+$$
 \begin{aligned}
 \lambda\pi_a+(1-\lambda)\pi_b
 &=\big(\lambda\lambda_a+(1-\lambda)\lambda_b\big)\pi_u \\
 &\quad +\big(\lambda(1-\lambda_a)+(1-\lambda)(1-\lambda_b)\big)\pi_{GMV}.
 \end{aligned}
-
 $$
+
 取
-$$
 
+$$
 \begin{aligned}
 \lambda
 &=\frac{\lambda_c-\lambda_b}{\lambda_a-\lambda_b},
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 \lambda\pi_a+(1-\lambda)\pi_b
 &=\pi_c.
 \end{aligned}
-
 $$
+
 任意 frontier 组合都可由两个 frontier 组合线性表示，two-fund spanning 得证.
 
 #### 2.4.4 Mean-Variance Efficiency
@@ -2184,15 +2212,17 @@ $$
 若 frontier 组合的 expected return 低于 GMV 组合的 expected return，则该组合位于 mean-variance frontier 的 inefficient part；若 frontier 组合的 expected return 高于 GMV 组合的 expected return，则该组合位于 efficient part，并称为 mean-variance efficient。
 
 记 GMV 的 expected return 为
+
 $$
 \begin{aligned}
 \mu_{GMV}
 &=\mu'\pi_{GMV}
 =\frac{B}{C}.
 \end{aligned}
-
 $$
+
 则
+
 $$
 \begin{aligned}
 \mu'\pi<\mu_{GMV}
@@ -2200,8 +2230,8 @@ $$
 \mu'\pi\ge \mu_{GMV}
 &\Longrightarrow \pi \text{ is efficient}.
 \end{aligned}
-
 $$
+
 直观上，若某个 frontier portfolio 的 expected return 还低于 GMV，则沿 frontier 向 GMV 移动会同时提高 expected return 并降低 variance；因此它不是 efficient。反过来，GMV 右侧的 frontier points 才是真正的 mean-variance trade-off 区域。
 ![Mean-variance frontier illustration 1](../../attachment/Pasted image 20260423100816.png)
 
@@ -2214,83 +2244,83 @@ $$
 
 ### 3.1 Frontier with a Risk-Free Asset
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/CML 与 Tangency Portfolio](Asset Pricing/Theoretical AP/cards/part1/CML 与 Tangency Portfolio)
 
 ![Mean-variance frontier illustration 2](../../attachment/Pasted image 20260423100917.png)
 
 #### 3.1.1 One Risky Asset and One Risk-Free Asset
 
 设只有一只风险资产 $\tilde R$ 和一只无风险资产 $R_f$，投资者在风险资产上的持仓比例为 $\pi$，则无风险资产持仓为 $1-\pi$，组合收益为
-$$
 
+$$
 \begin{aligned}
 \tilde R_p=\pi\tilde R+(1-\pi)R_f.
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_p]
 =\pi E[\tilde R]+(1-\pi)R_f
 =R_f+\pi(E[\tilde R]-R_f),
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 \operatorname{std}(\tilde R_p)
 =|\pi|\operatorname{std}(\tilde R).
 \end{aligned}
-
 $$
+
 消去 $\pi$ 得
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_p]-R_f
 =\frac{E[\tilde R]-R_f}{\operatorname{std}(\tilde R)}\operatorname{std}(\tilde R_p).
 \end{aligned}
-
 $$
+
 因此在均值—标准差平面中，with one risky asset and one risk-free asset 的前沿是一条通过 $(0,R_f)$ 的直线；其斜率就是该风险资产的 Sharpe ratio。
 
 #### 3.1.2 Framework
 
 令 $\pi$ 表示**风险资产**的持仓向量，$\mu$ 为风险资产的期望收益向量，$\Sigma$ 为风险资产的协方差矩阵，则无风险资产持仓为 $1-\iota'\pi$。因此
-$$
 
+$$
 \begin{aligned}
 \underbrace{(1-\iota'\pi)R_f}_{\text{risk-free part}}
 +\underbrace{\mu'\pi}_{\text{risky part}}
 =R_f+(\mu-R_f\iota)'\pi.
 \end{aligned}
-
 $$
+
 所以
-$$
 
+$$
 \begin{aligned}
 \text{risk premium}=(\mu-R_f\iota)'\pi,
 \qquad
 \operatorname{Var}(\tilde R_p)=\pi'\Sigma\pi.
 \end{aligned}
-
 $$
+
 
 :::{admonition} Lemma
 Mean-Variance Frontier with Risk-Free Asset
 若存在无风险资产 $R_f$，则
+
 $$
 \begin{aligned}
 \min_\pi \frac12\pi'\Sigma\pi
 \quad \text{s.t.} \quad
 R_f+(\mu-R_f\iota)'\pi=\mu_{target}
 \end{aligned}
-
 $$
+
 $$
 \begin{aligned}
 \Longleftrightarrow\quad
@@ -2298,54 +2328,63 @@ $$
 \qquad
 \delta=\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \pi
 =\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\Sigma^{-1}(\mu-R_f\iota).
 \end{aligned}
-
 $$
+
 :::
 
-^prop-3-1-risk-free-frontier-weight
+对应的方差为
 
-> QE-PS 对照：[Q 6.1 使用该 frontier weight 形式](../../ProblemSet/ProblemSet.md)
->
-> $$
-> \begin{aligned}
-> \operatorname{Var}(\tilde R_p)
-> &=\pi'\Sigma\pi \\
-> &=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\Sigma^{-1}(\mu-R_f\iota)\right)'\Sigma
-> \left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\Sigma^{-1}(\mu-R_f\iota)\right) \\
-> &=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\right)^2
-> (\mu-R_f\iota)'\Sigma^{-1}\Sigma\Sigma^{-1}(\mu-R_f\iota) \\
-> &=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\right)^2
-> (\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota),
-> \end{aligned}
-> $$
-> $$
-> \begin{aligned}
-> \sigma_p=\frac{|\mu_{target}-R_f|}{\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}}.
-> \end{aligned}
-> $$
-> 所以 frontier portfolio 的 Sharpe ratio 为
-> $$
-> \begin{aligned}
-> \frac{E[\tilde R_p]-R_f}{\operatorname{std}(\tilde R_p)}
-> &=\frac{\mu_{target}-R_f}{\sigma_p} \\
-> &=\pm\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)},
-> \end{aligned}
-> $$
-> 取正号就是最大 Sharpe ratio，因此 Capital Market Line 的斜率为
-> $$
-> \begin{aligned}
-> \max_\pi \frac{E[\tilde R_p]-R_f}{\operatorname{std}(\tilde R_p)}
-> =\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+\operatorname{Var}(\tilde R_p)
+&=\pi'\Sigma\pi \\
+&=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\Sigma^{-1}(\mu-R_f\iota)\right)'\Sigma
+\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\Sigma^{-1}(\mu-R_f\iota)\right) \\
+&=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\right)^2
+(\mu-R_f\iota)'\Sigma^{-1}\Sigma\Sigma^{-1}(\mu-R_f\iota) \\
+&=\left(\frac{\mu_{target}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}\right)^2
+(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota).
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\sigma_p
+&=
+\frac{|\mu_{target}-R_f|}{\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}}.
+\end{aligned}
+$$
+
+所以 frontier portfolio 的 Sharpe ratio 为
+
+$$
+\begin{aligned}
+\frac{E[\tilde R_p]-R_f}{\operatorname{std}(\tilde R_p)}
+&=\frac{\mu_{target}-R_f}{\sigma_p} \\
+&=\pm\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
+\end{aligned}
+$$
+
+取正号就是最大 Sharpe ratio，因此 Capital Market Line 的斜率为
+
+$$
+\begin{aligned}
+\max_\pi \frac{E[\tilde R_p]-R_f}{\operatorname{std}(\tilde R_p)}
+&=
+\sqrt{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
+\end{aligned}
+$$
 
 #### 3.1.3 Tangency Portfolio
 
@@ -2358,40 +2397,43 @@ No Tangency Portfolio when $R_f=B/C$
 :::
 
 **WTS：** 证明不存在 $\delta,\lambda$ 使
-$$
-
-\delta\Sigma^{-1}(\mu-R_f\iota)=\lambda\pi_{mu}+(1-
-\lambda)\pi_{GMV}
 
 $$
+\begin{aligned}
+\delta\Sigma^{-1}(\mu-R_f\iota)
+&=
+\lambda\pi_{mu}+(1-\lambda)\pi_{GMV}
+\end{aligned}
+$$
+
 同时构成资本市场线的切点方向。
 
 **联立系统：**
-$$
 
+$$
 \begin{aligned}
 \pi_{GMV}&=\frac{1}{C}\Sigma^{-1}\iota,\\
 \pi_{mu}&=\frac{1}{B}\Sigma^{-1}\mu,\\
 R_f&=\frac{B}{C},\\
 \mu_e&=\mu-R_f\iota=\mu-\frac{B}{C}\iota.
 \end{aligned}
-
 $$
+
 
 **连续求解：** 任何风险资产切点组合的方向都应与 $\Sigma^{-1}\mu_e$ 成比例。先看这个方向的 full-investment 权重和期望超额收益：
-$$
 
+$$
 \begin{aligned}
 \iota'\Sigma^{-1}\mu_e
 &=\iota'\Sigma^{-1}\mu-\frac{B}{C}\iota'\Sigma^{-1}\iota\\
 &=B-\frac{B}{C}C\\
 &=0.
 \end{aligned}
-
 $$
+
 因此 $\Sigma^{-1}\mu_e$ 是一个 **零成本组合方向**，无法被标准化成 $\iota'\pi=1$ 的切点组合。再看该方向的期望超额收益：
-$$
 
+$$
 \begin{aligned}
 \mu_e'\Sigma^{-1}\mu_e
 &=(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)\\
@@ -2401,28 +2443,28 @@ $$
 &=\frac{AC-B^2}{C}\\
 &=\frac{D}{C}>0.
 \end{aligned}
-
 $$
+
 所以它是正 Sharpe 的零成本套利方向式组合，而不是与无风险资产相切的 full-investment risky fund。
 
 若强行写成 $\lambda\pi_{mu}+(1-\lambda)\pi_{GMV}$，右边始终满足 full investment：
-$$
 
+$$
 \begin{aligned}
 \iota'[\lambda\pi_{mu}+(1-\lambda)\pi_{GMV}]
 =\lambda+(1-\lambda)=1,
 \end{aligned}
-
 $$
+
 而左边
-$$
 
+$$
 \begin{aligned}
 \iota'[\delta\Sigma^{-1}\mu_e]
 =\delta\cdot0=0.
 \end{aligned}
-
 $$
+
 两者矛盾。
 
 **结论：** $R_f=B/C$ 时，资本市场线经过 GMV 点且斜率退化；风险资产“切点方向”是零成本超额收益方向，不是可作为 risky fund 的切点组合。
@@ -2431,13 +2473,12 @@ $$
 :::{admonition} Lemma
 Tangency Portfolio
 切点组合（tangency portfolio）是只由风险资产构成、且 Sharpe ratio 最高的组合。先引入一个规范化目标组合 $\pi_{\text{target}}$，令它满足
-$$
 (\mu-R_f\iota)'\pi_{\text{target}}=1.
 
-$$
 这里几个符号要区分：
-$$
 \left\{
+
+$$
 \begin{aligned}
 \pi_{\text{target}}
 &: \text{按 }(\mu-R_f\iota)'\pi=1\text{ 归一化的方向向量，不要求 }\iota'\pi_{\text{target}}=1,\\
@@ -2448,34 +2489,39 @@ $$
 \pi_{mv}
 &: \text{risky-only frontier 上另一个 normalized frontier fund，用来和 }\pi_{GMV}\text{ 张成整条 frontier}.
 \end{aligned}
+$$
+
 \right.
 
-$$
 因为 Sharpe ratio 对缩放不变，所以切点问题等价于下面的规范化最小方差问题：
+
 $$
 \begin{aligned}
 \min_{\pi_{\text{target}}} \ \frac12\pi_{\text{target}}'\Sigma\pi_{\text{target}} \quad \text{s.t.}\quad (\mu-R_f\iota)'\pi_{\text{target}}=1.
 \end{aligned}
-
 $$
+
 拉格朗日函数为
+
 $$
 \begin{aligned}
 \mathcal L(\pi_{\text{target}},\lambda)
 =\frac12\pi_{\text{target}}'\Sigma\pi_{\text{target}}-\lambda\big((\mu-R_f\iota)'\pi_{\text{target}}-1\big).
 \end{aligned}
-
 $$
+
 一阶条件给出
+
 $$
 \begin{aligned}
 \Sigma\pi_{\text{target}}-\lambda(\mu-R_f\iota)=0
 \qquad\Longleftrightarrow\qquad
 \pi_{\text{target}}=\lambda\Sigma^{-1}(\mu-R_f\iota).
 \end{aligned}
-
 $$
+
 代回约束得
+
 $$
 \begin{aligned}
 1
@@ -2484,26 +2530,29 @@ $$
 \lambda
 &=\frac{1}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \pi_{\text{target}}
 =\frac{\Sigma^{-1}(\mu-R_f\iota)}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 再按 $\iota'\pi_{tan}=1$ 归一化，得到
+
 $$
 \begin{aligned}
 \pi_{tan}
 =\frac{\pi_{\text{target}}}{\iota'\pi_{\text{target}}}
 =\frac{\Sigma^{-1}(\mu-R_f\iota)}{\iota'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 因而切点组合的期望收益为
+
 $$
 \begin{aligned}
 \mu_{tan}
@@ -2512,16 +2561,17 @@ E[\tilde R_{tan}]
 =R_f+(\mu-R_f\iota)'\pi_{tan}\\
 &=R_f+\frac{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}{\iota'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 等价地，
+
 $$
 \begin{aligned}
 \frac{\mu_{tan}-R_f}{(\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)}
 =\frac{1}{\iota'\Sigma^{-1}(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 这里 $\pi_{\text{target}}$ 是先按 excess return 归一化出来的中间变量；切点组合 $\pi_{tan}$ 再按 $\iota'\pi_{tan}=1$ 归一化。它位于 efficient frontier 上当且仅当其 expected return 大于 GMV 的 expected return。
 
 :::
@@ -2529,36 +2579,36 @@ $$
 **说明：- 切点组合的两个等价视角**
 **视角 1：和无风险资产一起看**
 若投资者把财富中的比例 $y$ 放进切点基金，其余放进无风险资产，则总收益可写成
-$$
 
+$$
 \begin{aligned}
 \tilde R_p
 &= (1-y)R_f+y\tilde R_{tan} \\
 &= R_f+y(\tilde R_{tan}-R_f).
 \end{aligned}
-
 $$
+
 这里 $\tilde R_{tan}=\pi_{tan}'\tilde R$。因为切点基金是风险资产部分 Sharpe ratio 最高的那只，所以任意“无风险资产 + 风险基金”的可行组合，只是在这只基金上做缩放。
 
 **视角 2：只看风险资产本身**
 切点基金必须是一个 fully invested 的风险资产组合，因此
-$$
 
+$$
 \begin{aligned}
 \iota'\pi_{tan}=1,
 \end{aligned}
-
 $$
+
 这表示它不是“方向向量”而已，而是一只可以直接持有的风险基金。前面先求出的 $\pi_{\text{target}}$ 只是为了把方向固定住；再除以 $\iota'\pi_{\text{target}}$，就把它变成总权重为 1 的标准基金。
 
 从符号上看，若
-$$
 
+$$
 \begin{aligned}
 (\mu-R_f\iota)'\Sigma^{-1}(\mu-R_f\iota)>0,
 \end{aligned}
-
 $$
+
 那么该方向对应 efficient part；若为负，则同一方向落到下支，需要整体翻转符号才对应上支。
 
 #### 3.1.4 Two-Fund Spanning
@@ -2566,89 +2616,90 @@ $$
 :::{admonition} Lemma
 Two-Fund Spanning with a Risk-Free Asset
 若存在无风险资产 $R_f$，则 mean-variance frontier 由无风险资产和切点组合 $\pi_{tan}$ 张成。更具体地，对任意有效组合，都存在某个 $y$ 使得
+
 $$
 \begin{aligned}
 \tilde R_p
 =(1-y)R_f+y\tilde R_{tan}
 =R_f+y(\tilde R_{tan}-R_f).
 \end{aligned}
-
 $$
+
 因而只要知道 $R_f$ 和 $\pi_{tan}$，就能生成整条前沿。
 
 :::
 
 **说明：Proof**
 设任意 frontier 组合在风险资产上的权重为 $\pi$，则其均值—方差问题可写成
-$$
 
+$$
 \begin{aligned}
 \min_\pi \ \frac12\pi'\Sigma\pi
 \quad \text{s.t.}\quad
 R_f+(\mu-R_f\iota)'\pi=\mu_{target}.
 \end{aligned}
-
 $$
+
 拉格朗日函数为
-$$
 
+$$
 \begin{aligned}
 \mathcal L(\pi,\delta)
 =\frac12\pi'\Sigma\pi-\delta\big(R_f+(\mu-R_f\iota)'\pi-\mu_{target}\big).
 \end{aligned}
-
 $$
+
 一阶条件给出
-$$
 
+$$
 \begin{aligned}
 \Sigma\pi=\delta(\mu-R_f\iota)
 \qquad\Longleftrightarrow\qquad
 \pi=\delta\Sigma^{-1}(\mu-R_f\iota).
 \end{aligned}
-
 $$
+
 这说明所有 frontier 组合的风险资产部分都沿着同一个方向 $\Sigma^{-1}(\mu-R_f\iota)$，也就是切点组合的方向。
 
 为了把比例写出来，对 FOC 左乘 $\pi'$，得
-$$
 
+$$
 \begin{aligned}
 \pi'\Sigma\pi
 &=\delta\,\pi'(\mu-R_f\iota),\\
 \delta
 &=\frac{\pi'\Sigma\pi}{\pi'(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 代回 FOC，可得
-$$
 
+$$
 \begin{aligned}
 \mu-R_f\iota
 &=\frac{\pi'(\mu-R_f\iota)}{\pi'\Sigma\pi}\,\Sigma\pi.
 \end{aligned}
-
 $$
+
 所以任一 frontier 组合的风险暴露都只是 tangency direction 的缩放。若记
-$$
 
+$$
 \begin{aligned}
 \pi=y\pi_{tan},
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 \tilde R_p
 &=R_f+(\mu-R_f\iota)'(y\pi_{tan}) \\
 &=R_f+y\big((\mu-R_f\iota)'\pi_{tan}\big) \\
 &=R_f+y(\tilde R_{tan}-R_f).
 \end{aligned}
-
 $$
+
 于是整条 frontier 由 $R_f$ 和 $\pi_{tan}$ 两个基金张成；这就是 two-fund spanning.
 
 **说明：Remark**
@@ -2658,68 +2709,68 @@ $$
 
 **说明：- 另一种证明与 FOC 的经济含义**
 设任意三个 frontier 组合满足
-$$
 
+$$
 \begin{aligned}
 \pi_i=\delta_i\Sigma^{-1}(\mu-R_f\iota),\qquad i\in\{1,2,3\},
 \end{aligned}
-
 $$
+
 其中 $\delta_1,\delta_2,\delta_3$ 为常数。若 $\delta_1\neq\delta_2$，令
-$$
 
+$$
 \begin{aligned}
 \lambda=\frac{\delta_3-\delta_2}{\delta_1-\delta_2},
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 \delta_3=\lambda\delta_1+(1-\lambda)\delta_2,
 \end{aligned}
-
 $$
+
 因而
-$$
 
+$$
 \begin{aligned}
 \pi_3
 &=\delta_3\Sigma^{-1}(\mu-R_f\iota) \\
 &=\lambda\delta_1\Sigma^{-1}(\mu-R_f\iota)+(1-\lambda)\delta_2\Sigma^{-1}(\mu-R_f\iota) \\
 &=\lambda\pi_1+(1-\lambda)\pi_2.
 \end{aligned}
-
 $$
+
 所以 frontier 上任意三只组合都在同一条直线上，two-fund spanning 再次得证。
 
 另一种看 FOC 的方式是从
-$$
 
+$$
 \begin{aligned}
 \Sigma\pi=\delta(\mu-R_f\iota)
 \end{aligned}
-
 $$
+
 出发，左乘 $\pi'$ 得
-$$
 
+$$
 \begin{aligned}
 \delta
 =\frac{\pi'\Sigma\pi}{\pi'(\mu-R_f\iota)}.
 \end{aligned}
-
 $$
+
 代回原式便得到
-$$
 
+$$
 \begin{aligned}
 \mu-R_f\iota
 =\frac{\pi'(\mu-R_f\iota)}{\pi'\Sigma\pi}\,\Sigma\pi.
 \end{aligned}
-
 $$
+
 这里$\mu-R_f\iota$是风险溢价向量，
 $\pi'(\mu-R_f\iota)$是组合 $\pi$ 的风险溢价，
 $\Sigma\pi$是该组合与各风险资产的协方差向量，
@@ -2729,97 +2780,98 @@ $\frac{\Sigma\pi}{\pi'\Sigma\pi}$就是风险资产相对于组合 $\pi$ 的 bet
 ### 3.2 Factor Models and Jensen's Alpha
 
 从一般定价条件出发，
-$$
 
+$$
 \begin{aligned}
 E[\tilde m\tilde R]=1,
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 \operatorname{cov}(\tilde m,\tilde R)+E[\tilde m]E[\tilde R]=1.
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 E[\tilde R]
 &=\frac{1-\operatorname{cov}(\tilde m,\tilde R)}{E[\tilde m]}.
 \end{aligned}
-
 $$
+
 定义 zero-beta return
-$$
 
+$$
 \begin{aligned}
 R_z:=\frac{1}{E[\tilde m]},
 \end{aligned}
-
 $$
+
 就得到
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]
 &=R_z-R_z\operatorname{cov}(\tilde m,\tilde R),\\
 E[\tilde R]-R_z
 &=-R_z\operatorname{cov}(\tilde m,\tilde R).
 \end{aligned}
-
 $$
+
 若某资产和 SDF 正协动越强，它的期望收益就越低；反过来，若它能在坏状态里提供保险，它就必须给出更高的期望收益来补偿投资者。
 
 如果存在无风险资产 $\tilde R_f$，则令它代入上式：
-$$
 
+$$
 \begin{aligned}
 E[\tilde m\tilde R_f]=1
 \qquad\Longrightarrow\qquad
 \tilde R_f=\frac{1}{E[\tilde m]}=R_z.
 \end{aligned}
-
 $$
+
 **zero-beta return 在有无风险资产时就退化成 risk-free rate**。这就是后面所有因子模型、beta 定价公式的共同起点：先选一个 SDF，再看资产回报与它的协动结构。
 
 #### 3.2.1 Capital Asset Pricing Model (CAPM)
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/CAPM 与 Security Market Line](Asset Pricing/Theoretical AP/cards/part1/CAPM 与 Security Market Line)
 
 :::{admonition} Lemma
 Capital Asset Pricing Model
 设 $\tilde R_m$ 为 market return，$R_z$ 为 zero-beta return。对任意资产 $\tilde R_i$，
+
 $$
 \begin{aligned}
 E[\tilde R_i]-R_z
 &=\frac{\operatorname{cov}(\tilde R_i,\tilde R_m)}{\operatorname{var}(\tilde R_m)}
 \big(E[\tilde R_m]-R_z\big),
 \end{aligned}
-
 $$
+
 其中
+
 $$
 \begin{aligned}
 \beta_i
 &=\frac{\operatorname{cov}(\tilde R_i,\tilde R_m)}{\operatorname{var}(\tilde R_m)}
 \end{aligned}
-
 $$
+
 是资产 $\tilde R_i$ 的 market beta。若市场上存在无风险资产 $\tilde R_f$，则
+
 $$
 \begin{aligned}
 R_z&=R_f,\\
 E[\tilde R_i]-R_f
 &=\beta_i\big(E[\tilde R_m]-R_f\big).
 \end{aligned}
-
 $$
+
 
 :::
 
-^prop-3-2-1-capm
 
 
 资产的风险溢价由 beta 线性决定，market risk premium 是共同的“价格”，不同资产只是 beta 不同。
@@ -2835,6 +2887,7 @@ Capital Market Line
 
 **Definition (Security Market Line):**
 用 $\bar r:=E[\tilde r]$ 表示 expected return，则 CAPM 的收益率写法为
+
 $$
 \begin{aligned}
 \bar r_i-r_z
@@ -2843,41 +2896,44 @@ $$
 &=\frac{\operatorname{cov}(\tilde R_i,\tilde R_m)}{\operatorname{var}(\tilde R_m)}
 =\frac{\operatorname{cov}(\tilde r_i,\tilde r_m)}{\operatorname{var}(\tilde r_m)}.
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \bar r_i
 &=r_z+\beta_i\big(\bar r_m-r_z\big).
 \end{aligned}
-
 $$
+
 以 $\beta \mapsto \bar r$ 的图像称为 security market line。
 若存在无风险资产，则 $r_z=r_f$，于是
+
 $$
 \begin{aligned}
 \bar r_i
 &=r_f+\beta_i\big(\bar r_m-r_f\big).
 \end{aligned}
-
 $$
+
 :::
 
-^def-3-2-2-sml
 
 #### 3.2.3 Cost of Capital
 
 :::{admonition} Definition (Cost of Capital)
 设 $\bar x:=E[\tilde x]$ 为 expected payoff，$p$ 为价格，且
+
 $$
 \begin{aligned}
 \bar r
 &=\frac{\bar x}{p}-1.
 \end{aligned}
-
 $$
+
 若 CAPM 成立，则
+
 $$
 \begin{aligned}
 \frac{\bar x}{p}-1
@@ -2886,19 +2942,19 @@ $$
 p
 &=\frac{\bar x}{1+r_z+\beta\big(\bar r_m-r_z\big)}.
 \end{aligned}
-
 $$
+
 因而价格等于 expected payoff 按
+
 $$
 \begin{aligned}
 r_z+\beta\big(\bar r_m-r_z\big)
 \end{aligned}
-
 $$
+
 这一 required rate of return 折现后的结果，这个 rate 叫做 cost of capital。
 :::
 
-^def-3-2-3-cost-capital
 
 #### 3.2.4 Mean-Variance Efficiency
 
@@ -2907,155 +2963,160 @@ $$
 :::{admonition} Lemma
 CAPM and Mean-Variance Efficiency
 CAPM 与 market portfolio 在 mean-variance frontier 上是等价的：
+
 $$
 \begin{aligned}
 \text{CAPM}
 \quad\Longleftrightarrow\quad
 \tilde R_m \text{ 在 mean-variance frontier 上}.
 \end{aligned}
-
 $$
+
 更具体地，若某个资产 $\tilde R_i$ 的 expected return 与 market portfolio 相同，即
+
 $$
 \begin{aligned}
 E[\tilde R_i]&=E[\tilde R_m],
 \end{aligned}
-
 $$
+
 则在 CAPM 下
+
 $$
 \begin{aligned}
 \beta_i&=1,\\
 \operatorname{cov}(\tilde R_i,\tilde R_m)
 &=\operatorname{var}(\tilde R_m).
 \end{aligned}
-
 $$
+
 由 Cauchy-Schwarz 不等式，
+
 $$
 \begin{aligned}
 \operatorname{cov}(\tilde R_i,\tilde R_m)
 &\le \operatorname{std}(\tilde R_i)\operatorname{std}(\tilde R_m),
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \operatorname{std}(\tilde R_i)
 &\ge \operatorname{std}(\tilde R_m).
 \end{aligned}
-
 $$
+
 在所有 expected return 相同的组合里，market portfolio 的 variance 最小。
 
 反过来，若 market portfolio 本身位于 mean-variance frontier，则它满足有效前沿上的切点条件，风险溢价必须满足 CAPM 形式；若存在无风险资产，则同样得到
+
 $$
 \begin{aligned}
 E[\tilde R_i]-R_f
 &=\beta_i\big(E[\tilde R_m]-R_f\big).
 \end{aligned}
-
 $$
+
 若不存在无风险资产，则用 zero-beta return $R_z$ 取代 $R_f$，结论形式不变。
 
 :::
 
-^prop-3-2-4-mve
 
 **说明：Proof**
 分两种情况。
 
 **Case 1: there is a risk-free asset.**
 已知 market portfolio $m$ 在 mean-variance frontier 上时，最大 Sharpe ratio 组合满足切点条件，因此对任意 risky asset $i$，
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_i]-R_f
 &=\beta_i\big(E[\tilde R_m]-R_f\big),\\
 \beta_i
 &=\frac{\operatorname{cov}(\tilde R_i,\tilde R_m)}{\operatorname{var}(\tilde R_m)}.
 \end{aligned}
-
 $$
+
 这就是 CAPM.
 
 反过来，若 CAPM 成立，则对任意资产 $i$，
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_i]
 &=R_f+\beta_i\big(E[\tilde R_m]-R_f\big).
 \end{aligned}
-
 $$
+
 取 $i=m$ 得
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_m]-R_f
 &=\beta_m\big(E[\tilde R_m]-R_f\big),
 \end{aligned}
-
 $$
+
 且
-$$
 
+$$
 \begin{aligned}
 \beta_m
 &=\frac{\operatorname{cov}(\tilde R_m,\tilde R_m)}{\operatorname{var}(\tilde R_m)}=1.
 \end{aligned}
-
 $$
+
 所以 market portfolio 的 beta 为 $1$，它与 frontier 上同均值资产相比具有最小方差，因此 market portfolio 在 mean-variance frontier 上.
 
 **Case 2: there is no risk-free asset.**
 设均值—方差问题的 FOC 写成
-$$
 
+$$
 \begin{aligned}
 \Sigma\pi=\delta(\mu-\gamma\iota).
 \end{aligned}
-
 $$
+
 定义
-$$
 
+$$
 \begin{aligned}
 R_z&:=-\gamma/\delta,
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 \Sigma\pi=\delta(\mu-R_z\iota).
 \end{aligned}
-
 $$
+
 于是任意 efficient portfolio 都满足与 $(\mu-R_z\iota)$ 同方向的结构；对 market portfolio 取同样的方向系数，就得到
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_i]-R_z
 &=\beta_i\big(E[\tilde R_m]-R_z\big),\\
 \beta_i
 &=\frac{\operatorname{cov}(\tilde R_i,\tilde R_m)}{\operatorname{var}(\tilde R_m)}.
 \end{aligned}
-
 $$
+
 这就是 no-risk-free-asset 版本的 CAPM.
 
 反过来，若上述 zero-beta CAPM 成立，则对 market portfolio 取 $i=m$ 得
-$$
 
+$$
 \begin{aligned}
 E[\tilde R_m]-R_z
 &=\beta_m\big(E[\tilde R_m]-R_z\big),
 \end{aligned}
-
 $$
+
 同样有 $\beta_m=1$. 因而 market portfolio 是与其均值相同的组合里方差最小者，所以它在 mean-variance frontier 上。
 
 #### 3.2.5 The SDF in the CAPM
@@ -3063,75 +3124,77 @@ $$
 :::{admonition} Lemma
 The SDF in the CAPM
 CAPM 蕴含存在一个对 market return 的 affine SDF。设
+
 $$
 \begin{aligned}
 \psi
 &=\frac{E[\tilde R_m]-R_z}{\operatorname{var}(\tilde R_m)},
 \end{aligned}
-
 $$
+
 并定义
+
 $$
 \begin{aligned}
 \tilde m
 &=\frac{1}{R_z}\Big(1+\psi\big(E[\tilde R_m]-\tilde R_m\big)\Big).
 \end{aligned}
-
 $$
+
 则 $\tilde m$ 是一个 SDF，即对任意 return $\tilde R$，
+
 $$
 \begin{aligned}
 E[\tilde m\tilde R]
 &=1.
 \end{aligned}
-
 $$
+
 
 :::
 
 **说明：Proof**
-$$
 
+$$
 \begin{aligned}
 E[\tilde m\tilde R]
 &=\frac{1}{R_z}E\!\left[\Big(1+\psi\big(E[\tilde R_m]-\tilde R_m\big)\Big)\tilde R\right] \\
 &=\frac{1}{R_z}\Big(E[\tilde R]+\psi E[\tilde R_m]E[\tilde R]-\psi E[\tilde R_m\tilde R]\Big) \\
 &=\frac{1}{R_z}\Big(E[\tilde R]-\psi\,\operatorname{cov}(\tilde R_m,\tilde R)\Big).
 \end{aligned}
-
 $$
+
 由 CAPM 与 zero-beta return 的关系，
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]-R_z
 &=\frac{\operatorname{cov}(\tilde R,\tilde R_m)}{\operatorname{var}(\tilde R_m)}
 \big(E[\tilde R_m]-R_z\big),
 \end{aligned}
-
 $$
+
 故
-$$
 
+$$
 \begin{aligned}
 \psi\,\operatorname{cov}(\tilde R_m,\tilde R)
 &=\frac{E[\tilde R_m]-R_z}{\operatorname{var}(\tilde R_m)}
 \operatorname{cov}(\tilde R_m,\tilde R) \\
 &=E[\tilde R]-R_z.
 \end{aligned}
-
 $$
+
 代回即得
-$$
 
+$$
 \begin{aligned}
 E[\tilde m\tilde R]
 &=\frac{1}{R_z}\big(E[\tilde R]-(E[\tilde R]-R_z)\big)=1.
 \end{aligned}
-
 $$
 
-^prop-3-2-5-sdf
+
 
 **说明：Sign of the CAPM SDF**
 $\tilde m$ 可能对某些实现值为负。若 CAPM 成立，则有三种可能：
@@ -3150,19 +3213,19 @@ General Factor Models
 CAPM is a single factor model in which the factor is the market return.
 
 更一般地，因子模型可以看作由某个特定 SDF 导出的定价关系：
+
 $$
 \begin{aligned}
 E[\tilde R]-R_z
 &=-R_z\operatorname{cov}(\tilde m,\tilde R).
 \end{aligned}
-
 $$
+
 只要指定一个 particular SDF，就得到一个对应的 factor model；因子暴露决定 expected return 的横截面排序。
 
 若进一步把 $\tilde m$ 写成若干因子的 affine function，则可写成标准的 linear factor pricing form。
 :::
 
-^prop-3-2-6-factor-models
 
 #### 3.2.7 Single-Factor Model
 
@@ -3171,64 +3234,68 @@ $$
 :::{admonition} Lemma
 Single-Factor Model
 设 factor 为 $\tilde f$。若存在常数 $R_z$ 和 $\lambda$，使得对任意 return $\tilde R$，
+
 $$
 \begin{aligned}
 E[\tilde R]-R_z
 &=\lambda\frac{\operatorname{cov}(\tilde f,\tilde R)}{\operatorname{var}(\tilde f)},
 \end{aligned}
-
 $$
+
 则称 $\tilde R$ follows a single-factor model with factor $\tilde f$。
 其中
+
 $$
 \begin{aligned}
 \beta(\tilde R;\tilde f)
 &=\frac{\operatorname{cov}(\tilde f,\tilde R)}{\operatorname{var}(\tilde f)}
 \end{aligned}
-
 $$
+
 是 beta，$R_z$ 是 zero-beta return，$\lambda$ 是 factor risk premium / price of risk。
 :::
 
-^def-3-2-7-single-factor
 
 :::{admonition} Lemma
 When the Single Factor Is a Return
 若 factor 本身就是一个 return $\tilde R_k$，把 $\tilde R=\tilde R_k$ 代入 single-factor formula：
+
 $$
 \begin{aligned}
 E[\tilde R_k]-R_z
 &=\lambda\frac{\operatorname{cov}(\tilde R_k,\tilde R_k)}{\operatorname{var}(\tilde R_k)}
 =\lambda.
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \lambda
 &=E[\tilde R_k]-R_z.
 \end{aligned}
-
 $$
+
 所以 price of risk 就是 factor 的 risk premium。
 
 进一步，factor model 等价于 return $\tilde R_k$ 位于 mean-variance frontier 上；证明与 CAPM 的证明同型。
 :::
 
-^prop-3-2-factor-return
 
 :::{admonition} Lemma
 When the Single Factor Is an Excess Return
 设 $\tilde f=\tilde R_1-\tilde R_2$。则
+
 $$
 \begin{aligned}
 E[\tilde f]
 &=E[\tilde R_1]-E[\tilde R_2],
 \end{aligned}
-
 $$
+
 且
+
 $$
 \begin{aligned}
 \operatorname{var}(\tilde f)
@@ -3237,78 +3304,81 @@ $$
 &=cov(\tilde R_1 - \tilde R_2, \tilde R_1) - cov(\tilde R_1 - \tilde R_2, \tilde R_2)\\
 &=\operatorname{cov}(\tilde f,\tilde R_1)-\operatorname{cov}(\tilde f,\tilde R_2).
 \end{aligned}
-
 $$
+
 分别对 $\tilde R_1,\tilde R_2$ 用 single-factor formula 再相减：
+
 $$
 \begin{aligned}
 E[\tilde R_1]-E[\tilde R_2]
 &=\lambda\frac{\operatorname{cov}(\tilde f,\tilde R_1)-\operatorname{cov}(\tilde f,\tilde R_2)}{\operatorname{var}(\tilde f)} \\
 &=\lambda.
 \end{aligned}
-
 $$
+
 因而
+
 $$
 \begin{aligned}
 \lambda
 &=E[\tilde f].
 \end{aligned}
-
 $$
+
 所以 price of risk 等于 factor 的 mean。
 :::
 
-^prop-3-2-excess-return
 
 #### 3.2.8 Multifactor Model
 
 :::{admonition} Lemma
 Multifactor Model
 设 factors 为 $\tilde f_1,\ldots,\tilde f_k$，记
+
 $$
 \begin{aligned}
 \tilde F&=(\tilde f_1,\ldots,\tilde f_k)',\\
 \Sigma_F&=\operatorname{Var}(\tilde F).
 \end{aligned}
-
 $$
+
 若存在常数 $R_z$ 和 $k$ 维向量 $\lambda$，使得对每个 return $\tilde R$，
+
 $$
 \begin{aligned}
 E[\tilde R]
 &=R_z+\lambda'\beta,
 \end{aligned}
-
 $$
+
 其中
+
 $$
 \begin{aligned}
 \beta
 &=\Sigma_F^{-1}\operatorname{Cov}(\tilde F,\tilde R),
 \end{aligned}
-
 $$
+
 则称 $\tilde R$ satisfies a multifactor model.
 
 这里 $\beta$ 是 multiple regression betas 向量，$\operatorname{Cov}(\tilde F,\tilde R)$ 是由 $\operatorname{cov}(\tilde f_j,\tilde R)$ 组成的 $k\times 1$ 向量。
 :::
 
-^def-3-2-8-multifactor
 
 **说明：Interpretation**
 $\beta$ 依赖于具体的 return $\tilde R$；而 $\lambda$ 对所有资产相同，是各因子的价格 of risk / risk premium。
 因而每个资产的 risk premium 等于其各个 beta 乘以对应 factor price of risk 之后再求和。
 
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]-R_z
 &=\lambda_1\beta_1+\cdots+\lambda_k\beta_k
 =\lambda'\beta.
 \end{aligned}
-
 $$
+
 
 这其实是在做一个“风险分解”：
 
@@ -3317,15 +3387,15 @@ $$
 3. 所以 $\lambda'\beta$ 就是把每个因子的风险补偿加总起来，得到这只资产的总 risk premium。
 
 换成一句话：
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]
 =\underbrace{R_z}_{\text{基准收益}}
 +\underbrace{\lambda'\beta}_{\text{因子风险补偿}}
 \end{aligned}
-
 $$
+
 就是“无风险/zero-beta 基准收益 + 风险补偿”。
 
 如果某资产对某个高 price-of-risk 因子的暴露更大，那么它的期望收益就更高；如果它对所有因子的 beta 都接近 0，那么它的期望收益就接近 $R_z$。
@@ -3333,25 +3403,26 @@ $$
 :::{admonition} Lemma
 Prices of Risk in Multifactor Models
 若某个 factor $\tilde f_j$ 本身就是一个 return $\tilde R_j$，则它的 price of risk 等于它的 risk premium：
+
 $$
 \begin{aligned}
 \lambda_j
 &=E[\tilde R_j]-R_z.
 \end{aligned}
-
 $$
+
 若某个 factor $\tilde f_j$ 是一个 excess return，则它的 price of risk 等于它的 mean：
+
 $$
 \begin{aligned}
 \lambda_j
 &=E[\tilde f_j].
 \end{aligned}
-
 $$
+
 因而 multifactor model 的定价含义与 single-factor model 完全一致：每个因子的 price of risk 取决于该因子的定义形式。
 :::
 
-^prop-3-2-8-risk-prices
 
 #### 3.2.9 Factor Models Are Equivalent to Mean-Variance Efficiency
 
@@ -3360,14 +3431,15 @@ $$
 :::{admonition} Lemma
 Factor Pricing as an SDF Restriction
 若存在 $a,b$ 使
+
 $$
 m=a-b'f
-
 $$
+
 且 $E[mR_i^e]=0$ 对所有资产成立，则期望超额收益服从 beta pricing：
+
 $$
 E[R_i^e]=\beta_i'\lambda_f.
-
 $$
 
 :::
@@ -3375,30 +3447,30 @@ $$
 **WTS：** 从 $E[mR_i^e]=0$ 推出 beta representation。
 
 **联立系统：**
-$$
 
+$$
 \begin{aligned}
 R_i^e&=\alpha_i+\beta_i'f+\varepsilon_i,\\
 E[\varepsilon_i]&=0,\\
 \operatorname{Cov}(f,\varepsilon_i)&=0,\\
 m&=a-b'f.
 \end{aligned}
-
 $$
+
 
 **连续求解：** SDF 定价给出
-$$
 
+$$
 \begin{aligned}
 0
 &=E[mR_i^e]\\
 &=E[m]E[R_i^e]+\operatorname{Cov}(m,R_i^e).
 \end{aligned}
-
 $$
+
 由于 $m=a-b'f$，
-$$
 
+$$
 \begin{aligned}
 \operatorname{Cov}(m,R_i^e)
 &=\operatorname{Cov}(-b'f,R_i^e)\\
@@ -3406,27 +3478,27 @@ $$
 &=-b'\operatorname{Cov}(f,\beta_i'f+\varepsilon_i)\\
 &=-b'\operatorname{Var}(f)\beta_i.
 \end{aligned}
-
 $$
+
 代回：
-$$
 
+$$
 \begin{aligned}
 0
 &=E[m]E[R_i^e]-b'\operatorname{Var}(f)\beta_i,\\
 E[R_i^e]
 &=\beta_i'\frac{\operatorname{Var}(f)b}{E[m]}.
 \end{aligned}
-
 $$
+
 令 $\lambda_f\equiv \operatorname{Var}(f)b/E[m]$，得到
-$$
 
+$$
 \begin{aligned}
 E[R_i^e]=\beta_i'\lambda_f.
 \end{aligned}
-
 $$
+
 
 **结论：** 因子模型不是“回归形式”本身，而是存在一个落在因子张成空间里的 SDF；CAPM 是因子取市场组合时的特例。
 
@@ -3438,23 +3510,23 @@ Factor Models Are Equivalent to Mean-Variance Efficiency
 反过来，若存在 factor pricing model 且 factors 是 excess returns，并且存在 risk-free asset，则 factors 与 risk-free return 的线性组合中，必有一个 return 位于 mean-variance frontier 上。
 
 换言之，
+
 $$
 \begin{aligned}
 \text{factor model}
 \quad\Longleftrightarrow\quad
 \text{mean-variance efficiency}.
 \end{aligned}
-
 $$
+
 这个结论在 CAPM 中的特例就是：market return 位于 mean-variance frontier.
 :::
 
-^prop-3-2-9-factor-mv
 
 **Proof**
 
-$$
 
+$$
 \begin{aligned}
 \tilde f\in\mathcal F_{\text{mv}}
 \;&\Longrightarrow\;
@@ -3472,31 +3544,31 @@ E[\tilde R_p]-R_f
 \beta(\tilde R;\tilde f)
 \;&=\frac{\operatorname{cov}(\tilde f,\tilde R)}{\operatorname{var}(\tilde f)}.
 \end{aligned}
-
 $$
+
 因此对任意 return $\tilde R$，
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]-R_z
 \;&=\lambda\,\beta(\tilde R;\tilde f)=\lambda\frac{\operatorname{cov}(\tilde f,\tilde R)}{\operatorname{var}(\tilde f)}.
 \end{aligned}
-
 $$
+
 反过来，若存在 factor pricing model 且 factors 是 excess returns，则存在
-$$
 
+$$
 \begin{aligned}
 \tilde f^\star
 \;&=(W^\star)'\tilde F,\\
 W^\star
 \;&\propto \Sigma_F^{-1}\lambda,
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 \tilde f^\star\in\mathcal F_{\text{mv}}
 \;&\Longleftrightarrow\;
@@ -3504,17 +3576,17 @@ $$
 \;\Longleftrightarrow\;
 \text{factor model}.
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 \text{factor model}
 \quad\Longleftrightarrow\quad
 \text{mean-variance efficiency}.
 \end{aligned}
-
 $$
+
 
 #### 3.2.10 Factor Models Are Equivalent to SDFs
 
@@ -3525,123 +3597,124 @@ Factor Models Are Equivalent to SDFs
 更具体地，若存在 factor model with $R_z\neq 0$，则某个 affine function of the factors 是一个 SDF。
 
 反过来，若存在
+
 $$
 \begin{aligned}
 \tilde m
 &=a+b_1\tilde f_1+\cdots+b_k\tilde f_k,
 \end{aligned}
-
 $$
+
 且 $\tilde m$ 是 SDF，则这些 factors 构成一个 factor model。
 
 因而
+
 $$
 \begin{aligned}
 \text{factor model}
 \quad\Longleftrightarrow\quad
 \text{affine SDF}.
 \end{aligned}
-
 $$
+
 若 factor model 在 complete market 中成立，则 factors 必须有界；否则会导出套利机会。
 :::
 
-^prop-3-2-10-factor-sdf
 
 Empirical AP 连接：[Linear SDF implies beta pricing](../../Empirical AP/05_Cross_Section_Factor_Models.md) 是本命题在 excess-return / cross-sectional setting 下的写法；[Beta-SDF Equivalence](../../Empirical AP/cards/Beta_SDF_Equivalence.md) 汇总 EF8077 与 EF8083 的符号转换。
 
 **Proof**
 
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]-R_z
 &=\lambda'\beta,\\
 \beta
 &=\Sigma_F^{-1}\operatorname{Cov}(\tilde F,\tilde R).
 \end{aligned}
-
 $$
+
 令
-$$
 
+$$
 \begin{aligned}
 \tilde m
 &=\frac{1}{R_z}\Big(1-\lambda'\Sigma_F^{-1}(\tilde F-E[\tilde F])\Big).
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 E[\tilde m\tilde R]
 &=\frac{1}{R_z}\Big(E[\tilde R]-\lambda'\Sigma_F^{-1}\operatorname{Cov}(\tilde F,\tilde R)\Big)\\
 &=\frac{1}{R_z}\big(E[\tilde R]-(E[\tilde R]-R_z)\big)=1,
 \end{aligned}
-
 $$
+
 所以 $\tilde m$ 是 SDF，且是 $\tilde F$ 的 affine function.
 
 反过来，若
-$$
 
+$$
 \begin{aligned}
 \tilde m
 &=a+b'\tilde F,
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 1
 &=E[\tilde m\tilde R]
 =aE[\tilde R]+b' E[\tilde F\tilde R]\\
 &=(a+b'E[\tilde F])E[\tilde R]+b'\operatorname{Cov}(\tilde F,\tilde R),
 \end{aligned}
-
 $$
+
 因此
-$$
 
+$$
 \begin{aligned}
 E[\tilde R]
 &=\frac{1}{a+b'E[\tilde F]}-\frac{b'\operatorname{Cov}(\tilde F,\tilde R)}{a+b'E[\tilde F]}\\
 &=R_z+\lambda'\beta,
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 R_z&:=\frac{1}{a+b'E[\tilde F]},\\
 \lambda'&:=-R_z\,b'\Sigma_F,\\
 \beta&:=\Sigma_F^{-1}\operatorname{Cov}(\tilde F,\tilde R).
 \end{aligned}
-
 $$
+
 故得到 factor model。
 
 #### 3.2.11 Jensen's Alpha
 
 :::{admonition} Definition (Jensen's Alpha)
 设 benchmark return 为 $\tilde R_b$，单因子模型写成
+
 $$
 \begin{aligned}
 \tilde R-R_f
 &=\alpha+\beta(\tilde R_b-R_f)+\tilde\varepsilon.
 \end{aligned}
-
 $$
+
 则 $\alpha$ 叫做 Jensen's alpha.
 
 若模型正确，则 $\alpha=0$；若 $\alpha\neq 0$，则模型在该资产上失效。
 :::
 
-^def-3-2-11-alpha
 
 #### 3.2.12 Performance Evaluation
 
@@ -3650,6 +3723,7 @@ Performance Evaluation
 评价一个投资者是否创造 alpha，等价于检验其 return 的 Sharpe ratio 是否超过某个临界阈值。
 
 更具体地，
+
 $$
 \begin{aligned}
 \alpha>0
@@ -3659,14 +3733,13 @@ $$
 \frac{E[\tilde R_b-R_f]}{\operatorname{std}(\tilde R_b)}
 \times \operatorname{corr}(\tilde R,\tilde R_b).
 \end{aligned}
-
 $$
+
 因此 correlation 在绩效评价中很重要：它决定把 benchmark 的风险调整后收益“折算”到目标投资上之后，是否仍然有正 alpha。
 
 需要注意：正 alpha 并不必然意味着 return mean-variance dominates benchmark；更准确地说，**marginal investment** 的增量如果同时在收益和相关性上满足上式，才会 mean-variance dominate benchmark.
 :::
 
-^prop-3-2-12-performance
 
 #### 3.2.13 Empirical Performance of Popular Models
 
@@ -3678,11 +3751,9 @@ $$
 
 这些模型都可以看作是在 CAPM 之后，对 factor set 的进一步扩展，用来提高对 cross-section of returns 的解释力。
 
-^note-3-2-13-popular-models
 
 ### 3.3 Competitive Equilibrium and Representative Investor
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part1/竞争均衡、帕累托最优与代表性投资者](Asset Pricing/Theoretical AP/cards/part1/竞争均衡、帕累托最优与代表性投资者)
 
 :::{admonition} Lemma
 Competitive Equilibrium and Pareto Efficiency

@@ -5,7 +5,6 @@
 
 ### 4.1 Discrete-time Securities Market, Trading Strategy, and Self-Financing
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/多期证券市场、交易策略与自融资](Asset Pricing/Theoretical AP/cards/part2/多期证券市场、交易策略与自融资)
 
 ### 4.1.1 Securities Market Model
 
@@ -17,6 +16,7 @@ $$
 (\Omega,\mathcal F,P),\quad \{\mathcal F_t\}_{t=0}^T,\quad \{B_t\}_{t=0}^T,\quad \{S_t\}_{t=0}^T
 \end{aligned}
 $$
+
 构成，其中：
 - $\Omega$ 是有限状态空间，且各状态概率为正；
 - $t=1,\ldots,T$ 是 trading days；
@@ -33,6 +33,7 @@ S_{0,t}
 &=(1+r_{t-1})S_{0,t-1},
 \end{aligned}
 $$
+
 其中 $r_t$ 是 short rate process。
 
 所有价格与股息过程都是 adapted processes；记
@@ -43,6 +44,7 @@ $$
 S=(S_0,\ldots,S_N).
 \end{aligned}
 $$
+
 :::
 
 
@@ -121,6 +123,7 @@ $$
 \theta=(\theta_0,\ldots,\theta_N),
 \end{aligned}
 $$
+
 且满足
 
 $$
@@ -128,6 +131,7 @@ $$
 \theta_T=0.
 \end{aligned}
 $$
+
 这里 $\theta_{t,n}$ 表示时点 $t$ 交易后持有的第 $n$ 只证券份额。
 
 $\theta_T=0$ 表示到终点 $T$ 必须平仓、关闭头寸。
@@ -143,6 +147,7 @@ c_t
 &=\theta_{t-1}(S_t+\delta_t)-\theta_t S_t,
 \end{aligned}
 $$
+
 则该策略为该 cash flow 提供融资。
 
 于是：
@@ -155,6 +160,7 @@ c_t<0
 &\Longleftrightarrow \text{at }t\text{ 注入现金}.
 \end{aligned}
 $$
+
 :::
 
 
@@ -167,6 +173,7 @@ $$
 c_1=\cdots=c_T=0,
 \end{aligned}
 $$
+
 则称策略 self-financing。
 
 此时财富过程满足
@@ -179,6 +186,7 @@ W_t-W_{t-1}
 &=\theta_{t-1}(S_t-S_{t-1})+\theta_{t-1}\delta_t.
 \end{aligned}
 $$
+
 递推求和得
 
 $$
@@ -187,6 +195,7 @@ W_t
 &=W_0+\sum_{u=1}^t \theta_{u-1}\big[(S_u-S_{u-1})+\delta_u\big].
 \end{aligned}
 $$
+
 :::
 
 
@@ -227,6 +236,7 @@ c_t&\ge 0,\ \forall t,\\
 P(c_t>0)&>0 \text{ for some }t.
 \end{aligned}
 $$
+
 :::
 
 
@@ -238,6 +248,7 @@ $$
 X<Y \;\Rightarrow\; \Psi(X)<\Psi(Y),
 \end{aligned}
 $$
+
 则称它 strictly increasing.
 :::
 
@@ -255,6 +266,7 @@ $$
 \Psi(c)=0,\ \forall c\in\mathcal M.
 \end{aligned}
 $$
+
 其中 $\mathcal M$ 是 attainable marketable cash flows 的集合。
 :::
 
@@ -331,6 +343,7 @@ K_{t,\omega}[X]
 \sum_{u\in D(t,\omega)}X_u.
 \end{aligned}
 $$
+
 简记为 $K_t[X]$。
 :::
 
@@ -347,6 +360,7 @@ S_t
 &=\frac{1}{\psi_t}K_t\!\left[\psi_{t+1}(\delta_{t+1}+S_{t+1})\right];
 \end{aligned}
 $$
+
 3. 存在严格正的 state-price process $\psi\in\mathcal L^{++}$，使得
 
 $$
@@ -355,6 +369,7 @@ S_t
 &=\frac{1}{\psi_t}K_t\!\left(\sum_{u=t+1}^T\psi_u\delta_u+\psi_T S_T\right).
 \end{aligned}
 $$
+
 因而一个证券的价格等于未来所有 dividends 与 time-$T$ price 的 discounted present value。
 :::
 
@@ -457,6 +472,7 @@ $$
 W_t=\theta_t'S_t,
 \end{aligned}
 $$
+
 且
 
 $$
@@ -464,6 +480,7 @@ $$
 dW_t=\theta_t\,dS_t,
 \end{aligned}
 $$
+
 则称该策略 self-financing。
 
 这表示财富变化完全来自 asset returns，没有外部注资或取款。
@@ -483,6 +500,7 @@ $$
 C_0=-\theta_0'S_0,\qquad C_T=\theta_T'S_T.
 \end{aligned}
 $$
+
 反过来，若上述条件成立，则该 cash flow 被 $\theta$ financing。
 
 **Definition (Marketable):**
@@ -503,7 +521,6 @@ $$
 
 ### 4.3 Arbitrage, SPD, and EMM
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/状态价格密度、EMM 与鞅定价](Asset Pricing/Theoretical AP/cards/part2/状态价格密度、EMM 与鞅定价)
 
 | 视角        | Discrete-time                                                                 | Continuous-time                                                                                    |
 | --------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -591,6 +608,7 @@ $$
 =K_0\sum_{t=0}^T p_t\pi_t c_t,
 \end{aligned}
 $$
+
 其中
 
 $$
@@ -598,6 +616,7 @@ $$
 q_t&=p_t\pi_t,\qquad \pi_t>0.
 \end{aligned}
 $$
+
 因而
 
 $$
@@ -607,6 +626,7 @@ $$
 \pi_0=1.
 \end{aligned}
 $$
+
 直观上，$q_t$ 是 state price，$p_t$ 是 physical probability，$\pi_t$ 是每单位 state probability 对应的 price。
 
 :::
@@ -686,11 +706,13 @@ $$
 
 :::{admonition} Definition (EMM)
 等价鞅测度（equivalent martingale measure, EMM）$\mathbb Q$ 满足
+
 $$
 \begin{aligned}
 \mathbb Q\sim P,
 \end{aligned}
 $$
+
 且贴现价格过程在 $\mathbb Q$ 下是 martingale。
 
 记 money market account 为 $B_t=S_{0,t}$，则定价公式可写为
@@ -701,6 +723,7 @@ $$
 &=E_0^{\mathbb Q}\!\left[\sum_{t=0}^T\frac{c_t}{B_t}\right].
 \end{aligned}
 $$
+
 因而在 $\mathbb Q$ 下，资产的 expected return 等于 interest rate。
 
 :::
@@ -986,6 +1009,7 @@ $$
 D_t=\int_0^t \delta_s\,ds,
 \end{aligned}
 $$
+
 以及 gain process
 
 $$
@@ -993,6 +1017,7 @@ $$
 G_t=S_t+D_t.
 \end{aligned}
 $$
+
 若引入 intermediate consumption rate $c\in\mathcal L^1$，则消费累计为 $\int_0^t c_s\,ds$。
 
 **Definition (Trading Strategy and Cash Flow):**
@@ -1006,6 +1031,7 @@ $$
 &=\theta_0S_0+\int_0^t\theta_s\,dG_s-\int_0^t c_s\,ds,
 \end{aligned}
 $$
+
 且
 
 $$
@@ -1022,6 +1048,7 @@ $$
 C_0\ge 0,\qquad c_t\ge 0,\qquad C_T\ge 0,
 \end{aligned}
 $$
+
 并且至少在某一部分上严格为正，且具有正概率。
 
 :::
@@ -1114,7 +1141,6 @@ Proposition
 
 ### 4.4 Replication and Complete Markets
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/冗余证券、复制与完备市场](Asset Pricing/Theoretical AP/cards/part2/冗余证券、复制与完备市场)
 
 ### 4.4.1 Redundant Securities
 
@@ -1169,6 +1195,7 @@ $$
 \text{the EMM is unique}.
 \end{aligned}
 $$
+
 更具体地，在连续时间模型中，若风险资产扩散矩阵为 $\sigma_t$，则
 
 $$
@@ -1176,6 +1203,7 @@ $$
 \operatorname{rank}(\sigma_t)=d \quad \text{a.s.}
 \end{aligned}
 $$
+
 当且仅当市场 complete。
 :::
 
@@ -1194,13 +1222,13 @@ $$
 &=E_t^{\mathbb Q}\!\left[\exp\!\left(-\int_t^T r_s\,ds\right)\tilde S_T\right].
 \end{aligned}
 $$
+
 若 $\tilde S_T$ 可由某个 self-financing strategy 复制，则其价格必须等于复制组合的价格；而在 EMM $\mathbb Q$ 下，这个复制价格就是贴现后的条件期望。
 
 :::
 
 ### 4.5 Martingale Approach to Portfolio Choice
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/鞅方法下的最优消费与最优交易策略](Asset Pricing/Theoretical AP/cards/part2/鞅方法下的最优消费与最优交易策略)
 
 ### 4.5.1 Feasible Consumption and Static Problem
 
@@ -1219,6 +1247,7 @@ $$
 &c_t\ge 0,\ C_T\ge 0.
 \end{aligned}
 $$
+
 写成 $P$-测度下的预算约束就是
 
 $$
@@ -1269,6 +1298,7 @@ $$
 \quad\text{s.t.}\quad
 E\left[\int_0^T\xi_t c_tdt+\xi_TC_T\right]\le W_0.
 $$
+
 内点最优满足
 
 $$
@@ -1420,7 +1450,6 @@ $$
 
 ### 5.1 Value Function and HJB Equation
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划](Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划)
 
 ### 5.1.1 Motivating Example
 
@@ -1531,6 +1560,7 @@ HJB Equation
 $$
 dX_t=\mu(t,X_t,a_t)dt+\sigma(t,X_t,a_t)dW_t,
 $$
+
 且 instantaneous payoff 为 $f(t,X_t,a_t)$，则 HJB 为
 
 $$
@@ -1594,13 +1624,13 @@ V(W_t)
 E_t\!\left[\int_t^\infty e^{-\beta(s-t)}\log C_s\,ds\right].
 \end{aligned}
 $$
+
 也就是说，给定当前财富 $W_t$ 以后，未来最优值就被完全决定了。
 
 以后若再引入状态变量 $X_t$，再推广成 $V(t,W_t,X_t)$。
 
 :::
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Bellman equation](Asset Pricing/Theoretical AP/cards/part2/Bellman equation) · [Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划](Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划)
 
 Bellman equation 不是“凭空定义”的；它来自 **principle of optimality**：  
 从时点 $t$ 往后看，最优策略在前面这一个极短区间 $[t,t+\Delta t]$ 上先做一次最优决策，然后从 $t+\Delta t$ 开始仍然必须继续最优。  
@@ -1761,7 +1791,7 @@ $$
    +\frac12 V_{WW}W_t^2\phi_t^2\sigma^2
    \Big\}.
    \end{aligned}
-   $$
+$$
 
    对 $C_t,\phi_t$ 求一阶条件，得
 
@@ -1769,21 +1799,21 @@ $$
    \begin{aligned}
    C_t^*&=\frac{1}{V_W},\qquad \phi_t^*=-\frac{V_W}{W_tV_{WW}}\cdot\frac{\mu-r}{\sigma^2}.
    \end{aligned}
-   $$
+$$
 
 	现在猜
 
-	$$
+$$
 	   \begin{aligned}
 	   V(W)=A\log W+G,
 	   \end{aligned}
-	   $$
+$$
 
 $$
 	   \begin{aligned}
 	   V_W&=\frac{A}{W},\qquad V_{WW}=-\frac{A}{W^2}.
 	   \end{aligned}
-	   $$
+$$
 
 	代回 FOC，得到
 
@@ -1792,11 +1822,11 @@ $$
    C_t^*&=\frac{W_t}{A},\\
    \phi_t^*&=\frac{\mu-r}{\sigma^2}.
    \end{aligned}
-   $$
+$$
 
    再代回 HJB：
 
-   $$
+$$
    \begin{aligned}
    0
    &=\log\!\left(\frac{W_t}{A}\right)-\beta(A\log W_t+G)
@@ -1806,17 +1836,17 @@ $$
    +A\left(r+\frac{(\mu-r)^2}{\sigma^2}-\frac{1}{A}\right)
    -\frac12A\frac{(\mu-r)^2}{\sigma^2}.
    \end{aligned}
-   $$
+$$
 
    为了让这个式子对所有 $W_t$ 都成立，$\log W_t$ 的系数必须消失，所以
 
-   $$
+$$
    \begin{aligned}
    1-\beta A=0
    \qquad\Longrightarrow\qquad
    A=\beta^{-1}.
    \end{aligned}
-   $$
+$$
 
    常数项再给出
 
@@ -1825,7 +1855,7 @@ $$
    -\beta\log \beta
    =-\beta^2 G+r+\frac{(\mu-r)^2}{\sigma^2}-\beta-\frac12\frac{(\mu-r)^2}{\sigma^2}.
    \end{aligned}
-   $$
+$$
 
    因而最优政策是
 
@@ -1834,7 +1864,7 @@ $$
    C_t^*&=\beta W_t,\\
    \phi_t^*&=\frac{\mu-r}{\sigma^2}.
    \end{aligned}
-   $$
+$$
 
  log utility 允许 value function 保持同类形式，猜 $A\log W+G$ 后，HJB 会把未知数压缩成常数方程。
 
@@ -1937,6 +1967,7 @@ u(c_t)+D_t^{W,X}V(t,W_t,X_t)+V_t(t,W_t,X_t)
 \Big\},
 \end{aligned}
 $$
+
 其中
 
 $$
@@ -1950,6 +1981,7 @@ V_W\big[W_t r(X_t,t)+W_t\phi_t(\mu(X_t,t)-r(X_t,t)\mathbf 1)-c_t\big] \\
 &\quad+V_{WX}W_t\phi_t\sigma(X_t,t)\sigma_X(X_t,t)'.
 \end{aligned}
 $$
+
 终端条件为
 
 $$
@@ -1970,6 +2002,7 @@ $$
 V(T,W_T,X_T)=U_T(W_T),
 \end{aligned}
 $$
+
 且对任意 admissible control
 
 $$
@@ -1980,6 +2013,7 @@ E\!\left[\int_t^T \|V_X\sigma_{X,s}\|^2\,ds\right]
 <\infty,
 \end{aligned}
 $$
+
 则
 
 $$
@@ -1987,6 +2021,7 @@ $$
 E_t\!\left[\int_t^T u(c_s)\,ds+U_T(W_T)\right]\le V(t,W_t,X_t),
 \end{aligned}
 $$
+
 而使 HJB 中 supremum 取到的控制就是最优控制；此时 $V$ 就是 value function。
 
 :::
@@ -2004,6 +2039,7 @@ Myopic Portfolio Rule
 $$
 dW_t=(rW_t-c_t+\phi_t'(\mu-r\iota))dt+\phi_t'\sigma dZ_t,
 $$
+
 则 HJB 中关于风险持仓 $\phi$ 的一阶条件给出
 
 $$
@@ -2059,7 +2095,6 @@ $$
 **结论：** 最优风险持仓 = 风险容忍度 $\times$ mean-variance 方向；CRRA 情形下它与财富成比例，因而风险资产权重为常数。
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/连续时间最优组合规则](Asset Pricing/Theoretical AP/cards/part2/连续时间最优组合规则)
 
 :::{admonition} Lemma
 Optimal Portfolio Rule from the HJB Equation
@@ -2215,7 +2250,6 @@ $$
 **结论：** Merton 特例中权重是常数，不是因为“没有动态问题”，而是因为 CRRA 同质性使风险容忍度与财富同比例变化。
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Merton 问题 - 最优消费与投资](Asset Pricing/Theoretical AP/cards/part2/Merton 问题 - 最优消费与投资)
 
 对照后文：[5.4.2.1 No Transitory Shocks](#5.4.2.1 Special Case: No Transitory Shocks)（此时最优组合一般是 $\phi(x)$；Merton 特例则进一步退化成常数权重）。
 
@@ -2402,6 +2436,7 @@ Log Utility Consumption Rule
 $$
 c_t^*=\rho W_t,
 $$
+
 且单风险资产时
 
 $$
@@ -2713,49 +2748,60 @@ $$
 $$
 
 **说明：+ 这个 ODE 怎么解？**
->先试 affine guess
-> $$
-> \begin{aligned}
-> f(A)=aA+b.
-> \end{aligned}
-> $$
-> 于是
-> $$
-> \begin{aligned}
-> f'(A)=a,\qquad f''(A)=0.
-> \end{aligned}
-> $$
-> 代回 ODE 得
-> $$
-> \begin{aligned}
-> 0
-> &=
-> \log\rho-\rho(aA+b)+\rho^{-1}(A-\delta)-1+\mu_AAa\\
-> &=
-> A\big[-\rho a+\rho^{-1}+\mu_Aa\big]
-> +\big[\log\rho-\rho b-\rho^{-1}\delta-1\big].
-> \end{aligned}
-> $$
-> 因为这个等式要对所有 $A$ 都成立，所以一次项和常数项分别为零：
-> $$
-> \begin{aligned}
-> -\rho a+\rho^{-1}+\mu_Aa&=0,\\
-> \log\rho-\rho b-\rho^{-1}\delta-1&=0.
-> \end{aligned}
-> $$
-> 解得
-> $$
-> \begin{aligned}
-> a&=\frac{1}{\rho(\rho-\mu_A)},\\
-> b&=\frac{\log\rho-1}{\rho}-\frac{\delta}{\rho^2}.
-> \end{aligned}
-> $$
-> $$
-> \begin{aligned}
-> f(A)=\frac{A}{\rho(\rho-\mu_A)}+\frac{\log\rho-1}{\rho}-\frac{\delta}{\rho^2}.
-> \end{aligned}
-> $$
-> 这也说明 value function 事实上是 “$\log K$ + 线性 $A$” 的形式。
+先试 affine guess
+
+$$
+\begin{aligned}
+f(A)=aA+b.
+\end{aligned}
+$$
+
+于是
+
+$$
+\begin{aligned}
+f'(A)=a,\qquad f''(A)=0.
+\end{aligned}
+$$
+
+代回 ODE 得
+
+$$
+\begin{aligned}
+0
+&=
+\log\rho-\rho(aA+b)+\rho^{-1}(A-\delta)-1+\mu_AAa\\
+&=
+A\big[-\rho a+\rho^{-1}+\mu_Aa\big]
++\big[\log\rho-\rho b-\rho^{-1}\delta-1\big].
+\end{aligned}
+$$
+
+因为这个等式要对所有 $A$ 都成立，所以一次项和常数项分别为零：
+
+$$
+\begin{aligned}
+-\rho a+\rho^{-1}+\mu_Aa&=0,\\
+\log\rho-\rho b-\rho^{-1}\delta-1&=0.
+\end{aligned}
+$$
+
+解得
+
+$$
+\begin{aligned}
+a&=\frac{1}{\rho(\rho-\mu_A)},\\
+b&=\frac{\log\rho-1}{\rho}-\frac{\delta}{\rho^2}.
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+f(A)=\frac{A}{\rho(\rho-\mu_A)}+\frac{\log\rho-1}{\rho}-\frac{\delta}{\rho^2}.
+\end{aligned}
+$$
+
+这也说明 value function 事实上是 “$\log K$ + 线性 $A$” 的形式。
 
 因此消费是资本存量的常数比例：
 
@@ -3386,7 +3432,7 @@ $$
    \qquad
    i=1,\dots,N.
    \end{aligned}
-   $$
+$$
 
    记
 
@@ -3394,7 +3440,7 @@ $$
    \begin{aligned}
    f_i=f(x_i).
    \end{aligned}
-   $$
+$$
 
 2. **在每个 interior grid point 近似导数**  对 $i=2,\dots,N-1$，常用 central differences：
 
@@ -3403,7 +3449,7 @@ $$
    f'(x_i)&\approx \frac{f_{i+1}-f_{i-1}}{2h},\\
    f''(x_i)&\approx \frac{f_{i+1}-2f_i+f_{i-1}}{h^2}.
    \end{aligned}
-   $$
+$$
 
    如果担心方向性或稳定性，也可用 one-sided difference：
 
@@ -3413,7 +3459,7 @@ $$
    \quad\text{or}\quad
    \frac{f_{i+1}-f_i}{h}.
    \end{aligned}
-   $$
+$$
 
 3. **把连续方程改成离散方程**  在每个 interior point，把
 
@@ -3421,7 +3467,7 @@ $$
    \begin{aligned}
    f(x_i),\quad f'(x_i),\quad f''(x_i)
    \end{aligned}
-   $$
+$$
 
    分别替换成
 
@@ -3429,7 +3475,7 @@ $$
    \begin{aligned}
    f_i,\quad \frac{f_{i+1}-f_{i-1}}{2h},\quad \frac{f_{i+1}-2f_i+f_{i-1}}{h^2},
    \end{aligned}
-   $$
+$$
 
    得到
 
@@ -3439,7 +3485,7 @@ $$
    \qquad
    i=2,\dots,N-1.
    \end{aligned}
-   $$
+$$
 
    所以原来的微分方程现在变成 $N-2$ 条非线性代数方程。
 
@@ -3451,7 +3497,7 @@ $$
 	     \begin{aligned}
 	     f'(\underline x)=0,\qquad f'(\bar x)=0,
 	     \end{aligned}
-	     $$
+$$
 
 		离散化后可写成
 
@@ -3459,7 +3505,7 @@ $$
 	     \begin{aligned}
 	     f_2-f_1=0,\qquad f_N-f_{N-1}=0.
 	     \end{aligned}
-	     $$
+$$
 
 	   这样总共得到 $N$ 条方程，未知数正好是 $f_1,\dots,f_N$。
 
@@ -3470,21 +3516,23 @@ $$
    \begin{aligned}
    F(f_1,\dots,f_N)=0.
    \end{aligned}
-   $$
+$$
 
    通常做法是：
    - 给一个初始 guess $f^{(0)}=(f_1^{(0)},\dots,f_N^{(0)})$；
    - 用 Newton method / quasi-Newton / policy iteration 迭代；
    - 每次更新后重新计算离散导数、$\phi_i$ 与 residual；
    - 直到 $$
+
+$$
      \begin{aligned}
      \max_i |F_i|<\varepsilon.
      \end{aligned}
-
-     $$
-算出来 $f_i$ 之后，再回代
 $$
 
+算出来 $f_i$ 之后，再回代
+
+$$
 \begin{aligned}
 \phi_i =
 \frac{(1-\gamma)f_i-\widehat f_i'}
@@ -3493,8 +3541,8 @@ $$
 -\frac{(\gamma-1)\widehat f_i'+\widehat f_i''}
 {\gamma(1-\gamma)f_i-(2\gamma-1)\widehat f_i'-\widehat f_i''}\,b,
 \end{aligned}
-
 $$
+
 其中 $\widehat f_i',\widehat f_i''$ 是网格上的差分近似，就得到每个状态点上的最优组合。
 
 **说明：+ 这套方法在直觉上到底做了什么？**
@@ -3504,23 +3552,20 @@ finite differences 做的事，就是把“每个 $x$”换成“每个网格点
 
 ### 5.5 Optimal Stopping
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/最优停止与 smooth pasting](Asset Pricing/Theoretical AP/cards/part2/最优停止与 smooth pasting)
 
 ### 5.5.1 Optimal Stopping Times
 
 :::{admonition} Definition (Optimal Stopping Times)
 最优停止问题是在所有 stopping times 中选择 $\tau$，使
-$$
 V(X_0)=\sup_{\tau}E\!\left[\int_0^{\tau} e^{-\rho t}g(X_t)dt+e^{-\rho\tau}h(X_\tau)\right].
 
-$$
 其中 $g(X)$ 是 continuation region 的 flow payoff，$h(X)$ 是停止时的一次性 payoff。
 :::
 
 
 若最优停止只依赖当前状态 $X_t$，则 continuation region $D$ 与 stopping region $D^c$ 满足
-$$
 
+$$
 \begin{aligned}
 V(X)
 &>
@@ -3529,22 +3574,22 @@ V(X)
 &=
 h(X), \qquad X\notin D.
 \end{aligned}
-
 $$
+
 HJB 变成变分不等式：
-$$
 
+$$
 \begin{aligned}
 0 =
 \max\big\{
 -\beta V(X)+\mathcal D_XV(X)+g(X),\; h(X)-V(X)
 \big\}.
 \end{aligned}
-
 $$
+
 这个式子来自“继续 / 停止”两种选择同时存在。对任意当前状态 $X$，最优值只能是下面两者中的较大者：
-$$
 
+$$
 \begin{aligned}
 V(X) =
 \max\left\{
@@ -3552,22 +3597,22 @@ V(X) =
 \underbrace{g(X)\,dt+e^{-\beta dt}E[V(X_{t+dt})]}_{\text{继续一个 }dt}
 \right\}.
 \end{aligned}
-
 $$
+
 对“继续一个 $dt$”那一项作 generator 展开：
-$$
 
+$$
 \begin{aligned}
 E[V(X_{t+dt})]
 &=V(X)+\mathcal D_XV(X)\,dt+o(dt),\\
 e^{-\beta dt}
 &=1-\beta dt+o(dt).
 \end{aligned}
-
 $$
+
 代回 Bellman equation 并连续整理：
-$$
 
+$$
 \begin{aligned}
 V(X)
 &=
@@ -3581,11 +3626,11 @@ h(X),\;
 V(X)+\underbrace{\big[-\beta V(X)+\mathcal D_XV(X)+g(X)\big]}_{\text{继续时的局部净增值}}dt+o(dt)
 \right\}.
 \end{aligned}
-
 $$
+
 两边减去 $V(X)$：
-$$
 
+$$
 \begin{aligned}
 0
 &=
@@ -3594,22 +3639,22 @@ $$
 \underbrace{\big[-\beta V(X)+\mathcal D_XV(X)+g(X)\big]dt+o(dt)}_{\text{若继续，则这一项绑定}}
 \right\}.
 \end{aligned}
-
 $$
+
 这里的 “绑定 / binding” 含义见 [Asset Pricing/Theoretical AP/cards/part2/binding（绑定）](Asset Pricing/Theoretical AP/cards/part2/binding（绑定）)。
 这里要特别注意：不能把整个 $\max\{\cdot,\cdot\}$ 直接除以 $dt$，因为
-$$
 
+$$
 \begin{aligned}
 h(X)-V(X)
 \end{aligned}
-
 $$
+
 不是 $O(dt)$ 项。正确做法是先分情形。
 
 先由
-$$
 
+$$
 \begin{aligned}
 V(X)=\max\{h(X),\text{continue value}\}
 \Longrightarrow
@@ -3617,11 +3662,11 @@ V(X)\ge h(X)
 \Longrightarrow
 h(X)-V(X)\le 0.
 \end{aligned}
-
-$$
-(1) continuation region：
 $$
 
+**(1) continuation region**
+
+$$
 \begin{aligned}
 V(X)>h(X)
 &\Longrightarrow
@@ -3633,23 +3678,22 @@ h(X)-V(X)<0 \\
 &\Longrightarrow
 -\beta V(X)+\mathcal D_XV(X)+g(X)=0.
 \end{aligned}
-
 $$
 
-(2) stopping region：
-$$
+**(2) stopping region**
 
+$$
 \begin{aligned}
 h(X)-V(X)=0
 &\Longleftrightarrow
 V(X)=h(X).
 \end{aligned}
-
 $$
+
 
 把 (1) 与 (2) 合并，就得到变分不等式
-$$
 
+$$
 \begin{aligned}
 0 =
 \max\big\{
@@ -3657,82 +3701,84 @@ $$
 h(X)-V(X)
 \big\}.
 \end{aligned}
-
 $$
+
 所以这不是“普通 HJB + 一个约束”硬拼出来的，而是因为最优停止问题在每个点都要比较：
-$$
 
+$$
 \begin{aligned}
 \underbrace{\text{继续的局部净增值}}_{-\beta V+\mathcal D_XV+g}
 \quad\text{vs.}\quad
 \underbrace{\text{立刻停止的相对价值}}_{h-V}.
 \end{aligned}
-
 $$
+
 若继续更优，则第一项绑定；若立即停止更优，则第二项绑定。
 
 :::{admonition} Lemma
 Value Matching 与 Smooth Pasting
 若最优策略由阈值 $X^*$ 划分，且停止收益写成 $h(X)$，则自由边界（free boundary）通常满足
+
 $$
 \begin{aligned}
 V(X^*)&=h(X^*) \qquad \text{(value matching)}\\
 V'(X^*)&=h'(X^*) \qquad \text{(smooth pasting)}.
 \end{aligned}
-
 $$
+
 其中第一条表示在边界点“继续”和“立刻停止”的价值必须接上；第二条表示最优边界是内生选出来的，故一阶斜率也要接上。  
 在本节卖出资产问题里，
+
 $$
 \begin{aligned}
 h(X)=X-K
 &\Longrightarrow
 V(X^*)=X^*-K,\qquad V'(X^*)=1.
 \end{aligned}
-
 $$
+
 
 :::
 
 ### 5.5.2 Optimal Time to Sell an Asset
 
 设 risky asset 价格满足
-$$
 
+$$
 \begin{aligned}
 dX_t=\mu X_t\,dt+\sigma X_t\,dZ_t,
 \end{aligned}
-
 $$
+
 持有一单位股票，若此时卖出则要支付 fixed transaction cost $K$，故停止时的净收益为
-$$
 
+$$
 \begin{aligned}
 \Pi(\tau)=e^{-\beta\tau}(X_\tau-K).
 \end{aligned}
-
 $$
+
 为了保证最优停止时间有限，假设$\mu<\beta.$
 此时 stopping problem 为
-$$
 
+$$
 \begin{aligned}
 V(X_0)=\sup_{\tau}E\!\left[e^{-\beta\tau}(X_\tau-K)\right].
 \end{aligned}
-
 $$
+
 
 若存在阈值 $X^*$，则 continuation region 为
-$$
 
+$$
 \begin{aligned}
 D=\{X:X<X^*\},
 \end{aligned}
-
 $$
+
 且在 $X<X^*$ 内满足
-$$
 
+$$
 \begin{aligned}
 0&=-\beta V(X)+\mu X V'(X)+\frac12\sigma^2X^2V''(X) \\
 V(X)=CX^\gamma
@@ -3748,76 +3794,76 @@ V''(X)=C\gamma(\gamma-1)X^{\gamma-2} \\
 &\Longrightarrow
 V(X)=CX^\gamma,\qquad X<X^*.
 \end{aligned}
-
 $$
+
 
 这里的停止收益函数就是
-$$
 
+$$
 \begin{aligned}
 h(X)=X-K,
 \end{aligned}
-
 $$
+
 因为一旦停止（卖出），立刻拿到标的价格 $X$，同时支付 fixed transaction cost $K$。因此 value matching 与 smooth pasting 实际上是
-$$
 
+$$
 \begin{aligned}
 V(X^*)&=h(X^*)=X^*-K,\\
 V'(X^*)&=h'(X^*)=1.
 \end{aligned}
-
 $$
+
 也就是说：value matching 要求边界点处“继续持有的价值”和“立刻卖出的价值”相等；smooth pasting 则要求两边斜率也相等。于是可写成
-$$
 
+$$
 \begin{aligned}
 V(X^*)&=X^*-K,\\
 V'(X^*)&=1.
 \end{aligned}
-
 $$
+
 由 $V(X)=CX^\gamma$ 得
-$$
 
+$$
 \begin{aligned}
 C(X^*)^\gamma&=X^*-K,\\
 C\gamma(X^*)^{\gamma-1}&=1.
 \end{aligned}
-
 $$
+
 消去 $C$：
-$$
 
+$$
 \begin{aligned}
 \frac{X^*}{\gamma}&=X^*-K
 \quad\Longrightarrow\quad
 X^*=\frac{\gamma}{\gamma-1}K.
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 C=\frac{(X^*)^{1-\gamma}}{\gamma}.
 \end{aligned}
-
 $$
+
 最终 value function 为
+
+$$
+\begin{aligned}
+V(X)
+=
+\begin{cases}
+(X^*-K)\left(\dfrac{X}{X^*}\right)^\gamma, & X<X^*,\\[8pt]
+X-K, & X\ge X^*.
+\end{cases}
+\end{aligned}
 $$
 
-	\begin{aligned}
-	V(X)
-	=
-	\begin{cases}
-	(X^*-K)\left(\dfrac{X}{X^*}\right)^\gamma, & X<X^*,\\[8pt]
-	X-K, & X\ge X^*.
-	\end{cases}
-	\end{aligned}
-
-	$$
-	这说明：当价格低于阈值时等待更优；当价格达到 $X^*$ 时立即卖出。
+这说明：当价格低于阈值时等待更优；当价格达到 $X^*$ 时立即卖出。
 
 
 ---
@@ -3835,20 +3881,20 @@ Equity Premium Puzzle
 :::
 
 股权溢价（equity premium）是资产定价里最著名的谜题之一：历史上股票的平均超额回报非常高，
-$$
 
+$$
 \begin{aligned}
 \text{equity premium}
 &=E[R_{e,t+1}]-R_{f,t+1},
 \end{aligned}
-
 $$
+
 但若只用“风险补偿”来解释，所需要的风险厌恶往往高得不合理。于是一个自然问题是：  
 为什么股票愿意提供这么高的风险补偿，而代表性消费者模型（representative agent model）里常见的消费波动却解释不了这么大的回报？
 
 代表性消费者框架通常作为起点：假设总消费（aggregate consumption）能代表经济状态，且偏好为 CRRA，则定价核由边际消费效用决定，
-$$
 
+$$
 \begin{aligned}
 M_{t,t+1}
 \propto
@@ -3856,17 +3902,15 @@ M_{t,t+1}
 \;=\;
 \left(\frac{c_{t+1}}{c_t}\right)^{-\gamma},
 \end{aligned}
-
 $$
+
 从而资产定价满足
 
 :::{admonition} Lemma
 CCAPM Euler Equation
 CCAPM 的 Euler 方程给出
-$$
 E_t\big[M_{t,t+1}R_{i,t+1}\big]=1.
 
-$$
 
 :::
 
@@ -3877,20 +3921,14 @@ $$
 :::{admonition} Lemma
 Consumption-Based SDF
 若代表性代理人最大化
-$$
 E_t\sum_{j\ge0}\beta^j u(C_{t+j}),
 
-$$
 则一阶条件给出
-$$
 1=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}R_{i,t+1}\right].
 
-$$
 因而
-$$
 M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}
 
-$$
 是单期 SDF。
 
 :::
@@ -3898,151 +3936,147 @@ $$
 **WTS：** 对“少消费一点、买入一单位资产、明天卖出”的扰动求一阶条件。
 
 **联立系统：** 在 $t$ 时刻用 $p_{i,t}$ 买入资产 $i$ 的 $\epsilon$ 单位：
-$$
 
+$$
 \begin{aligned}
 \Delta C_t&=-\epsilon p_{i,t},\\
 \Delta C_{t+1}&=\epsilon X_{i,t+1},\\
 R_{i,t+1}&=X_{i,t+1}/p_{i,t}.
 \end{aligned}
-
 $$
+
 
 **连续求解：** 最优下边际效用变化为零：
-$$
 
+$$
 \begin{aligned}
 0
 &=u'(C_t)(-p_{i,t})+\beta E_t[u'(C_{t+1})X_{i,t+1}]\\
 &=-u'(C_t)p_{i,t}+\beta E_t[u'(C_{t+1})X_{i,t+1}].
 \end{aligned}
-
 $$
+
 移项并除以 $u'(C_t)p_{i,t}$：
-$$
 
+$$
 \begin{aligned}
 1
 &=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}\frac{X_{i,t+1}}{p_{i,t}}\right]\\
 &=E_t[M_{t+1}R_{i,t+1}].
 \end{aligned}
-
 $$
+
 
 **结论：** CCAPM 的定价核来自跨期边际替代率；资产在高边际效用状态下 payoff 越高，均衡预期收益越低。
 
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/CCAPM 与 Equity Premium Puzzle](Asset Pricing/Theoretical AP/cards/part2/CCAPM 与 Equity Premium Puzzle)
 
 更具体地，课件里的代表性消费者写成
-$$
 
+$$
 \begin{aligned}
 E_0\!\left[\int_0^\infty e^{-\rho t}\frac{c_t^{1-\gamma}}{1-\gamma}\,dt\right],
 \end{aligned}
-
 $$
+
 总消费与股票收益过程设为
-$$
 
+$$
 \begin{aligned}
 \frac{dc_t}{c_t}&=\mu_c\,dt+\sigma_c\,dZ_{c,t},\\
 \frac{dR_t}{R_t}&=\mu_R\,dt+\sigma_R\,dZ_{R,t},\\
 dZ_{c,t}\,dZ_{R,t}&=\rho_{R,c}\,dt.
 \end{aligned}
-
 $$
+
 因此 state-price density 为
-$$
 
+$$
 \begin{aligned}
 \pi_t=e^{-\rho t}c_t^{-\gamma},
 \end{aligned}
-
 $$
+
 CCAPM 于是给出风险溢价公式
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[\frac{dR_t}{R_t}-r_{f,t}dt\right]
 &=\gamma\,\operatorname{Cov}_t\!\left(\frac{dR_t}{R_t},\frac{dc_t}{c_t}\right) \\
 &=\gamma\,\sigma_c\sigma_R\rho_{R,c}\,dt.
 \end{aligned}
-
 $$
+
 把课件里的历史数值代入
-$$
 
+$$
 \begin{aligned}
 \sigma_c&=0.01,\qquad \sigma_R=0.15,\qquad \rho_{R,c}=0.34,\\
 E_t\!\left[\frac{1}{dt}\frac{dR_t}{R_t}-r_{f,t}\right]
 &=0.07,
 \end{aligned}
-
 $$
+
 就得到
-$$
 
+$$
 \begin{aligned}
 \gamma
 \;=\;
 \frac{0.07}{0.01\times 0.15\times 0.34}
 \;=\;137.
 \end{aligned}
-
 $$
+
 这就是 equity premium puzzle 的典型结论：为了匹配看起来并不太大的消费—股票协方差，模型需要极端大的风险厌恶系数。
 
 连续时间下，风险溢价可写为
-$$
 
 E_t[dR_{i,t}]-r_{f,t}dt
 =\gamma\,\operatorname{Cov}_t\!\left(dR_{i,t},\frac{dc_t}{c_t}\right).
 
-$$
 
 ### 6.2 Lucas Tree Equilibrium
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Lucas tree model 与代表性消费者均衡](Asset Pricing/Theoretical AP/cards/part2/Lucas tree model 与代表性消费者均衡)
 
 Lucas tree model 把股票看成 aggregate endowment 的索取权。设 [endowment 过程](Asset Pricing/Theoretical AP/cards/part2/Endowment process) 为
-$$
 
+$$
 \begin{aligned}
 \frac{d\delta_t}{\delta_t}&=\mu_\delta\,dt+\sigma_\delta\,dZ_t,
 \end{aligned}
-
 $$
+
 且代表性消费者在均衡中消费整个 endowment：
-$$
 
+$$
 \begin{aligned}
 c_t=\delta_t.
 \end{aligned}
-
 $$
+
 
 这里的 [endowment economy](Asset Pricing/Theoretical AP/cards/part2/Endowment economy) 是“给定 aggregate endowment、再由均衡分配消费”的一般均衡框架。
 
 由 [前面关于 SPD 的笔记](Asset Pricing/Theoretical AP/cards/part2/状态价格密度、EMM 与鞅定价)，若偏好为 CRRA，
-$$
 
+$$
 \begin{aligned}
 u(c_t)&=\frac{c_t^{1-\gamma}}{1-\gamma},
 \end{aligned}
-
 $$
+
 则 state-price density（SPD）为
-$$
 
+$$
 \begin{aligned}
 \pi_t&=e^{-\rho t}c_t^{-\gamma}=e^{-\rho t}\delta_t^{-\gamma}.
 \end{aligned}
-
 $$
+
 对 $\pi_t$ 用 [Itô 公式](Asset Pricing/Theoretical AP/cards/part2/Itô 公式) 展开：
-$$
 
+$$
 \begin{aligned}
 \frac{d\pi_t}{\pi_t}
 &=\frac{d\left(e^{-\rho t}\right)}{e^{-\rho t}}
@@ -4056,19 +4090,19 @@ $$
 &=-\Big(\rho+\gamma\mu_\delta-\frac12\gamma(\gamma+1)\sigma_\delta^2\Big)dt
 -\gamma\sigma_\delta\,dZ_t.
 \end{aligned}
-
 $$
+
 因此无风险利率为
-$$
 
+$$
 \begin{aligned}
 r_t=\rho+\gamma\mu_\delta-\frac12\gamma(\gamma+1)\sigma_\delta^2.
 \end{aligned}
-
 $$
+
 由 [EMM / martingale 定价公式](Asset Pricing/Theoretical AP/cards/part2/状态价格密度、EMM 与鞅定价)，股票价格由 present-value formula 给出：
-$$
 
+$$
 \begin{aligned}
 s_t
 &=E_t\!\left[\int_t^\infty \frac{\pi_s}{\pi_t}\,\delta_s\,ds\right]=E_t\!\left[\int_0^\infty \frac{\pi_{t+u}}{\pi_t}\,\delta_{t+u}\,du\right]=E_t\!\left[\int_0^\infty
@@ -4079,11 +4113,11 @@ e^{-\rho u}\left(\frac{\delta_{t+u}}{\delta_t}\right)^{-\gamma}
 \delta_{t+u}\,du\right]=E_t\!\left[\int_0^\infty e^{-\rho u}\left(\frac{\delta_{t+u}}{\delta_t}\right)^{1-\gamma}\delta_t\,du\right] \\
 &=\delta_t\int_0^\infty\exp\!\left(-\rho u+(1-\gamma)\mu_\delta u+\frac12\gamma(\gamma-1)\sigma_\delta^2u\right)du=A\,\delta_t,
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 \frac{d\delta_t}{\delta_t}
 &=\mu_\delta\,dt+\sigma_\delta\,dZ_t \\
@@ -4101,166 +4135,166 @@ E_t\!\left[\left(\frac{\delta_{t+u}}{\delta_t}\right)^{1-\gamma}\right]
 &=\exp\!\left((1-\gamma)\left(\mu_\delta-\frac12\sigma_\delta^2\right)u+\frac12(1-\gamma)^2\sigma_\delta^2u\right) \\
 &=\exp\!\left((1-\gamma)\mu_\delta u+\frac12\gamma(\gamma-1)\sigma_\delta^2u\right).
 \end{aligned}
-
 $$
+
 这里用到
-$$
 
+$$
 \begin{aligned}
 Z_{t+u}-Z_t\mid \mathcal F_t &\sim N(0,u),\\
 E_t[e^{a(Z_{t+u}-Z_t)}]
 &=\exp\!\left(\frac12a^2u\right),\\
 a&=(1-\gamma)\sigma_\delta.
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 A
 &=\int_0^\infty\exp\!\left(-\Big[\rho-(1-\gamma)\mu_\delta-\frac12\gamma(\gamma-1)\sigma_\delta^2\Big]u\right)du \\
 &=\frac{1}{\rho-(1-\gamma)\mu_\delta-\frac12\gamma(\gamma-1)\sigma_\delta^2}.
 \end{aligned}
-
 $$
+
 这里令
-$$
 
+$$
 \begin{aligned}
 \kappa
 &:=\rho-(1-\gamma)\mu_\delta-\frac12\gamma(\gamma-1)\sigma_\delta^2,
 \end{aligned}
-
 $$
+
 则
-$$
 
+$$
 \begin{aligned}
 A
 &=\int_0^\infty e^{-\kappa u}\,du \\
 &=\left[-\frac{1}{\kappa}e^{-\kappa u}\right]_{0}^{\infty} \\
 &=\frac{1}{\kappa},
 \end{aligned}
-
 $$
+
 其中需要 $\kappa>0$ 才能保证积分收敛，从而$A$ is a constant.
 
 所以股票回报与 endowment 回报完全同波动：
-$$
 
+$$
 \begin{aligned}
 \frac{ds_t}{s_t}&=\frac{d\delta_t}{\delta_t}=\mu_\delta\,dt+\sigma_\delta\,dZ_t,\\
 \sigma_R&=\sigma_\delta.
 \end{aligned}
-
 $$
+
 再由资产定价条件
-$$
 
+$$
 \begin{aligned}
 \mu_R
 &:=E_t\!\left[\frac{dS_t+\delta_t\,dt}{S_t\,dt}\right],\\
 \mu_R-r_t
 &=E_t\!\left[\frac{dS_t+\delta_t\,dt}{S_t\,dt}\right]-r_t.
 \end{aligned}
-
 $$
+
 其中$\frac{dS_t+\delta_t\,dt}{S_t\,dt}$是股票在区间 $[t,t+dt]$ 的总回报率：$dS_t$ 是 capital gain，$\delta_t\,dt$ 是 dividend。所以 $\mu_R$ 表示 **expected instantaneous gross return**，再减去无风险利率 $r_t$ 就得到超额回报。
 
 这一步也可以从 SPD 的小步长定价公式推出。设
-$$
 
+$$
 \begin{aligned}
 g_t&:=\frac{dS_t+\delta_t\,dt}{S_t}=\mu_R\,dt+o(dt),\\
 M_t&:=\frac{\pi_{t+dt}}{\pi_t}=1-r_t\,dt+o(dt),
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 E_t[M_t]
 &=1-r_t\,dt+o(dt),\\
 E_t[1+g_t]
 &=1+\mu_R\,dt+o(dt).
 \end{aligned}
-
 $$
+
 则无套利给出
-$$
 
+$$
 \begin{aligned}
 1&=E_t[M_t(1+g_t)].
 \end{aligned}
-
 $$
+
 展开协方差：
-$$
 
+$$
 \begin{aligned}
 1
 &=E_t[M_t]E_t[1+g_t]+\operatorname{Cov}_t(M_t,1+g_t) \\
 &=\big(1-r_t\,dt\big)\big(1+\mu_R\,dt\big)+\operatorname{Cov}_t(M_t,g_t)+o(dt) \\
 &=1+(\mu_R-r_t)dt+\operatorname{Cov}_t(M_t,g_t)+o(dt),
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 \mu_R-r_t
 &=-\frac{\operatorname{Cov}_t(M_t,g_t)}{dt}.
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 M_t
 &=\frac{\pi_{t+dt}}{\pi_t}
 =1+\frac{d\pi_t}{\pi_t}+o(dt),
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 \mu_R-r_t
 &=-\frac{\operatorname{Cov}_t\!\left(\frac{dS_t+\delta_t\,dt}{S_t},\frac{d\pi_t}{\pi_t}\right)}{dt}=-\frac{\operatorname{Cov}_t\!\left(\frac{ds_t}{s_t},\frac{d\pi_t}{\pi_t}\right)}{dt} \\
 &=-\frac{\operatorname{Cov}_t\!\left(\sigma_\delta\,dZ_t,-\gamma\sigma_\delta\,dZ_t\right)}{dt}=-\frac{-\gamma\sigma_\delta^2\,dt}{dt} \\
 &=\gamma\sigma_\delta^2=\gamma\sigma_R\sigma_\delta.
 \end{aligned}
-
 $$
+
 因此
-$$
 
+$$
 \begin{aligned}
 r_t&=\rho+\gamma\mu_\delta-\frac12\gamma(\gamma+1)\sigma_\delta^2,\\
 \sigma_R&=\sigma_\delta,\\
 \mu_R-r_t&=\gamma\sigma_\delta^2.
 \end{aligned}
-
 $$
+
 这就说明 Lucas tree model 能把 equity premium 和 consumption risk 联系起来，但它通常难以同时匹配高股权溢价、合理的无风险利率与股票波动率。
 
 ### 6.3 Excess Volatility
 
 如果坚持 frictionless representative-agent + i.i.d. consumption growth 的框架，那么就很难同时解释 **equity premium** 和 **excess volatility**。一个自然的放松方式，是让 **SPD / pricing kernel** 不再只依赖消费，而是也依赖额外状态变量：
-$$
 
+$$
 \begin{aligned}
 \lambda_t=U_c(c_t,X_t),
 \end{aligned}
-
 $$
+
 其中 $\lambda_t$ 就是 SPD，$X_t$ 是另一个状态变量。  
 “更敏感”指的是：当 $X_t$ 变化时，$\lambda_t$ 也变化，所以 SPD 的波动不再只来自消费增长，还会来自这个额外状态变量。这样一来，SPD 的波动可以比消费本身更大，于是资产价格也可以比 fundamentals 更 volatile。
 
 这就是为什么改偏好有时能同时处理两类经验事实：
-$$
 
+$$
 \begin{aligned}
 \text{high equity premium}
 &\Longleftrightarrow
@@ -4269,32 +4303,32 @@ $$
 &\Longleftrightarrow
 \text{stock prices fluctuate more than dividends}.
 \end{aligned}
-
 $$
+
 
 ### 6.4 Separability
 
 另一条路是放松 **time-separability**。  
 若偏好只依赖当前消费序列，则不同的消费路径常会在效用上变得“太接近”。例如：
-$$
 
+$$
 \begin{aligned}
 \text{stream }A &: c_t \text{ is i.i.d. } (50/50),\\
 \text{stream }B &: c_t \text{ is also } 50/50 \text{ each date, but perfectly correlated over time}.
 \end{aligned}
-
 $$
+
 在 time-separable utility 下，如果每期 marginal distribution 相同，消费者往往对 $A$ 和 $B$ 近似无差异；但在资产定价里，我们关心的是 **路径的 persistence / correlation structure**，而不只是每期的边际分布。
 
 因此更一般的偏好需要让消费者关心整条 consumption path 的分布，而不只是每期的边际分布。这样一来，冲击的 persistence、长期风险和状态持续性都会进入 SPD：
-$$
 
+$$
 \begin{aligned}
 \xi_t
 \neq e^{-\rho t}u'(c_t)\quad\text{(一般情形)}.
 \end{aligned}
-
 $$
+
 而会依赖 continuation utility、habit、长期增长状态等变量。  
 这正是后面 recursive preferences 和 long-run risk 模型要处理的核心。
 
@@ -4302,13 +4336,13 @@ $$
 
 **说明：How to read recursive utility**
 recursive utility 的核心不是“把所有未来消费一次性加总”，而是把效用拆成两层：
-$$
 
+$$
 \begin{aligned}
 U_t=\text{current consumption }c_t \;+\; \text{future continuation value}.
 \end{aligned}
-
 $$
+
 也就是说，今天的效用不只看今天消费，还看“未来这条消费路径的价值”。
 
 直观上：
@@ -4319,23 +4353,23 @@ $$
 **当前消费决定当期满足感，continuation utility 决定你有多在乎未来以及未来的不确定性。**
 
 recursive utility 不是直接把效用写成当前消费的静态函数，而是写成
-$$
 
+$$
 \begin{aligned}
 U_t=G\big(c_t,m(U_{t+1})\big),
 \end{aligned}
-
 $$
+
 其中 $m(U_{t+1})$ 是 continuation utility $U_{t+1}$ 的某个统计量。常见的规范写法是
-$$
 
+$$
 \begin{aligned}
 U_t=G\left(c_t, m^{-1}\big(E_t[m(U_{t+1})]\big)\right).
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 U_{t+1}
 \xrightarrow{\;m\;}
@@ -4347,32 +4381,32 @@ m^{-1}\!\big(E_t[m(U_{t+1})]\big)
 \xrightarrow{\;G(c_t,\cdot)\;}
 U_t.
 \end{aligned}
-
 $$
+
 - 先把未来 continuation utility $U_{t+1}$ 经过 $m(\cdot)$ 压缩成一个标量；
 - 再对这个标量取条件期望；
 - 再用 $m^{-1}(\cdot)$ 把它变回“效用尺度”；
 - 最后和当前消费 $c_t$ 一起输入 $G$，得到当前效用 $U_t$。
 
 这里
-$$
 
+$$
 \begin{aligned}
 G&=\text{across-time aggregator},\\
 m&=\text{across-state aggregator}.
 \end{aligned}
-
 $$
+
 如果偏好是 time-separable utility，那么它只是这个 recursive form 的特殊情况：
-$$
 
+$$
 \begin{aligned}
 u(x)=x,\qquad G(x,y)=u(x)+\delta y
 \Longrightarrow
 U_t=u(c_t)+\delta E_t[U_{t+1}].
 \end{aligned}
-
 $$
+
 
 ### 6.5.1 Epstein-Zin Preferences
 
@@ -4381,58 +4415,58 @@ Epstein-Zin 的核心是把 **risk aversion** 和 **elasticity of intertemporal 
 
 **说明：Time-additive utility 的绑定**
 若效用是 power utility，
-$$
 
+$$
 \begin{aligned}
 u(c)=\frac{c^{1-\gamma}}{1-\gamma},
 \end{aligned}
-
 $$
+
 则 SDF 典型地写成
-$$
 
+$$
 \begin{aligned}
 M_{t,t+1}
 &=\delta\left(\frac{c_{t+1}}{c_t}\right)^{-\gamma}.
 \end{aligned}
-
 $$
+
 这里同一个 $\gamma$ 既控制 marginal utility 的 curvature，也决定 intertemporal substitution：
-$$
 
+$$
 \begin{aligned}
 \text{EIS}=\frac{1}{\gamma}.
 \end{aligned}
-
 $$
+
 所以在 time-additive CRRA 里，risk aversion 和 EIS 被绑定在同一个参数上。
 
 Epstein-Zin 把这个绑定拆开：
-$$
 
+$$
 \begin{aligned}
 J_t
 &=\left[(1-\delta)c_t^{1-\psi^{-1}}
 +\delta\left(E_t\left[J_{t+1}^{1-\gamma}\right]\right)^{\frac{1-\psi^{-1}}{1-\gamma}}\right]^{\frac{1}{1-\psi^{-1}}},
 \end{aligned}
-
 $$
+
 其中先定义 future utility 的 certainty equivalent：
-$$
 
+$$
 \begin{aligned}
 \operatorname{CE}_t(J_{t+1})
 :=
 \left(E_t\left[J_{t+1}^{1-\gamma}\right]\right)^{\frac{1}{1-\gamma}}.
 \end{aligned}
-
 $$
+
 这里 $\gamma$ 只出现在 certainty equivalent 里，所以它只负责 **risk attitude**。  
 而 $\psi$ 只出现在 time aggregator 里，所以它只负责 **intertemporal substitution**。
 
 更直接地看：
-$$
 
+$$
 \begin{aligned}
 J_t
 &=\left[
@@ -4440,65 +4474,68 @@ J_t
 +\underbrace{\delta\left(E_t\left[J_{t+1}^{1-\gamma}\right]\right)^{\frac{1-\psi^{-1}}{1-\gamma}}}_{\text{continuation utility / risk}}
 \right]^{\frac{1}{1-\psi^{-1}}}.
 \end{aligned}
-
 $$
+
 所以：
 - 改变 $\psi$，只改变当前消费与 continuation utility 的替代弹性；
 - 改变 $\gamma$，只改变对 continuation utility 不确定性的评价方式。
 
 并且终端条件为
-$$
 
+$$
 \begin{aligned}
 J_T=c_T.
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 \delta&=\text{time discount factor},\\
 \gamma&=\text{risk aversion parameter},\\
 \psi&=\text{EIS parameter}.
 \end{aligned}
-
 $$
+
 如果再定义
-$$
 
+$$
 \begin{aligned}
 \rho:=1-\psi^{-1},\qquad V_t:=J_t^{\rho},
 \end{aligned}
-
 $$
+
 则整个递归就变成幂函数的加权和，方便保持 homotheticity 并推出后面的 Euler equation。  
 所以和前面那句 $\lambda_t=U_c(c_t,X_t)$ 的意思是一致的：recursive preference 不是只看当前消费，而是把额外状态 $X_t$ 通过 future utility / continuation utility 传进来。
 
 :::{admonition} Definition (Homogeneity of the Functional Form)
 homothetic preference 的核心是：缩放消费和财富，只会按幂次缩放 value function，而不会改变最优比例。
+
 $$
 \begin{aligned}
 c_t\to \lambda c_t,\qquad W_t\to \lambda W_t
 \qquad\Longrightarrow\qquad
 V\to \lambda^{\rho}V.
 \end{aligned}
-
 $$
+
 因而可以写成
+
 $$
 \begin{aligned}
 V(W,X,t)=W^{\rho}F(X,t).
 \end{aligned}
-
 $$
+
 所以
+
 $$
 \begin{aligned}
 \frac{\partial V}{\partial W}=\frac{\rho V}{W}.
 \end{aligned}
-
 $$
+
 其中 $X$ 可以理解成 investment opportunity set。
 
 :::
@@ -4510,11 +4547,11 @@ $$
 :::{admonition} Lemma
 Epstein-Zin SDF Decomposition
 Epstein-Zin 偏好下，一期 SDF 可写成“消费增长项”和“财富组合收益项”的乘积。常见记号下，
+
 $$
 M_{t+1}=\left[\beta\left(\frac{C_{t+1}}{C_t}\right)^{-\rho}\right]^\theta R_{a,t+1}^{\theta-1},
 \qquad
 \theta=\frac{1-\gamma}{1-\rho}.
-
 $$
 
 :::
@@ -4522,107 +4559,107 @@ $$
 **WTS：** 说明为什么 recursive utility 的 Euler equation 不只依赖消费增长，还依赖 continuation value / aggregate wealth return。
 
 **联立系统：** 递归效用写作
-$$
 
+$$
 \begin{aligned}
 V_t
 =\left[(1-\beta)C_t^{1-\rho}+\beta\left(E_t[V_{t+1}^{1-\gamma}]\right)^{\frac{1-\rho}{1-\gamma}}\right]^{\frac{1}{1-\rho}}.
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 \gamma&=\text{risk aversion},\\
 1/\rho&=\text{EIS},\\
 R_{a,t+1}&=\text{return on aggregate wealth / continuation claim}.
 \end{aligned}
-
 $$
+
 
 **连续求解：** 资产 Euler equation 的抽象形式仍是
-$$
 
+$$
 \begin{aligned}
 1=E_t[M_{t+1}R_{i,t+1}].
 \end{aligned}
-
 $$
+
 EZ 的关键是 $M_{t+1}$ 不再等于单纯的 $\beta u'(C_{t+1})/u'(C_t)$。递归效用的链式求导会产生 continuation value 的边际项，整理后得到
-$$
 
+$$
 \begin{aligned}
 M_{t+1}
 &=\left[\beta\left(\frac{C_{t+1}}{C_t}\right)^{-\rho}\right]^\theta R_{a,t+1}^{\theta-1}.
 \end{aligned}
-
 $$
+
 取对数可见两个风险来源：
-$$
 
+$$
 \begin{aligned}
 \log M_{t+1}
 &=\theta\log\beta-\theta\rho\Delta c_{t+1}+(\theta-1)r_{a,t+1}.
 \end{aligned}
-
 $$
+
 
 **结论：** EZ 偏好把 risk aversion $\gamma$ 与 EIS $1/\rho$ 分开；长期风险模型正是利用 $r_{a,t+1}$ 与长期消费增长消息的暴露来放大风险价格。
 
 
 设动态预算约束为
-$$
 
+$$
 \begin{aligned}
 W_{t+1}=(W_t-c_t)R_{a,t+1},
 \end{aligned}
-
 $$
+
 其中 $W_t$ 是 wealth，$R_{a,t+1}$ 是资产组合的 gross return。再定义便于写法的幂变换
-$$
 
+$$
 \begin{aligned}
 V_t=J_t^\rho,
 \qquad \rho:=1-\psi^{-1}.
 \end{aligned}
-
 $$
+
 则递归形式可以转成
-$$
 
+$$
 \begin{aligned}
 V_t=(1-\delta)c_t^\rho+\delta\left(E_t\left[V_{t+1}^{\theta/\rho}\right]\right)^{\rho/\theta},
 \end{aligned}
-
 $$
+
 其中 $\theta=1-\gamma$。
 
 **说明：$\delta$ 是什么**
 这里的 $\delta$ 是 **time discount factor**（主观贴现因子）。  
 递归偏好里，当前 utility 的权重是
-$$
 
+$$
 \begin{aligned}
 (1-\delta)\cdot \text{current consumption term}
 +\delta\cdot \text{continuation utility term}.
 \end{aligned}
-
 $$
+
 所以 $\delta$ 越大，越重视未来；$\delta$ 越小，越重视当前消费。
 
 **说明：How the Euler equation is obtained**
 假设 $c_t$ 是最优计划。考虑一个可行偏离
-$$
 
+$$
 \begin{aligned}
 c_t\to c_t+\varepsilon,\qquad W_{t+1}\to W_{t+1}-\varepsilon R_{i,t+1}.
 \end{aligned}
-
 $$
+
 在最优点，价值函数对 $\varepsilon$ 的导数必须为 0，因此
-$$
 
+$$
 \begin{aligned}
 0
 &=
@@ -4641,43 +4678,43 @@ V_{t+1}^{\theta/\rho-1}
 R_{i,t+1}
 \right].
 \end{aligned}
-
 $$
+
 因而在一期偏离下，消费和投资的边际条件相等。
 
 对每个资产 $i$，一阶条件都可以写成同一“边际项 × 收益率”形式：
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 \frac{V_{t+1}^{\theta/\rho}}{W_{t+1}}R_{i,t+1}
 \right]
 =\text{same constant for all }i.
 \end{aligned}
-
 $$
+
 因而对任意两个资产 $i$ 和 $j$ 取差，就把这个共同常数消掉：
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 \frac{V_{t+1}^{\theta/\rho}}{W_{t+1}}
 (R_{i,t+1}-R_{j,t+1})
 \right]=0.
 \end{aligned}
-
 $$
+
 再用 homotheticity
-$$
 
+$$
 \begin{aligned}
 V_{t+1}=c_{t+1}^{\rho-1}W_{t+1},
 \end{aligned}
-
 $$
+
 就得到
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 c_{t+1}^{(\rho-1)\theta/\rho}
@@ -4685,40 +4722,40 @@ W_{t+1}^{\theta/\rho-1}
 (R_{i,t+1}-R_{j,t+1})
 \right]=0.
 \end{aligned}
-
 $$
+
 取 $j$ 为 risk-free bond，就得到 asset pricing 的 moment restriction.
 
 **说明：+ Three ingredients behind the Euler equation**
 1. **Envelope condition**：在最优点，agent 对“消费一块钱”与“把这一块钱投资出去”无差异，所以
-$$
 
+$$
 \begin{aligned}
 (1-\delta)\rho c_t^{\rho-1}
 &=\frac{\partial V_t}{\partial W_t}
 =\rho\frac{V_t}{W_t}.
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 V_t=(1-\delta)c_t^{\rho-1}W_t.
 \end{aligned}
-
 $$
+
 2. **Homotheticity**：把 $t+1$ 期的 $V_{t+1}$ 也代入同样形式，
-$$
 
+$$
 \begin{aligned}
 V_{t+1}=c_{t+1}^{\rho-1}W_{t+1}.
 \end{aligned}
-
 $$
+
 代回 moment restriction，就得到
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 c_{t+1}^{(\rho-1)\theta/\rho}
@@ -4726,11 +4763,11 @@ W_{t+1}^{\theta/\rho-1}
 (R_{i,t+1}-R_{j,t+1})
 \right]=0.
 \end{aligned}
-
 $$
+
 3. **Risk premium moment restriction**：取 $j$ 为 risk-free bond $R_{f,t}$，
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 c_{t+1}^{(\rho-1)\theta/\rho}
@@ -4738,21 +4775,21 @@ W_{t+1}^{\theta/\rho-1}
 (R_{i,t+1}-R_{f,t})
 \right]=0.
 \end{aligned}
-
 $$
+
 
 由一阶条件得到 Euler equation：
-$$
 
+$$
 \begin{aligned}
 1&=E_t\big[M_{t,t+1}R_{i,t+1}\big].
 \end{aligned}
-
 $$
+
 把 $M_{t,t+1}$ 写成 state price ratio（[Euler Equation推导](Asset Pricing/Theoretical AP/cards/part2/Euler Equation推导)）：
 
-$$
 
+$$
 \begin{aligned}
 M_{t,t+1}
 &:=\frac{\pi_{t+1}}{\pi_t} \\
@@ -4763,64 +4800,64 @@ M_{t,t+1}
 \underbrace{g_{c,t+1}^{\frac{(\rho-1)\theta}{\rho}}}_{\text{consumption growth}}
 \underbrace{R_{a,t+1}^{\frac{\theta}{\rho}-1}}_{\text{gross return on wealth}},
 \end{aligned}
-
-$$
 $$
 
+
+$$
 \begin{aligned}
 g_{c,t+1}:=\frac{c_{t+1}}{c_t},
 \qquad
 R_{a,t+1}:=\frac{W_{t+1}}{W_t-c_t}.
 \end{aligned}
-
 $$
+
 
 **说明：+ 为什么会出现 $\delta^{\theta/\rho}$**
 这里不是 “SPD 直接变成 $\delta$”，而是 **time discount factor** $\delta$ 先进入 Epstein-Zin 的递归偏好，再进入 marginal utility / pricing kernel。  
 也就是说，$\delta$ 不是从市场里来的，而是从偏好里来的。
 
 连续写法是
-$$
 
+$$
 \begin{aligned}
 \pi_t
 &\propto \delta^{\theta/\rho} \cdot \text{marginal utility term},\\
 \frac{\pi_{t+1}}{\pi_t}
 &=\delta^{\theta/\rho} \cdot \frac{\text{marginal utility term at }t+1}{\text{marginal utility term at }t}.
 \end{aligned}
-
 $$
+
 所以 $\delta^{\theta/\rho}$ 会直接留在 SDF 里。
 
 预算约束给出
-$$
 
+$$
 \begin{aligned}
 W_{t+1}
 &=(W_t-c_t)R_{a,t+1},
 \end{aligned}
-
 $$
+
 所以 $R_{a,t+1}$ 就是 wealth gross return。
 又因为
-$$
 
+$$
 \begin{aligned}
 \frac{\rho-1}{\rho}=-\frac1\psi,
 \end{aligned}
-
 $$
+
 所以
-$$
 
+$$
 \begin{aligned}
 g_{c,t+1}^{(\rho-1)\theta/\rho}=g_{c,t+1}^{-\theta/\psi}.
 \end{aligned}
-
 $$
+
 于是对任意风险资产 $i$，
-$$
 
+$$
 \begin{aligned}
 0
 &=E_t\!\left[M_{t,t+1}(R_{i,t+1}-R_{f,t})\right] \\
@@ -4828,27 +4865,27 @@ $$
 &\Longleftrightarrow
 E_t\!\left[g_{c,t+1}^{(\rho-1)\theta/\rho}R_{a,t+1}^{\theta/\rho-1}(R_{i,t+1}-R_{f,t})\right]=0.
 \end{aligned}
-
 $$
+
 等价地，
-$$
 
+$$
 \begin{aligned}
 E_t\![R_{i,t+1}-R_{f,t}]
 &=-\frac{\operatorname{Cov}_t\!\left(M_{t,t+1},R_{i,t+1}-R_{f,t}\right)}{E_t[M_{t,t+1}] }.
 \end{aligned}
-
 $$
+
 所以 expected excess return 由 $M_{t,t+1}$ 与收益率的 covariance 决定，也就是 consumption growth 和 wealth return 这两个因子共同定价。
 
 ### 6.6 Long-Run Risk
 
-关联卡片：[Asset Pricing/Theoretical AP/cards/part2/Long-run risk 定价](Asset Pricing/Theoretical AP/cards/part2/Long-run risk 定价)
 
 Long-run risk model 的核心不是把消费波动做得更大，而是让 expected consumption growth 本身带有一个 persistent state。
 
 :::{admonition} Definition (Long-Run Risk State Dynamics)
 Long-run risk 模型令消费增长含有一个高持久性的预期增长成分：
+
 $$
 \begin{aligned}
 \tilde{g_{c,t+1}} \equiv \log g_{c,t+1}
@@ -4856,19 +4893,20 @@ $$
 x_{t+1}
 &=\phi x_t+\sigma_x\varepsilon_{x,t+1}.
 \end{aligned}
-
 $$
+
 这里 $\phi$ 越接近 $1$，长期增长状态越 persistent。
 
 Epstein-Zin 偏好写成
+
 $$
 \begin{aligned}
 J_t
 &=\left[(1-\delta)c_t^{1-\frac1\psi}
 +\delta\left(E_t\left[J_{t+1}^{1-\gamma}\right]\right)^{\frac{1-\frac1\psi}{1-\gamma}}\right]^{\frac{1}{1-\frac1\psi}},
 \end{aligned}
-
 $$
+
 其中 $\rho=1-\psi^{-1}$，$\theta=1-\gamma$。
 
 :::
@@ -4876,8 +4914,8 @@ $$
 ### 6.6.0 SDF Derivation
 
 从 6.5 的 Euler equation 出发，
-$$
 
+$$
 \begin{aligned}
 1
 &=E_t\!\left[M_{t,t+1}R_{i,t+1}\right], \\
@@ -4886,11 +4924,11 @@ M_{t,t+1}
 \qquad
 \rho:=1-\psi^{-1},\ \theta:=1-\gamma.
 \end{aligned}
-
 $$
+
 取对数得
-$$
 
+$$
 \begin{aligned}
 \log M_{t,t+1}
 &=\frac{\theta}{\rho}\log\delta
@@ -4900,33 +4938,33 @@ $$
 -\frac{\theta}{\psi\rho}\widehat g_{c,t+1}
 +\left(\frac{\theta}{\rho}-1\right)r_{a,t+1},
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 \widehat g_{c,t+1}:=\log g_{c,t+1},
 \qquad
 r_{a,t+1}:=\log R_{a,t+1}.
 \end{aligned}
-
 $$
+
 再用 Campbell--Shiller log-linearization，
-$$
 
+$$
 \begin{aligned}
 r_{a,t+1}
 =\log R_{a,t+1}
 \approx \widehat g_{c,t+1}+k_1z_{t+1}-z_t+k_0.
 \end{aligned}
-
 $$
+
 ### 6.6.1 Approximate Solution
 
 考虑一个 claim on aggregate consumption，价格为 $S_t$。定义
-$$
 
+$$
 \begin{aligned}
 z_t:=\log\left(\frac{S_t}{c_t}\right),
 \qquad
@@ -4934,45 +4972,45 @@ r_{a,t+1}:=\log R_{a,t+1},
 \qquad
 \widehat g_{c,t+1}:=\log g_{c,t+1}=\log\left(\frac{c_{t+1}}{c_t}\right).
 \end{aligned}
-
 $$
+
 则 equilibrium 中的 wealth-consumption ratio 就是 $z_t$。
 
 由 identity
-$$
 
+$$
 \begin{aligned}
 \frac{S_t}{c_t}
 &=
  e^{-r_{a,t+1}}\frac{S_{t+1}+c_{t+1}}{c_t}
  =e^{-r_{a,t+1}}\left(\frac{S_{t+1}}{c_{t+1}}+1\right)g_{c,t+1},
 \end{aligned}
-
 $$
+
 取对数得
-$$
 
+$$
 \begin{aligned}
 z_t
 &=-r_{a,t+1}+\widehat g_{c,t+1}+\log\left(1+e^{z_{t+1}}\right).
 \end{aligned}
-
 $$
+
 
 设
-$$
 
+$$
 \begin{aligned}
 A_0:=E[z_t],\qquad
 k_1:=\frac{e^{A_0}}{1+e^{A_0}},
 \qquad
 k_0:=\log(1+e^{A_0})-k_1A_0.
 \end{aligned}
-
 $$
+
 在 $A_0$ 附近做一阶 Taylor expansion：
-$$
 
+$$
 \begin{aligned}
 \log(1+e^{z_{t+1}})
 &\approx \log(1+e^{A_0})
@@ -4980,29 +5018,29 @@ $$
 &=\log(1+e^{A_0})+k_1z_{t+1}-k_1A_0 \\
 &=k_0+k_1z_{t+1}.
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 z_t
 &=-r_{a,t+1}+\widehat g_{c,t+1}+\log\left(1+e^{z_{t+1}}\right) \\
 &\approx -r_{a,t+1}+\widehat g_{c,t+1}+k_0+k_1z_{t+1}.
 \end{aligned}
-
 $$
+
 若 $z_t$ bounded（no bubbles），则
-$$
 
+$$
 \begin{aligned}
 \lim_{j\to\infty}k_1^j z_{t+j}=0.
 \end{aligned}
-
 $$
+
 迭代 forward 得
-$$
 
+$$
 \begin{aligned}
 z_t
 &\approx k_0+\big(\widehat g_{c,t+1}-r_{a,t+1}\big)+k_1z_{t+1} \\
@@ -5018,50 +5056,50 @@ z_t
 +\sum_{j=1}^n k_1^{j-1}\big(\widehat g_{c,t+j}-r_{a,t+j}\big)
 +k_1^n z_{t+n}.
 \end{aligned}
-
 $$
+
 令 $n\to\infty$，再用 no-bubbles 条件
-$$
 
+$$
 \begin{aligned}
 k_1^n z_{t+n}\to 0,
 \end{aligned}
-
 $$
+
 就得到
-$$
 
+$$
 \begin{aligned}
 z_t
 &\approx \frac{k_0}{1-k_1}
 +\sum_{j=1}^{\infty}k_1^{j-1}\big(\widehat g_{c,t+j}-r_{a,t+j}\big).
 \end{aligned}
-
 $$
+
 因此 price-dividend ratio 取决于未来消费增长和未来回报的 discounted sum。
 
 ### 6.6.2 Long-Run State Loading
 
 猜测线性形式
-$$
 
+$$
 \begin{aligned}
 z_t=A_0+A_1x_t.
 \end{aligned}
-
 $$
+
 由上一节的近似递推式
-$$
 
+$$
 \begin{aligned}
 z_t
 &\approx -r_{a,t+1}+\widehat g_{c,t+1}+k_0+k_1z_{t+1},
 \end{aligned}
-
 $$
+
 又因为
-$$
 
+$$
 \begin{aligned}
 \widehat g_{c,t+1}
 &=\mu+x_t+\sigma_c\varepsilon_{c,t+1},\\
@@ -5070,21 +5108,21 @@ E_t[\widehat g_{c,t+1}]
 E_t[x_{t+1}]
 &=\phi x_t,
 \end{aligned}
-
 $$
+
 代入猜测式 $z_{t+1}=A_0+A_1x_{t+1}$，并对条件期望取一阶近似，
-$$
 
+$$
 \begin{aligned}
 E_t[z_{t+1}]
 &=A_0+A_1E_t[x_{t+1}]\\
 &=A_0+A_1\phi x_t.
 \end{aligned}
-
 $$
+
 同时，把 Euler equation applied to $R_{a,t+1}$ 写成
-$$
 
+$$
 \begin{aligned}
 E_t\!\left[
 \exp\!\left(
@@ -5095,50 +5133,50 @@ E_t\!\left[
 \right]
 =1.
 \end{aligned}
-
 $$
+
 把 $\widehat g_{c,t+1}$ 的系数合并，
-$$
 
+$$
 \begin{aligned}
 -\frac{\theta}{\psi\rho}\widehat g_{c,t+1}
 +\frac{\theta}{\rho}\widehat g_{c,t+1}
 &=\frac{\theta}{\rho}(1-\psi^{-1})\widehat g_{c,t+1},
 \end{aligned}
-
 $$
+
 所以 $\psi$ 正是从这里进入系数匹配：它决定 consumption growth 项前面的斜率，而由于
-$$
 
+$$
 \begin{aligned}
 \widehat g_{c,t+1}
 =\mu+x_t+\sigma_c\varepsilon_{c,t+1},
 \end{aligned}
-
 $$
+
 收集 $x_t$ 的线性项时，就会出现 $(1-\psi^{-1})x_t$。
 因此
-$$
 
+$$
 \begin{aligned}
 z_t
 &\approx E_t\!\left[-r_{a,t+1}+\widehat g_{c,t+1}+k_0+k_1z_{t+1}\right] \\
 &\approx \text{const}+(1-\psi^{-1})x_t+k_1\big(A_0+A_1\phi x_t\big).
 \end{aligned}
-
 $$
+
 这里的 $(1-\psi^{-1})x_t$ 来自 Euler equation applied to $R_{a,t+1}$ 后，对 $x_t$ 的线性项收集；常数项都并入 $\text{const}$。再代入左边的猜测式
-$$
 
+$$
 \begin{aligned}
 A_0+A_1x_t
 &\approx \text{const}+(1-\psi^{-1})x_t+k_1\big(A_0+A_1\phi x_t\big).
 \end{aligned}
-
 $$
+
 把常数项并入 $A_0$，收集 $x_t$ 的系数，
-$$
 
+$$
 \begin{aligned}
  A_1
 &=(1-\psi^{-1})+k_1\phi A_1 \\
@@ -5146,8 +5184,8 @@ $$
 A_1
 &=\frac{1-\psi^{-1}}{1-k_1\phi}.
 \end{aligned}
-
 $$
+
 所以：
 - $\psi>1$ 时，price-dividend ratio 对长期增长状态更敏感；
 - $\phi$ 越接近 $1$，长期风险越 persistent，$A_1$ 越大。
@@ -5155,8 +5193,8 @@ $$
 ### 6.6.3 Pricing of Shocks
 
 Euler equation applied to $R_{a,t+1}$ gives
-$$
 
+$$
 \begin{aligned}
 1
 &=E_t\!\left[M_{t,t+1}R_{a,t+1}\right] \\
@@ -5177,11 +5215,11 @@ $$
 \right]
 =1.
 \end{aligned}
-
 $$
+
 因此可以把 pricing kernel 的创新写成
-$$
 
+$$
 \begin{aligned}
 \widetilde M_{t,t+1}-E_t[\widetilde M_{t,t+1}]
 &=\left(\frac{\theta}{\rho}(1-\psi^{-1})-1\right)\sigma_c\varepsilon_{c,t+1}
@@ -5191,11 +5229,11 @@ $$
 &=-\gamma\sigma_c\varepsilon_{c,t+1}
 +\frac{\psi^{-1}-\gamma}{1-\psi^{-1}}\,k_1A_1\sigma_x\varepsilon_{x,t+1}.
 \end{aligned}
-
 $$
+
 其中上面第一行来自
-$$
 
+$$
 \begin{aligned}
 \widetilde M_{t,t+1}
 &:=\log M_{t,t+1}+r_{a,t+1} \\
@@ -5203,12 +5241,12 @@ $$
 -\frac{\theta}{\psi\rho}\widehat g_{c,t+1}
 +\frac{\theta}{\rho}\big(\widehat g_{c,t+1}+k_1z_{t+1}-z_t+k_0\big),
 \end{aligned}
-
 $$
+
 
 再代入
-$$
 
+$$
 \begin{aligned}
 \widehat g_{c,t+1}
 &=\mu+x_t+\sigma_c\varepsilon_{c,t+1},\\
@@ -5221,21 +5259,21 @@ z_{t+1}
 &=A_0+A_1x_{t+1}
 =A_0+A_1(\phi x_t+\sigma_x\varepsilon_{x,t+1}),
 \end{aligned}
-
 $$
+
 于是
-$$
 
+$$
 \begin{aligned}
 E_t[z_{t+1}]
 &=A_0+A_1E_t[x_{t+1}]\\
 &=A_0+A_1\phi x_t,
 \end{aligned}
-
 $$
+
 从而
-$$
 
+$$
 \begin{aligned}
 E_t[\widetilde M_{t,t+1}]
 &\approx \frac{\theta}{\rho}\log\delta
@@ -5256,12 +5294,12 @@ E_t[\widetilde M_{t,t+1}]
 -\frac{\theta}{\rho}A_1
 \right]x_t.
 \end{aligned}
-
 $$
+
 
 只保留 innovation 部分：
-$$
 
+$$
 \begin{aligned}
 \widetilde M_{t,t+1}-E_t[\widetilde M_{t,t+1}]
 &=\left(-\frac{\theta}{\psi\rho}+\frac{\theta}{\rho}\right)\sigma_c\varepsilon_{c,t+1}
@@ -5270,8 +5308,8 @@ $$
 &=\left(\frac{\theta}{\rho}(1-\psi^{-1})-1\right)\sigma_c\varepsilon_{c,t+1}
 +\left(\frac{\theta}{\rho}-1\right)k_1A_1\sigma_x\varepsilon_{x,t+1}.
 \end{aligned}
-
 $$
+
 
 这说明：
 - consumption shocks 被定价；
@@ -5279,31 +5317,31 @@ $$
 - 如果 $\psi>1$ 且 $x_t$ highly persistent，那么长期增长风险的价格可以很高。
 
 因此可以把 pricing kernel 近似看成两个因子的乘积：
-$$
 
+$$
 \begin{aligned}
 \widetilde M_{t,t+1}
 \approx
 \delta^\theta g_{c,t+1}^{-\theta/\psi}R_{a,t+1}^{\theta-1}.
 \end{aligned}
-
 $$
+
 其中
-$$
 
+$$
 \begin{aligned}
 g_{c,t+1}^{-\theta/\psi}
 \end{aligned}
-
 $$
+
 是 consumption-growth factor，
-$$
 
+$$
 \begin{aligned}
 R_{a,t+1}^{\theta-1}
 \end{aligned}
-
 $$
+
 是 wealth-return factor。  
 这就是 long-run risk 里“消费冲击 + 财富回报冲击”共同定价资产的来源。
 

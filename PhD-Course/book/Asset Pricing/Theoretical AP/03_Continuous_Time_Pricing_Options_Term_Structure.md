@@ -1,13 +1,5 @@
 # 03 Continuous-Time Pricing, Options, and Term Structure
 
-## 0. 本篇修改核对清单
-
-- [x] 先按主题主线重新梳理标题层级，避免多个一级标题或跳号造成阅读断点。
-- [x] 保留原有材料的核心信息，但把散落的推导合并到对应主题，不采用“只在文首叠加补丁”的方式。
-- [x] 对关键结论补充 **WTS → 联立系统 → 连续求解 → 结论** 的证明块。
-- [x] Obsidian callout 只保留 `[!definition]` 与 `[!lemma]`；原来的 proposition / theorem / property 统一转为 lemma，note / remark 改为普通说明文字。
-- [x] 对易混概念补充“符号约定 / 经济含义 / 边界条件”三类解释，减少公式跳步。
-
 
 ## 7. 随机贴现因子与连续时间资产定价
 
@@ -21,11 +13,13 @@
 $$
 \frac{d\Lambda_t}{\Lambda_t}=-r_tdt-\lambda_t'dW_t,
 $$
+
 其中 $\lambda_t$ 是 market price of risk。若某资产
 
 $$
 \frac{dS_t}{S_t}=\mu_tdt+\sigma_t'dW_t,
 $$
+
 且无股息，则定价条件给出
 
 $$
@@ -145,32 +139,43 @@ $$
 #### 7.2.1 确定漂移项 (Drift Term)
 假设 $\Lambda_t$ 遵循一般的伊藤过程 $\frac{d\Lambda_t}{\Lambda_t} = \mu_\Lambda dt + \sigma_\Lambda dW_t$。考虑无风险资产 $B_t$，其满足 $dB_t = r_t B_t dt$。根据基本定价定理，$\Lambda_t B_t$ 必须是鞅：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 d(\Lambda_t B_t) &= \Lambda_t dB_t + B_t d\Lambda_t + d\langle \Lambda, B \rangle_t \\
 &= \Lambda_t (r_t B_t dt) + B_t (\Lambda_t \mu_\Lambda dt + \Lambda_t \sigma_\Lambda dW_t) + 0 \\
 &= \Lambda_t B_t (r_t + \mu_\Lambda) dt + \Lambda_t B_t \sigma_\Lambda dW_t
-\end{aligned}$$
+\end{aligned}
+$$
 
 为了满足无偏漂移条件（鞅性质），要求其 $dt$ 项为 0：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 r_t + \mu_\Lambda &= 0 \\
 \implies \mu_\Lambda &= -r_t
-\end{aligned}$$
+\end{aligned}
+$$
 
 #### 7.2.2 确定扩散项与风险市场价格 (Diffusion Term)
 考虑风险资产 $S_t$，其满足 $\frac{dS_t}{S_t} = \mu_t dt + \sigma_t dW_t$。同样地，$\Lambda_t S_t$ 必须是鞅：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 d(\Lambda_t S_t) &= \Lambda_t dS_t + S_t d\Lambda_t + d\langle \Lambda, S \rangle_t \\
 &= \Lambda_t (S_t \mu_t dt + S_t \sigma_t dW_t) + S_t (\Lambda_t \mu_\Lambda dt + \Lambda_t \sigma_\Lambda dW_t) + (\Lambda_t \sigma_\Lambda dW_t)(S_t \sigma_t dW_t) \\
 &= \Lambda_t S_t (\mu_t + \mu_\Lambda + \sigma_\Lambda \sigma_t) dt + \Lambda_t S_t (\sigma_t + \sigma_\Lambda) dW_t
-\end{aligned}$$
+\end{aligned}
+$$
 
 由于漂移项必须为 0，且代入 $\mu_\Lambda = -r_t$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \mu_t - r_t + \sigma_\Lambda \sigma_t &= 0 \\
 \implies \sigma_\Lambda &= -\frac{\mu_t - r_t}{\sigma_t} = -\kappa_t
-\end{aligned}$$
+\end{aligned}
+$$
+
 其中 $\kappa_t$ 定义为风险的市场价格 (Market Price of Risk)。
 
 ---
@@ -179,20 +184,24 @@ $$\begin{aligned}
 
 利用对数变换和伊藤引理求解该 SDE：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 d(\ln \Lambda_t) &= \frac{1}{\Lambda_t} d\Lambda_t - \frac{1}{2\Lambda_t^2} (d\Lambda_t)^2 \\
 &= \frac{1}{\Lambda_t} (\Lambda_t (-r_t dt - \sigma_{\Lambda,t} dW_t)) - \frac{1}{2\Lambda_t^2} (\Lambda_t^2 \sigma_{\Lambda,t}^2 dt) \\
 &= -r_t dt - \sigma_{\Lambda,t} dW_t - \frac{1}{2} \sigma_{\Lambda,t}^2 dt \\
 &= -\left( r_t + \frac{1}{2} \sigma_{\Lambda,t}^2 \right) dt - \sigma_{\Lambda,t} dW_t
-\end{aligned}$$
+\end{aligned}
+$$
 
 对上述方程从 $0$ 到 $T$ 进行积分并取指数：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \int_0^T d(\ln \Lambda_s) &= -\int_0^T \left( r_s + \frac{1}{2} \sigma_{\Lambda,s}^2 \right) ds - \int_0^T \sigma_{\Lambda,s} dW_s \\
 \ln \frac{\Lambda_T}{\Lambda_0} &= -\int_0^T \left( r_s + \frac{1}{2} \sigma_{\Lambda,s}^2 \right) ds - \int_0^T \sigma_{\Lambda,s} dW_s \\
 \frac{\Lambda_T}{\Lambda_0} &= \exp\left( -\int_0^T \left( r_s + \frac{1}{2} \sigma_{\Lambda,s}^2 \right) ds - \int_0^T \sigma_{\Lambda,s} dW_s \right)
-\end{aligned}$$
+\end{aligned}
+$$
 
 ### 7.4 Fundamental Asset Pricing Equation
 
@@ -207,6 +216,7 @@ $$
 \qquad
 \frac{d\Lambda_t}{\Lambda_t}=-r_tdt-\lambda_t'dW_t,
 $$
+
 则
 
 $$
@@ -263,6 +273,7 @@ p_t
 \Lambda_t p_t=E_t(\Lambda_Tp_T),
 \end{aligned}
 $$
+
 局部形式为
 
 $$
@@ -555,19 +566,19 @@ $$
 - **replicating portfolio / PDE**：从局部对冲出发，推出 PDE，再解出 closed form；
 - **SDF direct pricing**：从 discount factor 出发，直接算
 
-  $$
+$$
   \begin{aligned}
   C_t=E_t\!\left[\frac{\Lambda_T}{\Lambda_t}(S_T-K)^+\right];
   \end{aligned}
-  $$
+$$
 
 - **risk-neutral expectation**：从测度变换出发，直接算
 
-  $$
+$$
   \begin{aligned}
   C_t=e^{-r(T-t)}E_t^{\mathbb Q}\!\left[(S_T-K)^+\right].
   \end{aligned}
-  $$
+$$
 
 而 **put-call parity** 本身不是第四条独立“求出 Black-Scholes call price 的完整路线”，它是 call 与 put 价格之间的静态无套利关系：
 
@@ -686,6 +697,7 @@ $$
 dS_t=\mu S_tdt+\sigma S_tdW_t,
 \qquad dB_t=rB_tdt,
 $$
+
 欧式衍生品 $C(t,S)$ 的无套利价格满足
 
 $$
@@ -1483,11 +1495,13 @@ Risk-Neutral Drift
 $$
 \frac{d\Lambda_t}{\Lambda_t}=-rdt-\lambda dW_t,
 $$
+
 则 Girsanov 变换下
 
 $$
 dW_t^{\mathbb Q}=dW_t+\lambda dt
 $$
+
 使股票动态变成
 
 $$
@@ -1936,8 +1950,7 @@ $$
 
 $$
 \begin{aligned}
-\text{unknowns}
-=
+\text{unknowns} =
 \big(V^A(t,S),\,S^*(t)\big).
 \end{aligned}
 $$
@@ -2089,6 +2102,7 @@ $$
 P_t^{(N)}
 \end{aligned}
 $$
+
 为时点 $t$、剩余期限为 $N$ 的 zero-coupon bond price。
 
 :::
@@ -2763,6 +2777,7 @@ dr_t=\mu_r(r_t,t)dt+\sigma_r(r_t,t)dW_t,
 \qquad
 \frac{d\Lambda_t}{\Lambda_t}=-r_tdt-\lambda_r(r_t,t)dW_t,
 $$
+
 零息债券 $P(t,T)=F(t,r_t;T)$ 满足
 
 $$
@@ -2881,42 +2896,60 @@ $$
 
 **模型动力学 (Dynamics)**
 Vasicek 模型假设瞬时利率 $r_t$ 遵循 Ornstein-Uhlenbeck (OU) 过程：
-$$\begin{cases} 
+
+$$
+\begin{cases}
 \frac{d\Lambda_t}{\Lambda_t} = -r_t dt - \sigma_\Lambda dz_t \\
-dr_t = \phi(\bar{r} - r_t) dt + \sigma_r dz_t 
-\end{cases}$$
+dr_t = \phi(\bar{r} - r_t) dt + \sigma_r dz_t
+\end{cases}
+$$
 
 #### 9.4.1 解析解：期望方法 (via Expectation)
 
 **随机贴现因子 (SDF) 的显式形式**
 根据无套利原理，债券价格 $P_t = E_t [ \frac{\Lambda_T}{\Lambda_t} ]$。对 $\ln \Lambda_s$ 应用伊藤引理：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 d(\ln \Lambda_s) &= \frac{1}{\Lambda_s} d\Lambda_s - \frac{1}{2\Lambda_s^2} (d\Lambda_s)^2 \\
 &= - \left( r_s + \frac{1}{2} \sigma_\Lambda^2 \right) ds - \sigma_\Lambda dz_s
-\end{aligned}$$
+\end{aligned}
+$$
+
 在 $[t, T]$ 上积分：
 $$\frac{\Lambda_T}{\Lambda_t} = \exp \left( -\int_t^T r_s ds - \sigma_\Lambda \int_t^T dz_s - \frac{1}{2}\sigma_\Lambda^2 N \right) \quad \text{其中 } N = T-t$$
 
 **利率过程 $r_t$ 的显式解推导**
 令 $\tilde{r}_t = e^{\phi t}(r_t - \bar{r})$。对其求全微分：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 d\tilde{r}_t &= \phi e^{\phi t}(r_t - \bar{r}) dt + e^{\phi t} dr_t \\
 &= \phi \tilde{r}_t dt + e^{\phi t} [\phi(\bar{r} - r_t) dt + \sigma_r dz_t] \\
 &= \sigma_r e^{\phi t} dz_t
-\end{aligned}$$
+\end{aligned}
+$$
+
 对上述等式在 $[t, s]$ 上积分：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \tilde{r}_s - \tilde{r}_t &= \sigma_r \int_t^s e^{\phi u} dz_u \\
 e^{\phi s}(r_s - \bar{r}) - e^{\phi t}(r_t - \bar{r}) &= \sigma_r \int_t^s e^{\phi u} dz_u \\
 r_s - \bar{r} &= e^{-\phi(s-t)}(r_t - \bar{r}) + \sigma_r \int_t^s e^{-\phi(s-u)} dz_u
-\end{aligned}$$
+\end{aligned}
+$$
 
 **路径积分 $\int_t^T r_s ds$ 的计算**
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \int_t^T r_s ds &= \int_t^T \left[ \bar{r} + e^{-\phi(s-t)}(r_t - \bar{r}) + \sigma_r \int_t^s e^{-\phi(s-u)} dz_u \right] ds \\
 &= \bar{r}N + (r_t - \bar{r}) \left( \frac{1 - e^{-\phi N}}{\phi} \right) + \sigma_r \int_t^T \left( \int_u^T e^{-\phi(s-u)} ds \right) dz_u \quad (\text{Fubini}) \\
 &= \bar{r}N + (r_t - \bar{r}) B(N) + \sigma_r \int_t^T B(T-u) dz_u
-\end{aligned}$$
+\end{aligned}
+$$
+
 其中我们临时定义 $B(N) = \frac{1-e^{-\phi N}}{\phi}$。
 
 **对数正态期望性质**
@@ -2924,27 +2957,36 @@ $$\begin{aligned}
 $$P_t = E_t[e^X] = \exp \left( E_t[X] + \frac{1}{2} Var_t(X) \right)$$
 
 **均值 $E_t[X]$ 的计算**
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 E_t[X] &= -E_t \left[ \int_t^T r_s ds \right] - \sigma_\Lambda E_t \left[ \int_t^T dz_u \right] - \frac{1}{2} \sigma_\Lambda^2 N \\
 &= - \left[ \bar{r}N + (r_t - \bar{r})B(N) \right] - 0 - \frac{1}{2} \sigma_\Lambda^2 N
-\end{aligned}$$
+\end{aligned}
+$$
 
 **方差 $Var_t(X)$**
 随机部分为 $-\int_t^T [\sigma_r B(T-u) + \sigma_\Lambda] dz_u$。应用等距性质并令 $v = T-u$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 Var_t(X) &= \int_t^T \left[ \sigma_r \frac{1 - e^{-\phi(T-u)}}{\phi} + \sigma_\Lambda \right]^2 du = \int_0^N \left[ \left(\frac{\sigma_r}{\phi} + \sigma_\Lambda\right) - \frac{\sigma_r}{\phi} e^{-\phi v} \right]^2 dv \\
 &= \int_0^N \left[ \left(\frac{\sigma_r}{\phi} + \sigma_\Lambda\right)^2 - 2\left(\frac{\sigma_r}{\phi} + \sigma_\Lambda\right)\frac{\sigma_r}{\phi}e^{-\phi v} + \frac{\sigma_r^2}{\phi^2}e^{-2\phi v} \right] dv \\
 &= \left(\frac{\sigma_r}{\phi} + \sigma_\Lambda\right)^2 N - 2\left(\frac{\sigma_r}{\phi} + \sigma_\Lambda\right)\frac{\sigma_r}{\phi^2}(1 - e^{-\phi N}) + \frac{\sigma_r^2}{2\phi^3}(1 - e^{-2\phi N}) \quad (22)
-\end{aligned}$$
+\end{aligned}
+$$
 
 **最终合并 (The Assembly)**
 代入 $\ln P_t = E_t[X] + \frac{1}{2}Var_t(X)$，并利用 $1-e^{-2\phi N} = \phi B(N)(2-\phi B(N))$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \ln P_t &= -B(N)r_t + \bar{r}B(N) - \bar{r}N - \frac{1}{2}\sigma_\Lambda^2 N \\
 &\quad + \frac{1}{2} \left[ \frac{\sigma_r^2}{\phi^2} + \frac{2\sigma_r\sigma_\Lambda}{\phi} + \sigma_\Lambda^2 \right] N - \left( \frac{\sigma_r^2}{\phi^2} + \frac{\sigma_r\sigma_\Lambda}{\phi} \right) B(N) + \frac{\sigma_r^2}{4\phi^2} (2B(N) - \phi B(N)^2) \\
 &= -B(N)r_t + \left[ -\bar{r} + \frac{\sigma_r\sigma_\Lambda}{\phi} + \frac{\sigma_r^2}{2\phi^2} \right] N + \left[ \bar{r} - \frac{\sigma_r\sigma_\Lambda}{\phi} - \frac{\sigma_r^2}{\phi^2} + \frac{\sigma_r^2}{2\phi^2} \right] B(N) - \frac{\sigma_r^2}{4\phi} B(N)^2 \\
 &= -B(N)r_t + \left[ \frac{\sigma_r^2}{2\phi^2} + \frac{\sigma_r\sigma_\Lambda}{\phi} - \bar{r} \right] (N - B(N)) - \frac{\sigma_r^2}{4\phi} B(N)^2
-\end{aligned}$$
+\end{aligned}
+$$
 
 #### 9.4.2 解析解：PDE 方法 (via PDE)
 
@@ -2959,6 +3001,7 @@ dr_t=\phi(\bar r-r_t)dt+\sigma_r dW_t,
 \qquad
 \frac{d\Lambda_t}{\Lambda_t}=-r_tdt-\sigma_\Lambda dW_t,
 $$
+
 且 $P(t,T)=\exp(A(N)-B(N)r_t)$、$N=T-t$，则
 
 $$
@@ -3045,13 +3088,16 @@ $$r \underbrace{(B' + \phi B - 1)}_{\text{Term for } r} + \underbrace{\left[ -\p
 由于上述恒等式对任意 $r$ 均成立，系数项必须为 0：
 $$B'(N) + \phi B(N) = 1, \quad B(0) = 0$$
 引入积分因子 $e^{\phi N}$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 e^{\phi N} B'(N) + \phi e^{\phi N} B(N) &= e^{\phi N} \\
 \frac{d}{ds} (e^{\phi s} B(s)) &= e^{\phi s} \\
 \int_0^N \frac{d}{ds} (e^{\phi s} B(s)) ds &= \int_0^N e^{\phi s} ds \\
 e^{\phi N} B(N) - 0 &= \frac{e^{\phi N} - 1}{\phi} \\
 B(N) &= \frac{1 - e^{-\phi N}}{\phi}
-\end{aligned}$$
+\end{aligned}
+$$
 
 **求解 $A(N)$ (直接积分)**
 根据常数项方程：
@@ -3064,18 +3110,25 @@ $$\int_0^N \frac{1 - e^{-\phi s}}{\phi} ds = \frac{1}{\phi} \left[ s + \frac{1}{
 
 **积分 $\int_0^N B(s)^2\,ds$**
 展开 $B(s)^2 = \frac{1}{\phi^2}(1 - 2e^{-\phi s} + e^{-2\phi s})$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \int_0^N B(s)^2 ds &= \frac{1}{\phi^2} \int_0^N (1 - 2e^{-\phi s} + e^{-2\phi s}) ds \\
 &= \frac{1}{\phi^2} \left[ N - \frac{2}{\phi}(1 - e^{-\phi N}) + \frac{1}{2\phi}(1 - e^{-2\phi N}) \right] \\
 &= \frac{1}{\phi^2} \left[ N - 2B(N) + \frac{1}{2} B(N)(2 - \phi B(N)) \right] \quad (\text{using } 1-e^{-2\phi N} = \phi B(2-\phi B)) \\
 &= \frac{1}{\phi^2} (N - B(N)) - \frac{1}{2\phi} B(N)^2
-\end{aligned}$$
+\end{aligned}
+$$
 
 **汇总得到 $A(N)$**
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 A(N) &= (-\bar{r} + \frac{\sigma_r\sigma_\Lambda}{\phi})(N - B(N)) + \frac{\sigma_r^2}{2} \left[ \frac{1}{\phi^2}(N-B(N)) - \frac{1}{2\phi}B(N)^2 \right] \\
 &= -\frac{\sigma_r^2}{4\phi} B(N)^2 + \left[ \frac{\sigma_r^2}{2\phi^2} + \frac{\sigma_r\sigma_\Lambda}{\phi} - \bar{r} \right] (N - B(N))
-\end{aligned}$$
+\end{aligned}
+$$
+
 至此，PDE 方法的解析解推导完毕。
 
 #### 9.4.3 Vasicek model: Summarization
@@ -3107,6 +3160,7 @@ dr_t=\phi(\bar r-r_t)dt+\sigma_r\sqrt{r_t}dW_t,
 \qquad
 \frac{d\Lambda_t}{\Lambda_t}=-r_tdt-\sigma_\Lambda\sqrt{r_t}dW_t
 $$
+
 下，若 $P(N,r)=e^{A(N)-B(N)r}$，则
 
 $$
@@ -3154,12 +3208,16 @@ $$
 
 $$
 \left\{
+$$
+
+$$
 \begin{aligned}
 A'&=-\phi\bar rB,\\
 -B'&=\phi B+\frac12\sigma_r^2B^2-1+\sigma_\Lambda\sigma_rB.
 \end{aligned}
-\right.
 $$
+
+\right.
 
 即
 
@@ -3179,10 +3237,13 @@ $$
 
 **模型动力学 (Dynamics)**
 CIR 模型假设瞬时利率 $r_t$ 遵循平方根过程，确保利率非负：
-$$\begin{cases} 
+
+$$
+\begin{cases}
 \frac{d\Lambda_t}{\Lambda_t} = -r_t dt - \sigma_\Lambda \sqrt{r_t} dz_t \\
-dr_t = \phi(\bar{r} - r_t) dt + \sigma_r \sqrt{r_t} dz_t 
-\end{cases}$$
+dr_t = \phi(\bar{r} - r_t) dt + \sigma_r \sqrt{r_t} dz_t
+\end{cases}
+$$
 
 **核心 PDE 的详细推导 (Fundamental PDE Derivation)**
 
@@ -3190,29 +3251,42 @@ dr_t = \phi(\bar{r} - r_t) dt + \sigma_r \sqrt{r_t} dz_t
 
 **对 $P(r, N)$ 应用伊藤引理 (Ito's Lemma)**
 考虑到 $N = T-t \implies dN = -dt$，价格 $P$ 的全微分漂移项为：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 dP_t &= -\frac{\partial P}{\partial N} dt + \frac{\partial P}{\partial r} dr_t + \frac{1}{2} \frac{\partial^2 P}{\partial r^2} (dr_t)^2 + \dots \\
 \text{Drift}(dP_t) &= -\frac{\partial P}{\partial N} + \phi(\bar{r}-r_t) \frac{\partial P}{\partial r} + \frac{1}{2} \sigma_r^2 r_t \frac{\partial^2 P}{\partial r^2}
-\end{aligned}$$
+\end{aligned}
+$$
 
 **鞅条件与风险溢价**
 由 $E_t[d(\Lambda_t P_t)] = 0$ 得：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \text{Drift}(\Lambda_t dP_t + P_t d\Lambda_t + d\Lambda_t dP_t) &= 0 \\
 -\frac{\partial P}{\partial N} + \phi(\bar{r}-r) \frac{\partial P}{\partial r} + \frac{1}{2} \sigma_r^2 r \frac{\partial^2 P}{\partial r^2} - rP - \sigma_\Lambda \sigma_r r \frac{\partial P}{\partial r} &= 0
-\end{aligned}$$
+\end{aligned}
+$$
+
 整理得到关于 $N$ 的偏微分方程：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \frac{\partial P}{\partial N} &= \phi \bar{r} \frac{\partial P}{\partial r} - (\phi + \sigma_\Lambda \sigma_r) r \frac{\partial P}{\partial r} + \frac{1}{2} \sigma_r^2 r \frac{\partial^2 P}{\partial r^2} - rP
-\end{aligned}$$
+\end{aligned}
+$$
 
 **仿射解构造 (Affine Structure Solution)**
 
 假设 $P(r, N) = \exp(A(N) - B(N)r)$，代入 PDE 并分离 $r$ 的幂次：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 A' - B'r &= \phi \bar{r} (-B) - (\phi + \sigma_\Lambda \sigma_r) r (-B) + \frac{1}{2} \sigma_r^2 r B^2 - r \\
 0 &= r \left[ B' + (\phi + \sigma_\Lambda \sigma_r) B + \frac{1}{2} \sigma_r^2 B^2 - 1 \right] + \left[ -A' - \phi \bar{r} B \right]
-\end{aligned}$$
+\end{aligned}
+$$
 
 **整理 Riccati 方程**
 
@@ -3251,9 +3325,12 @@ A(0)=0,\qquad B(0)=0.
 $$
 
 令 $h = \phi + \sigma_\Lambda \sigma_r$，方程变为：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 B'(N) &= 1 - h B(N) - \frac{1}{2} \sigma_r^2 B(N)^2, \quad B(0) = 0
-\end{aligned}$$
+\end{aligned}
+$$
 
 **线性化变换 (Linearization Transformation)**
 为什么选
@@ -3323,77 +3400,120 @@ $$
 
 1. **对 $B(N)$ 求导：**
 通过商法则计算其导数：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 B'(N) &= \frac{d}{dN} \left( \frac{2 w'}{\sigma_r^2 w} \right) = \frac{2}{\sigma_r^2} \frac{w'' w - (w')^2}{w^2} \\
 &= \frac{2 w''}{\sigma_r^2 w} - \frac{2 (w')^2}{\sigma_r^2 w^2}
-\end{aligned}$$
+\end{aligned}
+$$
 
 2. **观察平方项 $\frac{1}{2}\sigma_r^2 B^2$：**
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \frac{1}{2}\sigma_r^2 B^2 &= \frac{1}{2}\sigma_r^2 \left( \frac{2 w'}{\sigma_r^2 w} \right)^2 = \frac{2 (w')^2}{\sigma_r^2 w^2}
-\end{aligned}$$
+\end{aligned}
+$$
 
 3. **代入并消去非线性项：**
 将上述结果代入 $B' = 1 - h B - \frac{1}{2} \sigma_r^2 B^2$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 \underbrace{\frac{2 w''}{\sigma_r^2 w} - \frac{2 (w')^2}{\sigma_r^2 w^2}}_{B'} &= 1 - h \left( \frac{2 w'}{\sigma_r^2 w} \right) - \underbrace{\frac{2 (w')^2}{\sigma_r^2 w^2}}_{\frac{1}{2}\sigma_r^2 B^2} \\
 \frac{2 w''}{\sigma_r^2 w} &= 1 - \frac{2 h w'}{\sigma_r^2 w}
-\end{aligned}$$
+\end{aligned}
+$$
+
 可以看到，等号两边的平方项项 $(w')^2$ 被精准消去。
 
 4. **得到线性 ODE：**
 整理上式（两边同乘 $\frac{\sigma_r^2 w}{2}$）：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 w''(N) + h w'(N) - \frac{\sigma_r^2}{2} w(N) &= 0, \quad w'(0) = 0
-\end{aligned}$$
+\end{aligned}
+$$
 
 **求解线性 ODE (ODE Solution Process)**
 特征方程为 $k^2 + h k - \frac{\sigma_r^2}{2} = 0$。根据求根公式，两个特征根为：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 k_{1,2} &= \frac{-h \pm \sqrt{h^2 + 2\sigma_r^2}}{2}
-\end{aligned}$$
+\end{aligned}
+$$
+
 定义参数 $\gamma = \sqrt{h^2 + 2\sigma_r^2}$，则 $k_1 = \frac{\gamma - h}{2}$，$k_2 = -\frac{\gamma + h}{2}$。
 通解为：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 w(N) &= c_1 e^{k_1 N} + c_2 e^{k_2 N} \\
 w'(N) &= c_1 k_1 e^{k_1 N} + c_2 k_2 e^{k_2 N}
-\end{aligned}$$
+\end{aligned}
+$$
+
 利用边界条件 $w'(0) = 0$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 c_1 k_1 + c_2 k_2 &= 0 \implies c_2 = -c_1 \frac{k_1}{k_2} \\
 c_2 &= -c_1 \frac{(\gamma - h)/2}{-(\gamma + h)/2} = c_1 \frac{\gamma - h}{\gamma + h}
-\end{aligned}$$
+\end{aligned}
+$$
+
 定义参数 $\psi = h + \gamma = \phi + \sigma_r \sigma_\Lambda + \gamma$。
 
 **回代求取 $B(N)$ 解析解**
 将 $w(N)$ 形式代入 $B(N) = \frac{2 w'(N)}{\sigma_r^2 w(N)}$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 B(N) &= \frac{2 c_1 k_1 (e^{k_1 N} - e^{k_2 N})}{\sigma_r^2 c_1 (e^{k_1 N} + \frac{\gamma-h}{\gamma+h} e^{k_2 N})} \\
 &= \frac{2 k_1 (\gamma+h) (e^{\gamma N} - 1)}{\sigma_r^2 [ (\gamma+h) e^{\gamma N} + (\gamma-h) ]} \quad (\text{分子分母同乘 } (\gamma+h)e^{-k_2 N})
-\end{aligned}$$
+\end{aligned}
+$$
+
 由于 $2k_1(\gamma+h) = (\gamma-h)(\gamma+h) = \gamma^2 - h^2 = 2\sigma_r^2$，分子分母约去 $\sigma_r^2$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 B(N) &= \frac{2\sigma_r^2 (e^{\gamma N} - 1)}{\sigma_r^2 [ (\gamma+h) e^{\gamma N} + (\gamma-h) ]} \\
 &= \frac{2(e^{\gamma N} - 1)}{(\gamma+h)(e^{\gamma N}-1) + 2\gamma} \\
 &= \frac{2(e^{\gamma N} - 1)}{\psi(e^{\gamma N} - 1) + 2\gamma}
-\end{aligned}$$
+\end{aligned}
+$$
 
 **求解 $A(N)$ 解析解**
 根据 $A'(N) = -\phi \bar{r} B(N) = -\phi \bar{r} \frac{2 w'}{\sigma_r^2 w}$，且 $A(0)=0$：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 A(N) &= -\frac{2\phi \bar{r}}{\sigma_r^2} \ln \left[ \frac{w(N)}{w(0)} \right] \\
 \text{其中 } \frac{w(N)}{w(0)} &= \frac{e^{k_1 N} + \frac{\gamma-h}{\gamma+h} e^{k_2 N}}{1 + \frac{\gamma-h}{\gamma+h}} = \frac{(\gamma+h)e^{k_1 N} + (\gamma-h)e^{k_2 N}}{2\gamma} \\
 &= \frac{[(\gamma+h)(e^{\gamma N}-1) + 2\gamma] e^{k_2 N}}{2\gamma} = \frac{\psi(e^{\gamma N}-1) + 2\gamma}{2\gamma e^{(\gamma+h) N / 2}}
-\end{aligned}$$
+\end{aligned}
+$$
+
 代入并利用 $\psi = \gamma+h$ 得到最终形式：
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 A(N) &= \frac{2\phi \bar{r}}{\sigma_r^2} \ln \left[ \frac{2\gamma e^{\psi N/2}}{\psi(e^{\gamma N} - 1) + 2\gamma} \right]
-\end{aligned}$$
+\end{aligned}
+$$
+
 **CIR model: Summarization**
 The closed-form solutions are:
 $$B(N) = \frac{2\left(e^{\gamma N} - 1\right)}{\left(\gamma + \phi + \sigma_r\sigma_\Lambda\right)\left(e^{\gamma N} - 1\right) + 2\gamma},$$
 $$A(N) = \frac{\phi\bar{r}}{\sigma_r^2} \left[ 2\ln\left( \frac{2\gamma}{\psi\left(e^{\gamma N} - 1\right) + 2\gamma} \right) + \psi N \right],$$
 where
-$$\begin{cases} \gamma = \sqrt{(\phi + \sigma_r\sigma_\Lambda)^2 + 2\sigma_r^2} \\ \psi = \phi + \sigma_r\sigma_\Lambda + \gamma. \end{cases}$$
+
+$$
+\begin{cases} \gamma = \sqrt{(\phi + \sigma_r\sigma_\Lambda)^2 + 2\sigma_r^2} \\ \psi = \phi + \sigma_r\sigma_\Lambda + \gamma. \end{cases}
+$$
 
 ## 10. LT96 与 L94 推导

@@ -637,7 +637,6 @@ $$
 
 若把信息成本 $c$ 外生给定，则
 
-$$
 c\le c^* 
 \quad\Longrightarrow\quad
 值得买信息,
@@ -645,7 +644,6 @@ c\le c^*
 c>c^*
 \quad\Longrightarrow\quad
 不值得买信息.
-$$
 
 在一个内生信息获取的对称内部均衡中，通常就是用
 
@@ -1267,7 +1265,6 @@ $$
 
 ##### Exercise 2
 
-^exercise-kyle-two-period
 
 Solve a two-period Kyle model, in which trader can trade two times before the information is released. Assume that the liquidity trades are iid normal $N(0,\sigma^2/2)$ for both trading periods. Given the informed trader’s information $v$, what is the expected trading profit for the informed in the one-period and two-period models? What are the informed trading profit when $v=v_0$? It seems that the informed trader can make a trading profit even when his information is the same as the public. How do you interpret this?
 
