@@ -8906,7 +8906,7 @@ $$
 
 ## Question 26. 考场原题回忆：CARA Endowment Economy and Budget Constraint
 
-CARA；市场里有 $N+1$ 个资产：写出 dynamic problem 和 static problem；写出 budget constraint。
+CARA；市场里有 $N+1$ 个资产：先写出 EMM 和 SPD，再写出 dynamic problem、static problem 与 budget constraint。
 
 $$
 \left\{
@@ -8947,18 +8947,20 @@ I_{S_t}^{-1}dS_t
 \end{aligned}
 $$
 
-**符号回忆** 题目里还可能出现一个上下相除的相对权重，例如
+**相对 SPD 定义** 若题目出现两个 agents 的 pricing kernels，统一按 agent 2 相对于 agent 1 定义：
 
 $$
 \begin{aligned}
-\eta_t
-&=\frac{\xi_t^2}{\xi_t^1}
-\qquad\text{or}\qquad
-\eta_t=\frac{\xi_t^1}{\xi_t^2}.
+\eta_t^{21}
+&:=
+\frac{\zeta_t^2}{\zeta_t^1}
+=
+\frac{\text{agent 2 marginal utility density}}
+{\text{agent 1 marginal utility density}}.
 \end{aligned}
 $$
 
-这里的 $\xi_t^i$ 若表示 agent $i$ 的 SPD / marginal utility density / state-price density，则 $\eta_t$ 的经济含义是两个 agents 的相对 marginal utility 或相对 pricing kernel。方向取决于题目把 $\eta_t$ 定义为 agent 2 相对 agent 1，还是 agent 1 相对 agent 2；推导时只要全程保持同一方向即可。
+如果原题直接把这个 ratio 记作 $\eta_t$，则 $\eta_t=\eta_t^{21}$。注意这里的相对权重不要和资产收益式里的 scaled excess-return vector $\eta_t$ 混淆；必要时把后者改写成 $a_t$。
 
 ::::{collapse} Basic setup
 
@@ -8972,7 +8974,145 @@ $$
 
 ::::
 
-**（1）Dynamic problem**
+**（1）EMM and SPD**
+
+::::{solution}
+
+先把 risky asset 的 drift 和 diffusion 写成
+
+$$
+\begin{aligned}
+\mu_{S,t}
+&:=r_t1_N+Y_t\eta_t,\\
+\sigma_{S,t}
+&:=\sqrt{Y_t}\xi.
+\end{aligned}
+$$
+
+SPD $\zeta_t$ 定义为所有资产现金流的 pricing kernel：
+
+$$
+\begin{aligned}
+\frac{d\zeta_t}{\zeta_t}
+&=
+-r_tdt-\theta_t'dB_t,\\
+P_t(X_T)
+&=
+\frac{1}{\zeta_t}
+E_t^{\mathbb P}[\zeta_TX_T].
+\end{aligned}
+$$
+
+由 $\zeta_tS_t^i+\int_0^t\zeta_s\,dD_s^i$ 为 $\mathbb P$-martingale。若这里 $S_t$ 是无 dividend 或 total-return price，则
+
+$$
+\begin{aligned}
+d(\zeta_tS_t)
+&=
+\zeta_tdS_t+I_{S_t}1_N\,d\zeta_t+d\zeta_tdS_t\\
+&=
+\zeta_tI_{S_t}
+\left[
+\mu_{S,t}-r_t1_N-\sigma_{S,t}\theta_t
+\right]dt\\
+&\quad
++\zeta_tI_{S_t}
+\left[
+\sigma_{S,t}dB_t-1_N\theta_t'dB_t
+\right].
+\end{aligned}
+$$
+
+因此无套利要求 drift 为零：
+
+$$
+\begin{aligned}
+\mu_{S,t}-r_t1_N
+&=
+\sigma_{S,t}\theta_t\\
+\Longleftrightarrow\quad
+Y_t\eta_t
+&=
+\sqrt{Y_t}\xi\theta_t.
+\end{aligned}
+$$
+
+令 money-market account 为
+
+$$
+\begin{aligned}
+B_t^0
+&=
+\exp\!\left(\int_0^tr_sds\right),
+\qquad
+\frac{dB_t^0}{B_t^0}=r_tdt.
+\end{aligned}
+$$
+
+EMM 的 Radon-Nikodym density 是
+
+$$
+\begin{aligned}
+Z_t
+&:=
+\frac{\zeta_tB_t^0}{\zeta_0B_0^0},\\
+\frac{dZ_t}{Z_t}
+&=
+\frac{d\zeta_t}{\zeta_t}
++\frac{dB_t^0}{B_t^0}\\
+&=
+(-r_tdt-\theta_t'dB_t)+r_tdt\\
+&=
+-\theta_t'dB_t.
+\end{aligned}
+$$
+
+若 $Z_t$ 是 martingale，则
+
+$$
+\begin{aligned}
+\frac{d\mathbb Q}{d\mathbb P}\bigg|_{\mathcal F_t}
+&=
+Z_t,\\
+dB_t^{\mathbb Q}
+&=
+dB_t+\theta_tdt.
+\end{aligned}
+$$
+
+在 $\mathbb Q$ 下，
+
+$$
+\begin{aligned}
+I_{S_t}^{-1}dS_t
+&=
+\mu_{S,t}dt+\sigma_{S,t}dB_t\\
+&=
+(r_t1_N+\sigma_{S,t}\theta_t)dt
++\sigma_{S,t}(dB_t^{\mathbb Q}-\theta_tdt)\\
+&=
+r_t1_Ndt+\sigma_{S,t}dB_t^{\mathbb Q},\\
+d\left(\frac{S_t}{B_t^0}\right)
+&=
+\frac{I_{S_t}}{B_t^0}\sigma_{S,t}dB_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+因此任意 payoff $X_T$ 的同一个价格可以写成
+
+$$
+\begin{aligned}
+P_t(X_T)
+&=
+\frac{1}{\zeta_t}E_t^{\mathbb P}[\zeta_TX_T]\\
+&=
+B_t^0E_t^{\mathbb Q}\!\left[\frac{X_T}{B_T^0}\right].
+\end{aligned}
+$$
+
+::::
+
+**（2）Dynamic problem**
 
 ::::{solution}
 
@@ -9024,124 +9164,50 @@ $$
 
 ::::
 
-**（2）Static problem**
+**（3）Static problem**
 
 ::::{solution}
 
-用 state price density (SPD) 把 trading strategy 消掉，只选择 consumption plan。令
-
-$$
-\begin{aligned}
-\frac{d\zeta_t}{\zeta_t}
-&=-r_tdt-\theta_t'dB_t.
-\end{aligned}
-$$
-
-这里 $\zeta_t$ 是 SPD / pricing kernel：任意到期 payoff $X_T$ 的价格满足
-
-$$
-\begin{aligned}
-P_t(X_T)
-&=
-\frac{1}{\zeta_t}
-E_t^{\mathbb P}[\zeta_TX_T].
-\end{aligned}
-$$
-
-令 money-market account 为
-
-$$
-\begin{aligned}
-B_t^0
-&=
-\exp\!\left(\int_0^t r_sds\right),
-\qquad
-\frac{dB_t^0}{B_t^0}=r_tdt.
-\end{aligned}
-$$
-
-SPD 和 EMM 的关系是：把 SPD 乘回 money-market account 得到换测度密度
-
-$$
-\begin{aligned}
-Z_t
-&:=
-\frac{\zeta_tB_t^0}{\zeta_0B_0^0},\\
-\frac{dZ_t}{Z_t}
-&=-\theta_t'dB_t.
-\end{aligned}
-$$
-
-若 $Z_t$ 是 martingale，则定义 equivalent martingale measure (EMM) $\mathbb Q$：
-
-$$
-\begin{aligned}
-\frac{d\mathbb Q}{d\mathbb P}\bigg|_{\mathcal F_t}
-&=Z_t,
-\qquad
-dB_t^{\mathbb Q}=dB_t+\theta_tdt.
-\end{aligned}
-$$
-
-在 $\mathbb Q$ 下，discounted traded price 是 martingale。若 $S_t$ 是无 dividend 或 total-return price，向量形式为：
-
-$$
-\begin{aligned}
-I_{S_t}^{-1}dS_t
-&=
-(r_t1_N+\sigma_{S,t}\theta_t)dt+\sigma_{S,t}dB_t\\
-&=
-r_t1_Ndt+\sigma_{S,t}dB_t^{\mathbb Q},\\
-d\left(\frac{S_t}{B_t^0}\right)
-&=
-\frac{I_{S_t}}{B_t^0}\sigma_{S,t}dB_t^{\mathbb Q}.
-\end{aligned}
-$$
-
-因此同一个价格也可写成 risk-neutral / EMM pricing：
-
-$$
-\begin{aligned}
-P_t(X_T)
-&=
-B_t^0
-E_t^{\mathbb Q}\!\left[\frac{X_T}{B_T^0}\right].
-\end{aligned}
-$$
-
-记
-
-$$
-\begin{aligned}
-\sigma_{S,t}&:=\sqrt{Y_t}\xi,
-\qquad
-\mu_{S,t}-r_t1_N:=Y_t\eta_t.
-\end{aligned}
-$$
-
-由 Itô product rule，dynamic budget constraint 推出：
+用第（1）问的 SPD 把 trading strategy 消掉，只选择 consumption plan。由 Itô product rule，
 
 $$
 \begin{aligned}
 d(\zeta_tW_t)
-&=\zeta_tdW_t+W_td\zeta_t+d\zeta_tdW_t\\
-&=
-\zeta_t
-\left[
-\pi_t'(\mu_{S,t}-r_t1_N-\sigma_{S,t}\theta_t)+e_t-c_t
-\right]dt\\
-&\quad
-+\zeta_t(\pi_t'\sigma_{S,t}-W_t\theta_t')dB_t.
+&=\zeta_tdW_t+W_td\zeta_t+d\zeta_tdW_t.
 \end{aligned}
 $$
 
-无套利要求 $\mu_{S,t}-r_t1_N=\sigma_{S,t}\theta_t$，所以：
+代入 budget constraint 和 SPD：
+
+$$
+\begin{aligned}
+d(\zeta_tW_t)
+&=
+\zeta_t
+\left[
+r_tW_t+\pi_t'Y_t\eta_t+e_t-c_t
+\right]dt
++\zeta_t\pi_t'\sqrt{Y_t}\xi\,dB_t\\
+&\quad
++W_t\zeta_t(-r_tdt-\theta_t'dB_t)
+-\zeta_t\pi_t'\sqrt{Y_t}\xi\theta_tdt\\
+&=
+\zeta_t
+\left[
+\pi_t'(Y_t\eta_t-\sqrt{Y_t}\xi\theta_t)+e_t-c_t
+\right]dt\\
+&\quad
++\zeta_t(\pi_t'\sqrt{Y_t}\xi-W_t\theta_t')dB_t.
+\end{aligned}
+$$
+
+由第（1）问的 no-arbitrage condition $Y_t\eta_t=\sqrt{Y_t}\xi\theta_t$，
 
 $$
 \begin{aligned}
 d(\zeta_tW_t)+\zeta_t(c_t-e_t)dt
 &=
-\zeta_t(\pi_t'\sigma_{S,t}-W_t\theta_t')dB_t.
+\zeta_t(\pi_t'\sqrt{Y_t}\xi-W_t\theta_t')dB_t.
 \end{aligned}
 $$
 
@@ -9185,7 +9251,7 @@ $$
 
 ::::
 
-**（3）Interest rate 与 $S_t,\eta_t$**
+**（4）Interest rate 与 $S_t,\eta_t$**
 
 ::::{solution}
 
@@ -9209,19 +9275,21 @@ $$
 \end{aligned}
 $$
 
-如果题目使用 $\xi_t^i$ 表示 agent $i$ 的 SPD，而不是本文这里用的 $\zeta_t$，则同一市场中的相对权重通常来自两个 SPD 的 ratio：
+如果题目使用 $\xi_t^i$ 表示 agent $i$ 的 SPD，而不是本文这里用的 $\zeta_t^i$，则同一市场中的相对权重按 agent 2 相对于 agent 1 写成：
 
 $$
 \begin{aligned}
-\frac{\xi_t^2}{\xi_t^1}
+\eta_t^{21}
 &=
-\frac{\text{agent 2 marginal utility density}}{\text{agent 1 marginal utility density}}
-\quad\Longleftrightarrow\quad
-\eta_t \text{ or } \eta_t^{-1}.
+\frac{\zeta_t^2}{\zeta_t^1}
+=
+\frac{\xi_t^2}{\xi_t^1}\\
+&=
+\frac{\text{agent 2 marginal utility density}}{\text{agent 1 marginal utility density}}.
 \end{aligned}
 $$
 
-因此若考题写 $\eta_t=\xi_t^2/\xi_t^1$，就按该定义代入；若答案中要用 consumption-sharing rule，则先确认 $\eta_t$ 是 $c_t^2/c_t^1$ 还是 $c_t^1/c_t^2$。
+因此若考题写 $\eta_t=\xi_t^2/\xi_t^1$，这里就理解为 $\eta_t=\eta_t^{21}$。若答案中要用 consumption-sharing rule，则该 ratio 是 agent 2 相对于 agent 1 的 marginal utility weight。
 
 均衡中 consumption 等于 aggregate endowment。若记 $c_t=e_t=Y_t$，且
 
