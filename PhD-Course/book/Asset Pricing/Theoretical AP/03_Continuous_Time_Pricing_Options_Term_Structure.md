@@ -3201,16 +3201,12 @@ $$
 
 $$
 \left\{
-$$
-
-$$
 \begin{aligned}
 A'&=-\phi\bar rB,\\
 -B'&=\phi B+\frac12\sigma_r^2B^2-1+\sigma_\Lambda\sigma_rB.
 \end{aligned}
-$$
-
 \right.
+$$
 
 即
 
