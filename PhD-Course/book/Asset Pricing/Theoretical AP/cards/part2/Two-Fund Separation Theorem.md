@@ -4,8 +4,7 @@
 
 返回：[Asset Pricing/Theoretical AP/01_Single_Period_Models](Asset Pricing/Theoretical AP/01_Single_Period_Models)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 任意两个位于均值—方差前沿上的组合，都张成整个前沿：若 $\pi_a,\pi_b$ 在前沿上，则任意第三个前沿组合 $\pi_c$ 都可写成
 
 $$

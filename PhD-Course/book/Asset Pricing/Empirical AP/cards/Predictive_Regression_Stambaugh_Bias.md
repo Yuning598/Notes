@@ -17,8 +17,7 @@ x_{t+1}&=\theta+\rho x_t+\nu_{t+1}.
 
 If \(\operatorname{Cov}(\varepsilon,\nu)\ne0\), then:
 \[
-E(\hat\beta-\beta)
-=
+E(\hat\beta-\beta) =
 \frac{\operatorname{Cov}(\varepsilon,\nu)}
 {\operatorname{Var}(\nu)}
 E(\hat\rho-\rho).

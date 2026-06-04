@@ -315,8 +315,7 @@ $$
 Define the Lagrangian
 
 $$
-\mathcal L(x,\lambda)
-=
+\mathcal L(x,\lambda) =
 f(x)-\sum_{j=1}^m\lambda_jg_j(x).
 $$
 
@@ -349,8 +348,7 @@ Assume the value function
 
 $$
 \begin{aligned}
-v(\theta)
-=
+v(\theta) =
 \max_x\quad & f(x,\theta)\\
 \text{s.t.}\quad & g_j(x,\theta)=0,\qquad j=1,\ldots,m,
 \end{aligned}
@@ -359,8 +357,7 @@ $$
 is differentiable at $\bar\theta$, and let $(\lambda_1,\ldots,\lambda_m)$ be the Lagrange multipliers associated with the solution $x(\bar\theta)$. If
 
 $$
-\mathcal L(x,\lambda,\theta)
-=
+\mathcal L(x,\lambda,\theta) =
 f(x,\theta)-\sum_{j=1}^m \lambda_j g_j(x,\theta),
 $$
 
@@ -578,8 +575,7 @@ $$
 Similarly,
 
 $$
-h_2(p,\bar u)
-=
+h_2(p,\bar u) =
 \bar u^{1/(\alpha+\beta)}
 \left(\frac{\beta p_1}{\alpha p_2}\right)^{\alpha/(\alpha+\beta)}.
 $$
@@ -798,8 +794,7 @@ Slutsky equation:
 
 $$
 \begin{aligned}
-s_{ij}
-=
+s_{ij} =
 \frac{\partial h_i(p,u)}{\partial p_j}
 \bigg|_{u=v(p,w)}.
 \end{aligned}

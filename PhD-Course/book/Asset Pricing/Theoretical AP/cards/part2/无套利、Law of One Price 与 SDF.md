@@ -7,8 +7,9 @@
 :::{admonition} Definition (Definition)
 Law of One Price：若两个组合产生相同支付，则它们必须有相同价格。
 
-**Definition (Definition):**
-Arbitrage：组合满足初始成本不正、未来支付几乎处处非负，且至少在一个维度上严格更好。
+:::
+
+:::{admonition} Definition: Arbitrage：组合满足初始成本不正、未来支付几乎处处非负，且至少在一个维度上严格更好。
 
 **Proposition:** Proposition
 Law of One Price $\Longleftrightarrow$ 存在 SDF。

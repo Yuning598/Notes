@@ -137,12 +137,10 @@ $$
 \max_{\{c_t\}}
 E\left[\sum_t\delta^tu(c_t)\right]
 &\Longrightarrow
-u'(c_t)
-=
+u'(c_t) =
 \delta R_f E_t[u'(c_{t+1})]\\
 &\Longrightarrow
-1
-=
+1 =
 E_t\left[
 \delta\frac{u'(c_{t+1})}{u'(c_t)}R_f
 \right].
@@ -160,8 +158,7 @@ W_{t+1}=W_t+\theta'(X_{t+1}-P_tR_f)
 &\Longrightarrow
 E_t[u'(W_{t+1})(X_{t+1}-P_tR_f)]=0\\
 &\Longrightarrow
-P_t
-=
+P_t =
 E_t\left[
 \frac{u'(W_{t+1})}{R_fE_t[u'(W_{t+1})]}
 X_{t+1}
@@ -286,8 +283,7 @@ density process：
 $$
 \begin{aligned}
 \Lambda_t
-&=\frac{dQ}{dP}\bigg|_{\mathcal F_t}
-=
+&=\frac{dQ}{dP}\bigg|_{\mathcal F_t} =
 \exp\left(
 -\int_0^t\theta_s\,dW_s^P
 -\frac12\int_0^t\theta_s^2ds
@@ -1042,8 +1038,7 @@ $$
 
 $$
 \boxed{
-\log R_{f,t}
-=
+\log R_{f,t} =
 -\log\delta
 +\gamma\mu_g
 -\frac12\gamma^2\sigma_g^2.
@@ -1077,8 +1072,7 @@ $$
 $$
 \boxed{
 \mu_i-\log R_{f,t}
-+\frac12\sigma_i^2
-=
++\frac12\sigma_i^2 =
 \gamma\operatorname{Cov}_t(r_{i,t+1},g_{t+1}).
 }
 $$
@@ -1132,8 +1126,7 @@ E_t\left[
 -u'(c_t)p_{i,t}
 \right]\\
 &\Longleftrightarrow
-p_{i,t}
-=
+p_{i,t} =
 E_t\left[
 \delta\frac{u'(c_{t+1})}{u'(c_t)}x_{i,t+1}
 \right]\\
@@ -2440,8 +2433,7 @@ $$
 
 $$
 \boxed{
-\sigma_p^2
-=
+\sigma_p^2 =
 \frac{A\mu_p^2-2B\mu_p+C}{D}.
 }
 $$
@@ -3180,8 +3172,7 @@ $$
 
 $$
 \boxed{
-\tau^*
-=
+\tau^* =
 \inf\{t\ge0:X_t\ge x^*\},
 \qquad
 x^*=\frac{\gamma}{\gamma-1}K.
@@ -3324,8 +3315,7 @@ $$
 
 $$
 \boxed{
-\kappa
-=
+\kappa =
 \frac{
 \rho-(1-\gamma)\left(r+\frac{1}{2\gamma}\mu^{e\prime}\Sigma^{-1}\mu^e\right)
 }{\gamma}.
@@ -3954,8 +3944,7 @@ $$
 
 $$
 \boxed{
-C_t
-=
+C_t =
 S_te^{-q\tau}\Phi(d_1)
 -Ke^{-r\tau}\Phi(d_2).
 }
@@ -3965,8 +3954,7 @@ Put price：
 
 $$
 \boxed{
-P_t
-=
+P_t =
 Ke^{-r\tau}\Phi(-d_2)
 -S_te^{-q\tau}\Phi(-d_1).
 }
@@ -4309,8 +4297,7 @@ $$
 
 $$
 \boxed{
-\text{posterior precision}
-=
+\text{posterior precision} =
 \text{prior precision}
 +
 \text{signal precision}.
@@ -4327,8 +4314,7 @@ $$
 \rho_{1}^{post}
 &=\rho_0+\rho_1,\\
 m_1
-&=E[v\mid s_1]
-=
+&=E[v\mid s_1] =
 \frac{\rho_0m_0+\rho_1s_1}{\rho_0+\rho_1}.
 \end{aligned}
 \right.
@@ -4426,8 +4412,7 @@ $$
 m_n
 &=
 \frac{\rho_0m_0+\rho_\varepsilon\sum_{i=1}^n s_i}
-{\rho_0+n\rho_\varepsilon}
-=
+{\rho_0+n\rho_\varepsilon} =
 \frac{\rho_0}{\rho_0+n\rho_\varepsilon}m_0
 +
 \frac{n\rho_\varepsilon}{\rho_0+n\rho_\varepsilon}\bar s_n.
@@ -4543,8 +4528,7 @@ $$
 &=
 E\left[
 \frac{(E[v\mid s,p]-p)^2}
-{2\lambda\operatorname{Var}(v\mid s,p)}
--
+{2\lambda\operatorname{Var}(v\mid s,p)} -
 \frac{(E[v\mid p]-p)^2}
 {2\lambda\operatorname{Var}(v\mid p)}
 \right],\\
@@ -4923,8 +4907,7 @@ $$
 \begin{aligned}
 \lambda
 &=
-\frac{\operatorname{Cov}(v,y)}{\operatorname{Var}(y)}
-=
+\frac{\operatorname{Cov}(v,y)}{\operatorname{Var}(y)} =
 \frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}.
 \end{aligned}
 $$
@@ -4989,8 +4972,7 @@ $$
 
 $$
 \boxed{
-\frac{\xi_T^1}{\xi_t^1}
-=
+\frac{\xi_T^1}{\xi_t^1} =
 \frac{\eta_T}{\eta_t}
 \frac{\xi_T^2}{\xi_t^2}
 }

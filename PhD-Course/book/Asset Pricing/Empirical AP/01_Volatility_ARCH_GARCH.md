@@ -38,27 +38,40 @@ $$ E[y_t]=\mu,\qquad  E[(y_t-\mu)^2]=\sigma^2,\qquad E[(y_t-\mu)(y_{t-s}-\mu)]=\
 
 :::{admonition} Definition (ARCH(1))
 课件设定：
-$$ \begin{aligned} y_t &= \mu_t+u_t,\\ u_t &= v_t\sigma_t,\qquad v_t \overset{i.i.d.}{\sim}(0,1),\\ \sigma_t^2 &= \alpha_0+\alpha_1 u_{t-1}^2. \end{aligned} $$
+
+$$
+\begin{aligned} y_t &= \mu_t+u_t,\\ u_t &= v_t\sigma_t,\qquad v_t \overset{i.i.d.}{\sim}(0,1),\\ \sigma_t^2 &= \alpha_0+\alpha_1 u_{t-1}^2. \end{aligned}
+$$
+
 其中 $\mu_t$ 是 conditional mean，$u_t$ 是 innovation，$\sigma_t^2$ 是 conditional variance。
 
 :::
 
 直觉：如果上一期 $|u_{t-1}|$ 很大，无论正负，下一期条件方差 $\sigma_t^2$ 都上升，因此 ARCH 可以生成 volatility clustering。
 
-:::{admonition} Lemma
-ARCH(1) 的 unconditional variance
+:::{admonition} Lemma: ARCH(1) 的 unconditional variance
 **WTS：**
 $$ E[u_t^2]=E[\sigma_t^2]=\frac{\alpha_0}{1-\alpha_1}. $$
 
 **联立系统：**
-$$ \begin{cases} u_t=v_t\sigma_t,\\ E[v_t]=0,\quad E[v_t^2]=1,\\ \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2. \end{cases} $$
+
+$$
+\begin{cases} u_t=v_t\sigma_t,\\ E[v_t]=0,\quad E[v_t^2]=1,\\ \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2. \end{cases}
+$$
 
 **连续求解：**
-$$ \begin{aligned} E[\sigma_t^2] &= E[\alpha_0+\alpha_1u_{t-1}^2]\\ &= \alpha_0+\alpha_1E[u_{t-1}^2]\\ &= \alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]\\ &= \alpha_0+\alpha_1E[v_{t-1}^2]E[\sigma_{t-1}^2]\\ &= \alpha_0+\alpha_1E[\sigma_{t-1}^2]. \end{aligned} $$
+
+$$
+\begin{aligned} E[\sigma_t^2] &= E[\alpha_0+\alpha_1u_{t-1}^2]\\ &= \alpha_0+\alpha_1E[u_{t-1}^2]\\ &= \alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]\\ &= \alpha_0+\alpha_1E[v_{t-1}^2]E[\sigma_{t-1}^2]\\ &= \alpha_0+\alpha_1E[\sigma_{t-1}^2]. \end{aligned}
+$$
+
 若要求 unconditional variance 不随 $t$ 变化，令
 $$ E[\sigma_t^2]=E[\sigma_{t-1}^2]\equiv \bar\sigma^2, $$
 则
-$$ \begin{aligned} \bar\sigma^2 &= \alpha_0+\alpha_1\bar\sigma^2\\ (1-\alpha_1)\bar\sigma^2 &= \alpha_0\\ \bar\sigma^2 &= \frac{\alpha_0}{1-\alpha_1}. \end{aligned} $$
+
+$$
+\begin{aligned} \bar\sigma^2 &= \alpha_0+\alpha_1\bar\sigma^2\\ (1-\alpha_1)\bar\sigma^2 &= \alpha_0\\ \bar\sigma^2 &= \frac{\alpha_0}{1-\alpha_1}. \end{aligned}
+$$
 
 **结论：**
 $$ \alpha_0>0,\qquad 0<\alpha_1<1. $$
@@ -72,7 +85,10 @@ $$ \operatorname{Var}(u_t\mid \mathcal F_{t-1})=\sigma_t^2. $$
 $$ u_t=v_t\sigma_t,\qquad E[v_t]=0,\qquad E[v_t^2]=1,\qquad \sigma_t^2\in \mathcal F_{t-1}. $$
 
 **连续求解：**
-$$ \begin{aligned} \operatorname{Var}(u_t\mid \mathcal F_{t-1}) &=E[u_t^2\mid \mathcal F_{t-1}] -\{E[u_t\mid \mathcal F_{t-1}]\}^2\\ &=E[v_t^2\sigma_t^2\mid \mathcal F_{t-1}] -\{E[v_t\sigma_t\mid \mathcal F_{t-1}]\}^2\\ &=\sigma_t^2E[v_t^2\mid \mathcal F_{t-1}] -\sigma_t^2\{E[v_t\mid \mathcal F_{t-1}]\}^2\\ &=\sigma_t^2\cdot 1-\sigma_t^2\cdot 0\\ &=\sigma_t^2. \end{aligned} $$
+
+$$
+\begin{aligned} \operatorname{Var}(u_t\mid \mathcal F_{t-1}) &=E[u_t^2\mid \mathcal F_{t-1}] -\{E[u_t\mid \mathcal F_{t-1}]\}^2\\ &=E[v_t^2\sigma_t^2\mid \mathcal F_{t-1}] -\{E[v_t\sigma_t\mid \mathcal F_{t-1}]\}^2\\ &=\sigma_t^2E[v_t^2\mid \mathcal F_{t-1}] -\sigma_t^2\{E[v_t\mid \mathcal F_{t-1}]\}^2\\ &=\sigma_t^2\cdot 1-\sigma_t^2\cdot 0\\ &=\sigma_t^2. \end{aligned}
+$$
 
 **结论：** ARCH 中 unconditional variance 可以是常数，但 conditional variance 是 time-varying。
 
@@ -83,8 +99,7 @@ $$ \begin{aligned} \operatorname{Var}(u_t\mid \mathcal F_{t-1}) &=E[u_t^2\mid \m
 课件指出：如果进一步假设 $v_t\sim N(0,1)$，ARCH(1) 的 $u_t$ 可以产生 heavy tails：
 
 $$
-K
-=
+K =
 3\frac{1-\alpha_1^2}{1-3\alpha_1^2}
 >3,
 \qquad
@@ -96,7 +111,10 @@ $$
 ## 5. ARCH(q)
 
 :::{admonition} Definition (ARCH(q))
-$$ \begin{aligned} y_t&=\mu_t+u_t,\\ u_t&=v_t\sigma_t,\\ \sigma_t^2&=\alpha_0+\alpha_1u_{t-1}^2+\cdots+\alpha_qu_{t-q}^2. \end{aligned} $$
+
+$$
+\begin{aligned} y_t&=\mu_t+u_t,\\ u_t&=v_t\sigma_t,\\ \sigma_t^2&=\alpha_0+\alpha_1u_{t-1}^2+\cdots+\alpha_qu_{t-q}^2. \end{aligned}
+$$
 
 :::
 
@@ -113,12 +131,22 @@ $$ \sigma_t^2 = \alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2. $$
 $$ E[\sigma_t^2]=\frac{\alpha_0}{1-\alpha_1-\beta_1}. $$
 
 **联立系统：**
-$$ \begin{cases} \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2,\\ u_{t-1}=v_{t-1}\sigma_{t-1},\\ E[v_{t-1}^2]=1. \end{cases} $$
+
+$$
+\begin{cases} \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2,\\ u_{t-1}=v_{t-1}\sigma_{t-1},\\ E[v_{t-1}^2]=1. \end{cases}
+$$
 
 **连续求解：**
-$$ \begin{aligned} E[\sigma_t^2] &=\alpha_0+\alpha_1E[u_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+\alpha_1E[\sigma_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+(\alpha_1+\beta_1)E[\sigma_{t-1}^2]. \end{aligned} $$
+
+$$
+\begin{aligned} E[\sigma_t^2] &=\alpha_0+\alpha_1E[u_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+\alpha_1E[\sigma_{t-1}^2]+\beta_1E[\sigma_{t-1}^2]\\ &=\alpha_0+(\alpha_1+\beta_1)E[\sigma_{t-1}^2]. \end{aligned}
+$$
+
 若 $\bar\sigma^2=E[\sigma_t^2]=E[\sigma_{t-1}^2]$，则
-$$ \begin{aligned} \bar\sigma^2 &=\alpha_0+(\alpha_1+\beta_1)\bar\sigma^2\\ (1-\alpha_1-\beta_1)\bar\sigma^2 &=\alpha_0\\ \bar\sigma^2 &=\frac{\alpha_0}{1-\alpha_1-\beta_1}. \end{aligned} $$
+
+$$
+\begin{aligned} \bar\sigma^2 &=\alpha_0+(\alpha_1+\beta_1)\bar\sigma^2\\ (1-\alpha_1-\beta_1)\bar\sigma^2 &=\alpha_0\\ \bar\sigma^2 &=\frac{\alpha_0}{1-\alpha_1-\beta_1}. \end{aligned}
+$$
 
 **结论：**
 $$ \alpha_0>0,\qquad \alpha_1\ge 0,\qquad \beta_1\ge 0,\qquad \alpha_1+\beta_1<1. $$
@@ -129,8 +157,7 @@ $$ \alpha_0>0,\qquad \alpha_1\ge 0,\qquad \beta_1\ge 0,\qquad \alpha_1+\beta_1<1
 
 GARCH(1,1) 的核心便利是：少量参数可以近似 long-memory ARCH。
 
-:::{admonition} Lemma
-GARCH(1,1) 的 ARCH($\infty$) 表示
+:::{admonition} Lemma: GARCH(1,1) 的 ARCH($\infty$) 表示
 **WTS：**
 $$ \sigma_t^2 = \frac{\alpha_0}{1-\beta_1} +\alpha_1\sum_{j=1}^{\infty}\beta_1^{j-1}u_{t-j}^2. $$
 
@@ -138,7 +165,10 @@ $$ \sigma_t^2 = \frac{\alpha_0}{1-\beta_1} +\alpha_1\sum_{j=1}^{\infty}\beta_1^{
 $$ \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2. $$
 
 **连续求解：**
-$$ \begin{aligned} \sigma_t^2 &=\alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2\\ &=\alpha_0+\alpha_1u_{t-1}^2 +\beta_1(\alpha_0+\alpha_1u_{t-2}^2+\beta_1\sigma_{t-2}^2)\\ &=\alpha_0(1+\beta_1) +\alpha_1u_{t-1}^2+\alpha_1\beta_1u_{t-2}^2 +\beta_1^2\sigma_{t-2}^2\\ &=\alpha_0(1+\beta_1+\beta_1^2+\cdots) +\alpha_1\left(u_{t-1}^2+\beta_1u_{t-2}^2+\beta_1^2u_{t-3}^2+\cdots\right)\\ &=\frac{\alpha_0}{1-\beta_1} +\alpha_1\sum_{j=1}^{\infty}\beta_1^{j-1}u_{t-j}^2. \end{aligned} $$
+
+$$
+\begin{aligned} \sigma_t^2 &=\alpha_0+\alpha_1u_{t-1}^2+\beta_1\sigma_{t-1}^2\\ &=\alpha_0+\alpha_1u_{t-1}^2 +\beta_1(\alpha_0+\alpha_1u_{t-2}^2+\beta_1\sigma_{t-2}^2)\\ &=\alpha_0(1+\beta_1) +\alpha_1u_{t-1}^2+\alpha_1\beta_1u_{t-2}^2 +\beta_1^2\sigma_{t-2}^2\\ &=\alpha_0(1+\beta_1+\beta_1^2+\cdots) +\alpha_1\left(u_{t-1}^2+\beta_1u_{t-2}^2+\beta_1^2u_{t-3}^2+\cdots\right)\\ &=\frac{\alpha_0}{1-\beta_1} +\alpha_1\sum_{j=1}^{\infty}\beta_1^{j-1}u_{t-j}^2. \end{aligned}
+$$
 
 **结论：** GARCH 是带几何衰减权重的 ARCH($\infty$)。见 [cards/GARCH_Infinite_ARCH_and_Half_Life](cards/GARCH_Infinite_ARCH_and_Half_Life)。
 
@@ -153,15 +183,21 @@ $$
 \bar\sigma^2=\frac{\alpha_0}{1-\phi}.
 $$
 
-:::{admonition} Lemma
-GARCH(1,1) 的 $h$-step variance forecast
+:::{admonition} Lemma: GARCH(1,1) 的 $h$-step variance forecast
 **WTS：**
 $$ E_t[\sigma_{t+h}^2] = \bar\sigma^2+\phi^{h-1}\left(E_t[\sigma_{t+1}^2]-\bar\sigma^2\right). $$
 
 **连续求解：**
-$$ \begin{aligned} E_t[\sigma_{t+2}^2] &=\alpha_0+\phi E_t[\sigma_{t+1}^2]\\ &=\bar\sigma^2(1-\phi)+\phi E_t[\sigma_{t+1}^2]\\ &=\bar\sigma^2+\phi(E_t[\sigma_{t+1}^2]-\bar\sigma^2). \end{aligned} $$
+
+$$
+\begin{aligned} E_t[\sigma_{t+2}^2] &=\alpha_0+\phi E_t[\sigma_{t+1}^2]\\ &=\bar\sigma^2(1-\phi)+\phi E_t[\sigma_{t+1}^2]\\ &=\bar\sigma^2+\phi(E_t[\sigma_{t+1}^2]-\bar\sigma^2). \end{aligned}
+$$
+
 继续迭代：
-$$ \begin{aligned} E_t[\sigma_{t+3}^2] &=\bar\sigma^2+\phi(E_t[\sigma_{t+2}^2]-\bar\sigma^2)\\ &=\bar\sigma^2+\phi^2(E_t[\sigma_{t+1}^2]-\bar\sigma^2),\\ &\vdots\\ E_t[\sigma_{t+h}^2] &=\bar\sigma^2+\phi^{h-1}(E_t[\sigma_{t+1}^2]-\bar\sigma^2). \end{aligned} $$
+
+$$
+\begin{aligned} E_t[\sigma_{t+3}^2] &=\bar\sigma^2+\phi(E_t[\sigma_{t+2}^2]-\bar\sigma^2)\\ &=\bar\sigma^2+\phi^2(E_t[\sigma_{t+1}^2]-\bar\sigma^2),\\ &\vdots\\ E_t[\sigma_{t+h}^2] &=\bar\sigma^2+\phi^{h-1}(E_t[\sigma_{t+1}^2]-\bar\sigma^2). \end{aligned}
+$$
 
 **结论：** $\phi$ 越接近 1，volatility forecast 越 persistent。
 

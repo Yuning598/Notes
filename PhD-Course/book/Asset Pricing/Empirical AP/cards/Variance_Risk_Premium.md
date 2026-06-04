@@ -9,8 +9,7 @@ Backlinks: [02_Implied_Volatility_VIX_VRP](../02_Implied_Volatility_VIX_VRP)
 
 :::{admonition} Definition (Variance risk premium)
 \[
-VRP_t=IV_t-E_t^P[RV_{t,t+\tau}]
-=
+VRP_t=IV_t-E_t^P[RV_{t,t+\tau}] =
 E_t^Q[RV_{t,t+\tau}]-E_t^P[RV_{t,t+\tau}].
 \]
 

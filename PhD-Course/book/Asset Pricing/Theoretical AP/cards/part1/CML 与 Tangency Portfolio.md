@@ -4,16 +4,16 @@
 
 返回：[Asset Pricing/Theoretical AP/01_Single_Period_Models](Asset Pricing/Theoretical AP/01_Single_Period_Models)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 若存在无风险资产 $R_f$，则均值—方差前沿上的风险资产持仓满足
 
 $$
 \omega=\vartheta\Sigma^{-1}(\mu-R_f\iota).
 $$
 
-**Definition (Definition):**
-切点组合（tangency portfolio）为
+:::
+
+:::{admonition} Definition: 切点组合（tangency portfolio）为
 
 $$
 \omega_{tan}

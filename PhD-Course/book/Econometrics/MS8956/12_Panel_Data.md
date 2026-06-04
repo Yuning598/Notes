@@ -350,11 +350,9 @@ $$
 and
 
 $$
-\hat{\beta}_{FE}-\beta
-=
+\hat{\beta}_{FE}-\beta =
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
-\left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{\eta}_i\right)
-=
+\left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{\eta}_i\right) =
 \left(\frac{1}{n}\sum_{i=1}^n F_i'QF_i\right)^{-1}
 \left(\frac{1}{n}\sum_{i=1}^n F_i'Q\eta_i\right)
 \tag{5.2.5}
@@ -371,8 +369,7 @@ $$
 where $f_{im}'$ is the $m$-th row of $F_i$. Define $\tilde{y}_i,\tilde{F}_i,\tilde{\eta}_i$ by `(5.2.2)`. Then the fixed-effects estimator `(5.2.4)` is consistent and asymptotically normal with
 
 $$
-\text{Avar}(\hat{\beta}_{FE})
-=
+\text{Avar}(\hat{\beta}_{FE}) =
 \left[\mathbb{E}(\tilde{F}_i'\tilde{F}_i)\right]^{-1}
 \mathbb{E}\!\left[\tilde{F}_i'\mathbb{E}(\tilde{\eta}_i\tilde{\eta}_i')\tilde{F}_i\right]
 \left[\mathbb{E}(\tilde{F}_i'\tilde{F}_i)\right]^{-1}
@@ -381,8 +378,7 @@ $$
 This asymptotic variance is consistently estimated by
 
 $$
-\widehat{\text{Avar}}(\hat{\beta}_{FE})
-=
+\widehat{\text{Avar}}(\hat{\beta}_{FE}) =
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\hat{V}\tilde{F}_i\right)
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
@@ -422,8 +418,7 @@ $$
 并且可一致估计为
 
 $$
-\widehat{\text{Avar}}(\hat{\beta}_{FE})
-=
+\widehat{\text{Avar}}(\hat{\beta}_{FE}) =
 \hat{\sigma}_\eta^2
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
 \tag{5.2.14}
@@ -434,10 +429,8 @@ $$
 To extend the OLS analogy, define
 
 $$
-SSR
-=
-(\tilde{y}-\tilde{F}\hat{\beta}_{FE})'(\tilde{y}-\tilde{F}\hat{\beta}_{FE})
-=
+SSR =
+(\tilde{y}-\tilde{F}\hat{\beta}_{FE})'(\tilde{y}-\tilde{F}\hat{\beta}_{FE}) =
 \sum_{i=1}^n
 (\tilde{y}_i-\tilde{F}_i\hat{\beta}_{FE})'
 (\tilde{y}_i-\tilde{F}_i\hat{\beta}_{FE})
@@ -490,8 +483,7 @@ $$
 \tag{5.2.21}
 $$
 
-:::{admonition} Proposition
-Proposition 5.2 (Hausman Specification Test)
+:::{admonition} Proposition: Proposition 5.2 (Hausman Specification Test)
 Suppose the assumptions of the error-components model (`(5.1.1'')`, `(5.1.2)`, `(5.1.8)`, `(5.1.4)`-`(5.1.6)`, and `(5.1.15)`) hold. Define $\hat{q}$ and $\widehat{\text{Avar}}(\hat{q})$ as above. Then the Hausman statistic is
 
 $$
@@ -506,13 +498,11 @@ and is asymptotically $\chi^2$ with $\#\beta$ degrees of freedom.
 
 ## Relaxing Conditional Homoskedasticity
 
-:::{admonition} Proposition
-Proposition 5.3 (Fixed-Effects Estimator without Conditional Homoskedasticity)
+:::{admonition} Proposition: Proposition 5.3 (Fixed-Effects Estimator without Conditional Homoskedasticity)
 Drop conditional homoskedasticity `(5.1.5)` from Proposition 5.1. Define $\tilde{y}_i,\tilde{F}_i,\tilde{\eta}_i$ by `(5.2.2)`. Then:
 
 $$
-\text{Avar}(\hat{\beta}_{FE})
-=
+\text{Avar}(\hat{\beta}_{FE}) =
 \left[\mathbb{E}(\tilde{F}_i'\tilde{F}_i)\right]^{-1}
 \mathbb{E}(\tilde{F}_i'\tilde{\eta}_i\tilde{\eta}_i'\tilde{F}_i)
 \left[\mathbb{E}(\tilde{F}_i'\tilde{F}_i)\right]^{-1}
@@ -521,8 +511,7 @@ $$
 If an appropriate finite fourth-moment condition holds, a consistent estimator is
 
 $$
-\widehat{\text{Avar}}(\hat{\beta}_{FE})
-=
+\widehat{\text{Avar}}(\hat{\beta}_{FE}) =
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\hat{\eta}_i\hat{\eta}_i'\tilde{F}_i\right)
 \left(\frac{1}{n}\sum_{i=1}^n \tilde{F}_i'\tilde{F}_i\right)^{-1}
@@ -578,8 +567,7 @@ $$
 将 `(5.4.5)` 代入 `(5.4.2)` 得
 
 $$
-\log\!\left(\frac{Y(t_m)}{L(t_m)}\right)
-=
+\log\!\left(\frac{Y(t_m)}{L(t_m)}\right) =
 \rho\log\!\left(\frac{Y(t_{m-1})}{L(t_{m-1})}\right)
 +
 (1-\rho)\,[\log(q^*)+\log(A(0))]
@@ -598,10 +586,8 @@ $$
 与 `(5.4.6)` 等价的一种写法是
 
 $$
-\log\!\left(\frac{Y(t_m)}{L(t_m)}\right)
--
-\log\!\left(\frac{Y(t_{m-1})}{L(t_{m-1})}\right)
-=
+\log\!\left(\frac{Y(t_m)}{L(t_m)}\right) -
+\log\!\left(\frac{Y(t_{m-1})}{L(t_{m-1})}\right) =
 (\rho-1)\log\!\left(\frac{Y(t_{m-1})}{L(t_{m-1})}\right)
 +
 (1-\rho)\,[\log(q^*)+\log(A(0))]

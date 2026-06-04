@@ -221,8 +221,7 @@ d\hat x_t
 $$
 
 $$
-\frac{dS_t}{dt}
-=
+\frac{dS_t}{dt} =
 2a_1(t)S_t+m_1^2(t)+m_2^2(t)
 -\frac{[m_1(t)M_1(t)+m_2(t)M_2(t)+A_1(t)S_t]^2}{M_1^2(t)+M_2^2(t)}.
 $$

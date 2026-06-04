@@ -7,8 +7,9 @@
 :::{admonition} Definition (Definition)
 若某前沿组合的期望收益低于 GMV 组合的期望收益，则它位于前沿的 inefficient 部分。
 
-**Definition (Definition):**
-若某前沿组合的期望收益高于 GMV 组合的期望收益，则它位于 efficient frontier 上。
+:::
+
+:::{admonition} Definition: 若某前沿组合的期望收益高于 GMV 组合的期望收益，则它位于 efficient frontier 上。
 
 :::
 

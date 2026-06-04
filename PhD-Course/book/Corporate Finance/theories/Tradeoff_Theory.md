@@ -135,8 +135,7 @@ $$
 $$
 \boxed{
 \begin{aligned}
-\text{marginal tax benefit of debt}
-=
+\text{marginal tax benefit of debt} =
 \text{marginal expected cost of debt}.
 \end{aligned}
 }

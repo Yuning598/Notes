@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
-:::{admonition} Lemma
-Uniform boundary estimator
+:::{admonition} Lemma: Uniform boundary estimator
 If \(X_i\sim U(\theta,2\theta)\), then
 \[
 \ell(\theta)=\theta^{-n}\mathbf 1\left\{\frac{X_{(n)}}2\le\theta\le X_{(1)}\right\},

@@ -163,8 +163,7 @@ c_1^k<c_2^k
 \iff
 u^{k'}(c_1^k)>u^{k'}(c_2^k)
 \iff
-\frac{\delta}{p}
-=
+\frac{\delta}{p} =
 \frac{u^{k'}(c_1^k)}{u^{k'}(c_2^k)}
 >1.
 $$
@@ -239,8 +238,7 @@ $$
 \frac{\partial \mathcal L^h}{\partial x_s^h}
 &=
 \frac{\pi_s}{x_s^h}-\lambda^hp_s=0
-\iff \frac{\pi_s/x_s^h}{\pi_t/x_t^h}
-=
+\iff \frac{\pi_s/x_s^h}{\pi_t/x_t^h} =
 \frac{p_s}{p_t}
 \end{aligned}
 $$
@@ -282,8 +280,7 @@ x^h=
 400
 \left(
 \frac14,\frac14,\frac12
-\right)
-=
+\right) =
 (100,100,200).
 $$
 

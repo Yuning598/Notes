@@ -9,7 +9,9 @@ Parent: [05_IV_2SLS_Weak_Instruments](05_IV_2SLS_Weak_Instruments)
 :::{admonition} Definition (Hausman exogeneity test)
 Compares OLS and 2SLS. Under exogeneity both are consistent; under endogeneity only 2SLS is consistent.
 
-**Definition (Overidentification / Sargan-Hansen J test):**
+:::
+
+:::{admonition} Definition (Overidentification / Sargan-Hansen J test)
 \[
 J=n\hat g(\hat\beta)'\hat W\hat g(\hat\beta),
 \qquad

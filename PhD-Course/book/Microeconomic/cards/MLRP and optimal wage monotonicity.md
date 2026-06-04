@@ -18,8 +18,7 @@ $$
 Second-best FOC:
 
 $$
-\frac{1}{u'(w(x))}
-=
+\frac{1}{u'(w(x))} =
 \lambda+\mu\left(1-\frac{f(x|0)}{f(x|1)}\right).
 $$
 

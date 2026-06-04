@@ -43,10 +43,8 @@ $$
 把这份剩余信息均匀分摊到剩余时间 $1-t$，得到候选交易速度
 
 $$
-\theta_t
-=
-\frac{(\tilde v-\bar v)/\lambda-Y_t}{1-t}
-=
+\theta_t =
+\frac{(\tilde v-\bar v)/\lambda-Y_t}{1-t} =
 \frac{\tilde v-P_t}{(1-t)\lambda}.
 $$
 

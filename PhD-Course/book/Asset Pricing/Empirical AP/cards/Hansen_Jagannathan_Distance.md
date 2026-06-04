@@ -31,8 +31,7 @@ $$
 Equivalently,
 
 $$
-d_{HJ}(\theta)
-=
+d_{HJ}(\theta) =
 \min_{m^*:E[m^*R^e]=0}
 \sqrt{E[(m(\theta)-m^*)^2]}.
 $$
@@ -40,8 +39,7 @@ $$
 In GMM form, HJ distance corresponds to the weighting matrix
 
 $$
-W_{HJ}
-=
+W_{HJ} =
 \left(\frac1T\sum_{t=1}^T R_t^eR_t^{e'}\right)^{-1}.
 $$
 

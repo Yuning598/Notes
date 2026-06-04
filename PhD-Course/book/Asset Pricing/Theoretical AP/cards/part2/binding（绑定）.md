@@ -17,8 +17,7 @@
 
 $$
 \begin{aligned}
-0
-=
+0 =
 \max\big\{
 \underbrace{-\beta V+\mathcal D_XV+g}_{\text{继续}},
 \underbrace{h-V}_{\text{停止}}

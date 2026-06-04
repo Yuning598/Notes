@@ -179,8 +179,7 @@ $$
 对任意候选值 $\tilde{\boldsymbol{\omega}}$，定义
 
 $$
-SSR(\tilde{\boldsymbol{\omega}})
-=
+SSR(\tilde{\boldsymbol{\omega}}) =
 (\mathbf{y}-\mathbf{X}\tilde{\boldsymbol{\omega}})'(\mathbf{y}-\mathbf{X}\tilde{\boldsymbol{\omega}}).
 \tag{1.2.1}
 $$
@@ -209,8 +208,7 @@ $$
 并有两种常用分解：
 
 $$
-\mathbf{b}
-=
+\mathbf{b} =
 \boldsymbol{\omega}
 +
 (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon},
@@ -218,8 +216,7 @@ $$
 $$
 
 $$
-\mathbf{e}
-=
+\mathbf{e} =
 \mathbf{M}\boldsymbol{\varepsilon}.
 \tag{1.2.6b}
 $$
@@ -281,8 +278,7 @@ $$
 采样误差满足：
 
 $$
-\mathbf{b}-\boldsymbol{\omega}
-=
+\mathbf{b}-\boldsymbol{\omega} =
 (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\boldsymbol{\varepsilon}.
 \tag{1.2.14}
 $$
@@ -290,10 +286,8 @@ $$
 未中心化拟合优度（uncentered $R^2$）定义为
 
 $$
-R^2_{uc}
-=
-1-\frac{\mathbf{e}'\mathbf{e}}{\mathbf{y}'\mathbf{y}}
-=
+R^2_{uc} =
+1-\frac{\mathbf{e}'\mathbf{e}}{\mathbf{y}'\mathbf{y}} =
 \frac{\hat{\mathbf{y}}'\hat{\mathbf{y}}}{\mathbf{y}'\mathbf{y}}.
 \tag{1.2.16}
 $$
@@ -310,8 +304,7 @@ Influence (leave-one-out)
 记去掉第 $i$ 个观测后的估计量为 $\mathbf{b}^{(i)}$，则
 
 $$
-\mathbf{b}^{(i)}-\mathbf{b}
-=
+\mathbf{b}^{(i)}-\mathbf{b} =
 -\frac{1}{1-p_i}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{x}_i e_i,
 \tag{1.2.19}
 $$
@@ -330,8 +323,7 @@ $$
 
 **Finite-Sample Properties of OLS**
 
-:::{admonition} Proposition
-Proposition 1.1 (Finite-Sample Properties of OLS)
+:::{admonition} Proposition: Proposition 1.1 (Finite-Sample Properties of OLS)
 在 Assumptions 1.1-1.3 下：
 
 $$
@@ -380,8 +372,7 @@ $$
 s^2 \equiv \frac{\mathbf{e}'\mathbf{e}}{n-K}.
 $$
 
-:::{admonition} Proposition
-Proposition 1.2 (Unbiasedness of $s^2$)
+:::{admonition} Proposition: Proposition 1.2 (Unbiasedness of $s^2$)
 在 Assumptions 1.1-1.4 且 $n>K$ 下：
 
 $$
@@ -476,8 +467,7 @@ t_k \equiv
 \tag{1.4.5}
 $$
 
-:::{admonition} Proposition
-Proposition 1.3 (Distribution of the t-ratio)
+:::{admonition} Proposition: Proposition 1.3 (Distribution of the t-ratio)
 在 Assumptions 1.1-1.5 下，若 $H_0:\omega_k=\omega_k^0$ 成立，则 `(1.4.5)` 的统计量服从 $t(n-K)$。
 
 :::
@@ -569,16 +559,14 @@ $$
 其中
 
 $$
-SSR_R-SSR_U
-=
+SSR_R-SSR_U =
 (\mathbf{R}\mathbf{b}-\mathbf{r})'
 \left[\mathbf{R}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{R}'\right]^{-1}
 (\mathbf{R}\mathbf{b}-\mathbf{r}).
 \tag{1.4.10}
 $$
 
-:::{admonition} Proposition
-Proposition 1.4 (Distribution of the F-ratio)
+:::{admonition} Proposition: Proposition 1.4 (Distribution of the F-ratio)
 在 Assumptions 1.1-1.5 下，若 $\text{rank}(\mathbf{R})=\#r$，则 `(1.4.9)` 的统计量在 $H_0$ 下服从 $F(\#r,n-K)$。
 
 :::
@@ -652,8 +640,7 @@ $$
 联合密度分解：
 
 $$
-f(\mathbf{y},\mathbf{X};\vartheta)
-=
+f(\mathbf{y},\mathbf{X};\vartheta) =
 f(\mathbf{y}\mid\mathbf{X};\varpi)\,f(\mathbf{X};\rho).
 \tag{1.5.1}
 $$
@@ -685,8 +672,7 @@ $$
 对任意 $(\tilde{\boldsymbol{\omega}},\tilde{\sigma}^2)$，对数似然：
 
 $$
-\log L(\tilde{\boldsymbol{\omega}},\tilde{\sigma}^2)
-=
+\log L(\tilde{\boldsymbol{\omega}},\tilde{\sigma}^2) =
 -\frac n2\log(2\pi)
 -\frac n2\log(\tilde{\sigma}^2)
 -\frac{1}{2\tilde{\sigma}^2}
@@ -698,16 +684,14 @@ $$
 将 $\tilde{\boldsymbol{\omega}}$ 代入 OLS 极值点得到 concentrated log-likelihood：
 
 $$
-\log L_c(\tilde{\sigma}^2)
-=
+\log L_c(\tilde{\sigma}^2) =
 -\frac n2\log(2\pi)
 -\frac n2\log(\tilde{\sigma}^2)
 -\frac{1}{2\tilde{\sigma}^2}\,\mathbf{e}'\mathbf{e}.
 \tag{1.5.6}
 $$
 
-:::{admonition} Proposition
-Proposition 1.5 (ML Estimator)
+:::{admonition} Proposition: Proposition 1.5 (ML Estimator)
 在 Assumptions 1.1-1.5 下：
 
 $$
@@ -720,8 +704,7 @@ $$
 最大化后的似然写为：
 
 $$
-\max_{\tilde{\boldsymbol{\omega}},\tilde{\sigma}^2}L
-=
+\max_{\tilde{\boldsymbol{\omega}},\tilde{\sigma}^2}L =
 \left(\frac{2\pi}{n}\right)^{-n/2}
 \exp\!\left(-\frac n2\right)
 (SSR)^{-n/2}.
@@ -779,8 +762,7 @@ $$
 并有信息矩阵等式：
 
 $$
-\mathbf{I}(\vartheta)
-=
+\mathbf{I}(\vartheta) =
 -E\!\left[
 \frac{\partial^2\log L(\vartheta)}{\partial \tilde{\vartheta}\partial \tilde{\vartheta}'}
 \right].
@@ -790,8 +772,7 @@ $$
 令参数向量 $\vartheta=(\boldsymbol{\omega}',\phi)'$ 且 $\phi=\sigma^2$，则 Hessian 分块为
 
 $$
-\frac{\partial^2\log L}{\partial \tilde{\vartheta}\partial\tilde{\vartheta}'}
-=
+\frac{\partial^2\log L}{\partial \tilde{\vartheta}\partial\tilde{\vartheta}'} =
 \begin{bmatrix}
 \frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\boldsymbol{\omega}}'} &
 \frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\phi}}\\
@@ -804,15 +785,13 @@ $$
 一阶导数（在真值）：
 
 $$
-\frac{\partial\log L}{\partial \tilde{\boldsymbol{\omega}}}
-=
+\frac{\partial\log L}{\partial \tilde{\boldsymbol{\omega}}} =
 \frac{1}{\phi}\mathbf{X}'(\mathbf{y}-\mathbf{X}\boldsymbol{\omega}),
 \tag{1.5.13a}
 $$
 
 $$
-\frac{\partial\log L}{\partial \tilde{\phi}}
-=
+\frac{\partial\log L}{\partial \tilde{\phi}} =
 -\frac{n}{2\phi}
 +\frac{1}{2\phi^2}
 (\mathbf{y}-\mathbf{X}\boldsymbol{\omega})'(\mathbf{y}-\mathbf{X}\boldsymbol{\omega}).
@@ -822,15 +801,13 @@ $$
 二阶导数（在真值）：
 
 $$
-\frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\boldsymbol{\omega}}'}
-=
+\frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\boldsymbol{\omega}}'} =
 -\frac{1}{\phi}\mathbf{X}'\mathbf{X},
 \tag{1.5.14a}
 $$
 
 $$
-\frac{\partial^2\log L}{\partial\tilde{\phi}^2}
-=
+\frac{\partial^2\log L}{\partial\tilde{\phi}^2} =
 \frac{n}{2\phi^2}
 -\frac{1}{\phi^3}
 (\mathbf{y}-\mathbf{X}\boldsymbol{\omega})'(\mathbf{y}-\mathbf{X}\boldsymbol{\omega}),
@@ -838,8 +815,7 @@ $$
 $$
 
 $$
-\frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\phi}}
-=
+\frac{\partial^2\log L}{\partial\tilde{\boldsymbol{\omega}}\partial\tilde{\phi}} =
 -\frac{1}{\phi^2}\mathbf{X}'(\mathbf{y}-\mathbf{X}\boldsymbol{\omega}).
 \tag{1.5.14c}
 $$
@@ -866,8 +842,7 @@ $$
 \tag{1.5.16}
 $$
 
-:::{admonition} Proposition
-Proposition 1.6 (BUE)
+:::{admonition} Proposition: Proposition 1.6 (BUE)
 在 Assumptions 1.1-1.5 下，$\mathbf{b}$ 达到对应 Cramer-Rao 下界，因此是 $\boldsymbol{\omega}$ 的 BUE。
 
 :::
@@ -910,8 +885,7 @@ $$
 似然比：
 
 $$
-\Lambda\equiv\frac{L_U}{L_R}
-=
+\Lambda\equiv\frac{L_U}{L_R} =
 \left(\frac{SSR_U}{SSR_R}\right)^{-n/2}.
 \tag{1.5.18}
 $$
@@ -919,8 +893,7 @@ $$
 $F$ 统计量是其单调变换：
 
 $$
-F
-=
+F =
 \frac{n-K}{\#r}\left(\Lambda^{-2/n}-1\right).
 \tag{1.5.19}
 $$
@@ -934,8 +907,7 @@ $$
 放宽球形误差为：
 
 $$
-E(\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}'\mid \mathbf{X})
-=
+E(\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}'\mid \mathbf{X}) =
 \sigma^2\mathbf{V}(\mathbf{X}),
 \quad \mathbf{V}(\mathbf{X})\text{ nonsingular, known}.
 \tag{1.6.1}
@@ -969,8 +941,7 @@ $$
 在该模型上 OLS 即 GLS，故
 
 $$
-\hat{\boldsymbol{\omega}}_{GLS}
-=
+\hat{\boldsymbol{\omega}}_{GLS} =
 (\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}\mathbf{X}'\mathbf{V}^{-1}\mathbf{y}.
 \tag{1.6.5}
 $$
@@ -1003,20 +974,17 @@ $$
 方差表达式：
 
 $$
-\mathrm{Var}(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X})
-=
+\mathrm{Var}(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X}) =
 \sigma^2(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}.
 \tag{1.6.6}
 $$
 
-:::{admonition} Proposition
-Proposition 1.7 (Finite-Sample Properties of GLS)
+:::{admonition} Proposition: Proposition 1.7 (Finite-Sample Properties of GLS)
 在 1.1-1.3 与 `(1.6.1)` 下：
 
 $$
 E(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X})=\boldsymbol{\omega},\quad
-\text{Var}(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X})
-=
+\text{Var}(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X}) =
 \sigma^2(\mathbf{X}'\mathbf{V}^{-1}\mathbf{X})^{-1}.
 $$
 
@@ -1078,8 +1046,7 @@ $$
 对应成本函数可写为
 
 $$
-TC_i
-=
+TC_i =
 r\cdot
 \big(A_i p_1^{\omega_1}p_2^{\omega_2}p_3^{\omega_3}\big)^{-1/r}
 Q_i^{1/r}p_{i1}^{\omega_1/r}p_{i2}^{\omega_2/r}p_{i3}^{\omega_3/r},
@@ -1089,8 +1056,7 @@ $$
 取对数得
 
 $$
-\log(TC_i)
-=
+\log(TC_i) =
 \mu_i+\frac{1}{r}\log(Q_i)
 +\frac{\omega_1}{r}\log(p_{i1})
 +\frac{\omega_2}{r}\log(p_{i2})
@@ -1130,8 +1096,7 @@ $$
 将 $\log(p_{i3})$ 移到左边可得到受限回归：
 
 $$
-\log\!\left(\frac{TC_i}{p_{i3}}\right)
-=
+\log\!\left(\frac{TC_i}{p_{i3}}\right) =
 \omega_1+\omega_2\log(Q_i)
 +\omega_3\log\!\left(\frac{p_{i1}}{p_{i3}}\right)
 +\omega_4\log\!\left(\frac{p_{i2}}{p_{i3}}\right)
@@ -1152,8 +1117,7 @@ $$
 restricted 估计（对应 `(1.7.6)`）：
 
 $$
-\log\!\left(\frac{TC_i}{p_{i3}}\right)
-=
+\log\!\left(\frac{TC_i}{p_{i3}}\right) =
 -0.47+0.72\log(Q_i)+0.59\log\!\left(\frac{p_{i1}}{p_{i3}}\right)-0.07\log\!\left(\frac{p_{i2}}{p_{i3}}\right),
 \tag{1.7.8}
 $$

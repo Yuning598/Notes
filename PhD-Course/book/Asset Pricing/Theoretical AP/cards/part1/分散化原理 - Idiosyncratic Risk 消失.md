@@ -4,8 +4,7 @@
 
 返回：[Asset Pricing/Theoretical AP/01_Single_Period_Models](Asset Pricing/Theoretical AP/01_Single_Period_Models)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 若 $n$ 个资产相互不相关且方差相同为 $\sigma^2$，等权组合满足
 
 $$

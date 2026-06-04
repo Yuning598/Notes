@@ -43,8 +43,7 @@ $$
 \begin{aligned}
 \text{stock payoff flow}
 &=
-\text{aggregate endowment flow}
-=
+\text{aggregate endowment flow} =
 \delta_tdt.
 \end{aligned}
 $$

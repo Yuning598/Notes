@@ -39,8 +39,7 @@ $$
 条件方差满足 Riccati 方程
 
 $$
-\frac{d\Sigma_t^i}{dt}
-=
+\frac{d\Sigma_t^i}{dt} =
 -2\kappa_i\Sigma_t^i+\sigma_i^2-\frac{(\Sigma_t^i)^2}{\sigma^2}.
 $$
 

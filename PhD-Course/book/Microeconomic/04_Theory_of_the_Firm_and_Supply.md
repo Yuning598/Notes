@@ -92,8 +92,7 @@ $$
 Y=\{(-x,y):x\ge0,\ y\le f(x)\}.
 $$
 
-:::{admonition} Proposition
-Assume free disposal and $Y=\{(-x,y):x\ge0,\ y\le f(x)\}$. Then
+:::{admonition} Proposition: Assume free disposal and $Y=\{(-x,y):x\ge0,\ y\le f(x)\}$. Then
 
 $$
 Y \text{ convex}
@@ -175,8 +174,7 @@ $$
 
 Thus $f$ is concave.
 
-:::{admonition} Proposition
-Assume $0\in Y$ and free disposal.
+:::{admonition} Proposition: Assume $0\in Y$ and free disposal.
 
 $$
 \begin{aligned}
@@ -228,8 +226,7 @@ $$
 
 ## 3. CRS iff production set is a cone
 
-:::{admonition} Proposition
-Under free disposal,
+:::{admonition} Proposition: Under free disposal,
 
 $$
 f \text{ exhibits CRS}
@@ -360,12 +357,10 @@ $$
 Convexity of $\pi$ implies own-price supply slopes upward and own-input demand slopes downward under differentiability:
 
 $$
-\frac{\partial y^*}{\partial p}
-=
+\frac{\partial y^*}{\partial p} =
 \frac{\partial^2\pi}{\partial p^2}\ge0,
 \qquad
-\frac{\partial x_i^*}{\partial w_i}
-=
+\frac{\partial x_i^*}{\partial w_i} =
 -\frac{\partial^2\pi}{\partial w_i^2}\le0.
 $$
 
@@ -384,8 +379,7 @@ $$
 Thus
 
 $$
-\frac{\partial z}{\partial w_k}
-=
+\frac{\partial z}{\partial w_k} =
 \frac{1}{p}[D^2f(z)]^{-1}e_k.
 $$
 

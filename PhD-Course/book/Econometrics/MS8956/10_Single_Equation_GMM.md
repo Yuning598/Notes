@@ -1010,8 +1010,7 @@ $$
 
 本章利用大数定律 (LLN) 和中心极限定理 (CLT) 探讨 GMM 估计量的渐近性质。
 
-:::{admonition} Proposition
-Proposition 3.1 (a): Consistency
+:::{admonition} Proposition: Proposition 3.1 (a): Consistency
 Under Assumptions 3.1-3.4, GMM 估计量具有一致性：
 $$
 \operatorname{plim}_{n \to \infty} \hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) = \boldsymbol{\delta}
@@ -1032,8 +1031,7 @@ $$\begin{aligned}
 &= \boldsymbol{\delta}
 \end{aligned}$$
 
-:::{admonition} Proposition
-Proposition 3.1 (b): Asymptotic Normality
+:::{admonition} Proposition: Proposition 3.1 (b): Asymptotic Normality
 If Assumption 3.3 is strengthened as Assumption 3.5, then:
 $$
 \sqrt{n}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) - \boldsymbol{\delta}) \xrightarrow{d} N(\mathbf{0}, \operatorname{Avar}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}})))
@@ -1061,8 +1059,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 **GMM Wald Testing**
-:::{admonition} Proposition
-Proposition 3.1 (c): Consistent Estimate of Avar
+:::{admonition} Proposition: Proposition 3.1 (c): Consistent Estimate of Avar
 Suppose there is available a consistent estimator $\widehat{\mathbf{S}}$ of $\mathbf{S}$. Then $\operatorname{Avar}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}))$ is consistently estimated by:
 $$
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}})) \equiv (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \widehat{\mathbf{S}} \widehat{\mathbf{W}} \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \quad (3.5.2)
@@ -1077,8 +1074,7 @@ $$
 $$
 该估计量常用于计算 GMM 的稳健标准误（Robust Standard Errors）。
 
-:::{admonition} Proposition
-Proposition 3.2 (Consistent Estimation of Error Variance)
+:::{admonition} Proposition: Proposition 3.2 (Consistent Estimation of Error Variance)
 For any consistent estimator $\hat{\boldsymbol{\delta}}$ of $\boldsymbol{\delta}$, define the residual
 $$
 \hat{\varepsilon}_i \equiv y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}
@@ -1145,8 +1141,7 @@ $$\begin{aligned}
 
 Based on the asymptotic normality (Proposition 3.1), we can perform statistical tests for structural parameters.
 
-:::{admonition} Proposition
-Proposition 3.3 (Robust $t$-ratio and Wald Statistics)
+:::{admonition} Proposition: Proposition 3.3 (Robust $t$-ratio and Wald Statistics)
 Suppose Assumptions 3.1–3.5 hold, and suppose there is available a consistent estimate $\widehat{\mathbf{S}}$ of $\mathbf{S}$. Let
 $$
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}})) \equiv (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \widehat{\mathbf{S}} \widehat{\mathbf{W}} \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1}
@@ -1192,8 +1187,7 @@ where $\hat{\varepsilon}_i = y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}$ and 
 > [!assumption] Assumption 3.6 (Finite Fourth Moments)
 > $E[(x_{ik} z_{i \ell})^2]$ exists and is finite for all $k (= 1, \dots, K)$ and $\ell (= 1, \dots, L)$.
 
-:::{admonition} Proposition
-Proposition 3.4 (Consistent Estimation of $\mathbf{S}$)
+:::{admonition} Proposition: Proposition 3.4 (Consistent Estimation of $\mathbf{S}$)
 Suppose the coefficient estimate $\hat{\boldsymbol{\delta}}$ used for calculating the residual $\hat{\varepsilon}_i$ for $\widehat{\mathbf{S}}$ in (3.5.10) is consistent, and suppose $\mathbf{S} = E(\mathbf{g}_i \mathbf{g}_i')$ exists and is finite. Then, under Assumptions 3.1, 3.2, and 3.6, $\widehat{\mathbf{S}}$ given in (3.5.10) is consistent for $\mathbf{S}$.
 
 :::
@@ -1229,8 +1223,7 @@ Thus, $\widehat{S}_{kl}$ converges in probability to the true population moment 
 
 In GMM estimation, the choice of the weighting matrix $\mathbf{W}$ affects the efficiency of the estimator. We seek the **optimal** weighting matrix that minimizes the asymptotic variance.
 
-:::{admonition} Proposition
-Proposition 3.5 (Optimal Choice of the Weighting Matrix)
+:::{admonition} Proposition: Proposition 3.5 (Optimal Choice of the Weighting Matrix)
 A lower bound for the asymptotic variance of the GMM estimators indexed by $\widehat{\mathbf{W}}$ is given by $(\boldsymbol{\Sigma}_{xz}' \mathbf{S}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}$. The lower bound is achieved if $\widehat{\mathbf{W}}$ is such that $\mathbf{W} (\equiv \operatorname{plim} \widehat{\mathbf{W}}) = \mathbf{S}^{-1}$.
 
 :::
@@ -1451,8 +1444,7 @@ Consequently, the minimized distance $J(\hat{\boldsymbol{\delta}}, \widehat{\mat
 
 If the model is **overidentified** ($K > L$), we have more moment conditions than parameters. We can then test the validity of these overidentifying restrictions.
 
-:::{admonition} Proposition
-Proposition 3.6 (Hansen's J-test / Sargan-Hansen test (Hansen, 1982))
+:::{admonition} Proposition: Proposition 3.6 (Hansen's J-test / Sargan-Hansen test (Hansen, 1982))
 Suppose there is available a consistent estimator, $\widehat{\mathbf{S}}$, of $\mathbf{S} (= E(\mathbf{g}_i \mathbf{g}_i'))$. Under Assumptions 3.1–3.5, if the weighting matrix is chosen optimally such that $\operatorname{plim} \widehat{\mathbf{W}} = \mathbf{S}^{-1}$, the minimized distance is asymptotically chi-squared:
 $$
 J(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) = n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) \xrightarrow{d} \chi^2(K - L)
@@ -1600,8 +1592,7 @@ $$\begin{aligned}
 **4. 结论与分布证明 (Distribution Proof)**
 定义标准正态向量 $\mathbf{z}_n = \mathbf{C} \sqrt{n} \bar{\mathbf{g}} \xrightarrow{d} N(\mathbf{0}, \mathbf{I}_K)$。
 
-:::{admonition} Proposition
-$\mathbf{z}_n$ 是标准正态
+:::{admonition} Proposition: $\mathbf{z}_n$ 是标准正态
 1. **CLT**: $\sqrt{n} \bar{\mathbf{g}} \xrightarrow{d} N(\mathbf{0}, \mathbf{S})$。
 2. **方差变换**: $Var(\mathbf{z}_n) = \mathbf{C} \mathbf{S} \mathbf{C}^T$。
 3. **对消证明**: 由于 $\mathbf{S}^{-1} = \mathbf{C}^T \mathbf{C}$，则 $\mathbf{S} = \mathbf{C}^{-1} (\mathbf{C}^T)^{-1}$。
@@ -1612,8 +1603,7 @@ $\mathbf{z}_n$ 是标准正态
 :::
 
 ## J-Test Consistency and Failure Modes
-:::{admonition} Proposition
-当 $E[\mathbf{g}_i] = \boldsymbol{\mu} \neq \mathbf{0}$ 时
+:::{admonition} Proposition: 当 $E[\mathbf{g}_i] = \boldsymbol{\mu} \neq \mathbf{0}$ 时
 1. **样本矩分解**:
 $$\begin{aligned}
 \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) &= \hat{\mathbf{B}} \sqrt{n} \bar{\mathbf{g}} \\
@@ -1680,8 +1670,7 @@ $$
 
 **3. C-检验统计量 (The C-test / Difference-in-Sargan)**
 
-:::{admonition} Proposition
-Proposition 3.7 (Testing a subset of orthogonality conditions)
+:::{admonition} Proposition: Proposition 3.7 (Testing a subset of orthogonality conditions)
 Suppose Assumptions 3.1–3.5 hold. Let $\mathbf{x}_{i1}$ be a subvector of $\mathbf{x}_i$, and strengthen Assumption 3.4 by requiring that the rank condition for identification is satisfied for $\mathbf{x}_{i1}$ (so $E(\mathbf{x}_{i1} \mathbf{z}_i')$ is of full column rank). Then, for any consistent estimators $\widehat{\mathbf{S}}$ of $\mathbf{S}$ and $\widehat{\mathbf{S}}_{11}$ of $\mathbf{S}_{11}$,
 $$
 C \equiv J - J_1 \xrightarrow{d} \chi^2(K - K_1)
@@ -1710,8 +1699,7 @@ where $K = \#\mathbf{x}_i$ (dimension of $\mathbf{x}_i$), $K_1 = \#\mathbf{x}_{i
 
 **数学推导：为什么推荐步骤能保证 $J \ge J_1$？**
 
-:::{admonition} Proposition
-Partitioned Matrix Inverse Formula (分块矩阵求逆公式)
+:::{admonition} Proposition: Partitioned Matrix Inverse Formula (分块矩阵求逆公式)
 考虑分块矩阵 $\mathbf{S} = \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix}$，若 $\mathbf{S}$ 和 $\mathbf{S}_{22}$ 均非奇异，则其逆矩阵 $\mathbf{W} = \mathbf{S}^{-1}$ 的左上角分块满足：
 $$
 \mathbf{W}_{11} = (\mathbf{S}_{11} - \mathbf{S}_{12} \mathbf{S}_{22}^{-1} \mathbf{S}_{21})^{-1}
@@ -1823,8 +1811,7 @@ $$
 
 ## Wald and LR Comparison
 
-:::{admonition} Proposition
-Proposition 3.8 (Test statistic by the LR principle)
+:::{admonition} Proposition: Proposition 3.8 (Test statistic by the LR principle)
 Suppose Assumptions 3.1–3.5 hold and suppose there is available a consistent estimator, $\widehat{\mathbf{S}}$, of $\mathbf{S} (= E(\mathbf{g}_i \mathbf{g}_i'))$. Consider the null hypothesis of $\#\mathbf{a}$ restrictions $H_0: \mathbf{a}(\boldsymbol{\delta}) = \mathbf{0}$ such that $\mathbf{A}(\boldsymbol{\delta})$, the $\#\mathbf{a} \times L$ matrix of first derivatives, is continuous and of full row rank. Define two statistics, $W$ and $LR$, by (3.5.16) and (3.7.2), respectively. Then, under the null, the following holds:
 
 1. **渐近等价性 (Asymptotic Equivalence)**: 这两个统计量具有相同的渐近分布，即均服从 $\chi^2(\#\mathbf{a})$。
@@ -2092,8 +2079,7 @@ $$
 
 ## 2SLS Asymptotic Summary
 
-:::{admonition} Proposition
-Proposition 3.9 (Asymptotic properties of 2SLS)
+:::{admonition} Proposition: Proposition 3.9 (Asymptotic properties of 2SLS)
 (a) 在 Assumption 3.1–3.4 下，2SLS 估计量 (3.8.3) 是一致的。若增加 Assumption 3.5，则该估计量具有渐近正态性，其渐近方差由 (3.5.1) 给出，且权重矩阵 $\mathbf{W} = (\sigma^2 \boldsymbol{\Sigma}_{xx})^{-1}$。若进一步满足 Assumption 3.7 (条件同方差)，则该估计量为**有效 GMM 估计量**。
 
 此外，若 $E(\mathbf{z}_i \mathbf{z}_i')$ 存在且有限，则：

@@ -10,8 +10,9 @@
 **Proposition:** Proposition
 CAPM 是单因子模型；更一般地，可以有多因子模型。
 
-**Definition (Definition):**
-Jensen alpha 衡量组合相对基准模型的超额表现。若相对基准因子模型有
+:::
+
+:::{admonition} Definition: Jensen alpha 衡量组合相对基准模型的超额表现。若相对基准因子模型有
 
 $$
 \alpha_J>0,

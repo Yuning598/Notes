@@ -44,22 +44,31 @@ $$
 
 套利者买入一单位，未来 mispricing 以概率 $p$ 收敛，以概率 $1-p$ 继续扩大并被迫平仓。
 
-:::{admonition} Lemma
-有 forced liquidation 时的套利条件
+:::{admonition} Lemma: 有 forced liquidation 时的套利条件
 **WTS：** 期望收益为正不够；还要满足融资约束下的 downside condition。
 
 **联立系统：**
-$$ \begin{cases} P_0=V-m,\\ P_1=V,\quad \text{prob. }p,\\ P_1=V-m-L,\quad \text{prob. }1-p. \end{cases} $$
+
+$$
+\begin{cases} P_0=V-m,\\ P_1=V,\quad \text{prob. }p,\\ P_1=V-m-L,\quad \text{prob. }1-p. \end{cases}
+$$
 
 **连续求解：**
-$$ \begin{aligned}
+
+$$
+\begin{aligned}
 R_1^{good} &=V-(V-m)=m,\\
 R_1^{bad} &=(V-m-L)-(V-m)=-L.
-\end{aligned} $$
-$$ \begin{aligned}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
 E[R_1] &=pm+(1-p)(-L)\\
 &=pm-(1-p)L.
-\end{aligned} $$
+\end{aligned}
+$$
+
 若要求 $L\le K$，则即使 $E[R_1]>0$，套利者仍可能不能持仓。
 
 :::
@@ -159,8 +168,7 @@ $$
 一个常用交互回归：
 
 $$
-R_{i,t+1}
-=
+R_{i,t+1} =
 \alpha+\beta Mispricing_{i,t}
 +\gamma Constraint_{i,t}
 +\delta Mispricing_{i,t}\times Constraint_{i,t}
@@ -173,8 +181,7 @@ $$
 
 若投资者 overweight small probabilities，会偏好极端正偏 payoff。需求推高价格，压低未来收益。
 
-:::{admonition} Lemma
-Lottery demand 对 expected return 的影响
+:::{admonition} Lemma: Lottery demand 对 expected return 的影响
 **WTS：** 如果投资者愿意为正偏彩票型 payoff 付出额外溢价，均衡 expected return 下降。
 
 **联立系统：**
@@ -184,11 +191,14 @@ Lottery investors 额外愿意支付 $\pi_{lot}>0$，则市场价格：
 $$ P=P^*+\pi_{lot}. $$
 
 **连续求解：**
-$$ \begin{aligned}
+
+$$
+\begin{aligned}
 E[R]-E[R^*]
 &= \frac{E[X]}{P^*+\pi_{lot}} -\frac{E[X]}{P^*}\\
 &= -E[X]\frac{\pi_{lot}}{P^*(P^*+\pi_{lot})}<0.
-\end{aligned} $$
+\end{aligned}
+$$
 
 **结论：** lottery demand 使价格偏高、未来平均收益偏低。
 

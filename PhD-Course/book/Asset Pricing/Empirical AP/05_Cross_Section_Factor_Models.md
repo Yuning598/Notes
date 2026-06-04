@@ -52,8 +52,7 @@ $$
 
 这说明 beta representation 的本质不是“回归技巧”，而是 SDF 定价式的 covariance 改写：资产平均收益由它和 SDF 的协动决定。
 
-:::{admonition} Lemma
-Linear SDF implies factor beta pricing
+:::{admonition} Lemma: Linear SDF implies factor beta pricing
 **WTS：**
 $$ E[R_i^e]=\beta_i'\lambda, \qquad \beta_i=\operatorname{Cov}(R_i^e,f)\operatorname{Var}(f)^{-1}. $$
 
@@ -61,13 +60,25 @@ $$ E[R_i^e]=\beta_i'\lambda, \qquad \beta_i=\operatorname{Cov}(R_i^e,f)\operator
 $$ E[M R_i^e]=0,\qquad M=a-b'f. $$
 
 **连续求解：**
-$$ \begin{aligned} 0 &=E[(a-b'f)R_i^e]\\ &=aE[R_i^e]-b'E[fR_i^e]\\ &=aE[R_i^e]-b'\left(E[f]E[R_i^e]+\operatorname{Cov}(f,R_i^e)\right). \end{aligned} $$
+
+$$
+\begin{aligned} 0 &=E[(a-b'f)R_i^e]\\ &=aE[R_i^e]-b'E[fR_i^e]\\ &=aE[R_i^e]-b'\left(E[f]E[R_i^e]+\operatorname{Cov}(f,R_i^e)\right). \end{aligned}
+$$
+
 整理：
-$$ \begin{aligned} \left(a-b'E[f]\right)E[R_i^e] &=b'\operatorname{Cov}(f,R_i^e)\\ E[R_i^e] &=\operatorname{Cov}(R_i^e,f) \frac{b}{a-b'E[f]}. \end{aligned} $$
+
+$$
+\begin{aligned} \left(a-b'E[f]\right)E[R_i^e] &=b'\operatorname{Cov}(f,R_i^e)\\ E[R_i^e] &=\operatorname{Cov}(R_i^e,f) \frac{b}{a-b'E[f]}. \end{aligned}
+$$
+
 插入
 $$ \operatorname{Cov}(R_i^e,f)=\beta_i\operatorname{Var}(f), $$
 得
-$$ \begin{aligned} E[R_i^e] &=\beta_i\operatorname{Var}(f)\frac{b}{a-b'E[f]}\\ &=\beta_i'\lambda, \end{aligned} $$
+
+$$
+\begin{aligned} E[R_i^e] &=\beta_i\operatorname{Var}(f)\frac{b}{a-b'E[f]}\\ &=\beta_i'\lambda, \end{aligned}
+$$
+
 其中
 $$ \lambda=\operatorname{Var}(f)\frac{b}{a-b'E[f]}. $$
 
@@ -124,6 +135,7 @@ $$
 > [!important]+ 与 EF8077 的连接：SDF、single factor 与 beta representation
 > EF8077/Theoretical AP 的抽象证明见 [Factor Models Are Equivalent to SDFs](../../Theoretical AP/01_Single_Period_Models.md)；QE 速查见 [Factor model review](../../ProblemSet/ProblemSet.md)。
 >
+
 > $$
 > \begin{aligned}
 > \text{EF8077 gross-return version:}\quad
@@ -136,14 +148,17 @@ $$
 > E[R_i^e]=\beta_i'\lambda.
 > \end{aligned}
 > $$
+
 >
 > Single-factor model 是上式取 $K=1$ 的特例：
+
 > $$
 > \begin{aligned}
 > E[R_i^e]
 > &=\lambda\,\frac{\operatorname{Cov}(R_i^e,f)}{\operatorname{Var}(f)}.
 > \end{aligned}
 > $$
+
 >
 > 这页负责 empirical cross-section 表达；EF8077 负责证明 affine SDF $\Longleftrightarrow$ factor pricing 的一般命题。汇总卡片：[cards/Beta_SDF_Equivalence](cards/Beta_SDF_Equivalence)。
 
@@ -190,14 +205,17 @@ $$
 \bar R_i^e=\hat\beta_i'\lambda+\alpha_i.
 $$
 
-:::{admonition} Lemma
-Fama-MacBeth two-pass estimator
+:::{admonition} Lemma: Fama-MacBeth two-pass estimator
 **WTS：**
 $$ \hat\lambda=(\hat B'\hat B)^{-1}\hat B'\bar R^e. $$
 
 **联立系统：**
 令
+
+$$
 $$ \bar R^e= \begin{bmatrix} \bar R_1^e\\ \vdots\\ \bar R_N^e \end{bmatrix}, \qquad \hat B= \begin{bmatrix} \hat\beta_1'\\ \vdots\\ \hat\beta_N' \end{bmatrix}. $$
+$$
+
 Cross-sectional regression：
 $$ \bar R^e=\hat B\lambda+\alpha. $$
 
@@ -205,7 +223,10 @@ $$ \bar R^e=\hat B\lambda+\alpha. $$
 OLS objective：
 $$ Q(\lambda)=(\bar R^e-\hat B\lambda)'(\bar R^e-\hat B\lambda). $$
 FOC：
-$$ \begin{aligned} \frac{\partial Q}{\partial \lambda} &=-2\hat B'(\bar R^e-\hat B\lambda)=0\\ \hat B'\bar R^e-\hat B'\hat B\lambda &=0\\ \hat B'\hat B\lambda &=\hat B'\bar R^e\\ \hat\lambda &=(\hat B'\hat B)^{-1}\hat B'\bar R^e. \end{aligned} $$
+
+$$
+\begin{aligned} \frac{\partial Q}{\partial \lambda} &=-2\hat B'(\bar R^e-\hat B\lambda)=0\\ \hat B'\bar R^e-\hat B'\hat B\lambda &=0\\ \hat B'\hat B\lambda &=\hat B'\bar R^e\\ \hat\lambda &=(\hat B'\hat B)^{-1}\hat B'\bar R^e. \end{aligned}
+$$
 
 **结论：** risk price 是用 beta 解释平均收益的横截面斜率。见 [cards/Fama_MacBeth_Shanken](cards/Fama_MacBeth_Shanken)。
 
@@ -264,7 +285,11 @@ $$ E[g_t(\theta_0)]=0, \qquad Q_T(\theta)=\bar g_T(\theta)'W_T\bar g_T(\theta). 
 
 **连续求解：**
 一阶条件：
-$$ \begin{aligned} \frac{\partial Q_T(\theta)}{\partial\theta} &= 2\left(\frac{\partial \bar g_T(\theta)}{\partial\theta}\right)'W_T\bar g_T(\theta)=0. \end{aligned} $$
+
+$$
+\begin{aligned} \frac{\partial Q_T(\theta)}{\partial\theta} &= 2\left(\frac{\partial \bar g_T(\theta)}{\partial\theta}\right)'W_T\bar g_T(\theta)=0. \end{aligned}
+$$
+
 记
 $$ D_T(\theta)=\frac{\partial \bar g_T(\theta)}{\partial\theta'}, $$
 则
@@ -279,8 +304,7 @@ $$ D_T(\hat\theta)'W_T\bar g_T(\hat\theta)=0. $$
 若 moment 条件数量 $N$ 大于参数数量 $K$，模型 overidentified。检验 pricing errors 是否 jointly zero：
 
 $$
-J
-=
+J =
 T\bar g_T(\hat\theta)'\hat S^{-1}\bar g_T(\hat\theta)
 \sim \chi^2_{N-K}.
 $$
@@ -294,11 +318,11 @@ $$
 - 在 beta representation 中：GRS statistic 不应用来比较模型；比较模型需要 Hansen-Jagannathan distance 或更高级检验。
 - 在 SDF/GMM representation 中：取
 
-  $$
+$$
   W_{HJ}
   =
   \left(\frac1T\sum_{t=1}^T X_tX_t'\right)^{-1}
-  $$
+$$
 
   会最小化 Hansen-Jagannathan distance。
 
@@ -311,8 +335,7 @@ $$
 HJ distance 是候选 SDF 到所有 admissible SDF 的最短 $L^2$ 距离：
 
 $$
-d_{HJ}(\theta)
-=
+d_{HJ}(\theta) =
 \min_{m^*:E[m^*R^e]=0}
 \sqrt{E[(m(\theta)-m^*)^2]}.
 $$
@@ -348,8 +371,7 @@ $$
 
 $$
 \boxed{
-d_{HJ}(\theta)^2
-=
+d_{HJ}(\theta)^2 =
 g(\theta)'E[R^eR^{e'}]^{-1}g(\theta)
 }
 $$
@@ -403,8 +425,7 @@ Factor zoo 指大量被提出的 firm-level characteristics 或 factor portfolio
 多重检验的直觉：
 
 $$
-P(\text{at least one false discovery})
-=
+P(\text{at least one false discovery}) =
 1-(1-\alpha)^M,
 $$
 
@@ -429,8 +450,7 @@ $$
 \lambda_2.
 $$
 
-:::{admonition} Lemma
-Cross-sectional omitted beta bias
+:::{admonition} Lemma: Cross-sectional omitted beta bias
 **WTS：**
 $$ \operatorname{plim}\hat\lambda_1 = \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2. $$
 
@@ -440,7 +460,10 @@ $$ E[R_i^e]=\beta_{i1}\lambda_1^{mis}+u_i. $$
 真实模型：
 $$ E[R_i^e]=\beta_{i1}\lambda_1+\beta_{i2}\lambda_2. $$
 OLS 斜率：
-$$ \begin{aligned} \lambda_1^{mis} &= \frac{\operatorname{Cov}_{cs}(\beta_1,E[R^e])} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_1\lambda_1+\beta_2\lambda_2)} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2. \end{aligned} $$
+
+$$
+\begin{aligned} \lambda_1^{mis} &= \frac{\operatorname{Cov}_{cs}(\beta_1,E[R^e])} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_1\lambda_1+\beta_2\lambda_2)} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2. \end{aligned}
+$$
 
 **结论：** 一个 factor 的显著性可能只是因为它 proxy 了遗漏的 priced factor。
 

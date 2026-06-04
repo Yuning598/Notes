@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [07_DiD_RD_Nonparametric_Kernel](07_DiD_RD_Nonparametric_Kernel)
 
-:::{admonition} Lemma
-Univariate kernel MSE
+:::{admonition} Lemma: Univariate kernel MSE
 \[
 MSE=O((nh)^{-1})+O(h^4).
 \]

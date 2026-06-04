@@ -9,16 +9,14 @@ Backlinks: [02_Implied_Volatility_VIX_VRP](../02_Implied_Volatility_VIX_VRP)
 
 Index variance:
 \[
-\operatorname{Var}(R_m)
-=
+\operatorname{Var}(R_m) =
 \sum_iw_i^2\sigma_i^2
 +2\sum_{i<j}w_iw_j\rho_{ij}\sigma_i\sigma_j.
 \]
 
 Equal weights, equal variance, equal correlation:
 \[
-\operatorname{Var}(R_m)
-=
+\operatorname{Var}(R_m) =
 \sigma^2\left[\frac1N+\frac{N-1}{N}\rho\right].
 \]
 

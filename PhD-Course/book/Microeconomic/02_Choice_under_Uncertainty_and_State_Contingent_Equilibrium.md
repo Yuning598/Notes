@@ -172,8 +172,7 @@ The numbers $u_n$ are Bernoulli utilities of final consequences.
 $U$ has expected utility form iff for all lotteries $L^k$ and weights $\alpha_k\ge 0$, $\sum_k\alpha_k=1$,
 
 $$
-U\left(\sum_k\alpha_kL^k\right)
-=
+U\left(\sum_k\alpha_kL^k\right) =
 \sum_k\alpha_kU(L^k).
 $$
 :::
@@ -307,8 +306,7 @@ Proof:
 Suppose $\beta>\alpha$. Note that we can write
 
 $$
-\beta \overline L+(1-\beta)\underline L
-=
+\beta \overline L+(1-\beta)\underline L =
 \gamma \overline L+(1-\gamma)\big[\alpha \overline L+(1-\alpha)\underline L\big],
 $$
 
@@ -451,8 +449,7 @@ $$
 By uniqueness of the $\alpha$ in Step 3,
 
 $$
-U(\beta L+(1-\beta)L')
-=
+U(\beta L+(1-\beta)L') =
 \beta U(L)+(1-\beta)U(L').
 $$
 
@@ -525,16 +522,14 @@ $$
 Expanding the right-hand side gives
 
 $$
-\beta M(U(L))+(1-\beta)M(U(L'))
-=
+\beta M(U(L))+(1-\beta)M(U(L')) =
 M\bigl(\beta U(L)+(1-\beta)U(L')\bigr).
 $$
 
 Uniqueness of the representation along the $M(\cdot)$-line implies
 
 $$
-U(\beta L+(1-\beta)L')
-=
+U(\beta L+(1-\beta)L') =
 \beta U(L)+(1-\beta)U(L').
 $$
 

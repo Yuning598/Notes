@@ -34,8 +34,7 @@ dY_t^*
 &=
 \frac{\xi-Y_t^*}{1-t}dt+dB_t \\
 &\Longleftrightarrow
-dY_t^*+\frac{1}{1-t}Y_t^*dt
-=
+dY_t^*+\frac{1}{1-t}Y_t^*dt =
 \frac{\xi}{1-t}dt+dB_t.
 \end{aligned}
 $$
@@ -44,15 +43,12 @@ $$
 \begin{aligned}
 M_t
 &=
-\exp\left(\int_0^t \frac{1}{1-s}ds\right)
-=
-\exp\left(-\log(1-t)\right)
-=
+\exp\left(\int_0^t \frac{1}{1-s}ds\right) =
+\exp\left(-\log(1-t)\right) =
 \frac{1}{1-t}, \\
 U_t
 &:=
-M_tY_t^*
-=
+M_tY_t^* =
 \frac{Y_t^*}{1-t}.
 \end{aligned}
 $$

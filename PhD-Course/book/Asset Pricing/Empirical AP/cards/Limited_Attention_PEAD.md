@@ -9,15 +9,13 @@ Backlinks: [09_Beliefs_Attention_Sentiment_Credit](../09_Beliefs_Attention_Senti
 
 If only fraction \(\lambda\) of information is incorporated each period:
 \[
-P_{t+j}-P_{t+j-1}
-=
+P_{t+j}-P_{t+j-1} =
 \lambda(1-\lambda)^{j-1}s.
 \]
 
 Cumulative response:
 \[
-P_{t+k}-P_t
-=
+P_{t+k}-P_t =
 s[1-(1-\lambda)^k].
 \]
 

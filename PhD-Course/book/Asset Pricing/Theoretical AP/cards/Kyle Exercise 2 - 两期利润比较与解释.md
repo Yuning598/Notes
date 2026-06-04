@@ -82,8 +82,7 @@ $$
 做市商零利润定价为
 
 $$
-p=E[v\mid X]
-=
+p=E[v\mid X] =
 v_0+\frac{\operatorname{Cov}(v,X)}{\operatorname{Var}(X)}X.
 $$
 
@@ -104,8 +103,7 @@ $$
 因此
 
 $$
-\lambda
-=
+\lambda =
 \frac{\beta\Sigma_0}{\beta^2\Sigma_0+\sigma^2}.
 $$
 
@@ -123,8 +121,7 @@ $$
 &=
 \frac{\sqrt{\Sigma_0}}{2\sigma},
 \qquad
-\beta
-=
+\beta =
 \frac{\sigma}{\sqrt{\Sigma_0}}.
 \end{aligned}
 $$
@@ -208,13 +205,11 @@ $$
 \begin{aligned}
 \beta_2
 &=
-\frac{\sqrt{\sigma^2/2}}{\sqrt{\Sigma_1}}
-=
+\frac{\sqrt{\sigma^2/2}}{\sqrt{\Sigma_1}} =
 \frac{\sigma}{\sqrt{2\Sigma_1}}, \\
 \lambda_2
 &=
-\frac{\sqrt{\Sigma_1}}{2\sqrt{\sigma^2/2}}
-=
+\frac{\sqrt{\Sigma_1}}{2\sqrt{\sigma^2/2}} =
 \frac{\sqrt{\Sigma_1}}{\sqrt{2}\sigma}.
 \end{aligned}
 $$
@@ -323,8 +318,7 @@ $$
 代入 $x_1=\beta_1d$ 并除以 $d$，
 
 $$
-0
-=
+0 =
 1-2\lambda_1\beta_1-\frac{\sigma\lambda_1}{\sqrt{2\Sigma_1}}(1-\lambda_1\beta_1).
 $$
 
@@ -364,8 +358,7 @@ $$
 \begin{aligned}
 y
 &:=
-\frac{\beta_1^2\Sigma_0}{\sigma^2/2}
-=
+\frac{\beta_1^2\Sigma_0}{\sigma^2/2} =
 \frac{2\beta_1^2\Sigma_0}{\sigma^2},
 \end{aligned}
 $$
@@ -379,13 +372,11 @@ $$
 \frac{\sigma}{\sqrt{2\Sigma_0}}\sqrt{y}, \\
 \lambda_1
 &=
-\frac{\beta_1\Sigma_0}{\beta_1^2\Sigma_0+\sigma^2/2}
-=
+\frac{\beta_1\Sigma_0}{\beta_1^2\Sigma_0+\sigma^2/2} =
 \frac{\sqrt{2\Sigma_0}}{\sigma}\frac{\sqrt{y}}{1+y}, \\
 \frac{\Sigma_1}{\Sigma_0}
 &=
-1-\lambda_1\beta_1
-=
+1-\lambda_1\beta_1 =
 \frac{1}{1+y}.
 \end{aligned}
 $$
@@ -492,8 +483,7 @@ E[\Pi^{(2)}]
 &\approx
 0.6206\,\sigma\sqrt{\Sigma_0}
 >
-0.5\,\sigma\sqrt{\Sigma_0}
-=
+0.5\,\sigma\sqrt{\Sigma_0} =
 E[\Pi^{(1)}].
 \end{aligned}
 $$

@@ -11,8 +11,7 @@ Leverage effect: negative returns predict higher future volatility than positive
 
 A common asymmetric specification:
 \[
-\log\sigma_t^2
-=
+\log\sigma_t^2 =
 \omega+\beta\log\sigma_{t-1}^2
 +\alpha\left|\frac{u_{t-1}}{\sigma_{t-1}}\right|
 +\gamma\frac{u_{t-1}}{\sigma_{t-1}}.

@@ -26,8 +26,7 @@ $$
 With VNM utility,
 
 $$
-u_h(x_h)
-=
+u_h(x_h) =
 v_{h0}(x_h(0))
 +
 \sum_{s=1}^S\pi_{hs}v_{hs}(x_h(s)).
@@ -198,8 +197,7 @@ A=
 a_{11} & \cdots & a_{1J}\\
 \vdots & \ddots & \vdots\\
 a_{S1} & \cdots & a_{SJ}
-\end{pmatrix}
-=
+\end{pmatrix} =
 \big(a^1,\ldots,a^J\big),
 \qquad
 q=
@@ -469,8 +467,7 @@ $$
 Consumer 2's FOC is
 
 $$
-\frac{p_1}{p_2}
-=
+\frac{p_1}{p_2} =
 \frac{\pi_{12}u_2'(x_{12})}{\pi_{22}u_2'(x_{22})}.
 $$
 
@@ -503,8 +500,7 @@ $$
 Consumer 2's FOC gives
 
 $$
-\frac{p_1}{p_2}
-=
+\frac{p_1}{p_2} =
 \frac{\pi_{12}u_2'(x_{12})}{\pi_{22}u_2'(x_{22})}.
 $$
 

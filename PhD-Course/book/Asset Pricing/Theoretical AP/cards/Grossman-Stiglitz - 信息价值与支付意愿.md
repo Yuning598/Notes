@@ -79,8 +79,7 @@ c^*
 E\big[CE_I(s)-CE_U(p)\big] \\
 &=
 \frac{1}{2\lambda}E\left[
-\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)}
--
+\frac{(E[v\mid s]-p)^2}{\operatorname{Var}(v\mid s)} -
 \frac{(E[v\mid p]-p)^2}{\operatorname{Var}(v\mid p)}
 \right].
 \end{aligned}
@@ -108,8 +107,7 @@ c^*
 &=
 \frac{1}{2\lambda}E\Bigg[
 \frac{\big(\rho_s s+\rho_v\bar v-(\rho_s+\rho_v)p\big)^2}{\rho_s+\rho_v} \\
-&\qquad\qquad
--
+&\qquad\qquad -
 \frac{\big(\rho_\theta\theta+\rho_v\bar v-(\rho_\theta+\rho_v)p\big)^2}{\rho_\theta+\rho_v}
 \Bigg].
 \end{aligned}

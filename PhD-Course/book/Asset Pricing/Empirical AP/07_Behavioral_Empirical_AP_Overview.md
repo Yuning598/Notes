@@ -89,8 +89,7 @@ $$
 
 其中 $P_t^*$ 是 fundamental value，$m_t$ 是 mispricing。
 
-:::{admonition} Lemma
-Mispricing 与未来收益
+:::{admonition} Lemma: Mispricing 与未来收益
 **WTS：** 若 mispricing mean-reverts，则高 $m_t$ 预测低未来收益。
 
 **联立系统：**
@@ -99,9 +98,16 @@ $$ P_t=P_t^*+m_t,\qquad E_t[m_{t+1}]=\phi m_t,\quad |\phi|<1. $$
 
 **连续求解：**
 未来价格变化中的 mispricing 部分：
-$$ \begin{aligned} E_t[m_{t+1}-m_t] &=\phi m_t-m_t\\ &=-(1-\phi)m_t. \end{aligned} $$
+
+$$
+\begin{aligned} E_t[m_{t+1}-m_t] &=\phi m_t-m_t\\ &=-(1-\phi)m_t. \end{aligned}
+$$
+
 因此 expected return 可写为：
-$$ \begin{aligned} E_t[R_{t+1}] &\approx \bar R+\frac{E_t[m_{t+1}-m_t]}{P_t}\\ &=\bar R-\frac{(1-\phi)m_t}{P_t}. \end{aligned} $$
+
+$$
+\begin{aligned} E_t[R_{t+1}] &\approx \bar R+\frac{E_t[m_{t+1}-m_t]}{P_t}\\ &=\bar R-\frac{(1-\phi)m_t}{P_t}. \end{aligned}
+$$
 
 **结论：** 价格被高估越多，未来 expected return 越低；价格被低估越多，未来 expected return 越高。
 

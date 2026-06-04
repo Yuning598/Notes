@@ -72,8 +72,7 @@ $$
 
 #### 1.2.1 MM Proposition I: Capital Structure Irrelevance
 
-:::{admonition} Proposition
-MM I
+:::{admonition} Proposition: MM I
 两家公司若资产端现金流逐状态相同，则公司总价值相同。
 
 :::
@@ -121,8 +120,7 @@ $$
 
 #### 1.2.2 Dividend Irrelevance
 
-:::{admonition} Proposition
-在投资政策固定时，派息政策不改变股东总财富。
+:::{admonition} Proposition: 在投资政策固定时，派息政策不改变股东总财富。
 
 :::
 
@@ -2302,8 +2300,7 @@ $$
 \begin{aligned}
 \text{Tax pricing hypothesis}
 &:\quad
-\rho^{\ast}_m
-=
+\rho^{\ast}_m =
 \frac{1-t_{d,m}}{1-t_{g,m}},
 \\[4pt]
 \text{Arbitrage trading hypothesis}
@@ -2327,8 +2324,7 @@ $$
 \begin{aligned}
 \Pi^{net}
 &=
-\underbrace{D-\Delta p}_{\text{gross arbitrage gain}}
--
+\underbrace{D-\Delta p}_{\text{gross arbitrage gain}} -
 \underbrace{(c+\tau)}_{\text{transaction cost + tax wedge}} \\
 &=
 D-(p-p_{ex})-c-\tau .
@@ -3297,8 +3293,7 @@ $$
 
 $$
 \begin{aligned}
-RepurchaseShare_{it}
-=
+RepurchaseShare_{it} =
 \alpha_i+\delta_t
 +\beta(Treated_i\times Post_t)
 +\theta TaxAdvantage_{it}
@@ -3352,8 +3347,7 @@ $$
 
 $$
 \begin{aligned}
-Y_{it}
-=
+Y_{it} =
 \alpha_i+\delta_t
 +\beta(Treated_i\times Post_t)
 +\theta FreeCashFlow_{it}
@@ -3416,8 +3410,7 @@ Managers 比市场更了解 firm value。若股票被低估，公司用现金回
 
 $$
 \begin{aligned}
-Y_i
-=
+Y_i =
 \alpha
 +\beta(Treated_i\times Post_t)
 +\theta UndervaluationIndex_i
@@ -3476,8 +3469,7 @@ Dividend increase 是较强的 continuing commitment；repurchase 则是 flexibl
 
 $$
 \begin{aligned}
-Repurchase_{it}
-=
+Repurchase_{it} =
 \alpha_i+\delta_t
 +\beta(Treated_i\times Post_t)
 +\theta TemporaryCashFlow_{it}
@@ -3537,8 +3529,7 @@ Repurchase 减少 outstanding equity；若用 cash 或 debt financing 回购，l
 
 $$
 \begin{aligned}
-Y_{it}
-=
+Y_{it} =
 \alpha_i+\delta_t
 +\beta(Treated_i\times Post_t)
 +\theta LeverageGap_{it}

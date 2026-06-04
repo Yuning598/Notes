@@ -1061,8 +1061,7 @@ $$
 DiD 用 panel data 同时结合两种 simple differences（cross-sectional + time-series）。  
 典型应用：natural disasters、state law changes、financial crises、private equity buyouts 等自然实验场景。
 
-:::{admonition} Proposition
-DiD Identification
+:::{admonition} Proposition: DiD Identification
 在 parallel trends 成立下，DiD 交互项识别平均处理效应。
 
 :::

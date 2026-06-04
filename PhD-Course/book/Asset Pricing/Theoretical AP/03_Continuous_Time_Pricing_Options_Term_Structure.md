@@ -207,8 +207,7 @@ $$
 
 #### 推导核对：含股息的 Fundamental Asset Pricing Equation
 
-:::{admonition} Lemma
-Continuous-Time Fundamental Pricing Equation
+:::{admonition} Lemma: Continuous-Time Fundamental Pricing Equation
 若资产价格 $P_t$ 支付连续股息率 $\delta_tP_tdt$，且
 
 $$
@@ -261,8 +260,7 @@ $$
 **结论：** 连续时间里被定价的是 total return；有股息时风险溢价应写在 $\mu+\delta-r$ 上，而不只是价格增值率 $\mu-r$。
 
 
-:::{admonition} Lemma
-Fundamental Asset Pricing Equation
+:::{admonition} Lemma: Fundamental Asset Pricing Equation
 对任意 non-dividend payoff $p_t$，有
 
 $$
@@ -689,8 +687,7 @@ $$
 
 #### 推导核对：Black-Scholes PDE 的局部对冲证明
 
-:::{admonition} Lemma
-Black-Scholes PDE
+:::{admonition} Lemma: Black-Scholes PDE
 若
 
 $$
@@ -1488,8 +1485,7 @@ $$
 
 #### 推导核对：从 SDF 到风险中性测度
 
-:::{admonition} Lemma
-Risk-Neutral Drift
+:::{admonition} Lemma: Risk-Neutral Drift
 若
 
 $$
@@ -2768,8 +2764,7 @@ $$
 
 #### 推导核对：零息债券 PDE 的通用形式
 
-:::{admonition} Lemma
-Zero-Coupon Bond Pricing PDE
+:::{admonition} Lemma: Zero-Coupon Bond Pricing PDE
 若短率状态满足
 
 $$
@@ -2992,8 +2987,7 @@ $$
 
 #### 推导核对：Vasicek 仿射解的 Riccati 方程
 
-:::{admonition} Lemma
-Vasicek Affine Bond Price
+:::{admonition} Lemma: Vasicek Affine Bond Price
 若
 
 $$
@@ -3151,8 +3145,7 @@ $$A(N) = -\frac{\sigma_r^2}{4\phi}B(N)^2 + \left(\frac{\sigma_r^2}{2\phi^2} + \f
 
 #### 推导核对：CIR 中 Riccati 方程的来源
 
-:::{admonition} Lemma
-CIR Riccati System
+:::{admonition} Lemma: CIR Riccati System
 在
 
 $$

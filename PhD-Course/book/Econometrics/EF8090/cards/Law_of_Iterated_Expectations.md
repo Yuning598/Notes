@@ -6,18 +6,21 @@ orphan: true
 
 Parent: [01_CEF_and_Linear_Projection](01_CEF_and_Linear_Projection)
 
-:::{admonition} Lemma
-LIE
+:::{admonition} Lemma: LIE
 **WTS:** \(E[E(Y\mid X)]=E[Y]\).
 
 **Proof sketch:**
 \[
+
+$$
 \begin{aligned}
 E[E(Y\mid X)]
 &=\int\left\{\int y f_{Y\mid X}(y\mid x)dy\right\}f_X(x)dx\\
 &=\int\int y f_{Y,X}(y,x)dydx\\
 &=E[Y].
 \end{aligned}
+$$
+
 \]
 
 :::

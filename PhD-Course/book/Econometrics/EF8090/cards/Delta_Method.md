@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing) | [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
-:::{admonition} Lemma
-Delta method
+:::{admonition} Lemma: Delta method
 If \(\sqrt n(\hat\theta-\theta_0)\to_dN(0,V)\) and \(g\) is differentiable at \(\theta_0\), then
 \[
 \sqrt n(g(\hat\theta)-g(\theta_0))\to_dN(0,GVG'),

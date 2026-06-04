@@ -55,8 +55,7 @@ $$
 s^2
 &=\frac{n}{n-k}
 \left[
-\frac1n\sum_{i=1}^n\varepsilon_i^2
--
+\frac1n\sum_{i=1}^n\varepsilon_i^2 -
 \left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)'
 \left(\frac1n\sum_{i=1}^n x_ix_i'\right)^{-1}
 \left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)
@@ -174,8 +173,7 @@ $$
 证明 2SLS 中 $D$ 的系数 $\hat\eta$ 等于以 $\hat D$ 为工具变量的一元 IV 估计量：
 
 $$
-\hat\gamma
-=
+\hat\gamma =
 \frac{\sum_i(Y_i-\bar Y)(\hat D_i-\bar{\hat D})}
 {\sum_i(D_i-\bar D)(\hat D_i-\bar{\hat D})},
 $$
@@ -183,8 +181,7 @@ $$
 当 $Z$ 为标量时，它也等于以 $\hat Z=M_XZ$ 为工具变量的一元 IV 估计量：
 
 $$
-\hat\delta
-=
+\hat\delta =
 \frac{\sum_i(Y_i-\bar Y)(\hat Z_i-\bar{\hat Z})}
 {\sum_i(D_i-\bar D)(\hat Z_i-\bar{\hat Z})}.
 $$
@@ -325,8 +322,7 @@ $$
 
 $$
 D_{it}-\bar D_i
-=D_i\left(\mathbf 1[t\ge t^*]-\frac{T_{post}}T\right)
-=
+=D_i\left(\mathbf 1[t\ge t^*]-\frac{T_{post}}T\right) =
 \begin{cases}
 -\dfrac{T_{post}}T, & D_i=1,\ t<t^*\\
 \dfrac{T_{pre}}T, & D_i=1,\ t\ge t^*\\
@@ -363,8 +359,7 @@ $$
 时间截面离差：
 
 $$
-D_{it}-\bar D_{\cdot t}
-=
+D_{it}-\bar D_{\cdot t} =
 \begin{cases}
 0, & t<t^*\\
 \dfrac{N_0}{N}, & D_i=1,\ t\ge t^*\\

@@ -9,8 +9,7 @@ Backlinks: [04_Return_Predictability_Econometrics](../04_Return_Predictability_E
 
 Out-of-sample \(R^2\):
 \[
-R^2_{OS}
-=
+R^2_{OS} =
 1-\frac{\sum_t(r_{t+1}-\hat r_{t+1})^2}
 {\sum_t(r_{t+1}-\bar r_{t+1})^2}.
 \]

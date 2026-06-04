@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [06_Potential_Outcomes_LATE_Roy_MTE](06_Potential_Outcomes_LATE_Roy_MTE)
 
-:::{admonition} Lemma
-Balancing score
+:::{admonition} Lemma: Balancing score
 Let \(p(X)=P(D=1\mid X)\). Then
 \[
 D\perp X\mid p(X).

@@ -288,8 +288,7 @@ $$
 The principal compares this with the second-best high-effort payoff:
 
 $$
-V_1^{SB}
-=
+V_1^{SB} =
 q_1(x_H-w_H^{SB})+(1-q_1)(x_L-w_L^{SB}).
 $$
 
@@ -478,8 +477,7 @@ Divide by $f(x\mid1)$:
 
 $$
 \begin{aligned}
-1
-=
+1 =
 u'(w(x))
 \left[
 \lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right)
@@ -490,8 +488,7 @@ $$
 Thus
 
 $$
-\frac{1}{u'(w(x))}
-=
+\frac{1}{u'(w(x))} =
 \lambda+\mu\left(1-\frac{f(x\mid0)}{f(x\mid1)}\right).
 $$
 
@@ -669,8 +666,7 @@ $$
 [S(q_L)-t_L]
 +(1-\lambda)
 [S(q_H)-t_H]
-\\
-=
+\\ =
 \max_{q_L,q_H}\quad
 &\lambda
 [S(q_L)-Lq_L]-(H-L)q_H +(1-\lambda)

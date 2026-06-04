@@ -12,7 +12,9 @@ Lucas tree model 是一个代表性消费者的 endowment economy：经济里只
 - Aggregate endowment / dividend $\delta_t$ -> representative consumer consumption $c_t$
 - Representative consumer consumption $c_t$ -> SPD / SDF -> asset price $s_t$
 
-**Definition (Lucas Tree Equilibrium Consumption):**
+:::
+
+:::{admonition} Definition (Lucas Tree Equilibrium Consumption)
 Lucas tree economy 中，股票是对 aggregate endowment 的索取权；代表性消费者持有整棵树，因此均衡消费满足
 
 $$

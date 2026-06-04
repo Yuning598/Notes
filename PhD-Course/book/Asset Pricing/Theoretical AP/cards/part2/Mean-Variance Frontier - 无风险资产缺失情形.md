@@ -27,8 +27,7 @@ B=\mu'\Sigma^{-1}\iota,
 C=\iota'\Sigma^{-1}\iota.
 $$
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 前沿上任意组合都可写成 $\Sigma^{-1}\mu$ 与 $\Sigma^{-1}\iota$ 的线性组合。
 
 **Proposition:** Proposition

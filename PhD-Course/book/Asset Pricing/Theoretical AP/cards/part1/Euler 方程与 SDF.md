@@ -4,16 +4,16 @@
 
 返回：[Asset Pricing/Theoretical AP/01_Single_Period_Models](Asset Pricing/Theoretical AP/01_Single_Period_Models)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 两期消费—投资问题的一阶条件给出 Euler 方程：
 
 $$
 p_i u_0'(c_0)=E[u_1'(\tilde c_1)\tilde x_i].
 $$
 
-**Definition (Definition):**
-随机贴现因子（SDF）定义为
+:::
+
+:::{admonition} Definition: 随机贴现因子（SDF）定义为
 
 $$
 \tilde m=\frac{u_1'(\tilde c_1)}{u_0'(c_0)}.

@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [03_Asymptotics_OLS_Inference_Hypothesis_Testing](03_Asymptotics_OLS_Inference_Hypothesis_Testing)
 
-:::{admonition} Lemma
-CMT
+:::{admonition} Lemma: CMT
 If \(X_n\to_pX\) and \(g\) is continuous, then \(g(X_n)\to_pg(X)\)。
 
 **Lemma:** Slutsky

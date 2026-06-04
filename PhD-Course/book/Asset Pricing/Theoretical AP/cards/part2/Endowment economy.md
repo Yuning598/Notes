@@ -18,8 +18,7 @@ $$
 
 ^def-endowment-economy
 
-:::{admonition} Proposition
-Lucas Tree Interpretation
+:::{admonition} Proposition: Lucas Tree Interpretation
 若股票是对 aggregate endowment 的索取权，那么股票分红就是 endowment 本身，均衡定价就转化为对 endowment 过程的贴现定价。
 
 :::

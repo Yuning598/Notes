@@ -230,8 +230,7 @@ $$
 时，robust Wald/t 统计量渐近正态。一般线性限制 $H_0:R\beta=r$ 的 Wald 统计量：
 
 $$
-W_n
-=
+W_n =
 n(Rb-r)'[R\widehat{\mathrm{Avar}}(b)R']^{-1}(Rb-r)
 \xrightarrow{d}\chi^2_q.
 \tag{2.4.2}
@@ -387,8 +386,7 @@ $$
 用估计值 $\hat\omega_i$ 构造可行 WLS：
 
 $$
-\hat\beta_{WLS}
-=
+\hat\beta_{WLS} =
 \left(\sum \frac{x_ix_i'}{\hat\omega_i}\right)^{-1}
 \left(\sum \frac{x_iy_i}{\hat\omega_i}\right).
 \tag{2.8.2}
@@ -598,13 +596,11 @@ $$
 并且
 
 $$
-\sum_{t=1}^n x_tx_t'
-=
+\sum_{t=1}^n x_tx_t' =
 \begin{bmatrix}
 n & \sum t\\
 \sum t & \sum t^2
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
 n & n(n+1)/2\\
 n(n+1)/2 & n(n+1)(2n+1)/6
@@ -658,8 +654,7 @@ v_n\xrightarrow{d}N(0,\sigma^2Q).
 \tag{2.12.11}
 $$
 
-:::{admonition} Proposition
-Proposition 2.11 (Time Trend OLS)
+:::{admonition} Proposition: Proposition 2.11 (Time Trend OLS)
 在 `(2.12.1)` 下，若 $\{\varepsilon_t\}$ 为独立白噪声且 $E(\varepsilon_t^4)<\infty$，则
 
 $$
@@ -742,8 +737,7 @@ $$
 
 $$
 \mathbf{b}\equiv
-\begin{bmatrix}\hat{\alpha}\\ \hat{\delta}\end{bmatrix}
-=
+\begin{bmatrix}\hat{\alpha}\\ \hat{\delta}\end{bmatrix} =
 \left(\sum_{t=1}^{n}\mathbf{x}_t\mathbf{x}_t'\right)^{-1}
 \left(\sum_{t=1}^{n}\mathbf{x}_t y_t\right)
 \quad (2.12.3)
@@ -752,8 +746,7 @@ $$
 **A.3.2 Explicit Form of $\sum \mathbf{x}_t\mathbf{x}_t'$**
 
 $$
-\sum_{t=1}^{n}\mathbf{x}_t\mathbf{x}_t'
-=
+\sum_{t=1}^{n}\mathbf{x}_t\mathbf{x}_t' =
 \begin{bmatrix}
 n & \frac{n(n+1)}{2}\\
 \frac{n(n+1)}{2} & \frac{n(n+1)(2n+1)}{6}
@@ -782,8 +775,7 @@ $$
 从
 
 $$
-\mathbf{b}-\boldsymbol{\beta}
-=
+\mathbf{b}-\boldsymbol{\beta} =
 \left(\sum_{t=1}^{n}\mathbf{x}_t\mathbf{x}_t'\right)^{-1}
 \left(\sum_{t=1}^{n}\mathbf{x}_t\varepsilon_t\right)
 $$
@@ -791,15 +783,13 @@ $$
 两边左乘 $\Upsilon_n$，并插入单位阵 $\Upsilon_n\Upsilon_n^{-1}$，得到
 
 $$
-\Upsilon_n(\mathbf{b}-\boldsymbol{\beta})
-=
+\Upsilon_n(\mathbf{b}-\boldsymbol{\beta}) =
 \left[
 \Upsilon_n^{-1}\left(\sum_{t=1}^{n}\mathbf{x}_t\mathbf{x}_t'\right)\Upsilon_n^{-1}
 \right]^{-1}
 \left(
 \Upsilon_n^{-1}\sum_{t=1}^{n}\mathbf{x}_t\varepsilon_t
-\right)
-=
+\right) =
 \mathbf{Q}_n^{-1}\mathbf{v}_n
 \quad (2.12.7)
 $$
@@ -824,8 +814,7 @@ $$
 
 $$
 \mathbf{v}_n=
-\Upsilon_n^{-1}\sum_{t=1}^{n}\mathbf{x}_t\varepsilon_t
-=
+\Upsilon_n^{-1}\sum_{t=1}^{n}\mathbf{x}_t\varepsilon_t =
 \begin{bmatrix}
 \frac{1}{\sqrt n}\sum\varepsilon_t\\
 \frac{1}{n^{3/2}}\sum t\varepsilon_t
@@ -849,8 +838,7 @@ $$
 
 #### A.3.7 Proposition 2.11
 
-:::{admonition} Proposition
-Proposition 2.11 (OLS estimation of the time regression)
+:::{admonition} Proposition: Proposition 2.11 (OLS estimation of the time regression)
 Consider the time regression (2.12.1) where $\varepsilon_t$ is independent white noise with $E(\varepsilon_t^2)=\sigma^2$ and $E(\varepsilon_t^4)<\infty$. Let $\hat{\alpha}$ and $\hat{\delta}$ be OLS estimators of $\alpha$ and $\delta$. Then
 
 $$

@@ -38,8 +38,7 @@ $$
 \bar D_t=\frac1t\sum_{s=1}^tD_s.
 $$
 
-:::{admonition} Lemma
-Bayesian posterior with unknown mean
+:::{admonition} Lemma: Bayesian posterior with unknown mean
 **WTS：**
 $$ \mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right). $$
 
@@ -48,9 +47,17 @@ $$ D_s\mid\mu\sim N(\mu,\sigma^2),\qquad s=1,\ldots,t. $$
 
 **连续求解：**
 样本似然：
-$$ \begin{aligned} L(\mu) &\propto \exp\left[-\frac1{2\sigma^2}\sum_{s=1}^t(D_s-\mu)^2\right]. \end{aligned} $$
+
+$$
+\begin{aligned} L(\mu) &\propto \exp\left[-\frac1{2\sigma^2}\sum_{s=1}^t(D_s-\mu)^2\right]. \end{aligned}
+$$
+
 分解平方和：
-$$ \begin{aligned} \sum_{s=1}^t(D_s-\mu)^2 &= \sum_{s=1}^t(D_s-\bar D_t)^2 +t(\bar D_t-\mu)^2. \end{aligned} $$
+
+$$
+\begin{aligned} \sum_{s=1}^t(D_s-\mu)^2 &= \sum_{s=1}^t(D_s-\bar D_t)^2 +t(\bar D_t-\mu)^2. \end{aligned}
+$$
+
 与 $\mu$ 有关的部分：
 $$ L(\mu)\propto \exp\left[-\frac{t}{2\sigma^2}(\mu-\bar D_t)^2\right]. $$
 
@@ -64,23 +71,19 @@ $$ \mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right). $$
 课件中的价格公式：
 
 $$
-P_t
-=
-\sum_{j=1}^{\infty}\beta^j\tilde E_t[D_{t+j}]
-=
+P_t =
+\sum_{j=1}^{\infty}\beta^j\tilde E_t[D_{t+j}] =
 \bar D_t\frac{\beta}{1-\beta}.
 $$
 
 若知道真实 $\mu$，基本面价格：
 
 $$
-P_t^*
-=
+P_t^* =
 \mu\frac{\beta}{1-\beta}.
 $$
 
-:::{admonition} Lemma
-Bayesian learning 下的 realized return
+:::{admonition} Lemma: Bayesian learning 下的 realized return
 **WTS：**
 $$ R_{t+1} = \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t). $$
 
@@ -90,9 +93,16 @@ $$ P_t=\frac{\beta}{1-\beta}\bar D_t, \qquad \bar D_{t+1}=\frac{t\bar D_t+D_{t+1
 $$ R_{t+1}=P_{t+1}+D_{t+1}-\frac{P_t}{\beta}. $$
 
 **连续求解：**
-$$ \begin{aligned} P_{t+1} &=\frac{\beta}{1-\beta}\bar D_{t+1} =\frac{\beta}{1-\beta} \frac{t\bar D_t+D_{t+1}}{t+1}. \end{aligned} $$
+
+$$
+\begin{aligned} P_{t+1} &=\frac{\beta}{1-\beta}\bar D_{t+1} =\frac{\beta}{1-\beta} \frac{t\bar D_t+D_{t+1}}{t+1}. \end{aligned}
+$$
+
 所以
-$$ \begin{aligned} R_{t+1} &= \frac{\beta}{1-\beta}\frac{t\bar D_t+D_{t+1}}{t+1} +D_{t+1} -\frac{1}{1-\beta}\bar D_t\\ &= \frac{1}{1-\beta} \left[ \frac{\beta t}{t+1}\bar D_t +\frac{\beta}{t+1}D_{t+1} +(1-\beta)D_{t+1} -\bar D_t \right]\\ &= \frac{1}{1-\beta} \left[ \left(\frac{\beta}{t+1}+1-\beta\right)D_{t+1} -\left(1-\frac{\beta t}{t+1}\right)\bar D_t \right]\\ &= \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t). \end{aligned} $$
+
+$$
+\begin{aligned} R_{t+1} &= \frac{\beta}{1-\beta}\frac{t\bar D_t+D_{t+1}}{t+1} +D_{t+1} -\frac{1}{1-\beta}\bar D_t\\ &= \frac{1}{1-\beta} \left[ \frac{\beta t}{t+1}\bar D_t +\frac{\beta}{t+1}D_{t+1} +(1-\beta)D_{t+1} -\bar D_t \right]\\ &= \frac{1}{1-\beta} \left[ \left(\frac{\beta}{t+1}+1-\beta\right)D_{t+1} -\left(1-\frac{\beta t}{t+1}\right)\bar D_t \right]\\ &= \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t). \end{aligned}
+$$
 
 **结论：** returns depend on forecast errors relative to learned belief $\bar D_t$。见 [cards/Bayesian_Learning_Return_Predictability](cards/Bayesian_Learning_Return_Predictability)。
 
@@ -101,8 +111,7 @@ $$ \begin{aligned} R_{t+1} &= \frac{\beta}{1-\beta}\frac{t\bar D_t+D_{t+1}}{t+1}
 进一步，课件给出：
 
 $$
-E_t[R_{t+1}]
-=
+E_t[R_{t+1}] =
 \frac{1}{1-\beta}
 \left(1-\frac{\beta t}{t+1}\right)(\mu-\bar D_t).
 $$
@@ -126,8 +135,7 @@ $$ \tilde E_t[R_{t+1}] = a+b R_{t-k,t}, \qquad b>0. $$
 这与 return predictability 的客观回归形成对照：
 
 $$
-E_t[R_{t+1}]
-=
+E_t[R_{t+1}] =
 a+c\,pd_t,
 $$
 
@@ -140,15 +148,13 @@ $$
 一种表达：
 
 $$
-\tilde E_{i,t}[R_{t+1}]
-=
+\tilde E_{i,t}[R_{t+1}] =
 \sum_{k=1}^{age_i}w_{i,k}R_{t-k},
 $$
 
 其中近期或年轻时经历可能被赋予更大权重。
 
-:::{admonition} Lemma
-Experience-based belief as weighted average
+:::{admonition} Lemma: Experience-based belief as weighted average
 **WTS：** 投资者 $i$ 的主观均值是历史收益的加权平均：
 $$ \tilde \mu_{i,t}=\sum_{k=1}^{age_i}w_{i,k}R_{t-k}. $$
 
@@ -159,7 +165,10 @@ $$ \sum_{k=1}^{age_i}w_{i,k}=1,\qquad w_{i,k}\ge 0. $$
 若近期权重大：
 $$ w_{i,k}=\frac{\lambda^{k-1}}{\sum_{j=1}^{age_i}\lambda^{j-1}},\qquad 0<\lambda<1. $$
 则
-$$ \begin{aligned} \tilde \mu_{i,t} &= \frac{\sum_{k=1}^{age_i}\lambda^{k-1}R_{t-k}} {\sum_{j=1}^{age_i}\lambda^{j-1}}. \end{aligned} $$
+
+$$
+\begin{aligned} \tilde \mu_{i,t} &= \frac{\sum_{k=1}^{age_i}\lambda^{k-1}R_{t-k}} {\sum_{j=1}^{age_i}\lambda^{j-1}}. \end{aligned}
+$$
 
 **结论：** 不同年龄 cohort 会因为经历不同而持有不同 beliefs，并可能影响 portfolio choice。见 [cards/Experience_Based_Learning](cards/Experience_Based_Learning)。
 
@@ -174,13 +183,15 @@ $$
 \qquad 0<g<1.
 $$
 
-:::{admonition} Lemma
-Constant-gain learning 的无限滞后表示
+:::{admonition} Lemma: Constant-gain learning 的无限滞后表示
 **WTS：**
 $$ \tilde\mu_t = g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}. $$
 
 **连续求解：**
-$$ \begin{aligned} \tilde\mu_t &=(1-g)\tilde\mu_{t-1}+gD_t\\ &=(1-g)\left[(1-g)\tilde\mu_{t-2}+gD_{t-1}\right]+gD_t\\ &=(1-g)^2\tilde\mu_{t-2}+gD_t+g(1-g)D_{t-1}\\ &=\cdots\\ &=g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}. \end{aligned} $$
+
+$$
+\begin{aligned} \tilde\mu_t &=(1-g)\tilde\mu_{t-1}+gD_t\\ &=(1-g)\left[(1-g)\tilde\mu_{t-2}+gD_{t-1}\right]+gD_t\\ &=(1-g)^2\tilde\mu_{t-2}+gD_t+g(1-g)D_{t-1}\\ &=\cdots\\ &=g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}. \end{aligned}
+$$
 
 **结论：** constant gain 让 beliefs 永远对近期数据敏感，适合刻画 extrapolation。
 
@@ -192,8 +203,7 @@ $$ \begin{aligned} \tilde\mu_t &=(1-g)\tilde\mu_{t-1}+gD_t\\ &=(1-g)\left[(1-g)\
 
 Martin-type bound 的直觉：若 option prices 显示 risk-neutral variance 很高，则 expected market return 必须足够高来补偿风险。
 
-:::{admonition} Lemma
-Option-implied lower-bound intuition
+:::{admonition} Lemma: Option-implied lower-bound intuition
 **WTS：**
 在一般定价关系下，risk-neutral variance 可为 expected excess return 提供下界。
 
@@ -220,8 +230,7 @@ Option prices pin down the risk-neutral variance. Under appropriate assumptions,
 课件后部把 beliefs 与 demand pressure 结合：ETF flows、retail demand、institutional demand 可以通过价格影响 expected returns。经验设计常见形式：
 
 $$
-R_{i,t+1}
-=
+R_{i,t+1} =
 \alpha+\beta \text{Flow}_{i,t}+\gamma X_{i,t}+\varepsilon_{i,t+1}.
 $$
 

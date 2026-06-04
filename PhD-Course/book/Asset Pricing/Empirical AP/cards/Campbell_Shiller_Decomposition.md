@@ -14,8 +14,7 @@ r_{t+1}\approx \kappa+\rho pd_{t+1}+\Delta d_{t+1}-pd_t.
 
 Forward solution:
 \[
-pd_t
-=
+pd_t =
 \frac{\kappa}{1-\rho}
 +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}]
 -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}].
@@ -23,9 +22,7 @@ pd_t
 
 Interpretation:
 \[
-pd_t
-=
-\text{cash-flow news}
--
+pd_t =
+\text{cash-flow news} -
 \text{discount-rate news}.
 \]

@@ -168,8 +168,7 @@ Given an economy satisfying the convexity/interiority assumptions, if $(\bar e^h
 For each household define the set of strictly preferred net trades from the target allocation:
 
 $$
-K^h
-=
+K^h =
 \{z\in\mathbb R^L:\bar e^h+z\ge0,\ u^h(\bar e^h+z)>u^h(\bar e^h)\}.
 $$
 
@@ -221,8 +220,7 @@ $$
 For two consumers and two goods, the interior FOCs imply equal MRS:
 
 $$
-\frac{u^1_1(c^1)}{u^1_2(c^1)}
-=
+\frac{u^1_1(c^1)}{u^1_2(c^1)} =
 \frac{u^2_1(c^2)}{u^2_2(c^2)}.
 $$
 
@@ -288,8 +286,7 @@ $$
 To keep $z$ continuous away from the boundary, work on the trimmed simplex
 
 $$
-\Delta_\varepsilon^{L-1}
-=
+\Delta_\varepsilon^{L-1} =
 \left\{p\in\mathbb R_+^L:
 \sum_{\ell=1}^L p_\ell=1,\ p_\ell\ge\varepsilon\ \forall \ell
 \right\}.

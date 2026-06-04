@@ -28,8 +28,7 @@ $$
 则
 
 $$
-M_{t+1}
-=
+M_{t+1} =
 \beta\frac{u'(C_{t+1})}{u'(C_t)}.
 $$
 
@@ -37,8 +36,7 @@ $$
 
 ## 2. Euler equation 的推导
 
-:::{admonition} Lemma
-Consumption Euler equation
+:::{admonition} Lemma: Consumption Euler equation
 **WTS：**
 $$ P_t=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. $$
 
@@ -47,7 +45,10 @@ $$ P_t=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. $$
 $$ \Delta C_t=-P_t\varepsilon,\qquad \Delta C_{t+1}=X_{t+1}\varepsilon. $$
 
 **连续求解：**
-$$ \begin{aligned} \frac{d}{d\varepsilon} E_t\left[u(C_t-P_t\varepsilon)+\beta u(C_{t+1}+X_{t+1}\varepsilon)\right]_{\varepsilon=0} =0\\ -u'(C_t)P_t+\beta E_t[u'(C_{t+1})X_{t+1}] =0\\ u'(C_t)P_t =\beta E_t[u'(C_{t+1})X_{t+1}]\\ P_t =E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. \end{aligned} $$
+
+$$
+\begin{aligned} \frac{d}{d\varepsilon} E_t\left[u(C_t-P_t\varepsilon)+\beta u(C_{t+1}+X_{t+1}\varepsilon)\right]_{\varepsilon=0} =0\\ -u'(C_t)P_t+\beta E_t[u'(C_{t+1})X_{t+1}] =0\\ u'(C_t)P_t =\beta E_t[u'(C_{t+1})X_{t+1}]\\ P_t =E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. \end{aligned}
+$$
 
 **结论：**
 $$ M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}. $$
@@ -58,8 +59,7 @@ $$ M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}. $$
 
 从 $E_t[M R_i]=1$ 和 risk-free $R_f=1/E_t[M]$ 可以推出 expected return 由 covariance 决定。
 
-:::{admonition} Lemma
-SDF covariance pricing
+:::{admonition} Lemma: SDF covariance pricing
 **WTS：**
 $$ E_t[R_{i,t+1}]-R_{f,t} = -R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). $$
 
@@ -67,7 +67,10 @@ $$ E_t[R_{i,t+1}]-R_{f,t} = -R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). $$
 $$ E_t[M_{t+1}R_{i,t+1}]=1,\qquad R_{f,t}=\frac{1}{E_t[M_{t+1}]}. $$
 
 **连续求解：**
-$$ \begin{aligned} 1 &=E_t[M_{t+1}R_{i,t+1}]\\ &=E_t[M_{t+1}]E_t[R_{i,t+1}] +\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ \frac{1}{E_t[M_{t+1}]} &=E_t[R_{i,t+1}] +\frac{\operatorname{Cov}_t(M_{t+1},R_{i,t+1})}{E_t[M_{t+1}]}\\ R_{f,t} &=E_t[R_{i,t+1}] +R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ E_t[R_{i,t+1}]-R_{f,t} &=-R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). \end{aligned} $$
+
+$$
+\begin{aligned} 1 &=E_t[M_{t+1}R_{i,t+1}]\\ &=E_t[M_{t+1}]E_t[R_{i,t+1}] +\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ \frac{1}{E_t[M_{t+1}]} &=E_t[R_{i,t+1}] +\frac{\operatorname{Cov}_t(M_{t+1},R_{i,t+1})}{E_t[M_{t+1}]}\\ R_{f,t} &=E_t[R_{i,t+1}] +R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ E_t[R_{i,t+1}]-R_{f,t} &=-R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). \end{aligned}
+$$
 
 **结论：** 高收益资产必须在 marginal utility 高的状态表现差，即与 $M$ 负相关。
 
@@ -89,8 +92,7 @@ $$
 E_t[e^{m_{t+1}+r_{t+1}}]=1.
 $$
 
-:::{admonition} Lemma
-Lognormal pricing formula
+:::{admonition} Lemma: Lognormal pricing formula
 **WTS：**
 $$ \log E_t[R_{t+1}]-r_{f,t} = -\operatorname{Cov}_t(m_{t+1},r_{t+1}). $$
 
@@ -101,11 +103,23 @@ $$ \log E[e^x]=E[x]+\frac12\operatorname{Var}(x). $$
 
 **连续求解：**
 风险资产：
-$$ \begin{aligned} 0 &=\log E_t[e^{m+r}]\\ &=E_t[m]+E_t[r] +\frac12\operatorname{Var}_t(m) +\frac12\operatorname{Var}_t(r) +\operatorname{Cov}_t(m,r). \end{aligned} $$
+
+$$
+\begin{aligned} 0 &=\log E_t[e^{m+r}]\\ &=E_t[m]+E_t[r] +\frac12\operatorname{Var}_t(m) +\frac12\operatorname{Var}_t(r) +\operatorname{Cov}_t(m,r). \end{aligned}
+$$
+
 无风险资产：
-$$ \begin{aligned} 0 &=\log E_t[e^{m+r_f}]\\ &=E_t[m]+r_f+\frac12\operatorname{Var}_t(m). \end{aligned} $$
+
+$$
+\begin{aligned} 0 &=\log E_t[e^{m+r_f}]\\ &=E_t[m]+r_f+\frac12\operatorname{Var}_t(m). \end{aligned}
+$$
+
 两式相减：
-$$ \begin{aligned} E_t[r]-r_f+\frac12\operatorname{Var}_t(r) +\operatorname{Cov}_t(m,r) &=0\\ E_t[r]+\frac12\operatorname{Var}_t(r)-r_f &=-\operatorname{Cov}_t(m,r). \end{aligned} $$
+
+$$
+\begin{aligned} E_t[r]-r_f+\frac12\operatorname{Var}_t(r) +\operatorname{Cov}_t(m,r) &=0\\ E_t[r]+\frac12\operatorname{Var}_t(r)-r_f &=-\operatorname{Cov}_t(m,r). \end{aligned}
+$$
+
 又因为 lognormal 下
 $$ \log E_t[R]=E_t[r]+\frac12\operatorname{Var}_t(r), $$
 所以
@@ -132,8 +146,7 @@ $$
 因此
 
 $$
-M_{t+1}
-=
+M_{t+1} =
 \beta\left(\frac{C_{t+1}}{C_t}\right)^{-\gamma}.
 $$
 
@@ -147,20 +160,20 @@ $$
 得到
 
 $$
-m_{t+1}
-=
-\log M_{t+1}
-=
+m_{t+1} =
+\log M_{t+1} =
 -\delta-\gamma \Delta c_{t+1}.
 $$
 
-:::{admonition} Lemma
-Power utility 的 equity premium
+:::{admonition} Lemma: Power utility 的 equity premium
 **WTS：**
 $$ \log E_t[R_{t+1}]-r_{f,t} = \gamma \operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}). $$
 
 **连续求解：**
-$$ \begin{aligned} \log E_t[R_{t+1}]-r_{f,t} &=-\operatorname{Cov}_t(m_{t+1},r_{t+1})\\ &=-\operatorname{Cov}_t(-\delta-\gamma\Delta c_{t+1},r_{t+1})\\ &=-\left[-\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1})\right]\\ &=\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}). \end{aligned} $$
+
+$$
+\begin{aligned} \log E_t[R_{t+1}]-r_{f,t} &=-\operatorname{Cov}_t(m_{t+1},r_{t+1})\\ &=-\operatorname{Cov}_t(-\delta-\gamma\Delta c_{t+1},r_{t+1})\\ &=-\left[-\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1})\right]\\ &=\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}). \end{aligned}
+$$
 
 **结论：** 股票必须在 consumption growth 低时表现差，才会有正 risk premium。
 
@@ -172,9 +185,16 @@ $$ r_{f,t} = \delta+\gamma E_t[\Delta c_{t+1}] -\frac12\gamma^2\operatorname{Var
 $$ E_t[e^{m_{t+1}+r_{f,t}}]=1,\qquad m_{t+1}=-\delta-\gamma\Delta c_{t+1}. $$
 
 **连续求解：**
-$$ \begin{aligned} 0 &=\log E_t[e^{m+r_f}]\\ &=E_t[m]+r_f+\frac12\operatorname{Var}_t(m)\\ &=(-\delta-\gamma E_t\Delta c)+r_f +\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned} $$
+
+$$
+\begin{aligned} 0 &=\log E_t[e^{m+r_f}]\\ &=E_t[m]+r_f+\frac12\operatorname{Var}_t(m)\\ &=(-\delta-\gamma E_t\Delta c)+r_f +\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned}
+$$
+
 所以
-$$ \begin{aligned} r_f &=\delta+\gamma E_t\Delta c -\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned} $$
+
+$$
+\begin{aligned} r_f &=\delta+\gamma E_t\Delta c -\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned}
+$$
 
 **结论：** 高 $\gamma$ 一方面提高 precautionary saving 项，压低 $r_f$；另一方面若要解释 equity premium，需要很高 $\gamma$。
 
@@ -191,8 +211,7 @@ $$
 但 consumption growth 与 stock returns 的 covariance 太小。由公式
 
 $$
-\log E[R]-r_f
-=
+\log E[R]-r_f =
 \gamma \operatorname{Cov}(\Delta c,r),
 $$
 
@@ -202,8 +221,7 @@ $$
 
 课件用 HJ bound 表达：任何能定价资产的 SDF 都必须足够 volatile。
 
-:::{admonition} Lemma
-HJ bound
+:::{admonition} Lemma: HJ bound
 **WTS：**
 $$ \frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}. $$
 
@@ -212,9 +230,17 @@ $$ \frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}. $$
 $$ E[MR^e]=0. $$
 
 **连续求解：**
-$$ \begin{aligned} 0 &=E[MR^e]\\ &=E[M]E[R^e]+\operatorname{Cov}(M,R^e)\\ E[M]E[R^e] &=-\operatorname{Cov}(M,R^e). \end{aligned} $$
+
+$$
+\begin{aligned} 0 &=E[MR^e]\\ &=E[M]E[R^e]+\operatorname{Cov}(M,R^e)\\ E[M]E[R^e] &=-\operatorname{Cov}(M,R^e). \end{aligned}
+$$
+
 取绝对值并用 Cauchy-Schwarz：
-$$ \begin{aligned} |E[M]E[R^e]| &=|\operatorname{Cov}(M,R^e)|\\ &\le \sigma(M)\sigma(R^e). \end{aligned} $$
+
+$$
+\begin{aligned} |E[M]E[R^e]| &=|\operatorname{Cov}(M,R^e)|\\ &\le \sigma(M)\sigma(R^e). \end{aligned}
+$$
+
 两边除以 $E[M]\sigma(R^e)$：
 $$ \frac{|E[R^e]|}{\sigma(R^e)} \le \frac{\sigma(M)}{E[M]}. $$
 
@@ -240,18 +266,25 @@ r_{t+1}
 \kappa+\rho pd_{t+1}+\Delta d_{t+1}-pd_t.
 $$
 
-:::{admonition} Lemma
-Campbell-Shiller present-value identity
+:::{admonition} Lemma: Campbell-Shiller present-value identity
 **WTS：**
 $$ pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}]. $$
 
 **连续求解：**
 从线性化式出发：
-$$ \begin{aligned} r_{t+1} &\approx \kappa+\rho pd_{t+1}+\Delta d_{t+1}-pd_t\\ pd_t &\approx \kappa+\rho pd_{t+1}+\Delta d_{t+1}-r_{t+1}. \end{aligned} $$
+
+$$
+\begin{aligned} r_{t+1} &\approx \kappa+\rho pd_{t+1}+\Delta d_{t+1}-pd_t\\ pd_t &\approx \kappa+\rho pd_{t+1}+\Delta d_{t+1}-r_{t+1}. \end{aligned}
+$$
+
 对 $t$ 条件取期望：
 $$ pd_t = \kappa+\rho E_t[pd_{t+1}] +E_t[\Delta d_{t+1}] -E_t[r_{t+1}]. $$
 继续向前迭代：
-$$ \begin{aligned} pd_t &=\kappa+E_t\Delta d_{t+1}-E_t r_{t+1}\\ &\quad+\rho E_t\left[ \kappa+\rho pd_{t+2}+\Delta d_{t+2}-r_{t+2} \right]\\ &=\kappa(1+\rho) +E_t\Delta d_{t+1}+\rho E_t\Delta d_{t+2}\\ &\quad -E_t r_{t+1}-\rho E_t r_{t+2} +\rho^2E_t[pd_{t+2}]. \end{aligned} $$
+
+$$
+\begin{aligned} pd_t &=\kappa+E_t\Delta d_{t+1}-E_t r_{t+1}\\ &\quad+\rho E_t\left[ \kappa+\rho pd_{t+2}+\Delta d_{t+2}-r_{t+2} \right]\\ &=\kappa(1+\rho) +E_t\Delta d_{t+1}+\rho E_t\Delta d_{t+2}\\ &\quad -E_t r_{t+1}-\rho E_t r_{t+2} +\rho^2E_t[pd_{t+2}]. \end{aligned}
+$$
+
 令 horizon $J\to\infty$，并施加 no-bubble/transversality：
 $$ \lim_{J\to\infty}\rho^J E_t[pd_{t+J}]=0. $$
 得

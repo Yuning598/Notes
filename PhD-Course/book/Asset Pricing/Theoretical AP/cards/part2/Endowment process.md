@@ -17,8 +17,7 @@ $$
 
 ^def-endowment-process
 
-:::{admonition} Proposition
-Endowment Growth and Asset Prices
+:::{admonition} Proposition: Endowment Growth and Asset Prices
 一旦 endowment process 给定，代表性消费者的消费、state-price density、risk-free rate 和股票价格都可以由它推出。
 
 :::

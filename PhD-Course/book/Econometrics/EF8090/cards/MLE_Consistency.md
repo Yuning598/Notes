@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [04_MLE_Fisher_CRLB_and_ML_Tests](04_MLE_Fisher_CRLB_and_ML_Tests)
 
-:::{admonition} Lemma
-Extremum consistency
+:::{admonition} Lemma: Extremum consistency
 If
 \[
 \sup_{\theta\in\Theta}|L_n(\theta)-L(\theta)|\to_p0

@@ -1031,8 +1031,7 @@ Skill-level 指标（job postings）：
 
 $$
 \begin{aligned}
-w^{AI}_{s}
-=
+w^{AI}_{s} =
 \frac{
 \text{\#}\{\text{jobs requiring skill }s\ \text{and}\ (\text{AI/ML/NLP/CV in required skills or job title})\}
 }{

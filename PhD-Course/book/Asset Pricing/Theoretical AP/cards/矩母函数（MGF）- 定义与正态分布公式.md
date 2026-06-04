@@ -61,10 +61,8 @@ $$
 于是
 
 $$
-E[e^{tZ}]
-=
-\int_{-\infty}^{\infty} e^{tz}\frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz
-=
+E[e^{tZ}] =
+\int_{-\infty}^{\infty} e^{tz}\frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz =
 \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz)}dz.
 $$
 
@@ -77,12 +75,9 @@ $$
 因此
 
 $$
-E[e^{tZ}]
-=
-\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}e^{t^2/2}dz
-=
-e^{t^2/2}\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz
-=
+E[e^{tZ}] =
+\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}e^{t^2/2}dz =
+e^{t^2/2}\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz =
 e^{t^2/2}.
 $$
 

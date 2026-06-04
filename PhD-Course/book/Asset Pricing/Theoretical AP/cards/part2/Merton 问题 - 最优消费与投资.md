@@ -4,8 +4,7 @@
 
 返回：[Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing](Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 若投资机会集常数、效用为 CRRA，则最优风险资产权重为
 
 $$

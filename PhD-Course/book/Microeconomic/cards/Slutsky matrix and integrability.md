@@ -12,8 +12,7 @@ Main note: [Microeconomic/01_Static_Choice_Consumer_Demand_and_Integrability](..
 Slutsky matrix:
 
 $$
-s_{ij}
-=
+s_{ij} =
 \frac{\partial x_i}{\partial p_j}
 +
 \frac{\partial x_i}{\partial w}x_j.

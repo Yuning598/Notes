@@ -18,8 +18,7 @@ Links: [03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) | [05_
 Return predictability 的核心回归：
 
 $$
-r_{t+1}
-=
+r_{t+1} =
 \alpha+\beta x_t+\varepsilon_{t+1},
 $$
 
@@ -39,12 +38,10 @@ $$ H_0:\beta=0. $$
 由 [03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) 的 Campbell-Shiller identity：
 
 $$
-pd_t
-=
+pd_t =
 \frac{\kappa}{1-\rho}
 +
-\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}]
--
+\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -
 \sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}].
 $$
 
@@ -61,22 +58,24 @@ $$
 长 horizon 预测回归：
 
 $$
-r_{t,t+k}=r_{t+1}+r_{t+2}+\cdots+r_{t+k}
-=
+r_{t,t+k}=r_{t+1}+r_{t+2}+\cdots+r_{t+k} =
 \alpha_k+\beta_kx_t+\varepsilon_{t,t+k}.
 $$
 
 课件提醒：overlapping observations 会导致 residual serial correlation，必须使用 HAC/Newey-West 或其他校正。
 
-:::{admonition} Lemma
-Overlapping return residual 的 MA($k-1$) 结构
+:::{admonition} Lemma: Overlapping return residual 的 MA($k-1$) 结构
 **WTS：** 若 one-period shocks 不相关，$k$-period overlapping return regression 的误差至少具有 $k-1$ 阶 serial correlation。
 
 **连续求解：**
 设
 $$ \varepsilon_{t,t+k}=\sum_{j=1}^k u_{t+j}. $$
 则
-$$ \begin{aligned} \varepsilon_{t,t+k} &=u_{t+1}+u_{t+2}+\cdots+u_{t+k},\\ \varepsilon_{t+1,t+1+k} &=u_{t+2}+u_{t+3}+\cdots+u_{t+k+1}. \end{aligned} $$
+
+$$
+\begin{aligned} \varepsilon_{t,t+k} &=u_{t+1}+u_{t+2}+\cdots+u_{t+k},\\ \varepsilon_{t+1,t+1+k} &=u_{t+2}+u_{t+3}+\cdots+u_{t+k+1}. \end{aligned}
+$$
+
 两者共享 $u_{t+2},\ldots,u_{t+k}$，所以
 $$ \operatorname{Cov}(\varepsilon_{t,t+k},\varepsilon_{t+1,t+1+k})\ne 0. $$
 更一般地，当 lag $h<k$ 时有重叠；当 $h\ge k$ 时不重叠。
@@ -95,8 +94,7 @@ $$
 
 OLS 估计 $\hat \rho$ 在有限样本中有 bias。
 
-:::{admonition} Lemma
-Kendall bias 的一阶近似
+:::{admonition} Lemma: Kendall bias 的一阶近似
 **WTS：**
 $$ E(\hat\rho-\rho) \approx -\frac{1+3\rho}{T}. $$
 
@@ -115,8 +113,7 @@ $$ E(\hat\rho-\rho) = -\frac{1+3\rho}{T} +O(T^{-2}). $$
 课件给出 bias adjustment 的形式：
 
 $$
-\hat\rho^{adj}
-=
+\hat\rho^{adj} =
 \hat\rho+\frac{1+3\hat\rho}{T}.
 $$
 
@@ -133,19 +130,26 @@ $$
 
 若 $\varepsilon_{t+1}$ 与 $\nu_{t+1}$ 相关，则 $\hat\beta$ 与 $\hat\rho$ 的偏误相连。
 
-:::{admonition} Lemma
-Stambaugh bias
+:::{admonition} Lemma: Stambaugh bias
 **WTS：**
 $$ E(\hat\beta-\beta) = \frac{\operatorname{Cov}(\varepsilon_t,\nu_t)} {\operatorname{Var}(\nu_t)} E(\hat\rho-\rho). $$
 
 **联立系统：**
-$$ \begin{cases} r_{t+1}=\alpha+\beta x_t+\varepsilon_{t+1},\\ x_{t+1}=\theta+\rho x_t+\nu_{t+1},\\ \operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})\ne 0. \end{cases} $$
+
+$$
+\begin{cases} r_{t+1}=\alpha+\beta x_t+\varepsilon_{t+1},\\ x_{t+1}=\theta+\rho x_t+\nu_{t+1},\\ \operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})\ne 0. \end{cases}
+$$
+
 线性投影：
 $$ \varepsilon_{t+1}=\gamma\nu_{t+1}+\eta_{t+1}, \qquad \gamma= \frac{\operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})} {\operatorname{Var}(\nu_{t+1})}. $$
 
 **连续求解：**
 代入 return equation：
-$$ \begin{aligned} r_{t+1} &=\alpha+\beta x_t+\gamma\nu_{t+1}+\eta_{t+1}\\ &=\alpha+\beta x_t+\gamma(x_{t+1}-\theta-\rho x_t)+\eta_{t+1}\\ &=(\alpha-\gamma\theta)+(\beta-\gamma\rho)x_t+\gamma x_{t+1}+\eta_{t+1}. \end{aligned} $$
+
+$$
+\begin{aligned} r_{t+1} &=\alpha+\beta x_t+\gamma\nu_{t+1}+\eta_{t+1}\\ &=\alpha+\beta x_t+\gamma(x_{t+1}-\theta-\rho x_t)+\eta_{t+1}\\ &=(\alpha-\gamma\theta)+(\beta-\gamma\rho)x_t+\gamma x_{t+1}+\eta_{t+1}. \end{aligned}
+$$
+
 估计时，$\rho$ 用 $\hat\rho$ 替代，引致
 $$ \hat\beta-\beta \approx \gamma(\hat\rho-\rho). $$
 取期望：
@@ -221,8 +225,7 @@ Campbell-Thompson 的重点：predictive regression 的统计 $R^2$ 可能很小
 
 $$
 \boxed{
-\frac{\Delta E[r]}{E[r]}
-=
+\frac{\Delta E[r]}{E[r]} =
 \frac{R^2}{1-R^2}\frac{1+S^2}{S^2}
 }
 $$
@@ -333,8 +336,7 @@ $$
 
 $$
 \boxed{
-\frac{\Delta E[r]}{E[r]}
-=
+\frac{\Delta E[r]}{E[r]} =
 \frac{R^2}{1-R^2}\frac{1+S^2}{S^2}
 }
 $$
@@ -352,10 +354,8 @@ $$
 课件强调：即使 one-period return predictability 弱，valuation ratios 的 present-value identity 会把长期 expected return variation 放大。直觉是：
 
 $$
-pd_t
-=
-\text{expected future dividend growth}
--
+pd_t =
+\text{expected future dividend growth} -
 \text{expected future returns}.
 $$
 
@@ -366,7 +366,7 @@ $$
 - 先写 present-value identity，再解释 valuation ratio 为什么预测 returns。
 - 碰到 predictive regression，马上检查：
 
-  $$
+$$
 x_{t+1}=\theta+\rho x_t+\nu_{t+1}
 $$
 

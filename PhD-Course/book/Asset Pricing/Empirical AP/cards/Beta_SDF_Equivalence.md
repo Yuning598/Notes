@@ -7,8 +7,7 @@ orphan: true
 Source: EF8083 slides, pp. 195-210; EF8077/Theoretical AP factor-model proof  
 Backlinks: [Empirical AP: Linear SDF implies beta pricing](../05_Cross_Section_Factor_Models.md) | [EF8077: Factor Models Are Equivalent to SDFs](../../Theoretical AP/01_Single_Period_Models.md) | [QE-PS: Factor model review](../../../ProblemSet/ProblemSet.md)
 
-:::{admonition} Proposition
-Beta-SDF Equivalence
+:::{admonition} Proposition: Beta-SDF Equivalence
 Linear / affine SDF 与 beta pricing 是同一个横截面限制的两种写法。
 
 $$

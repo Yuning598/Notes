@@ -24,8 +24,7 @@ M_{t,t+1}
 =\beta^{\theta}g_{c,t+1}^{-\theta/\psi}R_{a,t+1}^{\theta-1}.
 $$
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 资产定价条件为
 
 $$

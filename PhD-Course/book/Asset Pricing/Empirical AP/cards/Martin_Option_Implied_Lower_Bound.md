@@ -19,10 +19,8 @@ E^Q[R]=R_f.
 
 Risk-neutral variance:
 \[
-\operatorname{Var}^Q(R)
-=
-E^Q[R^2]-R_f^2
-=
+\operatorname{Var}^Q(R) =
+E^Q[R^2]-R_f^2 =
 R_fE[MR^2]-R_f^2.
 \]
 

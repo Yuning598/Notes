@@ -4,8 +4,7 @@
 
 返回：[Asset Pricing/Theoretical AP/01_Single_Period_Models](Asset Pricing/Theoretical AP/01_Single_Period_Models)
 
-:::{admonition} Proposition
-Proposition
+:::{admonition} Proposition: Proposition
 若存在无风险资产，则任意 SDF 都满足
 
 $$

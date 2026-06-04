@@ -24,16 +24,14 @@ P_t=\frac{\beta}{1-\beta}\bar D_t.
 
 Return:
 \[
-R_{t+1}
-=
+R_{t+1} =
 \frac{1}{1-\beta}
 \left(1-\frac{\beta t}{t+1}\right)(D_{t+1}-\bar D_t).
 \]
 
 Expected return:
 \[
-E_tR_{t+1}
-=
+E_tR_{t+1} =
 \frac{1}{1-\beta}
 \left(1-\frac{\beta t}{t+1}\right)(\mu-\bar D_t).
 \]

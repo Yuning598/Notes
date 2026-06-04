@@ -6,8 +6,7 @@ orphan: true
 
 Parent: [02_OLS_Algebra_Finite_Sample_GLS](02_OLS_Algebra_Finite_Sample_GLS)
 
-:::{admonition} Lemma
-BLUE result
+:::{admonition} Lemma: BLUE result
 Under \(E[e\mid X]=0\) and \(\operatorname{Var}(e\mid X)=\sigma^2I\), OLS is best linear unbiased.
 
 Any linear unbiased estimator can be written as

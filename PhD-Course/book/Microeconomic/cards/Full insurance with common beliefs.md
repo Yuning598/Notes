@@ -18,8 +18,7 @@ $$
 A risk-averse agent's FOC is
 
 $$
-\frac{p_1}{p_2}
-=
+\frac{p_1}{p_2} =
 \frac{\pi_1u'(x_1)}{\pi_2u'(x_2)}.
 $$
 

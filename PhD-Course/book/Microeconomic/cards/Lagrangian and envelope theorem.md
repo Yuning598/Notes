@@ -30,8 +30,7 @@ $$
 Envelope:
 
 $$
-\frac{\partial v}{\partial \theta_k}
-=
+\frac{\partial v}{\partial \theta_k} =
 \frac{\partial \mathcal L}{\partial \theta_k}
 \bigg|_{x=x(\theta),\lambda=\lambda(\theta)}.
 $$
