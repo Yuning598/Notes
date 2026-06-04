@@ -491,8 +491,10 @@ $$
 
 :::{admonition} Definition (Cash Flow)
 连续时间中的 cash flow 是一对 $(C_0,C_T)$，其中 $C_0\in\mathbb R$，$C_T$ 是 $\mathcal F_T$-measurable。
+:::
 
-**Lemma:** Self-Financing Strategy Finances Cash Flow
+:::{admonition} Lemma
+Self-Financing Strategy Finances Cash Flow
 若 self-financing strategy $\theta$ 融资 $(C_0,C_T)$，则
 
 $$
@@ -502,8 +504,9 @@ C_0=-\theta_0'S_0,\qquad C_T=\theta_T'S_T.
 $$
 
 反过来，若上述条件成立，则该 cash flow 被 $\theta$ financing。
+:::
 
-**Definition (Marketable):**
+:::{admonition} Definition (Marketable)
 若某个 cash flow 可以由某个 trading strategy financing，则称其 marketable。
 
 :::
@@ -1234,8 +1237,10 @@ $$
 
 :::{admonition} Definition (Feasible Consumption Plan)
 可行消费计划 $(c,C_T)$ 指其对应现金流能被某个交易策略融资。
+:::
 
-**Lemma:** Static Problem
+:::{admonition} Lemma
+Static Problem
 在 complete markets 下，动态最优消费问题等价于静态问题：
 
 $$
@@ -5348,7 +5353,9 @@ $$
 :::{admonition} Lemma
 Pricing Long-Run Growth Risk
 在 Epstein-Zin 偏好下，风险溢价不仅取决于当期消费冲击，也取决于长期增长预期冲击；因此模型能让“长期增长风险”获得较高的风险价格。
+:::
 
-**Lemma:** Return Predictability from Persistent Growth
+:::{admonition} Lemma
+Return Predictability from Persistent Growth
 当 $\psi>1$ 且 $x_t$ 高度持久时，价格—股利比会对长期增长预期更敏感，从而有助于解释高股权溢价与回报可预测性。
 :::

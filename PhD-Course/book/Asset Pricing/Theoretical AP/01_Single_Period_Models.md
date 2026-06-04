@@ -110,8 +110,10 @@ u(w)\ge E[u(\tilde w)],
 $$
 
 则投资者是（弱）风险厌恶的。
+:::
 
-**Lemma:** Concavity and Jensen
+:::{admonition} Lemma
+Concavity and Jensen
 Jensen 不等式给出
 
 $$
@@ -541,8 +543,10 @@ $$
 $$
 
 这里 $\phi>0$ 表示 long risky asset，$\phi<0$ 表示 short risky asset。
+:::
 
-**Lemma:** FOC and sign of optimal exposure
+:::{admonition} Lemma
+FOC and Sign of Optimal Exposure
 $$U(\phi)=E\!\left[u\!\left(w_0R_f+\phi(\tilde R-R_f)\right)\right]$$
 
 $$
@@ -1190,14 +1194,24 @@ p'\theta=p'\hat\theta.
 \end{aligned}
 $$
 
-**Definition (Arbitrage Opportunity):**
+:::
+
+:::{admonition} Definition (Arbitrage Opportunity)
 套利机会（arbitrage opportunity）是一个 portfolio $\theta$，满足
 1. 初始成本不高于0：$p'\theta \le 0$
 2. 未来不会亏：$Pr(\sum_{i=1}^n \theta_i\tilde x_i \ge 0)=1$
 3. 至少有一种情况赚钱：至少有一个严格不等式成立
-$$p'\theta<0 \qquad \text{or} \qquad \Pr\!\left(\sum_{i=1}^n\theta_i\tilde x_i>0\right)>0$$
 
-**Lemma:** Law of One Price and Arbitrage-Free Pricing
+$$
+p'\theta<0
+\qquad \text{or} \qquad
+\Pr\!\left(\sum_{i=1}^n\theta_i\tilde x_i>0\right)>0
+$$
+
+:::
+
+:::{admonition} Lemma
+Law of One Price and Arbitrage-Free Pricing
 若市场不存在套利机会，则相同 payoff 必须有相同价格；反过来，若 Law of One Price 被破坏，就会构造出套利组合。  
 因此，**无套利定价**的核心就是：payoff 相同，price 相同。
 
