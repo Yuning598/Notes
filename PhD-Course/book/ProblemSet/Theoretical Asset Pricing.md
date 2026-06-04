@@ -11818,6 +11818,8 @@ $$
 
 ## Question 34. Martingale Method with Stochastic Expected Return and CRRA
 
+::::{collapse} Basic setup
+
 We consider a securities market model consisting of a probability space $(\Omega,\mathcal F,\mathbb P)$, a time interval $\mathcal T=[0,T]$, a one-dimensional Brownian motion $Z$ on $(\Omega,\mathcal F,\mathbb P)$, the standard filtration $\{\mathcal F_t\}$ of $Z$, and two securities.
 
 The first security is a bond, with price process
@@ -11845,6 +11847,8 @@ U(C_T)=\frac{C_T^{1-\gamma}}{1-\gamma}.
 $$
 
 We solve the investor's portfolio choice problem using the martingale method.
+
+::::
 
 **（a）** Write down the investor's problem as a static problem, and determine the optimal consumption.
 
@@ -12317,6 +12321,8 @@ $A(\tau)$ 只影响 wealth level，不进入 $dW_t/W_t$ 的 diffusion coefficien
 
 ## Question 35. Continuous-Time Bansal-Yaron Long-Run Risk and Recursive Utility
 
+::::{collapse} Basic setup
+
 Consider the following continuous-time version of Bansal and Yaron (2004). Suppose that consumption and dividends have the following dynamics:
 
 $$
@@ -12372,6 +12378,8 @@ h(C,V)
 $$
 
 Note that $\rho$ and $\rho_{C,D}$ are two different parameters.
+
+::::
 
 **（a）** Write down the HJB Bellman equation for the investor's value function $V$.
 
