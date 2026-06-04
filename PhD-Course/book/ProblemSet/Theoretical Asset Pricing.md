@@ -11815,3 +11815,816 @@ v(T,S,\mu)
 $$
 
 ::::
+
+## Question 34. Martingale Method with Stochastic Expected Return and CRRA
+
+We consider a securities market model consisting of a probability space $(\Omega,\mathcal F,\mathbb P)$, a time interval $\mathcal T=[0,T]$, a one-dimensional Brownian motion $Z$ on $(\Omega,\mathcal F,\mathbb P)$, the standard filtration $\{\mathcal F_t\}$ of $Z$, and two securities.
+
+The first security is a bond, with price process
+
+$$
+\frac{dB_t}{B_t}=r\,dt.
+$$
+
+The second security is a stock, with price process
+
+$$
+\frac{dS_t}{S_t}=\mu_t\,dt+\sigma\,dZ_t,
+$$
+
+where $\sigma$ is a constant, and $\mu_t$ is given by
+
+$$
+d\mu_t=\kappa(\theta-\mu_t)\,dt-s\,dZ_t,
+$$
+
+for constants $\kappa,\theta,s$. An investor with initial wealth $W$ maximizes utility over terminal consumption, where utility is CRRA:
+
+$$
+U(C_T)=\frac{C_T^{1-\gamma}}{1-\gamma}.
+$$
+
+We solve the investor's portfolio choice problem using the martingale method.
+
+**（a）** Write down the investor's problem as a static problem, and determine the optimal consumption.
+
+::::{solution}
+
+令 $\pi_t$ 为 SPD。由于一个 risky asset span 一个 Brownian shock，市场 dynamically complete；SPD satisfies
+
+$$
+\begin{aligned}
+\frac{d\pi_t}{\pi_t}
+&=-r\,dt-\frac{\mu_t-r}{\sigma}\,dZ_t.
+\end{aligned}
+$$
+
+Martingale method 将动态交易问题改写成只选择 terminal consumption 的静态问题：
+
+$$
+\begin{aligned}
+\max_{C_T\ge0}\quad
+&E\left[\frac{C_T^{1-\gamma}}{1-\gamma}\right]\\
+\text{s.t.}\quad
+&E[\pi_TC_T]\le W.
+\end{aligned}
+$$
+
+FOC 为
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial C_T}
+\left[
+\frac{C_T^{1-\gamma}}{1-\gamma}
+-\lambda\pi_TC_T
+\right]
+&=0\\
+\Longleftrightarrow\quad
+C_T^{-\gamma}
+&=\lambda\pi_T\\
+\Longleftrightarrow\quad
+C_T^*
+&=(\lambda\pi_T)^{-1/\gamma}.
+\end{aligned}
+$$
+
+Multiplier 由 budget constraint 决定：
+
+$$
+\begin{aligned}
+W
+&=E[\pi_TC_T^*]\\
+&=E\left[\pi_T(\lambda\pi_T)^{-1/\gamma}\right]\\
+&=\lambda^{-1/\gamma}E\left[\pi_T^{1-1/\gamma}\right].
+\end{aligned}
+$$
+
+若 $\pi_0=1$，则
+
+$$
+\begin{aligned}
+\lambda
+&=
+\left(
+\frac{E[\pi_T^{1-1/\gamma}]}{W}
+\right)^\gamma.
+\end{aligned}
+$$
+
+::::
+
+**（b）** Define $\eta_t$ by
+
+$$
+\eta_t=\frac{\mu_t-r}{\sigma}.
+$$
+
+Determine the process followed by $\eta_t$. Set $\theta_\eta=(\theta-r)/\sigma$ and $s_\eta=s/\sigma$.
+
+::::{solution}
+
+$$
+\begin{aligned}
+d\eta_t
+&=\frac{1}{\sigma}d\mu_t\\
+&=\frac{1}{\sigma}
+\left[
+\kappa(\theta-\mu_t)dt-s\,dZ_t
+\right]\\
+&=\kappa
+\left(
+\frac{\theta-r}{\sigma}
+-
+\frac{\mu_t-r}{\sigma}
+\right)dt
+-\frac{s}{\sigma}dZ_t\\
+&=\kappa(\theta_\eta-\eta_t)dt-s_\eta dZ_t.
+\end{aligned}
+$$
+
+::::
+
+**（c）** Explain why the investor's wealth at time $t$ can be written as a function $F(\pi_t,\eta_t,t)$, where $\pi_t$ is the SPD.
+
+::::{solution}
+
+由（a）得到 $C_T^*=(\lambda\pi_T)^{-1/\gamma}$，所以 time-$t$ wealth 是终端消费的 SPD price：
+
+$$
+\begin{aligned}
+W_t
+&=\frac{1}{\pi_t}E_t[\pi_TC_T^*]\\
+&=\frac{1}{\pi_t}
+E_t\left[\pi_T(\lambda\pi_T)^{-1/\gamma}\right].
+\end{aligned}
+$$
+
+又因为
+
+$$
+\left\{
+\begin{aligned}
+\frac{d\pi_t}{\pi_t}
+&=-r\,dt-\eta_t\,dZ_t,\\
+d\eta_t
+&=\kappa(\theta_\eta-\eta_t)dt-s_\eta dZ_t,
+\end{aligned}
+\right.
+$$
+
+$(\pi_t,\eta_t)$ 是 Markov state vector，所以上面的条件期望只依赖当前 $(\pi_t,\eta_t,t)$：
+
+$$
+\begin{aligned}
+W_t
+&=F(\pi_t,\eta_t,t).
+\end{aligned}
+$$
+
+::::
+
+**（d）** Determine a PDE for the function $F(\pi,\eta,t)$.
+
+::::{solution}
+
+state dynamics 为
+
+$$
+\left\{
+\begin{aligned}
+d\pi_t
+&=-r\pi_tdt-\eta_t\pi_tdZ_t,\\
+d\eta_t
+&=\kappa(\theta_\eta-\eta_t)dt-s_\eta dZ_t.
+\end{aligned}
+\right.
+$$
+
+因此
+
+$$
+\left\{
+\begin{aligned}
+(d\pi_t)^2&=\pi_t^2\eta_t^2dt,\\
+d\pi_t\,d\eta_t&=\pi_t\eta_ts_\eta dt,\\
+(d\eta_t)^2&=s_\eta^2dt.
+\end{aligned}
+\right.
+$$
+
+对 $F(\pi_t,\eta_t,t)$ 使用 Itô lemma：
+
+$$
+\begin{aligned}
+dF
+&=
+\left[
+F_t-r\pi F_\pi+\kappa(\theta_\eta-\eta)F_\eta
++\frac12\pi^2\eta^2F_{\pi\pi}
++\pi\eta s_\eta F_{\pi\eta}
++\frac12s_\eta^2F_{\eta\eta}
+\right]dt\\
+&\quad
+-\left(\pi\eta F_\pi+s_\eta F_\eta\right)dZ_t.
+\end{aligned}
+$$
+
+因为 $\pi_tF(\pi_t,\eta_t,t)$ 是 martingale，
+
+$$
+\begin{aligned}
+0
+&=\operatorname{drift}\left[d(\pi F)\right]\\
+&=\operatorname{drift}\left[\pi\,dF+F\,d\pi+d\pi\,dF\right]\\
+&=\pi
+\left[
+F_t-r\pi F_\pi+\kappa(\theta_\eta-\eta)F_\eta
++\frac12\pi^2\eta^2F_{\pi\pi}
++\pi\eta s_\eta F_{\pi\eta}
++\frac12s_\eta^2F_{\eta\eta}
+\right]\\
+&\quad
+-r\pi F
++\pi\eta\left(\pi\eta F_\pi+s_\eta F_\eta\right).
+\end{aligned}
+$$
+
+除以 $\pi$ 后得到
+
+$$
+\begin{aligned}
+0
+&=
+F_t
++(-r+\eta^2)\pi F_\pi
++\left[\kappa(\theta_\eta-\eta)+s_\eta\eta\right]F_\eta\\
+&\quad
++\frac12\pi^2\eta^2F_{\pi\pi}
++\pi\eta s_\eta F_{\pi\eta}
++\frac12s_\eta^2F_{\eta\eta}
+-rF,
+\end{aligned}
+$$
+
+with terminal condition
+
+$$
+\begin{aligned}
+F(\pi,\eta,T)
+&=(\lambda\pi)^{-1/\gamma}.
+\end{aligned}
+$$
+
+::::
+
+**（e）** Assume that
+
+$$
+F(\pi,\eta,t)
+=
+(\lambda\pi)^{-1/\gamma}
+\exp\left[
+\frac{1}{\gamma}
+\left(
+A(\tau)+B(\tau)\eta+C(\tau)\frac{\eta^2}{2}
+\right)
+\right],
+\qquad
+\tau=T-t,
+$$
+
+where $A(\tau),B(\tau)$ and $C(\tau)$ are differentiable functions. Derive ordinary differential equations and boundary conditions for $A(\tau),B(\tau)$ and $C(\tau)$.
+
+::::{solution}
+
+令
+
+$$
+\begin{aligned}
+H(\eta,\tau)
+&=A(\tau)+B(\tau)\eta+\frac12C(\tau)\eta^2,\\
+F
+&=(\lambda\pi)^{-1/\gamma}\exp\left(\frac{H}{\gamma}\right).
+\end{aligned}
+$$
+
+则
+
+$$
+\left\{
+\begin{aligned}
+\frac{F_t}{F}
+&=-\frac{1}{\gamma}
+\left(A'+B'\eta+\frac12C'\eta^2\right),\\
+\frac{F_\pi}{F}
+&=-\frac{1}{\gamma\pi},\\
+\frac{F_{\pi\pi}}{F}
+&=\frac{\gamma+1}{\gamma^2\pi^2},\\
+\frac{F_\eta}{F}
+&=\frac{B+C\eta}{\gamma},\\
+\frac{F_{\eta\eta}}{F}
+&=\frac{C}{\gamma}+\frac{(B+C\eta)^2}{\gamma^2},\\
+\frac{F_{\pi\eta}}{F}
+&=-\frac{B+C\eta}{\gamma^2\pi}.
+\end{aligned}
+\right.
+$$
+
+代入（d）的 PDE 并乘以 $\gamma$：
+
+$$
+\begin{aligned}
+0
+&=-A'-B'\eta-\frac12C'\eta^2-(\gamma-1)r\\
+&\quad
++\left[\kappa\theta_\eta+(s_\eta-\kappa)\eta\right](B+C\eta)
++\frac12s_\eta^2C\\
+&\quad
++\frac{s_\eta^2}{2\gamma}(B+C\eta)^2
++\frac{1-\gamma}{2\gamma}\eta^2
+-\frac{s_\eta}{\gamma}\eta(B+C\eta).
+\end{aligned}
+$$
+
+比较 $1,\eta,\eta^2$ 的系数：
+
+$$
+\begin{aligned}
+A'
+&=-(\gamma-1)r
++\kappa\theta_\eta B
++\frac12s_\eta^2C
++\frac{s_\eta^2}{2\gamma}B^2,\\
+B'
+&=\kappa\theta_\eta C
++(s_\eta-\kappa)B
+-\frac{s_\eta}{\gamma}B
++\frac{s_\eta^2}{\gamma}BC,\\
+C'
+&=2(s_\eta-\kappa)C
++\frac{1-\gamma}{\gamma}
+-\frac{2s_\eta}{\gamma}C
++\frac{s_\eta^2}{\gamma}C^2.
+\end{aligned}
+$$
+
+terminal condition 要求 $\tau=0$ 时 exponential term 等于 $1$：
+
+$$
+\begin{aligned}
+A(0)&=0,\\
+B(0)&=0,\\
+C(0)&=0.
+\end{aligned}
+$$
+
+::::
+
+**（f）** Determine the fraction $\phi_t$ of wealth invested in the risky asset at time $t$.
+
+::::{solution}
+
+由 $W_t=F(\pi_t,\eta_t,t)$，
+
+$$
+\begin{aligned}
+dW_t\big|_{dZ}
+&=dF\big|_{dZ}\\
+&=-\left(\pi\eta F_\pi+s_\eta F_\eta\right)dZ_t\\
+&=-\left[
+\pi\eta\left(-\frac{F}{\gamma\pi}\right)
++s_\eta\frac{B+C\eta}{\gamma}F
+\right]dZ_t\\
+&=\frac{F}{\gamma}
+\left[\eta-s_\eta(B+C\eta)\right]dZ_t.
+\end{aligned}
+$$
+
+self-financing wealth equation 的 diffusion part 是
+
+$$
+\begin{aligned}
+dW_t\big|_{dZ}
+&=W_t\phi_t\sigma\,dZ_t
+=F\phi_t\sigma\,dZ_t.
+\end{aligned}
+$$
+
+匹配 diffusion coefficient：
+
+$$
+\begin{aligned}
+F\phi_t\sigma
+&=\frac{F}{\gamma}
+\left[\eta_t-s_\eta(B(\tau)+C(\tau)\eta_t)\right]\\
+\Longleftrightarrow\quad
+\phi_t
+&=\frac{\eta_t-s_\eta[B(\tau)+C(\tau)\eta_t]}{\gamma\sigma}\\
+&=\frac{\mu_t-r-s[B(\tau)+C(\tau)\eta_t]}{\gamma\sigma^2}.
+\end{aligned}
+$$
+
+::::
+
+**（g）** Compute the derivatives of $\phi_t$ w.r.t. $\mu_t$ and $\tau$, expressing them in terms of $A(\tau),B(\tau)$ and $C(\tau)$, without solving the ODEs.
+
+::::{solution}
+
+由 $\eta_t=(\mu_t-r)/\sigma$，
+
+$$
+\begin{aligned}
+\phi_t(\mu_t,\tau)
+&=\frac{1}{\gamma\sigma^2}
+\left[
+\mu_t-r
+-s\left(
+B(\tau)+C(\tau)\frac{\mu_t-r}{\sigma}
+\right)
+\right].
+\end{aligned}
+$$
+
+对 $\mu_t$ 求偏导：
+
+$$
+\begin{aligned}
+\frac{\partial\phi_t}{\partial\mu_t}
+&=\frac{1}{\gamma\sigma^2}
+\left[
+1-\frac{s}{\sigma}C(\tau)
+\right]\\
+&=\frac{1-s_\eta C(\tau)}{\gamma\sigma^2}.
+\end{aligned}
+$$
+
+对 $\tau$ 求偏导：
+
+$$
+\begin{aligned}
+\frac{\partial\phi_t}{\partial\tau}
+&=-\frac{s}{\gamma\sigma^2}
+\left[
+B'(\tau)+C'(\tau)\eta_t
+\right].
+\end{aligned}
+$$
+
+由（e）：
+
+$$
+\begin{aligned}
+B'
+&=\kappa\theta_\eta C
++(s_\eta-\kappa)B
+-\frac{s_\eta}{\gamma}B
++\frac{s_\eta^2}{\gamma}BC,\\
+C'
+&=2(s_\eta-\kappa)C
++\frac{1-\gamma}{\gamma}
+-\frac{2s_\eta}{\gamma}C
++\frac{s_\eta^2}{\gamma}C^2.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\frac{\partial\phi_t}{\partial\tau}
+&=-\frac{s}{\gamma\sigma^2}
+\Bigg[
+\kappa\theta_\eta C
++(s_\eta-\kappa)B
+-\frac{s_\eta}{\gamma}B
++\frac{s_\eta^2}{\gamma}BC\\
+&\qquad
++\eta_t
+\left(
+2(s_\eta-\kappa)C
++\frac{1-\gamma}{\gamma}
+-\frac{2s_\eta}{\gamma}C
++\frac{s_\eta^2}{\gamma}C^2
+\right)
+\Bigg].
+\end{aligned}
+$$
+
+$A(\tau)$ 只影响 wealth level，不进入 $dW_t/W_t$ 的 diffusion coefficient，因此不进入 $\phi_t$ 和上述偏导。
+
+::::
+
+## Question 35. Continuous-Time Bansal-Yaron Long-Run Risk and Recursive Utility
+
+Consider the following continuous-time version of Bansal and Yaron (2004). Suppose that consumption and dividends have the following dynamics:
+
+$$
+\frac{dC_t}{C_t}
+=
+(\mu_C+x_t)dt+\sigma_CdB_t^c
+$$
+
+and
+
+$$
+\frac{dD_t}{D_t}
+=
+(\mu_C+\phi x_t)dt
++\sigma_D
+\left(
+\rho_{C,D}dB_t^c
++\sqrt{1-\rho_{C,D}^2}\,dB_t^d
+\right),
+$$
+
+respectively, where the long-run risk component $x$ follows an AR(1) process:
+
+$$
+dx_t=-\kappa_xx_tdt+\sigma_xdB_t^x,
+$$
+
+where $\{dB_t^c,dB_t^d,dB_t^x\}$ are independent Brownian motions.
+
+There is a representative agent with recursive preferences over consumption, which can be represented as
+
+$$
+V_t
+=
+\lim_{T\to\infty}
+E_t
+\left[
+\int_t^T h(C_s,V_s)ds
+\right],
+$$
+
+where
+
+$$
+h(C,V)
+=
+\frac{1}{1-\psi^{-1}}
+\left[
+\frac{\rho C^{1-\psi^{-1}}}
+{\left((1-\gamma)V\right)^{\frac{\gamma-\psi^{-1}}{1-\gamma}}}
+-\rho(1-\gamma)V
+\right].
+$$
+
+Note that $\rho$ and $\rho_{C,D}$ are two different parameters.
+
+**（a）** Write down the HJB Bellman equation for the investor's value function $V$.
+
+::::{solution}
+
+Representative agent 的 continuation value 只依赖 aggregate consumption $C_t$ 和 long-run risk state $x_t$：
+
+$$
+\begin{aligned}
+V_t
+&=V(C_t,x_t).
+\end{aligned}
+$$
+
+state dynamics 为
+
+$$
+\left\{
+\begin{aligned}
+dC_t
+&=C_t(\mu_C+x_t)dt+C_t\sigma_CdB_t^c,\\
+dx_t
+&=-\kappa_xx_tdt+\sigma_xdB_t^x.
+\end{aligned}
+\right.
+$$
+
+因为 $dB_t^c$ 与 $dB_t^x$ independent，
+
+$$
+\begin{aligned}
+dC_t\,dx_t
+&=0.
+\end{aligned}
+$$
+
+对 $V(C_t,x_t)$ 使用 Itô lemma：
+
+$$
+\begin{aligned}
+dV
+&=
+V_CdC+V_xdx
++\frac12V_{CC}(dC)^2
++V_{Cx}dC\,dx
++\frac12V_{xx}(dx)^2\\
+&=
+\left[
+V_CC(\mu_C+x)
+-\kappa_xxV_x
++\frac12\sigma_C^2C^2V_{CC}
++\frac12\sigma_x^2V_{xx}
+\right]dt\\
+&\quad
+V_CC\sigma_CdB_t^c+\sigma_xV_xdB_t^x.
+\end{aligned}
+$$
+
+由 recursive utility 的 dynamic programming equation，
+
+$$
+\begin{aligned}
+0
+&=
+h(C,V)
++\mathcal L V(C,x)\\
+&=
+h(C,V)
++(\mu_C+x)CV_C
+-\kappa_xxV_x
++\frac12\sigma_C^2C^2V_{CC}
++\frac12\sigma_x^2V_{xx}.
+\end{aligned}
+$$
+
+其中
+
+$$
+\begin{aligned}
+h(C,V)
+&=
+\frac{1}{1-\psi^{-1}}
+\left[
+\frac{\rho C^{1-\psi^{-1}}}
+{\left((1-\gamma)V\right)^{\frac{\gamma-\psi^{-1}}{1-\gamma}}}
+-\rho(1-\gamma)V
+\right].
+\end{aligned}
+$$
+
+Dividends $D_t$ 不进入 representative agent 的 HJB；它们用于之后 equity claim pricing。
+
+::::
+
+**（b）** Guess that the value function takes the form
+
+$$
+V(C_t,x_t)=\frac{C_t^{1-\gamma}}{1-\gamma}f(x_t),
+$$
+
+and derive a differential equation characterizing $f(x_t)$.
+
+::::{solution}
+
+猜测
+
+$$
+\begin{aligned}
+V(C,x)
+&=\frac{C^{1-\gamma}}{1-\gamma}f(x),\\
+(1-\gamma)V(C,x)
+&=C^{1-\gamma}f(x).
+\end{aligned}
+$$
+
+先化简 aggregator。令
+
+$$
+\begin{aligned}
+a
+&=
+\frac{\gamma-\psi^{-1}}{1-\gamma}.
+\end{aligned}
+$$
+
+则
+
+$$
+\begin{aligned}
+\frac{C^{1-\psi^{-1}}}
+{\left((1-\gamma)V\right)^a}
+&=
+\frac{C^{1-\psi^{-1}}}
+{\left(C^{1-\gamma}f(x)\right)^a}\\
+&=
+\frac{C^{1-\psi^{-1}}}
+{C^{\gamma-\psi^{-1}}f(x)^a}\\
+&=
+C^{1-\gamma}f(x)^{-a}.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+h(C,V)
+&=
+\frac{1}{1-\psi^{-1}}
+\left[
+\rho C^{1-\gamma}f(x)^{-a}
+-\rho C^{1-\gamma}f(x)
+\right]\\
+&=
+C^{1-\gamma}
+\frac{\rho}{1-\psi^{-1}}
+\left[
+f(x)^{\frac{\psi^{-1}-\gamma}{1-\gamma}}
+-f(x)
+\right].
+\end{aligned}
+$$
+
+偏导为
+
+$$
+\left\{
+\begin{aligned}
+V_C
+&=C^{-\gamma}f(x),\\
+V_{CC}
+&=-\gamma C^{-\gamma-1}f(x),\\
+V_x
+&=\frac{C^{1-\gamma}}{1-\gamma}f'(x),\\
+V_{xx}
+&=\frac{C^{1-\gamma}}{1-\gamma}f''(x).
+\end{aligned}
+\right.
+$$
+
+代入 HJB：
+
+$$
+\begin{aligned}
+0
+&=
+C^{1-\gamma}
+\frac{\rho}{1-\psi^{-1}}
+\left[
+f^{\frac{\psi^{-1}-\gamma}{1-\gamma}}
+-f
+\right]\\
+&\quad
++(\mu_C+x)C\cdot C^{-\gamma}f
+-\kappa_xx\frac{C^{1-\gamma}}{1-\gamma}f'
++\frac12\sigma_C^2C^2
+\left(
+-\gamma C^{-\gamma-1}f
+\right)
++\frac12\sigma_x^2
+\frac{C^{1-\gamma}}{1-\gamma}f''\\
+&=
+C^{1-\gamma}
+\Bigg\{
+\frac{\rho}{1-\psi^{-1}}
+\left[
+f^{\frac{\psi^{-1}-\gamma}{1-\gamma}}
+-f
+\right]
++(\mu_C+x)f
+-\frac12\gamma\sigma_C^2f
+-\frac{\kappa_xx}{1-\gamma}f'
++\frac{\sigma_x^2}{2(1-\gamma)}f''
+\Bigg\}.
+\end{aligned}
+$$
+
+由于 $C^{1-\gamma}>0$，$f$ satisfies the ODE
+
+$$
+\begin{aligned}
+0
+&=
+\frac{\rho}{1-\psi^{-1}}
+\left[
+f(x)^{\frac{\psi^{-1}-\gamma}{1-\gamma}}
+-f(x)
+\right]
++\left(\mu_C+x-\frac12\gamma\sigma_C^2\right)f(x)\\
+&\quad
+-\frac{\kappa_xx}{1-\gamma}f'(x)
++\frac{\sigma_x^2}{2(1-\gamma)}f''(x).
+\end{aligned}
+$$
+
+Equivalently, multiplying by $1-\gamma$:
+
+$$
+\begin{aligned}
+0
+&=
+(1-\gamma)
+\frac{\rho}{1-\psi^{-1}}
+\left[
+f(x)^{\frac{\psi^{-1}-\gamma}{1-\gamma}}
+-f(x)
+\right]\\
+&\quad
++(1-\gamma)
+\left(\mu_C+x-\frac12\gamma\sigma_C^2\right)f(x)
+-\kappa_xx f'(x)
++\frac12\sigma_x^2f''(x).
+\end{aligned}
+$$
+
+::::
