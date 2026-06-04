@@ -8982,44 +8982,44 @@ $$
 
 ::::{solution}
 
-先把 risky asset 的 drift 和 diffusion 写成
+**SPD 的计算** 先把 risky asset 写成标准 drift-diffusion 形式：
 
 $$
+\left\{
 \begin{aligned}
+I_{S_t}^{-1}dS_t
+&=\mu_{S,t}dt+\sigma_{S,t}dB_t,\\
 \mu_{S,t}
 &:=r_t1_N+Y_t\eta_t,\\
 \sigma_{S,t}
 &:=\sqrt{Y_t}\xi.
 \end{aligned}
+\right.
 $$
 
-SPD $\zeta_t$ 定义为所有资产现金流的 pricing kernel：
+令 SPD 为
 
 $$
 \begin{aligned}
 \frac{d\zeta_t}{\zeta_t}
-&=
--r_tdt-\theta_t'dB_t,\\
-P_t(X_T)
-&=
-\frac{1}{\zeta_t}
-E_t^{\mathbb P}[\zeta_TX_T].
+&=-r_tdt-\theta_t'dB_t.
 \end{aligned}
 $$
 
-由 $\zeta_tS_t^i+\int_0^t\zeta_s\,dD_s^i$ 为 $\mathbb P$-martingale。若这里 $S_t$ 是无 dividend 或 total-return price，则
+因为 $\zeta_tS_t^i+\int_0^t\zeta_s\,dD_s^i$ 必须是 $\mathbb P$-martingale。若这里的 $S_t$ 是 no-dividend price 或 total-return price，则只需令 $\zeta_tS_t$ 的 drift 为零：
 
 $$
 \begin{aligned}
 d(\zeta_tS_t)
-&=
-\zeta_tdS_t+I_{S_t}1_N\,d\zeta_t+d\zeta_tdS_t\\
-&=
-\zeta_tI_{S_t}
+&=\zeta_tdS_t+I_{S_t}1_N\,d\zeta_t+d\zeta_tdS_t\\
+&=\zeta_tI_{S_t}\left[\mu_{S,t}dt+\sigma_{S,t}dB_t\right]
++\zeta_tI_{S_t}1_N\left[-r_tdt-\theta_t'dB_t\right]\\
+&\quad
+-\zeta_tI_{S_t}\sigma_{S,t}\theta_tdt\\
+&=\zeta_tI_{S_t}
 \left[
 \mu_{S,t}-r_t1_N-\sigma_{S,t}\theta_t
-\right]dt\\
-&\quad
+\right]dt
 +\zeta_tI_{S_t}
 \left[
 \sigma_{S,t}dB_t-1_N\theta_t'dB_t
@@ -9027,90 +9027,106 @@ d(\zeta_tS_t)
 \end{aligned}
 $$
 
-因此无套利要求 drift 为零：
+所以 SPD 的 Brownian loading $\theta_t$ 必须满足
 
 $$
 \begin{aligned}
-\mu_{S,t}-r_t1_N
-&=
-\sigma_{S,t}\theta_t\\
-\Longleftrightarrow\quad
-Y_t\eta_t
-&=
-\sqrt{Y_t}\xi\theta_t.
+0
+&=\mu_{S,t}-r_t1_N-\sigma_{S,t}\theta_t\\
+&=Y_t\eta_t-\sqrt{Y_t}\xi\theta_t\\
+\Longleftrightarrow\qquad
+\xi\theta_t
+&=\sqrt{Y_t}\eta_t.
 \end{aligned}
 $$
 
-令 money-market account 为
+这一步就是 SPD 的核心计算：先由 asset drift 和 volatility 解出 market price of risk $\theta_t$，再代回
+
+$$
+\begin{aligned}
+\frac{d\zeta_t}{\zeta_t}
+&=-r_tdt-\theta_t'dB_t,\\
+P_t(X_T)
+&=\frac{1}{\zeta_t}E_t^{\mathbb P}[\zeta_TX_T].
+\end{aligned}
+$$
+
+若 $d=N$ 且 $\xi$ 可逆，则 $\theta_t=\sqrt{Y_t}\xi^{-1}\eta_t$；若 $d>N$，则所有满足 $\xi\theta_t=\sqrt{Y_t}\eta_t$ 的 $\theta_t$ 都给出一个 EMM，除非额外假设市场完备使 $\theta_t$ 唯一。
+
+**EMM 的计算** 令 money-market account 为
 
 $$
 \begin{aligned}
 B_t^0
-&=
-\exp\!\left(\int_0^tr_sds\right),
+&=\exp\!\left(\int_0^tr_sds\right),
 \qquad
 \frac{dB_t^0}{B_t^0}=r_tdt.
 \end{aligned}
 $$
 
-EMM 的 Radon-Nikodym density 是
+用 SPD 乘以 money-market account 得到 EMM 的 density process：
 
 $$
 \begin{aligned}
 Z_t
-&:=
-\frac{\zeta_tB_t^0}{\zeta_0B_0^0},\\
+&:=\frac{\zeta_tB_t^0}{\zeta_0B_0^0},\\
 \frac{dZ_t}{Z_t}
-&=
-\frac{d\zeta_t}{\zeta_t}
-+\frac{dB_t^0}{B_t^0}\\
-&=
-(-r_tdt-\theta_t'dB_t)+r_tdt\\
-&=
--\theta_t'dB_t.
+&=\frac{d\zeta_t}{\zeta_t}+\frac{dB_t^0}{B_t^0}\\
+&=(-r_tdt-\theta_t'dB_t)+r_tdt\\
+&=-\theta_t'dB_t,\\
+Z_t
+&=\mathcal E\!\left(-\int_0^t\theta_s'dB_s\right).
 \end{aligned}
 $$
 
-若 $Z_t$ 是 martingale，则
+若 $Z_t$ 是 true martingale，则定义
 
 $$
 \begin{aligned}
 \frac{d\mathbb Q}{d\mathbb P}\bigg|_{\mathcal F_t}
-&=
-Z_t,\\
-dB_t^{\mathbb Q}
-&=
-dB_t+\theta_tdt.
+&=Z_t.
 \end{aligned}
 $$
 
-在 $\mathbb Q$ 下，
+Girsanov theorem 给出
+
+$$
+\begin{aligned}
+dB_t^{\mathbb Q}
+&=dB_t+\theta_tdt,\\
+dB_t
+&=dB_t^{\mathbb Q}-\theta_tdt.
+\end{aligned}
+$$
+
+代回 risky asset dynamics：
 
 $$
 \begin{aligned}
 I_{S_t}^{-1}dS_t
-&=
-\mu_{S,t}dt+\sigma_{S,t}dB_t\\
-&=
-(r_t1_N+\sigma_{S,t}\theta_t)dt
+&=(r_t1_N+\sigma_{S,t}\theta_t)dt+\sigma_{S,t}dB_t\\
+&=(r_t1_N+\sigma_{S,t}\theta_t)dt
 +\sigma_{S,t}(dB_t^{\mathbb Q}-\theta_tdt)\\
-&=
-r_t1_Ndt+\sigma_{S,t}dB_t^{\mathbb Q},\\
-d\left(\frac{S_t}{B_t^0}\right)
-&=
-\frac{I_{S_t}}{B_t^0}\sigma_{S,t}dB_t^{\mathbb Q}.
+&=r_t1_Ndt+\sigma_{S,t}dB_t^{\mathbb Q}.
 \end{aligned}
 $$
 
-因此任意 payoff $X_T$ 的同一个价格可以写成
+因此 discounted risky asset price 是 $\mathbb Q$-martingale：
+
+$$
+\begin{aligned}
+d\left(\frac{S_t}{B_t^0}\right)
+&=\frac{I_{S_t}}{B_t^0}\sigma_{S,t}dB_t^{\mathbb Q}.
+\end{aligned}
+$$
+
+**定价式** 对任意 payoff $X_T$，
 
 $$
 \begin{aligned}
 P_t(X_T)
-&=
-\frac{1}{\zeta_t}E_t^{\mathbb P}[\zeta_TX_T]\\
-&=
-B_t^0E_t^{\mathbb Q}\!\left[\frac{X_T}{B_T^0}\right].
+&=\frac{1}{\zeta_t}E_t^{\mathbb P}[\zeta_TX_T]\\
+&=B_t^0E_t^{\mathbb Q}\!\left[\frac{X_T}{B_T^0}\right].
 \end{aligned}
 $$
 
