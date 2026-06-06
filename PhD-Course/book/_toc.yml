@@ -78,11 +78,3 @@ parts:
   - caption: Cross-Course Links
     chapters:
       - file: Cross-Course/index
-      - file: Cross-Course/QE_Knowledge_Map
-      - file: Cross-Course/Exam_Pattern_Index
-      - file: Cross-Course/bridges/State_Prices_SDF_Complete_Markets
-      - file: Cross-Course/bridges/Risk_Aversion_Mean_Variance_CAPM
-      - file: Cross-Course/bridges/Projection_Beta_Pricing
-      - file: Cross-Course/bridges/GMM_Euler_Equation
-      - file: Cross-Course/bridges/Identification_Corporate_Finance
-      - file: Cross-Course/bridges/Dynamic_Programming_HJB
