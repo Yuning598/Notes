@@ -14,17 +14,28 @@ u_t=v_t\sigma_t,\qquad \sigma_t^2=\alpha_0+\alpha_1u_{t-1}^2.
 $$
 
 :::{admonition} Lemma: ARCH(1) unconditional variance
-**WTS:**
-$$ E[u_t^2]=\frac{\alpha_0}{1-\alpha_1}. $$
-
-**连续求解：**
+For ARCH(1),
 
 $$
-\begin{aligned} E[\sigma_t^2] &=\alpha_0+\alpha_1E[u_{t-1}^2]\\ &=\alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]\\ &=\alpha_0+\alpha_1E[\sigma_{t-1}^2]. \end{aligned}
+E[u_t^2]=E[\sigma_t^2]=\frac{\alpha_0}{1-\alpha_1}.
+$$
+
+Proof:
+
+$$
+\begin{aligned}
+E[\sigma_t^2]
+&=\alpha_0+\alpha_1E[u_{t-1}^2]\\
+&=\alpha_0+\alpha_1E[v_{t-1}^2\sigma_{t-1}^2]\\
+&=\alpha_0+\alpha_1E[\sigma_{t-1}^2].
+\end{aligned}
 $$
 
 Stationarity gives $E[\sigma_t^2]=E[\sigma_{t-1}^2]$, so
-$$ E[\sigma_t^2]=\frac{\alpha_0}{1-\alpha_1}. $$
+
+$$
+E[\sigma_t^2]=\frac{\alpha_0}{1-\alpha_1}.
+$$
 
 :::
 

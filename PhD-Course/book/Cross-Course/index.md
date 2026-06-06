@@ -9,7 +9,7 @@ tags:
 
 本页是 QE 跨课复习 Hub：先用图谱按课程、主题和 Exam Focus 定位考点，再进入 bridge note 深读共同数学对象，最后回到课程页和 ProblemSet 做同类题。
 
-<iframe src="/PhD-Course/qe-knowledge-graph.html" title="QE Interactive Knowledge Graph" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+<iframe src="../qe-knowledge-graph.html" title="QE Interactive Knowledge Graph" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
 
 ## 推荐使用方式
 
@@ -53,3 +53,15 @@ Causal estimand -> endogeneity threat -> identification assumption -> empirical 
 ### Dynamic programming / HJB
 
 State variable -> Bellman recursion -> envelope / FOC -> HJB or stopping boundary -> verification.
+
+```{toctree}
+:hidden:
+
+QE_Knowledge_Map
+bridges/State_Prices_SDF_Complete_Markets
+bridges/Risk_Aversion_Mean_Variance_CAPM
+bridges/Projection_Beta_Pricing
+bridges/GMM_Euler_Equation
+bridges/Identification_Corporate_Finance
+bridges/Dynamic_Programming_HJB
+```

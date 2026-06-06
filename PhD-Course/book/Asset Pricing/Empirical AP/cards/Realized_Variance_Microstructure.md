@@ -5,7 +5,7 @@ orphan: true
 # Realized Variance and Microstructure Noise
 
 Source: EF8083 slides, pp. 24-36  
-Backlinks: [01_Volatility_ARCH_GARCH](../01_Volatility_ARCH_GARCH) | [Source of volatility](../01_Volatility_ARCH_GARCH#Source of volatility) | [02_Implied_Volatility_VIX_VRP](../02_Implied_Volatility_VIX_VRP) | [EF8077 Bid-Ask Spread](../../../ProblemSet/ProblemSet#10.4 考场原题回忆：Bid-Ask Spread and Risk Aversion)
+Backlinks: [01_Volatility_ARCH_GARCH](../01_Volatility_ARCH_GARCH) | [Source of volatility](../01_Volatility_ARCH_GARCH#Source of volatility) | [02_Implied_Volatility_VIX_VRP](../02_Implied_Volatility_VIX_VRP) | [EF8077 Bid-Ask Spread](../../../ProblemSet/Theoretical%20Asset%20Pricing.md)
 
 Continuous-time benchmark:
 
