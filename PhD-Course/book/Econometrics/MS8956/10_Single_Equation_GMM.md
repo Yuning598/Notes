@@ -1333,14 +1333,17 @@ $$
 The theoretical asymptotic variance and its consistent sample estimator are:
 $$
 \begin{aligned}
-\widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})) &= (\boldsymbol{\Sigma}_{xz}' \mathbf{S}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}\end{aligned} \tag{3.5.13}
+\widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}))
+&= (\boldsymbol{\Sigma}_{xz}' \mathbf{S}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}
+\end{aligned}
+\tag{3.5.13}
+$$
 
 $$
-$$
-
 \begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})) &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} 
-\end{aligned}\tag{3.5.14}
+\end{aligned}
+\tag{3.5.14}
 $$
 **Derivation of (3.5.14)**:
 Starting from the general consistent estimator of the asymptotic variance:
@@ -1724,15 +1727,17 @@ $$
   $$
 \begin{aligned}
   \hat{\boldsymbol{\delta}} &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \\
-  J &= n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) 
-  \end{aligned}\tag{3.6.8}
+  J &= n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}})
+  \end{aligned}
+  \tag{3.6.8}
 $$
 - **子集 $J_1$ 统计量 (Subset)**：仅使用 $K_1$ 个“安全”工具变量得到的最小化距离。
   $$
 \begin{aligned}
   \bar{\boldsymbol{\delta}} &= [\mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{S}_{x_1z}]^{-1} \mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{s}_{x_1y} \\
-  J_1 &= n \cdot \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}}) 
-  \end{aligned}\tag{3.6.10}
+  J_1 &= n \cdot \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})
+  \end{aligned}
+  \tag{3.6.10}
 $$
 **3. C-检验统计量 (The C-test / Difference-in-Sargan)**
 
@@ -2024,8 +2029,9 @@ E(\mathbf{g}_i) &= \mathbf{0} \\
 &= E[\mathbf{x}_i \mathbf{x}_i' E(\varepsilon_i^2 | \mathbf{x}_i)] \quad (\because \mathbf{x}_i \mathbf{x}_i' \text{ is constant given } \mathbf{x}_i) \\
 &= E[\mathbf{x}_i \mathbf{x}_i' \cdot \sigma^2] \quad (\text{By Assumption 3.7}) \\
 &= \sigma^2 E(\mathbf{x}_i \mathbf{x}_i') \\
-&= \sigma^2 \boldsymbol{\Sigma}_{xx} 
-\end{aligned}\tag{3.8.1}
+&= \sigma^2 \boldsymbol{\Sigma}_{xx}
+\end{aligned}
+\tag{3.8.1}
 $$
 其中 $\boldsymbol{\Sigma}_{xx} \equiv E(\mathbf{x}_i \mathbf{x}_i')$。
 
@@ -2054,7 +2060,8 @@ $$
 &= \hat{\sigma}^2 (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \frac{1}{\hat{\sigma}^2} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= \hat{\boldsymbol{\delta}}(\mathbf{S}_{xx}^{-1}) \equiv \hat{\boldsymbol{\delta}}_{2SLS}
-\end{aligned}\tag{3.8.3}
+\end{aligned}
+\tag{3.8.3}
 $$
 *注：可以看到 $\hat{\sigma}^2$ 作为一个常数倍数在分子分母中对消了，因此 2SLS 估计量不依赖于对误差方差 $\sigma^2$ 的估计。*
 
@@ -2076,13 +2083,15 @@ $$
 $$
 \begin{aligned}
 \operatorname{Avar}(\hat{\boldsymbol{\delta}}_{2SLS}) &= \sigma^2 \cdot (\boldsymbol{\Sigma}_{xz}' \boldsymbol{\Sigma}_{xx}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}
-\end{aligned} \tag{3.8.4}
+\end{aligned}
+\tag{3.8.4}
 $$
 
 $$
 \begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}_{2SLS}) &= \hat{\sigma}^2 \cdot (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1}
-\end{aligned} \tag{3.8.5}
+\end{aligned}
+\tag{3.8.5}
 $$
 
 其中方差估计量 $\hat{\sigma}^2$ 通常基于 2SLS 残差计算：
@@ -2233,7 +2242,8 @@ J(\tilde{\boldsymbol{\delta}}) &= n \cdot [n^{-1} \mathbf{X}' (\mathbf{y} - \mat
 &= n \cdot n^{-1} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{X} \cdot \frac{n}{\hat{\sigma}^2} (\mathbf{X}' \mathbf{X})^{-1} \cdot n^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}}) \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2}
-\end{aligned} \tag{Eq 3.8.12}
+\end{aligned}
+\tag{Eq 3.8.12}
 $$
 当 $\tilde{\boldsymbol{\delta}} = \hat{\boldsymbol{\delta}}_{\text{2SLS}}$ 时，代入残差 $\hat{\boldsymbol{\varepsilon}} = \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{\text{2SLS}}$，即得到 Sargan 统计量：
 $$
@@ -2283,7 +2293,8 @@ $$
 &= ((\mathbf{P}\mathbf{Z})' (\mathbf{P}\mathbf{Z}))^{-1} (\mathbf{P}\mathbf{Z})' \mathbf{y} \\
 &= (\mathbf{Z}' \mathbf{P}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \\
 &= (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad (\because \mathbf{P} \text{ is symmetric and idempotent})
-\end{aligned} \tag{Eq 3.8.16}
+\end{aligned}
+\tag{Eq 3.8.16}
 $$
 该结果与 2SLS/IV 估计量完全一致。
 
@@ -2301,7 +2312,8 @@ $$
 \mathbf{y} - \hat{\mathbf{Z}} \hat{\boldsymbol{\delta}} &= \mathbf{y} - \mathbf{P} \mathbf{Z} \hat{\boldsymbol{\delta}} \\
 &= \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}} + (\mathbf{Z} - \mathbf{P} \mathbf{Z}) \hat{\boldsymbol{\delta}} \\
 &= \hat{\boldsymbol{\varepsilon}}_{\text{correct}} + (\mathbf{I} - \mathbf{P}) \mathbf{Z} \hat{\boldsymbol{\delta}}
-\end{aligned} \tag{Eq 3.8.17}
+\end{aligned}
+\tag{Eq 3.8.17}
 $$
 由于两者不相等，第二阶段 OLS 估计的方差 $\hat{\sigma}^2_{\text{OLS}} = \frac{\hat{\boldsymbol{\varepsilon}}_{\text{wrong}}' \hat{\boldsymbol{\varepsilon}}_{\text{wrong}}}{n-L}$ 是 $\sigma^2$ 的非一致估计量。
 
@@ -2326,7 +2338,8 @@ J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \cdot \mathbf{S}_{xx})^{-1}) &= \
 &= \frac{\mathbf{y}' \mathbf{P} \mathbf{y} - 2\mathbf{y}' \mathbf{Z} \tilde{\boldsymbol{\delta}} + \tilde{\boldsymbol{\delta}}' \mathbf{Z}' \mathbf{Z} \tilde{\boldsymbol{\delta}}}{\hat{\sigma}^2} \quad (\because \mathbf{P}\mathbf{Z} = \mathbf{Z} \text{ when } z_i \subset x_i) \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{\mathbf{y}' \mathbf{y} - \mathbf{y}' \mathbf{P} \mathbf{y}}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{(\mathbf{y} - \hat{\mathbf{y}})' (\mathbf{y} - \hat{\mathbf{y}})}{\hat{\sigma}^2}
-\end{aligned} \tag{3.8.14}
+\end{aligned}
+\tag{3.8.14}
 $$
 其中 $\hat{\mathbf{y}} \equiv \mathbf{P}\mathbf{y}$ 是 $\mathbf{y}$ 在工具变量空间 $\mathbf{x}$ 上的投影。
 

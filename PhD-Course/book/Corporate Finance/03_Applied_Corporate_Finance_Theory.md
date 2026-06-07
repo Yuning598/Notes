@@ -275,18 +275,18 @@ $$
 :::{admonition} Note
 Two-period contract
 - 期末状态由第一期现金流实现决定.
-- `W_2` 是 agent 的 continuation utility, `F_2` 是 principal 的 continuation value.
+- $W_2$ 是 agent 的 continuation utility, $F_2$ 是 principal 的 continuation value.
 - second period 的 IC 结构和 one-period 类似, 但第一期 transfer 会影响后续激励.
 - success 后 continuation utility 上升.
 - loss 后 continuation utility 下降.
-- loss 后不需要转移, 所以 `T_1(\mu-C)=0` 和 `T_2(\mu-C_1,\mu-C)=0`.
-- equally patient 时, weakly optimal 把 compensation 往后推, 即 `T_1(\mu)=0`.
+- loss 后不需要转移, 所以 $T_1(\mu-C)=0$ 和 $T_2(\mu-C_1,\mu-C)=0$.
+- equally patient 时, weakly optimal 把 compensation 往后推, 即 $T_1(\mu)=0$.
 - liquidation becomes useful because it relaxes incentive rent while cutting off bad states.
 
 **Note:** Two-period conclusions
 - 如果 success 后继续经营, 激励主要靠 final-period payment.
 - 如果 loss 后继续经营, principal face the rent-efficiency tradeoff.
-- `X_2(\mu)` 和 `X_2(\mu-C)` 记录 success / loss 后是否继续.
+- $X_2(\mu)$ 和 $X_2(\mu-C)$ 记录 success / loss 后是否继续.
 - 动态合同用 “延迟支付 + 终止威胁” 代替频繁现金支付.
 
 :::
@@ -294,12 +294,12 @@ Two-period contract
 ### 1.5.4 N Periods
 :::{admonition} Note
 N-period recursion
-- 第 `n` 期只需要记住两个 state:
-- firm size `X_n`
-- size-adjusted continuation utility `w_n`
+- 第 $n$ 期只需要记住两个 state:
+- firm size $X_n$
+- size-adjusted continuation utility $w_n$
 - 递推逻辑:
-- new cash flow realization changes `w_n`
-- `w_n` 高则未来奖励更高, 低则未来奖励更低
+- new cash flow realization changes $w_n$
+- $w_n$ 高则未来奖励更高, 低则未来奖励更低
 - effort incentive is implemented through promised utility, not through contemporaneous wages
 
 $$
@@ -308,7 +308,7 @@ w_n = x_n \, \mathbb E\!\left[\sum_{k=0}^{N-n} \frac{t_{n+k}}{(1+r)^k}\,\middle|
 \end{aligned}
 $$
 - principal 的 value function 同样递推, 所以 dynamic programming 是自然工具.
-- 复杂的历史信息 `H_n` 最终可以被压缩成 `X_n` 与 `w_n`.
+- 复杂的历史信息 $H_n$ 最终可以被压缩成 $X_n$ 与 $w_n$.
 
 :::
 
@@ -363,7 +363,7 @@ $$
 
 ### 6.2 Real option 的核心
 - 投资机会本身就是一个 option.
-- `when to invest` 不是时间点, 而是 project value threshold `V^*`.
+- when to invest 不是时间点, 而是 project value threshold $V^*$.
 - uncertainty 越大, waiting option 越值钱.
 - irreversibility(sunk cost) 越强, delay option 越重要.
 
@@ -375,10 +375,10 @@ $$
 \end{aligned}
 $$
 
-- `\mu`: expected return on project value.
-- `\delta`: payout rate.
-- `\alpha`: expected capital gain.
-- `V_t` follows geometric Brownian motion(GBM).
+- $\mu$: expected return on project value.
+- $\delta$: payout rate.
+- $\alpha$: expected capital gain.
+- $V_t$ follows geometric Brownian motion (GBM).
 
 ### 6.4 投资机会的价值函数
 
@@ -416,12 +416,12 @@ V^*&=\frac{\beta_1}{\beta_1-1}I
 \end{aligned}
 $$
 
-其中 `\beta_1>1` 是 characteristic root.
+其中 $\beta_1>1$ 是 characteristic root.
 
 ### 6.6 Comparative statics
-- `\sigma\uparrow`  ⇒ `F\uparrow`, `V^*\uparrow`.
-- `\delta\uparrow`  ⇒ `F\downarrow`, `V^*\downarrow`.
-- `I\uparrow`  ⇒ `F\downarrow`, `V^*\uparrow`.
+- $\sigma\uparrow \Rightarrow F\uparrow,\ V^*\uparrow$.
+- $\delta\uparrow \Rightarrow F\downarrow,\ V^*\downarrow$.
+- $I\uparrow \Rightarrow F\downarrow,\ V^*\uparrow$.
 - 不确定性越强, 等待越有价值, 但真实投资越谨慎.
 
 ### 6.7 这一讲的 takeaway
@@ -445,14 +445,14 @@ $$
 - Leland(1994): 把税、违约和最优 default boundary 放到同一个 real option 框架里.
 
 ### 7.3 Leland 风格的设定
-- firm asset value `V_t` is the state variable.
-- firm pays perpetual coupon `C`.
-- corporate tax rate is `\tau`.
-- bankruptcy cost is `\alpha`.
-- shareholders choose default boundary `V_B` endogenously.
+- firm asset value $V_t$ is the state variable.
+- firm pays perpetual coupon $C$.
+- corporate tax rate is $\tau$.
+- bankruptcy cost is $\alpha$.
+- shareholders choose default boundary $V_B$ endogenously.
 
 ### 7.4 一般定价方程
-对任意 contingent claim `F(V)`, 在 risk-neutral 思想下可写成
+对任意 contingent claim $F(V)$, 在 risk-neutral 思想下可写成
 
 $$
 \begin{aligned}
@@ -460,7 +460,7 @@ $$
 \end{aligned}
 $$
 
-其中 `f(V)` 是流量项(例如 coupon, tax shield, bankruptcy cost).
+其中 $f(V)$ 是流量项(例如 coupon, tax shield, bankruptcy cost).
 
 ### 7.5 债券、税盾、破产成本
 标准解的形状通常是 “常数项 + 幂函数项”.
@@ -492,11 +492,11 @@ E(V)&=v(V)-D(V)
 \end{aligned}
 $$
 
-- `E(V)` 可以理解为 `V - PV(coupons after tax) + default option value`.
+- $E(V)$ 可以理解为 $V - PV(coupons after tax) + default option value$.
 - default option value 越大, equity 越像一张 call option.
 
 ### 7.7 endogenous default boundary
-- default boundary `V_B` 由 smooth pasting 决定:
+- default boundary $V_B$ 由 smooth pasting 决定:
 
 $$
 \begin{aligned}
@@ -505,22 +505,22 @@ E'(V_B)=0
 $$
 
 - 直觉:
-  - `C` 越高, default 越早.
-  - `\tau` 越高, 税盾越值钱, default 越晚.
-  - `r` 越高, 未来现金流折现更重, boundary 会变.
-  - `\alpha` 主要影响 level, 但对 boundary 的作用在标准结果里较弱或消失.
+  - $C$ 越高, default 越早.
+  - $\tau$ 越高, 税盾越值钱, default 越晚.
+  - $r$ 越高, 未来现金流折现更重, boundary 会变.
+  - $\alpha$ 主要影响 level, 但对 boundary 的作用在标准结果里较弱或消失.
 
 ### 7.8 optimal coupon 与 capital structure
-- 在时点 `0`, 选择 `C^*(V_0)` 使 firm value 最大.
+- 在时点 $0$, 选择 $C^*(V_0)$ 使 firm value 最大.
 - 同时可得到 debt value, yield spread, leverage ratio.
 - 一般结论: optimal coupon 小于 full debt capacity.
 - 这一类模型是经验研究里最常用的 structural benchmark.
 
 ### 7.9 记忆版总结
-- asset side: `V_t` 的随机演化.
-- liability side: `D(V)`, `E(V)`, `TB(V)`, `BC(V)`.
-- default rule: `V_B`.
-- financing rule: `C^*(V_0)`.
+- asset side: $V_t$ 的随机演化.
+- liability side: $D(V)$, $E(V)$, $TB(V)$, $BC(V)$.
+- default rule: $V_B$.
+- financing rule: $C^*(V_0)$.
 
 ## 7. Leverage Ratchet Effect and Dynamics（slides p.444-494）
 ### 8.1 这一讲在讲什么
@@ -540,9 +540,9 @@ $$
 - 于是 leverage 会 “beget more leverage”.
 
 ### 8.4 静态 tradeoff 模型
-- terminal cash flow `\tilde x`, debt face value `D`.
-- 若 `\tilde x < D`, default.
-- 若 `\tilde x \ge D`, 享受税盾.
+- terminal cash flow $\tilde x$, debt face value $D$.
+- 若 $\tilde x < D$, default.
+- 若 $\tilde x \ge D$, 享受税盾.
 - debt payoff 与 equity payoff 可以分解为:
   - debt claim
   - equity residual
@@ -557,7 +557,7 @@ q(D)=\frac{V_D(D)}{D}
 \end{aligned}
 $$
 
-- `q(D)` 是 debt price per unit face value.
+- $q(D)$ 是 debt price per unit face value.
 - leverage reduction 时, 老债会因违约概率下降而涨价, 这正是股东不喜欢减债的原因之一.
 
 ### 8.6 为什么股东抵制减债
@@ -574,7 +574,7 @@ $$
 - 于是 even new junior debt can be attractive to equity.
 
 ### 8.8 动态 leverage equilibrium
-- 存在一组稳定点 `D_0, D_1, D_2, ...`.
+- 存在一组稳定点 $D_0, D_1, D_2, \ldots$.
 - 递推定义:
 
 $$
@@ -583,11 +583,11 @@ G(D_{n+1},D_n)=0
 \end{aligned}
 $$
 
-- 如果当前 `D` 落在两个稳定点之间, equity 会 push firm move to higher leverage.
+- 如果当前 $D$ 落在两个稳定点之间, equity 会 push firm move to higher leverage.
 - 市场预期到这一点后, debt price 会提前反映 future releveraging.
 
 ### 8.9 regime shocks
-- 不同 regime 里 `(...,t_j,r_j,c_j,y_j,\lambda_{j0},\phi_j,...)` 可能不同.
+- 不同 regime 里 $(\ldots,t_j,r_j,c_j,y_j,\lambda_{j0},\phi_j,\ldots)$ 可能不同.
 - regime change 会把 firm 推向另一个 stable leverage point.
 - 于是 leverage not only adjusts, it ratchets across states.
 

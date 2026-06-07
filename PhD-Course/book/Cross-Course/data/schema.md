@@ -12,6 +12,7 @@ Required top-level keys:
 - `themes`: ordered list of themes. Each theme owns its review route.
 - `courses`: ordered list of course filters and visual metadata.
 - `exam_focuses`: ordered list of exam-mode filters.
+- `layers`: ordered list of graph-depth layers.
 - `nodes`: graph nodes.
 - `edges`: graph edges.
 
@@ -19,7 +20,10 @@ Required node keys:
 
 - `id`: unique stable identifier.
 - `label`: display label.
-- `type`: `bridge`, `concept`, or `problem`.
+- `type`: display type such as `domain`, `bridge`, `concept`, `problem`,
+  `paper`, or `reference`.
+- `layer`: depth layer such as `domain`, `bridge`, `core`, `chapter`, `card`,
+  `theory`, `paper`, `problem`, or `reference`.
 - `course`: one of the configured course ids.
 - `theme`: one of the configured themes.
 - `url`: HTML path from the book output root.

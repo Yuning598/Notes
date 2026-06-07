@@ -15,7 +15,7 @@ except ImportError as exc:  # pragma: no cover - build environment guard
     raise SystemExit("PyYAML is required to validate Cross-Course graph data.") from exc
 
 
-VALID_NODE_TYPES = {"bridge", "concept", "problem"}
+VALID_NODE_TYPES = {"bridge", "concept", "domain", "paper", "problem", "reference"}
 
 
 def load_yaml(path: Path) -> dict[str, Any]:
@@ -46,8 +46,8 @@ def note_path_exists(book_root: Path, url: str) -> bool:
 def expected_source_candidates(book_root: Path, url: str) -> list[Path]:
     if not url.endswith(".html"):
         return []
-    md_path = book_root / unquote(url.removesuffix(".html"))
-    return [md_path.with_suffix(".md"), md_path.with_suffix(".ipynb")]
+    source_stem = book_root / unquote(url.removesuffix(".html"))
+    return [Path(f"{source_stem}.md"), Path(f"{source_stem}.ipynb")]
 
 
 def expected_source_path(book_root: Path, url: str) -> str:
@@ -67,6 +67,11 @@ def validate(graph_path: Path, book_root: Path) -> list[str]:
     course_ids = {course.get("id") for course in courses if isinstance(course, dict)}
     exam_focuses = as_list(graph, "exam_focuses", graph_path)
     focus_ids = {focus.get("id") for focus in exam_focuses if isinstance(focus, dict)}
+    layer_items = graph.get("layers", [])
+    if layer_items is not None and not isinstance(layer_items, list):
+        errors.append(f"{graph_path}: `layers` must be a list when provided.")
+        layer_items = []
+    layer_ids = {layer.get("id") for layer in layer_items if isinstance(layer, dict)}
     nodes = as_list(graph, "nodes", graph_path)
     edges = as_list(graph, "edges", graph_path)
 
@@ -93,6 +98,8 @@ def validate(graph_path: Path, book_root: Path) -> list[str]:
             errors.append(f"{label}: unknown course `{node.get('course')}`.")
         if node.get("theme") not in themes:
             errors.append(f"{label}: unknown theme `{node.get('theme')}`.")
+        if layer_ids and node.get("layer") not in layer_ids:
+            errors.append(f"{label}: unknown layer `{node.get('layer')}`.")
         if not isinstance(node.get("exam_modes"), list):
             errors.append(f"{label}: `exam_modes` must be a list.")
         if not isinstance(node.get("weight"), (int, float)) or node.get("weight", 0) <= 0:

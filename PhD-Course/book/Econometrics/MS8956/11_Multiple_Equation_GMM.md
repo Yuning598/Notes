@@ -105,7 +105,8 @@ $$
     g(w_i;\delta) \equiv \begin{bmatrix} x_{i1} \cdot (y_{i1} - z'_{i1}\delta_1) \\ \vdots \\ x_{iM} \cdot (y_{iM} - z'_{iM}\delta_M) \end{bmatrix}, \tag{4.1.5}
 $$
 
-    ^equation-4-1-5
+^equation-4-1-5
+
     其中 $g(w_i;\delta)$ 是一个 $(\sum_{m=1}^M K_m \times 1)$ 维向量，代表工具变量 $x_{im}$ 与对应残差的乘积，其总体期望应为零 (GMM 基本矩条件)。
 
 -   $\delta$ 是堆叠系数向量：
@@ -114,7 +115,8 @@ $$
     \delta_{\left( \sum_{m=1}^M L_m \times 1 \right)} = \begin{bmatrix} \delta_1 \\ \vdots \\ \delta_M \end{bmatrix} \tag{4.1.6}
 $$
 
-    ^equation-4-1-6
+^equation-4-1-6
+
     其中 $\delta_m$ 是第 $m$ 个方程的 $L_m \times 1$ 维系数向量。
 
 -   **正交性条件 (Orthogonality Conditions)**: $E(g(w_i;\delta)) = 0$。GMM 核心，表示工具变量与模型残差不相关。
@@ -125,7 +127,8 @@ $$
     E[g(w_i;\tilde{\delta})] = 0 \quad \Rightarrow \quad \Sigma_{xy} - \Sigma_{xz}\tilde{\delta} = 0 \tag{4.1.7}
 $$
 
-    ^equation-4-1-7
+^equation-4-1-7
+
     此式将原始矩条件转化为关于 $\tilde{\delta}$ 的线性系统。
     $\Sigma_{xy}$ 和 $\Sigma_{xz}$ 结构：
 
@@ -179,8 +182,9 @@ $$
 \begin{aligned}
 g_n(\tilde{\delta}) &\equiv \frac{1}{n} \sum_{i=1}^n g(w_i;\tilde{\delta}) = \frac{1}{n} \sum_{i=1}^n \begin{bmatrix} x_{i1} \cdot (y_{i1} - z'_{i1}\tilde{\delta}_1) \\ \vdots \\ x_{iM} \cdot (y_{iM} - z'_{iM}\tilde{\delta}_M) \end{bmatrix} \\
 &= \begin{bmatrix} \frac{1}{n}\sum_{i=1}^n x_{i1} \cdot y_{i1} \\ \vdots \\ \frac{1}{n}\sum_{i=1}^n x_{iM} \cdot y_{iM} \end{bmatrix} - \begin{bmatrix} \frac{1}{n}\sum_{i=1}^n x_{i1}z'_{i1} & & \\ & \ddots & \\ & & \frac{1}{n}\sum_{i=1}^n x_{iM}z'_{iM} \end{bmatrix} \begin{bmatrix} \tilde{\delta}_1 \\ \vdots \\ \tilde{\delta}_M \end{bmatrix} \\
-&\equiv \underset{(K_{sys} \times 1)}{s_{xy}} - \underset{(K_{sys} \times L_{sys})}{S_{xz}} \underset{(L_{sys} \times 1)}{\tilde{\delta}}, \tag{4.2.1}
+&\equiv \underset{(K_{sys} \times 1)}{s_{xy}} - \underset{(K_{sys} \times L_{sys})}{S_{xz}} \underset{(L_{sys} \times 1)}{\tilde{\delta}}
 \end{aligned}
+\tag{4.2.1}
 $$
 
 (equation-4-2-1)=
@@ -608,14 +612,9 @@ $$
 Kronecker Product Intuition
 Kronecker 积具有如下性质：
 - 标量乘法：$1 \otimes 2 = 1 \times 2 = 2$
-
-$$
 - 向量积：$\begin{pmatrix} a \\ b \end{pmatrix} \otimes \begin{pmatrix} c \\ d \end{pmatrix} = \begin{pmatrix} ac \\ ad \\ bc \\ bd \end{pmatrix}$
-$$
 - 矩阵乘向量：$\begin{pmatrix} a \\ b \end{pmatrix} \otimes M = \begin{pmatrix} aM \\ bM \end{pmatrix}$
-$$
 - 矩阵积：$A \otimes B = \begin{bmatrix} a_{11}B & \dots & a_{1M}B \\ \vdots & \ddots & \vdots \\ a_{M1}B & \dots & a_{MM}B \end{bmatrix}$
-$$
 
 :::
 
@@ -624,6 +623,8 @@ $$
 (equation-4-5-9)=
 $$
 \underset{(MK \times MK)}{S} = \underset{(M \times M)}{\boldsymbol{\Sigma}} \otimes \underset{(K \times K)}{\mathbb{E}(\mathbf{x}_i \mathbf{x}'_i)} \tag{4.5.9}
+$$
+
 $$
 \widehat{S} = \widehat{\boldsymbol{\Sigma}} \otimes \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}'_i \right) \tag{4.5.10}
 $$
@@ -724,6 +725,8 @@ $$
 
 $$
 \widehat{\mathbf{A}}_{mh} \equiv \left( \frac{1}{n} \mathbf{Z}'_m \mathbf{X} \right) \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} \left( \frac{1}{n} \mathbf{X}' \mathbf{Z}_h \right) = \frac{1}{n^2} (\mathbf{Z}'_m \mathbf{P}_X \mathbf{Z}_h) \tag{4.5.13}
+$$
+
 $$
 \hat{\mathbf{c}}_{mh} \equiv \left( \frac{1}{n} \mathbf{Z}'_m \mathbf{X} \right) \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} \left( \frac{1}{n} \mathbf{X}' \mathbf{y}_h \right) = \frac{1}{n^2} (\mathbf{Z}'_m \mathbf{P}_X \mathbf{y}_h) \tag{4.5.14}
 $$
@@ -972,7 +975,8 @@ $$
 \begin{aligned}
 E[g(\mathbf{w}_i; \tilde{\delta})] &= \begin{bmatrix} E(\mathbf{x}_{i1} \cdot y_{i1}) \\ \vdots \\ E(\mathbf{x}_{iM} \cdot y_{iM}) \end{bmatrix} - \begin{bmatrix} E(\mathbf{x}_{i1} \mathbf{z}'_{i1})\tilde{\delta} \\ \vdots \\ E(\mathbf{x}_{iM} \mathbf{z}'_{iM})\tilde{\delta} \end{bmatrix} \\
 &= \underset{(\sum K_m \times 1)}{\boldsymbol{\sigma}_{xy}} - \underset{(\sum K_m \times L)}{\boldsymbol{\Sigma}_{xz}} \underset{(L \times 1)}{\tilde{\delta}}
-\end{aligned}\tag{4.6.3}
+\end{aligned}
+\tag{4.6.3}
 $$
 (equation-4-6-3)=
 
@@ -996,7 +1000,6 @@ It can be verified that $g_n(\tilde{\delta})$ can be written as $s_{xy} - S_{xz}
 
 $$
 \mathbf{s}_{xy} \equiv \begin{bmatrix} \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \cdot y_{i1} \\ \vdots \\ \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{iM} \cdot y_{iM} \end{bmatrix}, \quad \mathbf{S}_{xz} \equiv \begin{bmatrix} \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \mathbf{z}'_{i1} \\ \vdots \\ \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{iM} \mathbf{z}'_{iM} \end{bmatrix}
-$$
 \tag{4.6.5}
 $$
 
@@ -1005,14 +1008,15 @@ $$
 With a $\sum_{m} K_m \times \sum_{m} K_m$ weighting matrix $\mathbf{\hat{W}}$, the GMM estimator is
 
 $$
-\mathbf{\hat{\delta}}(\mathbf{\hat{W}}) = (\mathbf{S}_{xz}'\mathbf{\hat{W}}\mathbf{S}_{xz})^{-1}(\mathbf{S}_{xz}'\mathbf{\hat{W}}\mathbf{s}_{xy})
-$$
 \begin{aligned}
-\mathbf{\hat{\delta}}(\mathbf{\hat{W}}) &= \left( \left[ \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{i1} \mathbf{x}'_{i1} \quad \dots \quad \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{iM} \mathbf{x}'_{iM} \right] \begin{bmatrix} \mathbf{\hat{W}}_{11} & \dots & \mathbf{\hat{W}}_{1M} \\ \vdots & \ddots & \vdots \\ \mathbf{\hat{W}}_{M1} & \dots & \mathbf{\hat{W}}_{MM} \end{bmatrix} \left[ \begin{array}{c} \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \mathbf{z}'_{i1} \\ \vdots \\ \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{iM} \mathbf{z}'_{iM} \end{array} \right] \right)^{-1} \\
+\mathbf{\hat{\delta}}(\mathbf{\hat{W}})
+&= (\mathbf{S}_{xz}'\mathbf{\hat{W}}\mathbf{S}_{xz})^{-1}(\mathbf{S}_{xz}'\mathbf{\hat{W}}\mathbf{s}_{xy}) \\
+&= \left( \left[ \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{i1} \mathbf{x}'_{i1} \quad \dots \quad \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{iM} \mathbf{x}'_{iM} \right] \begin{bmatrix} \mathbf{\hat{W}}_{11} & \dots & \mathbf{\hat{W}}_{1M} \\ \vdots & \ddots & \vdots \\ \mathbf{\hat{W}}_{M1} & \dots & \mathbf{\hat{W}}_{MM} \end{bmatrix} \left[ \begin{array}{c} \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \mathbf{z}'_{i1} \\ \vdots \\ \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{iM} \mathbf{z}'_{iM} \end{array} \right] \right)^{-1} \\
 &\quad \cdot \left( \left[ \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{i1} \mathbf{x}'_{i1} \quad \dots \quad \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{iM} \mathbf{x}'_{iM} \right] \begin{bmatrix} \mathbf{\hat{W}}_{11} & \dots & \mathbf{\hat{W}}_{1M} \\ \vdots & \ddots & \vdots \\ \mathbf{\hat{W}}_{M1} & \dots & \mathbf{\hat{W}}_{MM} \end{bmatrix} \left[ \begin{array}{c} \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \cdot y_{i1} \\ \vdots \\ \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{iM} \cdot y_{iM} \end{array} \right] \right) \\
 &= \left[ \sum_{m=1}^M \sum_{h=1}^M \left( \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}'_{im} \right) \mathbf{\hat{W}}_{mh} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{ih} \mathbf{z}'_{ih} \right) \right) \right]^{-1} \\
 &\quad \cdot \left[ \sum_{m=1}^M \sum_{h=1}^M \left( \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}'_{im} \right) \mathbf{\hat{W}}_{mh} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{ih} \cdot y_{ih} \right) \right) \right]
-\end{aligned}\tag{4.6.6}
+\end{aligned}
+\tag{4.6.6}
 $$
 (equation-4-6-6)=
 
@@ -1107,7 +1111,8 @@ $$
 \begin{aligned}
 \hat{\delta}_{\text{pooled OLS}} &= \left[ \sum_{m=1}^M \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{z}_{im}' \right) \right]^{-1} \sum_{m=1}^M \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \cdot y_{im} \right) \\
 &= \left( \sum_{i=1}^n \sum_{m=1}^M \mathbf{z}_{im} \mathbf{z}_{im}' \right)^{-1} \sum_{i=1}^n \sum_{m=1}^M \mathbf{z}_{im} \cdot y_{im}
-\end{aligned} \tag{4.6.11}
+\end{aligned}
+\tag{4.6.11}
 $$
 
 (equation-4-6-11)=
@@ -1140,7 +1145,8 @@ $$
 \begin{aligned}
 \widehat{\text{Avar}}(\hat{\delta}_{\text{pooled OLS}}) &= \left( \sum_{m=1}^M \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{z}_{im}' \right)^{-1} \\
 &\quad \cdot \left( \sum_{m=1}^M \sum_{h=1}^M \hat{\sigma}_{mh} \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{z}_{ih}' \right) \left( \sum_{m=1}^M \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{z}_{im}' \right)^{-1}
-\end{aligned} \tag{4.6.14}
+\end{aligned}
+\tag{4.6.14}
 $$
 (equation-4-6-14)=
 
@@ -1243,7 +1249,8 @@ $$
 \begin{aligned}
 \log(C) &= \alpha_0 + \sum_{j=1}^3 \alpha_j \log(p_j) + \underbrace{\frac{1}{2} \sum_{j=1}^3 \sum_{k=1}^3 \gamma_{jk} \log(p_j) \log(p_k)}_{\text{different input interaction}} \\
 &\quad + \underbrace{\alpha_Q \log(Q) + \frac{1}{2} \gamma_{QQ}(\log(Q))^2}_{\text{Scale effects / 规模效应}} + \underbrace{\sum_{j=1}^3 \gamma_{jQ} \log(p_j) \log(Q)}_{\text{input and output interaction}} + \epsilon
-\end{aligned} \tag{4.7.1}
+\end{aligned}
+\tag{4.7.1}
 $$
 :::
 

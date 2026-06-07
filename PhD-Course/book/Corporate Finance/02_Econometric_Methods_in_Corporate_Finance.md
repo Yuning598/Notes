@@ -2557,7 +2557,7 @@ $$
 \end{aligned}
 $$
 
-所以真正的问题不是“`z` 能不能和 `f_j` 相关”，而是`f_j` 一旦进入 `y` 的误差项，`z` 就会通过共享的 `f_j` 进入误差项，exclusion 失效。
+所以真正的问题不是“$z$ 能不能和 $f_j$ 相关”，而是 $f_j$ 一旦进入 $y$ 的误差项，$z$ 就会通过共享的 $f_j$ 进入误差项，exclusion 失效。
 
 ### 4.7 Interpretation and Research Practice (pp.317-322)
 

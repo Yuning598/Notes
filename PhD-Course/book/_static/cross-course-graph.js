@@ -33,8 +33,22 @@
     });
     const nodes = (graph.nodes || []).map((node) => ({
       ...node,
-      examModes: node.exam_modes || node.examModes || []
+      examModes: node.exam_modes || node.examModes || [],
+      keyTerms: node.key_terms || node.keyTerms || [],
+      summary: node.summary || "",
+      formula: node.formula || ""
     }));
+    const edges = (graph.edges || []).map((edge) => ({
+      ...edge,
+      kind: edge.kind || "related"
+    }));
+    const relationKinds = [...new Set(edges.map((edge) => edge.kind || "related"))].sort();
+    const layers = graph.layers || [
+      { id: "core", label: "Core", default: true },
+      { id: "chapter", label: "Chapter", default: true },
+      { id: "card", label: "Card", default: false },
+      { id: "problem", label: "Problem", default: true }
+    ];
 
     return {
       title: payload.title || "QE Knowledge Graph",
@@ -44,9 +58,11 @@
       themeItems: themes,
       courses,
       examFocuses: graph.exam_focuses || [],
+      relationKinds,
+      layers,
       colors,
       nodes,
-      edges: graph.edges || []
+      edges
     };
   }
 
@@ -69,6 +85,13 @@
             <div class="${className("chips")}" data-role="theme-chips" aria-label="Theme filters"></div>
             <div class="${className("chips")} ${className("chips-compact")}" data-role="exam-chips" aria-label="Exam focus filters"></div>
           </div>
+          <div class="${className("filter-row")}">
+            <div class="${className("chips")}" data-role="depth-chips" aria-label="Penetration depth"></div>
+            <div class="${className("chips")} ${className("chips-compact")}" data-role="layer-chips" aria-label="Layer filters"></div>
+          </div>
+          <div class="${className("filter-row")}">
+            <div class="${className("chips")} ${className("chips-compact")}" data-role="relation-chips" aria-label="Relation filters"></div>
+          </div>
           <div class="${className("course-strip")}" data-role="course-filters" aria-label="Course filters"></div>
         </header>
 
@@ -80,10 +103,14 @@
           <aside class="${className("detail")}" aria-label="Node details">
             <p class="${className("detail-kicker")}" data-role="detail-kicker">Selected Node</p>
             <h2 class="${className("detail-title")}" data-role="detail-title"></h2>
+            <p class="${className("summary")}" data-role="detail-summary"></p>
+            <div class="${className("formula")}" data-role="detail-formula"></div>
             <div class="${className("meta-grid")}" data-role="detail-meta"></div>
             <a class="${className("link-button")}" href="#" target="_self" rel="noopener" data-role="detail-link">Open note</a>
             <div class="${className("section-title")}">Connected Concepts</div>
             <ul class="${className("neighbor-list")}" data-role="neighbors"></ul>
+            <div class="${className("section-title")}">Visible Concept Index</div>
+            <div class="${className("concept-index")}" data-role="concept-index"></div>
           </aside>
         </main>
 
@@ -109,6 +136,9 @@
     const cyEl = root.querySelector('[data-role="cy"]');
     const themeChips = root.querySelector('[data-role="theme-chips"]');
     const examChips = root.querySelector('[data-role="exam-chips"]');
+    const depthChips = root.querySelector('[data-role="depth-chips"]');
+    const layerChips = root.querySelector('[data-role="layer-chips"]');
+    const relationChips = root.querySelector('[data-role="relation-chips"]');
     const courseFilters = root.querySelector('[data-role="course-filters"]');
     const searchInput = root.querySelector(`.${className("search")}`);
     const resetBtn = root.querySelector('[data-action="reset"]');
@@ -117,11 +147,14 @@
     const graphStats = root.querySelector('[data-role="stats"]');
     const detailKicker = root.querySelector('[data-role="detail-kicker"]');
     const detailTitle = root.querySelector('[data-role="detail-title"]');
+    const detailSummary = root.querySelector('[data-role="detail-summary"]');
+    const detailFormula = root.querySelector('[data-role="detail-formula"]');
     const detailMeta = root.querySelector('[data-role="detail-meta"]');
     const detailLink = root.querySelector('[data-role="detail-link"]');
     const routeTitle = root.querySelector('[data-role="route-title"]');
     const routeList = root.querySelector('[data-role="route-list"]');
     const neighborsEl = root.querySelector('[data-role="neighbors"]');
+    const conceptIndex = root.querySelector('[data-role="concept-index"]');
 
     const nodeById = new Map(data.nodes.map((node) => [node.id, node]));
     const edgeById = data.edges.map((edge, index) => ({ ...edge, id: `edge_${index}` }));
@@ -136,6 +169,9 @@
       theme: initialTheme,
       courses: new Set(data.courses.map((course) => course.id)),
       examFocus: "All",
+      depth: "all",
+      layers: new Set(data.layers.filter((layer) => layer.default !== false).map((layer) => layer.id)),
+      relationKinds: new Set(data.relationKinds),
       query: "",
       selected: data.defaultNode
     };
@@ -154,6 +190,7 @@
             course: node.course,
             theme: node.theme,
             type: node.type,
+            layer: node.layer || node.type || "core",
             weight: node.weight || 8,
             url: node.url,
             examModes: node.examModes,
@@ -167,6 +204,7 @@
             source: edge.source,
             target: edge.target,
             relation: edge.relation || "",
+            kind: edge.kind || "related",
             strength: Number(edge.strength || 1)
           }
         }))
@@ -209,6 +247,27 @@
             "height": "mapData(weight, 6, 18, 38, 62)",
             "shape": "ellipse",
             "width": "mapData(weight, 6, 18, 38, 62)"
+          }
+        },
+        {
+          selector: 'node[layer = "domain"]',
+          style: {
+            "background-color": "#0b7a75",
+            "border-color": "#ffffff",
+            "font-size": 12,
+            "height": 64,
+            "shape": "hexagon",
+            "width": 64
+          }
+        },
+        {
+          selector: 'node[layer = "paper"], node[layer = "reference"]',
+          style: {
+            "border-color": "#e5e7eb",
+            "border-width": 1.5,
+            "height": "mapData(weight, 5, 12, 24, 38)",
+            "shape": "round-tag",
+            "width": "mapData(weight, 5, 12, 24, 38)"
           }
         },
         {
@@ -274,7 +333,15 @@
           selector: "edge.focus",
           style: {
             "line-color": "#b55324",
+            "color": "#334155",
+            "font-size": 10,
+            "font-weight": 700,
+            "label": "data(relation)",
             "opacity": 0.92,
+            "text-background-color": "#ffffff",
+            "text-background-opacity": 0.86,
+            "text-background-padding": 2,
+            "text-rotation": "autorotate",
             "width": 3
           }
         },
@@ -302,21 +369,54 @@
 
     function matchesExamFocus(node, focus = currentFocus()) {
       if (!focus || focus.id === "All") return true;
-      const haystack = [node.label, node.course, node.theme, node.type, ...node.examModes].join(" ").toLowerCase();
+      const haystack = [node.label, node.course, node.theme, node.type, node.summary, node.formula, ...node.keyTerms, ...node.examModes].join(" ").toLowerCase();
       return (focus.terms || []).some((term) => haystack.includes(String(term).toLowerCase()));
     }
 
-    function isVisibleNode(node) {
+    function matchesBaseFilters(node) {
       const themeMatch = state.theme === "All" || node.theme === state.theme;
       const courseMatch = state.courses.has(node.course);
       const examMatch = matchesExamFocus(node);
-      const haystack = [node.label, node.course, node.theme, node.type, ...node.examModes].join(" ").toLowerCase();
+      const haystack = [node.label, node.course, node.theme, node.type, node.summary, node.formula, ...node.keyTerms, ...node.examModes].join(" ").toLowerCase();
       const queryMatch = !state.query || haystack.includes(state.query);
-      return themeMatch && courseMatch && examMatch && queryMatch;
+      const layer = node.layer || node.type || "core";
+      const layerMatch = state.layers.has(layer) || Boolean(state.query);
+      return themeMatch && courseMatch && examMatch && queryMatch && layerMatch;
+    }
+
+    function edgeKindVisible(edge) {
+      return state.relationKinds.has(edge.kind || "related");
+    }
+
+    function relationAllowedBetween(source, target) {
+      return edgeById.some((edge) => edgeKindVisible(edge) && (
+        (edge.source === source && edge.target === target) ||
+        (edge.source === target && edge.target === source)
+      ));
+    }
+
+    function baseVisibleNodeIds() {
+      return new Set(data.nodes.filter(matchesBaseFilters).map((node) => node.id));
     }
 
     function visibleNodeIds() {
-      return new Set(data.nodes.filter(isVisibleNode).map((node) => node.id));
+      const base = baseVisibleNodeIds();
+      if (state.depth === "all" || !base.has(state.selected)) return base;
+
+      const maxDepth = Number(state.depth);
+      const seen = new Set([state.selected]);
+      const queue = [{ id: state.selected, depth: 0 }];
+      while (queue.length) {
+        const item = queue.shift();
+        if (item.depth >= maxDepth) continue;
+        (adjacent.get(item.id) || []).forEach((neighbor) => {
+          if (!base.has(neighbor.id) || seen.has(neighbor.id)) return;
+          if (!relationAllowedBetween(item.id, neighbor.id)) return;
+          seen.add(neighbor.id);
+          queue.push({ id: neighbor.id, depth: item.depth + 1 });
+        });
+      }
+      return seen;
     }
 
     function currentRouteIds() {
@@ -331,17 +431,30 @@
     }
 
     function runAllLayout() {
-      cy.layout({
-        name: "cose",
+      const layout = cy.layout({
+        name: "concentric",
         animate: false,
-        componentSpacing: 95,
-        idealEdgeLength: 120,
-        nodeOverlap: 18,
-        nodeRepulsion: 9200,
-        padding: 34,
-        randomize: false
-      }).run();
-      cy.fit(cy.elements(":visible"), 38);
+        avoidOverlap: true,
+        concentric: (node) => {
+          if (node.id() === state.selected) return 7;
+          const type = node.data("type");
+          const course = node.data("course");
+          const layer = node.data("layer");
+          if (layer === "domain") return 6;
+          if (course === "Bridge") return 5;
+          if (layer === "chapter") return 4;
+          if (layer === "core") return 3.5;
+          if (type === "problem") return 1;
+          return 2 + Number(node.data("weight") || 8) / 12;
+        },
+        equidistant: false,
+        levelWidth: () => 1.15,
+        minNodeSpacing: 46,
+        padding: 42
+      });
+      layout.on("layoutstop", () => cy.fit(cy.elements(":visible"), 42));
+      layout.run();
+      setTimeout(() => cy.fit(cy.elements(":visible"), 42), 80);
     }
 
     function runThemeLayout() {
@@ -380,7 +493,7 @@
         padding: 38,
         positions: (ele) => positions[ele.id()] || { x: 0, y: 0 }
       }).run();
-      cy.fit(cy.elements(":visible"), 44);
+      setTimeout(() => cy.fit(cy.elements(":visible"), 44), 40);
     }
 
     function updateGraphClasses() {
@@ -413,7 +526,8 @@
         cy.edges().forEach((ele) => {
           const source = ele.data("source");
           const target = ele.data("target");
-          const visible = visibleIds.has(source) && visibleIds.has(target);
+          const edge = edgeById.find((item) => item.id === ele.id());
+          const visible = visibleIds.has(source) && visibleIds.has(target) && edge && edgeKindVisible(edge);
           const focus = selectedVisible && (source === selected || target === selected);
           const route = routeIds.has(source) && routeIds.has(target);
           ele.toggleClass("hidden", !visible);
@@ -432,12 +546,12 @@
       const node = nodeById.get(id);
       if (!node) return false;
       if (isSelected || isNeighbor || isRoute) return true;
-      return state.theme === "All" && node.course === "Bridge";
+      return state.theme === "All" && ["domain", "bridge"].includes(node.layer || node.type);
     }
 
     function selectFirstVisible() {
-      const first = data.nodes.find(isVisibleNode);
-      if (first && !isVisibleNode(nodeById.get(state.selected))) {
+      const first = data.nodes.find(matchesBaseFilters);
+      if (first && !matchesBaseFilters(nodeById.get(state.selected))) {
         state.selected = first.id;
       }
     }
@@ -454,14 +568,19 @@
 
       detailKicker.textContent = `${node.course} | ${node.theme}`;
       detailTitle.textContent = node.label;
+      detailSummary.textContent = node.summary || "No summary yet.";
+      detailFormula.innerHTML = node.formula ? `<span>${escapeHtml(node.formula)}</span>` : "";
       detailMeta.innerHTML = `
         <div class="${className("meta-row")}"><span class="${className("meta-key")}">Type</span><span class="${className("meta-value")}">${escapeHtml(node.type)}</span></div>
+        <div class="${className("meta-row")}"><span class="${className("meta-key")}">Layer</span><span class="${className("meta-value")}">${escapeHtml(node.layer || node.type || "core")}</span></div>
         <div class="${className("meta-row")}"><span class="${className("meta-key")}">Course</span><span class="${className("meta-value")}">${escapeHtml(node.course)}</span></div>
         <div class="${className("meta-row")}"><span class="${className("meta-key")}">Exam modes</span><span class="${className("meta-value")}">${escapeHtml(node.examModes.join(", "))}</span></div>
+        <div class="${className("meta-row")}"><span class="${className("meta-key")}">Key terms</span><span class="${className("meta-value")}">${escapeHtml(node.keyTerms.join(", "))}</span></div>
       `;
       detailLink.href = resolveNodeUrl(node.url);
       renderRoute(node.theme);
       renderNeighbors(node);
+      renderConceptIndex();
     }
 
     function renderRoute(themeLabelValue) {
@@ -493,9 +612,15 @@
       const visibleIds = visibleNodeIds();
       const rendered = (adjacent.get(node.id) || [])
         .filter((item) => visibleIds.has(item.id))
+        .filter((item) => relationAllowedBetween(node.id, item.id))
         .map((item) => {
           const neighbor = nodeById.get(item.id);
-          return `<li><button class="${className("neighbor-button")}" type="button" data-node-id="${escapeHtml(neighbor.id)}"><strong>${escapeHtml(neighbor.label)}</strong><span class="${className("neighbor-relation")}">${escapeHtml(item.relation)} | ${escapeHtml(neighbor.course)}</span></button></li>`;
+          const edge = edgeById.find((candidate) => (
+            (candidate.source === node.id && candidate.target === item.id) ||
+            (candidate.target === node.id && candidate.source === item.id)
+          ));
+          const kind = edge ? edge.kind || "related" : "related";
+          return `<li><button class="${className("neighbor-button")}" type="button" data-node-id="${escapeHtml(neighbor.id)}"><strong>${escapeHtml(neighbor.label)}</strong><span class="${className("neighbor-relation")}">${escapeHtml(kind)} | ${escapeHtml(item.relation)} | ${escapeHtml(neighbor.course)}</span></button></li>`;
         })
         .join("");
       neighborsEl.innerHTML = rendered || `<li class="${className("empty")}">No visible connected nodes under the current filters.</li>`;
@@ -504,14 +629,46 @@
       });
     }
 
+    function renderConceptIndex() {
+      const visibleIds = visibleNodeIds();
+      const visible = data.nodes
+        .filter((node) => visibleIds.has(node.id))
+        .sort((a, b) => a.course.localeCompare(b.course) || b.weight - a.weight || a.label.localeCompare(b.label));
+      const grouped = new Map();
+      visible.forEach((node) => {
+        if (!grouped.has(node.course)) grouped.set(node.course, []);
+        grouped.get(node.course).push(node);
+      });
+      conceptIndex.innerHTML = [...grouped.entries()].map(([course, nodes]) => `
+        <section class="${className("index-group")}">
+          <h3>${escapeHtml(course)} <span>${nodes.length}</span></h3>
+          ${nodes.map((node) => `<button class="${className("index-item")}${node.id === state.selected ? " is-active" : ""}" type="button" data-node-id="${escapeHtml(node.id)}">${escapeHtml(node.label)}</button>`).join("")}
+        </section>
+      `).join("");
+      conceptIndex.querySelectorAll("[data-node-id]").forEach((button) => {
+        button.addEventListener("click", () => selectNode(button.dataset.nodeId));
+      });
+    }
+
     function updateStats(visibleIds) {
-      const visibleEdges = data.edges.filter((edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target)).length;
+      const visibleEdges = data.edges.filter((edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target) && edgeKindVisible(edge)).length;
       const focus = currentFocus();
+      const activeLayers = data.layers
+        .filter((layer) => state.layers.has(layer.id))
+        .map((layer) => layer.label || layer.id)
+        .join(", ");
+      const byCourse = data.courses
+        .map((course) => `${course.label}: ${data.nodes.filter((node) => visibleIds.has(node.id) && node.course === course.id).length}`)
+        .filter((item) => !item.endsWith(": 0"))
+        .join(" | ");
       graphStats.innerHTML = `
         <span class="${className("stat-pill")}">${visibleIds.size} nodes</span>
         <span class="${className("stat-pill")}">${visibleEdges} links</span>
         <span class="${className("stat-pill")}">${escapeHtml(state.theme === "All" ? "all themes" : state.theme)}</span>
         <span class="${className("stat-pill")}">${escapeHtml(focus ? focus.label : "All modes")}</span>
+        <span class="${className("stat-pill")}">${escapeHtml(state.depth === "all" ? "all depths" : `${state.depth}-hop`)}</span>
+        <span class="${className("stat-pill")}">${escapeHtml(activeLayers || "no layers")}</span>
+        <span class="${className("stat-pill")}">${escapeHtml(byCourse || "no visible course")}</span>
       `;
     }
 
@@ -550,6 +707,62 @@
         examChips.appendChild(button);
       });
 
+      [
+        { id: "1", label: "1-hop" },
+        { id: "2", label: "2-hop" },
+        { id: "3", label: "3-hop" },
+        { id: "all", label: "All depth" }
+      ].forEach((depth) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `${className("chip")}${depth.id === state.depth ? " is-active" : ""}`;
+        button.textContent = depth.label;
+        button.addEventListener("click", () => {
+          state.depth = depth.id;
+          [...depthChips.children].forEach((child) => child.classList.toggle("is-active", child === button));
+          refresh({ relayout: true });
+        });
+        depthChips.appendChild(button);
+      });
+
+      data.layers.forEach((layer) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `${className("chip")}${state.layers.has(layer.id) ? " is-active" : ""}`;
+        button.textContent = layer.label || layer.id;
+        button.dataset.count = String(data.nodes.filter((node) => (node.layer || node.type || "core") === layer.id).length);
+        button.addEventListener("click", () => {
+          if (state.layers.has(layer.id) && state.layers.size > 1) {
+            state.layers.delete(layer.id);
+            button.classList.remove("is-active");
+          } else {
+            state.layers.add(layer.id);
+            button.classList.add("is-active");
+          }
+          refresh({ relayout: true });
+        });
+        layerChips.appendChild(button);
+      });
+
+      data.relationKinds.forEach((kind) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `${className("chip")} is-active`;
+        button.textContent = kind;
+        button.dataset.count = String(data.edges.filter((edge) => edge.kind === kind).length);
+        button.addEventListener("click", () => {
+          if (state.relationKinds.has(kind) && state.relationKinds.size > 1) {
+            state.relationKinds.delete(kind);
+            button.classList.remove("is-active");
+          } else {
+            state.relationKinds.add(kind);
+            button.classList.add("is-active");
+          }
+          refresh({ relayout: true });
+        });
+        relationChips.appendChild(button);
+      });
+
       data.courses.forEach((course) => {
         const label = document.createElement("label");
         label.className = className("course-toggle");
@@ -583,6 +796,9 @@
       resetBtn.addEventListener("click", () => {
         state.theme = initialTheme;
         state.examFocus = "All";
+        state.depth = "all";
+        state.layers = new Set(data.layers.filter((layer) => layer.default !== false).map((layer) => layer.id));
+        state.relationKinds = new Set(data.relationKinds);
         state.query = "";
         state.courses = new Set(data.courses.map((course) => course.id));
         state.selected = data.defaultNode;
@@ -592,6 +808,9 @@
           child.classList.toggle("is-active", value === initialTheme);
         });
         [...examChips.children].forEach((child, index) => child.classList.toggle("is-active", index === 0));
+        [...depthChips.children].forEach((child) => child.classList.toggle("is-active", child.textContent === "All depth"));
+        [...layerChips.children].forEach((child, index) => child.classList.toggle("is-active", state.layers.has(data.layers[index].id)));
+        [...relationChips.children].forEach((child) => child.classList.add("is-active"));
         [...courseFilters.querySelectorAll("input")].forEach((input) => {
           input.checked = true;
         });
