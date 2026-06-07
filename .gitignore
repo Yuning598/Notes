@@ -11,5 +11,6 @@ PhD-Course/**/*.pyc
 PhD-Course/.claude/
 .DS_Store
 PhD-Course/**/*.pdf
+PhD-Course/**/_*
 PhD-Course/.github/
 paper_tmp.txt

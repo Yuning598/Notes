@@ -34,123 +34,6 @@ $$
 
 ::::
 
-::::{solution}
-
-**核心分解**
-
-$$
-\begin{aligned}
-\hat\varepsilon'\hat\varepsilon
-&=\varepsilon'M_X\varepsilon
-=\varepsilon'\varepsilon-\varepsilon'X(X'X)^{-1}X'\varepsilon\\
-&=\sum_{i=1}^n\varepsilon_i^2
--\left(\sum_{i=1}^n x_i\varepsilon_i\right)'
-\left(\sum_{i=1}^n x_ix_i'\right)^{-1}
-\left(\sum_{i=1}^n x_i\varepsilon_i\right),
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-s^2
-&=\frac{n}{n-k}
-\left[
-\frac1n\sum_{i=1}^n\varepsilon_i^2 -
-\left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)'
-\left(\frac1n\sum_{i=1}^n x_ix_i'\right)^{-1}
-\left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)
-\right].
-\end{aligned}
-$$
-
-其中 cross term 的 scaling 为：两边都是 $\frac1n\sum_{i=1}^n x_i\varepsilon_i$，中间是 $\left(\frac1n\sum_{i=1}^n x_ix_i'\right)^{-1}$。
-
-**Consistency**
-
-若 $E[\varepsilon_i^2]<\infty$、$E[\|x_i\varepsilon_i\|]<\infty$、$E[\|x_i\|^2]<\infty$，则
-
-$$
-\left\{
-\begin{aligned}
-&\frac1n\sum_{i=1}^n\varepsilon_i^2\overset p\to\sigma^2\\
-&\frac1n\sum_{i=1}^n x_i\varepsilon_i\overset p\to0\\
-&\frac1n\sum_{i=1}^n x_ix_i'\overset p\to Q\\
-&\frac{n}{n-k}\to1.
-\end{aligned}
-\right.
-$$
-
-$$
-\begin{aligned}
-s^2
-&\overset p\to1\cdot\left[\sigma^2-0'Q^{-1}0\right]=\sigma^2,
-\qquad
-s^2\overset p\to\sigma^2.
-\end{aligned}
-$$
-
-**Limiting distribution**
-
-令 $A_n=\frac1n\sum_{i=1}^n\varepsilon_i^2$，$B_n=\frac1n\sum_{i=1}^n x_i\varepsilon_i$，$Q_n=\frac1n\sum_{i=1}^n x_ix_i'$，则 $s^2=\frac{n}{n-k}(A_n-B_n'Q_n^{-1}B_n)$。
-
-$$
-\begin{aligned}
-\sqrt n(s^2-\sigma^2)
-&=\frac{n}{n-k}\sqrt n(A_n-\sigma^2)
-+\left(\frac{n}{n-k}-1\right)\sqrt n\sigma^2
--\frac{n}{n-k}\sqrt nB_n'Q_n^{-1}B_n.
-\end{aligned}
-$$
-
-$$
-\frac{n}{n-k}\to1,\qquad
-\left(\frac{n}{n-k}-1\right)\sqrt n\sigma^2
-=\frac{k}{n-k}\sqrt n\sigma^2\to0.
-$$
-
-若 $E[\|x_i\varepsilon_i\|^2]<\infty$，则
-
-$$
-\sqrt nB_n=\frac1{\sqrt n}\sum_{i=1}^n x_i\varepsilon_i=O_p(1),\qquad
-B_n=O_p(n^{-1/2}),\qquad Q_n^{-1}=O_p(1),
-$$
-
-$$
-\sqrt nB_n'Q_n^{-1}B_n=\sqrt n\cdot O_p(n^{-1})=o_p(1).
-$$
-
-$$
-\sqrt n(s^2-\sigma^2)
-=\sqrt n(A_n-\sigma^2)+o_p(1)
-=\frac1{\sqrt n}\sum_{i=1}^n(\varepsilon_i^2-\sigma^2)+o_p(1).
-$$
-
-若进一步假设 $E[\varepsilon_i^4]<\infty$，由 CLT，
-
-$$
-\frac1{\sqrt n}\sum_{i=1}^n(\varepsilon_i^2-\sigma^2)
-\overset d\to
-N\left(0,\operatorname{Var}(\varepsilon_i^2)\right),
-$$
-
-$$
-\operatorname{Var}(\varepsilon_i^2)
-=E[\varepsilon_i^4]-\left(E[\varepsilon_i^2]\right)^2
-=E[\varepsilon_i^4]-\sigma^4.
-$$
-
-考试版写法：
-
-$$
-\left\{
-\begin{aligned}
-&s^2\overset p\to\sigma^2\\
-&\sqrt n(s^2-\sigma^2)\overset d\to N(0,E[\varepsilon_i^4]-\sigma^4).
-\end{aligned}
-\right.
-$$
-
-::::
 
 ### 2. 2SLS Coefficient as One-Dimensional IV
 
@@ -2873,5 +2756,588 @@ x_i'\beta
 =\beta_j.
 \end{aligned}
 $$
+
+::::
+
+::::{solution}
+
+**核心分解**
+
+$$
+\begin{aligned}
+\hat\varepsilon'\hat\varepsilon
+&=\varepsilon'M_X\varepsilon
+=\varepsilon'\varepsilon-\varepsilon'X(X'X)^{-1}X'\varepsilon\\
+&=\sum_{i=1}^n\varepsilon_i^2
+-\left(\sum_{i=1}^n x_i\varepsilon_i\right)'
+\left(\sum_{i=1}^n x_ix_i'\right)^{-1}
+\left(\sum_{i=1}^n x_i\varepsilon_i\right),
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+s^2
+&=\frac{n}{n-k}
+\left[
+\frac1n\sum_{i=1}^n\varepsilon_i^2 -
+\left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)'
+\left(\frac1n\sum_{i=1}^n x_ix_i'\right)^{-1}
+\left(\frac1n\sum_{i=1}^n x_i\varepsilon_i\right)
+\right].
+\end{aligned}
+$$
+
+其中 cross term 的 scaling 为：两边都是 $\frac1n\sum_{i=1}^n x_i\varepsilon_i$，中间是 $\left(\frac1n\sum_{i=1}^n x_ix_i'\right)^{-1}$。
+
+**Consistency**
+
+若 $E[\varepsilon_i^2]<\infty$、$E[\|x_i\varepsilon_i\|]<\infty$、$E[\|x_i\|^2]<\infty$，则
+
+$$
+\left\{
+\begin{aligned}
+&\frac1n\sum_{i=1}^n\varepsilon_i^2\overset p\to\sigma^2\\
+&\frac1n\sum_{i=1}^n x_i\varepsilon_i\overset p\to0\\
+&\frac1n\sum_{i=1}^n x_ix_i'\overset p\to Q\\
+&\frac{n}{n-k}\to1.
+\end{aligned}
+\right.
+$$
+
+$$
+\begin{aligned}
+s^2
+&\overset p\to1\cdot\left[\sigma^2-0'Q^{-1}0\right]=\sigma^2,
+\qquad
+s^2\overset p\to\sigma^2.
+\end{aligned}
+$$
+
+**Limiting distribution**
+
+令 $A_n=\frac1n\sum_{i=1}^n\varepsilon_i^2$，$B_n=\frac1n\sum_{i=1}^n x_i\varepsilon_i$，$Q_n=\frac1n\sum_{i=1}^n x_ix_i'$，则 $s^2=\frac{n}{n-k}(A_n-B_n'Q_n^{-1}B_n)$。
+
+$$
+\begin{aligned}
+\sqrt n(s^2-\sigma^2)
+&=\frac{n}{n-k}\sqrt n(A_n-\sigma^2)
++\left(\frac{n}{n-k}-1\right)\sqrt n\sigma^2
+-\frac{n}{n-k}\sqrt nB_n'Q_n^{-1}B_n.
+\end{aligned}
+$$
+
+$$
+\frac{n}{n-k}\to1,\qquad
+\left(\frac{n}{n-k}-1\right)\sqrt n\sigma^2
+=\frac{k}{n-k}\sqrt n\sigma^2\to0.
+$$
+
+若 $E[\|x_i\varepsilon_i\|^2]<\infty$，则
+
+$$
+\sqrt nB_n=\frac1{\sqrt n}\sum_{i=1}^n x_i\varepsilon_i=O_p(1),\qquad
+B_n=O_p(n^{-1/2}),\qquad Q_n^{-1}=O_p(1),
+$$
+
+$$
+\sqrt nB_n'Q_n^{-1}B_n=\sqrt n\cdot O_p(n^{-1})=o_p(1).
+$$
+
+$$
+\sqrt n(s^2-\sigma^2)
+=\sqrt n(A_n-\sigma^2)+o_p(1)
+=\frac1{\sqrt n}\sum_{i=1}^n(\varepsilon_i^2-\sigma^2)+o_p(1).
+$$
+
+若进一步假设 $E[\varepsilon_i^4]<\infty$，由 CLT，
+
+$$
+\frac1{\sqrt n}\sum_{i=1}^n(\varepsilon_i^2-\sigma^2)
+\overset d\to
+N\left(0,\operatorname{Var}(\varepsilon_i^2)\right),
+$$
+
+$$
+\operatorname{Var}(\varepsilon_i^2)
+=E[\varepsilon_i^4]-\left(E[\varepsilon_i^2]\right)^2
+=E[\varepsilon_i^4]-\sigma^4.
+$$
+
+考试版写法：
+
+$$
+\left\{
+\begin{aligned}
+&s^2\overset p\to\sigma^2\\
+&\sqrt n(s^2-\sigma^2)\overset d\to N(0,E[\varepsilon_i^4]-\sigma^4).
+\end{aligned}
+\right.
+$$
+
+::::
+
+### 14. Roy Model, Self-Selection, LATE and MTE
+
+#RoyModel #Selection #LATE #MTE #ATT #ATE #PolicyEvaluation
+
+**Setup** 个体在部门 $1$ 和部门 $0$ 之间选择。潜在收入为
+
+$$
+\begin{aligned}
+Y_1 &= \mu_1+U_1,\\
+Y_0 &= \mu_0+U_0,
+\end{aligned}
+$$
+
+进入部门 $1$ 的成本为
+
+$$
+\begin{aligned}
+C &= \gamma Z+V,
+\end{aligned}
+$$
+
+其中 $Z\perp (U_1,U_0,V)$。个体选择规则为
+
+$$
+\begin{aligned}
+D
+&=
+1\{Y_1-Y_0-C\geq 0\}.
+\end{aligned}
+$$
+
+观测收入为
+
+$$
+\begin{aligned}
+Y
+&=
+DY_1+(1-D)Y_0.
+\end{aligned}
+$$
+
+相关基础见 [Roy model selection](../Econometrics/EF8090/cards/Roy_Model_Selection.md)、[LATE compliers](../Econometrics/EF8090/cards/LATE_Compliers.md)、[MTE weights](../Econometrics/EF8090/cards/MTE_Weights.md)。
+
+**（a）** 写出 selection rule，并解释 Roy model 的比较优势机制。
+
+::::{solution}
+
+令
+
+$$
+\begin{aligned}
+\Delta Y
+&=
+Y_1-Y_0\\
+&=
+(\mu_1-\mu_0)+(U_1-U_0).
+\end{aligned}
+$$
+
+选择规则为
+
+$$
+\begin{aligned}
+D
+&=
+1\{Y_1-Y_0-C\geq 0\}\\
+&=
+1\{(\mu_1-\mu_0)+(U_1-U_0)-\gamma Z-V\geq 0\}\\
+&=
+1\{U_1-U_0-V\geq \gamma Z-(\mu_1-\mu_0)\}.
+\end{aligned}
+$$
+
+Roy model 的核心不是随机分配，而是 self-selection：
+
+$$
+\begin{aligned}
+D=1
+&\Longleftrightarrow
+\underbrace{Y_1-Y_0}_{gain\ from\ sector\ 1}
+\geq
+\underbrace{C}_{entry\ cost}.
+\end{aligned}
+$$
+
+因此选择部门 $1$ 的人通常满足
+
+$$
+\begin{aligned}
+E(\Delta Y\mid D=1)
+&>
+E(\Delta Y\mid D=0),
+\end{aligned}
+$$
+
+这就是 selection on comparative advantage。
+
+::::
+
+**（b）** 推导 observed wage gap，并说明为什么它一般不等于 $ATE$。
+
+::::{solution}
+
+Observed wage gap 为
+
+$$
+\begin{aligned}
+E(Y\mid D=1)-E(Y\mid D=0)
+&=
+E(Y_1\mid D=1)-E(Y_0\mid D=0)\\
+&=
+E(Y_1-Y_0\mid D=1)
++E(Y_0\mid D=1)-E(Y_0\mid D=0)\\
+&=
+ATT
++\left[E(Y_0\mid D=1)-E(Y_0\mid D=0)\right].
+\end{aligned}
+$$
+
+再与 $ATE=E(Y_1-Y_0)$ 比较：
+
+$$
+\begin{aligned}
+E(Y\mid D=1)-E(Y\mid D=0)-ATE
+&=
+\underbrace{ATT-ATE}_{selection\ on\ gains}
++
+\underbrace{E(Y_0\mid D=1)-E(Y_0\mid D=0)}_{selection\ on\ baseline}.
+\end{aligned}
+$$
+
+所以 observed gap 等于 $ATE$ 需要同时满足
+
+$$
+\begin{aligned}
+ATT&=ATE,\\
+E(Y_0\mid D=1)&=E(Y_0\mid D=0).
+\end{aligned}
+$$
+
+Roy model 中 $D$ 由 $\Delta Y-C$ 决定，通常有 selection on gains；同时 $U_0$ 也可能和选择相关，所以 raw comparison 一般不识别 $ATE$。
+
+::::
+
+**（c）** 定义 $ATE$、$ATT$、$ATU$，并给出 $ATT>ATE>ATU$ 的条件。
+
+::::{solution}
+
+Treatment effect objects：
+
+$$
+\begin{aligned}
+ATE
+&=
+E(Y_1-Y_0),\\
+ATT
+&=
+E(Y_1-Y_0\mid D=1),\\
+ATU
+&=
+E(Y_1-Y_0\mid D=0).
+\end{aligned}
+$$
+
+令 $\pi=P(D=1)$。由全期望公式，
+
+$$
+\begin{aligned}
+ATE
+&=
+E(\Delta Y)\\
+&=
+P(D=1)E(\Delta Y\mid D=1)
++P(D=0)E(\Delta Y\mid D=0)\\
+&=
+\pi ATT+(1-\pi)ATU.
+\end{aligned}
+$$
+
+如果 Roy selection 是 positive selection on gains：
+
+$$
+\begin{aligned}
+E(\Delta Y\mid D=1)
+&>
+E(\Delta Y\mid D=0),
+\end{aligned}
+$$
+
+则在 $0<\pi<1$ 下，
+
+$$
+\begin{aligned}
+ATT-ATE
+&=
+ATT-\left[\pi ATT+(1-\pi)ATU\right]\\
+&=
+(1-\pi)(ATT-ATU)>0,\\
+ATE-ATU
+&=
+\pi ATT+(1-\pi)ATU-ATU\\
+&=
+\pi(ATT-ATU)>0.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+ATT>ATE>ATU.
+\end{aligned}
+$$
+
+经济含义：已经选择部门 $1$ 的人，通常是进入部门 $1$ 的净收益较高、比较优势更强的人；未进入者的收益较低或成本较高。
+
+::::
+
+**（d）** 假设 $\gamma>0$，比较两个政策状态 $z_a<z_b$。定义 compliers，并推导 Wald estimand 识别的 $LATE$。
+
+::::{solution}
+
+潜在选择为
+
+$$
+\begin{aligned}
+D(z)
+&=
+1\{Y_1-Y_0-\gamma z-V\geq 0\}.
+\end{aligned}
+$$
+
+因为 $\gamma>0$ 且 $z_a<z_b$，
+
+$$
+\begin{aligned}
+\gamma z_a<\gamma z_b
+\quad\Longrightarrow\quad
+D(z_a)\geq D(z_b).
+\end{aligned}
+$$
+
+Compliers 是低成本状态进入、高成本状态不进入的人：
+
+$$
+\begin{aligned}
+\mathcal C
+&=
+\{D(z_a)=1,\ D(z_b)=0\}\\
+&=
+\{Y_1-Y_0-\gamma z_a-V\geq 0,
+Y_1-Y_0-\gamma z_b-V<0\}\\
+&=
+\{\gamma z_a\leq Y_1-Y_0-V<\gamma z_b\}.
+\end{aligned}
+$$
+
+在 independence、exclusion、monotonicity 下，
+
+$$
+\begin{aligned}
+E(Y\mid Z=z_a)-E(Y\mid Z=z_b)
+&=
+E\left[
+D(z_a)Y_1+(1-D(z_a))Y_0
+-D(z_b)Y_1-(1-D(z_b))Y_0
+\right]\\
+&=
+E\left[
+(D(z_a)-D(z_b))(Y_1-Y_0)
+\right],
+\end{aligned}
+$$
+
+且
+
+$$
+\begin{aligned}
+E(D\mid Z=z_a)-E(D\mid Z=z_b)
+&=
+E[D(z_a)-D(z_b)]\\
+&=
+P(D(z_a)=1,D(z_b)=0).
+\end{aligned}
+$$
+
+所以 Wald estimand 为
+
+$$
+\begin{aligned}
+\frac{E(Y\mid Z=z_a)-E(Y\mid Z=z_b)}
+{E(D\mid Z=z_a)-E(D\mid Z=z_b)}
+&=
+\frac{
+E\left[(D(z_a)-D(z_b))(Y_1-Y_0)\right]
+}{
+E[D(z_a)-D(z_b)]
+}\\
+&=
+E(Y_1-Y_0\mid D(z_a)=1,D(z_b)=0)\\
+&=
+LATE(z_a,z_b).
+\end{aligned}
+$$
+
+因此 IV 识别的不是随机个体的平均收益，而是被 $Z$ 的成本变化推到选择边界上的 marginal group 的平均收益。
+
+::::
+
+**（e）** 将选择方程写成 $D=1\{P(Z)\geq U_D\}$，定义 $MTE(p)$，并说明 $ATE$、$LATE$ 与 $MTE$ 的关系。
+
+::::{solution}
+
+令 $U_D\sim U[0,1]$ 表示 resistance to treatment，$P(Z)=P(D=1\mid Z)$。选择方程为
+
+$$
+\begin{aligned}
+D
+&=
+1\{P(Z)\geq U_D\}.
+\end{aligned}
+$$
+
+Marginal treatment effect 定义为
+
+$$
+\begin{aligned}
+MTE(p)
+&=
+E(Y_1-Y_0\mid U_D=p).
+\end{aligned}
+$$
+
+当 $P(Z)=p$ 时，进入部门 $1$ 的人满足 $U_D\leq p$。因此
+
+$$
+\begin{aligned}
+E(Y\mid P(Z)=p)
+&=
+E\left[Y_0+D(Y_1-Y_0)\mid P(Z)=p\right]\\
+&=
+E(Y_0)
++E\left[1\{U_D\leq p\}(Y_1-Y_0)\right]\\
+&=
+E(Y_0)
++\int_0^p E(Y_1-Y_0\mid U_D=u)\,du\\
+&=
+E(Y_0)
++\int_0^p MTE(u)\,du.
+\end{aligned}
+$$
+
+因此 local IV derivative 为
+
+$$
+\begin{aligned}
+\frac{\partial E(Y\mid P(Z)=p)}{\partial p}
+&=
+MTE(p).
+\end{aligned}
+$$
+
+ATE 是全体 resistance type 的平均：
+
+$$
+\begin{aligned}
+ATE
+&=
+E(Y_1-Y_0)\\
+&=
+\int_0^1 E(Y_1-Y_0\mid U_D=u)\,du\\
+&=
+\int_0^1 MTE(u)\,du.
+\end{aligned}
+$$
+
+如果 $P(Z)$ 从 $p_b$ 变为 $p_a$，且 $p_a>p_b$，则对应的 LATE 为
+
+$$
+\begin{aligned}
+LATE(p_b,p_a)
+&=
+E(Y_1-Y_0\mid p_b<U_D\leq p_a)\\
+&=
+\frac{1}{p_a-p_b}
+\int_{p_b}^{p_a}MTE(u)\,du.
+\end{aligned}
+$$
+
+所以不同 instrument 或 policy variation 改变的是不同区间的 $U_D$，从而识别不同权重的 $MTE$。
+
+::::
+
+**（f）** 若 $MTE(p)$ 随 $p$ 递减，解释 OLS 为什么通常不能识别 $ATE$。
+
+::::{solution}
+
+$D=1\{P(Z)\geq U_D\}$ 中，$U_D$ 越低，进入部门 $1$ 的 resistance 越低。若
+
+$$
+\begin{aligned}
+\frac{\partial MTE(p)}{\partial p}<0,
+\end{aligned}
+$$
+
+则低 resistance 个体的 treatment gain 更高：
+
+$$
+\begin{aligned}
+p_1<p_2
+\quad\Longrightarrow\quad
+E(\Delta Y\mid U_D=p_1)
+>
+E(\Delta Y\mid U_D=p_2).
+\end{aligned}
+$$
+
+OLS with intercept in the binary treatment regression
+
+$$
+\begin{aligned}
+Y_i
+&=
+\alpha+\beta D_i+e_i
+\end{aligned}
+$$
+
+等价于 raw mean difference：
+
+$$
+\begin{aligned}
+\beta^{OLS}
+&=
+E(Y\mid D=1)-E(Y\mid D=0)\\
+&=
+ATT+\left[E(Y_0\mid D=1)-E(Y_0\mid D=0)\right].
+\end{aligned}
+$$
+
+与 $ATE$ 比较：
+
+$$
+\begin{aligned}
+\beta^{OLS}-ATE
+&=
+\underbrace{ATT-ATE}_{selection\ on\ gains}
++
+\underbrace{E(Y_0\mid D=1)-E(Y_0\mid D=0)}_{selection\ on\ baseline}.
+\end{aligned}
+$$
+
+当 $MTE(p)$ 递减时，已选择部门 $1$ 的人集中在较低 $U_D$，其平均收益高于总体平均：
+
+$$
+\begin{aligned}
+ATT
+&>
+ATE.
+\end{aligned}
+$$
+
+因此即使没有 baseline selection，OLS 也会因为 selection on gains 而偏离 $ATE$；若 $E(Y_0\mid D=1)\neq E(Y_0\mid D=0)$，还会叠加 baseline selection bias。
 
 ::::
