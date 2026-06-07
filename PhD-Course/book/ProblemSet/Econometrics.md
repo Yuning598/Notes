@@ -1,3 +1,5 @@
+# Econometrics Problem Set
+
 ## Question 1
 
 Consider
