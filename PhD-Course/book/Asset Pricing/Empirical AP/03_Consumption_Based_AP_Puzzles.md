@@ -1,6 +1,5 @@
 # 03 Consumption-Based Asset Pricing and Puzzles
 
-Source: EF8083 slides, pp. 73-122  
 导航：[Empirical AP MOC](00-MOC_EF8083_Empirical_Asset_Pricing.md) | [Return predictability](04_Return_Predictability_Econometrics.md) | [SDF Euler equation](cards/SDF_Euler_Equation.md) | [HJ bound](cards/Hansen_Jagannathan_Bound.md) | [Campbell-Shiller decomposition](cards/Campbell_Shiller_Decomposition.md)
 
 ## 1. 资产定价的统一对象：SDF
@@ -222,31 +221,15 @@ $$
 
 ## 7. Hansen-Jagannathan bound
 
-课件用 HJ bound 表达：任何能定价资产的 SDF 都必须足够 volatile。
+任何能定价资产的 SDF 都必须足够 volatile：
 
-:::{admonition} Lemma: HJ bound
 $$
 \frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}.
 $$
-对 excess return $R^e$，pricing equation 是 $E[MR^e]=0$。
 
-$$
-\begin{aligned} 0 &=E[MR^e]\\ &=E[M]E[R^e]+\operatorname{Cov}(M,R^e)\\ E[M]E[R^e] &=-\operatorname{Cov}(M,R^e). \end{aligned}
-$$
+大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。
 
-取绝对值并用 Cauchy-Schwarz：
-
-$$
-\begin{aligned} |E[M]E[R^e]| &=|\operatorname{Cov}(M,R^e)|\\ &\le \sigma(M)\sigma(R^e). \end{aligned}
-$$
-
-两边除以 $E[M]\sigma(R^e)$：
-$$
-\frac{|E[R^e]|}{\sigma(R^e)} \le \frac{\sigma(M)}{E[M]}.
-$$
-大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。见 [HJ bound](cards/Hansen_Jagannathan_Bound.md)。
-
-:::
+完整推导见 [[cards/Hansen_Jagannathan_Bound|HJ bound]]。
 
 ## 8. Campbell-Shiller decomposition and excess volatility
 

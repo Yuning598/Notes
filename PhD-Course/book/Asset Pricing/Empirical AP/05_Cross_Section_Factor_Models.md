@@ -1,6 +1,5 @@
 # 05 Cross-Section of Returns and Factor Models
 
-Source: EF8083 slides, pp. 195-241  
 导航：[03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) | [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics) | [cards/Beta_SDF_Equivalence](cards/Beta_SDF_Equivalence) | [cards/Hansen_Jagannathan_Distance](cards/Hansen_Jagannathan_Distance) | [cards/Fama_MacBeth_Shanken](cards/Fama_MacBeth_Shanken) | [cards/GMM_Asset_Pricing](cards/GMM_Asset_Pricing) | [cards/Factor_Zoo_Multiple_Testing](cards/Factor_Zoo_Multiple_Testing)
 
 ## 1. 横截面问题

@@ -4371,6 +4371,9 @@ $$
 
 ## 12. Textbook Exercise Q 1.2(a)
 
+#portfolio-choice #mean-variance #CAPM
+
+
 **Question**
 
 ![Pasted-image-20260428115441.png](../attachment/pasted-image-20260428115441.png)
@@ -5073,6 +5076,9 @@ $$
 
 
 ## 14. Textbook Exercise Q 6.1
+
+#dynamic-programming #Bellman-equation #portfolio-choice
+
 
 **Question**
 
@@ -13435,5 +13441,240 @@ m_2&=\frac32-4m_3,
 $$
 
 就得到一族 strictly positive SDFs that price the no-risk-free economy。
+
+::::
+
+---
+
+## 37. 考场重点：Black-Scholes Formula, Risk-Neutral Pricing, and Put-Call Parity
+
+**Question** 考虑无股利股票
+
+$$
+\begin{aligned}
+\frac{dS_u}{S_u}
+&=\mu du+\sigma dW_u,
+\qquad
+dB_u=rB_udu,
+\end{aligned}
+$$
+
+European call 的 payoff 为 $(S_T-K)^+$，剩余期限 $\tau=T-t$。推导 Black-Scholes call formula，并写出 put price。参考 [Black-Scholes option pricing](../Asset%20Pricing/Theoretical%20AP/03_Continuous_Time_Pricing_Options_Term_Structure.md)。
+
+**（a）** 写出 risk-neutral pricing formula。
+
+::::{solution}
+
+无套利等价于存在 risk-neutral measure $\mathbb Q$，使 discounted stock price 是 martingale：
+
+$$
+\begin{aligned}
+\frac{dS_u}{S_u}
+&=rdu+\sigma dW_u^{\mathbb Q}.
+\end{aligned}
+$$
+
+因此 European call price 为
+
+$$
+\begin{aligned}
+C_t
+&=
+e^{-r\tau}E_t^{\mathbb Q}\left[(S_T-K)^+\right].
+\end{aligned}
+$$
+
+在 $\mathbb Q$ 下
+
+$$
+\begin{aligned}
+\log S_T
+&=
+\log S_t+
+\left(r-\frac12\sigma^2\right)\tau
++\sigma\sqrt{\tau}Z,
+\qquad Z\sim N(0,1).
+\end{aligned}
+$$
+
+::::
+
+**（b）** 推导 $d_1,d_2$ 与 call formula。
+
+::::{solution}
+
+先把 payoff 拆成两个 truncated expectations：
+
+$$
+\begin{aligned}
+C_t
+&=
+e^{-r\tau}
+E_t^{\mathbb Q}\left[(S_T-K)\mathbf 1\{S_T>K\}\right]\\
+&=
+e^{-r\tau}
+E_t^{\mathbb Q}\left[S_T\mathbf 1\{S_T>K\}\right]
+-Ke^{-r\tau}
+Q_t(S_T>K).
+\end{aligned}
+$$
+
+由
+
+$$
+\begin{aligned}
+S_T>K
+&\Longleftrightarrow
+\log S_t+
+\left(r-\frac12\sigma^2\right)\tau
++\sigma\sqrt{\tau}Z
+>
+\log K\\
+&\Longleftrightarrow
+Z>
+-d_2,
+\end{aligned}
+$$
+
+其中
+
+$$
+\begin{aligned}
+d_2
+&=
+\frac{\log(S_t/K)+\left(r-\frac12\sigma^2\right)\tau}
+{\sigma\sqrt{\tau}},\\
+d_1
+&=
+d_2+\sigma\sqrt{\tau}
+=
+\frac{\log(S_t/K)+\left(r+\frac12\sigma^2\right)\tau}
+{\sigma\sqrt{\tau}}.
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+Q_t(S_T>K)
+&=
+Q_t(Z>-d_2)
+=
+\Phi(d_2).
+\end{aligned}
+$$
+
+再计算第一项。记
+
+$$
+\begin{aligned}
+S_T
+&=
+S_t\exp\left[
+\left(r-\frac12\sigma^2\right)\tau
++\sigma\sqrt{\tau}Z
+\right].
+\end{aligned}
+$$
+
+则
+
+$$
+\begin{aligned}
+E_t^{\mathbb Q}\left[S_T\mathbf 1\{S_T>K\}\right]
+&=
+S_te^{(r-\frac12\sigma^2)\tau}
+E\left[e^{\sigma\sqrt{\tau}Z}\mathbf 1\{Z>-d_2\}\right]\\
+&=
+S_te^{(r-\frac12\sigma^2)\tau}
+\int_{-d_2}^{\infty}
+e^{\sigma\sqrt{\tau}z}
+\frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
+&=
+S_te^{(r-\frac12\sigma^2)\tau}
+e^{\frac12\sigma^2\tau}
+\int_{-d_2}^{\infty}
+\frac{1}{\sqrt{2\pi}}
+e^{-\frac12(z-\sigma\sqrt{\tau})^2}dz\\
+&=
+S_te^{r\tau}
+\int_{-d_2-\sigma\sqrt{\tau}}^{\infty}
+\frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy\\
+&=
+S_te^{r\tau}\Phi(d_1).
+\end{aligned}
+$$
+
+代回 call price：
+
+$$
+\begin{aligned}
+C_t
+&=
+e^{-r\tau}S_te^{r\tau}\Phi(d_1)
+-Ke^{-r\tau}\Phi(d_2)\\
+&=
+S_t\Phi(d_1)-Ke^{-r\tau}\Phi(d_2).
+\end{aligned}
+$$
+
+::::
+
+**（c）** 用 put-call parity 写出 European put formula。
+
+::::{solution}
+
+无股利股票的 put-call parity 为
+
+$$
+\begin{aligned}
+C_t-P_t
+&=
+S_t-Ke^{-r\tau}.
+\end{aligned}
+$$
+
+因此
+
+$$
+\begin{aligned}
+P_t
+&=
+C_t-S_t+Ke^{-r\tau}\\
+&=
+S_t\Phi(d_1)-Ke^{-r\tau}\Phi(d_2)-S_t+Ke^{-r\tau}\\
+&=
+Ke^{-r\tau}\left[1-\Phi(d_2)\right]
+-S_t\left[1-\Phi(d_1)\right]\\
+&=
+Ke^{-r\tau}\Phi(-d_2)-S_t\Phi(-d_1).
+\end{aligned}
+$$
+
+::::
+
+**（d）** 解释为什么 formula 中没有 $\mu$。
+
+::::{solution}
+
+Black-Scholes price 不含 physical drift $\mu$，因为 option pricing 使用 no-arbitrage 而不是 physical expected payoff：
+
+$$
+\begin{aligned}
+\text{delta hedging}
+&\Longrightarrow
+\text{local risk is eliminated}
+\Longrightarrow
+\text{portfolio earns }r,\\
+\text{risk-neutral pricing}
+&\Longrightarrow
+\mu\text{ is replaced by }r
+\Longrightarrow
+C_t=e^{-r\tau}E_t^{\mathbb Q}[(S_T-K)^+].
+\end{aligned}
+$$
+
+因此 $\mu$ 影响真实世界下股票的期望增长，但不进入可复制衍生品的无套利价格。
 
 ::::

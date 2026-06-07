@@ -1,772 +1,652 @@
-# Microeconomics
+## 1. Intertemporal Consumption and Competitive Equilibrium
 
-## Question 1
+#general-equilibrium #intertemporal-choice #Euler-equation
 
-Consider a two-period economy with two agents and a single consumption good. Agent $h$'s preferences over consumption streams $(c_1^h,c_2^h)$, where $c_i^h$ is the consumption of the good by $h$ in period $i$, are represented by the separable utility function
+**Question** Consider a two-period economy with two agents and a single consumption good. Agent $h$'s preferences over consumption streams $(c_1^h,c_2^h)$ are represented by:
 
 $$
 u^h(c_1^h)+\delta u^h(c_2^h),
 $$
 
-where $u^h(\cdot)$ is strictly increasing, strictly concave and differentiable, $h=1,2$, and $u^{h'}(0)=\infty.$
+where $u^h(\cdot)$ is strictly increasing, strictly concave and differentiable, $h=1,2$, and $u^{h'}(0)=\infty$.
 
-Both agents have strictly positive endowments in each period and the aggregate endowment of the good in period 1 is strictly greater than the aggregate endowment in period 2.
+Both agents have strictly positive endowments in each period and the aggregate endowment in period 1 is strictly greater than that in period 2: $\bar e_1 > \bar e_2$.
 
-::::{collapse} Basic setup
+**Setup**:
 
 $$
 \left\{
 \begin{aligned}
 &U^h(c_1^h,c_2^h)=u^h(c_1^h)+\delta u^h(c_2^h),\qquad h=1,2\\
 &u^{h'}>0,\qquad u^{h''}<0,\qquad u^{h'}(0)=\infty\\
-&\bar e_1:=e_1^1+e_1^2,\qquad \bar e_2:=e_2^1+e_2^2\\
-&(p_1, p_2)=(1, p), \qquad \bar{e_1}>\bar{e_2}>0
+&\bar e_1:=e_1^1+e_1^2,\qquad \bar e_2:=e_2^1+e_2^2,\qquad \bar{e_1}>\bar{e_2}>0\\
+&\text{Prices: }(p_1, p_2)=(1, p)
 \end{aligned}
 \right.
 $$
 
-::::
+**1.1** Show that $c_1^h>c_2^h$ in competitive equilibrium for both agents $h=1,2$.
+
+::::{solution}
+
+
+**1.1 Proof**
+
+Consumer's problem:
 
 $$
 \begin{aligned}
-\text{CP:}\quad
-&\max_{c_1^h,c_2^h}\ u^h(c_1^h)+\delta u^h(c_2^h)\\
-\text{s.t.}\quad
-&e_1^h+c_2^h-p_1c_1^h-p_2c_2^h\geq 0\\
-\mathcal{L} &= u^h(c_1^h)+\delta u^h(c_2^h)+\lambda^h(e_1^h+c_2^h-p_1c_1^h-p_2c_2^h)\\
-\text{FOC:}\quad
-\frac{\partial \mathcal{L}}{\partial c_1^h} &= u^{h'}(c_1^h)-\lambda^hp_1=0\\
-\frac{\partial \mathcal{L}}{\partial c_2^h} &= \delta u^{h'}(c_2^h)-\lambda^hp_2=0\\
-\Rightarrow \frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)}&=\frac{p_1}{p_2}=\frac{1}{p}
+\max_{c_1^h,c_2^h}\ &u^h(c_1^h)+\delta u^h(c_2^h)\\
+\text{s.t.}\quad &c_1^h + p c_2^h \leq e_1^h + p e_2^h
 \end{aligned}
 $$
 
-> (a) Show $c_1^h>c_2^h$ in a competitive equilibrium for this economy for $h=1,2$.
+First-order conditions:
 
-::::{solution}
-Competitive equilibrium:
-
-Individual optimization: FOCs = 0.
+$$
+\frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)}=\frac{1}{p}.
+$$
 
 Market clearing:
 
 $$
 \begin{aligned}
 c_1^1+c_1^2&=\bar e_1,\\
-c_2^1+c_2^2&=\bar e_2,\\
-\bar e_1&>\bar e_2
+c_2^1+c_2^2&=\bar e_2.
 \end{aligned}
 $$
 
-$$
-\frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)}=\frac{p_1}{p_2}=\frac{1}{p} \iff \frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)}=\frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)}=\frac{u^{2'}(\bar{e}_1-c_1^1)}{u^{2'}(\bar{e}_2-c_2^2)}=\frac{\delta}{p}
-$$
+**Claim**: $c_1^h>c_2^h$ for $h=1,2$.
 
-
-$$
-c_1^h>c_2^h,\qquad h=1,2
-$$
-
-Suppose $c_1^1\leq c_2^1$, then $c_1^2\geq c_2^2$ since $\bar e_1>\bar e_2$. Then, by the strict concavity of $u^h(\cdot)$, it means $u^{h''}(\cdot)<0$ and $u^{h'}(\cdot)$ is strictly decreasing, we have
+**Proof by contradiction**: Suppose $c_1^1\leq c_2^1$. Then by market clearing and $\bar e_1>\bar e_2$:
 
 $$
-\frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} > \frac{u^{1'}(c_2^1)}{u^{1'}(c_2^1)}=1>\frac{\delta}{p}
+c_1^2 = \bar e_1 - c_1^1 \geq \bar e_1 - c_2^1 > \bar e_2 - c_2^1 = c_2^2.
 $$
 
-and
+So $c_1^2 \geq c_2^2$ (with equality only if $c_1^1 = c_2^1$).
+
+By strict concavity, $u^{h'}$ is strictly decreasing. For agent 1:
 
 $$
-\frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)} < \frac{u^{2'}(c_2^2)}{u^{2'}(c_2^2)}=1<\frac{\delta}{p}
+c_1^1 \leq c_2^1 \Rightarrow u^{1'}(c_1^1) \geq u^{1'}(c_2^1) \Rightarrow \frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} \geq 1.
 $$
 
-which contradicts the FOCs. Therefore, $c_1^1>c_2^1$. Similarly, we can show $c_1^2>c_2^2$.
+For agent 2:
+
+$$
+c_1^2 \geq c_2^2 \Rightarrow u^{2'}(c_1^2) \leq u^{2'}(c_2^2) \Rightarrow \frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)} \leq 1.
+$$
+
+But FOCs require:
+
+$$
+\frac{u^{1'}(c_1^1)}{\delta u^{1'}(c_2^1)}=\frac{u^{2'}(c_1^2)}{\delta u^{2'}(c_2^2)}=\frac{1}{p}.
+$$
+
+This implies:
+
+$$
+\frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} = \frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)},
+$$
+
+which contradicts $\frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)} \geq 1 \geq \frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)}$ with at least one strict inequality.
+
+Therefore $c_1^1 > c_2^1$, and similarly $c_1^2 > c_2^2$.
 
 ::::
 
->(b) How does the answer to part (a) change if the good is storable, that is, endowment in period 1 can be held over to period 2?
+**1.2** How does the answer change if the good is storable (endowment in period 1 can be held over to period 2)?
 
 ::::{solution}
-Storable means:
+
+**1.2 With Storability**
+
+With storage, agent $h$ can save $s^h \geq 0$ from period 1 to period 2:
 
 $$
 \begin{aligned}
 \max_{c_1^h,c_2^h,s^h\ge0}\ &u^h(c_1^h)+\delta u^h(c_2^h)\\
-\text{s.t.}\quad &(c_1^h+s^h)+p(c_2^h-s^h)\le e_1^h+pe_2^h\\
-\Longleftrightarrow\quad &c_1^h+pc_2^h+(1-p)s^h\le e_1^h+pe_2^h\\
+\text{s.t.}\quad &c_1^h + s^h \leq e_1^h\\
+&c_2^h \leq e_2^h + s^h
 \end{aligned}
 $$
 
+Combined budget constraint:
+
 $$
-\mathcal{L} = u^h(c_1^h)+\delta u^h(c_2^h)+\lambda^h(e_1^h+pe_2^h-c_1^h-pc_2^h-(1-p)s^h)
+c_1^h + p c_2^h + (1-p)s^h \leq e_1^h + p e_2^h.
 $$
+
+FOCs:
 
 $$
 \begin{aligned}
-\frac{\partial \mathcal{L}}{\partial c_1^h} &= u^{h'}(c_1^h)-\lambda^h=0\\
-\frac{\partial \mathcal{L}}{\partial c_2^h} &= \delta u^{h'}(c_2^h)-\lambda^hp=0\\
-\frac{\partial \mathcal{L}}{\partial s^h} &= -(1-p)\lambda^h=0\\
-\Rightarrow \frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)}&=p
+\frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)} &= \frac{1}{p}, \\
+\mu^h(1-p) &\geq 0, \quad s^h \geq 0, \quad \mu^h s^h = 0,
 \end{aligned}
 $$
 
+where $\mu^h$ is the multiplier on $s^h \geq 0$.
+
+**Case 1**: If $p < 1$, then $(1-p) > 0$, so $\mu^h > 0$ and $s^h = 0$ for both agents. This is the same as without storage, so $c_1^h > c_2^h$.
+
+**Case 2**: If $p = 1$, the Euler equation becomes:
+
 $$
-\begin{aligned}
-p>1 &\Longrightarrow \text{storage 正利润，不能是均衡}\\
-p<1 &\Longrightarrow \text{storage 亏损，所以 }s^h=0\\
-p=1 &\Longrightarrow \text{storage 零利润，可能被使用}
-\end{aligned}
+\frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)} = 1 \Rightarrow u^{h'}(c_1^h) = \delta u^{h'}(c_2^h).
 $$
 
-- 当$p<1$时，$s^1=s^2=0$，问题退化为非储存情况（Part (a)），$c_1^h>c_2^h$仍然成立。
+If $\delta = 1$, then $u^{h'}(c_1^h) = u^{h'}(c_2^h)$, implying $c_1^h = c_2^h$ (perfect smoothing).
 
-- 当$p=1$时，$\frac{u^{h'}(c_1^h)}{u^{h'}(c_2^h)}=\delta$，由于$u^{h'}(\cdot)$是严格递减的，$\delta<1$，$c_1^h>c_2^h$仍然成立。
+If $\delta < 1$, then $u^{h'}(c_1^h) < u^{h'}(c_2^h)$, implying $c_1^h > c_2^h$ (impatience).
 
-所以，无论$p<1$还是$p=1$，$c_1^h>c_2^h$仍然成立。
+**Case 3**: If $p > 1$, agents would want to "borrow" from the future (negative $s^h$), but storage doesn't allow this. The constraint $s^h \geq 0$ binds, and the outcome depends on the specific parameters.
+
+**Key insight**: Storability allows consumption smoothing when $p \approx 1$, potentially equalizing consumption across periods. Without storage, the price must adjust to clear markets given the endowment difference, forcing $c_1^h > c_2^h$.
 
 ::::
 
->(c) How would the answer to part (b) change if the aggregate endowment of the good in period 1 is strictly less than the aggregate endowment in period 2?
-
-::::{solution}
-当 $\bar e_1<\bar e_2$ 时，市场清算条件为
-
-$$
-\begin{aligned}
-\sum_h(c_1^h+s^h)&=\bar e_1\\
-\sum_h(c_2^h-s^h)&=\bar e_2\\
-\bar e_1&<\bar e_2\\
-\Longleftrightarrow\quad
-\sum_h c_1^h
-&=\bar e_1-\sum_hs^h<\bar e_2+\sum_hs^h=\sum_h c_2^h.
-\end{aligned}
-$$
-
-根据 Part (b)，储存条件为 $p\le1$。
-
-- 当 $p=1$ 时，
-
-$$
-u^{h'}(c_1^h)=\delta u^{h'}(c_2^h)
-\Longrightarrow
-u^{h'}(c_1^h)<u^{h'}(c_2^h)
-\Longrightarrow
-c_1^h>c_2^h
-$$
-
-与 $\sum_h c_1^h<\sum_h c_2^h$ 矛盾，所以 $p=1$ 不可能是均衡价格。
-
-- 当 $p<1$ 时，$s^h=0$。
-
-$$
-c_1^k<c_2^k
-\iff
-u^{k'}(c_1^k)>u^{k'}(c_2^k)
-\iff
-\frac{\delta}{p} =
-\frac{u^{k'}(c_1^k)}{u^{k'}(c_2^k)}
->1.
-$$
-
-因此，当 $\delta>p$ 时，
-
-$$
-c_1^h<c_2^h,\qquad h=1,2
-$$
-
-总结：
-
-$$
-\left\{
-\begin{aligned}
-&\text{不可储存且 }\bar e_1>\bar e_2
-\Longrightarrow c_1^h>c_2^h,\quad p>\delta\\
-&\text{可储存且 }\bar e_1>\bar e_2
-\Longrightarrow c_1^h>c_2^h,\quad p\in(\delta,1]\text{ 或 }p=1\\
-&\text{可储存且 }\bar e_1<\bar e_2
-\Longrightarrow c_1^h<c_2^h,\quad p<\delta
-\end{aligned}
-\right.
-$$
-
-::::
 
 ---
 
-## Question 2
+## 2. Contract Theory: Moral Hazard
 
-Two farmers face the possibility that the river on which their farms lie might flood. For simplicity suppose that either of their farms might flood, but not both. The chance that either farm might flood is $1/4$. Each farmer's crop will be $200$ if his farm does not flood and $0$ if it does flood. Each has a von Neumann-Morgenstern utility function with utility for the good being $u(x)=\ln x.$
+#contract-theory #moral-hazard #incentive-compatibility
 
-**Basic setup**: not both farmers can be flooded, so there are three states of the world:
+**Question** Consider a principal-agent model with moral hazard.
 
-$$
-\left\{
-\begin{aligned}
-&s=1:\text{ farmer 1 flooded}\\
-&s=2:\text{ farmer 2 flooded}\\
-&s=3:\text{ no flood}
-\end{aligned}
-\right.
-$$
+- **Principal**: Risk-neutral firm owner
+- **Agent**: Risk-averse manager with utility $u(w) - c(e)$, where $w$ is wage, $e$ is effort
+- **Output**: $\pi \in \{\pi_L, \pi_H\}$ with $\pi_H > \pi_L$
+- **Effort**: $e \in \{e_L, e_H\}$ with $e_H > e_L$ and costs $c(e_H) > c(e_L)$
 
-Arrow-Debreu equilibrium 中，agent 在 date 0 选择完整的 contingent consumption plan：
+Probability of high output:
 
 $$
-x^h=(x_1^h,x_2^h,x_3^h)
+P(\pi_H | e) = \begin{cases} p_H & \text{if } e = e_H \\ p_L & \text{if } e = e_L \end{cases},
 $$
 
-价格向量为：
+where $p_H > p_L$.
 
-$$
-p=(p_1,p_2,p_3)
-$$
+Assume:
+- $u$ is strictly increasing and strictly concave
+- Reservation utility: $\bar u$
+- First-best effort is $e_H$
 
-$$
-\begin{aligned}
-\text{CP:}\quad
-&\max_{x_1^h,x_2^h,x_3^h>0}\ \sum_{s=1}^3 \pi_s\ln x_s^h\\
-\text{s.t.}\quad
-&\sum_{s=1}^3p_sx_s^h\le \sum_{s=1}^3p_se_s^h\\
-\mathcal L^h
-&=
-\sum_{s=1}^3\pi_s\ln x_s^h
-+\lambda^h
-\left(
-\sum_{s=1}^3p_se_s^h-\sum_{s=1}^3p_sx_s^h
-\right)\\
-\text{FOC:}\quad
-\frac{\partial \mathcal L^h}{\partial x_s^h}
-&=
-\frac{\pi_s}{x_s^h}-\lambda^hp_s=0
-\iff \frac{\pi_s/x_s^h}{\pi_t/x_t^h} =
-\frac{p_s}{p_t}
-\end{aligned}
-$$
-
->(a) Compute the Arrow-Debreu equilibrium for this economy, where the farmers can trade contingent commodities before it is known whose farm might flood. What is the expected utility of each farmer?
+**2.1** Write the principal's problem under **full information** (effort observable).
 
 ::::{solution}
 
-$$
-\left\{
-\begin{aligned}
-&\pi_1=\frac14,\qquad \pi_2=\frac14,\qquad \pi_3=\frac12\\
-&e^1=(0,200,200)\\
-&e^2=(200,0,200)\\
-&e=e^1+e^2=(200,200,400)
-\end{aligned}
-\right.
-$$
 
-$$
-p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=\frac{1/4}{200}:\frac{1/4}{200}:\frac{1/2}{400}=1:1:1
-$$
+**2.1 First-Best (Full Information)**
+
+Principal observes $e$ and can contract on it directly:
 
 $$
 \begin{aligned}
-m^1&=p\cdot e^1=0+200+200=400\\
-m^2&=p\cdot e^2=200+0+200=400
+\max_{w_H, w_L, e}\ &p(e)\pi_H + [1-p(e)]\pi_L - p(e)w_H - [1-p(e)]w_L\\
+\text{s.t.}\quad &p(e)u(w_H) + [1-p(e)]u(w_L) - c(e) \geq \bar u \quad\text{(IR)}
 \end{aligned}
 $$
 
-$$
-x_s^h=\frac{\pi_s}{p_s}m^h
-$$
-
-- Equilibrium allocation
+Since the agent is risk-averse and the principal is risk-neutral, optimal risk-sharing requires:
 
 $$
-x^h=
-400
-\left(
-\frac14,\frac14,\frac12
-\right) =
-(100,100,200).
+w_H = w_L = w^{FB}.
 $$
 
-- Expected utility of each farmer
+The wage $w^{FB}$ is set to satisfy IR with equality:
 
 $$
-\begin{aligned}
-U^h
-&=
-\frac14\ln100+\frac14\ln100+\frac12\ln200\\
-&=
-\frac12\ln100+\frac12\ln200\\
-&=
-\ln\sqrt{100\cdot200}\\
-&=
-\ln(100\sqrt2)
-\end{aligned}
+u(w^{FB}) - c(e^{FB}) = \bar u,
+$$
+
+where $e^{FB} = e_H$ (assumed to be first-best).
+
+**Expected profit**:
+
+$$
+\Pi^{FB} = p_H\pi_H + (1-p_H)\pi_L - w^{FB}.
 $$
 
 ::::
 
->(b) Suppose now that there is probability $0$ that farmer 1's field will be flooded but the probability that farmer 2's field will be flooded is still $1/4$. How would your answer to part (a) change?
+**2.2** Write the principal's problem under **moral hazard** (effort not observable). State the incentive compatibility (IC) and participation (IR) constraints.
 
 ::::{solution}
 
-$$
-\pi_1=0,\qquad \pi_2=\frac14,\qquad \pi_3=\frac34
-$$
+**2.2 Second-Best (Moral Hazard)**
 
-$$
-p_1:p_2:p_3 = \frac{\pi_1}{e^1}:\frac{\pi_2}{e^2}:\frac{\pi_3}{e^3}=0:\frac{1/4}{200}:\frac{3/4}{400}=0:2:3
-$$
+Principal cannot observe $e$, so must induce it through wage incentives:
 
 $$
 \begin{aligned}
-m^1&=p\cdot e^1=0\cdot0+200\cdot2+200\cdot3=1000\\
-m^2&=p\cdot e^2=200\cdot0+0\cdot2+200\cdot3=600
+\max_{w_H, w_L}\ &p_H\pi_H + (1-p_H)\pi_L - p_Hw_H - (1-p_H)w_L\\
+\text{s.t.}\quad &p_Hu(w_H) + (1-p_H)u(w_L) - c(e_H) \geq \bar u \quad\text{(IR)}\\
+&p_Hu(w_H) + (1-p_H)u(w_L) - c(e_H) \geq p_Lu(w_H) + (1-p_L)u(w_L) - c(e_L) \quad\text{(IC)}
 \end{aligned}
 $$
 
-$$
-x_s^h=\frac{\pi_s}{p_s}m^h
-$$
+**IC constraint** ensures the agent prefers $e_H$ to $e_L$:
 
 $$
-\begin{aligned}
-x_2^1&=\frac14\cdot\frac{1000}{2}=125
-\qquad
-x_2^2&=\frac14\cdot\frac{600}{2}=75\\
-x_3^1&=\frac34\cdot\frac{1000}{3}=250
-\qquad
-x_3^2&=\frac34\cdot\frac{600}{3}=150\\
-x_1^1+x_1^2&=200,\qquad x_1^1,x_1^2\ge0.
-\end{aligned}
+(p_H - p_L)[u(w_H) - u(w_L)] \geq c(e_H) - c(e_L).
 $$
-
-- Equilibrium allocation
-
-$$
-x^1=(x_1^1,125,250),
-\qquad
-x^2=(x_1^2,75,150),
-\qquad
-x_1^1+x_1^2=200.
-$$
-
-- Expected utility of each farmer
-
-$$
-\begin{aligned}
-U^1&=0 + \frac14\ln125 + \frac34\ln250\\
-U^2&=0 + \frac14\ln75 + \frac34\ln150
-\end{aligned}
-$$
-
 
 ::::
 
-
->(c) Suppose now that weather forecasting becomes perfected so that it will be known whether or not there will be a flood at the time the contingent claims markets open. What will be known is whether there will be a flood, but not which farmer will be affected should there be a flood. How will this affect the ex ante utilities of the farmers?
+**2.3** Show that under moral hazard, the agent bears risk (wage varies with output) to induce high effort.
 
 ::::{solution}
-如果天气预报是完美的，那么在交易开始时，农民们就会知道是否会有洪水发生，但不会知道哪个农民会受到影响。
+
+**2.3 Risk-Bearing**
+
+Rearranging IC:
 
 $$
-z\in\{F,N\},
-\qquad
-F=\{s=1,s=2\},\quad N=\{s=3\}.
+u(w_H) - u(w_L) \geq \frac{c(e_H) - c(e_L)}{p_H - p_L} > 0.
 $$
 
-$$
-\begin{array}{c|c|c|c|c}
-\text{signal} & \Pr(z) & \pi^z & p^z & (x^{1,z},x^{2,z})\\
-\hline
-F & \frac12
-&
-\left(\frac12,\frac12,0\right)
-&
-(1,1,0)
-&
-\big((100,100,\cdot),(100,100,\cdot)\big)
-\\[4pt]
-N & \frac12
-&
-(0,0,1)
-&
-(0,0,1)
-&
-\big((\cdot,\cdot,200),(\cdot,\cdot,200)\big)
-\end{array}
-$$
+Therefore $w_H > w_L$ (wage must vary with output).
 
-这里 ⋅ 表示该 signal 下不可能发生的状态，消费取多少不影响效用和均衡。
+**Key insight**: To induce high effort, the principal must make the agent's wage sensitive to performance. This exposes the risk-averse agent to risk, which is costly.
 
-Conditional AD allocations：
+::::
 
-$$
-\left\{
-\begin{aligned}
-&z=F:\quad e_F=(200,200),\quad \pi^F=(1/2,1/2)
-\Longrightarrow x_F^1=x_F^2=(100,100)\\
-&z=N:\quad e_3^1=e_3^2=200
-\Longrightarrow x_3^1=x_3^2=200
-\end{aligned}
-\right.
-$$
+**2.4** Explain why the second-best contract is less efficient than first-best.
 
-Thus, across original states：
+::::{solution}
+
+**2.4 Inefficiency**
+
+Comparing first-best and second-best:
+
+**First-best**: $w_H^{FB} = w_L^{FB}$ (full insurance, agent bears no risk)
+
+**Second-best**: $w_H^{SB} > w_L^{SB}$ (partial insurance, agent bears risk)
+
+The efficiency loss comes from two sources:
+
+1. **Risk premium**: The risk-averse agent requires higher expected wage to compensate for risk:
+   $$u(E[w^{SB}]) - c(e_H) > E[u(w^{SB})] - c(e_H) = \bar u.$$
+   This follows from Jensen's inequality (concave $u$).
+
+2. **Binding IC constraint**: The principal must "overpay" in the good state to separate $e_H$ from $e_L$.
+
+**Result**: Principal's profit is lower under moral hazard:
 
 $$
-x^1=x^2=(100,100,200).
-$$
-
-- Ex ante utility
-
-$$
-\begin{aligned}
-U^h
-&=
-\Pr(F)\left[\frac12\ln100+\frac12\ln100\right]
-+
-\Pr(N)\ln200\\
-&=
-\frac12\ln100+\frac12\ln200\\
-&=
-\ln(100\sqrt2).
-\end{aligned}
+\Pi^{SB} < \Pi^{FB}.
 $$
 
 ::::
+
 
 ---
 
-## Question 3
+## 3. Adverse Selection: Screening
 
-Consider an exchange economy with two consumers and two goods. Good $x$ is a perfectly divisible numeraire. Good $y$, in contrast, is indivisible, that is, consumers can only consume it in nonnegative integer amounts. The utility of consumer $i=1,2$ from consuming a bundle $(x^i,y^i)$ of the two goods is given by
+#adverse-selection #screening #mechanism-design
+
+**Question** A monopolist sells a good to consumers with heterogeneous valuations.
+
+- **Consumer types**: $\theta \in \{\theta_L, \theta_H\}$ with $\theta_H > \theta_L$
+- **Fraction**: $\lambda$ are type $\theta_H$, $1-\lambda$ are type $\theta_L$
+- **Utility**: $U(\theta) = \theta v(q) - t$, where $q$ is quality, $t$ is payment
+- **Cost**: $c(q)$ with $c'(q) > 0$, $c''(q) > 0$
+
+Assume $v$ is increasing and concave.
+
+**3.1** Under **full information**, what contracts $(q_L^{FB}, t_L^{FB})$ and $(q_H^{FB}, t_H^{FB})$ maximize the monopolist's profit?
+
+::::{solution}
+
+
+**3.1 First-Best**
+
+Extract full surplus from each type:
 
 $$
-u^i(x^i,y^i)=x^i+v^i(y^i),
-$$
-
-where $v^i(\cdot)$ is a function on nonnegative integers. Assume that
-
-$$
-v^i(2)>v^i(1)=v^i(0)=0,
-\qquad
-v^i(y)=v^i(2)\quad \text{for }y>2.
-$$
-
-Think of good $y$ as chopsticks where the value of only one is $0$. Assume also that $v^2(2)\le v^1(2)\le 10.$
-
-The initial endowment of consumer $i=1,2$ is $(e_x^i,e_y^i)$. Assume the total endowment of good $y$ is $e_y^1+e_y^2=2,$ and that $e_x^1=e_x^2=20.$
-
-::::{collapse} Basic setup
-
-$$
-\left\{
 \begin{aligned}
-&V_i:=v^i(2),\qquad 0<V_2\le V_1\le 10\\
-&x^1+x^2\le 40\\
-&y^1+y^2=2,\qquad y^i\in\mathbb Z_+\\
-&u^i(x^i,y^i)=x^i+v^i(y^i)
+t_i^{FB} &= \theta_i v(q_i^{FB}), \quad i \in \{L, H\}\\
+q_i^{FB} &: \max_q\ \theta_i v(q) - c(q)\\
+\Rightarrow \theta_i v'(q_i^{FB}) &= c'(q_i^{FB})
 \end{aligned}
-\right.
+$$
+
+**Profit**:
+
+$$
+\Pi^{FB} = \lambda[\theta_H v(q_H^{FB}) - c(q_H^{FB})] + (1-\lambda)[\theta_L v(q_L^{FB}) - c(q_L^{FB})].
 $$
 
 ::::
 
->(a) Describe the Pareto efficient allocations in this economy.
+**3.2** Under **asymmetric information**, write the monopolist's problem with incentive compatibility (IC) and participation (IR) constraints.
 
 ::::{solution}
 
-$$
-\left\{
-\begin{aligned}
-&x^1+x^2=40\\
-&(y^1,y^2)=(2,0)\quad\text{or}\quad (0,2).
-\end{aligned}
-\right.
-$$
-
-- $V_1=V_2$
-
-$$
-u^1+u^2=40+V_1=40+V_2 \quad(\text{Pareto efficient})
-$$
-
-- $V_1>V_2$
-  - $(y^1,y^2)=(2,0)$:
-
-$$
-    \begin{aligned}
-    &u^1=x^1+V_1=40-x^2+V_1\\
-    &u^2=x^2\\
-    &u=u^1+u^2=40+V_1
-    \end{aligned}
-$$
-
-    Pareto efficient.
-
-  - $(y^1,y^2)=(0,2)$:
-
-$$
-    \begin{aligned}
-    &u^1=x^1\\
-    &u^2=x^2+V_2=40-x^1+V_2\\
-    &u=u^1+u^2=40+V_2
-    \end{aligned}
-$$
-
-Pareto improvement candidate $(x^{1'},x^{2'})$:
+**3.2 Second-Best Problem**
 
 $$
 \begin{aligned}
-&u^{1'}=x^{1'}+V_1 \ge x^1\\
-&u^{2'}=x^{2'} \ge x^2+V_2 \iff x^{1'} \le x^1 - V_2\\
-&u'=u^{1'}+u^{2'}=40+V_1 \ge 40+V_2
-\end{aligned}
-$$
-
-Compensation case $x^1 \ge V_2$:
-
-$$
-\begin{aligned}
-&x^{1'}=x^1-V_2\\
-&x^{2'}=x^2+V_2
-\end{aligned}
-$$
-
-- $V_2$可视为consumer 1用good x补偿给consumer 2的numerated value.
-- $u^{1'}=x^1-V_2+V_1>u^1$，$u^{2'}=x^2+V_2=u^2$，存在Pareto improvement，矛盾。
-
-因此，$x^1 < V_2$ 时无法通过转移 good $x$ 实现 Pareto improvement，该点是 Pareto efficient 的。
-
-$$
-\begin{aligned}
-\text{PO:}\quad
-&V_1=V_2 \Longrightarrow x^1+x^2=40,\ (y^1,y^2)=(2,0)\text{ or }(0,2),\\
-&V_1>V_2 \Longrightarrow
-\big[x^1+x^2=40,\ (y^1,y^2)=(2,0)\big]\\
-&\qquad\qquad\text{or }
-\big[x^1+x^2=40,\ (y^1,y^2)=(0,2),\ x^1<V_2\big].
+\max_{q_L, q_H, t_L, t_H}\ &\lambda(t_H - c(q_H)) + (1-\lambda)(t_L - c(q_L))\\
+\text{s.t.}\quad &\theta_H v(q_H) - t_H \geq \theta_H v(q_L) - t_L \quad\text{(IC}_H\text{)}\\
+&\theta_L v(q_L) - t_L \geq \theta_L v(q_H) - t_H \quad\text{(IC}_L\text{)}\\
+&\theta_H v(q_H) - t_H \geq 0 \quad\text{(IR}_H\text{)}\\
+&\theta_L v(q_L) - t_L \geq 0 \quad\text{(IR}_L\text{)}
 \end{aligned}
 $$
 
 ::::
 
->(b) Write conditions for a Walrasian equilibrium for this economy.
+**3.3** Show that in the optimal screening contract:
+- High type gets first-best quality: $q_H^{SB} = q_H^{FB}$
+- Low type gets distorted quality: $q_L^{SB} < q_L^{FB}$
 
 ::::{solution}
 
+**3.3 Optimal Contract**
+
+**Step 1**: Which constraints bind?
+
+- **IR$_H$** slack: $\theta_H$ gets information rent
+- **IR$_L$** binds: $t_L = \theta_L v(q_L)$ (extract full surplus)
+- **IC$_H$** binds: $\theta_H$ indifferent between own contract and mimicking $\theta_L$
+- **IC$_L$** slack: $\theta_L$ doesn't want to mimic $\theta_H$ (higher payment)
+
+**Step 2**: From binding IC$_H$:
+
 $$
-CP:
-\left\{
+\theta_H v(q_H) - t_H = \theta_H v(q_L) - t_L = \theta_H v(q_L) - \theta_L v(q_L).
+$$
+
+So:
+
+$$
+t_H = \theta_H v(q_H) - (\theta_H - \theta_L)v(q_L).
+$$
+
+**Step 3**: Substitute into objective:
+
+$$
 \begin{aligned}
-&\max_{x^i\ge0,\ y^i\in\mathbb Z_+}\ x^i+v^i(y^i)\\
-&\text{s.t.}\quad x^i+py^i\le 20+pe_y^i=m^i
+\Pi &= \lambda[\theta_H v(q_H) - (\theta_H - \theta_L)v(q_L) - c(q_H)] + (1-\lambda)[\theta_L v(q_L) - c(q_L)]\\
+&= \lambda[\theta_H v(q_H) - c(q_H)] + (1-\lambda)[\theta_L v(q_L) - c(q_L)] - \lambda(\theta_H - \theta_L)v(q_L).
 \end{aligned}
-\right.
 $$
 
-Assume price vestor is $p=(1,p_y)$,
+**Step 4**: FOCs:
+
+For $q_H$:
 
 $$
-\left\{
-\begin{aligned}
-    &u^i(x^i,0)=m^i\\
-    &u^i(x^i,2)=m^i-2p_y+v^i(2)=m^i-2p_y+V_i
-\end{aligned}
-\right.
+\frac{\partial \Pi}{\partial q_H} = \lambda[\theta_H v'(q_H) - c'(q_H)] = 0 \Rightarrow \theta_H v'(q_H^{SB}) = c'(q_H^{SB}).
 $$
 
-- $2p_y>V_i \implies y^i=0, x^i=m^i$
-- $2p_y<V_i \implies y^i=2, x^i=m^i-2p_y+V_i$
-- $2p_y=V_i \implies y^i=0\text{ or }2, x^i=m^i\text{ or }m^i-2p_y+V_i$
+This is the first-best condition! So $q_H^{SB} = q_H^{FB}$.
 
-Because $V_2 \le V_1$,
+For $q_L$:
 
 $$
-\left\{
-\begin{aligned}
-&2p_y>V_1
-\Longrightarrow D_1^y(p)=D_2^y(p)=\{0\}
-\Longrightarrow y^1+y^2=0<2,\\
-&2p_y<V_2
-\Longrightarrow D_1^y(p)=D_2^y(p)=\{2\}
-\Longrightarrow y^1+y^2=4>2,\\
-&V_2\le 2p_y\le V_1
-\Longrightarrow \text{market clearing is possible.}
-\end{aligned}
-\right.
+\frac{\partial \Pi}{\partial q_L} = (1-\lambda)[\theta_L v'(q_L) - c'(q_L)] - \lambda(\theta_H - \theta_L)v'(q_L) = 0.
 $$
 
-Allocation conditions:
+Rearranging:
 
 $$
-\left\{
-\begin{aligned}
-&V_1>V_2
-\Longrightarrow (y^1,y^2)=(2,0),\\
-&V_1=V_2
-\Longrightarrow 2p=V_1=V_2,\quad (y^1,y^2)=(2,0)\text{ or }(0,2).
-\end{aligned}
-	\right.
+\left[\theta_L - \frac{\lambda}{1-\lambda}(\theta_H - \theta_L)\right] v'(q_L^{SB}) = c'(q_L^{SB}).
+$$
+
+Since $\theta_L - \frac{\lambda}{1-\lambda}(\theta_H - \theta_L) < \theta_L$, we have:
+
+$$
+\theta_L v'(q_L^{SB}) < c'(q_L^{SB}) \Rightarrow q_L^{SB} < q_L^{FB}.
 $$
 
 ::::
 
->(c) Does a Walrasian equilibrium always exist for such an economy? Either prove that it does or give a counterexample.
+**3.4** Explain the "no distortion at the top" result.
 
 ::::{solution}
-- $V_1>V_2$，$p_y\in(V_2/2,V_1/2)$
 
-$$
-\left\{
-\begin{aligned}
-&x^1=20+pe_y^1-2p\\
-&x^2=20+pe_y^2
-\end{aligned}
-\right.
-$$
+**3.4 "No Distortion at the Top"**
 
-$$
-\begin{aligned}
-x^1+x^2
-&=40+p(e_y^1+e_y^2)-2p=40
-\end{aligned}
-$$
+The high type gets first-best quality because:
 
-W.E exists.
-- $V_1=V_2$，$p_y=V_1/2=V_2/2$
+1. **Binding constraint direction**: Only IC$_H$ binds (high type might mimic low)
+2. **Marginal benefit**: Increasing $q_H$ raises profit from high types by first-best amount
+3. **No marginal cost**: The information rent $(\theta_H - \theta_L)v(q_L)$ doesn't depend on $q_H$
 
-$$
-\left\{
-\begin{aligned}
-&x^1=20+pe_y^1-2p\cdot\mathbf{1}_{\{y^1=2\}}\\
-&x^2=20+pe_y^2-2p\cdot\mathbf{1}_{\{y^2=2\}}
-\end{aligned}
-\right.
-$$
-
-$$
-\begin{aligned}
-&\text{if }(y^1,y^2)=(2,0),\ x^1=20+pe_y^1-2p,\ x^2=20+pe_y^2\\
-&\text{if }(y^1,y^2)=(0,2),\ x^1=20+pe_y^1,\ x^2=20+pe_y^2-2p
-\end{aligned}
-$$
-
-两种情况都满足市场清算条件，所以 W.E. exists.
+In contrast, $q_L$ is distorted downward to **reduce the information rent** paid to high types. Lower $q_L$ makes the low-type contract less attractive to high types, reducing the rent $(\theta_H - \theta_L)v(q_L)$.
 
 ::::
 
->(d) If a Walrasian equilibrium exists for such an economy, is it Pareto efficient? Either explain why it is or provide a counterexample.
+
+
+---
+
+## 4. Monopoly Pricing and Price Discrimination
+
+#monopoly #price-discrimination #consumer-surplus
+
+**Question** A monopolist faces demand curve $Q = a - bP$, where $a, b > 0$.
+
+Cost function: $C(Q) = cQ$ (constant marginal cost $c$).
+
+**4.1** Solve for the profit-maximizing quantity and price under **uniform pricing**.
 
 ::::{solution}
 
-$$
-\left\{
-\begin{aligned}
-&x^1+x^2=40\\
-&y^1+y^2=2\\
-&(y^1,y^2)=(2,0)\text{ or }(0,2)
-\end{aligned}
-\right.
-$$
+
+**4.1 Uniform Pricing**
+
+Inverse demand: $P = \frac{a - Q}{b}$.
+
+Profit:
 
 $$
-\left\{
-\begin{aligned}
-&V_1=V_2:
-\text{ part (a) says all non-wasteful allocations with both }y\text{ to one agent are PE},\\
-&V_1>V_2:
-\text{ part (b) says any WE must have }(y^1,y^2)=(2,0),\\
-&\qquad\quad \text{and part (a) says this is PE whenever }x^1+x^2=40.
-\end{aligned}
-\right.
+\pi(Q) = P \cdot Q - C(Q) = \frac{a - Q}{b} \cdot Q - cQ = \frac{aQ - Q^2}{b} - cQ.
+$$
+
+FOC:
+
+$$
+\frac{d\pi}{dQ} = \frac{a - 2Q}{b} - c = 0 \Rightarrow Q^M = \frac{a - bc}{2}.
+$$
+
+Price:
+
+$$
+P^M = \frac{a - Q^M}{b} = \frac{a - \frac{a-bc}{2}}{b} = \frac{a + bc}{2b}.
 $$
 
 ::::
 
->(e) Suppose we replace the assumption $v^i(1)=0$ with $v^i(1)>0$, keeping all the other assumptions. Will a Walrasian equilibrium now always exist? Either explain why or give a counterexample.
+**4.2** Calculate consumer surplus, producer surplus, and deadweight loss.
 
 ::::{solution}
-Construct:
+
+**4.2 Welfare Analysis**
+
+**Consumer Surplus**:
 
 $$
-\left\{
+CS = \frac{1}{2}(P_{\max} - P^M) Q^M = \frac{1}{2} \left(\frac{a}{b} - \frac{a+bc}{2b}\right) \frac{a-bc}{2} = \frac{(a-bc)^2}{8b}.
+$$
+
+**Producer Surplus** (profit):
+
+$$
+PS = (P^M - c) Q^M = \left(\frac{a+bc}{2b} - c\right) \frac{a-bc}{2} = \frac{(a-bc)^2}{4b}.
+$$
+
+**Competitive benchmark** ($P = c$):
+
+$$
+Q^C = a - bc, \quad CS^C = \frac{(a-bc)^2}{2b}.
+$$
+
+**Deadweight Loss**:
+
+$$
+DWL = CS^C - CS - PS = \frac{(a-bc)^2}{2b} - \frac{(a-bc)^2}{8b} - \frac{(a-bc)^2}{4b} = \frac{(a-bc)^2}{8b}.
+$$
+
+::::
+
+**4.3** If the monopolist can engage in **perfect price discrimination** (first-degree), what is the outcome?
+
+::::{solution}
+
+**4.3 Perfect Price Discrimination**
+
+Monopolist charges each consumer their willingness-to-pay.
+
+Produces until $P = MC$:
+
+$$
+Q^{PD} = a - bc = Q^C.
+$$
+
+**Total surplus extracted**: Entire consumer surplus becomes profit.
+
+$$
+PS^{PD} = \frac{(a-bc)^2}{2b}, \quad CS^{PD} = 0.
+$$
+
+::::
+
+**4.4** Compare welfare under uniform pricing vs perfect price discrimination.
+
+::::{solution}
+
+**4.4 Welfare Comparison**
+
+| Regime | $Q$ | $CS$ | $PS$ | Total Surplus | $DWL$ |
+|--------|-----|------|------|---------------|-------|
+| Competition | $a-bc$ | $\frac{(a-bc)^2}{2b}$ | $0$ | $\frac{(a-bc)^2}{2b}$ | $0$ |
+| Monopoly | $\frac{a-bc}{2}$ | $\frac{(a-bc)^2}{8b}$ | $\frac{(a-bc)^2}{4b}$ | $\frac{3(a-bc)^2}{8b}$ | $\frac{(a-bc)^2}{8b}$ |
+| Perfect PD | $a-bc$ | $0$ | $\frac{(a-bc)^2}{2b}$ | $\frac{(a-bc)^2}{2b}$ | $0$ |
+
+**Key insights**:
+- Perfect PD achieves **efficiency** (no DWL)
+- But **equity** concern: all surplus goes to monopolist
+- Uniform pricing creates DWL but preserves some consumer surplus
+
+::::
+
+
+---
+
+## 5. Game Theory: Nash Equilibrium
+
+#game-theory #Nash-equilibrium #best-response
+
+**Question** Consider a Cournot duopoly.
+
+Two firms choose quantities $q_1, q_2$ simultaneously. Inverse demand: $P(Q) = a - Q$, where $Q = q_1 + q_2$.
+
+Cost: $C_i(q_i) = c q_i$ for firm $i$.
+
+**5.1** Write firm $i$'s profit function and derive its best-response function $q_i^{BR}(q_j)$.
+
+::::{solution}
+
+
+**5.1 Best Response**
+
+Firm $i$'s profit:
+
+$$
+\pi_i(q_i, q_j) = P(q_i + q_j) q_i - c q_i = (a - q_i - q_j) q_i - c q_i.
+$$
+
+FOC:
+
+$$
+\frac{\partial \pi_i}{\partial q_i} = a - 2q_i - q_j - c = 0.
+$$
+
+Best response:
+
+$$
+q_i^{BR}(q_j) = \frac{a - c - q_j}{2}.
+$$
+
+::::
+
+**5.2** Find the Nash equilibrium quantities and price.
+
+::::{solution}
+
+**5.2 Nash Equilibrium**
+
+By symmetry, $q_1^* = q_2^* = q^*$. Substitute into BR:
+
+$$
+q^* = \frac{a - c - q^*}{2} \Rightarrow 3q^* = a - c \Rightarrow q^* = \frac{a - c}{3}.
+$$
+
+Total quantity:
+
+$$
+Q^{Cournot} = 2q^* = \frac{2(a-c)}{3}.
+$$
+
+Price:
+
+$$
+P^{Cournot} = a - Q^{Cournot} = a - \frac{2(a-c)}{3} = \frac{a + 2c}{3}.
+$$
+
+::::
+
+**5.3** Compare with perfect competition ($P = c$) and monopoly outcomes.
+
+::::{solution}
+
+**5.3 Comparison**
+
+| Regime | $Q$ | $P$ | Per-firm profit |
+|--------|-----|-----|-----------------|
+| Competition | $a-c$ | $c$ | $0$ |
+| Cournot | $\frac{2(a-c)}{3}$ | $\frac{a+2c}{3}$ | $\frac{(a-c)^2}{9}$ |
+| Monopoly | $\frac{a-c}{2}$ | $\frac{a+c}{2}$ | $\frac{(a-c)^2}{4}$ |
+
+**Ordering**: $Q^{Comp} > Q^{Cournot} > Q^{Mono}$, and $P^{Comp} < P^{Cournot} < P^{Mono}$.
+
+::::
+
+**5.4** Show that the Cournot equilibrium is inefficient (positive DWL).
+
+::::{solution}
+
+**5.4 Inefficiency**
+
+Competitive surplus:
+
+$$
+CS^{Comp} = \frac{(a-c)^2}{2}.
+$$
+
+Cournot surplus:
+
+$$
 \begin{aligned}
-&v^1(0)=0,\qquad v^1(1)=1,\qquad v^1(2)=10\\
-&v^2(0)=0,\qquad v^2(1)=7,\qquad v^2(2)=8\\
-&v^i(y)=v^i(2),\qquad y>2
+CS^{Cournot} &= \frac{1}{2}(a - P^{Cournot}) Q^{Cournot} = \frac{1}{2} \cdot \frac{a-c}{3} \cdot \frac{2(a-c)}{3} = \frac{(a-c)^2}{9}\\
+PS^{Cournot} &= 2 \times \frac{(a-c)^2}{9} = \frac{2(a-c)^2}{9}\\
+TS^{Cournot} &= \frac{(a-c)^2}{9} + \frac{2(a-c)^2}{9} = \frac{(a-c)^2}{3}
 \end{aligned}
-\right.
 $$
 
-This satisfies:
+Deadweight loss:
 
 $$
-\left\{
-\begin{aligned}
-&v^i(2)>v^i(1)>0\\
-&v^2(2)=8\le v^1(2)=10\le10
-\end{aligned}
-\right.
+DWL = \frac{(a-c)^2}{2} - \frac{(a-c)^2}{3} = \frac{(a-c)^2}{6} > 0.
 $$
 
-For utility maximization:
-
-$$
-\left\{
-    \begin{aligned}
-    u^i(x^i,0)&=m^i\\
-u^i(x^i,1)&=m^i-p+v^i(1)\\
-u^i(x^i,2)&=m^i-2p+v^i(2)
-    \end{aligned}
-\right.
-\iff
-\left\{
-\begin{aligned}
-&y=0:\quad 0\\
-&y=1:\quad v^i(1)-p\\
-&y=2:\quad v^i(2)-2p
-\end{aligned}
-\right.
-$$
-
-For agent 1 and agent2:
-
-$$
-D_1^y(p)=
-\left\{
-\begin{aligned}
-&\{2\}, &&0<p<5,\\
-&\{0,2\}, &&p=5,\\
-&\{0\}, &&p>5.
-\end{aligned}
-\right.
-\qquad
-D_2^y(p)=
-\left\{
-\begin{aligned}
-&\{2\}, &&0<p<1,\\
-&\{1,2\}, &&p=1,\\
-&\{1\}, &&1<p<7,\\
-&\{0,1\}, &&p=7,\\
-&\{0\}, &&p>7.
-\end{aligned}
-\right.
-$$
-
-Total $y$-demand correspondence:
-
-$$
-D_1^y(p)+D_2^y(p)=
-\left\{
-\begin{aligned}
-&\{4\}, &&0<p<1,\\
-&\{3,4\}, &&p=1,\\
-&\{3\}, &&1<p<5,\\
-&\{1,3\}, &&p=5,\\
-&\{1\}, &&5<p<7,\\
-&\{0,1\}, &&p=7,\\
-&\{0\}, &&p>7.
-\end{aligned}
-\right.
-$$
-
-which does not contain $2$ for any price, so there is no price that clears the market for good $y$. Therefore, a Walrasian equilibrium does not exist in this case.
+**Cournot equilibrium is inefficient**: Firms restrict output to raise price above marginal cost.
 
 ::::

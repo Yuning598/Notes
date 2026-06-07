@@ -1,6 +1,5 @@
 # 07 Behavioral Empirical Asset Pricing Overview
 
-Source: EF8083 slides, pp. 323-362  
 导航：[06_Subjective_Expectations_Learning](06_Subjective_Expectations_Learning) | [08_Limits_to_Arbitrage_Prospect_Theory](08_Limits_to_Arbitrage_Prospect_Theory) | [09_Beliefs_Attention_Sentiment_Credit](09_Beliefs_Attention_Sentiment_Credit)
 
 ## 1. Overview
@@ -159,13 +158,13 @@ $$
 
 一个 behavioral explanation 必须回答三件事：
 
-1. **belief/preference channel 是什么？**  
+1. **belief/preference channel 是什么？**
    例如 extrapolation、overconfidence、prospect utility。
 
-2. **为什么价格不被套利消除？**  
+2. **为什么价格不被套利消除？**
    例如 short-sale constraints、limits to arbitrage、noise trader risk。
 
-3. **可检验预测是什么？**  
+3. **可检验预测是什么？**
    例如高 sentiment 股票未来低收益；高 short-sale constraint 中 disagreement 更强；lottery demand 推高高 skewness 股票价格。
 
 ## 10. 复习抓手

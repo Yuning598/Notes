@@ -1,6 +1,5 @@
 # 02 Implied Volatility, VIX, Variance Risk Premium
 
-Source: EF8083 slides, pp. 37-72  
 导航：[01_Volatility_ARCH_GARCH](01_Volatility_ARCH_GARCH) | [03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) | [cards/VIX_Static_Replication](cards/VIX_Static_Replication) | [cards/Variance_Risk_Premium](cards/Variance_Risk_Premium) | [cards/Correlation_Risk_Premium](cards/Correlation_Risk_Premium)
 
 ## 1. 从 realized volatility 到 implied volatility

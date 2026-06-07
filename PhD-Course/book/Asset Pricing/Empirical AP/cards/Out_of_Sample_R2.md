@@ -4,7 +4,6 @@ orphan: true
 
 # Out-of-Sample R2
 
-Source: EF8083 slides, pp. 159-194  
 导航：[Asset Pricing index](../../index.md) · [Empirical AP MOC](../00-MOC_EF8083_Empirical_Asset_Pricing.md) · 来源：[04_Return_Predictability_Econometrics](../04_Return_Predictability_Econometrics)
 
 Out-of-sample $R^2$:

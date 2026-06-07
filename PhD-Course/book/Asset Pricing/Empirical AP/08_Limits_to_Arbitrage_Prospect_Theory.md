@@ -1,6 +1,5 @@
 # 08 Limits to Arbitrage, Prospect Theory, Ambiguity
 
-Source: EF8083 slides, pp. 363-428  
 导航：[07_Behavioral_Empirical_AP_Overview](07_Behavioral_Empirical_AP_Overview) | [09_Beliefs_Attention_Sentiment_Credit](09_Beliefs_Attention_Sentiment_Credit) | [cards/Limits_to_Arbitrage](cards/Limits_to_Arbitrage) | [cards/Prospect_Theory_Lottery_Preference](cards/Prospect_Theory_Lottery_Preference)
 
 ## 1. Roadmap

@@ -152,15 +152,23 @@ $$
 使用符号 $S$ 来表示 $Avar(\bar{g})$ (g的渐近方差)。根据平稳且遍历的**中心极限定理 (CLT)**，有 $\sqrt{n} \bar{g} \xrightarrow{d} N(0, S)$。其中 $S$ 的定义为：
 
 $$
-S = E(g_i g'_i)
-$$
-S = \underbrace{E(g_i g'_i)}_{(\sum_{m=1}^M K_m \times \sum_{m=1}^M K_m)} = \begin{bmatrix} E(\epsilon_{i1}\epsilon_{i1}x_{i1}x'_{i1}) & \dots & E(\epsilon_{i1}\epsilon_{iM}x_{i1}x'_{iM}) \\ \vdots & \ddots & \vdots \\ E(\epsilon_{iM}\epsilon_{i1}x_{iM}x'_{i1}) & \dots & E(\epsilon_{iM}\epsilon_{iM}x_{iM}x'_{iM}) \end{bmatrix} \tag{4.1.11}
+\begin{aligned}
+S
+&= E(g_i g_i')\\
+&= \underbrace{E(g_i g_i')}_{(\sum_{m=1}^M K_m \times \sum_{m=1}^M K_m)}
+= \begin{bmatrix}
+E(\epsilon_{i1}\epsilon_{i1}x_{i1}x_{i1}') & \dots & E(\epsilon_{i1}\epsilon_{iM}x_{i1}x_{iM}') \\
+\vdots & \ddots & \vdots \\
+E(\epsilon_{iM}\epsilon_{i1}x_{iM}x_{i1}') & \dots & E(\epsilon_{iM}\epsilon_{iM}x_{iM}x_{iM}')
+\end{bmatrix}.
+\end{aligned}
+\tag{4.1.11}
 $$
 
 (equation-4-1-11)=
 
-$$
 考虑 $g_i$ 是由工具变量和残差构成的向量 $g_i = (x_{i1}\epsilon_{i1}, x_{i2}\epsilon_{i2}, \dots, x_{iM}\epsilon_{iM})'$。对于简化情况 $g_i = \begin{pmatrix} x_{i1}\epsilon_{i1} \\ x_{i2}\epsilon_{i2} \end{pmatrix}$，其块矩阵形式为：
+
 $$
 g_i g'_i = \begin{pmatrix} \epsilon_{i1}^2 x_{i1}x'_{i1} & \epsilon_{i1}\epsilon_{i2}x_{i1}x'_{i2} \\ \epsilon_{i2}\epsilon_{i1}x_{i2}x'_{i1} & \epsilon_{i2}^2 x_{i2}x'_{i2} \end{pmatrix}
 $$
@@ -235,7 +243,7 @@ $$
 
 单方程 GMM 的大样本理论可直接推广至多方程模型。回顾 [Assumption 4.1](#assumption-4-1)、[Assumption 4.2](#assumption-4-2)、[Assumption 4.6](#assumption-4-6) 和 [Proposition 3.2](10_Single_Equation_GMM.md#proposition-3-2)。
 
-- **Hypothesis testing (假设检验)**: 
+- **Hypothesis testing (假设检验)**:
 	- 可检验跨方程限制 (**cross-equation restrictions**)，如系数在不同方程间是否相等。 (见 [Example 4.2 (wage equation for two years)](<cards/Example 4.2 (wage equation for two years).md>))
 
 :::{admonition} Proposition: Proposition 4.1 (consistent estimation of contemporaneous error cross-equation moments)
@@ -345,7 +353,7 @@ $$
 S = \begin{bmatrix}
 S_{11} & \mathbf{0} & \dots \\
 \mathbf{0} & S_{22} & \dots \\
-\vdots & \vdots & \ddots 
+\vdots & \vdots & \ddots
 \end{bmatrix}, \quad \text{其中 } S_{mm} = E(\epsilon_{im}^2 x_{im} x'_{im})
 $$
 此时，逆矩阵 $\hat{S}^{-1}$ 同样退化为块对角阵，代入系统估计量公式：
@@ -505,10 +513,10 @@ $$
 此条件意味着 [式 (4.1.11)](#equation-4-1-11) 中的 $S$ 可以写作：
 
 $$
-S = \begin{bmatrix} 
-\sigma_{11}\mathbb{E}(\mathbf{x}_{i1}\mathbf{x}'_{i1}) & \dots & \sigma_{1M}\mathbb{E}(\mathbf{x}_{i1}\mathbf{x}'_{iM}) \\ 
-\vdots & \ddots & \vdots \\ 
-\sigma_{M1}\mathbb{E}(\mathbf{x}_{iM}\mathbf{x}'_{i1}) & \dots & \sigma_{MM}\mathbb{E}(\mathbf{x}_{iM}\mathbf{x}'_{iM}) 
+S = \begin{bmatrix}
+\sigma_{11}\mathbb{E}(\mathbf{x}_{i1}\mathbf{x}'_{i1}) & \dots & \sigma_{1M}\mathbb{E}(\mathbf{x}_{i1}\mathbf{x}'_{iM}) \\
+\vdots & \ddots & \vdots \\
+\sigma_{M1}\mathbb{E}(\mathbf{x}_{iM}\mathbf{x}'_{i1}) & \dots & \sigma_{MM}\mathbb{E}(\mathbf{x}_{iM}\mathbf{x}'_{iM})
 \end{bmatrix} \tag{4.5.2}
 $$
 (equation-4-5-2)=
@@ -642,8 +650,8 @@ $$
 
 $$
 \widehat{W} = \begin{pmatrix}
-\hat{\sigma}^{11} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} & \hat{\sigma}^{12} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} \\ 
-\hat{\sigma}^{21} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} & \hat{\sigma}^{22} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} 
+\hat{\sigma}^{11} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} & \hat{\sigma}^{12} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} \\
+\hat{\sigma}^{21} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1} & \hat{\sigma}^{22} \left( \frac{\mathbf{X}'\mathbf{X}}{n} \right)^{-1}
 \end{pmatrix}
 $$
 #### The 3SLS Estimator
@@ -963,7 +971,7 @@ $$
 $$
 \begin{aligned}
 E[g(\mathbf{w}_i; \tilde{\delta})] &= \begin{bmatrix} E(\mathbf{x}_{i1} \cdot y_{i1}) \\ \vdots \\ E(\mathbf{x}_{iM} \cdot y_{iM}) \end{bmatrix} - \begin{bmatrix} E(\mathbf{x}_{i1} \mathbf{z}'_{i1})\tilde{\delta} \\ \vdots \\ E(\mathbf{x}_{iM} \mathbf{z}'_{iM})\tilde{\delta} \end{bmatrix} \\
-&= \underset{(\sum K_m \times 1)}{\boldsymbol{\sigma}_{xy}} - \underset{(\sum K_m \times L)}{\boldsymbol{\Sigma}_{xz}} \underset{(L \times 1)}{\tilde{\delta}} 
+&= \underset{(\sum K_m \times 1)}{\boldsymbol{\sigma}_{xy}} - \underset{(\sum K_m \times L)}{\boldsymbol{\Sigma}_{xz}} \underset{(L \times 1)}{\tilde{\delta}}
 \end{aligned}\tag{4.6.3}
 $$
 (equation-4-6-3)=
@@ -1024,13 +1032,12 @@ $$
 $$
 where $\hat{\sigma}^{mh}$ is the $(m, h)$ element of $\widehat{\boldsymbol{\Sigma}}^{-1}$. Substituting this into the general formula (4.6.6) yields the **3SLS estimator with common coefficients**:
 $$
-
-\hat{\delta}_{3SLS} = \left[ \sum_{m=1}^M \sum_{h=1}^M \left\{ \hat{\sigma}^{mh} \cdot \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}_i' \right) \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right)^{-1} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{z}_{ih}' \right) \right\} \right]^{-1} 
-
-$$
-
-\cdot \left[ \sum_{m=1}^M \sum_{h=1}^M \left\{ \hat{\sigma}^{mh} \cdot \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}_i' \right) \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right)^{-1} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \cdot y_{ih} \right) \right\} \right] \tag{4.6.7}
-
+\begin{aligned}
+\hat{\delta}_{3SLS}
+&= \left[ \sum_{m=1}^M \sum_{h=1}^M \left\{ \hat{\sigma}^{mh} \cdot \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}_i' \right) \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right)^{-1} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{z}_{ih}' \right) \right\} \right]^{-1}\\
+&\quad \cdot \left[ \sum_{m=1}^M \sum_{h=1}^M \left\{ \hat{\sigma}^{mh} \cdot \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_{im} \mathbf{x}_i' \right) \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right)^{-1} \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \cdot y_{ih} \right) \right\} \right].
+\end{aligned}
+\tag{4.6.7}
 $$
 (equation-4-6-7)=
 
@@ -1304,10 +1311,7 @@ $$
 &= \alpha_j + \frac{1}{2} \sum_{k=1}^3 \gamma_{jk} \log(p_k) + \frac{1}{2} \sum_{k=1}^3 \gamma_{jk} \log(p_k) + \gamma_{jQ} \log(Q) \\
 &= \alpha_j + \sum_{k=1}^3 \gamma_{jk} \log(p_k) + \gamma_{jQ} \log(Q)
 \end{aligned}
-$$
-
 \tag{4.7.6}
-
 $$
 (equation-4-7-6)=
 
@@ -1382,10 +1386,10 @@ $$
 综上可得 Translog 成本函数的替代弹性系统：
 
 $$
-\eta_{jk} = \begin{cases} 
-\frac{\gamma_{jk} + s_j s_k}{s_j s_k} & \text{for } j \neq k \\ 
+\eta_{jk} = \begin{cases}
+\frac{\gamma_{jk} + s_j s_k}{s_j s_k} & \text{for } j \neq k \\
 \frac{\gamma_{jj} + s_j^2 - s_j}{s_j^2} & \text{for } j = k
-\end{cases} \tag{4.7.9} 
+\end{cases} \tag{4.7.9}
 $$
 (equation-4-7-9)=
 
@@ -1509,11 +1513,18 @@ $$
 使用“公共系数 (common coefficient)”格式，系统 [(4.7.16)](#equation-4-7-16) 可写为 $\boldsymbol{y}_i = \boldsymbol{Z}_i \boldsymbol{\delta} + \boldsymbol{\varepsilon}_i$，从而将受限估计转换为无约束估计。具体形式如下：
 
 $$
-\boldsymbol{y}_i = \begin{bmatrix} s_1 \\ s_2 \end{bmatrix}
-$$
-\boldsymbol{Z}_i = \begin{bmatrix} 1 & 0 & \log(p_1/p_3) & \log(p_2/p_3) & 0 & \log(Q) & 0 \\ 0 & 1 & 0 & \log(p_1/p_3) & \log(p_2/p_3) & 0 & \log(Q) \end{bmatrix}
-$$
-\boldsymbol{\delta}' = \begin{bmatrix} \alpha_1 & \alpha_2 & \gamma_{11} & \gamma_{12} & \gamma_{22} & \gamma_{1Q} & \gamma_{2Q} \end{bmatrix} \tag{4.7.17}
+\begin{aligned}
+\boldsymbol{y}_i
+&= \begin{bmatrix} s_1 \\ s_2 \end{bmatrix},\\
+\boldsymbol{Z}_i
+&= \begin{bmatrix}
+1 & 0 & \log(p_1/p_3) & \log(p_2/p_3) & 0 & \log(Q) & 0 \\
+0 & 1 & 0 & \log(p_1/p_3) & \log(p_2/p_3) & 0 & \log(Q)
+\end{bmatrix},\\
+\boldsymbol{\delta}'
+&= \begin{bmatrix} \alpha_1 & \alpha_2 & \gamma_{11} & \gamma_{12} & \gamma_{22} & \gamma_{1Q} & \gamma_{2Q} \end{bmatrix}.
+\end{aligned}
+\tag{4.7.17}
 $$
 (equation-4-7-17)=
 

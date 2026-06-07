@@ -1,6 +1,5 @@
 # 04 Return Predictability and Econometric Issues
 
-Source: EF8083 slides, pp. 123-194  
 导航：[03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) | [05_Cross_Section_Factor_Models](05_Cross_Section_Factor_Models) | [cards/Predictive_Regression_Stambaugh_Bias](cards/Predictive_Regression_Stambaugh_Bias) | [cards/Out_of_Sample_R2](cards/Out_of_Sample_R2)
 
 **Data construction.**

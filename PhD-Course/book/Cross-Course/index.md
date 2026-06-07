@@ -9,7 +9,10 @@ tags:
 
 本页是 QE 跨课复习 Hub：先用图谱按课程、主题和 Exam Focus 定位考点，再进入 bridge note 深读共同数学对象，最后回到课程页和 ProblemSet 做同类题。
 
-<iframe src="../qe-knowledge-graph.html" title="QE Interactive Knowledge Graph" loading="lazy" style="width:100%;height:760px;border:0;display:block;border-radius:16px;"></iframe>
+```{cross-course-graph}
+:data: Cross-Course/data/qe_graph.yml
+:height: 760px
+```
 
 ## 推荐使用方式
 

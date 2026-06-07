@@ -1,6 +1,5 @@
 # 01 Volatility, ARCH, GARCH
 
-Source: EF8083 slides, pp. 1-36  
 导航：[00-MOC_EF8083_Empirical_Asset_Pricing](00-MOC_EF8083_Empirical_Asset_Pricing) | [02_Implied_Volatility_VIX_VRP](02_Implied_Volatility_VIX_VRP) | [cards/Weak_Stationarity](cards/Weak_Stationarity) | [cards/ARCH_Unconditional_Variance](cards/ARCH_Unconditional_Variance) | [cards/GARCH_Infinite_ARCH_and_Half_Life](cards/GARCH_Infinite_ARCH_and_Half_Life) | [cards/Realized_Variance_Microstructure](cards/Realized_Variance_Microstructure)
 
 ## 1. 为什么 volatility 是 empirical asset pricing 的起点

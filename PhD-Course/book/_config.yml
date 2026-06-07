@@ -14,6 +14,7 @@ sphinx:
   local_extensions:
     tikz_lexer: _ext
     solution_block: _ext
+    cross_course_graph: _ext
   config:
     html_baseurl: https://yuning598.github.io/PhD-Course
     html_show_copyright: false

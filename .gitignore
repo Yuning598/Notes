@@ -8,6 +8,7 @@
 PhD-Course/book/_build/
 PhD-Course/book/_ext/__pycache__/
 PhD-Course/**/*.pyc
+PhD-Course/.claude/
 .DS_Store
 PhD-Course/**/*.pdf
 PhD-Course/.github/

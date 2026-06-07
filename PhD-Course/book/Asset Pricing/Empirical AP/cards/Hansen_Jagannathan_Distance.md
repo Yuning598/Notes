@@ -4,23 +4,32 @@ orphan: true
 
 # Hansen-Jagannathan Distance
 
-Source: EF8083 slides, pp. 213-224; Hansen and Jagannathan (1997)  
-导航：[Asset Pricing index](../../index.md) · [Empirical AP MOC](../00-MOC_EF8083_Empirical_Asset_Pricing.md) · 来源：[Cross-section factor models: HJ distance](../05_Cross_Section_Factor_Models.md)
+**核心结论**：HJ distance 衡量候选 SDF 与能够定价 test assets 的 SDF 集合之间的距离（model misspecification 的度量）：
 
-HJ distance measures how far a candidate SDF is from the set of SDFs that price the test assets.
+$$
+d_{HJ}(\theta)^2=g(\theta)'G^{-1}g(\theta),
+$$
 
-Let $m(\theta)$ be a candidate SDF and $R^e$ be the vector of test-asset excess returns:
+其中 $g(\theta)=E[m(\theta)R^e]$，$G=E[R^eR^{e'}]$。
+
+---
+
+## 定义
+
+设 $m(\theta)$ 是候选 SDF，$R^e$ 是 test-asset excess returns 向量。
+
+定义：
 
 $$
 \left\{
 \begin{aligned}
-g(\theta)&=E[m(\theta)R^e],\\
+g(\theta)&=E[m(\theta)R^e], \\
 G&=E[R^eR^{e'}].
 \end{aligned}
 \right.
 $$
 
-Then
+HJ distance 为：
 
 $$
 \boxed{
@@ -28,7 +37,7 @@ d_{HJ}(\theta)^2=g(\theta)'G^{-1}g(\theta)
 }
 $$
 
-Equivalently,
+等价形式：
 
 $$
 d_{HJ}(\theta) =
@@ -36,24 +45,42 @@ d_{HJ}(\theta) =
 \sqrt{E[(m(\theta)-m^*)^2]}.
 $$
 
-In GMM form, HJ distance corresponds to the weighting matrix
+$d_{HJ}(\theta)$ 是候选 SDF $m(\theta)$ 到最近的 admissible SDF $m^*$ 的 L2 距离。
+
+---
+
+## GMM 对应
+
+在 GMM 框架中，HJ distance 对应 weighting matrix：
 
 $$
 W_{HJ} =
 \left(\frac1T\sum_{t=1}^T R_t^eR_t^{e'}\right)^{-1}.
 $$
 
-**对比 HJ bound.**
+使用这个 weighting matrix 的 GMM 目标函数就是 HJ distance 的样本版本。
+
+---
+
+## 与 HJ bound 的区别
 
 $$
 \begin{aligned}
 \text{HJ bound:}\quad
 &\frac{\sigma(M)}{E[M]}\ge \max_R\frac{\lvert E[R^e]\rvert}{\sigma(R^e)}
-&&\text{asks whether an SDF is volatile enough},\\
+&&\text{任意 admissible SDF 的最小波动率要求}, \\
 \text{HJ distance:}\quad
 &d_{HJ}^2=g'G^{-1}g
-&&\text{asks how far a candidate SDF is from pricing test assets}.
+&&\text{某个候选 SDF 到 admissible SDF 集合的距离}.
 \end{aligned}
 $$
 
-HJ bound is a lower bound on admissible SDF volatility; HJ distance is a model misspecification metric.
+- **HJ bound** 是对所有 admissible SDF 的波动率下界（是否足够 volatile）
+- **HJ distance** 是特定模型的 misspecification 度量（离正确的 SDF 有多远）
+
+见 [[Hansen_Jagannathan_Bound]]。
+
+---
+
+**来源**：EF8083 slides, pp. 213-224; Hansen and Jagannathan (1997)
+**导航**：[[../../index|Asset Pricing index]] · [[../00-MOC_EF8083_Empirical_Asset_Pricing|Empirical AP MOC]] · [[../05_Cross_Section_Factor_Models|Cross-section factor models]]

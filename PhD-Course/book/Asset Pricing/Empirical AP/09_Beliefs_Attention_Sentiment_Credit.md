@@ -1,6 +1,5 @@
 # 09 Beliefs, Attention, Sentiment, and Credit Market Cycle
 
-Source: EF8083 slides, pp. 429-520  
 导航：[06_Subjective_Expectations_Learning](06_Subjective_Expectations_Learning) | [07_Behavioral_Empirical_AP_Overview](07_Behavioral_Empirical_AP_Overview) | [08_Limits_to_Arbitrage_Prospect_Theory](08_Limits_to_Arbitrage_Prospect_Theory) | [cards/Heterogeneous_Beliefs_SSC](cards/Heterogeneous_Beliefs_SSC) | [cards/Limited_Attention_PEAD](cards/Limited_Attention_PEAD) | [cards/Investor_Sentiment_Credit_Cycle](cards/Investor_Sentiment_Credit_Cycle)
 
 ## 1. Psychology of beliefs

@@ -1,6 +1,5 @@
 # 06 Subjective Expectations, Learning, and Return Beliefs
 
-Source: EF8083 slides, pp. 242-322  
 导航：[03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles) | [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics) | [07_Behavioral_Empirical_AP_Overview](07_Behavioral_Empirical_AP_Overview) | [cards/Bayesian_Learning_Return_Predictability](cards/Bayesian_Learning_Return_Predictability) | [cards/Survey_Expectations](cards/Survey_Expectations) | [cards/Experience_Based_Learning](cards/Experience_Based_Learning) | [cards/Martin_Option_Implied_Lower_Bound](cards/Martin_Option_Implied_Lower_Bound)
 
 ## 1. Rational expectations vs rationality

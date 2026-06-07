@@ -4,7 +4,6 @@ orphan: true
 
 # Weak Stationarity
 
-Source: EF8083 slides, pp. 9-10  
 导航：[Asset Pricing index](../../index.md) · [Empirical AP MOC](../00-MOC_EF8083_Empirical_Asset_Pricing.md) · 来源：[01_Volatility_ARCH_GARCH](../01_Volatility_ARCH_GARCH)
 
 :::{admonition} Definition (Weak stationarity)
