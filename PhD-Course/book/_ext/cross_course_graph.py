@@ -123,6 +123,10 @@ def depart_cross_course_graph_html(translator, node):
 
 def setup(app):
     app.add_css_file("cross-course-graph.css")
+    app.add_js_file(
+        "https://cdn.jsdelivr.net/npm/cytoscape@3.33.4/dist/cytoscape.min.js",
+        defer="defer",
+    )
     app.add_js_file("cross-course-graph.js", defer="defer")
     app.add_node(
         cross_course_graph_node,
