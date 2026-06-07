@@ -80,6 +80,7 @@ parts:
       - file: ProblemSet/Corporate Finance
       - file: ProblemSet/Econometrics
       - file: ProblemSet/Microeconomics
-  - caption: Cross-Course Links
+  - caption: Cross Course
     chapters:
       - file: Cross-Course/index
+        title: Cross Course
