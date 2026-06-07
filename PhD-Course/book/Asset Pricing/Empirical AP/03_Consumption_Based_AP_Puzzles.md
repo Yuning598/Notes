@@ -1,7 +1,7 @@
 # 03 Consumption-Based Asset Pricing and Puzzles
 
 Source: EF8083 slides, pp. 73-122  
-导航：[00-MOC_EF8083_Empirical_Asset_Pricing](00-MOC_EF8083_Empirical_Asset_Pricing) | [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics) | [cards/SDF_Euler_Equation](cards/SDF_Euler_Equation) | [cards/Hansen_Jagannathan_Bound](cards/Hansen_Jagannathan_Bound) | [cards/Campbell_Shiller_Decomposition](cards/Campbell_Shiller_Decomposition)
+导航：[Empirical AP MOC](00-MOC_EF8083_Empirical_Asset_Pricing.md) | [Return predictability](04_Return_Predictability_Econometrics.md) | [SDF Euler equation](cards/SDF_Euler_Equation.md) | [HJ bound](cards/Hansen_Jagannathan_Bound.md) | [Campbell-Shiller decomposition](cards/Campbell_Shiller_Decomposition.md)
 
 ## 1. 资产定价的统一对象：SDF
 
@@ -35,7 +35,7 @@ M_{t+1} =
 \beta\frac{u'(C_{t+1})}{u'(C_t)}.
 $$
 
-见 [cards/SDF_Euler_Equation](cards/SDF_Euler_Equation)。
+见 [SDF Euler equation](cards/SDF_Euler_Equation.md)。
 
 ## 2. Euler equation 的推导
 
@@ -228,10 +228,7 @@ $$
 $$
 \frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}.
 $$
-对 excess return $R^e$，pricing equation 是
-$$
-E[MR^e]=0.
-$$
+对 excess return $R^e$，pricing equation 是 $E[MR^e]=0$。
 
 $$
 \begin{aligned} 0 &=E[MR^e]\\ &=E[M]E[R^e]+\operatorname{Cov}(M,R^e)\\ E[M]E[R^e] &=-\operatorname{Cov}(M,R^e). \end{aligned}
@@ -247,7 +244,7 @@ $$
 $$
 \frac{|E[R^e]|}{\sigma(R^e)} \le \frac{\sigma(M)}{E[M]}.
 $$
-大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。见 [cards/Hansen_Jagannathan_Bound](cards/Hansen_Jagannathan_Bound)。
+大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。见 [HJ bound](cards/Hansen_Jagannathan_Bound.md)。
 
 :::
 
@@ -297,7 +294,7 @@ $$
 $$
 pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}].
 $$
-price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-rate news。见 [cards/Campbell_Shiller_Decomposition](cards/Campbell_Shiller_Decomposition)。
+price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-rate news。见 [Campbell-Shiller decomposition](cards/Campbell_Shiller_Decomposition.md)。
 
 :::
 
@@ -307,4 +304,3 @@ price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-ra
 - Consumption model 一条线：$M=\beta(C_{t+1}/C_t)^{-\gamma}$。
 - Puzzles 一条线：consumption covariance 太小，SDF volatility 不够，price-dividend ratio 波动很大。
 - 与下一主题连接：如果 $pd_t$ 反映 expected returns 的变化，那么 valuation ratios 应该预测未来 returns。见 [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics)。
-

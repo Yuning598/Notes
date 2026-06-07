@@ -21,6 +21,12 @@ sphinx:
     html_extra_path:
       - robots.txt
       - attachment
+    html_static_path:
+      - _static
+    html_css_files:
+      - card-preview.css
+    html_js_files:
+      - card-preview.js
     templates_path:
       - _templates
     external_toc_path: _toc.yml
