@@ -227,7 +227,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** bias 的符号由 $\beta_2$ 和 omitted variable 与 included regressor 的 covariance 共同决定。
+bias 的符号由 $\beta_2$ 和 omitted variable 与 included regressor 的 covariance 共同决定。
 
 ## Fixed Effects as Residualization
 
@@ -338,7 +338,7 @@ E[\hat\beta\mid X] &=E[(X'X)^{-1}X'Y\mid X]\\
 \end{aligned}
 $$
 
-**结论：** 在 $E[e\mid X]=0$ 下，OLS 条件无偏，因此也无条件无偏。
+在 $E[e\mid X]=0$ 下，OLS 条件无偏，因此也无条件无偏。
 
 :::{admonition} Lemma (Conditional variance of OLS)
 $$
@@ -361,7 +361,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** 若 $D=\sigma^2I$，则 $\operatorname{Var}(\hat\beta\mid X)=\sigma^2(X'X)^{-1}$。
+若 $D=\sigma^2I$，则 $\operatorname{Var}(\hat\beta\mid X)=\sigma^2(X'X)^{-1}$。
 
 ## Gauss-Markov Theorem
 

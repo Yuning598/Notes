@@ -12,9 +12,13 @@ Source: EF8083 slides, pp. 242-322
 
 :::{admonition} Definition (Rational expectations)
 Rational expectations 要求主观条件期望等于模型真实条件期望：
-$$ \tilde E_t[X_{t+1}]=E_t[X_{t+1}]. $$
+$$
+\tilde E_t[X_{t+1}]=E_t[X_{t+1}].
+$$
 Subjective expectations literature 则允许
-$$ \tilde E_t[X_{t+1}]\ne E_t[X_{t+1}], $$
+$$
+\tilde E_t[X_{t+1}]\ne E_t[X_{t+1}],
+$$
 并用 survey、experience、market-implied bounds 等数据识别 beliefs。
 
 :::
@@ -39,13 +43,12 @@ $$
 $$
 
 :::{admonition} Lemma: Bayesian posterior with unknown mean
-**要证：**
-$$ \mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right). $$
-
-**联立系统：**
-$$ D_s\mid\mu\sim N(\mu,\sigma^2),\qquad s=1,\ldots,t. $$
-
-**连续求解：**
+$$
+\mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right).
+$$
+$$
+D_s\mid\mu\sim N(\mu,\sigma^2),\qquad s=1,\ldots,t.
+$$
 样本似然：
 
 $$
@@ -59,11 +62,12 @@ $$
 $$
 
 与 $\mu$ 有关的部分：
-$$ L(\mu)\propto \exp\left[-\frac{t}{2\sigma^2}(\mu-\bar D_t)^2\right]. $$
-
-**结论：**
-$$ \mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right). $$
-
+$$
+L(\mu)\propto \exp\left[-\frac{t}{2\sigma^2}(\mu-\bar D_t)^2\right].
+$$
+$$
+\mu\mid H_t\sim N\left(\bar D_t,\frac{\sigma^2}{t}\right).
+$$
 :::
 
 ## 3. Learning creates return predictability
@@ -84,15 +88,16 @@ P_t^* =
 $$
 
 :::{admonition} Lemma: Bayesian learning 下的 realized return
-**要证：**
-$$ R_{t+1} = \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t). $$
-
-**联立系统：**
-$$ P_t=\frac{\beta}{1-\beta}\bar D_t, \qquad \bar D_{t+1}=\frac{t\bar D_t+D_{t+1}}{t+1}. $$
+$$
+R_{t+1} = \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t).
+$$
+$$
+P_t=\frac{\beta}{1-\beta}\bar D_t, \qquad \bar D_{t+1}=\frac{t\bar D_t+D_{t+1}}{t+1}.
+$$
 课件定义净 payoff：
-$$ R_{t+1}=P_{t+1}+D_{t+1}-\frac{P_t}{\beta}. $$
-
-**连续求解：**
+$$
+R_{t+1}=P_{t+1}+D_{t+1}-\frac{P_t}{\beta}.
+$$
 
 $$
 \begin{aligned} P_{t+1} &=\frac{\beta}{1-\beta}\bar D_{t+1} =\frac{\beta}{1-\beta} \frac{t\bar D_t+D_{t+1}}{t+1}. \end{aligned}
@@ -104,7 +109,7 @@ $$
 \begin{aligned} R_{t+1} &= \frac{\beta}{1-\beta}\frac{t\bar D_t+D_{t+1}}{t+1} +D_{t+1} -\frac{1}{1-\beta}\bar D_t\\ &= \frac{1}{1-\beta} \left[ \frac{\beta t}{t+1}\bar D_t +\frac{\beta}{t+1}D_{t+1} +(1-\beta)D_{t+1} -\bar D_t \right]\\ &= \frac{1}{1-\beta} \left[ \left(\frac{\beta}{t+1}+1-\beta\right)D_{t+1} -\left(1-\frac{\beta t}{t+1}\right)\bar D_t \right]\\ &= \frac{1}{1-\beta} \left(1-\frac{\beta t}{t+1}\right) (D_{t+1}-\bar D_t). \end{aligned}
 $$
 
-**结论：** returns depend on forecast errors relative to learned belief $\bar D_t$。见 [cards/Bayesian_Learning_Return_Predictability](cards/Bayesian_Learning_Return_Predictability)。
+returns depend on forecast errors relative to learned belief $\bar D_t$。见 [cards/Bayesian_Learning_Return_Predictability](cards/Bayesian_Learning_Return_Predictability)。
 
 :::
 
@@ -128,8 +133,9 @@ $$
 
 :::{admonition} Definition (Extrapolative expectations)
 投资者根据近期 realized returns 外推未来收益：
-$$ \tilde E_t[R_{t+1}] = a+b R_{t-k,t}, \qquad b>0. $$
-
+$$
+\tilde E_t[R_{t+1}] = a+b R_{t-k,t}, \qquad b>0.
+$$
 :::
 
 这与 return predictability 的客观回归形成对照：
@@ -155,22 +161,24 @@ $$
 其中近期或年轻时经历可能被赋予更大权重。
 
 :::{admonition} Lemma: Experience-based belief as weighted average
-**要证：** 投资者 $i$ 的主观均值是历史收益的加权平均：
-$$ \tilde \mu_{i,t}=\sum_{k=1}^{age_i}w_{i,k}R_{t-k}. $$
-
-**联立系统：**
-$$ \sum_{k=1}^{age_i}w_{i,k}=1,\qquad w_{i,k}\ge 0. $$
-
-**连续求解：**
+投资者 $i$ 的主观均值是历史收益的加权平均：
+$$
+\tilde \mu_{i,t}=\sum_{k=1}^{age_i}w_{i,k}R_{t-k}.
+$$
+$$
+\sum_{k=1}^{age_i}w_{i,k}=1,\qquad w_{i,k}\ge 0.
+$$
 若近期权重大：
-$$ w_{i,k}=\frac{\lambda^{k-1}}{\sum_{j=1}^{age_i}\lambda^{j-1}},\qquad 0<\lambda<1. $$
+$$
+w_{i,k}=\frac{\lambda^{k-1}}{\sum_{j=1}^{age_i}\lambda^{j-1}},\qquad 0<\lambda<1.
+$$
 则
 
 $$
 \begin{aligned} \tilde \mu_{i,t} &= \frac{\sum_{k=1}^{age_i}\lambda^{k-1}R_{t-k}} {\sum_{j=1}^{age_i}\lambda^{j-1}}. \end{aligned}
 $$
 
-**结论：** 不同年龄 cohort 会因为经历不同而持有不同 beliefs，并可能影响 portfolio choice。见 [cards/Experience_Based_Learning](cards/Experience_Based_Learning)。
+不同年龄 cohort 会因为经历不同而持有不同 beliefs，并可能影响 portfolio choice。见 [cards/Experience_Based_Learning](cards/Experience_Based_Learning)。
 
 :::
 
@@ -184,16 +192,15 @@ $$
 $$
 
 :::{admonition} Lemma: Constant-gain learning 的无限滞后表示
-**要证：**
-$$ \tilde\mu_t = g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}. $$
-
-**连续求解：**
+$$
+\tilde\mu_t = g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}.
+$$
 
 $$
 \begin{aligned} \tilde\mu_t &=(1-g)\tilde\mu_{t-1}+gD_t\\ &=(1-g)\left[(1-g)\tilde\mu_{t-2}+gD_{t-1}\right]+gD_t\\ &=(1-g)^2\tilde\mu_{t-2}+gD_t+g(1-g)D_{t-1}\\ &=\cdots\\ &=g\sum_{j=0}^{\infty}(1-g)^jD_{t-j}. \end{aligned}
 $$
 
-**结论：** constant gain 让 beliefs 永远对近期数据敏感，适合刻画 extrapolation。
+constant gain 让 beliefs 永远对近期数据敏感，适合刻画 extrapolation。
 
 :::
 
@@ -204,24 +211,30 @@ $$
 Martin-type bound 的直觉：若 option prices 显示 risk-neutral variance 很高，则 expected market return 必须足够高来补偿风险。
 
 :::{admonition} Lemma: Option-implied lower-bound intuition
-**要证：**
 在一般定价关系下，risk-neutral variance 可为 expected excess return 提供下界。
 
-**联立系统：**
-$$ E[MR]=1,\qquad E[M]=\frac1{R_f}. $$
+$$
+E[MR]=1,\qquad E[M]=\frac1{R_f}.
+$$
 定义 risk-neutral expectation：
-$$ E^Q[X]=R_fE[MX]. $$
-
-**连续求解：**
+$$
+E^Q[X]=R_fE[MX].
+$$
 Risk-neutral second moment：
-$$ E^Q[R^2]=R_fE[MR^2]. $$
+$$
+E^Q[R^2]=R_fE[MR^2].
+$$
 Risk-neutral variance：
-$$ \operatorname{Var}^Q(R) = E^Q[R^2]-\{E^Q[R]\}^2. $$
+$$
+\operatorname{Var}^Q(R) = E^Q[R^2]-\{E^Q[R]\}^2.
+$$
 因为 $E^Q[R]=R_fE[MR]=R_f$，
-$$ \operatorname{Var}^Q(R) = R_fE[MR^2]-R_f^2. $$
+$$
+\operatorname{Var}^Q(R) = R_fE[MR^2]-R_f^2.
+$$
 Option prices pin down the risk-neutral variance. Under appropriate assumptions, this variance implies a lower bound for $E[R]-R_f$.
 
-**结论：** options contain forward-looking information about expected market returns. 见 [cards/Martin_Option_Implied_Lower_Bound](cards/Martin_Option_Implied_Lower_Bound)。
+options contain forward-looking information about expected market returns. 见 [cards/Martin_Option_Implied_Lower_Bound](cards/Martin_Option_Implied_Lower_Bound)。
 
 :::
 

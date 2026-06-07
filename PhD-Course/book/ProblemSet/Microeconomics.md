@@ -62,7 +62,6 @@ $$
 \frac{u^{h'}(c_1^h)}{\delta u^{h'}(c_2^h)}=\frac{p_1}{p_2}=\frac{1}{p} \iff \frac{u^{1'}(c_1^1)}{u^{1'}(c_2^1)}=\frac{u^{2'}(c_1^2)}{u^{2'}(c_2^2)}=\frac{u^{2'}(\bar{e}_1-c_1^1)}{u^{2'}(\bar{e}_2-c_2^2)}=\frac{\delta}{p}
 $$
 
-要证：
 
 $$
 c_1^h>c_2^h,\qquad h=1,2

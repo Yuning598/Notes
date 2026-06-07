@@ -97,7 +97,7 @@ $$
 
 ### 5.2 证明 projection matrix 性质
 
-常用结论：
+常用性质：
 
 $$
 P_X^2=P_X,\qquad P_X^\top=P_X,\qquad M_XX=0.

@@ -15,16 +15,12 @@ E[h(X)e]=0.
 $$
 Proof:
 $$
-
-$$
 \begin{aligned}
 E[h(X)e]
 &=E(E[h(X)e\mid X])\\
 &=E(h(X)E[e\mid X])\\
 &=0.
 \end{aligned}
-$$
-
 $$
 
 :::

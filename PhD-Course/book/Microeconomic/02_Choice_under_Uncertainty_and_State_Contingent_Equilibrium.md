@@ -252,7 +252,7 @@ L\succeq L'
 $$
 :::
 
-:::{admonition} 要证
+:::{admonition} Proof sketch
 Construct a utility representation $U(L)=\alpha_L$, prove that $U$ is linear on lottery mixtures, and then conclude $U(L)=\sum_{n=1}^N p_nu_n$ for some $(u_1,\ldots,u_N)$.
 :::
 

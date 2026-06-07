@@ -63,7 +63,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** Poisson mean MLE equals sample mean。
+Poisson mean MLE equals sample mean。
 
 给定数据 $2,0,3,1,3,2,4,1,3,2$，$\bar X=2.1$。Wald 95% CI:
 
@@ -106,7 +106,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** Normal MLE 的 variance estimator uses $n$，not $n-1$。
+Normal MLE 的 variance estimator uses $n$，not $n-1$。
 
 :::{admonition} Fisher information for $(\mu,\sigma^2)$
 单个 observation 的 Fisher information is

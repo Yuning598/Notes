@@ -26,7 +26,9 @@ $$
 
 :::{admonition} Definition (Predictive regression)
 Predictive regression 用 $t$ 时刻可观测变量 $x_t$ 预测未来收益 $r_{t+1}$。检验重点是
-$$ H_0:\beta=0. $$
+$$
+H_0:\beta=0.
+$$
 若 $\beta\ne 0$，说明 expected return time-varying。
 
 :::
@@ -65,11 +67,12 @@ $$
 课件提醒：overlapping observations 会导致 residual serial correlation，必须使用 HAC/Newey-West 或其他校正。
 
 :::{admonition} Lemma: Overlapping return residual 的 MA($k-1$) 结构
-**要证：** 若 one-period shocks 不相关，$k$-period overlapping return regression 的误差至少具有 $k-1$ 阶 serial correlation。
+若 one-period shocks 不相关，$k$-period overlapping return regression 的误差至少具有 $k-1$ 阶 serial correlation。
 
-**连续求解：**
 设
-$$ \varepsilon_{t,t+k}=\sum_{j=1}^k u_{t+j}. $$
+$$
+\varepsilon_{t,t+k}=\sum_{j=1}^k u_{t+j}.
+$$
 则
 
 $$
@@ -77,10 +80,12 @@ $$
 $$
 
 两者共享 $u_{t+2},\ldots,u_{t+k}$，所以
-$$ \operatorname{Cov}(\varepsilon_{t,t+k},\varepsilon_{t+1,t+1+k})\ne 0. $$
+$$
+\operatorname{Cov}(\varepsilon_{t,t+k},\varepsilon_{t+1,t+1+k})\ne 0.
+$$
 更一般地，当 lag $h<k$ 时有重叠；当 $h\ge k$ 时不重叠。
 
-**结论：** overlapping long-horizon regression 不能用普通 OLS standard error。
+overlapping long-horizon regression 不能用普通 OLS standard error。
 
 :::
 
@@ -95,18 +100,20 @@ $$
 OLS 估计 $\hat \rho$ 在有限样本中有 bias。
 
 :::{admonition} Lemma: Kendall bias 的一阶近似
-**要证：**
-$$ E(\hat\rho-\rho) \approx -\frac{1+3\rho}{T}. $$
-
-**联立系统：**
-$$ x_t=\rho x_{t-1}+\nu_t,\qquad \hat\rho=\frac{\sum x_{t-1}x_t}{\sum x_{t-1}^2}. $$
-
-**课件结论：**
-$$ E(\hat\rho_1)=-\frac1T+O(T^{-2}) $$
+$$
+E(\hat\rho-\rho) \approx -\frac{1+3\rho}{T}.
+$$
+$$
+x_t=\rho x_{t-1}+\nu_t,\qquad \hat\rho=\frac{\sum x_{t-1}x_t}{\sum x_{t-1}^2}.
+$$
+$$
+E(\hat\rho_1)=-\frac1T+O(T^{-2})
+$$
 以及 AR(1) 情形
-$$ E(\hat\rho-\rho) = -\frac{1+3\rho}{T} +O(T^{-2}). $$
-
-**结论：** persistent regressor 的 persistence 会被低估，因此基于 $\hat \rho$ 的预测检验容易出现 finite-sample distortion。
+$$
+E(\hat\rho-\rho) = -\frac{1+3\rho}{T} +O(T^{-2}).
+$$
+persistent regressor 的 persistence 会被低估，因此基于 $\hat \rho$ 的预测检验容易出现 finite-sample distortion。
 
 :::
 
@@ -131,19 +138,18 @@ $$
 若 $\varepsilon_{t+1}$ 与 $\nu_{t+1}$ 相关，则 $\hat\beta$ 与 $\hat\rho$ 的偏误相连。
 
 :::{admonition} Lemma: Stambaugh bias
-**要证：**
-$$ E(\hat\beta-\beta) = \frac{\operatorname{Cov}(\varepsilon_t,\nu_t)} {\operatorname{Var}(\nu_t)} E(\hat\rho-\rho). $$
-
-**联立系统：**
+$$
+E(\hat\beta-\beta) = \frac{\operatorname{Cov}(\varepsilon_t,\nu_t)} {\operatorname{Var}(\nu_t)} E(\hat\rho-\rho).
+$$
 
 $$
 \begin{cases} r_{t+1}=\alpha+\beta x_t+\varepsilon_{t+1},\\ x_{t+1}=\theta+\rho x_t+\nu_{t+1},\\ \operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})\ne 0. \end{cases}
 $$
 
 线性投影：
-$$ \varepsilon_{t+1}=\gamma\nu_{t+1}+\eta_{t+1}, \qquad \gamma= \frac{\operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})} {\operatorname{Var}(\nu_{t+1})}. $$
-
-**连续求解：**
+$$
+\varepsilon_{t+1}=\gamma\nu_{t+1}+\eta_{t+1}, \qquad \gamma= \frac{\operatorname{Cov}(\varepsilon_{t+1},\nu_{t+1})} {\operatorname{Var}(\nu_{t+1})}.
+$$
 代入 return equation：
 
 $$
@@ -151,11 +157,14 @@ $$
 $$
 
 估计时，$\rho$ 用 $\hat\rho$ 替代，引致
-$$ \hat\beta-\beta \approx \gamma(\hat\rho-\rho). $$
+$$
+\hat\beta-\beta \approx \gamma(\hat\rho-\rho).
+$$
 取期望：
-$$ E(\hat\beta-\beta) = \gamma E(\hat\rho-\rho) = \frac{\operatorname{Cov}(\varepsilon,\nu)} {\operatorname{Var}(\nu)} E(\hat\rho-\rho). $$
-
-**结论：** 若 $\operatorname{Cov}(\varepsilon,\nu)<0$ 且 $E(\hat\rho-\rho)<0$，则 $E(\hat\beta-\beta)>0$：predictability 会被夸大。见 [cards/Predictive_Regression_Stambaugh_Bias](cards/Predictive_Regression_Stambaugh_Bias)。
+$$
+E(\hat\beta-\beta) = \gamma E(\hat\rho-\rho) = \frac{\operatorname{Cov}(\varepsilon,\nu)} {\operatorname{Var}(\nu)} E(\hat\rho-\rho).
+$$
+若 $\operatorname{Cov}(\varepsilon,\nu)<0$ 且 $E(\hat\rho-\rho)<0$，则 $E(\hat\beta-\beta)>0$：predictability 会被夸大。见 [cards/Predictive_Regression_Stambaugh_Bias](cards/Predictive_Regression_Stambaugh_Bias)。
 
 :::
 
@@ -212,7 +221,9 @@ $$
 In-sample $R^2$ 衡量回归在样本内拟合程度，但可能过拟合。Out-of-sample $R^2$ 衡量预测相对 benchmark 的表现。
 
 :::{admonition} Definition (Out-of-sample $R^2$)
-$$ R^2_{OS} = 1- \frac{\sum_{t}(r_{t+1}-\hat r_{t+1})^2} {\sum_t(r_{t+1}-\bar r_{t+1})^2}. $$
+$$
+R^2_{OS} = 1- \frac{\sum_{t}(r_{t+1}-\hat r_{t+1})^2} {\sum_t(r_{t+1}-\bar r_{t+1})^2}.
+$$
 若 $R^2_{OS}>0$，模型预测误差小于 historical mean benchmark。
 
 :::
@@ -332,7 +343,6 @@ $$
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{

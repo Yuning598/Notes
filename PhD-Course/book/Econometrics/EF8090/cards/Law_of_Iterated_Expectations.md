@@ -9,11 +9,9 @@ orphan: true
 Parent: [01_CEF_and_Linear_Projection](../01_CEF_and_Linear_Projection.md)
 
 :::{admonition} Lemma: LIE
-**要证：** $E[E(Y\mid X)]=E[Y]$.
+$E[E(Y\mid X)]=E[Y]$.
 
 **Proof sketch:**
-$$
-
 $$
 \begin{aligned}
 E[E(Y\mid X)]
@@ -21,8 +19,6 @@ E[E(Y\mid X)]
 &=\int\int y f_{Y,X}(y,x)dydx\\
 &=E[Y].
 \end{aligned}
-$$
-
 $$
 
 :::

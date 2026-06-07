@@ -45,15 +45,13 @@ $$
 套利者买入一单位，未来 mispricing 以概率 $p$ 收敛，以概率 $1-p$ 继续扩大并被迫平仓。
 
 :::{admonition} Lemma: 有 forced liquidation 时的套利条件
-**要证：** 期望收益为正不够；还要满足融资约束下的 downside condition。
+期望收益为正不够；还要满足融资约束下的 downside condition。
 
-**联立系统：**
 
 $$
 \begin{cases} P_0=V-m,\\ P_1=V,\quad \text{prob. }p,\\ P_1=V-m-L,\quad \text{prob. }1-p. \end{cases}
 $$
 
-**连续求解：**
 
 $$
 \begin{aligned}
@@ -182,15 +180,16 @@ $$
 若投资者 overweight small probabilities，会偏好极端正偏 payoff。需求推高价格，压低未来收益。
 
 :::{admonition} Lemma: Lottery demand 对 expected return 的影响
-**要证：** 如果投资者愿意为正偏彩票型 payoff 付出额外溢价，均衡 expected return 下降。
+如果投资者愿意为正偏彩票型 payoff 付出额外溢价，均衡 expected return 下降。
 
-**联立系统：**
 设 fundamental price under standard SDF：
-$$ P^*=E[MX]. $$
+$$
+P^*=E[MX].
+$$
 Lottery investors 额外愿意支付 $\pi_{lot}>0$，则市场价格：
-$$ P=P^*+\pi_{lot}. $$
-
-**连续求解：**
+$$
+P=P^*+\pi_{lot}.
+$$
 
 $$
 \begin{aligned}
@@ -200,7 +199,7 @@ E[R]-E[R^*]
 \end{aligned}
 $$
 
-**结论：** lottery demand 使价格偏高、未来平均收益偏低。
+lottery demand 使价格偏高、未来平均收益偏低。
 
 :::
 
@@ -230,7 +229,9 @@ $$
 
 :::{admonition} Definition (Ambiguity aversion)
 如果投资者面对多个可能概率模型 $\mathcal P$，采用 max-min preference：
-$$ U(X)=\min_{P\in\mathcal P}E_P[u(X)]. $$
+$$
+U(X)=\min_{P\in\mathcal P}E_P[u(X)].
+$$
 则资产价格会反映最悲观模型下的边际效用。
 
 :::

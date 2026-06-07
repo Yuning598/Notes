@@ -677,7 +677,7 @@ Measurement Error vs. Proxy：
 Simultaneity（reverse causality）指 $y$ 与 $x$ 在同一系统内共同决定（equilibrium determination），而非单向因果。  
 典型 finance 例子：CEO ownership 与 financial leverage 可能相互影响。
 
-简单联立系统：
+简单方程组：
 
 $$
 \begin{aligned}
@@ -693,7 +693,7 @@ $$
 
 :::{admonition} Proof
 
-由联立系统代入得
+由方程组代入得
 
 $$
 x=\alpha(\beta x+\epsilon)+\nu
@@ -719,7 +719,7 @@ $$
 
 :::
 
-结论：simultaneity 下 OLS 一般不一致，且偏误方向在更一般设定下不易直接判断。
+simultaneity 下 OLS 一般不一致，且偏误方向在更一般设定下不易直接判断。
 
 ## 2. Panel Data, FE, and DiD (pp.220-254)
 
@@ -1770,7 +1770,7 @@ Exam positioning
 - OVB 路径：机场运营与管理的 private information 同时影响 PE 进入与后续绩效；  
 - 反向因果路径：对机场盈利上升的预期吸引 PE 投资。  
 
-结论：缺少随机变异时，因果识别困难，需借助 IV 提取可用于识别的外生变异。
+缺少随机变异时，因果识别困难，需借助 IV 提取可用于识别的外生变异。
 
 线性模型表达（对应 p290）：
 

@@ -22,8 +22,9 @@ $$
 c_t^*=\rho W_t,
 $$
 且单风险资产时
-$$\theta_t^*=\frac{\mu-r}{\sigma^2}.$$
-
+$$
+\theta_t^*=\frac{\mu-r}{\sigma^2}.
+$$
 :::
 
 ## 含义

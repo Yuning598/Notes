@@ -220,8 +220,8 @@ $$
 \end{aligned}
 $$
 
-\tag{4.2.6}$$
-
+\tag{4.2.6}
+$$
 手写笔记显示：
 
 $$
@@ -320,7 +320,7 @@ $$
 $$
    \hat{\delta}(\hat{W}) = \begin{bmatrix} (S'_{x1z1}\widehat{W}_{11}S_{x1z1})^{-1} S'_{x1z1}\widehat{W}_{11}s_{x1y1} \\ \vdots \\ (S'_{xMzM}\widehat{W}_{MM}S_{xMzM})^{-1} S'_{xMzM}\widehat{W}_{MM}s_{xMyM} \end{bmatrix} = \begin{bmatrix} \hat{\delta}_1(\widehat{W}_{11}) \\ \vdots \\ \hat{\delta}_M(\widehat{W}_{MM}) \end{bmatrix}
 $$
-**结论**：当权重矩阵 $\widehat{W}$ 是块对角矩阵时，多方程 GMM 估计量在数值上等于对每个方程独立进行单方程 GMM 估计后的简单堆叠。
+当权重矩阵 $\widehat{W}$ 是块对角矩阵时，多方程 GMM 估计量在数值上等于对每个方程独立进行单方程 GMM 估计后的简单堆叠。
 
 ## Efficiency Equivalence
 
@@ -342,12 +342,12 @@ $$
 这意味着渐近方差矩阵 $S$ 具有块对角结构：
 
 $$
-$$S = \begin{bmatrix} 
+S = \begin{bmatrix}
 S_{11} & \mathbf{0} & \dots \\
 \mathbf{0} & S_{22} & \dots \\
 \vdots & \vdots & \ddots 
-\end{bmatrix}, \quad \text{其中 } S_{mm} = E(\epsilon_{im}^2 x_{im} x'_{im})$$
-
+\end{bmatrix}, \quad \text{其中 } S_{mm} = E(\epsilon_{im}^2 x_{im} x'_{im})
+$$
 此时，逆矩阵 $\hat{S}^{-1}$ 同样退化为块对角阵，代入系统估计量公式：
 
 $$
@@ -383,7 +383,7 @@ $$
 $$
 累加所有块，即证得 $\sqrt{n}\hat{\delta}(\widehat{W}) - \sqrt{n}\hat{\delta}(\hat{S}^{-1}) \xrightarrow{p} \mathbf{0}$。
 
-**结论**：忽略跨方程依赖性会导致 $S$ 矩阵非对角块清零，从而使系统有效估计在数学上等同于各方程独立进行的有效单方程估计。这证明了系统估计的效率增益完全源于对 $S$ 矩阵中非对角块（即跨方程依赖性）的利用。
+忽略跨方程依赖性会导致 $S$ 矩阵非对角块清零，从而使系统有效估计在数学上等同于各方程独立进行的有效单方程估计。这证明了系统估计的效率增益完全源于对 $S$ 矩阵中非对角块（即跨方程依赖性）的利用。
 
 ## Efficiency Gain from Cross-Equation Dependence
 
@@ -700,7 +700,7 @@ $$
 高效多方程 GMM 估计量 $\hat{\delta}_{\text{3SLS}}$ 为：
 
 $$
-$$\hat{\delta}_{\text{3SLS}} = \begin{bmatrix} 
+\hat{\delta}_{\text{3SLS}} = \begin{bmatrix}
 \hat{\sigma}^{11}\widehat{\mathbf{A}}_{11} & \dots & \hat{\sigma}^{1M}\widehat{\mathbf{A}}_{1M} \\
 \vdots & \ddots & \vdots \\
 \hat{\sigma}^{M1}\widehat{\mathbf{A}}_{M1} & \dots & \hat{\sigma}^{MM}\widehat{\mathbf{A}}_{MM}
@@ -708,8 +708,8 @@ $$\hat{\delta}_{\text{3SLS}} = \begin{bmatrix}
 \hat{\sigma}^{11}\hat{\mathbf{c}}_{11} + \dots + \hat{\sigma}^{1M}\hat{\mathbf{c}}_{1M} \\
 \vdots \\
 \hat{\sigma}^{M1}\hat{\mathbf{c}}_{M1} + \dots + \hat{\sigma}^{MM}\hat{\mathbf{c}}_{MM}
-\end{bmatrix} \tag{4.5.12}$$
-
+\end{bmatrix} \tag{4.5.12}
+$$
 (equation-4-5-12)=
 
 其中：
@@ -743,12 +743,12 @@ $$
 $\hat{\delta}_{\text{3SLS}}$ 的渐近方差 $\text{Avar}(\hat{\delta}_{\text{3SLS}})$ 表达式为：
 
 $$
-$$\text{Avar}(\hat{\delta}_{\text{3SLS}}) = \begin{bmatrix} 
+\text{Avar}(\hat{\delta}_{\text{3SLS}}) = \begin{bmatrix}
 \sigma^{11}\mathbf{A}_{11} & \dots & \sigma^{1M}\mathbf{A}_{1M} \\
 \vdots & \ddots & \vdots \\
 \sigma^{M1}\mathbf{A}_{M1} & \dots & \sigma^{MM}\mathbf{A}_{MM}
-\end{bmatrix}^{-1} \tag{4.5.15}$$
-
+\end{bmatrix}^{-1} \tag{4.5.15}
+$$
 (equation-4-5-15)=
 
 其中
@@ -764,12 +764,12 @@ $$
 其一致估计量（Consistent Estimator）为：
 
 $$
-$$\widehat{\text{Avar}}(\hat{\delta}_{\text{3SLS}}) = \begin{bmatrix} 
+\widehat{\text{Avar}}(\hat{\delta}_{\text{3SLS}}) = \begin{bmatrix}
 \hat{\sigma}^{11}\widehat{\mathbf{A}}_{11} & \dots & \hat{\sigma}^{1M}\widehat{\mathbf{A}}_{1M} \\
 \vdots & \ddots & \vdots \\
 \hat{\sigma}^{M1}\widehat{\mathbf{A}}_{M1} & \dots & \hat{\sigma}^{MM}\widehat{\mathbf{A}}_{MM}
-\end{bmatrix}^{-1} \tag{4.5.17}$$
-
+\end{bmatrix}^{-1} \tag{4.5.17}
+$$
 (equation-4-5-17)=
 
 :::{admonition} Proposition: Proposition 4.5 (large-sample properties of 3SLS)
@@ -930,7 +930,7 @@ $$
  - $\mathbf{S}$ 为块对角（$\sigma_{mh} = 0$ for $m \neq h$）；
 - 或 $\mathbf{B}$ 为可逆方阵（恰好识别且回归量相同）。
 
-**结论**：只要存在跨方程误差相关且回归量不一，SUR 就能利用 $\mathbf{S}^{-1}$ 中的全系统信息实现效率提升。
+只要存在跨方程误差相关且回归量不一，SUR 就能利用 $\mathbf{S}^{-1}$ 中的全系统信息实现效率提升。
 
 ## Shared-Coefficient System
 

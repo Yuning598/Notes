@@ -281,7 +281,7 @@ $$
 \hat\beta-\beta\xrightarrow{p}Q^{-1}0=0.
 $$
 
-**结论：** OLS consistency 来自 sample moments 收敛和正交条件。
+OLS consistency 来自 sample moments 收敛和正交条件。
 
 ## OLS Asymptotic Normality
 
@@ -303,7 +303,7 @@ $$
 \hat\beta-\beta=\hat Q^{-1}\left(\frac1n\sum_iX_ie_i\right).
 $$
 
-**连续求解：** Multiply by $\sqrt n$：
+Multiply by $\sqrt n$：
 
 $$
 \begin{aligned}
@@ -325,7 +325,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** heteroskedasticity changes $\Omega$，因此改变标准误；但不改变 consistency。
+heteroskedasticity changes $\Omega$，因此改变标准误；但不改变 consistency。
 
 若 homoskedasticity holds, $E[e_i^2\mid X_i]=\sigma^2$，则
 
@@ -384,7 +384,7 @@ $$
 \hat V=\hat Q^{-1}\hat\Omega\hat Q^{-1}\xrightarrow{p}Q^{-1}\Omega Q^{-1}.
 $$
 
-**结论：** 用 residual 替换 true error 的误差在 large sample 下消失。
+用 residual 替换 true error 的误差在 large sample 下消失。
 
 若错误使用 homoskedastic covariance $\hat\sigma^2\hat Q^{-1}$ 而真实 heteroskedastic，则 t/Wald 的 limiting distribution 不正确。
 
@@ -570,7 +570,7 @@ $$
 R(\beta)=\frac{\partial r(\beta)}{\partial\beta'}, \qquad \sqrt n(r(\hat\beta)-r(\beta))\to_dN(0,RVR').
 $$
 
-**连续求解：** Under $H_0$, $r(\beta)=0$, so
+Under $H_0$, $r(\beta)=0$, so
 
 $$
 \begin{aligned}
@@ -583,7 +583,7 @@ $$
 n r(\hat\beta)'[R\hat V R']^{-1}r(\hat\beta)\to_d\chi_q^2.
 $$
 
-**结论：** Wald test 用估计值离 null restriction 的距离衡量证据强弱。
+Wald test 用估计值离 null restriction 的距离衡量证据强弱。
 
 ## Matrix Restrictions in Wald Tests
 
@@ -638,7 +638,7 @@ $$
 $$
 Quadratic form yields $\chi_2^2$.
 
-**结论：** Reject $H_0$ at level $\alpha$ if
+Reject $H_0$ at level $\alpha$ if
 $$
 W_n>\chi^2_{2,1-\alpha}.
 $$

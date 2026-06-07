@@ -13,10 +13,13 @@ $$
 
 :::{admonition} Definition (Stochastic discount factor)
 $M_{t+1}$ 是 stochastic discount factor，满足所有资产：
-$$ P_t=E_t[M_{t+1}X_{t+1}]. $$
+$$
+P_t=E_t[M_{t+1}X_{t+1}].
+$$
 若用 gross return $R_{t+1}=X_{t+1}/P_t$，则
-$$ E_t[M_{t+1}R_{t+1}]=1. $$
-
+$$
+E_t[M_{t+1}R_{t+1}]=1.
+$$
 :::
 
 在 consumption-based model 中，代表性投资者最大化
@@ -37,22 +40,21 @@ $$
 ## 2. Euler equation 的推导
 
 :::{admonition} Lemma: Consumption Euler equation
-**要证：**
-$$ P_t=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. $$
-
-**联立系统：**
+$$
+P_t=E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right].
+$$
 设投资者在 $t$ 时刻多买 $\varepsilon$ 单位资产，当前成本 $P_t\varepsilon$，下期 payoff $X_{t+1}\varepsilon$。消费变化：
-$$ \Delta C_t=-P_t\varepsilon,\qquad \Delta C_{t+1}=X_{t+1}\varepsilon. $$
-
-**连续求解：**
+$$
+\Delta C_t=-P_t\varepsilon,\qquad \Delta C_{t+1}=X_{t+1}\varepsilon.
+$$
 
 $$
 \begin{aligned} \frac{d}{d\varepsilon} E_t\left[u(C_t-P_t\varepsilon)+\beta u(C_{t+1}+X_{t+1}\varepsilon)\right]_{\varepsilon=0} =0\\ -u'(C_t)P_t+\beta E_t[u'(C_{t+1})X_{t+1}] =0\\ u'(C_t)P_t =\beta E_t[u'(C_{t+1})X_{t+1}]\\ P_t =E_t\left[\beta\frac{u'(C_{t+1})}{u'(C_t)}X_{t+1}\right]. \end{aligned}
 $$
 
-**结论：**
-$$ M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}. $$
-
+$$
+M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}.
+$$
 :::
 
 ## 3. Risk premium 的 covariance 表示
@@ -60,19 +62,18 @@ $$ M_{t+1}=\beta\frac{u'(C_{t+1})}{u'(C_t)}. $$
 从 $E_t[M R_i]=1$ 和 risk-free $R_f=1/E_t[M]$ 可以推出 expected return 由 covariance 决定。
 
 :::{admonition} Lemma: SDF covariance pricing
-**要证：**
-$$ E_t[R_{i,t+1}]-R_{f,t} = -R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). $$
-
-**联立系统：**
-$$ E_t[M_{t+1}R_{i,t+1}]=1,\qquad R_{f,t}=\frac{1}{E_t[M_{t+1}]}. $$
-
-**连续求解：**
+$$
+E_t[R_{i,t+1}]-R_{f,t} = -R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}).
+$$
+$$
+E_t[M_{t+1}R_{i,t+1}]=1,\qquad R_{f,t}=\frac{1}{E_t[M_{t+1}]}.
+$$
 
 $$
 \begin{aligned} 1 &=E_t[M_{t+1}R_{i,t+1}]\\ &=E_t[M_{t+1}]E_t[R_{i,t+1}] +\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ \frac{1}{E_t[M_{t+1}]} &=E_t[R_{i,t+1}] +\frac{\operatorname{Cov}_t(M_{t+1},R_{i,t+1})}{E_t[M_{t+1}]}\\ R_{f,t} &=E_t[R_{i,t+1}] +R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1})\\ E_t[R_{i,t+1}]-R_{f,t} &=-R_{f,t}\operatorname{Cov}_t(M_{t+1},R_{i,t+1}). \end{aligned}
 $$
 
-**结论：** 高收益资产必须在 marginal utility 高的状态表现差，即与 $M$ 负相关。
+高收益资产必须在 marginal utility 高的状态表现差，即与 $M$ 负相关。
 
 :::
 
@@ -93,15 +94,16 @@ E_t[e^{m_{t+1}+r_{t+1}}]=1.
 $$
 
 :::{admonition} Lemma: Lognormal pricing formula
-**要证：**
-$$ \log E_t[R_{t+1}]-r_{f,t} = -\operatorname{Cov}_t(m_{t+1},r_{t+1}). $$
-
-**联立系统：**
-$$ E_t[e^{m+r}]=1,\qquad E_t[e^{m+r_f}]=1. $$
+$$
+\log E_t[R_{t+1}]-r_{f,t} = -\operatorname{Cov}_t(m_{t+1},r_{t+1}).
+$$
+$$
+E_t[e^{m+r}]=1,\qquad E_t[e^{m+r_f}]=1.
+$$
 若 $x$ 正态：
-$$ \log E[e^x]=E[x]+\frac12\operatorname{Var}(x). $$
-
-**连续求解：**
+$$
+\log E[e^x]=E[x]+\frac12\operatorname{Var}(x).
+$$
 风险资产：
 
 $$
@@ -121,11 +123,14 @@ $$
 $$
 
 又因为 lognormal 下
-$$ \log E_t[R]=E_t[r]+\frac12\operatorname{Var}_t(r), $$
+$$
+\log E_t[R]=E_t[r]+\frac12\operatorname{Var}_t(r),
+$$
 所以
-$$ \log E_t[R]-r_f = -\operatorname{Cov}_t(m,r). $$
-
-**结论：** log expected excess return 等于 asset return 与 log SDF covariance 的相反数。
+$$
+\log E_t[R]-r_f = -\operatorname{Cov}_t(m,r).
+$$
+log expected excess return 等于 asset return 与 log SDF covariance 的相反数。
 
 :::
 
@@ -166,25 +171,23 @@ m_{t+1} =
 $$
 
 :::{admonition} Lemma: Power utility 的 equity premium
-**要证：**
-$$ \log E_t[R_{t+1}]-r_{f,t} = \gamma \operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}). $$
-
-**连续求解：**
+$$
+\log E_t[R_{t+1}]-r_{f,t} = \gamma \operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}).
+$$
 
 $$
 \begin{aligned} \log E_t[R_{t+1}]-r_{f,t} &=-\operatorname{Cov}_t(m_{t+1},r_{t+1})\\ &=-\operatorname{Cov}_t(-\delta-\gamma\Delta c_{t+1},r_{t+1})\\ &=-\left[-\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1})\right]\\ &=\gamma\operatorname{Cov}_t(\Delta c_{t+1},r_{t+1}). \end{aligned}
 $$
 
-**结论：** 股票必须在 consumption growth 低时表现差，才会有正 risk premium。
+股票必须在 consumption growth 低时表现差，才会有正 risk premium。
 
 **Lemma:** Power utility 的 risk-free rate
-**要证：**
-$$ r_{f,t} = \delta+\gamma E_t[\Delta c_{t+1}] -\frac12\gamma^2\operatorname{Var}_t(\Delta c_{t+1}). $$
-
-**联立系统：**
-$$ E_t[e^{m_{t+1}+r_{f,t}}]=1,\qquad m_{t+1}=-\delta-\gamma\Delta c_{t+1}. $$
-
-**连续求解：**
+$$
+r_{f,t} = \delta+\gamma E_t[\Delta c_{t+1}] -\frac12\gamma^2\operatorname{Var}_t(\Delta c_{t+1}).
+$$
+$$
+E_t[e^{m_{t+1}+r_{f,t}}]=1,\qquad m_{t+1}=-\delta-\gamma\Delta c_{t+1}.
+$$
 
 $$
 \begin{aligned} 0 &=\log E_t[e^{m+r_f}]\\ &=E_t[m]+r_f+\frac12\operatorname{Var}_t(m)\\ &=(-\delta-\gamma E_t\Delta c)+r_f +\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned}
@@ -196,7 +199,7 @@ $$
 \begin{aligned} r_f &=\delta+\gamma E_t\Delta c -\frac12\gamma^2\operatorname{Var}_t(\Delta c). \end{aligned}
 $$
 
-**结论：** 高 $\gamma$ 一方面提高 precautionary saving 项，压低 $r_f$；另一方面若要解释 equity premium，需要很高 $\gamma$。
+高 $\gamma$ 一方面提高 precautionary saving 项，压低 $r_f$；另一方面若要解释 equity premium，需要很高 $\gamma$。
 
 :::
 
@@ -222,14 +225,13 @@ $$
 课件用 HJ bound 表达：任何能定价资产的 SDF 都必须足够 volatile。
 
 :::{admonition} Lemma: HJ bound
-**要证：**
-$$ \frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}. $$
-
-**联立系统：**
+$$
+\frac{\sigma(M)}{E[M]} \ge \frac{|E[R^e]|}{\sigma(R^e)}.
+$$
 对 excess return $R^e$，pricing equation 是
-$$ E[MR^e]=0. $$
-
-**连续求解：**
+$$
+E[MR^e]=0.
+$$
 
 $$
 \begin{aligned} 0 &=E[MR^e]\\ &=E[M]E[R^e]+\operatorname{Cov}(M,R^e)\\ E[M]E[R^e] &=-\operatorname{Cov}(M,R^e). \end{aligned}
@@ -242,9 +244,10 @@ $$
 $$
 
 两边除以 $E[M]\sigma(R^e)$：
-$$ \frac{|E[R^e]|}{\sigma(R^e)} \le \frac{\sigma(M)}{E[M]}. $$
-
-**结论：** 大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。见 [cards/Hansen_Jagannathan_Bound](cards/Hansen_Jagannathan_Bound)。
+$$
+\frac{|E[R^e]|}{\sigma(R^e)} \le \frac{\sigma(M)}{E[M]}.
+$$
+大 Sharpe ratio 要求 SDF 有足够高的 coefficient of variation。见 [cards/Hansen_Jagannathan_Bound](cards/Hansen_Jagannathan_Bound)。
 
 :::
 
@@ -267,10 +270,9 @@ r_{t+1}
 $$
 
 :::{admonition} Lemma: Campbell-Shiller present-value identity
-**要证：**
-$$ pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}]. $$
-
-**连续求解：**
+$$
+pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}].
+$$
 从线性化式出发：
 
 $$
@@ -278,7 +280,9 @@ $$
 $$
 
 对 $t$ 条件取期望：
-$$ pd_t = \kappa+\rho E_t[pd_{t+1}] +E_t[\Delta d_{t+1}] -E_t[r_{t+1}]. $$
+$$
+pd_t = \kappa+\rho E_t[pd_{t+1}] +E_t[\Delta d_{t+1}] -E_t[r_{t+1}].
+$$
 继续向前迭代：
 
 $$
@@ -286,11 +290,14 @@ $$
 $$
 
 令 horizon $J\to\infty$，并施加 no-bubble/transversality：
-$$ \lim_{J\to\infty}\rho^J E_t[pd_{t+J}]=0. $$
+$$
+\lim_{J\to\infty}\rho^J E_t[pd_{t+J}]=0.
+$$
 得
-$$ pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}]. $$
-
-**结论：** price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-rate news。见 [cards/Campbell_Shiller_Decomposition](cards/Campbell_Shiller_Decomposition)。
+$$
+pd_t = \frac{\kappa}{1-\rho} +\sum_{j=1}^{\infty}\rho^{j-1}E_t[\Delta d_{t+j}] -\sum_{j=1}^{\infty}\rho^{j-1}E_t[r_{t+j}].
+$$
+price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-rate news。见 [cards/Campbell_Shiller_Decomposition](cards/Campbell_Shiller_Decomposition)。
 
 :::
 

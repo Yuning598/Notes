@@ -28,9 +28,8 @@ $$
 
 :::
 
-**要证：** 从 $\Lambda_tB_t$ 与 $\Lambda_tS_t$ 为局部鞅推出漂移与风险溢价。
+从 $\Lambda_tB_t$ 与 $\Lambda_tS_t$ 为局部鞅推出漂移与风险溢价。
 
-**联立系统：**
 
 $$
 \begin{aligned}
@@ -40,7 +39,7 @@ $$
 \end{aligned}
 $$
 
-**连续求解：** 由 $\Lambda_tB_t$ 为鞅，
+由 $\Lambda_tB_t$ 为鞅，
 
 $$
 \begin{aligned}
@@ -70,12 +69,13 @@ $$
 \end{aligned}
 $$
 
-**结论：** SDF 扩散项前的负号只是符号约定；在该约定下，正的 $\lambda$ 表示资产暴露 $\sigma$ 越大，要求的 expected excess return 越高。
+SDF 扩散项前的负号只是符号约定；在该约定下，正的 $\lambda$ 表示资产暴露 $\sigma$ 越大，要求的 expected excess return 越高。
 
 
 SDF $\Lambda_t$ 遵循如下形式的随机微分方程 (SDE):
-$$\frac{d\Lambda_t}{\Lambda_t} = -r_t dt - \sigma_{\Lambda,t} dW_t$$
-
+$$
+\frac{d\Lambda_t}{\Lambda_t} = -r_t dt - \sigma_{\Lambda,t} dW_t
+$$
 这里两个负号都不是“随便设的”，而是由 SDF 的经济含义决定的：
 
 $$
@@ -224,9 +224,8 @@ $$
 
 :::
 
-**要证：** 用 $d(\Lambda P)+\Lambda\,dD$ 的鞅条件推出总收益风险溢价。
+用 $d(\Lambda P)+\Lambda\,dD$ 的鞅条件推出总收益风险溢价。
 
-**联立系统：**
 
 $$
 \begin{aligned}
@@ -237,7 +236,7 @@ dD_t&=\delta_tP_tdt,\\
 \end{aligned}
 $$
 
-**连续求解：** 局部鞅条件要求漂移为零：
+局部鞅条件要求漂移为零：
 
 $$
 \begin{aligned}
@@ -257,7 +256,7 @@ $$
 \end{aligned}
 $$
 
-**结论：** 连续时间里被定价的是 total return；有股息时风险溢价应写在 $\mu+\delta-r$ 上，而不只是价格增值率 $\mu-r$。
+连续时间里被定价的是 total return；有股息时风险溢价应写在 $\mu+\delta-r$ 上，而不只是价格增值率 $\mu-r$。
 
 
 :::{admonition} Lemma: Fundamental Asset Pricing Equation
@@ -377,7 +376,7 @@ $$
 这就是 continuous-time fundamental asset pricing equation：expected excess return 由 payoff shock 与 pricing kernel shock 的 covariance 决定。
 
 
-**说明：Pricing kernel 与 SDF 的结论**
+**说明：Pricing kernel 与 SDF 的对应关系**
 在本笔记里，pricing kernel 与 stochastic discount factor (SDF) 是同一个对象：
 
 $$
@@ -704,9 +703,9 @@ $$
 
 :::
 
-**要证：** 构造局部无风险组合，消去 $dW_t$ 项。
+构造局部无风险组合，消去 $dW_t$ 项。
 
-**联立系统：** Itô 公式给出
+Itô 公式给出
 
 $$
 \begin{aligned}
@@ -724,7 +723,7 @@ $$
 \end{aligned}
 $$
 
-**连续求解：** 组合变化为
+组合变化为
 
 $$
 \begin{aligned}
@@ -772,7 +771,7 @@ C_t+rSC_S+\frac12\sigma^2S^2C_{SS}-rC&=0.
 \end{aligned}
 $$
 
-**结论：** PDE 中没有 $\mu$，因为标的风险已通过 delta hedge 局部消除；定价只依赖 $r$ 与 $\sigma$。
+PDE 中没有 $\mu$，因为标的风险已通过 delta hedge 局部消除；定价只依赖 $r$ 与 $\sigma$。
 
 
 设期权价格为 $C(t,S_t)$。对它应用 Itô 公式：
@@ -1506,9 +1505,8 @@ $$
 
 :::
 
-**要证：** 把 $P$ 测度下的风险溢价吸收到 Brownian motion 的漂移调整中。
+把 $P$ 测度下的风险溢价吸收到 Brownian motion 的漂移调整中。
 
-**联立系统：**
 
 $$
 \begin{aligned}
@@ -1518,7 +1516,7 @@ dW_t^{\mathbb Q}&=dW_t+\lambda dt.
 \end{aligned}
 $$
 
-**连续求解：** 由 $dW_t=dW_t^{\mathbb Q}-\lambda dt$，
+由 $dW_t=dW_t^{\mathbb Q}-\lambda dt$，
 
 $$
 \begin{aligned}
@@ -1538,7 +1536,7 @@ V_t=e^{-r(T-t)}E_t^{\mathbb Q}[H(S_T)].
 \end{aligned}
 $$
 
-**结论：** 风险中性不是投资者真的风险中性，而是用等价测度把风险溢价转移到概率权重里。
+风险中性不是投资者真的风险中性，而是用等价测度把风险溢价转移到概率权重里。
 
 
 第三条路线是直接转到 risk-neutral measure $\mathbb Q$。  
@@ -2782,9 +2780,8 @@ $$
 
 :::
 
-**要证：** 由 $\Lambda_tF(t,r_t)$ 为鞅推出 PDE。
+由 $\Lambda_tF(t,r_t)$ 为鞅推出 PDE。
 
-**联立系统：**
 
 $$
 \begin{aligned}
@@ -2793,7 +2790,7 @@ d\Lambda/\Lambda&=-rdt-\lambda_rdW.
 \end{aligned}
 $$
 
-**连续求解：** 鞅条件要求
+鞅条件要求
 
 $$
 \begin{aligned}
@@ -2806,7 +2803,7 @@ $$
 
 终端时债券支付 1，因此边界条件为 $F(T,r)=1$。
 
-**结论：** 利率模型的风险中性漂移是 $\mu_r^Q=\mu_r-\sigma_r\lambda_r$；所有 affine bond pricing 的 Riccati 方程都从这个 PDE 出发。
+利率模型的风险中性漂移是 $\mu_r^Q=\mu_r-\sigma_r\lambda_r$；所有 affine bond pricing 的 Riccati 方程都从这个 PDE 出发。
 
 
 对一般无分红资产，fundamental asset pricing equation 是
@@ -2912,8 +2909,9 @@ d(\ln \Lambda_s) &= \frac{1}{\Lambda_s} d\Lambda_s - \frac{1}{2\Lambda_s^2} (d\L
 $$
 
 在 $[t, T]$ 上积分：
-$$\frac{\Lambda_T}{\Lambda_t} = \exp \left( -\int_t^T r_s ds - \sigma_\Lambda \int_t^T dz_s - \frac{1}{2}\sigma_\Lambda^2 N \right) \quad \text{其中 } N = T-t$$
-
+$$
+\frac{\Lambda_T}{\Lambda_t} = \exp \left( -\int_t^T r_s ds - \sigma_\Lambda \int_t^T dz_s - \frac{1}{2}\sigma_\Lambda^2 N \right) \quad \text{其中 } N = T-t
+$$
 **利率过程 $r_t$ 的显式解推导**
 令 $\tilde{r}_t = e^{\phi t}(r_t - \bar{r})$。对其求全微分：
 
@@ -2949,8 +2947,9 @@ $$
 
 **对数正态期望性质**
 令 $X = -\int_t^T r_s ds - \sigma_\Lambda \int_t^T dz_s - \frac{1}{2}\sigma_\Lambda^2 N$ 。由于 $X$ 是 $dz$ 的线性组合，其服从正态分布。则：
-$$P_t = E_t[e^X] = \exp \left( E_t[X] + \frac{1}{2} Var_t(X) \right)$$
-
+$$
+P_t = E_t[e^X] = \exp \left( E_t[X] + \frac{1}{2} Var_t(X) \right)
+$$
 **均值 $E_t[X]$ 的计算**
 
 $$
@@ -3006,9 +3005,9 @@ $$
 
 :::
 
-**要证：** 将指数仿射猜测代入零息债券 PDE，按 $r$ 的常数项与一次项配平。
+将指数仿射猜测代入零息债券 PDE，按 $r$ 的常数项与一次项配平。
 
-**联立系统：** 在 $N=T-t$ 记号下，
+在 $N=T-t$ 记号下，
 
 $$
 \begin{aligned}
@@ -3027,7 +3026,7 @@ P_N
 \end{aligned}
 $$
 
-**连续求解：** 代入各项并除以 $P$：
+代入各项并除以 $P$：
 
 $$
 \begin{aligned}
@@ -3058,29 +3057,38 @@ B(N)&=\frac{1-e^{-\phi N}}{\phi}.
 \end{aligned}
 $$
 
-**结论：** Vasicek 的封闭解核心是 $B$ 的线性 ODE；$A$ 只是在 $B$ 已知后积分得到。
+Vasicek 的封闭解核心是 $B$ 的线性 ODE；$A$ 只是在 $B$ 已知后积分得到。
 
 
 假设债券价格具有如下指数仿射形式：
-$$P(r, N) = \exp(A(N) - B(N)r)$$
+$$
+P(r, N) = \exp(A(N) - B(N)r)
+$$
 其中 $N = T - t$ 为剩余期限。
 
 **偏导数代入基本 PDE**
 基本 PDE 为：
-$$\frac{1}{P} \left[ \frac{\partial P}{\partial r} \mu_r + \frac{1}{2} \frac{\partial^2 P}{\partial r^2} \sigma_r^2 - \frac{\partial P}{\partial N} \right] - r = \frac{1}{P} \frac{\partial P}{\partial r} \sigma_r \sigma_\Lambda$$
+$$
+\frac{1}{P} \left[ \frac{\partial P}{\partial r} \mu_r + \frac{1}{2} \frac{\partial^2 P}{\partial r^2} \sigma_r^2 - \frac{\partial P}{\partial N} \right] - r = \frac{1}{P} \frac{\partial P}{\partial r} \sigma_r \sigma_\Lambda
+$$
 计算偏导数：
 *   $\frac{\partial P}{\partial r} = -B(N) P$
 *   $\frac{\partial^2 P}{\partial r^2} = B(N)^2 P$
 *   $\frac{\partial P}{\partial N} = (A'(N) - B'(N)r) P$
 
 代入 PDE 并约去 $P$：
-$$\left[ -B \phi(\bar{r}-r) + \frac{1}{2} B^2 \sigma_r^2 - (A' - B'r) \right] - r = -B \sigma_r \sigma_\Lambda$$
+$$
+\left[ -B \phi(\bar{r}-r) + \frac{1}{2} B^2 \sigma_r^2 - (A' - B'r) \right] - r = -B \sigma_r \sigma_\Lambda
+$$
 展开并按照利率 $r$ 的幂次排列：
-$$r \underbrace{(B' + \phi B - 1)}_{\text{Term for } r} + \underbrace{\left[ -\phi\bar{r}B + \frac{1}{2}B^2\sigma_r^2 - A' + B\sigma_r\sigma_\Lambda \right]}_{\text{Constant Term}} = 0$$
-
+$$
+r \underbrace{(B' + \phi B - 1)}_{\text{Term for } r} + \underbrace{\left[ -\phi\bar{r}B + \frac{1}{2}B^2\sigma_r^2 - A' + B\sigma_r\sigma_\Lambda \right]}_{\text{Constant Term}} = 0
+$$
 **求解 $B(N)$ (一阶线性 ODE)**
 由于上述恒等式对任意 $r$ 均成立，系数项必须为 0：
-$$B'(N) + \phi B(N) = 1, \quad B(0) = 0$$
+$$
+B'(N) + \phi B(N) = 1, \quad B(0) = 0
+$$
 引入积分因子 $e^{\phi N}$：
 
 $$
@@ -3095,13 +3103,17 @@ $$
 
 **求解 $A(N)$ (直接积分)**
 根据常数项方程：
-$$A'(N) = -\phi\bar{r}B(N) + \frac{1}{2}\sigma_r^2 B(N)^2 + \sigma_r\sigma_\Lambda B(N), \quad A(0) = 0$$
+$$
+A'(N) = -\phi\bar{r}B(N) + \frac{1}{2}\sigma_r^2 B(N)^2 + \sigma_r\sigma_\Lambda B(N), \quad A(0) = 0
+$$
 两边对 $N$ 进行积分：
-$$A(N) = \int_0^N \left[ (-\phi\bar{r} + \sigma_r\sigma_\Lambda) B(s) + \frac{1}{2}\sigma_r^2 B(s)^2 \right] ds$$
-
+$$
+A(N) = \int_0^N \left[ (-\phi\bar{r} + \sigma_r\sigma_\Lambda) B(s) + \frac{1}{2}\sigma_r^2 B(s)^2 \right] ds
+$$
 **积分 $\int_0^N B(s)\,ds$**
-$$\int_0^N \frac{1 - e^{-\phi s}}{\phi} ds = \frac{1}{\phi} \left[ s + \frac{1}{\phi} e^{-\phi s} \right]_0^N = \frac{1}{\phi} \left( N - \frac{1 - e^{-\phi N}}{\phi} \right) = \frac{1}{\phi}(N - B(N))$$
-
+$$
+\int_0^N \frac{1 - e^{-\phi s}}{\phi} ds = \frac{1}{\phi} \left[ s + \frac{1}{\phi} e^{-\phi s} \right]_0^N = \frac{1}{\phi} \left( N - \frac{1 - e^{-\phi N}}{\phi} \right) = \frac{1}{\phi}(N - B(N))
+$$
 **积分 $\int_0^N B(s)^2\,ds$**
 展开 $B(s)^2 = \frac{1}{\phi^2}(1 - 2e^{-\phi s} + e^{-2\phi s})$：
 
@@ -3128,12 +3140,19 @@ $$
 #### 9.4.3 Vasicek model: Summarization
 
 Given $P_t^{(N)} = e^{A(N)-B(N)r_t},$
-$$p_t^{(N)} = A(N) - B(N)r_t,$$
-$$y_t^{(N)} = -\frac{1}{N}p_t^{(N)} = -\frac{A(N)}{N} + \frac{B(N)}{N}r,$$
+$$
+p_t^{(N)} = A(N) - B(N)r_t,
+$$
+$$
+y_t^{(N)} = -\frac{1}{N}p_t^{(N)} = -\frac{A(N)}{N} + \frac{B(N)}{N}r,
+$$
 where
-$$B(N) = \frac{1 - e^{-\phi N}}{\phi}$$
-$$A(N) = -\frac{\sigma_r^2}{4\phi}B(N)^2 + \left(\frac{\sigma_r^2}{2\phi^2} + \frac{\sigma_r\sigma_\Lambda}{\phi} - \bar{r}\right)(N - B(N)) $$
-
+$$
+B(N) = \frac{1 - e^{-\phi N}}{\phi}
+$$
+$$
+A(N) = -\frac{\sigma_r^2}{4\phi}B(N)^2 + \left(\frac{\sigma_r^2}{2\phi^2} + \frac{\sigma_r\sigma_\Lambda}{\phi} - \bar{r}\right)(N - B(N))
+$$
 **极限情况: $\phi \to \infty$**
 当 $\phi \to \infty$ 时，意味着均值回归速度无穷快，利率始终保持在 $\bar{r}$：
 - $B(N) \to 0$
@@ -3164,9 +3183,8 @@ $$
 
 :::
 
-**要证：** 解释为什么 CIR 的 $B$ 方程多出 $B^2$ 项。
+解释为什么 CIR 的 $B$ 方程多出 $B^2$ 项。
 
-**联立系统：**
 
 $$
 \begin{aligned}
@@ -3178,7 +3196,7 @@ P_{rr}&=B^2P,\\
 \end{aligned}
 $$
 
-**连续求解：** 零息债券 PDE 为
+零息债券 PDE 为
 
 $$
 \begin{aligned}
@@ -3216,7 +3234,7 @@ B'&=1-(\phi+\sigma_r\sigma_\Lambda)B-\frac12\sigma_r^2B^2.
 \end{aligned}
 $$
 
-**结论：** Vasicek 与 CIR 的区别不在仿射猜测，而在扩散项：CIR 的 $(dr)^2=\sigma_r^2r dt$ 使二阶项贡献 $rB^2$，所以 $B$ 满足非线性 Riccati 方程。
+Vasicek 与 CIR 的区别不在仿射猜测，而在扩散项：CIR 的 $(dr)^2=\sigma_r^2r dt$ 使二阶项贡献 $rB^2$，所以 $B$ 满足非线性 Riccati 方程。
 
 
 :::{admonition} Riccati Equation
@@ -3497,8 +3515,12 @@ $$
 
 **CIR model: Summarization**
 The closed-form solutions are:
-$$B(N) = \frac{2\left(e^{\gamma N} - 1\right)}{\left(\gamma + \phi + \sigma_r\sigma_\Lambda\right)\left(e^{\gamma N} - 1\right) + 2\gamma},$$
-$$A(N) = \frac{\phi\bar{r}}{\sigma_r^2} \left[ 2\ln\left( \frac{2\gamma}{\psi\left(e^{\gamma N} - 1\right) + 2\gamma} \right) + \psi N \right],$$
+$$
+B(N) = \frac{2\left(e^{\gamma N} - 1\right)}{\left(\gamma + \phi + \sigma_r\sigma_\Lambda\right)\left(e^{\gamma N} - 1\right) + 2\gamma},
+$$
+$$
+A(N) = \frac{\phi\bar{r}}{\sigma_r^2} \left[ 2\ln\left( \frac{2\gamma}{\psi\left(e^{\gamma N} - 1\right) + 2\gamma} \right) + \psi N \right],
+$$
 where
 
 $$

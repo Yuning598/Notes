@@ -1271,7 +1271,7 @@ Solve a two-period Kyle model, in which trader can trade two times before the in
 [Kyle Exercise 2](cards/Kyle%20Exercise%202%20-%20%E4%B8%A4%E6%9C%9F%E5%88%A9%E6%B6%A6%E6%AF%94%E8%BE%83%E4%B8%8E%E8%A7%A3%E9%87%8A.md)（两期利润比较与解释）
 
 
-结论：记
+记
 
 $$
 d:=v-v_0,

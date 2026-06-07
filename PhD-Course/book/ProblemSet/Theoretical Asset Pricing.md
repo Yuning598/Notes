@@ -3595,7 +3595,7 @@ $$
 \bar E_t[D_T]:=\frac{1}{z}\sum_{i=1}^zE_{it}[D_T].
 $$
 
-联立系统为：
+方程组为：
 
 $$
 \left\{
@@ -3709,7 +3709,6 @@ $$
 
 图形是一个逐步上升到 1 后保持平稳的阶梯形路径。
 
-结论：
 - 短期内，资产 **underpriced**，因为只有一部分投资者知道好消息，价格只部分反映信息。
 - 长期内，资产价格正确反映信息，不再 mispriced，因为信息最终完全公开。
 
@@ -3886,7 +3885,6 @@ $$
 
 过去正收益 $\Delta P>0$ 会诱发 momentum demand，从而推高价格。
 
-结论：
 - 短期内，价格通常仍然 **underpriced**，因为信息仍然只被部分投资者知道。
 - 中期内，价格可能 **overpriced**，因为 momentum traders 根据过去上涨继续买入，推动价格超过 fundamental value。
 - 长期内，价格回到正确水平，因为信息完全公开，而且 momentum positions 最终退出。
@@ -4303,7 +4301,6 @@ p
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -4356,7 +4353,6 @@ p-p^R
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -4983,7 +4979,7 @@ P&=\operatorname{diag}(p_1,\ldots,p_N),\\
 \right.
 $$
 
-**结论**：最优 risky investment = risk tolerance $1/\alpha$ $\times$ mean-variance efficient demand $\Sigma^{-1}(\mu-R_f\iota)$；$\alpha$ 越大，risky position 越小。
+最优 risky investment = risk tolerance $1/\alpha$ $\times$ mean-variance efficient demand $\Sigma^{-1}(\mu-R_f\iota)$；$\alpha$ 越大，risky position 越小。
 
 ::::
 
@@ -5068,7 +5064,7 @@ H(c_0^{**})>H(c_0^*),\quad H'(c)<0
 \end{aligned}
 $$
 
-**结论**：引入 mean-zero labor income risk 后，最优当期消费下降、储蓄上升；这就是 precautionary savings。
+引入 mean-zero labor income risk 后，最优当期消费下降、储蓄上升；这就是 precautionary savings。
 
 ::::
 
@@ -5540,7 +5536,7 @@ $$
 \end{aligned}
 $$
 
-**结论**：代回原 sharing rule 后，state-$h$ allocation 是 $\widetilde w_m$ 的 affine function。
+代回原 sharing rule 后，state-$h$ allocation 是 $\widetilde w_m$ 的 affine function。
 
 **c. 异方差版本**
 
@@ -5578,7 +5574,7 @@ $$
 \end{aligned}
 $$
 
-**结论**：异方差时 log ratio 含有 $\widetilde w_m^2/\sigma_j^2$ 项，sharing rule 不再只是 $\widetilde w_m$ 的 affine function。
+异方差时 log ratio 含有 $\widetilde w_m^2/\sigma_j^2$ 项，sharing rule 不再只是 $\widetilde w_m$ 的 affine function。
 
 ::::
 
@@ -5739,7 +5735,7 @@ E_t[Z_{t+1}]\le Z_t.
 \end{aligned}
 $$
 
-**结论**：heterogeneous-belief planner 等价于 representative agent with stochastic weight $Z_t$，且 $\rho>1$ 时 $Z_t$ 是 supermartingale。
+heterogeneous-belief planner 等价于 representative agent with stochastic weight $Z_t$，且 $\rho>1$ 时 $Z_t$ 是 supermartingale。
 
 
 ::::
@@ -7593,7 +7589,6 @@ A(R_f)&=\delta^{-1/\rho}R_f^{(\rho-1)/\rho},\\
 \right.
 $$
 
-结论：
 
 $$
 \boxed{
@@ -8043,7 +8038,7 @@ E[\widetilde R_i]-R_z =
 }
 $$
 
-**结论**：证明的核心不是把 $R_z$ 当成 risk-free rate，而是把它当作 zero-beta intercept。Single-factor return 必须有非零 premium $E[\widetilde R]-R_z$；只要 beta-pricing 成立，这个 factor portfolio 的权重就满足 no-risk-free frontier 的 FOC。
+证明的核心不是把 $R_z$ 当成 risk-free rate，而是把它当作 zero-beta intercept。Single-factor return 必须有非零 premium $E[\widetilde R]-R_z$；只要 beta-pricing 成立，这个 factor portfolio 的权重就满足 no-risk-free frontier 的 FOC。
 
 若课程把 efficient frontier 严格指 upper branch，还需要 $\lambda=E[\widetilde R]-R_z>0$；若只要求 mean-variance frontier，则 $E[\widetilde R]\ne R_z$ 已足够排除 GMV/zero-premium 退化情形。
 
@@ -9997,7 +9992,7 @@ $$
 
 ::::
 
-**结论** 没有 risk-free asset 时，frontier portfolio 不能只沿 $\Sigma^{-1}\mu$ 调整，因为还必须满足 $1'\phi=1$。所以有效组合由两个部分组成：
+没有 risk-free asset 时，frontier portfolio 不能只沿 $\Sigma^{-1}\mu$ 调整，因为还必须满足 $1'\phi=1$。所以有效组合由两个部分组成：
 
 ::::{solution}
 
@@ -11836,7 +11831,6 @@ $$
 \end{aligned}
 $$
 
-结论：
 
 $$
 \begin{aligned}

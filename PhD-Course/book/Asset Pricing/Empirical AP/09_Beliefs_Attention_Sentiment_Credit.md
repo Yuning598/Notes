@@ -27,17 +27,19 @@ $$
 
 :::{admonition} Definition (Overconfidence)
 Overconfidence 指投资者高估自己信号精度，或低估不确定性。形式化地，真实信号为
-$$ s=\theta+\eta,\qquad \eta\sim N(0,\sigma_\eta^2), $$
+$$
+s=\theta+\eta,\qquad \eta\sim N(0,\sigma_\eta^2),
+$$
 但投资者认为噪声方差是
-$$ \tilde\sigma_\eta^2<\sigma_\eta^2. $$
-
+$$
+\tilde\sigma_\eta^2<\sigma_\eta^2.
+$$
 **Lemma:** 过度自信放大 posterior reaction
-**要证：** 信号噪声方差越低，posterior mean 对信号权重越高。
+信号噪声方差越低，posterior mean 对信号权重越高。
 
-**联立系统：**
-$$ \theta\sim N(\mu_0,\sigma_0^2),\qquad s=\theta+\eta,\qquad \eta\sim N(0,\tilde\sigma_\eta^2). $$
-
-**连续求解：**
+$$
+\theta\sim N(\mu_0,\sigma_0^2),\qquad s=\theta+\eta,\qquad \eta\sim N(0,\tilde\sigma_\eta^2).
+$$
 Bayesian posterior mean：
 
 $$
@@ -45,9 +47,10 @@ $$
 $$
 
 对 $\tilde\sigma_\eta^2$ 求导：
-$$ \frac{\partial w}{\partial \tilde\sigma_\eta^2} = -\frac{\sigma_0^2}{(\sigma_0^2+\tilde\sigma_\eta^2)^2}<0. $$
-
-**结论：** 过度自信使投资者对私人信号反应过强，导致过度交易与价格过度反应。
+$$
+\frac{\partial w}{\partial \tilde\sigma_\eta^2} = -\frac{\sigma_0^2}{(\sigma_0^2+\tilde\sigma_\eta^2)^2}<0.
+$$
+过度自信使投资者对私人信号反应过强，导致过度交易与价格过度反应。
 
 :::
 
@@ -68,23 +71,25 @@ $$
 - 高 sentiment 后低未来收益。
 
 :::{admonition} Lemma: Extrapolative demand and reversal
-**要证：** 若过去高收益推高主观预期与需求，价格上升；当 beliefs mean-revert，未来收益下降。
+若过去高收益推高主观预期与需求，价格上升；当 beliefs mean-revert，未来收益下降。
 
-**联立系统：**
-$$ D_t=\chi \tilde E_t[R_{t+1}],\qquad P_t=P_t^*+\lambda D_t. $$
+$$
+D_t=\chi \tilde E_t[R_{t+1}],\qquad P_t=P_t^*+\lambda D_t.
+$$
 且
-$$ \tilde E_t[R_{t+1}]=a+bR_{t-k,t}. $$
-
-**连续求解：**
+$$
+\tilde E_t[R_{t+1}]=a+bR_{t-k,t}.
+$$
 
 $$
 \begin{aligned} P_t &=P_t^*+\lambda\chi(a+bR_{t-k,t}). \end{aligned}
 $$
 
 若未来主观信念回归均值：
-$$ E_t[P_{t+1}-P_t] \approx -\lambda\chi b(R_{t-k,t}-\bar R). $$
-
-**结论：** 过去收益越高，当前价格越可能被推高，随后 reversal 更强。
+$$
+E_t[P_{t+1}-P_t] \approx -\lambda\chi b(R_{t-k,t}-\bar R).
+$$
+过去收益越高，当前价格越可能被推高，随后 reversal 更强。
 
 :::
 
@@ -96,22 +101,27 @@ $$ E_t[P_{t+1}-P_t] \approx -\lambda\chi b(R_{t-k,t}-\bar R). $$
 Difference of opinion 指投资者对同一资产 payoff 的主观分布不同。若短售受限，悲观投资者不能卖空，市场价格由乐观投资者边际定价。
 
 **Lemma:** Heterogeneous beliefs + short-sale constraints generates overpricing
-**要证：** 在短售受限下，乐观者可以把价格推高到高于平均信念价值。
+在短售受限下，乐观者可以把价格推高到高于平均信念价值。
 
-**联立系统：**
 两类投资者对 payoff $X$ 的估值：
-$$ V^O=E^O[X]/R_f,\qquad V^P=E^P[X]/R_f,\qquad V^O>V^P. $$
+$$
+V^O=E^O[X]/R_f,\qquad V^P=E^P[X]/R_f,\qquad V^O>V^P.
+$$
 悲观者不能 short。
 
-**连续求解：**
 若无短售限制且风险中性，市场价格可能接近平均估值：
-$$ P^{avg}=\omega V^O+(1-\omega)V^P. $$
+$$
+P^{avg}=\omega V^O+(1-\omega)V^P.
+$$
 若短售受限，悲观者需求下限为 0：
-$$ q^P(P)\ge 0. $$
+$$
+q^P(P)\ge 0.
+$$
 当 $P>V^P$ 时，悲观者想 short，但只能持有 0。边际买方是乐观者，均衡价格可接近：
-$$ P^{SSC}\approx V^O>P^{avg}. $$
-
-**结论：** disagreement 高且 short-sale constraints 强的股票更容易 overpricing，未来收益更低。见 [cards/Heterogeneous_Beliefs_SSC](cards/Heterogeneous_Beliefs_SSC)。
+$$
+P^{SSC}\approx V^O>P^{avg}.
+$$
+disagreement 高且 short-sale constraints 强的股票更容易 overpricing，未来收益更低。见 [cards/Heterogeneous_Beliefs_SSC](cards/Heterogeneous_Beliefs_SSC)。
 
 :::
 
@@ -133,13 +143,12 @@ $$
 其中 $SUE$ 是 standardized unexpected earnings。若 $\beta>0$，说明盈利惊喜后价格继续漂移。
 
 :::{admonition} Lemma: Inattention generates delayed reaction
-**要证：** 若只有比例 $\lambda$ 的投资者每期处理信息，价格逐步反映 shock。
+若只有比例 $\lambda$ 的投资者每期处理信息，价格逐步反映 shock。
 
-**联立系统：**
 fundamental shock $s$ 对价值影响为 $\Delta V=s$。价格每期反映剩余未吸收信息的比例 $\lambda$：
-$$ P_{t+j}-P_{t+j-1}=\lambda(1-\lambda)^{j-1}s. $$
-
-**连续求解：**
+$$
+P_{t+j}-P_{t+j-1}=\lambda(1-\lambda)^{j-1}s.
+$$
 到第 $k$ 期累计反应：
 
 $$
@@ -147,9 +156,10 @@ $$
 $$
 
 未反映部分：
-$$ s-(P_{t+k}-P_t)=s(1-\lambda)^k. $$
-
-**结论：** 信息逐步进入价格，形成 momentum 或 announcement drift。见 [cards/Limited_Attention_PEAD](cards/Limited_Attention_PEAD)。
+$$
+s-(P_{t+k}-P_t)=s(1-\lambda)^k.
+$$
+信息逐步进入价格，形成 momentum 或 announcement drift。见 [cards/Limited_Attention_PEAD](cards/Limited_Attention_PEAD)。
 
 :::
 
@@ -184,21 +194,21 @@ $$
 若 $\beta<0$，说明 sentiment 高时，难套利股票未来收益更低。
 
 :::{admonition} Lemma: Sentiment mean reversion predicts returns
-**要证：** 如果 sentiment 推高价格且 sentiment mean-reverts，则高 sentiment 预测低未来收益。
+如果 sentiment 推高价格且 sentiment mean-reverts，则高 sentiment 预测低未来收益。
 
-**联立系统：**
-$$ P_t=V_t+aS_t,\qquad E_t[S_{t+1}]=\phi S_t,\quad 0<\phi<1. $$
-
-**连续求解：**
+$$
+P_t=V_t+aS_t,\qquad E_t[S_{t+1}]=\phi S_t,\quad 0<\phi<1.
+$$
 
 $$
 \begin{aligned} E_t[P_{t+1}-P_t] &= E_t[V_{t+1}-V_t]+aE_t[S_{t+1}-S_t]\\ &= E_t[V_{t+1}-V_t]+a(\phi-1)S_t\\ &= E_t[V_{t+1}-V_t]-a(1-\phi)S_t. \end{aligned}
 $$
 
 所以
-$$ E_t[R_{t+1}] \approx \bar R-\frac{a(1-\phi)}{P_t}S_t. $$
-
-**结论：** sentiment 越高，未来 expected return 越低，特别是 sentiment-sensitive stocks。
+$$
+E_t[R_{t+1}] \approx \bar R-\frac{a(1-\phi)}{P_t}S_t.
+$$
+sentiment 越高，未来 expected return 越低，特别是 sentiment-sensitive stocks。
 
 :::
 

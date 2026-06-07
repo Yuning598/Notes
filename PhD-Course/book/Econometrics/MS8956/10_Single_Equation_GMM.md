@@ -59,24 +59,27 @@ $$
 (\alpha_1 - \beta_1) p_i = (\beta_0 - \alpha_0) + (v_i - u_i)
 $$
 由此得到 **Reduced Form** (简化式方程)：
-$$\begin{aligned}
+$$
+\begin{aligned}
 p_i &= \frac{\beta_0 - \alpha_0}{\alpha_1 - \beta_1} + \frac{v_i - u_i}{\alpha_1 - \beta_1} \quad (3.1.3a) \\
 q_i &= \frac{\alpha_1 \beta_0 - \alpha_0 \beta_1}{\alpha_1 - \beta_1} + \frac{\alpha_1 v_i - \beta_1 u_i}{\alpha_1 - \beta_1} \quad (3.1.3b)
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## Covariance Derivation
 为了验证内生性，我们计算价格 $p_i$ 与需求扰动项 $u_i$ 的协方差：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(p_i, u_i) &= Cov\left( \frac{\beta_0 - \alpha_0}{\alpha_1 - \beta_1} + \frac{v_i - u_i}{\alpha_1 - \beta_1}, u_i \right) \\
 &= \frac{1}{\alpha_1 - \beta_1} Cov(v_i - u_i, u_i) \\
 &= \frac{1}{\alpha_1 - \beta_1} [Cov(v_i, u_i) - Var(u_i)] \\
 &= -\frac{Var(u_i)}{\alpha_1 - \beta_1} \quad (\text{since } Cov(u_i, v_i)=0)
-\end{aligned}$$
+\end{aligned}
+$$
 同理可得：
 $$
 Cov(p_i, v_i) = \frac{Var(v_i)}{\alpha_1 - \beta_1}
 $$
-**结论 (Covariance Summary)**:
+Covariance Summary：
 $$
 Cov(p_i, u_i) = -\frac{Var(u_i)}{\alpha_1 - \beta_1}, \quad Cov(p_i, v_i) = \frac{Var(v_i)}{\alpha_1 - \beta_1} \quad (3.1.4)
 $$
@@ -110,23 +113,27 @@ $$
 
 ## OLS Probability Limit
 对 $q_i = \alpha_0 + \alpha_1 p_i + u_i$ 进行单变量 OLS 回归，系数 $\hat{\alpha}_1$ 的渐近极限推导如下：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\alpha}_1 &= \frac{\sum_{i=1}^n (p_i - \bar{p})(q_i - \bar{q})}{\sum_{i=1}^n (p_i - \bar{p})^2} \\
 &= \frac{\frac{1}{n} \sum_{i=1}^n (p_i - \bar{p})q_i}{\frac{1}{n} \sum_{i=1}^n (p_i - \bar{p})^2} \\
 \xrightarrow{p} \text{plim } \hat{\alpha}_1 &= \frac{E[(p_i - E[p_i])q_i]}{E[(p_i - E[p_i])^2]} \\
 &= \frac{Cov(p_i, q_i)}{Var(p_i)} \quad (3.1.5)
-\end{aligned}$$
+\end{aligned}
+$$
 *注：这里利用了 LLN (大数定律)，将样本矩收敛至总体矩。*
 
 ## Asymptotic Bias Derivation
 利用结构方程 $q_i = \alpha_0 + \alpha_1 p_i + u_i$，我们将 $\text{plim } \hat{\alpha}_1$ 展开并提取偏差项：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{plim } \hat{\alpha}_1 &= \frac{Cov(p_i, q_i)}{Var(p_i)} \\
 &= \frac{Cov(p_i, \alpha_0 + \alpha_1 p_i + u_i)}{Var(p_i)} \\
 &= \frac{Cov(p_i, \alpha_0) + Cov(p_i, \alpha_1 p_i) + Cov(p_i, u_i)}{Var(p_i)} \\
 &= \frac{0 + \alpha_1 Var(p_i) + Cov(p_i, u_i)}{Var(p_i)} \\
 &= \alpha_1 + \frac{Cov(p_i, u_i)}{Var(p_i)}
-\end{aligned}$$
+\end{aligned}
+$$
 **整理得到偏差表达式**:
 $$
 \text{plim } \hat{\alpha}_1 - \alpha_1 = \frac{Cov(p_i, u_i)}{Var(p_i)} \quad (3.1.7)
@@ -141,7 +148,7 @@ $$
 - 这种现象被称为 **Endogeneity Bias (内生性偏差)**，也常被称为：
   - **Simultaneous Equations Bias (联立方程偏差)**
   - **Simultaneity Bias (同时性偏差)**
-  - 核心原因：解释变量与扰动项通过联立系统产生了循环相关。
+  - 核心原因：解释变量与扰动项通过均衡方程组产生了循环相关。
 
 ## Extreme Cases and Identification
 
@@ -178,25 +185,28 @@ supply shifters move the supply curve along a fixed demand curve, and demand shi
 - $q_i = \text{Const} + \frac{\alpha_1 v_i - \beta_1 u_i}{\alpha_1 - \beta_1}$
 
 **1. 计算 $Var(p_i)$**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 Var(p_i) &= Var\left( \frac{v_i - u_i}{\alpha_1 - \beta_1} \right) \\
 &= \frac{1}{(\alpha_1 - \beta_1)^2} [Var(v_i) + Var(u_i)] \quad (\because Cov(u_i, v_i)=0)
-\end{aligned}$$
-
+\end{aligned}
+$$
 **2. 计算 $Cov(p_i, q_i)$**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(p_i, q_i) &= Cov\left( \frac{v_i - u_i}{\alpha_1 - \beta_1}, \frac{\alpha_1 v_i - \beta_1 u_i}{\alpha_1 - \beta_1} \right) \\
 &= \frac{1}{(\alpha_1 - \beta_1)^2} Cov(v_i - u_i, \alpha_1 v_i - \beta_1 u_i) \\
 &= \frac{1}{(\alpha_1 - \beta_1)^2} [\alpha_1 Var(v_i) + \beta_1 Var(u_i)] \quad (\because \text{cross terms are zero})
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## Weighted-Average Bias Proof
 将上述结果代入 OLS 估计量的极限公式 $\text{plim } \hat{\alpha}_1 = \frac{Cov(p_i, q_i)}{Var(p_i)}$：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{plim } \hat{\alpha}_1 &= \frac{\frac{1}{(\alpha_1 - \beta_1)^2} [\alpha_1 Var(v_i) + \beta_1 Var(u_i)]}{\frac{1}{(\alpha_1 - \beta_1)^2} [Var(v_i) + Var(u_i)]} \\
 &= \frac{\alpha_1 Var(v_i) + \beta_1 Var(u_i)}{Var(v_i) + Var(u_i)} \quad (3.1.9)
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## Weighted-Average Bias Implications
 - **权重意义**: OLS 估计量是 $\alpha_1$ 和 $\beta_1$ 的加权平均，权重取决于供给和需求冲击的相对方差。
 - **极端情况验证**:
@@ -242,29 +252,33 @@ $$
 
 通过联立上述两式，解出内生变量 $p_i$ 和 $q_i$ 的简化式：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 p_i &= \frac{\beta_0 - \alpha_0}{\alpha_1 - \beta_1} + \frac{\beta_2}{\alpha_1 - \beta_1} x_i + \frac{\zeta_i - u_i}{\alpha_1 - \beta_1} \quad (3.1.10a) \\
 q_i &= \frac{\alpha_1 \beta_0 - \alpha_0 \beta_1}{\alpha_1 - \beta_1} + \frac{\alpha_1 \beta_2}{\alpha_1 - \beta_1} x_i + \frac{\alpha_1 \zeta_i - \beta_1 u_i}{\alpha_1 - \beta_1} \quad (3.1.10b)
-\end{aligned}$$
-
+\end{aligned}
+$$
 **1. 验证相关性 (Relevance)**:
 利用简化式 (3.1.10a) 计算 $x_i$ 与内生变量 $p_i$ 的协方差：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(x_i, p_i) &= Cov\left( x_i, \frac{\beta_0 - \alpha_0}{\alpha_1 - \beta_1} + \frac{\beta_2}{\alpha_1 - \beta_1} x_i + \frac{\zeta_i - u_i}{\alpha_1 - \beta_1} \right) \\
 &= Cov\left( x_i, \text{Const} \right) + Cov\left( x_i, \frac{\beta_2}{\alpha_1 - \beta_1} x_i \right) + Cov\left( x_i, \frac{\zeta_i - u_i}{\alpha_1 - \beta_1} \right) \\
 &= 0 + \frac{\beta_2}{\alpha_1 - \beta_1} Var(x_i) + 0 \quad (\because \text{Exogeneity of } x_i) \\
 &= \frac{\beta_2}{\alpha_1 - \beta_1} Var(x_i) \neq 0
-\end{aligned}$$
+\end{aligned}
+$$
 *注：只要 $\beta_2 \neq 0$（工具变量确实影响供给侧），相关性条件就成立。*
 
 **2. 验证识别过程**:
 从需求方程 $q_i = \alpha_0 + \alpha_1 p_i + u_i$ 出发，计算与 $x_i$ 的协方差：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(x_i, q_i) &= Cov(x_i, \alpha_0 + \alpha_1 p_i + u_i) \\
 &= \alpha_1 Cov(x_i, p_i) + Cov(x_i, u_i) \\
 &= \alpha_1 Cov(x_i, p_i) \quad (\because Cov(x_i, u_i) = 0 \text{ by exogeneity})
-\end{aligned}$$
-
+\end{aligned}
+$$
 **3. 恢复结构参数**:
 由此我们可以通过**总体矩 (Population Moments)** 直接定义 $\alpha_1$：
 $$
@@ -272,7 +286,7 @@ $$
 $$
 
 **识别成功**
-不同于 OLS 的混合偏差，通过工具变量 $x_i$，我们成功将需求参数 $\alpha_1$ 从复杂的联立系统中“提取”了出来。这就是 IV 估计量的本质：$\hat{\alpha}_{1, IV} = \frac{\widehat{Cov}(x, q)}{\widehat{Cov}(x, p)}$。
+不同于 OLS 的混合偏差，通过工具变量 $x_i$，我们成功将需求参数 $\alpha_1$ 从复杂的均衡方程组中“提取”了出来。这就是 IV 估计量的本质：$\hat{\alpha}_{1, IV} = \frac{\widehat{Cov}(x, q)}{\widehat{Cov}(x, p)}$。
 
 **Instrumental Variables Estimator**
 
@@ -302,12 +316,13 @@ $$
 
 **2. 样本矩条件 (Sample Moment Condition)**:
 利用类比原则，将总体期望替换为样本均值：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(q_i - \hat{\alpha}_0 - \hat{\alpha}_1 p_i) &= 0 \\
 \frac{1}{n} \sum (x_i - \bar{x})q_i - \hat{\alpha}_1 \frac{1}{n} \sum (x_i - \bar{x})p_i &= 0 \quad (\text{assuming } \bar{u}=0) \\
 \hat{\alpha}_{1,IV} &= \frac{\sum (x_i - \bar{x})q_i}{\sum (x_i - \bar{x})p_i}
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## IV and OLS Comparison
 
 :::{admonition} Definition (Comparison: IV vs. OLS)
@@ -350,11 +365,12 @@ $$
 
 **2. 核心证明逻辑**:
 我们需要验证 $Cov(\hat{p}_i, \text{error}^*_i) = 0$：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(\hat{p}_i, \text{error}^*_i) &= Cov(\hat{p}_i, u_i + \alpha_1(p_i - \hat{p}_i)) \\
 &= Cov(\hat{p}_i, u_i) + \alpha_1 Cov(\hat{p}_i, p_i - \hat{p}_i)
-\end{aligned}$$
-
+\end{aligned}
+$$
 - **第一项 $Cov(\hat{p}_i, u_i)$**:
   由于 $\hat{p}_i = \hat{\gamma}_0 + \hat{\gamma}_1 x_i$，且根据外生性假设 $Cov(x_i, u_i) = 0$，可知：
   $$
@@ -367,14 +383,15 @@ Cov(\hat{p}_i, \text{error}^*_i) &= Cov(\hat{p}_i, u_i + \alpha_1(p_i - \hat{p}_
   Cov(\hat{p}_i, p_i - \hat{p}_i) = 0
   $$
 
-**3. 结论 (Step-by-step Consistency)**:
+**3. Step-by-step consistency**:
 根据 OLS 估计量的样本矩表达式：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\alpha}_{1, 2SLS} &= \frac{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})(q_i - \bar{q})}{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})^2} \\
 &= \frac{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})(\alpha_0 + \alpha_1 \hat{p}_i + \text{error}^*_i - \bar{q})}{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})^2} \\
 &= \alpha_1 + \frac{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})\text{error}^*_i}{\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})^2}
-\end{aligned}$$
-
+\end{aligned}
+$$
 根据 **大数定律 (LLN)** 和 **Slutsky 定理**:
 1. 分子项: $\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})\text{error}^*_i \xrightarrow{p} Cov(\hat{p}_i, \text{error}^*_i)$
 2. 分母项: $\frac{1}{n} \sum (\hat{p}_i - \bar{\hat{p}})^2 \xrightarrow{p} Var(\hat{p}_i)$
@@ -412,19 +429,22 @@ $$
 $$
 
 将 $\hat{p}_i - \bar{\hat{p}}$ 代入 2SLS 公式中：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\alpha}_{1, 2SLS} &= \frac{\sum \left[ \hat{\gamma}_1 (x_i - \bar{x}) \right] (q_i - \bar{q})}{\sum \left[ \hat{\gamma}_1 (x_i - \bar{x}) \right]^2} \\
 &= \frac{\hat{\gamma}_1 \sum (x_i - \bar{x})(q_i - \bar{q})}{\hat{\gamma}_1^2 \sum (x_i - \bar{x})^2} \\
 &= \frac{1}{\hat{\gamma}_1} \cdot \frac{\sum (x_i - \bar{x})(q_i - \bar{q})}{\sum (x_i - \bar{x})^2}
-\end{aligned}$$
-
-**3. 代入 $\hat{\gamma}_1$ 得到最终结论**:
-$$\begin{aligned}
+\end{aligned}
+$$
+**3. 代入 $\hat{\gamma}_1$ 得到 2SLS-IV 等价式**:
+$$
+\begin{aligned}
 \hat{\alpha}_{1, 2SLS} &= \left[ \frac{\sum (x_i - \bar{x})^2}{\sum (x_i - \bar{x})(p_i - \bar{p})} \right] \cdot \frac{\sum (x_i - \bar{x})(q_i - \bar{q})}{\sum (x_i - \bar{x})^2} \\
 &= \frac{\sum (x_i - \bar{x})(q_i - \bar{q})}{\sum (x_i - \bar{x})(p_i - \bar{p})} \\
 &= \hat{\alpha}_{1, IV}
-\end{aligned}$$
-**结论**: 在恰好识别（Just-Identified）的情况下，$2SLS$ 估计量退化为简单的 $IV$ 估计量。
+\end{aligned}
+$$
+在恰好识别（Just-Identified）的情况下，$2SLS$ 估计量退化为简单的 $IV$ 估计量。
 
 **Endogeneity Examples**
 
@@ -442,23 +462,26 @@ $$\begin{aligned}
 
 ## Haavelmo Reduced Form
 将消费函数代入 GNP 恒等式：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Y_i &= (\alpha_0 + \alpha_1 Y_i + u_i) + I_i \\
 (1 - \alpha_1) Y_i &= \alpha_0 + I_i + u_i \\
 Y_i &= \frac{\alpha_0}{1 - \alpha_1} + \frac{I_i}{1 - \alpha_1} + \frac{u_i}{1 - \alpha_1} \quad (3.2.1)
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## Haavelmo Endogeneity Analysis
 假设投资 $I_i$ 是**先定变量 (Predetermined)**，即 $Cov(I_i, u_i) = 0$。
 
 **1. 验证 $Y_i$ 的内生性**:
 计算国民收入 $Y_i$ 与消费扰动项 $u_i$ 的协方差：
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(Y_i, u_i) &= Cov\left( \frac{\alpha_0 + I_i + u_i}{1 - \alpha_1}, u_i \right) \\
 &= \frac{1}{1 - \alpha_1} [Cov(I_i, u_i) + Var(u_i)] \\
 &= \frac{Var(u_i)}{1 - \alpha_1} > 0 \quad (\because 0 < \alpha_1 < 1)
-\end{aligned}$$
-**结论**: $Y_i$ 与 $u_i$ 正相关。在消费函数回归中，$Y_i$ 是内生解释变量，OLS 估计将产生正向偏差。
+\end{aligned}
+$$
+$Y_i$ 与 $u_i$ 正相关。在消费函数回归中，$Y_i$ 是内生解释变量，OLS 估计将产生正向偏差。
 
 **2. 验证 $I_i$ 作为工具变量的潜力**:
 - **Exogeneity**: 假设已给出 $Cov(I_i, u_i) = 0$。
@@ -498,21 +521,23 @@ $$
 
 ## Composite Regression Equation
 将观测值代入理论模型：
-$$\begin{aligned}
+$$
+\begin{aligned}
 C_i - c_i &= k(Y_i - y_i) \\
 C_i &= k Y_i + (c_i - k y_i) \\
 C_i &= k Y_i + u_i, \quad \text{where } u_i \equiv c_i - k y_i \quad (3.2.7)
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## Measurement-Error Endogeneity Proof
 验证观测收入 $Y_i$ 与复合误差项 $u_i$ 的相关性。基于 CME 假设，所有涉及真实值与误差项的交叉项均为零：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 Cov(Y_i, u_i) &= Cov(Y_i^* + y_i, c_i - k y_i) \\
 &= \underbrace{Cov(Y_i^*, c_i)}_{0} - k \underbrace{Cov(Y_i^*, y_i)}_{0} + \underbrace{Cov(y_i, c_i)}_{0} - k \underbrace{Cov(y_i, y_i)}_{Var(y_i)} \\
 &= -k Var(y_i) < 0
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Attenuation Bias (衰减偏差)**
 1. **方向**: 由于 $Cov(Y_i, u_i) < 0$，OLS 估计量 $\hat{k}$ 会产生向下的偏差。
 2. **量化 (Reliability Ratio)**:
@@ -856,12 +881,13 @@ $$
 $$
 
 利用线性设定 $y_i = \mathbf{z}_i' \boldsymbol{\delta} + \varepsilon_i$，将 $\mathbf{g}_n(\tilde{\boldsymbol{\delta}})$ 展开：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{g}_n(\tilde{\boldsymbol{\delta}}) &= \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \cdot(y_i - \mathbf{z}_i' \tilde{\boldsymbol{\delta}}) \\
 &= \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i y_i - \left(\frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{z}_i'\right) \tilde{\boldsymbol{\delta}} \\
 &\equiv \mathbf{s}_{xy} - \mathbf{S}_{xz} \tilde{\boldsymbol{\delta}} \quad (3.4.2)
-\end{aligned}$$
-
+\end{aligned}
+$$
 其中：
 - $\mathbf{s}_{xy} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i y_i \quad (K \times 1)$
 - $\mathbf{S}_{xz} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{z}_i' \quad (K \times L)$
@@ -966,13 +992,14 @@ $$
 ## Closed-Form GMM Estimator
 根据式 (3.4.7) 的一阶条件，在 Assumption 3.2 和 3.4 成立的前提下（保证矩阵可逆），$\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}})$ 的推导过程如下：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{S}_{xz}' \widehat{\mathbf{W}} (\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}) &= \mathbf{0} \\
 \mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{s}_{xy} - \mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz} \hat{\boldsymbol{\delta}} &= \mathbf{0} \\
 (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz}) \hat{\boldsymbol{\delta}} &= \mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{s}_{xy} \\
 \hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) &= (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{s}_{xy} \quad (3.4.8)
-\end{aligned}$$
-
+\end{aligned}
+$$
 :::{admonition} Note
 Special Case: $K=L$
 若 $K=L$，则 $\mathbf{S}_{xz}$ 为可逆方阵。式 (3.4.8) 退化为：
@@ -990,11 +1017,12 @@ $$
 其中 $\bar{\mathbf{g}} = \frac{1}{n} \sum \mathbf{x}_i \varepsilon_i$ 为样本平均矩。
 
 将该式代入解析解 (3.4.8)：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) &= (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} (\mathbf{S}_{xz} \boldsymbol{\delta} + \bar{\mathbf{g}}) \\
 &= \underbrace{(\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz}}_{\mathbf{I}_L} \boldsymbol{\delta} + (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \bar{\mathbf{g}}
-\end{aligned}$$
-
+\end{aligned}
+$$
 整理得**抽样误差表达式**：
 $$
 \hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) - \boldsymbol{\delta} = (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \bar{\mathbf{g}} \quad (3.4.11)
@@ -1025,12 +1053,13 @@ $$
 3. **样本矩均值收敛**: $\mathbf{s}_{xy} = \mathbf{S}_{xz} \boldsymbol{\delta} + \bar{\mathbf{g}} \xrightarrow{p} \boldsymbol{\Sigma}_{xz} \boldsymbol{\delta} + E[\mathbf{g}_i] = \boldsymbol{\Sigma}_{xz} \boldsymbol{\delta}$。
 
 由 Slutsky 定理得：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \operatorname{plim} \hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}) &= (\operatorname{plim} \mathbf{S}_{xz}' \operatorname{plim} \widehat{\mathbf{W}} \operatorname{plim} \mathbf{S}_{xz})^{-1} (\operatorname{plim} \mathbf{S}_{xz}' \operatorname{plim} \widehat{\mathbf{W}} \operatorname{plim} \mathbf{s}_{xy}) \\
 &= (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1} \boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz} \boldsymbol{\delta} \\
 &= \boldsymbol{\delta}
-\end{aligned}$$
-
+\end{aligned}
+$$
 :::{admonition} Proposition: Proposition 3.1 (b): Asymptotic Normality
 If Assumption 3.3 is strengthened as Assumption 3.5, then:
 $$
@@ -1052,12 +1081,13 @@ $$
 1. **矩条件正态化 (CLT)**: 根据 Assumption 3.5，$\sqrt{n} \bar{\mathbf{g}} \xrightarrow{d} N(\mathbf{0}, \mathbf{S})$。
 2. **系数矩阵收敛**: $\mathbf{B}_n \xrightarrow{p} \mathbf{B} = (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1} \boldsymbol{\Sigma}_{xz}' \mathbf{W}$。
 3. **应用连续映射定理**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \operatorname{Avar} &= \mathbf{B} \mathbf{S} \mathbf{B}' \\
 &= [(\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1} \boldsymbol{\Sigma}_{xz}' \mathbf{W}] \mathbf{S} [\mathbf{W} \boldsymbol{\Sigma}_{xz} (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1}] \\
 &= (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1} \boldsymbol{\Sigma}_{xz}' \mathbf{W} \mathbf{S} \mathbf{W} \boldsymbol{\Sigma}_{xz} (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1}
-\end{aligned}$$
-
+\end{aligned}
+$$
 **GMM Wald Testing**
 :::{admonition} Proposition: Proposition 3.1 (c): Consistent Estimate of Avar
 Suppose there is available a consistent estimator $\widehat{\mathbf{S}}$ of $\mathbf{S}$. Then $\operatorname{Avar}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{W}}))$ is consistently estimated by:
@@ -1090,25 +1120,30 @@ provided $E(\varepsilon_i^2)$ exists and is finite.
 **Proof of Proposition 3.2**
 
 由线性模型 $y_i = \mathbf{z}_i' \boldsymbol{\delta} + \varepsilon_i$，
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\varepsilon}_i
 &= y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}} \\
 &= \mathbf{z}_i' \boldsymbol{\delta} + \varepsilon_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}} \\
 &= \varepsilon_i - \mathbf{z}_i'(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}),
-\end{aligned}$$
+\end{aligned}
+$$
 从而
-$$\begin{aligned}
+$$
+\begin{aligned}
 \frac{1}{n} \sum_{i=1}^n \hat{\varepsilon}_i^2
 &= \frac{1}{n} \sum_{i=1}^n \left[\varepsilon_i - \mathbf{z}_i'(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})\right]^2 \\
 &= \frac{1}{n} \sum_{i=1}^n \varepsilon_i^2
 - 2 \left( \frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i' \right)(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}) + (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})'
 \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' \right)
 (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}).
-\end{aligned}$$
-
+\end{aligned}
+$$
 由 Assumption 3.2 和 LLN，
-$$\frac{1}{n} \sum_{i=1}^n \varepsilon_i^2 \xrightarrow{p} E(\varepsilon_i^2), \qquad
-\frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' \xrightarrow{p} E(\mathbf{z}_i \mathbf{z}_i').$$
+$$
+\frac{1}{n} \sum_{i=1}^n \varepsilon_i^2 \xrightarrow{p} E(\varepsilon_i^2), \qquad
+\frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' \xrightarrow{p} E(\mathbf{z}_i \mathbf{z}_i').
+$$
 又因为对每个分量 $z_{ij}$，由 Cauchy-Schwarz 不等式
 $$
 E|\varepsilon_i z_{ij}| \le \sqrt{E(\varepsilon_i^2) E(z_{ij}^2)} < \infty,
@@ -1118,22 +1153,28 @@ $$
 \frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i \xrightarrow{p} E(\varepsilon_i \mathbf{z}_i),
 $$
 因而
-$$\frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i = O_p(1), \qquad
-\frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' = O_p(1).$$
+$$
+\frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i = O_p(1), \qquad
+\frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' = O_p(1).
+$$
 再由 $\hat{\boldsymbol{\delta}} \xrightarrow{p} \boldsymbol{\delta}$，
-$$\begin{aligned}
+$$
+\begin{aligned}
 \left( \frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i' \right)(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})
 &\xrightarrow{p} 0, \\
 (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})'
 \left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' \right)
 (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})
 &\xrightarrow{p} 0.
-\end{aligned}$$
+\end{aligned}
+$$
 因此
-$$\begin{aligned}
+$$
+\begin{aligned}
 \frac{1}{n} \sum_{i=1}^n \hat{\varepsilon}_i^2
 &= \frac{1}{n} \sum_{i=1}^n \varepsilon_i^2 + o_p(1)\xrightarrow{p} E(\varepsilon_i^2).
-\end{aligned}$$
+\end{aligned}
+$$
 证毕。
 
 该结果说明：只要参数估计量本身是一致的，用样本残差平方均值替代不可观测的误差方差在大样本下是合法的。这正是后面讨论**条件同方差 (conditional homoskedasticity)** 时构造 $\hat{\sigma}^2$ 和简化最优权重矩阵的基础。
@@ -1164,7 +1205,8 @@ $$
 
 The statistical properties of non-linear restrictions $\mathbf{a}(\boldsymbol{\delta}) = \mathbf{0}$ are derived via the **Delta Method** (first-order Taylor expansion):
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \sqrt{n}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}) &\xrightarrow{d} N(\mathbf{0}, \operatorname{Avar}(\hat{\boldsymbol{\delta}})) \\
 \mathbf{a}(\hat{\boldsymbol{\delta}}) - \mathbf{a}(\boldsymbol{\delta}) &\approx \mathbf{A}(\boldsymbol{\delta}) \cdot (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}) \quad (\text{linear approximation}) \\
 \sqrt{n}(\mathbf{a}(\hat{\boldsymbol{\delta}}) - \mathbf{0}) &\approx \mathbf{A}(\boldsymbol{\delta}) \cdot \sqrt{n}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}) \\
@@ -1172,8 +1214,8 @@ $$\begin{aligned}
 W &= [\sqrt{n}\mathbf{a}(\hat{\boldsymbol{\delta}})]' \mathbf{V}_a^{-1} [\sqrt{n}\mathbf{a}(\hat{\boldsymbol{\delta}})] \\
 &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' [\mathbf{A}(\boldsymbol{\delta}) \operatorname{Avar}(\hat{\boldsymbol{\delta}}) \mathbf{A}(\boldsymbol{\delta})']^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 &\xrightarrow{d} \chi^2(\#\mathbf{a})
-\end{aligned}$$
-
+\end{aligned}
+$$
 
 **2. Estimation of $\mathbf{S}$**
 
@@ -1191,27 +1233,29 @@ Suppose the coefficient estimate $\hat{\boldsymbol{\delta}}$ used for calculatin
 
 :::
 
-**Proof: Consistency of $\widehat{\mathbf{S}}$ (要证： $\widehat{S}_{kl} \xrightarrow{p} S_{kl}$)**
+**Proof: Consistency of $\widehat{\mathbf{S}}$ ($\widehat{S}_{kl} \xrightarrow{p} S_{kl}$)**
 
 The $(k, l)$ element of $\widehat{\mathbf{S}}$ is $\widehat{S}_{kl} = \frac{1}{n} \sum_{i=1}^n \hat{\varepsilon}_i^2 x_{ik} x_{il}$. We need to show its convergence:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \widehat{S}_{kl} &= \frac{1}{n} \sum_{i=1}^n (y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}})^2 x_{ik} x_{il} \\
 &= \frac{1}{n} \sum_{i=1}^n [\varepsilon_i - \mathbf{z}_i'(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})]^2 x_{ik} x_{il} \quad (\because y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}} = \varepsilon_i - \mathbf{z}_i'(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})) \\
 &= \underbrace{\frac{1}{n} \sum_{i=1}^n \varepsilon_i^2 x_{ik} x_{il}}_{(1)} - 2 (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})' \underbrace{\left( \frac{1}{n} \sum_{i=1}^n \varepsilon_i \mathbf{z}_i x_{ik} x_{il} \right)}_{(2)} + (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})' \underbrace{\left( \frac{1}{n} \sum_{i=1}^n \mathbf{z}_i \mathbf{z}_i' x_{ik} x_{il} \right)}_{(3)} (\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Step-by-step plim Proof:**
 
 Applying the **Slutsky's Theorem** and **Law of Large Numbers (LLN)**:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \operatorname{plim} \widehat{S}_{kl} &= \operatorname{plim} (1) - 2 \cdot [\operatorname{plim}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})]' \cdot \operatorname{plim}(2) + [\operatorname{plim}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})]' \cdot \operatorname{plim}(3) \cdot [\operatorname{plim}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta})] \\
 &= E(\varepsilon_i^2 x_{ik} x_{il}) - 2 \cdot \mathbf{0}' \cdot E(\varepsilon_i \mathbf{z}_i x_{ik} x_{il}) + \mathbf{0}' \cdot E(\mathbf{z}_i \mathbf{z}_i' x_{ik} x_{il}) \cdot \mathbf{0} \\
 &= S_{kl} - 2 \cdot \mathbf{0}' \cdot (\text{Finite Vector}) + \mathbf{0}' \cdot (\text{Finite Matrix}) \cdot \mathbf{0} \\
 &= S_{kl}
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Key Conditions:**
 1.  **Consistency**: $\operatorname{plim} \hat{\boldsymbol{\delta}} = \boldsymbol{\delta} \implies \operatorname{plim}(\hat{\boldsymbol{\delta}} - \boldsymbol{\delta}) = \mathbf{0}$.
 2.  **Regularity (Assumption 3.6)**: The expectations $E(\varepsilon_i \mathbf{z}_i x_{ik} x_{il})$ and $E(\mathbf{z}_i \mathbf{z}_i' x_{ik} x_{il})$ are finite (ensured by Cauchy-Schwarz and finite 4th moments), meaning the sample averages are $O_p(1)$.
@@ -1253,21 +1297,25 @@ Let $\mathbf{S} = \mathbf{C}\mathbf{C}'$, then $\mathbf{S}^{-1} = (\mathbf{C}')^
 - $\mathbf{G} \equiv \mathbf{C}' \mathbf{W} \boldsymbol{\Sigma}_{xz}$
 
 Substituting these into the inequality:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{Left Hand Side (LHS)} &= \boldsymbol{\Sigma}_{xz}' (\mathbf{C}')^{-1} \mathbf{C}^{-1} \boldsymbol{\Sigma}_{xz} = \mathbf{D}' \mathbf{D} \\
 \text{Right Hand Side (RHS)} &= (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \mathbf{C} \cdot \mathbf{C}^{-1} \boldsymbol{\Sigma}_{xz}) (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \mathbf{C} \cdot \mathbf{C}' \mathbf{W} \boldsymbol{\Sigma}_{xz})^{-1} (\boldsymbol{\Sigma}_{xz}' \mathbf{W} \mathbf{C} \cdot \mathbf{C}^{-1} \boldsymbol{\Sigma}_{xz})' \\
 &= (\mathbf{G}' \mathbf{D})' (\mathbf{G}' \mathbf{G})^{-1} (\mathbf{G}' \mathbf{D}) \\
 &= \mathbf{D}' \mathbf{G} (\mathbf{G}' \mathbf{G})^{-1} \mathbf{G}' \mathbf{D} \\
 &= \mathbf{D}' \mathbf{P}_{\mathbf{G}} \mathbf{D}
-\end{aligned}$$
+\end{aligned}
+$$
 where $\mathbf{P}_{\mathbf{G}} = \mathbf{G}(\mathbf{G}'\mathbf{G})^{-1}\mathbf{G}'$ is the symmetric and idempotent **projection matrix** onto the column space of $\mathbf{G}$.
 
 **3. Final Comparison:**
-$$\begin{aligned}
+$$
+\begin{aligned}
 \text{LHS} - \text{RHS} &= \mathbf{D}' \mathbf{D} - \mathbf{D}' \mathbf{P}_{\mathbf{G}} \mathbf{D} \\
 &= \mathbf{D}' (\mathbf{I} - \mathbf{P}_{\mathbf{G}}) \mathbf{D} \\
 &= \mathbf{D}' \mathbf{M}_{\mathbf{G}} \mathbf{D} \geq 0
-\end{aligned}$$
+\end{aligned}
+$$
 Since $\mathbf{M}_{\mathbf{G}} = \mathbf{I} - \mathbf{P}_{\mathbf{G}}$ is a positive semidefinite **residual maker matrix**, the inequality holds.
 **Conclusion**: $\mathbf{W} = \mathbf{S}^{-1}$ is the optimal weighting matrix.
 
@@ -1283,7 +1331,8 @@ $$
 
 **2. Asymptotic Variance and Consistency**
 The theoretical asymptotic variance and its consistent sample estimator are:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})) &= (\boldsymbol{\Sigma}_{xz}' \mathbf{S}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}\end{aligned} \tag{3.5.13}
 
 $$
@@ -1291,19 +1340,20 @@ $$
 
 \begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})) &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} 
-\end{aligned}\tag{3.5.14}$$
-
+\end{aligned}\tag{3.5.14}
+$$
 **Derivation of (3.5.14)**:
 Starting from the general consistent estimator of the asymptotic variance:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \widehat{\operatorname{Avar}} &= (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{W}} \widehat{\mathbf{S}} \widehat{\mathbf{W}} \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{W}} \mathbf{S}_{xz})^{-1} \\
 \text{Substitute } \widehat{\mathbf{W}} = \widehat{\mathbf{S}}^{-1}: \\
 &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \widehat{\mathbf{S}} \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \\
 
 &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz}) (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \\
 &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1}
-\end{aligned}$$
-
+\end{aligned}
+$$
 **3. Statistical Testing**
 The $t$-test for a single coefficient $H_0: \delta_\ell = \bar{\delta}_\ell$ simplifies to:
 $$
@@ -1317,12 +1367,13 @@ $$
 
 **Derivation of (3.5.16)**:
 Using the general Wald statistic formula and the simplified variance:
-$$\begin{aligned}
+$$
+\begin{aligned}
 W &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' \{ \mathbf{A}(\hat{\boldsymbol{\delta}}) [\widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}})] \mathbf{A}(\hat{\boldsymbol{\delta}})' \}^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 \text{Plug in } \widehat{\operatorname{Avar}} = (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1}: \\
 &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' \{ \mathbf{A}(\hat{\boldsymbol{\delta}}) (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}})' \}^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}})
-\end{aligned}$$
-
+\end{aligned}
+$$
 
 **Two-Step Efficient GMM Procedure**
 
@@ -1345,12 +1396,13 @@ W &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' \{ \mathbf{A}(\hat{\boldsymb
       $$
       **3. 解析解 (Analytic Solution)**：
       若选择 $\widehat{\mathbf{W}} = \mathbf{S}_{xx}^{-1} = (\frac{1}{n} \mathbf{X}' \mathbf{X})^{-1}$，解上述方程组：
-      $$\begin{aligned}
+      $$
+\begin{aligned}
       \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}_1 &= \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
       \hat{\boldsymbol{\delta}}_1 &= (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
       &= \hat{\boldsymbol{\delta}}_{2SLS}
-      \end{aligned}$$
-
+      \end{aligned}
+$$
 2.  **Step 2**: **Minimize $J(\tilde{\boldsymbol{\delta}}, \widehat{\mathbf{S}}^{-1})$** over $\tilde{\boldsymbol{\delta}}$. The estimator is the efficient GMM estimator.
     - **中文解释**：将第一步得到的 $\widehat{\mathbf{S}}^{-1}$ 作为权重矩阵代入目标函数，再次进行**最小化 (Minimize)**。此时得到的 $\hat{\boldsymbol{\delta}}$ 即为有效 GMM 估计量。
     - **推导 (Derivation)**：
@@ -1457,15 +1509,16 @@ We aim to show the asymptotic distribution of the minimized $J$-statistic.
 **1. Expression for the Sample Moments at the Optimum**
 Recall the GMM estimator with optimal weighting: $\hat{\boldsymbol{\delta}} = (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy}$.
 Substituting $\mathbf{s}_{xy} = \mathbf{S}_{xz} \boldsymbol{\delta} + \mathbf{g}_n(\boldsymbol{\delta})$ into the sample moment formula $\mathbf{g}_n(\hat{\boldsymbol{\delta}}) = \mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}$:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{g}_n(\hat{\boldsymbol{\delta}}) &= \mathbf{s}_{xy} - \mathbf{S}_{xz} \left[ (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \right] \\
 &= \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] \mathbf{s}_{xy} \\
 &= \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] (\mathbf{S}_{xz} \boldsymbol{\delta} + \mathbf{g}_n(\boldsymbol{\delta})) \\
 &= \mathbf{S}_{xz} \boldsymbol{\delta} - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz}) \boldsymbol{\delta} + \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] \mathbf{g}_n(\boldsymbol{\delta}) \\
 &= \mathbf{S}_{xz} \boldsymbol{\delta} - \mathbf{S}_{xz} \boldsymbol{\delta} + \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] \mathbf{g}_n(\boldsymbol{\delta}) \\
 &= \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] \mathbf{g}_n(\boldsymbol{\delta})
-\end{aligned}$$
-
+\end{aligned}
+$$
 **2. Transformation into Standard Normal Space (标准化与白化)**
 Define $\mathbf{z}_n \equiv \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\boldsymbol{\delta})$. The convergence to $N(\mathbf{0}, \mathbf{I}_K)$ involves two steps:
 
@@ -1474,30 +1527,34 @@ Define $\mathbf{z}_n \equiv \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\b
     \sqrt{n} \mathbf{g}_n(\boldsymbol{\delta}) \xrightarrow{d} N(\mathbf{0}, \mathbf{S})
     $$
 2.  **Standardization (标准化)**: 利用 $\widehat{\mathbf{S}} \xrightarrow{p} \mathbf{S}$ 和 Slutsky 定理，左乘 $\widehat{\mathbf{S}}^{-1/2}$ 将协方差矩阵“单位化”:
-    $$\begin{aligned}
+    $$
+\begin{aligned}
     \mathbf{z}_n = \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\boldsymbol{\delta}) &\xrightarrow{d} \mathbf{S}^{-1/2} \cdot N(\mathbf{0}, \mathbf{S}) \\
     &\sim N(\mathbf{0}, \mathbf{S}^{-1/2} \mathbf{S} \mathbf{S}^{-1/2}) = N(\mathbf{0}, \mathbf{I}_K)
-    \end{aligned}$$
-
+    \end{aligned}
+$$
 Multiplying the expression for $\sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}})$ by $\widehat{\mathbf{S}}^{-1/2}$:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) &= \widehat{\mathbf{S}}^{-1/2} \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \right] \sqrt{n} \mathbf{g}_n(\boldsymbol{\delta}) \\
 &= \left[ \mathbf{I}_K - \widehat{\mathbf{S}}^{-1/2} \mathbf{S}_{xz} (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1/2} \right] \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\boldsymbol{\delta}) \\
 &= \left[ \mathbf{I}_K - \mathbf{P}_{\mathbf{A}} \right] \mathbf{z}_n
-\end{aligned}$$
+\end{aligned}
+$$
 where $\mathbf{A} \equiv \widehat{\mathbf{S}}^{-1/2} \mathbf{S}_{xz}$ and $\mathbf{P}_{\mathbf{A}} = \mathbf{A}(\mathbf{A}'\mathbf{A})^{-1}\mathbf{A}'$ is the symmetric and idempotent projection matrix onto the space spanned by the columns of $\mathbf{A}$.
 
 **3. Quadratic Form and Distribution**
 The $J$-statistic is:
-$$\begin{aligned}
+$$
+\begin{aligned}
 J &= n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) \\
 &= \left( \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) \right)' \left( \widehat{\mathbf{S}}^{-1/2} \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) \right) \\
 &= \mathbf{z}_n' (\mathbf{I}_K - \mathbf{P}_{\mathbf{A}})' (\mathbf{I}_K - \mathbf{P}_{\mathbf{A}}) \mathbf{z}_n \\
 &= \mathbf{z}_n' (\mathbf{I}_K - \mathbf{P}_{\mathbf{A}}) \mathbf{z}_n \quad (\because \mathbf{I} - \mathbf{P} \text{ is idempotent}) \\
 &\xrightarrow{d} \chi^2(\text{rank}(\mathbf{I}_K - \mathbf{P}_{\mathbf{A}})) \\
 &= \chi^2(K - L)
-\end{aligned}$$
-
+\end{aligned}
+$$
 ## J-Test Projection Derivation
 **1. 核心定义与算子分解**
 首先，理解核心分解式的来源。从模型设定 $y_i = \mathbf{z}_i' \boldsymbol{\delta} + \varepsilon_i$ 出发：
@@ -1530,11 +1587,13 @@ $$
 :::
 
 其构造逻辑源于将估计量 $\hat{\boldsymbol{\delta}}$ 代回上述样本矩定义式中：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{g}_n(\hat{\boldsymbol{\delta}}) &= \mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}} \\
 &= \mathbf{s}_{xy} - \mathbf{S}_{xz} \left[ (\mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \right] \\
 &= \underbrace{\left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \right]}_{\hat{\mathbf{B}}} \mathbf{s}_{xy}
-\end{aligned}$$
+\end{aligned}
+$$
 利用分解 $\mathbf{s}_{xy} = \mathbf{S}_{xz} \boldsymbol{\delta} + \bar{\mathbf{g}}$，代入后得到：
 $$
 \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) = \hat{\mathbf{B}} (\mathbf{S}_{xz} \sqrt{n} \boldsymbol{\delta} + \sqrt{n} \bar{\mathbf{g}})
@@ -1542,12 +1601,14 @@ $$
 
 **关键证明：为什么 $\hat{\mathbf{B}} \mathbf{S}_{xz} = \mathbf{0}$？**
 根据 $\hat{\mathbf{B}}$ 的定义，直接进行矩阵乘法：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\mathbf{B}} \mathbf{S}_{xz} &= \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \right] \mathbf{S}_{xz} \\
 &= \mathbf{S}_{xz} - \mathbf{S}_{xz} \underbrace{(\mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} (\mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})}_{\mathbf{I}_L} \\
 &= \mathbf{S}_{xz} - \mathbf{S}_{xz} \cdot \mathbf{I}_L \\
 &= \mathbf{0}
-\end{aligned}$$
+\end{aligned}
+$$
 由于 $\hat{\mathbf{B}}$ 成功“消除”了包含结构参数 $\boldsymbol{\delta}$ 的项，最小化后的样本矩仅取决于随机波动的投影：
 $$
 \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) = \mathbf{0} \cdot \sqrt{n} \boldsymbol{\delta} + \hat{\mathbf{B}} \sqrt{n} \bar{\mathbf{g}} = \hat{\mathbf{B}} \sqrt{n} \bar{\mathbf{g}}
@@ -1574,21 +1635,23 @@ $$
 
 **3. 连续推导过程 (Continuous Derivation)**
 将上述定义代入 $J$ 统计量中：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J &= (\sqrt{n} \bar{\mathbf{g}})^T \hat{\mathbf{B}}^T \widehat{\mathbf{S}}^{-1} \hat{\mathbf{B}} \sqrt{n} \bar{\mathbf{g}} \\
 &= (\mathbf{C} \sqrt{n} \bar{\mathbf{g}})^T (\mathbf{C}^T)^{-1} \hat{\mathbf{B}}^T (\mathbf{C}^T \mathbf{C}) \hat{\mathbf{B}} \mathbf{C}^{-1} (\mathbf{C} \sqrt{n} \bar{\mathbf{g}})
-\end{aligned}$$
-
+\end{aligned}
+$$
 中间项 $(\mathbf{C}^T)^{-1} \hat{\mathbf{B}}^T \mathbf{C}^T \mathbf{C} \hat{\mathbf{B}} \mathbf{C}^{-1}$ 的展开与化简：
-$$\begin{aligned}
+$$
+\begin{aligned}
 & (\mathbf{C}^T)^{-1} \left[ \mathbf{I}_K - \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{S}_{xz}^T \right] \mathbf{C}^T \cdot \mathbf{C} \left[ \mathbf{I}_K - \mathbf{S}_{xz} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{S}_{xz}^T \widehat{\mathbf{S}}^{-1} \right] \mathbf{C}^{-1} \\
 &= \left[ \mathbf{I}_K - \mathbf{C} \mathbf{S}_{xz} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{S}_{xz}^T \mathbf{C}^T \right] \cdot \left[ \mathbf{I}_K - \mathbf{C} \mathbf{S}_{xz} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{S}_{xz}^T \mathbf{C}^T \right] \\
 &= \left[ \mathbf{I}_K - \mathbf{A} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{A}^T \right] \cdot \left[ \mathbf{I}_K - \mathbf{A} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{A}^T \right] \\
 &= \mathbf{I}_K - \mathbf{A} (\mathbf{A}^T \mathbf{A})^{-1} \mathbf{A}^T \\
 &= \mathbf{I}_K - \mathbf{P}_{\mathbf{A}}
-\end{aligned}$$
-
-**4. 结论与分布证明 (Distribution Proof)**
+\end{aligned}
+$$
+**4. Distribution proof**
 定义标准正态向量 $\mathbf{z}_n = \mathbf{C} \sqrt{n} \bar{\mathbf{g}} \xrightarrow{d} N(\mathbf{0}, \mathbf{I}_K)$。
 
 :::{admonition} Proposition: $\mathbf{z}_n$ 是标准正态
@@ -1604,12 +1667,13 @@ $$\begin{aligned}
 ## J-Test Consistency and Failure Modes
 :::{admonition} Proposition: 当 $E[\mathbf{g}_i] = \boldsymbol{\mu} \neq \mathbf{0}$ 时
 1. **样本矩分解**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \sqrt{n} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) &= \hat{\mathbf{B}} \sqrt{n} \bar{\mathbf{g}} \\
 &= \hat{\mathbf{B}} \sqrt{n} (\bar{\mathbf{g}} - \boldsymbol{\mu} + \boldsymbol{\mu}) \\
 &= \underbrace{\hat{\mathbf{B}} \sqrt{n} (\bar{\mathbf{g}} - \boldsymbol{\mu})}_{\xrightarrow{d} N} + \sqrt{n} \underbrace{\hat{\mathbf{B}} \boldsymbol{\mu}}_{\text{Power Source}}
-\end{aligned}$$
-
+\end{aligned}
+$$
 2. **失效条件 (Consistency Failure)**:
 若 $\boldsymbol{\mu} \in \text{span}(\mathbf{S}_{xz})$，根据 $\hat{\mathbf{B}}$ 的投影性质 $\hat{\mathbf{B}} \mathbf{S}_{xz} = \mathbf{0}$：
 $$
@@ -1657,16 +1721,19 @@ $$
 
 **2. 定义两个 $J$ 统计量**
 - **全集 $J$ 统计量 (Full set)**：使用所有 $K$ 个工具变量得到的最小化距离。
-  $$\begin{aligned}
+  $$
+\begin{aligned}
   \hat{\boldsymbol{\delta}} &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \\
   J &= n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) 
-  \end{aligned}\tag{3.6.8}$$
+  \end{aligned}\tag{3.6.8}
+$$
 - **子集 $J_1$ 统计量 (Subset)**：仅使用 $K_1$ 个“安全”工具变量得到的最小化距离。
-  $$\begin{aligned}
+  $$
+\begin{aligned}
   \bar{\boldsymbol{\delta}} &= [\mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{S}_{x_1z}]^{-1} \mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{s}_{x_1y} \\
   J_1 &= n \cdot \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}}) 
-  \end{aligned}\tag{3.6.10}$$
-
+  \end{aligned}\tag{3.6.10}
+$$
 **3. C-检验统计量 (The C-test / Difference-in-Sargan)**
 
 :::{admonition} Proposition: Proposition 3.7 (Testing a subset of orthogonality conditions)
@@ -1737,19 +1804,21 @@ $$
 
 **Step A: 分块展开 (Partitioned Expansion)**
 利用 $\mathbf{g}_n = [\mathbf{g}_{1n}', \mathbf{g}_{2n}']'$ 和权重矩阵 $\mathbf{W}$ 的分块定义：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J(\tilde{\boldsymbol{\delta}}) &= n \begin{bmatrix} \mathbf{g}_{1n} \\ \mathbf{g}_{2n} \end{bmatrix}' \begin{bmatrix} \mathbf{W}_{11} & \mathbf{W}_{12} \\ \mathbf{W}_{21} & \mathbf{W}_{22} \end{bmatrix} \begin{bmatrix} \mathbf{g}_{1n} \\ \mathbf{g}_{2n} \end{bmatrix} \\
 &= n \cdot \left( \mathbf{g}_{1n}' \mathbf{W}_{11} \mathbf{g}_{1n} + \mathbf{g}_{1n}' \mathbf{W}_{12} \mathbf{g}_{2n} + \mathbf{g}_{2n}' \mathbf{W}_{21} \mathbf{g}_{1n} + \mathbf{g}_{2n}' \mathbf{W}_{22} \mathbf{g}_{2n} \right)
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Step B: 针对 $\mathbf{g}_{2n}$ 进行配方 (Completing the Square for $\mathbf{g}_{2n}$)**
 为了构造一个以 $\mathbf{W}_{22}$ 为核的全平方式，我们需要将其提取出来。由于 $\mathbf{W}_{21} = \mathbf{W}_{12}'$，我们可以将交叉项合并：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J(\tilde{\boldsymbol{\delta}}) &= n \cdot \left[ \mathbf{g}_{2n}' \mathbf{W}_{22} \mathbf{g}_{2n} + \mathbf{g}_{2n}' \mathbf{W}_{21} \mathbf{g}_{1n} + \mathbf{g}_{1n}' \mathbf{W}_{12} \mathbf{g}_{2n} + \mathbf{g}_{1n}' \mathbf{W}_{11} \mathbf{g}_{1n} \right] \\
 &= n \cdot \left[ (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n})' \mathbf{W}_{22} (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n}) \right] \\
 & \quad + n \cdot \mathbf{g}_{1n}' \underbrace{(\mathbf{W}_{11} - \mathbf{W}_{12} \mathbf{W}_{22}^{-1} \mathbf{W}_{21})}_{\text{Schur Complement}} \mathbf{g}_{1n}
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Step C: 利用分块矩阵求逆恒等式 (Applying Matrix Identity)**
 根据分块矩阵求逆公式，我们已知：
 $$
@@ -1760,7 +1829,7 @@ $$
 J(\tilde{\boldsymbol{\delta}}) = n \cdot \mathbf{g}_{1n}' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n} + n \cdot (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n})' \mathbf{W}_{22} (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n}) \tag{3.6.12}
 $$
 
-**Step D: 结论 (Conclusion)**
+**Step D: Nonnegative decomposition**
 由于 $\mathbf{W}_{22}$ 是正定的，右侧第二项（全平方式）对于任何 $\tilde{\boldsymbol{\delta}}$ 均 $\ge 0$。因此：
 $$
 J(\tilde{\boldsymbol{\delta}}) \ge n \cdot \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}}) \tag{3.6.13}
@@ -1769,11 +1838,13 @@ $$
 
 **3. 最小化过程 (Minimization)**
 令 $\hat{\boldsymbol{\delta}}$ 为全集的最小化解，$\bar{\boldsymbol{\delta}}$ 为子集的最小化解。则有：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J \equiv J(\hat{\boldsymbol{\delta}}) &\ge n \cdot \mathbf{g}_{1n}(\hat{\boldsymbol{\delta}})' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n}(\hat{\boldsymbol{\delta}}) \quad (\text{由式 3.6.13}) \\
 &\ge \min_{\tilde{\boldsymbol{\delta}}} n \cdot \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}}) \quad (\text{由最小化定义}) \\
 &= J_1
-\end{aligned}$$
+\end{aligned}
+$$
 由此得证 $J \ge J_1$，即 $C \ge 0$。通过这种推荐的二步法（使用同一 $\widehat{\mathbf{S}}$ 矩阵），我们成功保证了统计量在有限样本下的数值稳定性。
 
 **Likelihood-Ratio Principle for GMM**
@@ -1831,10 +1902,12 @@ $$
 \mathbf{g}_n(\boldsymbol{\delta}) = \mathbf{g}_n(\hat{\boldsymbol{\delta}}) - \mathbf{S}_{xz} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})
 $$
 代入目标函数 $J(\boldsymbol{\delta}) = n \cdot \mathbf{g}_n(\boldsymbol{\delta})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\boldsymbol{\delta})$：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J(\boldsymbol{\delta}) &= n \cdot [\mathbf{g}_n(\hat{\boldsymbol{\delta}}) - \mathbf{S}_{xz}(\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})]' \widehat{\mathbf{S}}^{-1} [\mathbf{g}_n(\hat{\boldsymbol{\delta}}) - \mathbf{S}_{xz}(\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})] \\
 &= J(\hat{\boldsymbol{\delta}}) - 2n (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})' \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) + n (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})' (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz}) (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})
-\end{aligned}$$
+\end{aligned}
+$$
 由于 $\hat{\boldsymbol{\delta}}$ 是未受约束的最优解，满足一阶条件 $\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}}) = \mathbf{0}$，因此：
 $$
 J(\boldsymbol{\delta}) = J(\hat{\boldsymbol{\delta}}) + n (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})' \mathbf{M} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})
@@ -1862,21 +1935,24 @@ $$
 \boldsymbol{\delta} - \hat{\boldsymbol{\delta}} = - \frac{1}{n} \mathbf{M}^{-1} \mathbf{A}' \boldsymbol{\lambda} \tag{3}
 $$
 将式 (3) 代入式 (2)：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{A} \left( - \frac{1}{n} \mathbf{M}^{-1} \mathbf{A}' \boldsymbol{\lambda} \right) &= - \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 \frac{1}{n} (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}') \boldsymbol{\lambda} &= \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 \boldsymbol{\lambda} &= n (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}})
-\end{aligned}$$
-
+\end{aligned}
+$$
 **Step C: 得到显式解 (Final Solution)**
 将 $\boldsymbol{\lambda}$ 代回式 (3)：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}} &= - \frac{1}{n} \mathbf{M}^{-1} \mathbf{A}' \left[ n (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \right] \\
 &= - \mathbf{M}^{-1} \mathbf{A}' (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}})
-\end{aligned}$$
-
+\end{aligned}
+$$
 **3. LR 与 Wald 的等价性推导 (Deriving Equivalence)**
-$$\begin{aligned}
+$$
+\begin{aligned}
 LR &\equiv J(\bar{\boldsymbol{\delta}}) - J(\hat{\boldsymbol{\delta}}) \\
 &= n (\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}})' \mathbf{M} (\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}) \\
 &= n [-\mathbf{a}(\hat{\boldsymbol{\delta}})' (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{A} \mathbf{M}^{-1}] \mathbf{M} [-\mathbf{M}^{-1} \mathbf{A}' (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}})] \\
@@ -1884,8 +1960,8 @@ LR &\equiv J(\bar{\boldsymbol{\delta}}) - J(\hat{\boldsymbol{\delta}}) \\
 &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}') (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 &= n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' (\mathbf{A} \mathbf{M}^{-1} \mathbf{A}')^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \\
 &= W
-\end{aligned}$$
-
+\end{aligned}
+$$
 **为什么这是 Wald 统计量？**
 这一结论源于 **Delta Method**。在有效 GMM 下，$\hat{\boldsymbol{\delta}}$ 的渐近方差估计量为 $\mathbf{M}^{-1}$。根据 Delta Method，约束函数 $\mathbf{a}(\hat{\boldsymbol{\delta}})$ 的渐近方差为 $\mathbf{A} \mathbf{M}^{-1} \mathbf{A}'$。Wald 统计量 $W$ 的本质是将 $\mathbf{a}(\hat{\boldsymbol{\delta}})$ 二次型化：
 
@@ -1904,8 +1980,7 @@ $$
 
 :::
 
-**结论验证**:
-- **Point 1 & 2**: 以上推导展示了 $LR = W + o_p(1)$，故两者渐近等价且数值差异趋于零。
+验证：- **Point 1 & 2**: 以上推导展示了 $LR = W + o_p(1)$，故两者渐近等价且数值差异趋于零。
 - **Point 3**: 当约束 $\mathbf{a}(\boldsymbol{\delta}) = \mathbf{R}\boldsymbol{\delta} - \mathbf{r}$ 是线性时，Taylor 展开和二次型逼近均是**精确的**，故 $LR = W$ 数值相等。
 
 ## Regression LR Statistic
@@ -1923,7 +1998,6 @@ $$
   $$
   其中 $\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})$ 是受约束的有效 GMM 估计量。
 
-**结论**
 根据 Proposition 3.8，该统计量渐近服从卡方分布。如果原假设 $H_0$ 是线性的，则该统计量在数值上与 Wald 统计量完全相等。
 
 **Conditional Homoskedasticity in IV-GMM**
@@ -1941,7 +2015,8 @@ $$
 
 在条件同方差下，矩条件的交叉矩矩阵 $\mathbf{S}$ 可以从四阶矩简化为二阶矩的乘积。利用 **迭代期望定律 (Law of Iterated Expectations, LIE)** 进行推导：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{g}_i &= \mathbf{x}_i \cdot \varepsilon_i \\
 E(\mathbf{g}_i) &= \mathbf{0} \\
 \mathbf{S} \equiv E[\mathbf{g}_i \mathbf{g}_i'] &= E(\varepsilon_i^2 \mathbf{x}_i \mathbf{x}_i') \\
@@ -1950,8 +2025,8 @@ E(\mathbf{g}_i) &= \mathbf{0} \\
 &= E[\mathbf{x}_i \mathbf{x}_i' \cdot \sigma^2] \quad (\text{By Assumption 3.7}) \\
 &= \sigma^2 E(\mathbf{x}_i \mathbf{x}_i') \\
 &= \sigma^2 \boldsymbol{\Sigma}_{xx} 
-\end{aligned}\tag{3.8.1}$$
-
+\end{aligned}\tag{3.8.1}
+$$
 其中 $\boldsymbol{\Sigma}_{xx} \equiv E(\mathbf{x}_i \mathbf{x}_i')$。
 
 **2. $\mathbf{S}$ 矩阵的一致估计量**
@@ -1972,22 +2047,26 @@ $$
 在条件同方差下，当我们设定 $\widehat{\mathbf{S}} = \hat{\sigma}^2 \mathbf{S}_{xx}$ 时，有效 GMM 估计量在数值上等价于 2SLS。
 
 **1. 估计量简化推导**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}) &= [\mathbf{S}_{xz}' (\hat{\sigma}^2 \mathbf{S}_{xx})^{-1} \mathbf{S}_{xz}]^{-1} \mathbf{S}_{xz}' (\hat{\sigma}^2 \mathbf{S}_{xx})^{-1} \mathbf{s}_{xy} \\
 &= [\mathbf{S}_{xz}' \frac{1}{\hat{\sigma}^2} \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz}]^{-1} \mathbf{S}_{xz}' \frac{1}{\hat{\sigma}^2} \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= \hat{\sigma}^2 (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \frac{1}{\hat{\sigma}^2} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= \hat{\boldsymbol{\delta}}(\mathbf{S}_{xx}^{-1}) \equiv \hat{\boldsymbol{\delta}}_{2SLS}
-\end{aligned}\tag{3.8.3}$$
+\end{aligned}\tag{3.8.3}
+$$
 *注：可以看到 $\hat{\sigma}^2$ 作为一个常数倍数在分子分母中对消了，因此 2SLS 估计量不依赖于对误差方差 $\sigma^2$ 的估计。*
 
 **2. 矩阵投影视角 (Projection Interpretation)**:
 利用全局矩阵形式 $\mathbf{S}_{xz} = \frac{1}{n} \mathbf{X}' \mathbf{Z}$ 和 $\mathbf{S}_{xx} = \frac{1}{n} \mathbf{X}' \mathbf{X}$，核心项可展开为：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz} &= (\frac{1}{n} \mathbf{Z}' \mathbf{X}) (\frac{1}{n} \mathbf{X}' \mathbf{X})^{-1} (\frac{1}{n} \mathbf{X}' \mathbf{Z}) \\
 &= \frac{1}{n} \mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z} \\
 &= \frac{1}{n} \mathbf{Z}' \mathbf{P}(\mathbf{X}) \mathbf{Z}
-\end{aligned}$$
+\end{aligned}
+$$
 其中 $\mathbf{P}(\mathbf{X}) = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$ 是正交投影矩阵。这揭示了 2SLS 的本质：
 1. **第一阶段**：将内生解释变量 $\mathbf{Z}$ 投影到工具变量空间 $\mathbf{X}$ 上，得到 $\hat{\mathbf{Z}} = \mathbf{P}(\mathbf{X}) \mathbf{Z}$。
 2. **第二阶段**：使用拟合值进行回归：$\hat{\boldsymbol{\delta}}_{2SLS} = (\hat{\mathbf{Z}}' \hat{\mathbf{Z}})^{-1} \hat{\mathbf{Z}}' \mathbf{y}$。
@@ -2043,12 +2122,13 @@ $$
 - **通用形式 (General Form)**:
   利用残差向量 $\hat{\boldsymbol{\varepsilon}} = \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}$，样本矩项可表示为 $\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}} = \frac{1}{n} \mathbf{X}' \hat{\boldsymbol{\varepsilon}}$。
   代入目标函数 $J = n \cdot \mathbf{g}_n' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n$，其中 $\widehat{\mathbf{S}}^{-1} = (\hat{\sigma}^2 \frac{1}{n} \mathbf{X}' \mathbf{X})^{-1}$：
-  $$\begin{aligned}
+  $$
+\begin{aligned}
   J &= n \cdot (\frac{1}{n} \mathbf{X}' \hat{\boldsymbol{\varepsilon}})' \left[ \hat{\sigma}^2 \frac{1}{n} \mathbf{X}' \mathbf{X} \right]^{-1} (\frac{1}{n} \mathbf{X}' \hat{\boldsymbol{\varepsilon}}) \\
   &= n \cdot \frac{1}{n} \hat{\boldsymbol{\varepsilon}}' \mathbf{X} \cdot \frac{1}{\hat{\sigma}^2} ( \mathbf{X}' \mathbf{X} )^{-1} n \cdot \frac{1}{n} \mathbf{X}' \hat{\boldsymbol{\varepsilon}} \\
   &= \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \hat{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2} = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P}(\mathbf{X}) \hat{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2}
-  \end{aligned}$$
-
+  \end{aligned}
+$$
 - **2SLS 情况 (过度识别 $K > L$)**:
   在 2SLS 中，估计量 $\hat{\boldsymbol{\delta}}_{2SLS}$ 满足一阶条件：$\mathbf{Z}' \mathbf{P}(\mathbf{X}) \hat{\boldsymbol{\varepsilon}} = \mathbf{0}$。
   这表明残差 $\hat{\boldsymbol{\varepsilon}}$ 与解释变量的投影值 $\hat{\mathbf{Z}}$ 正交，但**不一定**与所有工具变量 $\mathbf{X}$ 正交。
@@ -2061,13 +2141,15 @@ $$
      \mathbf{Z}' \hat{\boldsymbol{\varepsilon}}_{OLS} = \mathbf{Z}' (\mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{OLS}) = \mathbf{Z}' \mathbf{y} - \mathbf{Z}' \mathbf{Z} (\mathbf{Z}' \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{y} = \mathbf{0}
      $$
   2. **代入 Sargan 统计量**:
-     $$\begin{aligned}
+     $$
+\begin{aligned}
      \text{Sargan}_{OLS} &= \frac{\hat{\boldsymbol{\varepsilon}}_{OLS}' \mathbf{P}(\mathbf{Z}) \hat{\boldsymbol{\varepsilon}}_{OLS}}{\hat{\sigma}^2} \\
      &= \frac{\hat{\boldsymbol{\varepsilon}}_{OLS}' \mathbf{Z} (\mathbf{Z}' \mathbf{Z})^{-1} \mathbf{Z}' \hat{\boldsymbol{\varepsilon}}_{OLS}}{\hat{\sigma}^2} \\
      &= \frac{(\mathbf{Z}' \hat{\boldsymbol{\varepsilon}}_{OLS})' (\mathbf{Z}' \mathbf{Z})^{-1} (\mathbf{Z}' \hat{\boldsymbol{\varepsilon}}_{OLS})}{\hat{\sigma}^2} \\
      &= \frac{\mathbf{0}' (\mathbf{Z}' \mathbf{Z})^{-1} \mathbf{0}}{\hat{\sigma}^2} = 0
-     \end{aligned}$$
-  **结论**：在恰好识别的情况下，Sargan 统计量恒为 0。从分布角度看，$\chi^2(K-L) = \chi^2(0)$ 是一个在 0 点坍缩的分布，这与代数推导完全一致。
+     \end{aligned}
+$$
+：在恰好识别的情况下，Sargan 统计量恒为 0。从分布角度看，$\chi^2(K-L) = \chi^2(0)$ 是一个在 0 点坍缩的分布，这与代数推导完全一致。
 
 **3. 统计直觉**:
 - **意义**：Sargan 统计量本质上是 2SLS 残差在工具变量空间 $\mathbf{X}$ 上的投影平方和，除以误差方差。
@@ -2131,11 +2213,13 @@ $$
 
 **1. 投影矩阵 $\mathbf{P}$ 的引入**
 在条件同方差下，最优权重矩阵 $\widehat{\mathbf{W}} = \mathbf{S}_{xx}^{-1} = (n^{-1} \mathbf{X}' \mathbf{X})^{-1}$。将样本矩矩阵 $\mathbf{S}_{xz} = n^{-1} \mathbf{X}' \mathbf{Z}$ 代入有效 GMM 的核心乘积项：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz} &= (n^{-1} \mathbf{Z}' \mathbf{X}) (n^{-1} \mathbf{X}' \mathbf{X})^{-1} (n^{-1} \mathbf{X}' \mathbf{Z}) \\
 &= n^{-1} \mathbf{Z}' \underbrace{\mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}'}_{\mathbf{P}} \mathbf{Z} \\
 &= n^{-1} (\mathbf{Z}' \mathbf{P} \mathbf{Z})
-\end{aligned}$$
+\end{aligned}
+$$
 由此，2SLS 的渐近方差估计量 (3.8.5) 可表示为：
 $$
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}_{\text{2SLS}}) = \hat{\sigma}^2 (n^{-1} \mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} = n \cdot \hat{\sigma}^2 (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1}
@@ -2143,12 +2227,14 @@ $$
 
 **2. GMM 目标函数向 Sargan 统计量的转化**
 有效 GMM 的二次型目标函数定义为 $J(\tilde{\boldsymbol{\delta}}) = n \cdot \mathbf{g}_n(\tilde{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\tilde{\boldsymbol{\delta}})$。在条件同方差假设下，代入 $\widehat{\mathbf{S}} = \hat{\sigma}^2 \mathbf{S}_{xx}$ 和 $\mathbf{g}_n(\tilde{\boldsymbol{\delta}}) = n^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})$：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J(\tilde{\boldsymbol{\delta}}) &= n \cdot [n^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})]' [\hat{\sigma}^2 n^{-1} \mathbf{X}' \mathbf{X}]^{-1} [n^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})] \\
 &= n \cdot n^{-1} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{X} \cdot \frac{n}{\hat{\sigma}^2} (\mathbf{X}' \mathbf{X})^{-1} \cdot n^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}}) \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2}
-\end{aligned} \tag{Eq 3.8.12}$$
+\end{aligned} \tag{Eq 3.8.12}
+$$
 当 $\tilde{\boldsymbol{\delta}} = \hat{\boldsymbol{\delta}}_{\text{2SLS}}$ 时，代入残差 $\hat{\boldsymbol{\varepsilon}} = \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{\text{2SLS}}$，即得到 Sargan 统计量：
 $$
 \text{Sargan's statistic} = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P} \hat{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2}
@@ -2172,12 +2258,14 @@ $$
 
 - **代入推导 (Substitution)**:
   将 $\hat{\mathbf{Z}} = \mathbf{P}\mathbf{Z}$ 代入 IV 公式 (3.8.12) 中：
-  $$\begin{aligned}
+  $$
+\begin{aligned}
   \hat{\boldsymbol{\delta}}_{2SLS} &= ((\mathbf{P}\mathbf{Z})' \mathbf{Z})^{-1} (\mathbf{P}\mathbf{Z})' \mathbf{y} \\
   &= (\mathbf{Z}' \mathbf{P}' \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P}' \mathbf{y} \\
   &= (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad (\because \mathbf{P} \text{ is symmetric and idempotent})
-  \end{aligned}$$
-  上式正是 2SLS 的标准矩阵表达式。这证明了 2SLS 本质上就是以 $\hat{\mathbf{Z}} = \mathbf{P}\mathbf{Z}$ 作为工具变量的 IV 估计。
+  \end{aligned}
+$$
+上式正是 2SLS 的标准矩阵表达式。这证明了 2SLS 本质上就是以 $\hat{\mathbf{Z}} = \mathbf{P}\mathbf{Z}$ 作为工具变量的 IV 估计。
 
 #### 2SLS as Two Regressions (作为两阶段回归的 2SLS)
 
@@ -2189,12 +2277,14 @@ $$
 
 **系数的一致性证明**:
 第二阶段 OLS 得到的系数估计量为：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \hat{\boldsymbol{\delta}}_{\text{2nd-stage OLS}} &= (\hat{\mathbf{Z}}' \hat{\mathbf{Z}})^{-1} \hat{\mathbf{Z}}' \mathbf{y} \\
 &= ((\mathbf{P}\mathbf{Z})' (\mathbf{P}\mathbf{Z}))^{-1} (\mathbf{P}\mathbf{Z})' \mathbf{y} \\
 &= (\mathbf{Z}' \mathbf{P}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \\
 &= (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad (\because \mathbf{P} \text{ is symmetric and idempotent})
-\end{aligned} \tag{Eq 3.8.16}$$
+\end{aligned} \tag{Eq 3.8.16}
+$$
 该结果与 2SLS/IV 估计量完全一致。
 
 ##### ⚠️ 核心陷阱：标准误的推断 (Pitfall: Statistical Inference)
@@ -2206,14 +2296,15 @@ $$\begin{aligned}
 - **真实的结构残差**: 2SLS 理论要求的残差应基于原始解释变量 $\mathbf{Z}$，即 $\hat{\boldsymbol{\varepsilon}}_{\text{correct}} = \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}$。
 
 **数学推导 (Residual Difference)**:
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{y} - \hat{\mathbf{Z}} \hat{\boldsymbol{\delta}} &= \mathbf{y} - \mathbf{P} \mathbf{Z} \hat{\boldsymbol{\delta}} \\
 &= \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}} + (\mathbf{Z} - \mathbf{P} \mathbf{Z}) \hat{\boldsymbol{\delta}} \\
 &= \hat{\boldsymbol{\varepsilon}}_{\text{correct}} + (\mathbf{I} - \mathbf{P}) \mathbf{Z} \hat{\boldsymbol{\delta}}
-\end{aligned} \tag{Eq 3.8.17}$$
+\end{aligned} \tag{Eq 3.8.17}
+$$
 由于两者不相等，第二阶段 OLS 估计的方差 $\hat{\sigma}^2_{\text{OLS}} = \frac{\hat{\boldsymbol{\varepsilon}}_{\text{wrong}}' \hat{\boldsymbol{\varepsilon}}_{\text{wrong}}}{n-L}$ 是 $\sigma^2$ 的非一致估计量。
 
-**结论**
 进行统计推断（计算 $t$ 统计量、Wald 检验等）时，必须使用**原始变量 $\mathbf{Z}$** 来重新计算残差和方差估计量：
 
 $$
@@ -2228,19 +2319,21 @@ $$
 ##### 数学推导 (Mathematical Derivation)
 
 从条件同方差下的 $J$ 统计量定义 (Eq 3.8.9') 出发：
-$$\begin{aligned}
+$$
+\begin{aligned}
 J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \cdot \mathbf{S}_{xx})^{-1}) &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \\
 &= \frac{\mathbf{y}' \mathbf{P} \mathbf{y} - 2\mathbf{y}' \mathbf{P} \mathbf{Z} \tilde{\boldsymbol{\delta}} + \tilde{\boldsymbol{\delta}}' \mathbf{Z}' \mathbf{P} \mathbf{Z} \tilde{\boldsymbol{\delta}}}{\hat{\sigma}^2} \\
 &= \frac{\mathbf{y}' \mathbf{P} \mathbf{y} - 2\mathbf{y}' \mathbf{Z} \tilde{\boldsymbol{\delta}} + \tilde{\boldsymbol{\delta}}' \mathbf{Z}' \mathbf{Z} \tilde{\boldsymbol{\delta}}}{\hat{\sigma}^2} \quad (\because \mathbf{P}\mathbf{Z} = \mathbf{Z} \text{ when } z_i \subset x_i) \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{\mathbf{y}' \mathbf{y} - \mathbf{y}' \mathbf{P} \mathbf{y}}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{(\mathbf{y} - \hat{\mathbf{y}})' (\mathbf{y} - \hat{\mathbf{y}})}{\hat{\sigma}^2}
-\end{aligned} \tag{3.8.14}$$
+\end{aligned} \tag{3.8.14}
+$$
 其中 $\hat{\mathbf{y}} \equiv \mathbf{P}\mathbf{y}$ 是 $\mathbf{y}$ 在工具变量空间 $\mathbf{x}$ 上的投影。
 
 **推导要点**
 上式中，第二项 $\frac{(\mathbf{y} - \hat{\mathbf{y}})' (\mathbf{y} - \hat{\mathbf{y}})}{\hat{\sigma}^2}$ 与参数 $\tilde{\boldsymbol{\delta}}$ 无关。因此，最小化 $J$ 统计量等价于最小化第一项，即最小化残差平方和 $(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})$。
 
-##### 结论与性质 (Conclusions & Properties)
+##### Properties
 
 1.  **有效 GMM 即为 OLS**: 当解释变量外生时，有效 GMM 估计量退化为普通的 OLS 估计量。
 2.  **受约束估计量**: 在原假设约束下的受约束有效 GMM 估计量即为受约束 OLS (Restricted OLS) 估计量。
@@ -2303,11 +2396,13 @@ $$
 
 **2. 差值方差公式的推导**
 利用上述正交性，我们计算差值 $\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}$ 的方差：
-$$\begin{aligned}
+$$
+\begin{aligned}
 \operatorname{Var}(\bar{\boldsymbol{\delta}}) &= \operatorname{Var}(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}} + \hat{\boldsymbol{\delta}}) \\
 &= \operatorname{Var}(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}) + \operatorname{Var}(\hat{\boldsymbol{\delta}}) + 2\operatorname{Cov}(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}, \hat{\boldsymbol{\delta}}) \\
 &= \operatorname{Var}(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}) + \operatorname{Var}(\hat{\boldsymbol{\delta}}) + \mathbf{0} \quad (\text{By Eq 3.8.25})
-\end{aligned}$$
+\end{aligned}
+$$
 移项得：
 $$
 \operatorname{Var}(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}}) = \operatorname{Var}(\bar{\boldsymbol{\delta}}) - \operatorname{Var}(\hat{\boldsymbol{\delta}})

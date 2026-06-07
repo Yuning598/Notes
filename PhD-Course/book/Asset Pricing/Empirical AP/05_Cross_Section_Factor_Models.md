@@ -9,10 +9,13 @@ Time-series predictability 问的是：市场整体 expected return 是否随时
 
 :::{admonition} Definition (Cross-sectional asset pricing)
 对 $N$ 个资产，研究
-$$ E[R_i^e] $$
+$$
+E[R_i^e]
+$$
 是否能由暴露于共同风险因子 $f_t$ 的 beta 解释：
-$$ E[R_i^e]=\beta_i'\lambda. $$
-
+$$
+E[R_i^e]=\beta_i'\lambda.
+$$
 :::
 
 ## 2. Beta representation 与 SDF representation
@@ -53,13 +56,12 @@ $$
 这说明 beta representation 的本质不是“回归技巧”，而是 SDF 定价式的 covariance 改写：资产平均收益由它和 SDF 的协动决定。
 
 :::{admonition} Lemma: Linear SDF implies factor beta pricing
-**要证：**
-$$ E[R_i^e]=\beta_i'\lambda, \qquad \beta_i=\operatorname{Cov}(R_i^e,f)\operatorname{Var}(f)^{-1}. $$
-
-**联立系统：**
-$$ E[M R_i^e]=0,\qquad M=a-b'f. $$
-
-**连续求解：**
+$$
+E[R_i^e]=\beta_i'\lambda, \qquad \beta_i=\operatorname{Cov}(R_i^e,f)\operatorname{Var}(f)^{-1}.
+$$
+$$
+E[M R_i^e]=0,\qquad M=a-b'f.
+$$
 
 $$
 \begin{aligned} 0 &=E[(a-b'f)R_i^e]\\ &=aE[R_i^e]-b'E[fR_i^e]\\ &=aE[R_i^e]-b'\left(E[f]E[R_i^e]+\operatorname{Cov}(f,R_i^e)\right). \end{aligned}
@@ -72,7 +74,9 @@ $$
 $$
 
 插入
-$$ \operatorname{Cov}(R_i^e,f)=\beta_i\operatorname{Var}(f), $$
+$$
+\operatorname{Cov}(R_i^e,f)=\beta_i\operatorname{Var}(f),
+$$
 得
 
 $$
@@ -80,9 +84,10 @@ $$
 $$
 
 其中
-$$ \lambda=\operatorname{Var}(f)\frac{b}{a-b'E[f]}. $$
-
-**结论：** beta pricing 与 linear SDF 是同一件事的两种表达。见 [cards/Beta_SDF_Equivalence](cards/Beta_SDF_Equivalence)。
+$$
+\lambda=\operatorname{Var}(f)\frac{b}{a-b'E[f]}.
+$$
+beta pricing 与 linear SDF 是同一件事的两种表达。见 [cards/Beta_SDF_Equivalence](cards/Beta_SDF_Equivalence)。
 
 :::
 
@@ -174,7 +179,9 @@ $$
 
 :::{admonition} Definition (Traded factor test)
 若 $F_t$ 是 traded excess returns，则模型含义是：
-$$ \alpha_i=0\quad \forall i. $$
+$$
+\alpha_i=0\quad \forall i.
+$$
 因为 factor portfolio 自身的风险价格就是 $E[F]$。
 
 :::
@@ -206,29 +213,30 @@ $$
 $$
 
 :::{admonition} Lemma: Fama-MacBeth two-pass estimator
-**要证：**
-$$ \hat\lambda=(\hat B'\hat B)^{-1}\hat B'\bar R^e. $$
-
-**联立系统：**
+$$
+\hat\lambda=(\hat B'\hat B)^{-1}\hat B'\bar R^e.
+$$
 令
 
 $$
-$$ \bar R^e= \begin{bmatrix} \bar R_1^e\\ \vdots\\ \bar R_N^e \end{bmatrix}, \qquad \hat B= \begin{bmatrix} \hat\beta_1'\\ \vdots\\ \hat\beta_N' \end{bmatrix}. $$
+\bar R^e= \begin{bmatrix} \bar R_1^e\\ \vdots\\ \bar R_N^e \end{bmatrix}, \qquad \hat B= \begin{bmatrix} \hat\beta_1'\\ \vdots\\ \hat\beta_N' \end{bmatrix}.
 $$
 
 Cross-sectional regression：
-$$ \bar R^e=\hat B\lambda+\alpha. $$
-
-**连续求解：**
+$$
+\bar R^e=\hat B\lambda+\alpha.
+$$
 OLS objective：
-$$ Q(\lambda)=(\bar R^e-\hat B\lambda)'(\bar R^e-\hat B\lambda). $$
+$$
+Q(\lambda)=(\bar R^e-\hat B\lambda)'(\bar R^e-\hat B\lambda).
+$$
 FOC：
 
 $$
 \begin{aligned} \frac{\partial Q}{\partial \lambda} &=-2\hat B'(\bar R^e-\hat B\lambda)=0\\ \hat B'\bar R^e-\hat B'\hat B\lambda &=0\\ \hat B'\hat B\lambda &=\hat B'\bar R^e\\ \hat\lambda &=(\hat B'\hat B)^{-1}\hat B'\bar R^e. \end{aligned}
 $$
 
-**结论：** risk price 是用 beta 解释平均收益的横截面斜率。见 [cards/Fama_MacBeth_Shanken](cards/Fama_MacBeth_Shanken)。
+risk price 是用 beta 解释平均收益的横截面斜率。见 [cards/Fama_MacBeth_Shanken](cards/Fama_MacBeth_Shanken)。
 
 :::
 
@@ -272,18 +280,20 @@ GMM 把这些 asset-pricing restrictions 写成 sample moment conditions。
 
 :::{admonition} Definition (GMM moment condition)
 若 $M_t(\theta)$ 是模型 SDF，则
-$$ E[g_t(\theta)]=0,\qquad g_t(\theta)=M_t(\theta)R_t^e. $$
+$$
+E[g_t(\theta)]=0,\qquad g_t(\theta)=M_t(\theta)R_t^e.
+$$
 样本矩：
-$$ \bar g_T(\theta)=\frac1T\sum_{t=1}^Tg_t(\theta). $$
-
+$$
+\bar g_T(\theta)=\frac1T\sum_{t=1}^Tg_t(\theta).
+$$
 **Lemma:** GMM estimator
-**要证：**
-$$ \hat\theta = \arg\min_{\theta} \bar g_T(\theta)'W_T\bar g_T(\theta). $$
-
-**联立系统：**
-$$ E[g_t(\theta_0)]=0, \qquad Q_T(\theta)=\bar g_T(\theta)'W_T\bar g_T(\theta). $$
-
-**连续求解：**
+$$
+\hat\theta = \arg\min_{\theta} \bar g_T(\theta)'W_T\bar g_T(\theta).
+$$
+$$
+E[g_t(\theta_0)]=0, \qquad Q_T(\theta)=\bar g_T(\theta)'W_T\bar g_T(\theta).
+$$
 一阶条件：
 
 $$
@@ -291,11 +301,14 @@ $$
 $$
 
 记
-$$ D_T(\theta)=\frac{\partial \bar g_T(\theta)}{\partial\theta'}, $$
+$$
+D_T(\theta)=\frac{\partial \bar g_T(\theta)}{\partial\theta'},
+$$
 则
-$$ D_T(\hat\theta)'W_T\bar g_T(\hat\theta)=0. $$
-
-**结论：** GMM 直接最小化 pricing errors，不必先转成 beta regression。见 [cards/GMM_Asset_Pricing](cards/GMM_Asset_Pricing)。
+$$
+D_T(\hat\theta)'W_T\bar g_T(\hat\theta)=0.
+$$
+GMM 直接最小化 pricing errors，不必先转成 beta regression。见 [cards/GMM_Asset_Pricing](cards/GMM_Asset_Pricing)。
 
 :::
 
@@ -451,21 +464,24 @@ $$
 $$
 
 :::{admonition} Lemma: Cross-sectional omitted beta bias
-**要证：**
-$$ \operatorname{plim}\hat\lambda_1 = \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2. $$
-
-**连续求解：**
+$$
+\operatorname{plim}\hat\lambda_1 = \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2.
+$$
 估计错误模型：
-$$ E[R_i^e]=\beta_{i1}\lambda_1^{mis}+u_i. $$
+$$
+E[R_i^e]=\beta_{i1}\lambda_1^{mis}+u_i.
+$$
 真实模型：
-$$ E[R_i^e]=\beta_{i1}\lambda_1+\beta_{i2}\lambda_2. $$
+$$
+E[R_i^e]=\beta_{i1}\lambda_1+\beta_{i2}\lambda_2.
+$$
 OLS 斜率：
 
 $$
 \begin{aligned} \lambda_1^{mis} &= \frac{\operatorname{Cov}_{cs}(\beta_1,E[R^e])} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_1\lambda_1+\beta_2\lambda_2)} {\operatorname{Var}_{cs}(\beta_1)}\\ &= \lambda_1+ \frac{\operatorname{Cov}_{cs}(\beta_1,\beta_2)} {\operatorname{Var}_{cs}(\beta_1)}\lambda_2. \end{aligned}
 $$
 
-**结论：** 一个 factor 的显著性可能只是因为它 proxy 了遗漏的 priced factor。
+一个 factor 的显著性可能只是因为它 proxy 了遗漏的 priced factor。
 
 :::
 

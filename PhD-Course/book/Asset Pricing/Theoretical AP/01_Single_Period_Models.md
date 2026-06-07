@@ -531,8 +531,9 @@ $$
 :::
 
 :::{admonition} Lemma: FOC and Sign of Optimal Exposure
-$$U(\phi)=E\!\left[u\!\left(w_0R_f+\phi(\tilde R-R_f)\right)\right]$$
-
+$$
+U(\phi)=E\!\left[u\!\left(w_0R_f+\phi(\tilde R-R_f)\right)\right]
+$$
 $$
 \begin{aligned}
 U'(\phi)

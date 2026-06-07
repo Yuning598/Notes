@@ -775,7 +775,6 @@ p_{i,t}
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -811,7 +810,6 @@ P
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -1237,7 +1235,6 @@ $$
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -2037,7 +2034,6 @@ E[R_i]-R_f
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -2618,7 +2614,6 @@ w\Sigma^{-1}(\mu-r1).
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -3498,7 +3493,6 @@ P(t,T)
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -4131,7 +4125,6 @@ $$
 \end{aligned}
 $$
 
-结论：
 
 $$
 \boxed{
@@ -4180,7 +4173,6 @@ $$
 \right.
 $$
 
-结论：
 
 $$
 \boxed{
@@ -4719,7 +4711,7 @@ p
    \end{aligned}
    $$
 
-   两期结论：
+   两期情形：
 
    $$
    \begin{aligned}

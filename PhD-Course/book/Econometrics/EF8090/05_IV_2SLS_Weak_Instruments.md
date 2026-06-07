@@ -55,7 +55,7 @@ $$
 \beta=E[ZX']^{-1}E[ZY].
 $$
 
-**结论：** IV 用 $Z$ 提供的外生 variation 来识别 $X$ 的 causal effect。
+IV 用 $Z$ 提供的外生 variation 来识别 $X$ 的 causal effect。
 
 Sample analog:
 

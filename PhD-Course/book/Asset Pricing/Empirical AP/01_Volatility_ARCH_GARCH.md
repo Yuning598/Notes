@@ -15,7 +15,9 @@ volatility连接了几乎所有资产定价对象：
 
 :::{admonition} Definition (Volatility)
 Volatility 是资产收益不确定性的条件尺度。它通常不是直接可观测的，因此 empirical asset pricing 需要用模型或高频数据估计：
-$$ \sigma_t^2=\operatorname{Var}(r_t\mid \mathcal F_{t-1}). $$
+$$
+\sigma_t^2=\operatorname{Var}(r_t\mid \mathcal F_{t-1}).
+$$
 
 :::
 
@@ -27,7 +29,9 @@ $$ \sigma_t^2=\operatorname{Var}(r_t\mid \mathcal F_{t-1}). $$
 
 :::{admonition} Definition (Weak stationarity)
 随机过程 $\{y_t\}$ 是弱平稳的，如果
-$$ E[y_t]=\mu,\qquad  E[(y_t-\mu)^2]=\sigma^2,\qquad E[(y_t-\mu)(y_{t-s}-\mu)]=\gamma_s, $$
+$$
+E[y_t]=\mu,\qquad  E[(y_t-\mu)^2]=\sigma^2,\qquad E[(y_t-\mu)(y_{t-s}-\mu)]=\gamma_s,
+$$
 且这些量不随 $t$ 变化，只依赖 lag $s$。
 
 :::

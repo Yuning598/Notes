@@ -2462,7 +2462,6 @@ $$
 - 189 firms 把原本 2013 年的 regular dividend 提前到 2012 年 12 月
 - 这种反应在 CEO 持股多、且 CEO 是 Republican 时更明显
 
-**结论**
 - firms 的 payout policy 会对 personal tax changes 作出反应
 - 这种反应在 **large insider ownership**、**political preference** 更明显的公司里更强
 
@@ -3637,7 +3636,7 @@ flowchart LR
 | 1963--1981 | high | small but visible | small |
 | 1982--2003 | high | near zero | nearly absent |
 
-结论：美国公开市场 SEO 的发行方式在样本期内明显向 firm commitment 集中，rights issue 逐步退出主流。
+美国公开市场 SEO 的发行方式在样本期内明显向 firm commitment 集中，rights issue 逐步退出主流。
 
 ### 3.2 The Rights Offer Puzzle
 Direct flotation costs are often lowest for rights issues, yet U.S. firms often choose firm commitment offerings.
@@ -4338,7 +4337,7 @@ $$
 
 这与 Belief B 一致，因此 B 是 separating equilibrium。
 
-结论：**发行决策揭示了坏状态，equity issue 触发 adverse selection 和 price decline。**
+**发行决策揭示了坏状态，equity issue 触发 adverse selection 和 price decline。**
 
 :::
 

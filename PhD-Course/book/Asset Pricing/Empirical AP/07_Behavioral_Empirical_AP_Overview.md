@@ -90,13 +90,13 @@ $$
 其中 $P_t^*$ 是 fundamental value，$m_t$ 是 mispricing。
 
 :::{admonition} Lemma: Mispricing 与未来收益
-**要证：** 若 mispricing mean-reverts，则高 $m_t$ 预测低未来收益。
+若 mispricing mean-reverts，则高 $m_t$ 预测低未来收益。
 
-**联立系统：**
-$$ P_t=P_t^*+m_t,\qquad E_t[m_{t+1}]=\phi m_t,\quad |\phi|<1. $$
+$$
+P_t=P_t^*+m_t,\qquad E_t[m_{t+1}]=\phi m_t,\quad |\phi|<1.
+$$
 简化设 fundamental expected return 为 $\bar R$。
 
-**连续求解：**
 未来价格变化中的 mispricing 部分：
 
 $$
@@ -109,7 +109,7 @@ $$
 \begin{aligned} E_t[R_{t+1}] &\approx \bar R+\frac{E_t[m_{t+1}-m_t]}{P_t}\\ &=\bar R-\frac{(1-\phi)m_t}{P_t}. \end{aligned}
 $$
 
-**结论：** 价格被高估越多，未来 expected return 越低；价格被低估越多，未来 expected return 越高。
+价格被高估越多，未来 expected return 越低；价格被低估越多，未来 expected return 越高。
 
 :::
 
@@ -119,9 +119,13 @@ $$
 
 :::{admonition} Definition (Bubble)
 若价格超过 fundamental value：
-$$ P_t=P_t^*+B_t, $$
+$$
+P_t=P_t^*+B_t,
+$$
 且 bubble component 满足
-$$ B_t=E_t[M_{t+1}B_{t+1}], $$
+$$
+B_t=E_t[M_{t+1}B_{t+1}],
+$$
 则 $B_t$ 可以在无套利条件下存在，尤其当市场不完全、短售受限或信念异质时。
 
 :::
