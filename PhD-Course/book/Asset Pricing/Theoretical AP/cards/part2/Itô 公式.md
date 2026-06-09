@@ -1,13 +1,10 @@
----
-orphan: true
----
-
 # Itô process 与 Itô formula
 
-导航：[Asset Pricing index](../../../index.md) · [Theoretical AP](../../../Theoretical_Asset_Pricing.md) · 来源：[02_Dynamic_Asset_Pricing](../../02_Dynamic_Asset_Pricing.md)
+来源：[Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing#5.4.1 A Stochastic Growth Model](Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing#5.4.1 A Stochastic Growth Model)
 
+返回：[Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing](Asset Pricing/Theoretical AP/02_Dynamic_Asset_Pricing)
 
-关联卡片：[连续时间组合选择问题](%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E7%BB%84%E5%90%88%E9%80%89%E6%8B%A9%E9%97%AE%E9%A2%98.md) · [HJB 方程与动态规划](HJB%20%E6%96%B9%E7%A8%8B%E4%B8%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92.md)
+关联卡片：[Asset Pricing/Theoretical AP/cards/part2/连续时间组合选择问题](Asset Pricing/Theoretical AP/cards/part2/连续时间组合选择问题) · [Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划](Asset Pricing/Theoretical AP/cards/part2/HJB 方程与动态规划)
 
 :::{admonition} Definition (Itô formula)
 设 $X_t$ 满足一维 Itô process
@@ -29,7 +26,7 @@ $$
 
 :::
 
-(def-ito-formula)=
+^def-ito-formula
 
 ## 一维公式
 
@@ -310,7 +307,7 @@ dX_t
 \end{aligned}
 $$
 
-### 6. 复合函数模板
+### 5. 复合函数模板
 
 一般地，对 $f(X_t)$ 先写成
 

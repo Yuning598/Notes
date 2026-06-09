@@ -14012,3 +14012,257 @@ $$
 
 ::::
 
+
+### 38. Black-Scholes 公式推导：从对数收益率的条件分布到期权定价
+
+**Question** 从对数收益率的条件分布出发，通过连续配方与积分求解，完整推导带有连续股息率 $q$ 的 Black-Scholes 欧式看涨期权定价公式。
+
+设定如下：
+
+$$
+\begin{cases}
+x_T = \ln(S_T / S_t) \implies S_T = S_t e^{x_T} \\
+x_T | S_t \sim N\left( \mu, v^2 \right), \quad \text{其中 } \mu = (r - q - \frac{1}{2}\sigma^2)\tau, \quad v = \sigma\sqrt{\tau} \\
+C_t = e^{-r\tau} \mathbb{E}_t^Q[(S_T - K)^+] \\
+(S_T - K)^+ > 0 \iff x_T > \ln(K/S_t)
+\end{cases}
+$$
+
+::::{solution}
+
+**构造对数收益率 $x_T$：** 从股票价格过程出发，设 $S_t$ 支付连续股息率 $q$，在风险中性测度 $\mathbb{Q}$ 下有
+
+$$
+\frac{dS_t}{S_t} = (r - q) dt + \sigma dW_t^{\mathbb{Q}}
+$$
+
+对 $\ln S_t$ 应用 Itô 公式：
+
+$$
+\begin{aligned}
+d(\ln S_t) &= \frac{1}{S_t} dS_t - \frac{1}{2S_t^2} d\langle S \rangle_t \\
+&= (r - q) dt + \sigma dW_t^{\mathbb{Q}} - \frac{1}{2}\sigma^2 dt \\
+&= \left(r - q - \frac{1}{2}\sigma^2\right) dt + \sigma dW_t^{\mathbb{Q}}
+\end{aligned}
+$$
+
+从 $t$ 到 $T$ 积分得
+
+$$
+\ln S_T - \ln S_t = \left(r - q - \frac{1}{2}\sigma^2\right)(T-t) + \sigma (W_T^{\mathbb{Q}} - W_t^{\mathbb{Q}})
+$$
+
+定义对数收益率 $x_T = \ln(S_T / S_t)$，由布朗运动的增量性质知 $x_T | S_t \sim N(\mu, v^2)$，其中
+
+$$
+\mu = \left(r - q - \frac{1}{2}\sigma^2\right)\tau, \quad v = \sigma\sqrt{\tau}, \quad \tau = T - t
+$$
+
+根据风险中性定价公式，将期望值转换为关于连续随机变量 $x_T$ 的积分式，并将其线性拆分为两项分别求解：
+
+$$
+\mathbb{E}_t^Q[(S_T - K)^+] = \int_{\ln(K/S_t)}^\infty (S_t e^x - K) \frac{1}{\sqrt{2\pi}v} \exp\left(-\frac{(x-\mu)^2}{2v^2}\right) dx = I_1 - I_2
+$$
+
+**计算 $I_2$：** 行权价对应的积分项。该项的经济学含义是期权到期时处于实值状态的未折现风险中性概率。通过对积分变量进行标准化转换 $z = \frac{x-\mu}{v}$：
+
+$$
+I_2 = K \int_{\ln(K/S_t)}^\infty \frac{1}{\sqrt{2\pi}v} \exp\left(-\frac{(x-\mu)^2}{2v^2}\right) dx = K \cdot \mathbb{P}^Q\left( \frac{x-\mu}{v} > \frac{\ln(K/S_t)-\mu}{v} \right)
+$$
+
+令 $d_2 = \frac{\ln(S_t/K) + \mu}{v} = \frac{\ln(S_t/K) + (r - q - \frac{1}{2}\sigma^2)\tau}{\sigma\sqrt{\tau}}$，利用标准正态分布的对称性，上式可直接写为 $K N(d_2)$。
+
+**计算 $I_1$：** 标的资产现值对应的积分项。需要将资产价格的指数项 $e^x$ 纳入正态分布的密度函数指数中进行合并配方：
+
+$$
+\begin{aligned}
+I_1 &= S_t \int_{\ln(K/S_t)}^\infty \frac{1}{\sqrt{2\pi}v} \exp\left( x - \frac{(x-\mu)^2}{2v^2} \right) dx \\
+&= S_t \int_{\ln(K/S_t)}^\infty \frac{1}{\sqrt{2\pi}v} \exp\left( -\frac{x^2 - 2(\mu+v^2)x + \mu^2}{2v^2} \right) dx \\
+&= S_t \int_{\ln(K/S_t)}^\infty \frac{1}{\sqrt{2\pi}v} \exp\left( -\frac{(x - (\mu+v^2))^2}{2v^2} + \frac{(\mu+v^2)^2 - \mu^2}{2v^2} \right) dx
+\end{aligned}
+$$
+
+将配方后产生的常数项提出积分号外，计算出该常数因子为 $\exp\left(\frac{2\mu v^2 + v^4}{2v^2}\right) = \exp\left(\mu + \frac{1}{2}v^2\right)$。代入 $\mu$ 与 $v$ 的具体参数可得 $\mu + \frac{1}{2}v^2 = (r - q)\tau$。此时，剩余的积分部分构成了一个均值平移至 $\mu+v^2$ 的新正态概率分布：
+
+$$
+I_1 = S_t e^{(r-q)\tau} \mathbb{P}^Q\left( \frac{x - (\mu+v^2)}{v} > \frac{\ln(K/S_t) - (\mu+v^2)}{v} \right)
+$$
+
+令 $d_1 = \frac{\ln(S_t/K) + \mu + v^2}{v} = \frac{\ln(S_t/K) + (r - q + \frac{1}{2}\sigma^2)\tau}{\sigma\sqrt{\tau}} = d_2 + \sigma\sqrt{\tau}$，则 $I_1$ 积分化简为 $S_t e^{(r-q)\tau} N(d_1)$。
+
+**整合结果：** 将独立求得的 $I_1$ 与 $I_2$ 结果代回最初的期权定价方程中，进行整体的无风险折现：
+
+$$
+\begin{aligned}
+C_t &= e^{-r\tau} (I_1 - I_2) \\
+&= e^{-r\tau} \left( S_t e^{(r-q)\tau} N(d_1) - K N(d_2) \right) \\
+&= S_t e^{-q\tau} N(d_1) - K e^{-r\tau} N(d_2)
+\end{aligned}
+$$
+
+即通过对数收益率的积分期望严格推导出了带有连续股息率的标准 Black-Scholes 公式。
+
+::::
+
+
+### 39. Rare Disaster 与资产定价：消费跳跃、权益溢价与深度虚值期权
+
+**Question** 设消费增长满足
+
+$$
+\Delta c_{t+1} = \mu + \varepsilon_{t+1} + \nu_{t+1}
+$$
+
+其中 $\varepsilon_{t+1} \sim N(0, \sigma^2)$，并且
+
+$$
+\nu_{t+1} = \begin{cases}
+0, & \text{概率 } 1-p, \\
+\log(1-d), & \text{概率 } p,
+\end{cases}
+\qquad 0 < d < 1, \quad 0 < p \ll 1
+$$
+
+代表性投资者具有 CRRA 偏好，贴现因子为 $\beta$。
+
+**（a）** 求 $\log \mathbb{E}_t[C_{t+1}/C_t]$，并说明灾难概率 $p$ 上升会如何影响期望消费增长。
+
+::::{solution}
+
+由于
+
+$$
+\frac{C_{t+1}}{C_t} = e^{\mu + \varepsilon_{t+1} + \nu_{t+1}}
+$$
+
+因此
+
+$$
+\begin{aligned}
+\mathbb{E}_t\left[\frac{C_{t+1}}{C_t}\right] &= e^{\mu} \mathbb{E}[e^{\varepsilon_{t+1}}] \mathbb{E}[e^{\nu_{t+1}}] \\
+&= e^{\mu} \cdot e^{\frac{1}{2}\sigma^2} \cdot \left[(1-p) + p(1-d)\right] \\
+&= e^{\mu + \frac{1}{2}\sigma^2}(1-pd)
+\end{aligned}
+$$
+
+所以
+
+$$
+\begin{aligned}
+\log \mathbb{E}_t\left[\frac{C_{t+1}}{C_t}\right] &= \mu + \frac{1}{2}\sigma^2 + \log(1-pd) \\
+&\approx \mu + \frac{1}{2}\sigma^2 - pd
+\end{aligned}
+$$
+
+故 $p$ 上升会压低期望消费增长。
+
+::::
+
+**（b）** 写出 SDF，并推导 $r_f$；说明 rare disaster 对风险自由利率的影响方向。
+
+::::{solution}
+
+接着，CRRA 下
+
+$$
+M_{t+1} = \beta \left(\frac{C_{t+1}}{C_t}\right)^{-\gamma}
+$$
+
+于是
+
+$$
+\begin{aligned}
+\mathbb{E}_t[M_{t+1}] &= \beta e^{-\gamma \mu} \mathbb{E}(e^{-\gamma \varepsilon_{t+1}}) \mathbb{E}(e^{-\gamma \nu_{t+1}}) \\
+&= \beta e^{-\gamma \mu + \frac{1}{2}\gamma^2 \sigma^2} \left[(1-p) + p(1-d)^{-\gamma}\right]
+\end{aligned}
+$$
+
+因此风险自由利率为
+
+$$
+\begin{aligned}
+r_f &= -\log \mathbb{E}_t[M_{t+1}] \\
+&= -\log \beta + \gamma \mu - \frac{1}{2}\gamma^2 \sigma^2 - \log\left[(1-p) + p(1-d)^{-\gamma}\right]
+\end{aligned}
+$$
+
+由于 $(1-d)^{-\gamma} > 1$，括号项大于 1，其对数为正，因此最后一项为负。于是 rare disaster 压低 $r_f$。
+
+::::
+
+**（c）** 若风险资产是对下一期总消费 $C_{t+1}$ 的索取权，求其价格与近似权益溢价。
+
+::::{solution}
+
+现在考虑消费索取权：$P_t = \mathbb{E}_t[M_{t+1}C_{t+1}]$。于是
+
+$$
+\begin{aligned}
+\frac{P_t}{C_t} &= \beta \mathbb{E}_t\left[\left(\frac{C_{t+1}}{C_t}\right)^{1-\gamma}\right] \\
+&= \beta e^{(1-\gamma)\mu + \frac{1}{2}(1-\gamma)^2 \sigma^2} \left[(1-p) + p(1-d)^{1-\gamma}\right]
+\end{aligned}
+$$
+
+于是
+
+$$
+\log \frac{P_t}{C_t} = \log \beta + (1-\gamma)\mu + \frac{1}{2}(1-\gamma)^2 \sigma^2 + \log\left[(1-p) + p(1-d)^{1-\gamma}\right]
+$$
+
+该资产下一期 gross return 为
+
+$$
+1 + R_{t+1} = \frac{C_{t+1}}{P_t}
+$$
+
+故
+
+$$
+\begin{aligned}
+\log \mathbb{E}_t(1+R_{t+1}) &= \log \mathbb{E}_t\left(\frac{C_{t+1}}{C_t}\right) - \log\left(\frac{P_t}{C_t}\right) \\
+&= \gamma \mu + \frac{1}{2}(2-\gamma)\gamma \sigma^2 + \log(1-pd) - \log\left[(1-p) + p(1-d)^{1-\gamma}\right] - \log \beta
+\end{aligned}
+$$
+
+因此近似权益溢价为
+
+$$
+\begin{aligned}
+\log \mathbb{E}_t(1+R_{t+1}) - r_f &= \gamma \sigma^2 + \log(1-pd) - \log\left[(1-p) + p(1-d)^{1-\gamma}\right] \\
+&\quad + \log\left[(1-p) + p(1-d)^{-\gamma}\right]
+\end{aligned}
+$$
+
+当 $p$ 很小时，一阶近似可写成
+
+$$
+\log \mathbb{E}_t(1+R_{t+1}) - r_f \approx \gamma \sigma^2 + pd\left[(1-d)^{-\gamma} - 1\right]
+$$
+
+因为 $d > 0$ 且 $(1-d)^{-\gamma} > 1$，灾难项为正，从而 rare disaster 抬升权益溢价。
+
+::::
+
+**（d）** 解释为何 rare disaster 能同时帮助解释高 equity premium 与低 risk-free rate。
+
+::::{solution}
+
+Rare disaster 压低 $r_f$（预防性储蓄动机），同时抬升 equity premium（灾难状态下股权支付大幅下降），从而能同时匹配低无风险利率与高权益溢价。
+
+::::
+
+**（e）** 说明灾难概率上升为何会抬升深度虚值 put 的价格。
+
+::::{solution}
+
+深度虚值 put 的 payoff 集中在标的资产大幅下跌的尾部状态。当灾难概率 $p$ 上升时，SDF 在灾难状态的权重增加，而该状态正是 put 有正 payoff 的区域，因此期权的风险中性定价
+
+$$
+\text{Put price} = \mathbb{E}_t^{\mathbb{Q}}[e^{-r_f \tau} (K - S_T)^+]
+$$
+
+中灾难状态的贡献上升，导致深度虚值 put 价格上涨。
+
+::::
+
+

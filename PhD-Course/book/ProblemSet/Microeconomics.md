@@ -649,3 +649,193 @@ $$
 **Cournot equilibrium is inefficient**: Firms restrict output to raise price above marginal cost.
 
 ::::
+
+
+### 6. Walrasian Equilibrium and Core Allocations (2025 QE)
+
+#exchange-economy #Walrasian-equilibrium #core
+
+**Question** Consider a pure exchange economy with two agents and three goods. The endowments are:
+
+$$
+\begin{aligned}
+e^1&=(1,1,1),\\
+e^2&=(0,2,0).
+\end{aligned}
+$$
+
+For each of the following utility functions, discuss whether a Walrasian Equilibrium exists. If it does not exist, explain why and find the core allocations. If core allocations do not exist, explain why.
+
+**（1）** $u^1(c_1,c_2,c_3)=\min\{c_1,c_2,c_3\}$, $u^2(c_1,c_2,c_3)=\min\{2c_1,c_2,c_3\}$
+
+::::{solution}
+
+**偏好类型**：两个agent都有Leontief (perfect complements) 偏好。
+
+Agent 1消费比例：$c_1^1:c_2^1:c_3^1=1:1:1$。
+Agent 2消费比例：$c_1^2:c_2^2:c_3^2=1:2:2$（因为$2c_1^2=c_2^2=c_3^2$时效用最大化）。
+
+**总禀赋**：
+
+$$
+\bar e=(1,3,1).
+$$
+
+**Feasibility约束**：
+
+$$
+\begin{aligned}
+c_1^1+c_1^2&=1,\\
+c_2^1+c_2^2&=3,\\
+c_3^1+c_3^2&=1.
+\end{aligned}
+$$
+
+设agent 1消费$c_1^1=c_2^1=c_3^1=\alpha$，则剩余给agent 2：
+
+$$
+\begin{aligned}
+c_1^2&=1-\alpha,\\
+c_2^2&=3-\alpha,\\
+c_3^2&=1-\alpha.
+\end{aligned}
+$$
+
+Agent 2的Leontief约束要求$2c_1^2=c_2^2=c_3^2$，即
+
+$$
+2(1-\alpha)=3-\alpha=1-\alpha.
+$$
+
+从$2(1-\alpha)=1-\alpha$得$2-2\alpha=1-\alpha$，即$\alpha=1$。
+从$3-\alpha=1-\alpha$得$3=1$，矛盾。
+
+**结论**：无法找到同时满足两个agent的Leontief比例约束的可行分配。
+
+**Walrasian Equilibrium不存在**：在任何价格下，至少有一个agent无法在预算约束下达到其最优消费比例，因为总禀赋的比例结构$(1:3:1)$无法同时满足两个agent的技术比例要求$(1:1:1)$和$(1:2:2)$。
+
+**Core allocation**：
+
+Core要求分配是Pareto有效且不被任何联盟block。由于两个agent的比例要求不相容，任何可行分配都会使至少一个agent偏离其理想比例。
+
+Agent 1的IR要求$\min\{c_1^1,c_2^1,c_3^1\}\geq u^1(e^1)=\min\{1,1,1\}=1$。
+Agent 2的IR要求$\min\{2c_1^2,c_2^2,c_3^2\}\geq u^2(e^2)=\min\{0,2,0\}=0$。
+
+由于总量$c_1^1+c_1^2=1$和$c_3^1+c_3^2=1$，若agent 1要达到效用1需要$c_1^1\geq 1$且$c_3^1\geq 1$，即$c_1^1=c_3^1=1$，剩余$c_1^2=c_3^2=0$。
+
+此时agent 2的效用$u^2(0,c_2^2,0)=\min\{0,c_2^2,0\}=0$，满足IR。
+
+对于$c_2$的分配：任何满足$c_2^1+c_2^2=3$且$c_2^1\geq 1$（保证agent 1效用至少为1）的分配都是IR的。
+
+Pareto有效性：由于agent 1的效用锁定在$\min\{1,c_2^1,1\}=\min\{1,c_2^1\}$，只有当$c_2^1\geq 1$时效用为1。Agent 2的效用为0（受$c_1^2=c_3^2=0$限制）。
+
+无法Pareto改进：减少$c_2^1$会降低agent 1效用；增加$c_2^1$不会改变agent 1效用（若$c_2^1>1$），但也不会增加agent 2效用（仍为0）。
+
+**Core = $\{(c^1,c^2):c^1=(1,\beta,1),c^2=(0,3-\beta,0),\beta\geq 1\}$**
+
+::::
+
+**（2）** $u^1(c_1,c_2,c_3)=\sqrt{c_1}+c_3$, $u^2(c_1,c_2,c_3)=c_1+c_2$
+
+::::{solution}
+
+**偏好类型**：Agent 1只关心good 1和good 3，agent 2只关心good 1和good 2。
+
+Good 3只有agent 1想要，所以Pareto有效分配应该全部分给agent 1：$c_3^1=1$，$c_3^2=0$。
+
+**Walrasian Equilibrium分析**：
+
+Agent 1对good 2的边际效用为0，只有当$p_2=0$时才可能出清市场（让agent 1消费部分good 2）。
+
+但若$p_2=0$，agent 2的禀赋$(0,2,0)$价值为0，无法购买任何$p_i>0$的商品。若所有价格为0则不是均衡。
+
+**结论**：Walrasian Equilibrium不存在，因为agent 1对good 2无边际价值而agent 2只拥有good 2，导致无法通过价格机制实现资源交换。
+
+**Core allocation**：
+
+考虑分配：agent 1获得$(c_1^1,0,1)$，agent 2获得$(1-c_1^1,3,0)$。
+
+$$
+\begin{aligned}
+u^1(c_1^1,0,1)&=\sqrt{c_1^1}+1,\\
+u^2(1-c_1^1,3,0)&=(1-c_1^1)+3=4-c_1^1.
+\end{aligned}
+$$
+
+IR约束：
+
+$$
+\begin{aligned}
+u^1(c_1^1,0,1)&\geq u^1(1,1,1)=\sqrt{1}+1=2\quad\Longrightarrow\quad c_1^1\geq 1,\\
+u^2(1-c_1^1,3,0)&\geq u^2(0,2,0)=2\quad\Longrightarrow\quad c_1^1\leq 2.
+\end{aligned}
+$$
+
+但总good 1只有1单位，所以$c_1^1\leq 1$。Combined：$c_1^1=1$。
+
+Pareto有效性：Agent 1的MU for good 1为$\frac{1}{2\sqrt{c_1^1}}$，agent 2的MU为1。
+
+在$c_1^1=1$时，agent 1的MU为$\frac12<1$，说明应将边际单位good 1给agent 2。但$c_1^1=1$已是总量，且agent 1的IR刚好bind，无法进一步调整。
+
+**Core = $\{(c^1,c^2)=((1,0,1),(0,3,0))\}$**
+
+::::
+
+**（3）** $u^1(c_1,c_2,c_3)=c_1+c_2$, $u^2(c_1,c_2,c_3)=c_1+c_2+c_3$
+
+::::{solution}
+
+**偏好类型**：两个agent对good 1和good 2有相同的线性偏好（perfect substitutes，MRS=1）。Agent 2额外关心good 3，agent 1不关心good 3。
+
+**Pareto有效分配**：Good 3应全部分给agent 2：$c_3^1=0$，$c_3^2=1$。
+
+**Walrasian Equilibrium**：
+
+由于good 1和good 2对两个agent都是perfect substitutes（MRS=1），均衡要求$p_1=p_2$（否则所有人只买便宜的那个）。
+
+标准化$p_1=p_2=1$。Agent 2对good 3的边际效用为1，均衡要求$p_3=1$。
+
+Agent 1预算：
+
+$$
+c_1^1+c_2^1+c_3^1\leq 1+1+1=3.
+$$
+
+Agent 1对good 3无偏好，所以$c_3^1=0$，$c_1^1+c_2^1=3$。
+
+Agent 2预算：
+
+$$
+c_1^2+c_2^2+c_3^2\leq 0+2+0=2.
+$$
+
+Agent 2对三种商品边际效用都是1（在价格都为1时无差异），所以$c_1^2+c_2^2+c_3^2=2$。
+
+Market clearing：$c_3^1=0\Rightarrow c_3^2=1$，剩余预算$c_1^2+c_2^2=1$。
+
+设$c_1^1=a$，则$c_1^2=1-a$，$c_2^1=3-a$，$c_2^2=a$。
+
+检验agent 2预算：$(1-a)+a+1=2$，满足。
+
+**Walrasian Equilibrium存在**（连续统）：
+
+$$
+\begin{aligned}
+\text{Prices: }&(p_1,p_2,p_3)=(1,1,1)\\
+\text{Allocation: }&c^1=(a,3-a,0),\quad c^2=(1-a,a,1),\quad a\in[0,1].
+\end{aligned}
+$$
+
+验证IR：
+
+$$
+\begin{aligned}
+u^1(a,3-a,0)&=3\geq u^1(1,1,1)=2,\\
+u^2(1-a,a,1)&=2= u^2(0,2,0)=2.
+\end{aligned}
+$$
+
+**Core = Walrasian allocations** = $\{(c^1,c^2)=((a,3-a,0),(1-a,a,1)):a\in[0,1]\}$。
+
+::::
+
