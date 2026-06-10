@@ -1,11 +1,5 @@
 # Corporate Finance
 
-### 考题类型
-
-1. Literature Review：按理论/机制分类，每篇文献必须服务于一个理论。
-2. Research Proposal：研究假设、数据、模型、预期结论、identification threats。
-3. 机制题 + empirical supporting：像 SEO 样题，先写三种 theory，再各配 empirical paper，再设计 policy shock。
-
 **1. Literature Review**
 
 $$
@@ -76,8 +70,8 @@ $$
 **Theory 文献**
 
 - **Capital Structure**
-	- **MM irrelevance**：<span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1958, 1963)</span>；无摩擦市场下资本结构不影响公司价值；加入公司税后 $V_L=V_U+T_CD$
-	- **Trade-off theory**：tax shield vs distress costs；firms 在边际税盾收益和破产成本间权衡
+	- **MM irrelevance**：<span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1958, 1963)</span>；无摩擦市场下资本结构不影响公司价值
+	- **Trade-off theory**：tax shield vs distress costs
 	- **Pecking order**：<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>；信息不对称下 equity issuance 传递 overvaluation signal，融资顺序为 internal funds → debt → equity
 	- **Market timing**：firms 在高估时发行股票，在低估时回购，资本结构是过去择时行为的累积
 	- **Agency theory**：debt 可约束 free cash flow，但也会产生 debt overhang 和 risk shifting
@@ -87,88 +81,88 @@ $$
 	- **Signaling**：dividend 变化传递管理层对未来现金流的私有信息
 	- **Agency / free cash flow**：<span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>；payout 减少管理层控制的 free cash flow，约束 overinvestment
 - **SEO**
-	- **Adverse selection**：<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>；管理层信息优势导致 equity issuance 被市场解读为 overvaluation
+	- **Adverse selection**：<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>；管理层具有信息优势，equity issuance被市场解读为 overvaluation
 	- **Market timing**：firms 在高估时发行股票，预测长期负回报
 	- **Monitoring**：equity issuance 改变所有权结构，影响治理和监督
-	- **Price pressure**：新股供给在短期内压低价格（需求曲线向下倾斜）
+	- **Price pressure**：新股供给在短期内压低价格
 
 **Empirical 文献**
 
 - **Capital Structure**
 	- <span style="color:#1f6feb;font-weight:700">Graham (2000)</span>-**Trade-off theory**
-		- 利用税法和企业利润分布，模拟出不同债务水平下的“边际税盾收益曲线”。将理论上能使税盾现值最大化的“最优杠杆率”与企业的实际杠杆率进行比对。
-		- **核心发现**：增加债务确实能带来经济意义上显著的税盾收益；但企业的**实际杠杆率远低于税盾最大化水平**。证明税盾是重要因素，但并非唯一决定因素，财务困境或代理成本等摩擦限制了举债，挑战了简单的静态权衡理论。
+		- 模拟不同债务水平下的“边际税盾收益曲线”，对比“最优杠杆率”（使得税盾现值最大化）与实际杠杆率。
+		- **发现**：增加债务带来显著税盾收益；但企业的**实际杠杆率<<税盾最大化水平**。证明税盾是重要但非唯一因素，财务困境或代理成本等摩擦限制了举债，挑战了简单的静态权衡理论。
 	- <span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span>-**Market timing**
-		- 构建一个由“外部融资权重”加权的“历史市净率(M/B)”指标，代表企业的历史择时行为。通过面板回归控制常规变量，检验历史高估值对当前杠杆率是否有持续的预测力。
-		- **核心发现：** 历史M/B能强烈且持久（超10年）地负向预测当前杠杆率。证明资本结构主要是**历史择时行为的累积结果**，企业并不会主动向目标杠杆调整，强烈支持市场择时假说。
+		- 构建由“外部融资权重”加权的“历史M/B”指标，代表企业的历史择时行为，检验历史高估值对当前杠杆率是否有持续的预测力。
+		- **发现：** 历史M/B能强烈且持久（超10年）地负向预测当前杠杆率。证明资本结构主要是**历史择时行为的累积结果**，企业并不会主动向目标杠杆调整，强烈支持市场择时假说。
 	- <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span>-**Leverage determinants**
-		- 在大样本面板数据中，将各类理论预测的影响变量放在一起跑回归，检验在不同样本期和杠杆定义下，哪些变量最稳健。
-		- **核心发现：** **行业中位数、有形资产占比、规模、M/B**是最稳健的杠杆决定因素；盈利能力与杠杆显著负相关（支持优序融资理论）。证明没有单一理论能解释所有现象，实际杠杆是多种摩擦综合作用的结果。
+		- 将各类理论预测的影响变量放在一起跑回归，检验在不同样本期和杠杆定义下，哪些变量最稳健。
+		- **发现：** **行业中位数、有形资产占比、规模、M/B**是最稳健的杠杆决定因素；盈利能力与杠杆显著负相关（支持pecking order）。证明没有单一理论能解释所有现象，实际杠杆是**多种摩擦综合作用**的结果。
 - **Payout Policy**
 	- <span style="color:#1f6feb;font-weight:700">Elton and Gruber (1970)</span>-**Tax clientele**
 		- 测量除权日股价下跌幅度与每股股利的比值 $(P_{cum}-P_{ex})/D$。如果股利税高于资本利得税，该比率应小于1，并反映两者的税率差。
-		- **核心发现：** 该比率显著小于1且非常接近理论预测的税率比。证明**税率差异导致了投资者分层**，高税率投资者会系统性避开高股利股票。
+		- **发现：** 该比率显著小于1且非常接近理论预测的税率比。证明**税率差异导致了投资者分层**，高税率投资者会系统性避开高股利股票。
 	- <span style="color:#1f6feb;font-weight:700">Aharony and Swary (1980)</span>-**Signaling**
-		- 运用事件研究法，控制住同期的盈余公告，单纯测量股利增减宣告期间的异常收益率 (CAR)，检验其是否传递了未来现金流的信息。
-		- **核心发现：** 股利增加带来显著正CAR，减少带来显著负CAR（且负反应更剧烈）。证明市场将**股利变化视为未来盈利的真实信号**。
+		- 运用事件研究法，控制同期的盈余公告，单纯测量股利增减宣告期间的异常收益率 (CAR)，检验其是否传递了未来现金流的信息。
+		- **发现：** 股利增加带来显著正CAR，减少带来显著负CAR（且负反应更剧烈）。证明市场将**股利变化视为未来盈利的真实信号**。
 	- <span style="color:#1f6feb;font-weight:700">Jagannathan, Stephens and Weisbach (2000)</span>-**Flexibility / timing**
-		- 比较支付股利与股票回购两类公司的现金流波动性。检验灵活性假设：粘性的股利对应永久性现金流，灵活的回购对应暂时性现金流。
-		- **核心发现：** 发放股利的公司现金流更稳定可测，而回购股票的公司现金流波动更大。证明**支付方式的选择反映了现金流的性质**。
+		- 比较dividend与repurchase的现金流波动性。检验灵活性假设：粘性的股利对应永久性现金流，灵活的回购对应暂时性现金流。
+		- **发现：** 发放股利的公司现金流更稳定可测，而回购股票的公司现金流波动更大。证明**支付方式的选择反映了现金流的性质**。
 	- <span style="color:#1f6feb;font-weight:700">Peyer and Vermaelen (2009)</span>-**Repurchase and market timing**
 		- 测量股票回购宣告的短期CAR以及长期（3年）买入持有异常收益率 (BHAR)。检验管理层是否在股价被低估时精准回购。
-		- **核心发现：** 短期CAR平均为+2.5%，且宣告后3年长期收益率显著为正。证明回购有效传递了被低估信号，且管理层成功进行了市场择时。
+		- **发现：** 短期CAR平均为+2.5%，且宣告后3年长期收益率显著为正。证明回购有效传递了undervaluation信号，管理层成功进行市场择时。
 - **SEO**
 	- <span style="color:#1f6feb;font-weight:700">Asquith and Mullins (1986)</span>-**Adverse selection**
-		- 测量SEO宣告期[-1, +1]窗口的CAR，验证Myers-Majluf理论：市场是否认为管理层只在股价高估时发股。
-		- **核心发现：** 宣告期平均CAR为-3.0%，且发行规模越大反应越糟。证明**信息不对称**是股权融资面临的严重摩擦，SEO被视作高估的坏消息。
+		- 测量SEO宣告期[-1, +1]窗口的CAR，验证**Myers-Majluf理论**：市场是否认为管理层只在股价高估时发股。
+		- **发现：** 宣告期平均CAR<0，且发行规模越大反应越糟。证明**信息不对称**是股权融资面临的严重摩擦，SEO被视作高估的坏消息。
 	- <span style="color:#1f6feb;font-weight:700">Masulis and Korwar (1986)</span>-**insider selling signal**
 		- 对比公司纯发新股 (Primary) 与包含内部人老股抛售 (Secondary) 的宣告效应差异。
-		- **核心发现：** 包含内部人抛售的增发会引发更严重的市场惩罚 (CAR -4.7% vs -3.0%)。证明内部人减持放大了高估的负面信号。
+		- **发现：** 包含内部人抛售的增发会引发更严重的市场惩罚。证明内部人减持放大了高估的负面信号。
 	- <span style="color:#1f6feb;font-weight:700">Wruck (1989)</span>-**Monitoring**
 		- 研究定向增发 (Private placements) 的宣告效应，并检验其与股权集中度变化的关系，对比公开发行的负面效应。
-		- **核心发现：** 定向增发带来平均+4.5%的正CAR，且股权集中度上升时正收益更高。证明当增发能引入大股东、**改善公司治理时，监督红利能抵消逆向选择成本**。
+		- **发现：** 定向增发带来正CAR，且股权集中度上升时正收益更高。证明当增发能**引入大股东、改善公司治理时，监督红利能抵消逆向选择成本**。
 	- <span style="color:#1f6feb;font-weight:700">Loughran and Ritter (1995)</span>-**Market timing and Long-run performance**
 		- 在匹配规模与M/B后，比较SEO发行公司与未发行公司未来5年的长期回报率。
-		- **核心发现：** 发行公司未来5年显著跑输匹配对象约30%。证明发行前股价确实被高估，管理层成功择时，而**投资者对SEO的负面信号反应不足**。
+		- **发现：** 发行公司未来5年显著跑输匹配对象约30%。证明发行前股价确实被高估，管理层成功择时，而**投资者对SEO的负面信号反应不足**。
 	- <span style="color:#1f6feb;font-weight:700">Eckbo and Masulis (1992)</span>-**Price pressure / flotation method**
-		- 探究“配股之谜”：比较配股与包销的直接成本与隐性成本（认购不足风险、流动性成本、逆向选择信号）。
-		- **核心发现**：虽然配股的直接承销费低，但隐性成本极高。综合考量后包销仍是最优解，证明**发行方式的选择基于总成本最小化**。
+		- 探究“配股之谜”：比较配股（right issues）与包销（underwriting）的直接成本与隐性成本（认购不足风险、流动性成本、逆向选择信号）。
+		- **发现**：虽然配股的直接承销费低，但隐性成本极高。综合考量后包销仍是最优解，证明**发行方式的选择基于总成本最小化**。
 - **Labor Finance**
 	- <span style="color:#1f6feb;font-weight:700">Matsa (2010)</span>-**Strategic leverage / bargaining**
-		- 利用各州通过“工作权利法案”(削弱工会力量) 作为外生冲击，做DiD回归检验企业杠杆率的变化。
-		- **核心发现：** 工会力量被削弱后，企业显著降低了杠杆。证明企业在面临强势工会时，会**利用高债务压缩可用现金流，以此作为工资谈判的防御工具**。
+		- 利用各州通过Labor Rights Act (削弱工会力量) 作为外生冲击，做DiD回归检验企业杠杆率的变化。
+		- **发现：** 工会力量被削弱后，企业显著降低了杠杆。证明企业在面临强势工会时，会**利用高债务压缩可用现金流，以此作为工资谈判的防御工具**。
 	- <span style="color:#1f6feb;font-weight:700">Agrawal and Matsa (2013)</span>-**Unemployment risk**
 		- 利用各州“失业保险金” generosity 的调整作为冲击，检验劳工失业成本下降如何影响企业的债务选择。
-		- **核心发现：** 失业福利提高后，企业显著增加了杠杆率。证明社会福利降低了员工面临的财务困境成本，从而**提高了企业的最优举债上限**。
+		- **发现：** 失业福利提高后，企业显著增加了杠杆率。证明社会福利降低了员工面临的财务困境成本，从而**提高了企业的最优举债上限**。
 	- <span style="color:#1f6feb;font-weight:700">Simintzi, Vig and Volpin (2015)</span> and <span style="color:#1f6feb;font-weight:700">Serfling (2016)</span>-**Labor adjustment costs**
 		- 利用跨国就业保护法或美国各州非正当解雇法的交错通过，检验“裁员成本上升”如何影响资本结构。
-		- **核心发现：** 解雇保护加强后，企业显著降低了财务杠杆。证明劳动力成为一种准固定成本（推高了**经营杠杆**），迫使企业降低财务风险以维持总风险平衡。
+		- **发现：** 解雇保护加强后，企业显著降低了财务杠杆。证明劳动力成为一种准固定成本（推高了**经营杠杆**），迫使企业降低财务风险以维持总风险平衡。
 	- <span style="color:#1f6feb;font-weight:700">Ouimet, Simintzi and Ye (2025)</span>-**Labor supply / IT substitution**
-		- 利用阿片类药物滥用危机作为劳动力供给的外生负向冲击，检验劳动力短缺对企业资本投资方向的影响。
-		- 受冲击地区的工厂显著增加了IT和自动化投资。证明**劳动力短缺会引发“资本替代劳动”的结构性变化**。
+		- 利用Opioid drugs滥用危机作为劳动力供给的外生负向冲击，检验劳动力短缺对企业资本投资方向的影响。
+		- **发现**：受冲击地区的工厂显著增加了IT和自动化投资。证明**劳动力短缺会引发“资本替代劳动”的结构性变化**。
 	- <span style="color:#1f6feb;font-weight:700">Cohn and Wardlaw (2016)</span>-**Worker welfare**
-		- 通过测量融资约束指标（如 KZ index、到违约距离）与工作场所伤害率的关系来检验。理论预测：财务压力迫使企业削减难以合约化且具有长期性的安全投资，从而增加伤害风险。
-		- 核心发现：劳工作为利益相关者的观点。财务受限的公司受伤率显着更高;经济冲击后伤害增加。研究结果表明，财务摩擦的成本不仅体现在项目投资不足，还包括对工人安全的投资不足;工人承担部分经济困境费用。
+		- 检验融资约束指标（如 KZ index、到违约距离）与工作场所伤害率的关系
+		- **发现**：财务受限的公司员工受伤率更高；经济冲击后伤害增加。财务摩擦的成本不仅体现在项目投资不足，还包括对工人安全的投资不足；工人承担部分经济困境费用。
 - **ESG / Climate**
 	- <span style="color:#1f6feb;font-weight:700">Berg et al. (2022)</span>，<span style="color:#1f6feb;font-weight:700">Briscoe-Tran (2026)</span>-**ESG measurement**
-		- 比较各大外部评级机构的数据相关性；并用Glassdoor员工评价构建内部视角的ESG指标，比较两者对未来真实ESG事件的预测力。
-		- **核心发现：** 外部评级机构间的相关性极低（噪音巨大）。而**员工评价构建的内部指标能更准的预测未来违规和评级变化**，证明外部评级严重滞后于内部真实运营。
+		- 比较各大外部评级机构的数据相关性；用Glassdoor员工评价构建内部视角的ESG指标，比较两者对未来真实ESG事件的预测力。
+		- **发现**：外部评级机构间的相关性极低（噪音巨大）。而员工评价构建的内部指标能更准的预测未来违规和评级变化，证明外部评级严重滞后于内部真实运营。
 	- <span style="color:#1f6feb;font-weight:700">Darendeli, Law and Shen (2022)</span>-**Green human capital**
 		- 测量绿色招聘广告（如环境工程师、可持续发展经理）与随后的绿色创新（专利）、环境绩效（排放）及盈利能力之间的关系。
-		- 人力资本渠道。绿色招聘能够预测未来绿色专利数量的增长、排放量的减少以及盈利能力的提升。研究结果表明，绿色招聘反映的是真正的能力建设，而非象征性的“漂绿”；绿色人力资本是有效实施ESG的关键投入。
+		- **发现**：绿色招聘能够预测未来绿色专利数量的增长、排放量的减少以及盈利能力的提升。绿色招聘反映真正的能力建设，而非象征性的“漂绿”；绿色人力资本是有效实施ESG的关键投入。
 	- <span style="color:#1f6feb;font-weight:700">Ortiz-Molina, Xiao and Zheng (2023)</span>-**Climate-labor risk**
-		- 以加州高温预防标准为政策冲击，检验户外高暴露行业的劳动生产率及企业的适应性投资。
-		- **核心发现：** 气候变暖直接导致高暴露行业劳动生产率下降及工伤成本上升，迫使企业增加降温和自动化等适应性资本支出，证明**气候物理风险已实质性落地**。
+		- 以California High Temperature Prevention Standards为政策冲击，检验户外高暴露行业的劳动生产率及企业的适应性投资。
+		- **发现：** 气候变暖直接导致高暴露行业劳动生产率下降及工伤成本上升，迫使企业增加降温和自动化等适应性资本支出，证明**气候物理风险存在**。
 	- <span style="color:#1f6feb;font-weight:700">Huang, Li and Zhou (2025)</span>，<span style="color:#1f6feb;font-weight:700">Effah, Qi and Zhang (2025)</span>-**E-S trade-off**
-		- 利用环境监管冲击（污染控制要求）作为实验组，检验其对企业社会责任成果（如工作场所安全、劳工实践）的影响。核心发现：在环境法规收紧后，受监管企业的环境绩效有所提升，但工作场所伤害率和劳工投诉也随之增加。研究结果揭示了资源有限时企业在环境和社会绩效方面面临的权衡取舍，因为企业会优先考虑强制性环境合规，而牺牲可自由支配的社会投资；这挑战了“将环境、社会和治理视为一揽子”的观点。
-		- 检验环境 (E) 与社会 (S) 维度在企业价值或资本获取上的交互效应，对比互补性假说与替代性假说。核心发现：对于资源不受限制的企业而言，环境（E）与社会（S）之间的互动是互补的；但对于资源受限（面临财务或注意力限制）的企业而言，这种互动则显著为负。研究结果表明，ESG各维度之间的关系取决于资源的可用性；资源受限的企业会在环境与社会之间做出战略权衡。
+		- 利用环境监管冲击（污染控制要求），检验其对企业社会责任成果（如工作场所安全、劳工实践）的影响。**发现**：环境法规收紧后，受监管企业的环境绩效提升，但工作场所伤害率和劳工投诉也随之增加。揭示了资源有限时，企业在环境和社会绩效方面面临的权衡取舍，因为企业优先考虑强制性环境合规，牺牲可自由支配的社会投资。
+		- 检验环境 (E) 与社会 (S) 维度在企业价值或资本获取上的交互效应，对比互补性假说与替代性假说。**发现**：对于资源不受限制的企业而言，E-S互动是互补的；但对于资源受限的企业，E-S互动为负。ESG各维度之间的关系取决于资源的可用性；资源受限的企业会在环境与社会之间做出战略权衡。
 - **AI**
 	- <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span>-**AI as GPT / product innovation**
 		- 根据招聘数据测量企业的AI采用率，利用“历史招聘网络×大学AI实力”构建工具变量(IV)，检验AI采用对企业增长的因果效应。
-		- **核心发现：** AI采用显著提升了销售额、就业和市值。其核心驱动力是**增加产品创新和扩展市场**，而不是单纯的裁员降本，支持AI作为通用技术的定位。
+		- **发现：** AI采用显著提升了销售额、就业和市值。其核心驱动力是**增加产品创新和扩展市场**，而不是单纯的裁员降本，支持AI作为通用技术的定位。
 	- <span style="color:#1f6feb;font-weight:700">Eisfeldt et al. (2025)</span> and <span style="color:#1f6feb;font-weight:700">Brynjolfsson, Li and Raymond (2025)</span>-**GenAI exposure / repricing**
 		- 以ChatGPT发布为自然实验，基于岗位任务构建企业的GenAI暴露度指标，检验市场重定价反应以及对全要素生产率(TFP)的实际影响。
-		- 市场迅速给予高GenAI暴露度的企业正向估值重估。微观数据显示，采用GenAI使TFP提升约8%，但伴随劳动力重置：低技能常规岗位被替代，高技能互补岗位（如AI工程师）需求激增。
+		- **发现**：市场迅速给予高GenAI暴露度的企业正向估值重估。采用GenAI使TFP提升约8%，但伴随劳动力重置：低技能常规岗位被替代，高技能互补岗位（如AI工程师）需求激增。
 	- <span style="color:#1f6feb;font-weight:700">Kogan et al. (2023)</span>-**Innovation measurement**
 		- 利用机器学习构建基于“引用量”和“文本新颖度”的专利指标，测试其对企业未来销售增长和市值的预测能力。
 		- **核心发现：** 引用加权和文本新颖度指标均能显著预测未来业绩增长，证明**专利文本数据是度量企业无形资产和成长机会的有效实证工具**。
@@ -178,8 +172,6 @@ $$
 #### 1-1 Literature Review
 
 **Question** 对 capital structure 做 literature review。按 trade-off、pecking order、market timing、agency-based theory 分类，说明每类理论的机制、预测和代表文献。
-
-What determines leverage? tax shield, distress cost, information asymmetry, market timing, agency conflicts.
 
 | Theory        | Mechanism                                                             | Predictions                                                                                                             | Papers                                                                                                                                                                                                                                  |
 | :------------ | :-------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -191,19 +183,10 @@ What determines leverage? tax shield, distress cost, information asymmetry, mark
 
 **Trade-off theory**
 
-$$
-\begin{aligned}
-V_L
-&=
-V_U
-+PV(\text{Tax Shield})
--PV(\text{Distress Cost})
--PV(\text{Agency Cost of Debt})
--PV(\text{Financial Flexibility Loss}).
-\end{aligned}
-$$
+tax shield提高债务收益，distress/agency costs 提高债务成本；firms 在边际收益=边际成本处选择最优 leverage。
 
-税盾提高债务收益，financial distress 和 agency costs 提高债务成本。Trade-off theory 预测 firms 在边际税盾收益等于边际破产成本处选择最优 leverage。<span style="color:#1f6feb;font-weight:700">Graham (2000)</span> 模拟 firm-specific marginal tax benefit curves，用 tax code 和 income distribution 计算不同 debt 水平下的税盾现值，发现税盾收益很大但实际 leverage 远低于最优，说明 tax benefits 重要但存在其他成本（financial distress、agency costs）或非税收摩擦限制 debt 使用。<span style="color:#1f6feb;font-weight:700">Rajan and Zingales (1995)</span> 与 <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span> 用大样本 cross-sectional regressions 检验 leverage determinants，发现 tangibility、size 正相关（支持 trade-off），profitability 负相关（支持 pecking order），说明多种理论部分正确，实际 leverage 是多种力量的综合。
+- <span style="color:#1f6feb;font-weight:700">Graham (2000)</span> 模拟 firm-specific marginal tax benefit curves，用 tax code 和 income distribution 计算不同 debt 水平下的税盾现值，发现税盾收益很大但实际 leverage 远低于最优，说明 tax benefits 重要但存在其他成本（financial distress、agency costs）或非税收摩擦限制 debt 使用。
+- <span style="color:#1f6feb;font-weight:700">Rajan and Zingales (1995)</span> 与 <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span> 用大样本 cross-sectional regressions 检验 leverage determinants，发现 tangibility、size 正相关（支持 trade-off），profitability 负相关（支持 pecking order），说明多种理论部分正确，实际 leverage 是多种力量的综合。
 
 **Pecking order**
 
@@ -233,7 +216,7 @@ M/B\uparrow
 \end{aligned}
 $$
 
-<span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span> 构造 external-finance weighted historical market-to-book 作为累积 market timing 指标，发现 historical M/B 强烈负向预测 current leverage 且效应持续十年以上，说明 capital structure 是过去 market timing 行为的累积结果；firms 不会快速调整回 target leverage，支持 market timing 和 inertia，与 static trade-off theory 不符。<span style="color:#1f6feb;font-weight:700">Alti (2006)</span> 和 <span style="color:#1f6feb;font-weight:700">Kayhan and Titman (2007)</span> 进一步检验 timing effects 的持续性和调整速度。
+<span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span> 构造 external-finance weighted historical market-to-book 作为累积 market timing 指标，发现 historical M/B 强烈负向预测 current leverage 且效应持续十年以上，说明 capital structure 是过去 market timing 行为的累积结果；firms 不会快速调整回 target leverage，支持 market timing 和 inertia，与 static trade-off theory 不符。<span style="color:#1f6feb;font-weight:700">Alti (2006)</span> 检验 IPO timing effects 是否快速消失，发现短期内效应减弱但长期仍显著。 <span style="color:#1f6feb;font-weight:700">Kayhan and Titman (2007)</span> 分解 leverage 变化，发现 market timing 解释力强于 trade-off adjustment。
 
 **Agency-based theory**
 
@@ -1421,7 +1404,7 @@ $$
 
 **Question** 对 AI and Corporate Finance 做 literature review。按 AI measurement、AI as general-purpose technology、product innovation vs process innovation、GenAI exposure and valuation 分类。
 
-AI 应单独讨论，不宜混入 ESG 框架。核心是把 AI adoption 映射到 growth、innovation、labor reallocation、valuation 和 financing needs。
+把 AI adoption 映射到 growth、innovation、labor reallocation、valuation 和 financing needs。
 
 $$
 \begin{aligned}
@@ -1681,5 +1664,3 @@ $$
 &:\ \text{GenAI changes expectations and labor reallocation}.
 \end{aligned}
 $$
-
-
