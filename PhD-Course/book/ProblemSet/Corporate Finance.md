@@ -1,1876 +1,1880 @@
 # Corporate Finance
 
-### 1. Payout Policy: Dividends vs Repurchases
 
-#payout_policy #dividends #share_repurchases #MM_irrelevance
+### 考题类型
 
-**Question** 考虑公司的 payout 决策。
+1. Literature Review：按理论/机制分类，每篇文献必须服务于一个理论。
+2. Research Proposal：研究假设、数据、模型、预期结论、identification threats。
+3. 机制题 + empirical supporting：像 SEO 样题，先写三种 theory，再各配 empirical paper，再设计 policy shock。
 
-**Background**: MM dividend irrelevance 在 frictionless world 成立，但现实中 payout policy matters。
-
-**1.1** 列举并解释 payout policy 相关的**四个主要 friction channels**：
-- Transaction costs
-- Differential taxation
-- Signaling
-- Agency costs of free cash flow
-
-::::{solution}
-
-
-**1.1 Four Friction Channels**
-
-**(a) Transaction costs**
-- 个人投资者自己创造 homemade dividends 有成本（交易费用、bid-ask spread）
-- 公司发放 dividend 为小股东提供低成本流动性
-- 但不是主要驱动力
-
-**(b) Differential taxation**
-- Dividends 通常作为 ordinary income 征税（税率较高）
-- Capital gains 延迟实现，且税率可能较低
-- 税收差异导致 clientele effects：高税率投资者偏好低 dividend firms
-
-**(c) Signaling**
-- Payout 传递管理层关于未来盈利的私有信息
-- Dividend increase → 乐观信号 → 股价上涨
-- Dividend cut → 悲观信号 → 股价下跌
-- Smooth dividends 避免负面信号
-
-**(d) Agency costs of free cash flow**
-- Free cash flow problem (Jensen 1986)：管理层可能过度投资或浪费
-- Payout 减少可自由支配现金，discipline managers
-- Debt 的固定利息支付也有类似效果
-
-::::
-
-**1.2** 比较 **dividends** 和 **share repurchases** 的特点：
-
-| 维度 | Dividends | Repurchases |
-|------|-----------|-------------|
-| 灵活性 | ? | ? |
-| Tax treatment | ? | ? |
-| 信号强度 | ? | ? |
-| 承诺性 | ? | ? |
-
-::::{solution}
-
-**1.2 Dividends vs Repurchases 比较**
-
-| 维度 | Dividends | Repurchases |
-|------|-----------|-------------|
-| **灵活性** | 低（承诺性强） | 高（可随时调整） |
-| **Tax treatment** | Ordinary income（高税） | Capital gains（低税，延迟） |
-| **信号强度** | 强（持续承诺） | 弱（一次性） |
-| **承诺性** | 高（难以削减） | 低（无长期承诺） |
-| **选择性** | 所有股东均等 | 选择性（卖出者获益） |
-
-**Additional points**:
-- Dividends sticky（粘性强）：公司不愿削减，smooth over time
-- Repurchases flexible：可根据市场时机调整
-- Tax advantage of repurchases 在 2003 年后部分缩小（Bush tax cuts）
-
-::::
-
-**1.3** 解释为什么近年来 repurchases 越来越流行（相对 dividends）。
-
-::::{solution}
-
-**1.3 Repurchases 流行的原因**
-
-**(a) Tax advantages**
-- Repurchases 转化为 capital gains，税率低于 dividends
-- 投资者可选择何时卖出（税收 timing option）
-
-**(b) Flexibility**
-- 公司可根据 cash flow、投资机会、市场条件调整
-- 不形成长期承诺，避免 dividend cut 的负面信号
-
-**(c) Market timing**
-- 公司可在股价低估时回购（value creation）
-- Signal undervaluation to market
-
-**(d) EPS management**
-- Repurchases 减少 shares outstanding → EPS 上升
-- 满足 EPS targets 和 analyst expectations
-
-**(e) Options compensation**
-- Repurchases offset dilution from employee stock options
-- 避免影响现有股东
-
-**Empirical trend**:
-- 1980s-1990s: Repurchases 急剧增加
-- 2000s: Repurchases 超过 dividends 成为主要 payout 方式
-- Post-2008: Repurchases 继续主导，但 dividends 仍重要（signaling + clientele）
-
-::::
-
-
-### 2. Research Design: Testing Payout Motives
-
-#research_design #payout_motives #market_timing #catering
-
-**Question** 设计一个实证研究来检验：公司的 payout 决策是为了 **market timing**（利用错误定价）还是其他动机。
-
-**Background**:
-- **Market timing hypothesis**: 公司在股价高估时发行股票，低估时回购
-- **Alternative motives**: signaling, agency reduction, tax efficiency, flexibility
-
-**研究设计要求**：
-1. Literature review（3-5 篇核心文献）
-2. 研究问题和假设
-3. 数据来源和样本构造
-4. 实证方法（模型设计）
-5. 预期结果
-
-::::{solution}
-
-**Part 1: Literature Review**
-
-**核心文献**：
-
-1. **Baker & Wurgler (2002)** - *Market Timing and Capital Structure*
-   - 发现：capital structure 是过去 market timing 行为的累积结果
-   - 方法：用 historical market-to-book 预测当前 leverage
-   - 启示：timing 动机持续影响公司财务决策
-
-2. **Jagannathan, Stephens & Weisbach (2000)** - *Financial Flexibility and the Choice Between Dividends and Stock Repurchases*
-   - 发现：repurchases 用于临时性 cash flow，dividends 用于永久性
-   - 机制：flexibility considerations 驱动 payout method 选择
-   - 启示：repurchases 的灵活性使其更适合 timing
-
-3. **Peyer & Vermaelen (2009)** - *The Nature and Persistence of Buyback Anomalies*
-   - 发现：open market repurchases 后股票长期超额收益
-   - 解释：公司确实在低估时回购（market timing 有效）
-   - 方法：event study + long-run returns
-
-4. **Grullon & Michaely (2004)** - *The Information Content of Share Repurchase Programs*
-   - 发现：repurchases 信号 cash flow 改善，而非单纯 undervaluation
-   - 机制：separates temporary vs permanent cash flow changes
-   - 方法：announcement returns + subsequent performance
-
-5. **Brav et al. (2005)** - *Payout Policy in the 21st Century*
-   - Survey evidence：CFO 关注 EPS dilution、tax、flexibility
-   - Market timing 不是首要考虑，但确实存在
-   - 方法：大规模 CFO 调查
-
-**Part 2: 研究问题和假设**
-
-**Research Question**:
-> 公司的 share repurchase 决策在多大程度上由 market timing 驱动？能否将 timing motive 与其他动机（如 signaling、agency reduction）分离？
-
-**Hypotheses**:
-
-**H1 (Market Timing)**:
-- H1a: 公司更可能在股价相对低估时宣布回购计划
-- H1b: 回购后长期 abnormal returns 为正（说明 timing 成功）
-
-**H2 (Signaling Alternative)**:
-- H2a: 回购公告与 future earnings improvements 正相关
-- H2b: 如果纯 timing，earnings 不应改善
-
-**H3 (Agency Reduction Alternative)**:
-- H3a: Free cash flow 高的公司更可能回购
-- H3b: 回购应减少 overinvestment（降低 capex/sales）
-
-**Part 3: 数据来源和样本构造**
-
-**Data Sources**:
-
-1. **Repurchase announcements**:
-   - SDC Platinum Mergers & Acquisitions database
-   - Compustat quarterly data (repurchase amount: PRSTKC)
-   - 时间跨度：1990-2020
-
-2. **Stock returns**:
-   - CRSP daily returns
-   - Calculate CARs around announcements
-   - Long-run BHARs (buy-and-hold abnormal returns)
-
-3. **Firm characteristics**:
-   - Compustat: financials, cash flow, leverage
-   - I/B/E/S: analyst earnings forecasts
-   - Thomson Reuters: institutional ownership
-
-4. **Valuation measures**:
-   - Market-to-book ratio
-   - P/E ratio
-   - Analyst target prices (as proxy for "fair value")
-
-**Sample Construction**:
-
-1. **Initial sample**: All share repurchase announcements 1990-2020
-2. **Filters**:
-   - 排除 financial firms (SIC 6000-6999)
-   - 排除 utilities (SIC 4900-4999)
-   - 要求 CRSP 和 Compustat 数据可得
-   - 排除 repurchase amount < $1M
-3. **Final sample**: ~5,000 firm-announcement observations
-
-**Part 4: 实证方法**
-
-**Model 1: Repurchase Likelihood（Logit）**
-
-检验什么类型公司更可能回购（timing 特征 vs others）
+**1. Literature Review**
 
 $$
 \begin{aligned}
-P(\text{Repurchase}_{i,t} = 1) &= \Lambda(\beta_0 + \beta_1 \text{Undervaluation}_{i,t-1} \\
-&\quad + \beta_2 \text{FCF}_{i,t-1} + \beta_3 \text{Leverage}_{i,t-1} \\
-&\quad + \beta_4 \text{Size}_{i,t-1} + \gamma X_{i,t-1} + \varepsilon_{i,t})
-\end{aligned}
-$$
-
-**Key variables**:
-- $\text{Undervaluation}$:
-  - $\text{M/B}_{\text{low}}$: dummy for bottom tercile M/B
-  - $\text{P/E}_{\text{low}}$: dummy for bottom tercile P/E
-  - Analyst target price > current price
-
-- $\text{FCF}$: $(OCF - Capex) / Assets$
-- $\text{Leverage}$: Debt / Assets
-- Controls: ROA, sales growth, stock volatility, institutional ownership
-
-**Prediction (H1)**: $\beta_1 > 0$ if market timing matters
-
-**Model 2: Announcement Returns（Event Study）**
-
-$$
-CAR_{i,(-1,+1)} = \alpha + \beta_1 \text{Underval}_{i} + \beta_2 \text{Size}_{i} + \beta_3 \text{Repurchase Size}_{i} + \varepsilon_i
-$$
-
-**Prediction**: If timing works, $\text{CAR} > 0$ and larger for undervalued firms
-
-**Model 3: Long-Run Performance**
-
-$$
-BHAR_{i,(0,+36)} = \alpha + \beta_1 \text{Underval}_{i} + \beta_2 \text{FCF}_{i} + \gamma X_i + \varepsilon_i
-$$
-
-**Prediction (H1b)**: $\text{BHAR} > 0$ and $\beta_1 > 0$ if timing successful
-
-**Model 4: Separating Timing from Signaling**
-
-检验回购后 operating performance 变化：
-
-$$
-\Delta ROA_{i,(0,+2)} = \alpha + \beta_1 \text{Repurchase}_{i} + \beta_2 \text{Underval}_{i} + \beta_3 \text{Repurchase} \times \text{Underval} + \gamma X_i + \varepsilon_i
-$$
-
-**Prediction (H2)**:
-- If pure timing: $\beta_1 \approx 0$ (no operating improvement)
-- If signaling: $\beta_1 > 0$ (operating improvement follows)
-- Interaction term $\beta_3$ tests whether timing firms differ
-
-**Model 5: Agency Reduction Test**
-
-$$
-\Delta \text{Overinvestment}_{i,(0,+2)} = \alpha + \beta_1 \text{Repurchase}_{i} + \beta_2 \text{High FCF}_{i} + \beta_3 \text{Repurchase} \times \text{High FCF} + \varepsilon_i
-$$
-
-Where $\text{Overinvestment} = \text{Capex}/\text{Sales} - \text{Industry Median}$
-
-**Prediction (H3)**: $\beta_3 < 0$ if agency reduction motive
-
-**Part 5: 预期结果**
-
-**Main Findings (Expected)**:
-
-1. **Timing evidence**:
-   - Repurchases 更可能发生在低 M/B、低 P/E periods（$\beta_1 > 0$ in Model 1）
-   - Announcement CAR = 2-3%（显著为正）
-   - 3-year BHAR = 5-10%（长期超额收益）
-
-2. **Mixed motives**:
-   - Timing 重要，但不是唯一动机
-   - FCF、leverage 也显著预测 repurchases
-   - Operating performance 部分改善（signaling coexists）
-
-3. **Cross-sectional variation**:
-   - Undervalued firms: stronger timing motive, higher long-run returns
-   - High FCF firms: stronger agency motive, larger overinvestment reduction
-   - Small firms: more sensitive to timing（信息不对称更严重）
-
-**Contributions**:
-
-1. **Methodological**: 同时检验多种动机，分离 timing 效应
-2. **Empirical**: 量化 timing 在 payout 决策中的相对重要性
-3. **Policy**: 帮助理解公司财务决策的驱动因素
-
-**Robustness Checks**:
-- Alternative valuation measures (residual income model, etc.)
-- Different event windows
-- Subsample analysis (pre/post 2003 tax reform, crisis vs normal)
-- Control for concurrent events (earnings announcements, analyst revisions)
-
-::::
-
-
-
-### 3. Payout Policy Channels: Tax vs Agency
-
-#tax_clientele #agency_costs #free_cash_flow #Jensen
-
-**Question** 比较和对比 payout policy 的 **tax channel** 和 **agency channel**。
-
-**3.1** Tax channel: Dividend clientele theory
-- 解释不同税率投资者如何形成 dividend clienteles
-- 为什么 2003 Bush tax cuts 降低了 dividends 的税收劣势？
-- 实证预测：高税率 vs 低税率投资者的持股偏好
-
-::::{solution}
-
-
-**3.1 Tax Channel**
-
-**(a) Dividend Clientele Theory**
-
-不同税率投资者偏好不同 payout policy：
-
-**High tax bracket investors** (个人高收入者):
-- 偏好 low dividend yield stocks
-- 偏好 capital gains（税率低，延迟实现）
-- 偏好 growth stocks（reinvest earnings）
-
-**Low tax bracket investors** (退休账户、免税机构):
-- 偏好 high dividend yield stocks
-- 不在乎 dividend vs capital gains（税收中性）
-- 偏好 stable income streams
-
-**Equilibrium**:
-- High dividend firms 被低税率投资者持有
-- Low dividend firms 被高税率投资者持有
-- 每个 clientele 选择 tax-efficient stocks
-- Firm 不需要频繁改变 dividend policy（clientele 已形成）
-
-**(b) 2003 Bush Tax Cuts**
-
-**Before 2003**:
-- Dividends 作为 ordinary income 征税（最高 38.6%）
-- Long-term capital gains 税率 20%
-- Tax disadvantage of dividends ≈ 18.6%
-
-**After 2003**:
-- Dividends 和 capital gains 统一为 15%（合格 dividends）
-- Tax disadvantage 大幅降低
-- 但 capital gains 仍有 deferral advantage（延迟实现）
-
-**Impact**:
-- Dividend initiations 增加
-- Existing dividend payers 提高 payout
-- 但 repurchases 仍保持优势（flexibility + deferral）
-
-**(c) 实证预测**
-
-**Prediction 1**: Cross-sectional holdings
-- $\text{Div yield}_{\text{held by tax-exempt}} > \text{Div yield}_{\text{held by taxable}}$
-
-**Prediction 2**: Tax reform response
-- Post-2003: dividend initiations 上升（especially for taxable investors）
-- Dividend/repurchase mix shifts toward dividends
-
-**Prediction 3**: Institutional investors
-- Tax-exempt institutions (pension funds) overweight high-dividend stocks
-- Taxable institutions (hedge funds) underweight high-dividend stocks
-
-::::
-
-**3.2** Agency channel: Free cash flow hypothesis (Jensen 1986)
-- 什么是 free cash flow problem？
-- Payout 如何 discipline managers？
-- Debt 和 dividends 在解决 agency problem 上的异同
-
-::::{solution}
-
-**3.2 Agency Channel**
-
-**(a) Free Cash Flow Problem (Jensen 1986)**
-
-**Definition**:
-> Free cash flow = cash flow in excess of that required to fund all positive NPV projects
-
-**Problem**:
-- Managers reluctant to pay out excess cash
-- Prefer to grow empire, invest in negative NPV projects
-- Consume perquisites, build empires
-- 减少股东价值
-
-**Classic examples**:
-- Overinvestment in mature industries (oil in 1980s)
-- Value-destroying acquisitions
-- Excessive perks and pet projects
-
-**(b) Payout as Discipline**
-
-**Dividends**:
-- ✓ Force distribution of cash (减少可自由支配资金)
-- ✓ Sticky commitment (difficult to cut) → ongoing discipline
-- ✓ 需要定期从市场融资 → 外部监督
-- ✗ 税收不利（相对 repurchases）
-
-**Debt**:
-- ✓ Fixed interest payments force payout
-- ✓ Bankruptcy threat disciplines managers
-- ✓ Monitoring by creditors
-- ✗ Financial distress costs
-
-**Repurchases**:
-- ✓ Flexible (可根据投资机会调整)
-- ✓ Tax efficient
-- ✗ Less commitment → weaker discipline
-- ✗ 可以随时停止
-
-**Comparison**:
-
-| Mechanism | Dividends | Debt | Repurchases |
-|-----------|-----------|------|-------------|
-| Commitment strength | High | High | Low |
-| Flexibility | Low | Low | High |
-| Tax efficiency | Low | N/A | High |
-| External monitoring | Medium | High | Low |
-
-**Optimal choice**: Depends on severity of agency problem
-- Severe agency: prefer dividends + debt (strong discipline)
-- Moderate agency: prefer flexible repurchases
-
-**(c) Debt vs Dividends**
-
-**Similarities**:
-- Both reduce free cash flow
-- Both force distribution to outside claimants
-- Both increase external financing need (monitoring)
-
-**Differences**:
-- Debt: fixed legal obligation, bankruptcy threat
-- Dividends: voluntary but sticky (reputational commitment)
-- Debt: creditor monitoring + covenants
-- Dividends: equity market monitoring only
-
-::::
-
-**3.3** 设计一个简单实证检验：
-> 研究问题：当公司增加 payout 时，是税收考虑还是代理问题更重要？
-
-提供：
-- 一个可检验的 prediction
-- 需要的数据
-- 回归模型
-
-::::{solution}
-
-**3.3 Empirical Test Design**
-
-**Research Question**: When firms increase payout, is it driven by tax considerations or agency concerns?
-
-**Testable Predictions**:
-
-**Tax hypothesis**:
-- Payout increase when tax disadvantage reduces
-- Effect stronger for firms with more taxable shareholders
-
-**Agency hypothesis**:
-- Payout increase when free cash flow high + investment opportunities low
-- Effect stronger for firms with weak governance
-
-**Data Required**:
-
-1. **Payout changes**:
-   - Compustat: DVT (total dividends), PRSTKC (repurchases)
-   - Construct $\Delta \text{Payout ratio}_t$
-
-2. **Tax measures**:
-   - Thomson 13F: institutional ownership by type (tax-exempt vs taxable)
-   - Tax Reform indicator: Post-2003 dummy
-   - State tax rates (cross-sectional variation)
-
-3. **Agency measures**:
-   - Free cash flow: $(OCF - Capex) / Assets$
-   - Investment opportunities: Market-to-book, R&D/Sales
-   - Governance: G-index, board independence, CEO ownership
-
-4. **Controls**:
-   - Firm size, leverage, profitability, stock return volatility
-
-**Regression Model**:
-
-$$
-\begin{aligned}
-\Delta \text{Payout}_{i,t} &= \beta_0 + \beta_1 \text{Tax Reform}_t + \beta_2 \text{Tax-Exempt Ownership}_{i,t-1} \\
-&\quad + \beta_3 \text{FCF}_{i,t-1} + \beta_4 \text{Low Investment Opp}_{i,t-1} \\
-&\quad + \beta_5 \text{FCF} \times \text{Low Investment Opp} \\
-&\quad + \beta_6 \text{Weak Governance}_{i,t-1} \\
-&\quad + \gamma X_{i,t-1} + \alpha_i + \delta_t + \varepsilon_{i,t}
-\end{aligned}
-$$
-
-**Hypotheses**:
-
-**Tax channel**:
-- $\beta_1 > 0$: payout 上升 after tax reform
-- $\beta_2 > 0$: firms with more tax-exempt owners 增加 dividend 更多
-
-**Agency channel**:
-- $\beta_3 > 0$: high FCF firms 增加 payout
-- $\beta_5 > 0$: FCF 在低投资机会时更重要（interaction）
-- $\beta_6 > 0$: weak governance firms 在外部压力下增加 payout
-
-**Expected Results**:
-
-1. **Both channels matter**:
-   - Tax reform 有显著正效应（$\beta_1 > 0$）
-   - FCF 有显著正效应（$\beta_3 > 0$）
-   - Interaction 显著（$\beta_5 > 0$）
-
-2. **Relative importance varies**:
-   - Tax effect stronger for dividend initiations
-   - Agency effect stronger for repurchases (more flexible response)
-   - Cross-sectional: tax matters more for high-ownership firms; agency matters more for high-FCF firms
-
-3. **Governance matters**:
-   - Weak governance firms: FCF effect stronger (agency problem more severe)
-   - Strong governance firms: tax effect dominates
-
-**Interpretation**: Tax 和 agency 都是重要的 payout determinants，但在不同情境下重要性不同。
-
-::::
-
-
-
-
-### 4. 综合题：Payout Policy Research Proposal
-
-#research_proposal #payout_determinants #empirical_design
-
-**Question** 设计一个完整的 research proposal，研究公司 payout policy 的决定因素。
-
-这道题模拟 **James 期末考试的 research design question**。要求：
-
-1. **Literature Review**（简要，3-5 篇）
-2. **Research Question** 和 contribution
-3. **Hypotheses**（基于不同理论）
-4. **Data and Sample**
-5. **Empirical Methodology**
-6. **Expected Results and Interpretation**
-
-**特别关注**：区分不同的 payout motives（market timing, signaling, agency, tax）。
-
-::::{solution}
-
-**Part 1: Literature Review**
-
-**核心文献 5 篇**：
-
-1. **Lintner (1956)** - *Distribution of Incomes of Corporations Among Dividends, Retained Earnings, and Taxes*
-   - Classic: dividends are sticky, firms smooth dividends
-   - Target payout ratio + partial adjustment model
-   - 奠定 dividend policy 研究基础
-
-2. **Baker & Wurgler (2004)** - *A Catering Theory of Dividends*
-   - Theory: firms cater to investor demand for dividend-paying stocks
-   - 当 dividend premium 高时，更多公司 initiate dividends
-   - Challenge traditional signaling view
-
-3. **Jagannathan, Stephens & Weisbach (2000)** - *Financial Flexibility*
-   - Dividends for permanent cash flows, repurchases for temporary
-   - Flexibility drives payout method choice
-   - 实证：repurchases more volatile than dividends
-
-4. **Fama & French (2001)** - *Disappearing Dividends*
-   - Phenomenon: 比例下降的公司 pay dividends（1978-1999）
-   - Explanation: changing firm characteristics (more small, unprofitable, high-growth)
-   - 引发关于 dividend relevance 的大量研究
-
-5. **DeAngelo, DeAngelo & Stulz (2006)** - *Dividend Policy and the Earned/Contributed Capital Mix*
-   - 发现：dividend payers 是 earned equity 高的成熟公司
-   - Life cycle explanation：随公司成熟，payout 增加
-   - Reconciles Lintner smoothing with modern trends
-
-**Part 2: Research Question and Contribution**
-
-**Research Question**:
-
-> **"What determines the choice between dividends and share repurchases, and how do these determinants vary across firm lifecycle stages?"**
-
-**Motivation**:
-- Repurchases 超过 dividends 成为主要 payout 方式
-- 但 both coexist，什么因素决定 mix？
-- Lifecycle dimension 尚未充分探索
-
-**Contribution**:
-
-1. **Theoretical**: 整合多种 payout theories（tax, signaling, agency, flexibility）在 lifecycle framework
-
-2. **Empirical**:
-   - 区分 young/growth vs mature/stable firms
-   - 量化各 channel 在不同 lifecycle 阶段的相对重要性
-
-3. **Policy**: 帮助理解为什么某些公司 prefer dividends，某些 prefer repurchases
-
-**Part 3: Hypotheses**
-
-基于四个理论 channels 构建 hypotheses：
-
-**H1: Tax-based Clientele** (#tax_clientele)
-
-- **H1a**: 高比例 tax-exempt investors 的公司更可能 pay dividends
-- **H1b**: Post-2003 tax reform，dividend initiations 增加
-- **Mechanism**: Tax disadvantage 降低 → dividends more attractive
-
-**H2: Signaling** (#signaling #information_asymmetry)
-
-- **H2a**: 信息不对称高的公司更可能 pay dividends（stronger commitment signal）
-- **H2b**: Dividend increases 伴随 future earnings improvements
-- **H2c**: Repurchases 用于 short-term undervaluation signaling
-- **Mechanism**: Sticky dividends signal long-term prospects; repurchases signal temporary mispricing
-
-**H3: Agency/Free Cash Flow** (#agency_costs #free_cash_flow)
-
-- **H3a**: 高 FCF + 低投资机会的公司 payout ratio 更高
-- **H3b**: 弱治理公司在高 FCF 时更依赖 debt/dividends discipline
-- **H3c**: Repurchases 在治理较好时更常用（less need for commitment）
-- **Mechanism**: Payout reduces agency costs of free cash flow
-
-**H4: Financial Flexibility** (#flexibility #lifecycle)
-
-- **H4a**: Young/growth firms prefer repurchases（flexible, preserve investment options）
-- **H4b**: Mature/stable firms prefer dividends（commitment, stable cash flows）
-- **H4c**: Cash flow volatility 高的公司更依赖 repurchases
-- **Mechanism**: Flexibility value varies with firm lifecycle and uncertainty
-
-**Cross-sectional predictions**:
-
-| Firm Type | Preferred Method | Main Motive |
-|-----------|------------------|-------------|
-| Young, high-growth | Repurchases | Flexibility |
-| Mature, stable CF | Dividends | Signaling + clientele |
-| High FCF, low growth | Both (high total) | Agency reduction |
-| High info asymmetry | Dividends | Signaling |
-| Weak governance | Dividends + debt | Agency discipline |
-
-**Part 4: Data and Sample**
-
-**Data Sources**:
-
-1. **Payout data**:
-   - Compustat: DVT (cash dividends), PRSTKC (stock repurchases)
-   - Construct payout measures:
-     - Total payout = Dividends + Repurchases
-     - Payout mix = Dividends / (Dividends + Repurchases)
-     - Payout ratio = Total payout / Net income
-
-2. **Firm characteristics**:
-   - Compustat: financials, leverage, profitability, investment
-   - CRSP: returns, market value
-   - Calculate lifecycle proxies: firm age, RE/TE ratio, asset growth
-
-3. **Ownership**:
-   - Thomson 13F: institutional ownership by type
-   - Classify into tax-exempt (pensions) vs taxable (mutual funds, hedge funds)
-
-4. **Governance**:
-   - ISS (RiskMetrics): board structure, G-index
-   - ExecuComp: CEO compensation, ownership
-
-5. **Information environment**:
-   - I/B/E/S: analyst coverage, forecast dispersion
-   - Stock volatility, bid-ask spread
-
-**Sample Period**: 1990-2020 (30 years)
-
-**Sample Selection**:
-1. All Compustat firms with CRSP match
-2. Exclude financials (SIC 6000-6999) and utilities (SIC 4900-4999)
-3. Require non-missing data for key variables
-4. Final sample: ~100,000 firm-years
-
-**Lifecycle Classification**:
-
-Following DeAngelo et al. (2006), use **Retained Earnings / Total Equity (RE/TE)**:
-- **Young** (lifecycle stage 1): RE/TE < 0 or bottom tercile
-- **Growth** (stage 2): RE/TE middle tercile
-- **Mature** (stage 3): RE/TE top tercile
-
-Alternative: Firm age, asset growth rate, sales growth volatility
-
-**Part 5: Empirical Methodology**
-
-**Model 1: Payout Decision (Probit)**
-
-$$
-\begin{aligned}
-P(\text{Payout}_{i,t} > 0) &= \Phi(\beta_0 + \beta_1 \text{Tax-Exempt Own}_{i,t-1} \\
-&\quad + \beta_2 \text{Info Asymmetry}_{i,t-1} + \beta_3 \text{FCF}_{i,t-1} \\
-&\quad + \beta_4 \text{Investment Opp}_{i,t-1} + \beta_5 \text{Lifecycle}_{i,t-1} \\
-&\quad + \gamma X_{i,t-1} + \varepsilon_{i,t})
-\end{aligned}
-$$
-
-**Model 2: Payout Mix (Tobit or Fractional Logit)**
-
-Conditional on paying out, what determines dividend vs repurchase mix?
-
-$$
-\begin{aligned}
-\text{Div Ratio}_{i,t} &= \beta_0 + \beta_1 \text{CF Volatility}_{i,t-1} + \beta_2 \text{Lifecycle}_{i,t-1} \\
-&\quad + \beta_3 \text{Governance}_{i,t-1} + \beta_4 \text{Tax-Exempt Own}_{i,t-1} \\
-&\quad + \gamma X_{i,t-1} + \alpha_i + \delta_t + \varepsilon_{i,t}
-\end{aligned}
-$$
-
-Where $\text{Div Ratio} = \frac{\text{Dividends}}{\text{Dividends} + \text{Repurchases}} \in [0,1]$
-
-**Model 3: Lifecycle Interactions**
-
-Test whether payout determinants vary by lifecycle:
-
-$$
-\begin{aligned}
-\text{Payout}_{i,t} &= \sum_{s=1}^{3} \beta_s \mathbb{1}(\text{Stage } s) \times \text{Determinants}_{i,t-1} \\
-&\quad + \gamma X_{i,t-1} + \alpha_i + \delta_t + \varepsilon_{i,t}
-\end{aligned}
-$$
-
-**Model 4: Event Study (Payout Changes)**
-
-$$
-CAR_{i,(-1,+1)} = \alpha + \beta_1 \Delta \text{Div}_{i} + \beta_2 \Delta \text{Repurchase}_{i} + \beta_3 \text{Lifecycle}_{i} + \varepsilon_i
-$$
-
-Test whether market reaction differs by payout method and lifecycle
-
-**Key Variables**:
-
-- **Tax-Exempt Own**: % owned by pension funds, endowments
-- **Info Asymmetry**: analyst coverage (inverse), forecast dispersion, bid-ask spread
-- **FCF**: (OCF - Capex - Dividends) / Assets
-- **Investment Opp**: M/B ratio, R&D/Sales, sales growth
-- **Lifecycle**: RE/TE ratio, firm age
-- **CF Volatility**: rolling 5-year std dev of OCF/Assets
-- **Governance**: G-index, board independence, CEO delta
-
-**Controls**: Size (log assets), leverage, profitability (ROA), stock return, industry FE, year FE
-
-**Part 6: Expected Results and Interpretation**
-
-**Main Findings (Expected)**:
-
-**Finding 1**: Lifecycle matters
-- Young firms: 80% prefer repurchases (flexibility)
-- Mature firms: 60% use dividends (commitment + clientele)
-- Payout ratio increases with lifecycle stage
-
-**Finding 2**: Multiple motives coexist
-- Tax: tax-exempt ownership → +15pp dividend ratio
-- Signaling: high info asymmetry → +20pp dividend ratio
-- Agency: high FCF + low growth → +30% total payout
-- Flexibility: high CF volatility → +25pp repurchase ratio
-
-**Finding 3**: Lifecycle interactions
-- Young firms: FCF less important (few have excess cash)
-- Mature firms: governance matters more (agency problem severe)
-- Tax effect stronger for mature firms (formed clienteles)
-
-**Finding 4**: Payout changes
-- Dividend initiations: +3% CAR (strong signal)
-- Repurchase announcements: +2% CAR (weaker signal)
-- Mature firms: larger reactions to dividend changes
-- Young firms: larger reactions to repurchase announcements
-
-**Robustness Checks**:
-
-1. Alternative lifecycle measures (age, growth)
-2. Different payout definitions (include special dividends?)
-3. Financial crisis period (2008-2009) subsample
-4. Industry-specific analysis
-5. International evidence (varying tax systems)
-
-**Interpretation and Contributions**:
-
-1. **Theoretical**: No single theory explains all payout behavior
-   - Need integrated framework considering multiple channels
-   - Lifecycle provides organizing principle
-
-2. **Empirical**: Quantify relative importance of each channel
-   - Tax and agency roughly equal importance
-   - Signaling and flexibility vary by lifecycle
-
-3. **Practical**: Guide for corporate managers
-   - Young firms: emphasize flexibility, use repurchases
-   - Mature firms: build dividend reputation, attract clienteles
-   - High FCF firms: increase total payout (not just shift mix)
-
-**Future Research Directions**:
-
-- International comparison (different tax/governance systems)
-- Dynamic model of payout policy evolution
-- Role of activist investors in disciplining payout
-
-::::
-
-
-### 5. 简答题：Payout Policy 关键概念
-
-#payout_concepts #quick_review
-
-**Question** 简要回答以下概念问题（每个 2-3 句）：
-
-**5.1** 什么是 "dividend smoothing"？为什么公司 smooth dividends？
-
-::::{solution}
-
-
-**5.1 Dividend Smoothing**
-
-公司倾向于保持 dividends 稳定，避免频繁调整。Lintner (1956) 发现公司有 target payout ratio 并 gradually adjust。原因：(1) dividend cuts 是强烈负面信号，管理层避免；(2) 投资者偏好稳定收入流；(3) 保持 dividend reputation。实证上 dividends 比 earnings 平滑得多。
-
-::::
-
-**5.2** 解释 "disappearing dividends" phenomenon（Fama & French 2001）。
-
-::::{solution}
-
-**5.2 Disappearing Dividends**
-
-Fama & French (2001) 发现 1978-1999 年间，支付 dividend 的公司比例从 66.5% 降至 20.8%。原因有二：(1) **changing characteristics**：更多小型、unprofitable、高成长公司上市，这些公司本就不太 pay dividends；(2) **lower propensity**：即使控制特征，公司支付 dividend 的倾向也下降。反映了 repurchases 替代 dividends 的趋势。
-
-::::
-
-**5.3** 什么是 dividend catering theory（Baker & Wurgler 2004）？
-
-::::{solution}
-
-**5.3 Dividend Catering Theory**
-
-Baker & Wurgler (2004) 提出：公司 cater to investor demand for dividend-paying stocks。当市场给 dividend payers 更高估值（dividend premium 为正）时，更多公司 initiate dividends；当 premium 为负时，fewer initiations。挑战传统观点（dividends signal fundamentals）：管理层可能出于 market timing 动机调整 dividend policy。
-
-::::
-
-**5.4** Open market repurchases 和 tender offer repurchases 有什么区别？
-
-::::{solution}
-
-**5.4 Open Market vs Tender Offer**
-
-**Open market repurchases**：公司通过 broker 在公开市场逐步购买，flexible and gradual，占 90%+ repurchases。**Tender offer repurchases**：公司向股东发出要约，指定价格和数量，股东决定是否 tender，one-shot and committed。Tender offer 信号更强（commitment），但较少使用（expensive, inflexible）。
-
-::::
-
-**5.5** 为什么 repurchases 可以用于 EPS management？这是好事还是坏事？
-
-::::{solution}
-
-**5.5 EPS Management**
-
-Repurchases 减少 shares outstanding → EPS 上升，即使 net income 不变。**Arguments for**：(1) 消除 stock options dilution；(2) 反映真实 per-share value creation；(3) 提高 ROE。**Arguments against**：(1) Cosmetic boost without real value；(2) 牺牲投资满足 EPS targets；(3) Mislead investors 关注 accounting numbers。实证显示部分公司确实为 meet analyst forecasts 而回购，但并非所有回购都是 manipulation。
-
-::::
-
-
-
-
-### 6. Capital Structure: Trade-Off Theory
-
-#capital_structure #trade-off_theory #debt_tax_shield #financial_distress
-
-**Question** 考虑 trade-off theory of capital structure。
-
-**6.1** 写出 levered firm value 的基本公式：
-
-$$
-V^L = V^U + PV(\text{Tax Shield}) - PV(\text{Financial Distress Costs})
-$$
-
-解释每一项的含义。
-
-::::{solution}
-
-
-**6.1 Levered Firm Value 公式**
-
-$$
-V^L = V^U + PV(\text{Tax Shield}) - PV(\text{Financial Distress Costs})
-$$
-
-- **$V^U$**: Unlevered firm value（all-equity financed）
-  - 资产产生的现金流现值，不受资本结构影响
-
-- **$PV(\text{Tax Shield})$**: 债务利息抵税的现值
-  - 正效应：debt increases firm value
-  - 来源：interest payments 可以抵扣 corporate tax
-
-- **$PV(\text{Financial Distress Costs})$**: 财务困境成本的现值
-  - 负效应：debt decreases firm value
-  - 包括 direct costs（破产费用）和 indirect costs（客户流失、投资不足等）
-
-**Optimal leverage** 在边际税收利益 = 边际困境成本处。
-
-::::
-
-**6.2** 假设 perpetual debt $D$，corporate tax rate $\tau_c$。推导：
-
-$$
-PV(\text{Tax Shield}) = \tau_c D
-$$
-
-::::{solution}
-
-**6.2 Tax Shield 推导**
-
-Perpetual debt $D$，利率 $r_D$，每期利息支付 $r_D D$。
-
-**With debt**:
-- Interest payment: $r_D D$
-- Tax shield: $\tau_c \times r_D D$（减少的税收）
-
-**Without debt**:
-- No interest deduction
-
-**Tax shield 的现值**（用 $r_D$ 折现，假设无风险债务）：
-
-$$
-\begin{aligned}
-PV(\text{Tax Shield})
-&= \sum_{t=1}^{\infty} \frac{\tau_c r_D D}{(1+r_D)^t} \\
-&= \tau_c r_D D \sum_{t=1}^{\infty} \frac{1}{(1+r_D)^t} \\
-&= \tau_c r_D D \cdot \frac{1/（1+r_D）}{1 - 1/(1+r_D)} \\
-&= \tau_c r_D D \cdot \frac{1}{r_D} \\
-&= \tau_c D
-\end{aligned}
-$$
-
-::::
-
-**6.3** Financial distress costs 包括哪两类？哪一类更重要？
-
-::::{solution}
-
-**6.3 Financial Distress Costs**
-
-**(a) Direct bankruptcy costs**:
-- Legal fees, court costs
-- Administrative expenses
-- Typically **3-5% of firm value**
-- 相对较小
-
-**(b) Indirect costs**:
-- **Lost customers**: 担心 warranty、service 无法兑现
-- **Supplier problems**: 要求 cash payment，减少 trade credit
-- **Employee turnover**: 优秀员工离职
-- **Asset fire sales**: 被迫低价出售资产
-- **Underinvestment**: 债务压力导致放弃正 NPV 项目
-- Typically **10-20% or more of firm value**
-- **更重要**，是 leverage 的主要限制
-
-**Empirical evidence** (Andrade & Kaplan 1998):
-- Failed HLTs 的 distress costs ≈ 10-20% of firm value
-- 主要是 indirect costs
-
-::::
-
-**6.4** 列举 3 个影响 optimal leverage 的 firm characteristics，并说明预测方向：
-
-| Characteristic | 预测：Leverage ↑ or ↓ | 原因 |
-|----------------|---------------------|------|
-| Profitability | ? | ? |
-| Asset tangibility | ? | ? |
-| Growth opportunities | ? | ? |
-
-::::{solution}
-
-**6.4 Firm Characteristics**
-
-| Characteristic | Leverage | 原因 |
-|----------------|----------|------|
-| **Profitability** | **↓** | **Pecking order**: 高利润 → 更多 retained earnings → 少需要外部融资。与 trade-off 预测相反（trade-off: 高利润 → 更多 tax shield → 更高 leverage） |
-| **Asset tangibility** | **↑** | Tangible assets 作为 collateral，降低 default risk → 减少 distress costs → 更高 optimal leverage。且 liquidation value 高 → 破产时损失小 |
-| **Growth opportunities** | **↓** | Growth firms 的价值在 intangibles（R&D, human capital），distress 时损失大 → Myers' underinvestment problem 更严重 → 避免高 leverage |
-
-**Additional characteristics**:
-
-| Characteristic | Leverage | 原因 |
-|----------------|----------|------|
-| **Firm size** | **↑** | Large firms 更 diversified，bankruptcy risk 低 |
-| **Tax rate** | **↑** | 高税率 → tax shield 更valuable |
-| **Earnings volatility** | **↓** | 高波动 → bankruptcy prob 高 |
-| **R&D intensity** | **↓** | Intangible assets，distress costs 高 |
-
-::::
-
-**6.5** Trade-off theory 的主要实证挑战是什么？
-
-::::{solution}
-
-**6.5 Trade-Off Theory 的实证挑战**
-
-**(a) Profitability puzzle**:
-- **Theory predicts**: 高利润 → 高 leverage（more tax shield）
-- **Empirical fact**: 高利润 → **低** leverage
-- **Explanation**: Pecking order dominates（内部融资优先）
-
-**(b) Slow adjustment**:
-- Firms deviate from target leverage for long periods
-- Adjustment costs 无法完全解释
-- 可能 target 本身在变化
-
-**(c) Market timing effects**:
-- Baker & Wurgler (2002): leverage is cumulative outcome of past market timing
-- Historical M/B predicts current leverage（与 trade-off 不符）
-
-**(d) Missing variables**:
-- Many firms with zero debt（theory predicts interior optimum）
-- 可能有其他重要 frictions（financial flexibility, control）
-
-**Conclusion**: Trade-off theory captures some cross-sectional variation, but pecking order and market timing also important.
-
-::::
-
-
-
-
-### 7. Pecking Order Theory and Asymmetric Information
-
-#pecking_order #Myers-Majluf #asymmetric_information #adverse_selection
-
-**Question** 考虑 Myers & Majluf (1984) 的 pecking order theory。
-
-**7.1** 解释 pecking order 的融资层级：
-
-$$
-\text{Internal funds} > \text{Debt} > \text{Equity}
-$$
-
-为什么这个顺序？
-
-::::{solution}
-
-
-**7.1 Pecking Order 融资层级**
-
-**Hierarchy**: Internal funds > Debt > Equity
-
-**原因**：
-
-**(1) Internal funds (retained earnings)**:
-- ✓ No information asymmetry（内部资金，无需向外部解释）
-- ✓ No issuance costs
-- ✓ No dilution
-- ✓ No adverse selection
-- **Most preferred**
-
-**(2) Debt**:
-- ✓ Less information-sensitive than equity
-  - Fixed claim，payoff 不太依赖 firm value
-  - 只要避免 default，creditors 不关心 upside
-- ✓ Lower adverse selection
-- ✓ Tax shield benefit
-- ✗ Financial distress risk
-- **Second choice**
-
-**(3) Equity**:
-- ✗ Highly information-sensitive
-  - Residual claim，完全依赖 firm value
-  - 如果 managers 发行，market 怀疑 overvaluation
-- ✗ Maximum adverse selection
-- ✗ High issuance costs
-- ✗ Dilution of existing shareholders
-- **Last resort**
-
-**Key insight**: Financing hierarchy 由 information asymmetry 的严重程度决定。
-
-::::
-
-**7.2** Myers-Majluf model 的核心机制：
-
-Firm 需要融资 $I$ 投资于 NPV = $N > 0$ 的项目。管理层知道 firm value $V$，外部投资者只知道 $E[V]$。
-
-**Setup**:
-- Assets in place: $V \in \{V_L, V_H\}$，prob $= 0.5$ each
-- 假设 $V_L = 100$, $V_H = 200$, $I = 50$, $N = 20$
-
-如果发行 equity，价格 $P = E[V | \text{equity issued}]$。
-
-**(a)** 在 pooling equilibrium，计算 equity 价格和 old shareholders 的 payoff。
-
-**(b)** 哪种类型的 firm 会选择不发行 equity（放弃项目）？
-
-**(c)** 在 separating equilibrium，只有哪种类型发行 equity？这导致什么问题？
-
-::::{solution}
-
-**7.2 Myers-Majluf Model**
-
-**Setup**:
-- $V_L = 100$, $V_H = 200$
-- $I = 50$ (investment needed)
-- $N = 20$ (project NPV)
-- Managers know $V$, market only knows distribution
-
-**(a) Pooling Equilibrium**
-
-Market 相信两种类型都发行 equity：
-
-$$
-P = E[V] = 0.5 \times 100 + 0.5 \times 200 = 150
-$$
-
-**Shares issued**: $\alpha = \frac{I}{P + I} = \frac{50}{150 + 50} = \frac{50}{200} = 0.25$
-
-**Old shareholders' payoff**:
-
-**High type**:
-$$
-\begin{aligned}
-\text{Payoff}_H
-&= (1 - \alpha)(V_H + N) \\
-&= (1 - 0.25)(200 + 20) \\
-&= 0.75 \times 220 = 165
-\end{aligned}
-$$
-
-Compare to not issuing: $V_H = 200$
-
-**High type loses**: $165 < 200$ → will **NOT issue**!
-
-**Low type**:
-$$
-\begin{aligned}
-\text{Payoff}_L
-&= (1 - \alpha)(V_L + N) \\
-&= 0.75 \times (100 + 20) \\
-&= 0.75 \times 120 = 90
-\end{aligned}
-$$
-
-Compare to not issuing: $V_L = 100$
-
-**Low type gains**: $90 < 100$ → also **NOT issue** in this case!
-
-Wait, let me recalculate. If only low type issues, price adjusts.
-
-**(b) Which type will NOT issue?**
-
-At pooling price $P = 150$:
-
-**High type decision**:
-- Issue equity at "low" price (150 < 200)
-- Old shareholders diluted unfairly
-- Loss from underpricing: $(200 - 150) \times \alpha = 50 \times 0.25 = 12.5$
-- Gain from project: $N \times (1 - \alpha) = 20 \times 0.75 = 15$
-- Net: $15 - 12.5 = 2.5 > 0$
-
-Actually high type **would** issue in this parameterization. Let me use different numbers.
-
-**Better example**: $V_H = 300$, $I = 50$, $N = 20$
-
-Pooling price: $P = 0.5(100) + 0.5(300) = 200$
-
-$\alpha = 50/(200+50) = 0.2$
-
-High type:
-- Payoff if issue: $0.8 \times (300 + 20) = 256$
-- Payoff if not: $300$
-- **High type will NOT issue** (256 < 300)
-
-Low type:
-- Payoff if issue: $0.8 \times (100 + 20) = 96$
-- Payoff if not: $100$
-- **Low type will NOT issue** (96 < 100)
-
-For separating, need $N$ larger or different structure.
-
-**(c) Separating Equilibrium**
-
-假设只有 **low type issues equity**，market 知道这一点：
-
-$$
-P = V_L = 100
-$$
-
-$$
-\alpha = \frac{50}{100 + 50} = \frac{1}{3}
-$$
-
-Low type payoff:
-$$
-(1 - 1/3)(100 + 20) = (2/3) \times 120 = 80 < 100
-$$
-
-Low type 也不愿意发！这就是 **underinvestment problem**。
-
-**Problem**: Adverse selection 太严重，即使正 NPV 项目也可能被放弃。
-
-**Solution in Myers-Majluf**:
-- Use less information-sensitive securities (debt)
-- Or 等到内部资金充足
-- → **Pecking order**
-
-::::
-
-**7.3** Pecking order 的实证预测：
-
-列举 3 个可检验的 predictions。
-
-::::{solution}
-
-**7.3 Pecking Order 实证预测**
-
-**Prediction 1: Financing deficit and leverage**
-
-$$
-\Delta D_{i,t} = a + b \cdot DEF_{i,t} + \varepsilon_{i,t}
-$$
-
-Where $DEF = \text{Investment} + \text{Dividends} - \text{Operating CF}$ (financing deficit)
-
-- **Prediction**: $b \approx 1$（用 debt 填补融资缺口）
-- **Empirical**: Shyam-Sunder & Myers (1999) find $b \approx 0.75$ (strong support)
-
-**Prediction 2: Profitability and leverage**
-
-- **Prediction**: 高利润 → 更多 retained earnings → **低 leverage**
-- **Empirical**: Strongly confirmed (opposite to trade-off theory)
-
-**Prediction 3: Equity issuance and stock returns**
-
-- **Prediction**: Equity issuance 是 **负信号** → announcement returns < 0
-- **Empirical**: Asquith & Mullins (1986): SEO announcement CAR ≈ -3%
-- Long-run underperformance (Loughran & Ritter 1995)
-
-**Prediction 4: No target leverage ratio**
-
-- **Prediction**: Leverage ratio is **residual**，不是主动选择
-- **Empirical**: Mixed evidence（some firms do rebalance toward targets）
-
-**Additional predictions**:
-- Small, high-growth firms (high info asymmetry) 更依赖 pecking order
-- Public firms 比 private firms 受 pecking order 约束更强（更多外部融资需求）
-
-::::
-
-
-
-### 8. Seasoned Equity Offerings (SEO)
-
-#SEO #equity_issuance #announcement_effects #long-run_underperformance
-
-**Question** 考虑 Seasoned Equity Offerings (SEO) 的实证 patterns。
-
-**8.1** SEO announcement effects:
-
-**(a)** 平均 announcement return (CAR) 是多少？这与什么理论一致？
-
-**(b)** 解释为什么 SEO announcements 是负面信号，但 debt issuance 不是（或较弱）。
-
-::::{solution}
-
-
-**8.1 SEO Announcement Effects**
-
-**(a) Average CAR**
-
-**Empirical fact**:
-- SEO announcement CAR(-1, +1) ≈ **-3%** (Asquith & Mullins 1986)
-- Larger for smaller firms, growth firms
-- 显著为负，robust across samples
-
-**Consistent theories**:
-
-1. **Pecking order / Adverse selection** (Myers & Majluf 1984):
-   - Equity issuance signals **overvaluation**
-   - Managers 有私有信息，只在股价高时发行
-   - Market rationally infers negative information
-
-2. **Signaling**:
-   - Good firms avoid dilutive equity financing
-   - Only "lemons" issue equity
-   - Price drop reflects quality revelation
-
-3. **Price pressure**:
-   - Supply increase → downward sloping demand
-   - Temporary price decline
-
-**(b) SEO vs Debt Issuance**
-
-**Why SEO negative, debt neutral/less negative**:
-
-| Aspect | Equity (SEO) | Debt |
-|--------|--------------|------|
-| **Information sensitivity** | High (residual claim) | Low (fixed claim) |
-| **Payoff depends on firm value** | Fully | Only if default |
-| **Adverse selection severity** | Maximum | Minimal |
-| **Managers' incentive to time** | Strong (maximize price) | Weak |
-
-**Equity issuance**:
-- Managers 只在股价高估时发行 → strong negative signal
-- Market 知道这个 incentive → rational discount
-
-**Debt issuance**:
-- Debt payoff 不太依赖 upside → less information-sensitive
-- Unless bankruptcy risk high, debt issuance 不太信号 overvaluation
-- Announcement CAR ≈ 0% or slightly negative
-
-**Empirical**:
-- SEO: CAR ≈ -3%
-- Straight debt: CAR ≈ 0% to -0.5%
-- Convertible debt: CAR ≈ -2%（介于两者之间）
-
-::::
-
-**8.2** Long-run performance:
-
-Loughran & Ritter (1995) 发现 SEO 后 5 年 abnormal returns 显著为负。
-
-**(a)** 列举两种可能的解释：
-- Behavioral explanation
-- Rational explanation
-
-**(b)** 为什么 long-run underperformance 的解释存在争议？
-
-::::{solution}
-
-**8.2 Long-Run Performance**
-
-**(a) Explanations**
-
-**Behavioral explanation** (Loughran & Ritter 1995):
-
-1. **Investor overreaction**:
-   - Investors 对 SEO firm prospects 过度乐观
-   - SEO 利用 "window of opportunity"
-   - Subsequent correction → negative abnormal returns
-
-2. **Market timing**:
-   - Managers issue when market overvalues equity
-   - Not necessarily firm-specific overvaluation
-   - "Hot IPO markets" phenomenon
-
-3. **Behavioral biases**:
-   - Extrapolation bias: project recent growth too far
-   - SEO 后 growth slows → disappointment
-
-**Rational explanation**:
-
-1. **Risk-based**:
-   - SEO firms' risk characteristics change post-issuance
-   - Asset pricing models mis-specify risk
-   - "Underperformance" is actually fair compensation for lower risk
-
-2. **Leverage effect**:
-   - SEO reduces leverage → lower financial risk → lower expected returns
-   - Not abnormal, just different risk
-
-3. **Sample selection**:
-   - Bad model: CAPM or Fama-French 3-factor inadequate
-   - Need better risk adjustment
-
-**(b) Why Controversial?**
-
-**Measurement issues**:
-
-1. **Benchmark problem**:
-   - Choice of benchmark affects results
-   - Size-matched? B/M-matched? Industry-matched?
-   - Different benchmarks → different conclusions
-
-2. **Statistical issues**:
-   - Long-horizon returns have **bad statistical properties**
-   - Overlapping observations → correlation
-   - Skewness → standard tests invalid
-   - Cross-sectional dependence
-
-3. **Survivor bias**:
-   - Delisting firms excluded
-   - Bias direction unclear
-
-4. **Definition of "abnormal"**:
-   - What is "normal" return?
-   - CAPM? FF3? FF5? Carhart 4-factor?
-   - Model choice matters
-
-**Fama (1998) critique**:
-- Long-run anomalies are **fragile**
-- Sensitive to methodology
-- Many "disappear" with better methods
-- Could be **chance** (data mining)
-
-**Consensus**: Short-run announcement effect robust; long-run underperformance more controversial.
-
-::::
-
-**8.3** SEO timing:
-
-**(a)** 什么是 "market timing" hypothesis？
-
-**(b)** Baker & Wurgler (2002) 的主要发现是什么？
-
-::::{solution}
-
-**8.3 SEO Timing**
-
-**(a) Market Timing Hypothesis**
-
-**Definition**:
-> Firms issue equity when their stock is **overvalued** (high market-to-book) and repurchase when undervalued (low M/B).
-
-**Mechanism**:
-1. Managers 有 market timing ability（或相信自己有）
-2. 利用 mispricing 为现有股东创造价值
-3. 在高 M/B 时发行，低 M/B 时回购
-
-**Implication**:
-- Capital structure 是 **market timing 的累积结果**
-- 不是主动优化的结果（与 trade-off 相反）
-
-**(b) Baker & Wurgler (2002) 发现**
-
-**Paper**: *Market Timing and Capital Structure*
-
-**Key findings**:
-
-1. **Historical M/B matters**:
-   $$
-   \text{Leverage}_{i,t} = \alpha + \beta \cdot \text{Historical M/B}_{i,t-1} + \gamma X_{i,t} + \varepsilon_{i,t}
-   $$
-   - $\beta < 0$ and significant
-   - 过去高 M/B 时期的公司，当前 leverage 更低（发行了 equity）
-
-2. **Persistent effects**:
-   - Market timing 的影响持续 **10+ years**
-   - Firms 不快速 rebalance toward target
-   - 与 trade-off theory 不符（应该快速调整）
-
-3. **Economic magnitude**:
-   - Historical M/B explains ~40% of cross-sectional leverage variation
-   - 比 traditional determinants (size, profitability, tangibility) 更重要
-
-**Interpretation**:
-- Capital structure 是 **历史融资决策的积累**
-- Market timing 比 target leverage 更重要
-- Challenges traditional static trade-off theory
-
-::::
-
-**8.4** Research design: Testing information asymmetry
-
-设计一个检验：SEO announcement returns 是否与 information asymmetry 相关。
-
-提供：
-- Hypothesis
-- Information asymmetry 的 proxies（至少 3 个）
-- 回归模型
-
-::::{solution}
-
-**8.4 Research Design**
-
-**Hypothesis**:
-
-> **H**: SEO announcement returns 与 information asymmetry 负相关。信息不对称越严重，adverse selection 越强，announcement CAR 越负。
-
-**Information Asymmetry Proxies**:
-
-1. **Analyst coverage** (inverse):
-   - Low coverage → high info asymmetry
-   - Proxy: number of analysts following
-
-2. **Institutional ownership**:
-   - Low institutional ownership → high info asymmetry
-   - Institutions have better information
-
-3. **Bid-ask spread**:
-   - High spread → high info asymmetry
-   - Market maker faces adverse selection
-
-4. **Firm age**:
-   - Young firms → less public information → high info asymmetry
-
-5. **Volatility**:
-   - High return volatility → high uncertainty → high info asymmetry
-
-6. **R&D intensity**:
-   - High R&D → intangible assets → hard to value → high info asymmetry
-
-**Regression Model**:
-
-$$
-\begin{aligned}
-CAR_{i,(-1,+1)} &= \beta_0 + \beta_1 \text{Low Coverage}_i + \beta_2 \text{Low Inst Own}_i \\
-&\quad + \beta_3 \text{High Spread}_i + \beta_4 \text{Young Firm}_i \\
-&\quad + \beta_5 \text{High Volatility}_i + \beta_6 \text{High R&D}_i \\
-&\quad + \gamma X_i + \varepsilon_i
-\end{aligned}
-$$
-
-**Controls** ($X_i$):
-- Offer size / Market cap (relative size)
-- Prior stock return (momentum, past performance)
-- Market-to-book ratio
-- Leverage
-- Profitability (ROA)
-
-**Predictions**:
-- $\beta_1, \beta_2, \beta_3, \beta_4, \beta_5, \beta_6 < 0$
-- Higher info asymmetry → more negative CAR
-
-**Alternative specification** (interaction):
-
-$$
-CAR_i = \beta_0 + \beta_1 \text{Info Asym}_i + \beta_2 \text{Offer Size}_i + \beta_3 \text{Info Asym} \times \text{Offer Size} + \varepsilon_i
-$$
-
-- Prediction: $\beta_3 < 0$（interaction negative）
-- Large offerings + high info asymmetry → worst reaction
-
-**Expected results**:
-- All info asymmetry proxies significant and negative
-- R² ≈ 15-25%
-- Economic magnitude: high info asym firms have 2-3% more negative CAR than low info asym
-
-::::
-
-
-
-### 9. 考场重点：Payout Policy Motives, Literature Review, and Research Proposal
-
-#payout_policy #literature_review #research_design #market_timing #agency #signaling
-
-**Question** 设计一个 research proposal，检验公司 payout policy 是为了 market timing、signaling、agency discipline、tax clientele，还是 financial flexibility。要求先写 literature review，再说明数据来源、变量处理、模型、预期结论和 identification threats。文献优先来自 [Corporate Finance Paper Index](../Corporate%20Finance/Corporate_Finance_Paper_Index.md)。
-
-**（a）** 写一个紧凑 literature review：每篇文献研究什么、发现什么、对你的设计有什么启发。
-
-::::{solution}
-
-可以按 motive 分组，而不是按年份堆文献。
-
-**MM benchmark and payout relevance**
-
-Miller and Modigliani (1961) 提出 dividend irrelevance：在 perfect capital market 中，payout policy 不影响 firm value。它给出零假设：
-
-$$
-\begin{aligned}
-\text{payout matters}
-&\Longleftrightarrow
-\text{taxes, information asymmetry, agency costs, transaction costs, or investment frictions matter}.
-\end{aligned}
-$$
-
-**Flexibility and payout method**
-
-Jagannathan, Stephens and Weisbach (2000) 比较 dividends 与 repurchases。核心发现是 dividends 更适合 permanent cash flows，repurchases 更适合 temporary cash flows。启发：若 flexibility motive 成立，cash-flow volatility 高、temporary cash flow shock 强的公司更偏向 repurchases。
-
-**Market timing / undervaluation**
-
-Ikenberry, Lakonishok and Vermaelen (1995) 发现 open-market repurchase 后有长期正 abnormal returns，解释为市场低估时公司回购。Peyer and Vermaelen (2009) 进一步研究 buyback anomaly 的性质和持久性。启发：若 market timing 成立，repurchase announcements 应集中在低估、高 past underperformance、高 book-to-market 的公司，且公告后长期 abnormal return 为正。
-
-**Signaling**
-
-Vermaelen (1981) 研究 repurchase tender offers，强调回购可以传递 undervaluation / private information 信号。Aharony and Swary (1980) 研究 dividend announcements，说明 dividend changes 传递关于未来 cash flow 的信息。Michaely, Thaler and Womack (1995) 研究 dividend initiations and omissions，发现市场反应和后续 drift。启发：若 signaling 成立，payout 后 operating performance 或 earnings revisions 应改善，且 announcement CAR 对 information asymmetry 更敏感。
-
-**Agency**
-
-Jensen (1986) 提出 agency costs of free cash flow：高 free cash flow 且投资机会低的公司容易 overinvestment，payout 可以约束管理层。La Porta et al. (2000) 从 investor protection 角度解释 dividends as outcome/substitute of governance。启发：若 agency motive 成立，高 FCF、低 Tobin's Q、弱治理公司应更倾向高 payout，且 payout 后 investment inefficiency 下降。
-
-**Tax clientele**
-
-Allen and Michaely (2003) 总结 payout policy 文献；Brav, Graham, Harvey and Michaely (2008) 研究 2003 dividend tax cut 后经理人反应；Kalay (1982)、Michaely and Vila (1986) 讨论 ex-dividend day 与税收客户效应。启发：若 tax clientele 成立，dividend policy 对投资者税收状态和税改更敏感，特别是 tax-exempt institutional ownership 高的公司。
-
-**Life cycle**
-
-Fama and French (2001) 研究 disappearing dividends；DeAngelo, DeAngelo and Stulz (2006) 用 earned/contributed capital mix 检验 life-cycle theory。启发：成熟公司更稳定 pay dividends，年轻成长公司更依赖 repurchases 或不派息。
-
-::::
-
-**（b）** 写出 research question、hypotheses 和机制图。
-
-::::{solution}
-
-Research question：
-
-> Firms choose dividends or repurchases because of which motive: market timing, signaling, agency discipline, tax clientele, or flexibility?
-
-机制图：
-
-$$
-\begin{aligned}
-\text{low valuation / prior underperformance}
-&\Rightarrow \text{repurchase timing}
-\Rightarrow CAR>0,\ BHAR>0,\\
-\text{private positive information}
-&\Rightarrow \text{payout signal}
-\Rightarrow CAR>0,\ \Delta \text{ROA}_{+1,+2}>0,\\
-\text{high FCF + low growth}
-&\Rightarrow \text{agency discipline}
-\Rightarrow \text{payout}\uparrow,\ \text{investment efficiency}\uparrow,\\
-\text{tax advantage / tax-exempt clientele}
-&\Rightarrow \text{dividend preference}
-\Rightarrow \text{dividend initiation}\uparrow,\\
-\text{temporary cash flow / volatility}
-&\Rightarrow \text{repurchase flexibility}
-\Rightarrow \text{repurchase share}\uparrow.
-\end{aligned}
-$$
-
-Hypotheses：
-
-**H1 Market timing**：低估公司更可能 repurchase，且 repurchase 后长期 abnormal returns 为正。
-
-**H2 Signaling**：payout announcement 后 analyst forecast revisions、ROA、earnings surprise 改善；该效应在 high information asymmetry firms 更强。
-
-**H3 Agency**：高 FCF、低 growth opportunities、弱治理公司 payout 更高，payout 后 overinvestment 下降。
-
-**H4 Tax clientele**：tax-exempt institutional ownership 高或 dividend tax penalty 下降时，公司更倾向 dividends。
-
-**H5 Flexibility**：cash flow volatility 高、cash shock temporary 的公司更倾向 repurchases，而不是 sticky dividends。
-
-::::
-
-**（c）** 说明数据来源、样本和变量构造。
-
-::::{solution}
-
-样本：
-
-$$
-\begin{aligned}
-\text{U.S. listed nonfinancial nonutility firms, 1990--2020}.
-\end{aligned}
-$$
-
-数据来源：
-
-- Compustat：financial statements，dividends，repurchases，cash flow，assets，investment。
-- CRSP：stock returns，market cap，announcement-window returns。
-- SDC / company announcements：repurchase authorizations 和 dividend initiations/changes。
-- IBES：analyst forecasts and revisions。
-- Thomson / 13F：institutional ownership and tax-exempt ownership proxy。
-- ExecuComp / governance data：governance, CEO incentives, board variables。
-
-核心变量：
-
-$$
-\begin{aligned}
-\text{TotalPayout}_{i,t}
+\text{Literature Review}
 &=
-\text{Dividend}_{i,t}+\text{Repurchase}_{i,t},\\
-\text{PayoutRatio}_{i,t}
-&=
-\frac{\text{TotalPayout}_{i,t}}{\text{NetIncome}_{i,t}},\\
-\text{RepurchaseShare}_{i,t}
-&=
-\frac{\text{Repurchase}_{i,t}}
-{\text{Dividend}_{i,t}+\text{Repurchase}_{i,t}},\\
-\text{FCF}_{i,t}
-&=
-\frac{\text{OperatingCashFlow}_{i,t}-\text{Capex}_{i,t}}{\text{Assets}_{i,t-1}},\\
-\text{Misvaluation}_{i,t}
-&=
-\text{industry-adjusted }M/B
-\text{ or residual valuation},\\
-\text{CAR}_{i,[-1,+1]}
-&=
-\sum_{\tau=-1}^{1}
-\left(R_{i,\tau}-\widehat R_{i,\tau}^{\mathrm{market\ model}}\right),\\
-\text{BHAR}_{i,[1,36]}
-&=
-\prod_{\tau=1}^{36}(1+R_{i,\tau})
--
-\prod_{\tau=1}^{36}(1+R_{\mathrm{benchmark},\tau}).
+\left\{
+\begin{aligned}
+&\text{theory / mechanism}\\
+&\text{classic paper and empirical design}\\
+&\text{main finding}\\
+&\text{how it supports or challenges the theory}
+\end{aligned}
+\right.
 \end{aligned}
 $$
 
-处理规则：
 
-- 排除 financials and utilities。
-- winsorize continuous variables at 1% and 99%。
-- payout variables scaled by assets or market cap。
-- repurchase 用 net share repurchase 或 Compustat purchase of common stock，并剔除 employee option related repurchases 的噪声。
-- 所有解释变量滞后一期，降低 simultaneity。
-
-::::
-
-**（d）** 设计 baseline model 来区分 payout motives。
-
-::::{solution}
-
-先估计 payout level：
+**2. Research Proposal**
 
 $$
 \begin{aligned}
-\text{PayoutRatio}_{i,t}
+\text{Research Proposal}
+&=
+\left\{
+\begin{aligned}
+&\text{research question}\\
+&\text{testable hypotheses}\\
+&\text{identification strategy}\\
+&\text{data and variable construction}\\
+&\text{baseline regression}\\
+&\text{expected outcomes}\\
+&\text{identification threats and robustness}
+\end{aligned}
+\right.
+\end{aligned}
+$$
+
+- DiD：$Y_{i,t}=\alpha_i+\delta_t+\beta(\text{Treated}_i\times \text{Post}_t)+\gamma'X_{i,t-1}+\varepsilon_{i,t}.$
+- event study：$Y_{i,t}=\alpha_i+\delta_t+\sum_{k\neq -1}\beta_k\left(\text{Treated}_i\times \mathbf{1}\{t-T_i=k\}\right)+\gamma'X_{i,t-1}+\varepsilon_{i,t}.$
+- RDD：$\tau=\lim_{r\to c^+}\mathbb{E}[Y_i\mid R_i=r]-\lim_{r\to c^-}\mathbb{E}[Y_i\mid R_i=r].$
+
+**Identification threats**
+
+1. Differential trends / invalid counterfactual：treated 与 control 本来趋势不同，违背parallel trend。
+2. Confounding shocks / bundled policy：政策同时改变其他机制，无法隔离想检验的机制。
+3. selection into treatment
+4. manipulation around cutoff
+5. measurement error
+6. sample composition change
+7. spillovers
+8. concurrent announcements
+9. weak first stage
+10. long-run return benchmark sensitivity
+
+**主题结构**
+
+| Theme             | Literature Review                                                        | Research Proposal                               | Mechanism                                              |
+| :---------------- | :----------------------------------------------------------------------- | :---------------------------------------------- | :----------------------------------------------------- |
+| Capital Structure | trade-off, pecking order, market timing, agency                          | tax shield / interest deductibility shock       | tax shield, adverse selection, timing                  |
+| Payout Policy     | tax, signaling, agency, lifecycle, flexibility                           | dividend tax cut or repurchase disclosure shock | tax clientele, signaling, agency                       |
+| SEO               | adverse selection, timing, monitoring, price pressure                    | pre-SEO disclosure or waiting-period shock      | adverse selection, market timing, price pressure       |
+| Labor Finance     | labor supply, bargaining, adjustment cost, welfare                       | opioid / H-1B / labor protection shock          | IT substitution, leverage response, worker safety      |
+| ESG / Climate     | measurement, green human capital, E-S trade-off, climate labor risk      | green hiring / ESG disclosure shock             | real capability, greenwashing, climate adaptation      |
+| AI                | AI measurement, AI as GPT, product vs process innovation, GenAI exposure | AI exposure with IV / ChatGPT event study       | growth options, innovation channel, labor reallocation |
+
+**核心文献**
+
+**Theory 文献**
+
+- **Capital Structure**
+	- **MM irrelevance**：<span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1958, 1963)</span>；无摩擦市场下资本结构不影响公司价值；加入公司税后 $V_L=V_U+T_CD$
+	- **Trade-off theory**：tax shield vs distress costs；firms 在边际税盾收益和破产成本间权衡
+	- **Pecking order**：<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>；信息不对称下 equity issuance 传递 overvaluation signal，融资顺序为 internal funds → debt → equity
+	- **Market timing**：firms 在高估时发行股票，在低估时回购，资本结构是过去择时行为的累积
+	- **Agency theory**：debt 可约束 free cash flow，但也会产生 debt overhang 和 risk shifting
+- **Payout Policy**
+	- **MM irrelevance**：<span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1961)</span>；无摩擦市场下 payout policy 不影响股东财富
+	- **Tax clientele**：dividend 和 capital gains 税率不同，投资者根据税率偏好选择股票
+	- **Signaling**：dividend 变化传递管理层对未来现金流的私有信息
+	- **Agency / free cash flow**：<span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>；payout 减少管理层控制的 free cash flow，约束 overinvestment
+- **SEO**
+	- **Adverse selection**：<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>；管理层信息优势导致 equity issuance 被市场解读为 overvaluation
+	- **Market timing**：firms 在高估时发行股票，预测长期负回报
+	- **Monitoring**：equity issuance 改变所有权结构，影响治理和监督
+	- **Price pressure**：新股供给在短期内压低价格（需求曲线向下倾斜）
+
+**Empirical 文献**
+
+- **Capital Structure**
+	- <span style="color:#1f6feb;font-weight:700">Graham (2000)</span>-**Trade-off theory**
+		- 利用税法和企业利润分布，模拟出不同债务水平下的“边际税盾收益曲线”。将理论上能使税盾现值最大化的“最优杠杆率”与企业的实际杠杆率进行比对。
+		- **核心发现**：增加债务确实能带来经济意义上显著的税盾收益；但企业的**实际杠杆率远低于税盾最大化水平**。证明税盾是重要因素，但并非唯一决定因素，财务困境或代理成本等摩擦限制了举债，挑战了简单的静态权衡理论。
+	- <span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span>-**Market timing**
+		- 构建一个由“外部融资权重”加权的“历史市净率(M/B)”指标，代表企业的历史择时行为。通过面板回归控制常规变量，检验历史高估值对当前杠杆率是否有持续的预测力。
+		- **核心发现：** 历史M/B能强烈且持久（超10年）地负向预测当前杠杆率。证明资本结构主要是**历史择时行为的累积结果**，企业并不会主动向目标杠杆调整，强烈支持市场择时假说。
+	- <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span>-**Leverage determinants**
+		- 在大样本面板数据中，将各类理论预测的影响变量放在一起跑回归，检验在不同样本期和杠杆定义下，哪些变量最稳健。
+		- **核心发现：** **行业中位数、有形资产占比、规模、M/B**是最稳健的杠杆决定因素；盈利能力与杠杆显著负相关（支持优序融资理论）。证明没有单一理论能解释所有现象，实际杠杆是多种摩擦综合作用的结果。
+- **Payout Policy**
+	- <span style="color:#1f6feb;font-weight:700">Elton and Gruber (1970)</span>-**Tax clientele**
+		- 测量除权日股价下跌幅度与每股股利的比值 $(P_{cum}-P_{ex})/D$。如果股利税高于资本利得税，该比率应小于1，并反映两者的税率差。
+		- **核心发现：** 该比率显著小于1且非常接近理论预测的税率比。证明**税率差异导致了投资者分层**，高税率投资者会系统性避开高股利股票。
+	- <span style="color:#1f6feb;font-weight:700">Aharony and Swary (1980)</span>-**Signaling**
+		- 运用事件研究法，控制住同期的盈余公告，单纯测量股利增减宣告期间的异常收益率 (CAR)，检验其是否传递了未来现金流的信息。
+		- **核心发现：** 股利增加带来显著正CAR，减少带来显著负CAR（且负反应更剧烈）。证明市场将**股利变化视为未来盈利的真实信号**。
+	- <span style="color:#1f6feb;font-weight:700">Jagannathan, Stephens and Weisbach (2000)</span>-**Flexibility / timing**
+		- 比较支付股利与股票回购两类公司的现金流波动性。检验灵活性假设：粘性的股利对应永久性现金流，灵活的回购对应暂时性现金流。
+		- **核心发现：** 发放股利的公司现金流更稳定可测，而回购股票的公司现金流波动更大。证明**支付方式的选择反映了现金流的性质**。
+	- <span style="color:#1f6feb;font-weight:700">Peyer and Vermaelen (2009)</span>-**Repurchase and market timing**
+		- 测量股票回购宣告的短期CAR以及长期（3年）买入持有异常收益率 (BHAR)。检验管理层是否在股价被低估时精准回购。
+		- **核心发现：** 短期CAR平均为+2.5%，且宣告后3年长期收益率显著为正。证明回购有效传递了被低估信号，且管理层成功进行了市场择时。
+- **SEO**
+	- <span style="color:#1f6feb;font-weight:700">Asquith and Mullins (1986)</span>-**Adverse selection**
+		- 测量SEO宣告期[-1, +1]窗口的CAR，验证Myers-Majluf理论：市场是否认为管理层只在股价高估时发股。
+		- **核心发现：** 宣告期平均CAR为-3.0%，且发行规模越大反应越糟。证明**信息不对称**是股权融资面临的严重摩擦，SEO被视作高估的坏消息。
+	- <span style="color:#1f6feb;font-weight:700">Masulis and Korwar (1986)</span>-**insider selling signal**
+		- 对比公司纯发新股 (Primary) 与包含内部人老股抛售 (Secondary) 的宣告效应差异。
+		- **核心发现：** 包含内部人抛售的增发会引发更严重的市场惩罚 (CAR -4.7% vs -3.0%)。证明内部人减持放大了高估的负面信号。
+	- <span style="color:#1f6feb;font-weight:700">Wruck (1989)</span>-**Monitoring**
+		- 研究定向增发 (Private placements) 的宣告效应，并检验其与股权集中度变化的关系，对比公开发行的负面效应。
+		- **核心发现：** 定向增发带来平均+4.5%的正CAR，且股权集中度上升时正收益更高。证明当增发能引入大股东、**改善公司治理时，监督红利能抵消逆向选择成本**。
+	- <span style="color:#1f6feb;font-weight:700">Loughran and Ritter (1995)</span>-**Market timing and Long-run performance**
+		- 在匹配规模与M/B后，比较SEO发行公司与未发行公司未来5年的长期回报率。
+		- **核心发现：** 发行公司未来5年显著跑输匹配对象约30%。证明发行前股价确实被高估，管理层成功择时，而**投资者对SEO的负面信号反应不足**。
+	- <span style="color:#1f6feb;font-weight:700">Eckbo and Masulis (1992)</span>-**Price pressure / flotation method**
+		- 探究“配股之谜”：比较配股与包销的直接成本与隐性成本（认购不足风险、流动性成本、逆向选择信号）。
+		- **核心发现**：虽然配股的直接承销费低，但隐性成本极高。综合考量后包销仍是最优解，证明**发行方式的选择基于总成本最小化**。
+- **Labor Finance**
+	- <span style="color:#1f6feb;font-weight:700">Matsa (2010)</span>-**Strategic leverage / bargaining**
+		- 利用各州通过“工作权利法案”(削弱工会力量) 作为外生冲击，做DiD回归检验企业杠杆率的变化。
+		- **核心发现：** 工会力量被削弱后，企业显著降低了杠杆。证明企业在面临强势工会时，会**利用高债务压缩可用现金流，以此作为工资谈判的防御工具**。
+	- <span style="color:#1f6feb;font-weight:700">Agrawal and Matsa (2013)</span>-**Unemployment risk**
+		- 利用各州“失业保险金” generosity 的调整作为冲击，检验劳工失业成本下降如何影响企业的债务选择。
+		- **核心发现：** 失业福利提高后，企业显著增加了杠杆率。证明社会福利降低了员工面临的财务困境成本，从而**提高了企业的最优举债上限**。
+	- <span style="color:#1f6feb;font-weight:700">Simintzi, Vig and Volpin (2015)</span> and <span style="color:#1f6feb;font-weight:700">Serfling (2016)</span>-**Labor adjustment costs**
+		- 利用跨国就业保护法或美国各州非正当解雇法的交错通过，检验“裁员成本上升”如何影响资本结构。
+		- **核心发现：** 解雇保护加强后，企业显著降低了财务杠杆。证明劳动力成为一种准固定成本（推高了**经营杠杆**），迫使企业降低财务风险以维持总风险平衡。
+	- <span style="color:#1f6feb;font-weight:700">Ouimet, Simintzi and Ye (2025)</span>-**Labor supply / IT substitution**
+		- 利用阿片类药物滥用危机作为劳动力供给的外生负向冲击，检验劳动力短缺对企业资本投资方向的影响。
+		- 受冲击地区的工厂显著增加了IT和自动化投资。证明**劳动力短缺会引发“资本替代劳动”的结构性变化**。
+	- <span style="color:#1f6feb;font-weight:700">Cohn and Wardlaw (2016)</span>-**Worker welfare**
+		- 通过测量融资约束指标（如 KZ index、到违约距离）与工作场所伤害率的关系来检验。理论预测：财务压力迫使企业削减难以合约化且具有长期性的安全投资，从而增加伤害风险。
+		- 核心发现：劳工作为利益相关者的观点。财务受限的公司受伤率显着更高;经济冲击后伤害增加。研究结果表明，财务摩擦的成本不仅体现在项目投资不足，还包括对工人安全的投资不足;工人承担部分经济困境费用。
+- **ESG / Climate**
+	- <span style="color:#1f6feb;font-weight:700">Berg et al. (2022)</span>，<span style="color:#1f6feb;font-weight:700">Briscoe-Tran (2026)</span>-**ESG measurement**
+		- 比较各大外部评级机构的数据相关性；并用Glassdoor员工评价构建内部视角的ESG指标，比较两者对未来真实ESG事件的预测力。
+		- **核心发现：** 外部评级机构间的相关性极低（噪音巨大）。而**员工评价构建的内部指标能更准的预测未来违规和评级变化**，证明外部评级严重滞后于内部真实运营。
+	- <span style="color:#1f6feb;font-weight:700">Darendeli, Law and Shen (2022)</span>-**Green human capital**
+		- 测量绿色招聘广告（如环境工程师、可持续发展经理）与随后的绿色创新（专利）、环境绩效（排放）及盈利能力之间的关系。
+		- 人力资本渠道。绿色招聘能够预测未来绿色专利数量的增长、排放量的减少以及盈利能力的提升。研究结果表明，绿色招聘反映的是真正的能力建设，而非象征性的“漂绿”；绿色人力资本是有效实施ESG的关键投入。
+	- <span style="color:#1f6feb;font-weight:700">Ortiz-Molina, Xiao and Zheng (2023)</span>-**Climate-labor risk**
+		- 以加州高温预防标准为政策冲击，检验户外高暴露行业的劳动生产率及企业的适应性投资。
+		- **核心发现：** 气候变暖直接导致高暴露行业劳动生产率下降及工伤成本上升，迫使企业增加降温和自动化等适应性资本支出，证明**气候物理风险已实质性落地**。
+	- <span style="color:#1f6feb;font-weight:700">Huang, Li and Zhou (2025)</span>，<span style="color:#1f6feb;font-weight:700">Effah, Qi and Zhang (2025)</span>-**E-S trade-off**
+		- 利用环境监管冲击（污染控制要求）作为实验组，检验其对企业社会责任成果（如工作场所安全、劳工实践）的影响。核心发现：在环境法规收紧后，受监管企业的环境绩效有所提升，但工作场所伤害率和劳工投诉也随之增加。研究结果揭示了资源有限时企业在环境和社会绩效方面面临的权衡取舍，因为企业会优先考虑强制性环境合规，而牺牲可自由支配的社会投资；这挑战了“将环境、社会和治理视为一揽子”的观点。
+		- 检验环境 (E) 与社会 (S) 维度在企业价值或资本获取上的交互效应，对比互补性假说与替代性假说。核心发现：对于资源不受限制的企业而言，环境（E）与社会（S）之间的互动是互补的；但对于资源受限（面临财务或注意力限制）的企业而言，这种互动则显著为负。研究结果表明，ESG各维度之间的关系取决于资源的可用性；资源受限的企业会在环境与社会之间做出战略权衡。
+- **AI**
+	- <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span>-**AI as GPT / product innovation**
+		- 根据招聘数据测量企业的AI采用率，利用“历史招聘网络×大学AI实力”构建工具变量(IV)，检验AI采用对企业增长的因果效应。
+		- **核心发现：** AI采用显著提升了销售额、就业和市值。其核心驱动力是**增加产品创新和扩展市场**，而不是单纯的裁员降本，支持AI作为通用技术的定位。
+	- <span style="color:#1f6feb;font-weight:700">Eisfeldt et al. (2025)</span> and <span style="color:#1f6feb;font-weight:700">Brynjolfsson, Li and Raymond (2025)</span>-**GenAI exposure / repricing**
+		- 以ChatGPT发布为自然实验，基于岗位任务构建企业的GenAI暴露度指标，检验市场重定价反应以及对全要素生产率(TFP)的实际影响。
+		- 市场迅速给予高GenAI暴露度的企业正向估值重估。微观数据显示，采用GenAI使TFP提升约8%，但伴随劳动力重置：低技能常规岗位被替代，高技能互补岗位（如AI工程师）需求激增。
+	- <span style="color:#1f6feb;font-weight:700">Kogan et al. (2023)</span>-**Innovation measurement**
+		- 利用机器学习构建基于“引用量”和“文本新颖度”的专利指标，测试其对企业未来销售增长和市值的预测能力。
+		- **核心发现：** 引用加权和文本新颖度指标均能显著预测未来业绩增长，证明**专利文本数据是度量企业无形资产和成长机会的有效实证工具**。
+
+### 1. Capital Structure
+
+#### 1-1 Literature Review
+
+**Question** 对 capital structure 做 literature review。按 trade-off、pecking order、market timing、agency-based theory 分类，说明每类理论的机制、预测和代表文献。
+
+What determines leverage? tax shield, distress cost, information asymmetry, market timing, agency conflicts.
+
+::::{solution}
+
+| Theory        | Mechanism                                                             | Predictions                                                                                                             | Papers                                                                                                                                                                                                                                  |
+| :------------ | :-------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MM benchmark  | frictionless markets 下 financing mix 只切分现金流，不改变 firm value            | $V_L=V_U$；WACC 不随 leverage 变                                                                                            | <span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1958, 1963)</span>                                                                                                                                                   |
+| Trade-off     | tax shield vs expected distress / agency cost                         | tax rate、tangibility、size $\uparrow \Rightarrow leverage\uparrow$；risk、growth $\uparrow \Rightarrow leverage\downarrow$ | <span style="color:#1f6feb;font-weight:700">Graham (2000)</span>, <span style="color:#1f6feb;font-weight:700">Rajan and Zingales (1995)</span>, <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span>               |
+| Pecking order | information asymmetry makes equity most costly                        | internal funds $\succ$ debt $\succ$ equity；profitability $\uparrow \Rightarrow leverage\downarrow$                      | <span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>, <span style="color:#1f6feb;font-weight:700">Shyam-Sunder and Myers (1999)</span>, <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2003)</span> |
+| Market timing | firms issue equity when overvalued, repurchase when undervalued       | high historical $M/B \Rightarrow$ lower current leverage；effects persistent                                             | <span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span>, <span style="color:#1f6feb;font-weight:700">Alti (2006)</span>, <span style="color:#1f6feb;font-weight:700">Kayhan and Titman (2007)</span>                |
+| Agency-based  | debt disciplines managers but creates underinvestment / risk shifting | high FCF + low growth $\Rightarrow leverage\uparrow$；growth options $\Rightarrow leverage\downarrow$                    | <span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>, <span style="color:#1f6feb;font-weight:700">Myers (1977)</span>, <span style="color:#1f6feb;font-weight:700">Smith and Watts (1992)</span>                            |
+
+**Trade-off theory**
+
+$$
+\begin{aligned}
+V_L
+&=
+V_U
++PV(\text{Tax Shield})
+-PV(\text{Distress Cost})
+-PV(\text{Agency Cost of Debt})
+-PV(\text{Financial Flexibility Loss}).
+\end{aligned}
+$$
+
+税盾提高债务收益，financial distress 和 agency costs 提高债务成本。Trade-off theory 预测 firms 在边际税盾收益等于边际破产成本处选择最优 leverage。<span style="color:#1f6feb;font-weight:700">Graham (2000)</span> 模拟 firm-specific marginal tax benefit curves，用 tax code 和 income distribution 计算不同 debt 水平下的税盾现值，发现税盾收益很大但实际 leverage 远低于最优，说明 tax benefits 重要但存在其他成本（financial distress、agency costs）或非税收摩擦限制 debt 使用。<span style="color:#1f6feb;font-weight:700">Rajan and Zingales (1995)</span> 与 <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span> 用大样本 cross-sectional regressions 检验 leverage determinants，发现 tangibility、size 正相关（支持 trade-off），profitability 负相关（支持 pecking order），说明多种理论部分正确，实际 leverage 是多种力量的综合。
+
+**Pecking order**
+
+$$
+\begin{aligned}
+\text{financing cost}
+&:
+\text{internal funds}
+<
+\text{debt}
+<
+\text{equity}.
+\end{aligned}
+$$
+
+<span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span> 的 adverse selection 逻辑说明 equity issuance 在信息不对称下传递 overvaluation signal，因此 firm 优先使用 internal funds，再用 debt，最后才用 equity。关键预测是 profitability 与 leverage 负相关（profitable firms 积累 retained earnings，减少外部融资需求）。<span style="color:#1f6feb;font-weight:700">Shyam-Sunder and Myers (1999)</span> 用 financing deficit 回归 debt issuance，发现系数接近 1，支持 pecking order；但 <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2003)</span> 发现大样本中 pecking order 预测力较弱，尤其对 small firms 和 high-growth firms，说明 pecking order 只是部分正确。
+
+**Market timing**
+
+$$
+\begin{aligned}
+M/B\uparrow
+&\Rightarrow
+\Pr(\text{equity issue})\uparrow
+\Rightarrow
+\text{book leverage}\downarrow.
+\end{aligned}
+$$
+
+<span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span> 构造 external-finance weighted historical market-to-book 作为累积 market timing 指标，发现 historical M/B 强烈负向预测 current leverage 且效应持续十年以上，说明 capital structure 是过去 market timing 行为的累积结果；firms 不会快速调整回 target leverage，支持 market timing 和 inertia，与 static trade-off theory 不符。<span style="color:#1f6feb;font-weight:700">Alti (2006)</span> 和 <span style="color:#1f6feb;font-weight:700">Kayhan and Titman (2007)</span> 进一步检验 timing effects 的持续性和调整速度。
+
+**Agency-based theory**
+
+Debt 一方面 discipline managers，减少 free cash flow agency problem（<span style="color:#1f6feb;font-weight:700">Jensen 1986</span>）；另一方面会造成 debt overhang（<span style="color:#1f6feb;font-weight:700">Myers 1977</span>）和 risk shifting。Agency theory 预测：high FCF + low growth firms 应使用更多 debt（discipline 价值高）；growth opportunities 高的 firms 应减少 debt（debt overhang cost 高）。<span style="color:#1f6feb;font-weight:700">Smith and Watts (1992)</span> 发现 growth firms 的 leverage 显著更低，支持 debt overhang 预测；mature firms with high FCF 更多使用 debt，支持 free cash flow hypothesis。
+
+::::
+
+#### 1-2 Research Proposal
+
+**Question** 设计一个 research proposal，识别 tax shield 是否影响 corporate leverage。需要写 research question、hypotheses、data、model、expected outcomes 和 threats。
+
+::::{collapse} 分析框架
+
+可采用的识别设计是 tax reform / interest deductibility shock。它直接改变 debt tax shield 的价值，适合检验 trade-off theory。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Corporate tax rate cut 是否通过降低 interest tax shield value，导致企业降低 leverage？
+
+**Hypotheses**
+
+$$
+\begin{aligned}
+T_C\downarrow
+&\Rightarrow
+PV(\text{Tax Shield})\downarrow
+\Rightarrow
+D^\ast/V\downarrow,\\
+\text{effect}
+&\text{ stronger for profitable / high tax-capacity firms},\\
+\text{effect}
+&\text{ weaker for constrained firms if adjustment costs bind}.
+\end{aligned}
+$$
+
+**Data**
+
+- Compustat：debt、assets、profitability、tangibility、cash、market-to-book。
+- CRSP：returns and market value。
+- Tax data：federal/state statutory tax rates、effective tax rates、NOL carryforwards。
+- Sample：U.S. listed nonfinancial nonutility firms。
+
+**Baseline DiD**
+
+$$
+\begin{aligned}
+\text{Leverage}_{i,s,t}
 &=
 \alpha_i+\delta_t
-+\beta_1\text{Misvaluation}_{i,t-1}
-+\beta_2\text{InfoAsym}_{i,t-1}\\
-&\quad
-+\beta_3\text{FCF}_{i,t-1}\times\text{LowQ}_{i,t-1}
-+\beta_4\text{TaxExemptOwn}_{i,t-1}\\
-&\quad
-+\beta_5\text{CFVol}_{i,t-1}
++\beta(\text{TaxCutExposure}_{i,s}\times Post_t)
++\gamma'X_{i,t-1}
++\varepsilon_{i,s,t}.
+\end{aligned}
+$$
+
+$\text{TaxCutExposure}_{i,s}$ 可用 pre-reform taxable income、interest deduction exposure、state tax exposure 或 marginal tax rate exposure 构造。
+
+**Expected outcomes**
+
+$$
+\begin{aligned}
+\beta<0
+&\Longleftrightarrow
+\text{tax shield channel},\\
+\beta_{\text{high profit}}<\beta_{\text{low profit}}
+&\Longleftrightarrow
+\text{tax capacity amplifies leverage response}.
+\end{aligned}
+$$
+
+**Identification threats**
+
+1. States or industries receiving tax cuts may have different leverage trends.
+2. Tax reform may bundle investment credits, repatriation incentives, or macro shocks.
+3. High-tax-capacity firms may simultaneously have stronger investment opportunities, affecting financing needs.
+
+**Robustness**
+
+- Event-study pre-trends.
+- Border-state / matched industry comparisons.
+- Alternative leverage measures: book leverage, market leverage, net debt.
+- Debt issuance and equity issuance as separate outcomes.
+
+::::
+
+#### 1-3 Mechanism Question
+
+**Question** Briefly state the mechanism and testable predictions for three theories of capital structure: trade-off, pecking order, market timing, and agency-based theory. For each selected theory, summarize one empirical paper. Then design one ideal policy change and give two threats.
+
+::::{collapse} 分析框架
+
+这题就是把样题中的 SEO 换成 capital structure。每个 theory 都要写：机制 $\Rightarrow$ prediction $\Rightarrow$ paper。
+
+::::
+
+::::{solution}
+
+**Trade-off theory**
+
+$$
+\begin{aligned}
+\max_D V(D)
+&=
+V_U+T_CD-PV(\text{Distress}(D)),\\
+\frac{\partial V}{\partial D}=0
+&\Longleftrightarrow
+T_C
+=
+\frac{\partial PV(\text{Distress})}{\partial D}.
+\end{aligned}
+$$
+
+Predictions：tax capacity、tangibility、size raise leverage；risk and growth opportunities lower leverage. <span style="color:#1f6feb;font-weight:700">Graham (2000)</span> 模拟 firm-specific marginal tax benefit curves，发现税盾收益大但实际 leverage 保守，说明非税成本限制 debt 使用。
+
+**Pecking order**
+
+$$
+\begin{aligned}
+\text{information asymmetry}
+&\Rightarrow
+\text{equity is most information-sensitive}\\
+&\Rightarrow
+\text{internal funds}\succ\text{debt}\succ\text{equity}.
+\end{aligned}
+$$
+
+Predictions：profitable firms use less debt; financing deficit predicts debt issuance; equity issuance announcement returns are negative. <span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span> provides the theory; <span style="color:#1f6feb;font-weight:700">Shyam-Sunder and Myers (1999)</span> regress debt issuance on financing deficit，发现系数接近 1，支持 pecking order；<span style="color:#1f6feb;font-weight:700">Frank and Goyal (2003)</span> 发现大样本中预测力较弱。
+
+**Market timing**
+
+$$
+\begin{aligned}
+\text{valuation high}
+&\Rightarrow
+\text{equity issuance}\uparrow
+\Rightarrow
+\text{leverage}\downarrow,\\
+\text{historical }M/B
+&\Rightarrow
+\text{current leverage}.
+\end{aligned}
+$$
+
+<span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span> 构造 external-finance weighted historical $M/B$，回归 current leverage，发现 historical $M/B$ 强烈负向预测 leverage 且效应持续，说明 capital structure 是过去 timing 的累积。
+
+**Ideal policy**
+
+Unexpected limit on interest deductibility. Treated firms are high pre-reform interest-deduction exposure firms.
+
+$$
+\begin{aligned}
+\text{Leverage}_{i,t}
+&=
+\alpha_i+\delta_t
++\beta(\text{HighInterestExposure}_i\times Post_t)
 +\gamma'X_{i,t-1}
 +\varepsilon_{i,t}.
 \end{aligned}
 $$
 
-再估计 payout method：
+Prediction：$\beta<0$，treated firms reduce leverage and debt issuance after reform.
+
+**Threats**
+
+1. High-leverage firms may have different pre-trends.
+2. Reform may also affect investment, credit supply, and payout.
+
+::::
+
+#### 1-4 Theory Comparison
+
+**Question** 比较 capital structure 中 trade-off、pecking order、market timing 与 agency-based theory 的机制差异，并整理对应实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+对比题的关键不是重复每个 theory 的定义，而是说明它们依赖的 friction 不同，因此对 profitability、market-to-book、tax capacity、debt issuance 和 adjustment speed 的预测不同。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | 核心摩擦 | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| Trade-off | taxes vs distress costs | debt tax shield 提高价值，但 distress / agency costs 随 leverage 上升 | profitable、tangible、large、high tax-capacity firms leverage 更高；risk 和 growth opportunities 降低 leverage |
+| Pecking order | information asymmetry | equity 对 private information 最敏感，因此 firms 先用 internal funds，再用 debt，最后用 equity | profitability 与 leverage 负相关；financing deficit 主要由 debt 填补；equity issue CAR 为负 |
+| Market timing | misvaluation / behavioral market timing | managers 在 equity overvaluation 时发行股票，在 undervaluation 时回购或避免发行 | high $M/B$ 后 equity issuance 增加，leverage 下降；historical valuation 对 current leverage 有持久影响 |
+| Agency-based | manager-shareholder or shareholder-debtholder conflict | debt 可约束 free cash flow，但也会产生 debt overhang 和 risk shifting | high FCF + low growth firms 可用 debt discipline；high growth firms 因 underinvestment risk 降低 leverage |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| Trade-off | <span style="color:#1f6feb;font-weight:700">Graham (2000)</span> | firm-specific marginal tax benefit curve of debt | tax benefits of debt are large, but many firms appear conservatively levered |
+| Trade-off / determinants | <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2009)</span> | broad leverage determinants across firms | median-industry leverage, tangibility, profits, size, $M/B$ predict leverage in ways partly consistent with trade-off |
+| Pecking order | <span style="color:#1f6feb;font-weight:700">Shyam-Sunder and Myers (1999)</span> | financing deficit model | debt issues track financing deficits in a restricted sample, consistent with pecking order |
+| Pecking order critique | <span style="color:#1f6feb;font-weight:700">Frank and Goyal (2003)</span> | broader sample and financing deficit tests | pecking order fit weakens for small and high-growth firms |
+| Market timing | <span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span> | historical market-to-book predicts leverage | capital structure reflects cumulative market timing |
+| Agency | <span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>; <span style="color:#1f6feb;font-weight:700">Myers (1977)</span> | free-cash-flow discipline and debt-overhang mechanisms | debt can discipline managers, but high leverage can distort investment incentives |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Trade-off}
+&:\ \text{optimal target leverage from marginal benefit = marginal cost},\\
+\text{Pecking order}
+&:\ \text{no target leverage; observed debt follows financing needs},\\
+\text{Market timing}
+&:\ \text{capital structure records past valuation windows},\\
+\text{Agency}
+&:\ \text{debt is governance device and investment distortion simultaneously}.
+\end{aligned}
+$$
+
+::::
+
+### 2. Payout Policy
+
+#### 2-1 Literature Review
+
+**Question** 对 payout policy 做 literature review。按 tax clientele、signaling、agency、lifecycle、flexibility、market timing 分类，说明每类机制、预测和代表文献。
+
+::::{collapse} 分析框架
+
+核心问题是为什么 firms pay out cash，以及为什么选择 dividends 或 repurchases。
+
+::::
+
+::::{solution}
+
+$$
+\begin{aligned}
+\text{Why do firms pay out cash?}
+&\Longleftrightarrow
+\text{tax clientele, signaling, agency, lifecycle, flexibility, market timing}.
+\end{aligned}
+$$
+
+
+| Theory | Mechanism | Predictions | Papers |
+| :--- | :--- | :--- | :--- |
+| MM dividend irrelevance | investment fixed 时 dividend 只是 financing substitution | payout does not change shareholder wealth | <span style="color:#1f6feb;font-weight:700">Modigliani and Miller (1961)</span> |
+| Tax clientele | dividend and capital gains taxed differently | high dividend tax penalty $\Rightarrow$ lower dividend demand | <span style="color:#1f6feb;font-weight:700">Elton and Gruber (1970)</span>, <span style="color:#1f6feb;font-weight:700">Kalay (1982)</span>, <span style="color:#1f6feb;font-weight:700">Allen and Michaely (2003)</span> |
+| Signaling | dividend / repurchase conveys private information | dividend increase and buyback announcement $\Rightarrow CAR>0$ | <span style="color:#1f6feb;font-weight:700">Aharony and Swary (1980)</span>, <span style="color:#1f6feb;font-weight:700">Vermaelen (1981)</span> |
+| Agency | payout reduces free cash flow under managerial control | high FCF + low growth $\Rightarrow payout\uparrow$ | <span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>, <span style="color:#1f6feb;font-weight:700">La Porta et al. (2000)</span> |
+| Lifecycle | mature firms have fewer growth opportunities and more retained earnings | earned/contributed capital high $\Rightarrow$ dividend payer | <span style="color:#1f6feb;font-weight:700">Fama and French (2001)</span>, <span style="color:#1f6feb;font-weight:700">DeAngelo et al. (2006)</span> |
+| Flexibility | dividends are sticky; repurchases are discretionary | temporary cash flows $\Rightarrow$ repurchase；permanent cash flows $\Rightarrow$ dividend | <span style="color:#1f6feb;font-weight:700">Jagannathan, Stephens and Weisbach (2000)</span> |
+| Market timing / undervaluation | firms repurchase when undervalued | buyback announcement $CAR>0$ and long-run abnormal return $>0$ | <span style="color:#1f6feb;font-weight:700">Ikenberry et al. (1995)</span>, <span style="color:#1f6feb;font-weight:700">Peyer and Vermaelen (2009)</span> |
+
+**Dividends vs repurchases**
+
+
+| Dimension | Dividends | Repurchases |
+| :--- | :--- | :--- |
+| commitment | high, sticky | low, flexible |
+| tax timing | immediate dividend taxation | capital gains timing option |
+| signal | cash-flow sustainability | undervaluation / excess cash |
+| best for | permanent cash flows, mature firms | temporary cash flows, undervalued firms |
+| agency role | recurring discipline | flexible cash disgorgement |
+
+**机制综合**
+
+$$
+\begin{aligned}
+\text{payout matters}
+&\Longleftrightarrow
+\text{MM assumptions fail through taxes, information, agency, transaction costs, or investment frictions}.
+\end{aligned}
+$$
+
+::::
+
+#### 2-2 Research Proposal
+
+**Question** 设计一个 research proposal，检验公司 payout 决策是 market timing、signaling、agency discipline、tax clientele 还是 financial flexibility。
+
+::::{collapse} 分析框架
+
+较清晰的经验设计是同时看 payout method、announcement return、long-run return、fundamental outcomes。不同 motive 对这些 outcomes 的预测不同。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Firms choose dividends or repurchases because of which motive?
+
+**Hypotheses**
+
+$$
+\begin{aligned}
+\text{undervaluation}
+&\Rightarrow
+\text{repurchase}\uparrow,\ CAR>0,\ BHAR>0,\\
+\text{private good news}
+&\Rightarrow
+\text{payout signal}\uparrow,\ \Delta ROA_{+1,+2}>0,\\
+\text{FCF high and }Q\text{ low}
+&\Rightarrow
+\text{payout}\uparrow,\ \text{overinvestment}\downarrow,\\
+\text{dividend tax penalty}\downarrow
+&\Rightarrow
+\text{dividend}\uparrow,\\
+\text{temporary cash flow}
+&\Rightarrow
+\text{repurchase share}\uparrow.
+\end{aligned}
+$$
+
+**Data**
+
+- Compustat：dividends、repurchases、cash flow、capex、assets、earnings.
+- CRSP：announcement-window CAR、BHAR.
+- SDC / firm announcements：repurchase authorizations, dividend changes.
+- IBES：analyst revisions.
+- 13F / ownership：institutional and taxable ownership proxies.
+
+**Payout method model**
 
 $$
 \begin{aligned}
 \text{RepurchaseShare}_{i,t}
 &=
 \alpha_i+\delta_t
-+\theta_1\text{Undervaluation}_{i,t-1}
-+\theta_2\text{TemporaryCashShock}_{i,t}\\
++\beta_1\text{Undervaluation}_{i,t-1}
++\beta_2\text{TemporaryCashShock}_{i,t}\\
 &\quad
-+\theta_3\text{CFVol}_{i,t-1}
-+\theta_4\text{TaxExemptOwn}_{i,t-1}
-+\theta_5\text{Mature}_{i,t-1}
-+\Gamma'X_{i,t-1}
++\beta_3\text{FCF}_{i,t-1}\times \text{LowQ}_{i,t-1}
++\beta_4\text{TaxSensitiveOwn}_{i,t-1}
++\gamma'X_{i,t-1}
 +u_{i,t}.
 \end{aligned}
 $$
 
-预期符号：
-
-$$
-\begin{aligned}
-\theta_1>0
-&\Longleftrightarrow
-\text{undervalued firms use repurchases for timing},\\
-\theta_2>0,\ \theta_3>0
-&\Longleftrightarrow
-\text{temporary cash and volatility favor flexible repurchases},\\
-\theta_4<0
-&\Longleftrightarrow
-\text{tax-exempt clientele favors dividends},\\
-\theta_5<0
-&\Longleftrightarrow
-\text{mature firms prefer dividends}.
-\end{aligned}
-$$
-
-Event-study equation for announcement returns：
+**Announcement-return test**
 
 $$
 \begin{aligned}
 CAR_{i,[-1,+1]}
 &=
 a
-+b_1\text{Repurchase}_{i}
-+b_2\text{Undervaluation}_{i}
-+b_3\text{InfoAsym}_{i}\\
++b_1\text{Repurchase}_i
++b_2\text{Undervaluation}_i
++b_3(\text{Repurchase}_i\times \text{Undervaluation}_i)\\
 &\quad
-+b_4(\text{Repurchase}_{i}\times\text{Undervaluation}_{i})
-+b_5(\text{Payout}_{i}\times\text{InfoAsym}_{i})
-+c'X_i+\varepsilon_i.
++b_4\text{InfoAsym}_i
++b_5(\text{Payout}_i\times \text{InfoAsym}_i)
++c'X_i
++\varepsilon_i.
 \end{aligned}
 $$
 
-如果 market timing 成立，$b_4>0$；如果 signaling 成立，$b_5>0$，且后续 operating performance 改善。
+**Interpretation**
+
+$$
+\begin{aligned}
+b_3>0
+&\Rightarrow \text{market timing / undervaluation},\\
+b_5>0
+&\Rightarrow \text{signaling},\\
+\beta_3>0
+&\Rightarrow \text{agency discipline},\\
+\beta_2>0
+&\Rightarrow \text{flexibility}.
+\end{aligned}
+$$
+
+**Threats**
+
+1. Repurchase authorization 不等于 actual repurchase，measurement error 会混淆 timing 和 flexibility。
+2. Concurrent earnings announcements or M&A may contaminate payout announcement CAR.
+3. Future fundamentals may drive payout decisions, creating reverse causality.
 
 ::::
 
-**（e）** 如何判断 market timing 而不是 signaling 或 agency？
+#### 2-3 Mechanism Question
 
-::::{solution}
+**Question** 比较 payout policy 的 tax clientele、signaling、agency、financial flexibility / repurchase timing 四类机制。每类配一篇 empirical paper，并设计一个检验 dividend tax clientele 的政策实验。
 
-核心是把不同 motive 的后验预测分开：
+::::{collapse} 分析框架
 
-$$
-\begin{aligned}
-\text{market timing}
-&\Longrightarrow
-\begin{cases}
-\text{repurchase after low valuation / negative prior return},\\
-BHAR_{[1,36]}>0,\\
-\text{operating improvement not necessarily strong};
-\end{cases}\\
-\text{signaling}
-&\Longrightarrow
-\begin{cases}
-CAR_{[-1,+1]}>0,\\
-\Delta \text{analyst forecast}>0,\\
-\Delta ROA_{+1,+2}>0;
-\end{cases}\\
-\text{agency}
-&\Longrightarrow
-\begin{cases}
-\text{high FCF + low Q predicts payout},\\
-\text{capex/acquisitions fall after payout},\\
-\text{investment efficiency improves};
-\end{cases}\\
-\text{tax clientele}
-&\Longrightarrow
-\begin{cases}
-\text{dividends respond to tax penalty and investor tax status},\\
-\text{effect stronger for tax-sensitive shareholders};
-\end{cases}\\
-\text{flexibility}
-&\Longrightarrow
-\begin{cases}
-\text{temporary cash shocks predict repurchases},\\
-\text{permanent cash-flow increases predict dividends}.
-\end{cases}
-\end{aligned}
-$$
-
-一个清晰的判别设计是同时报告三类 outcome：
-
-$$
-\begin{aligned}
-\text{valuation outcome}
-&: CAR,\ BHAR,\\
-\text{fundamental outcome}
-&: \Delta ROA,\ \Delta EPS,\ analyst\ revisions,\\
-\text{real-policy outcome}
-&: investment,\ acquisition,\ cash,\ leverage.
-\end{aligned}
-$$
-
-若只看到 $BHAR>0$ 但 fundamentals 不改善，更像 market timing / underreaction；若 fundamentals 改善且 announcement CAR 强，更像 signaling；若 payout 后 inefficient investment 下降，更像 agency discipline。
+这类题最好先写 MM benchmark，再说明现实摩擦如何让 payout 变得 relevant。
 
 ::::
 
-**（f）** 写出 identification threats 和可行 robustness checks。
-
 ::::{solution}
 
-主要威胁：
-
-- **Endogeneity / omitted variables**：未观测的投资机会或管理层质量同时影响 payout 和 returns。
-- **Reverse causality**：预期未来业绩好导致 payout，而不是 payout 改善业绩。
-- **Measurement error**：repurchase authorization 不等于 actual repurchase；Compustat repurchase 可能混入 option exercise。
-- **Benchmark sensitivity**：长期 abnormal returns 对 benchmark choice 很敏感。
-- **Concurrent events**：earnings announcements、M&A、financing events 同时发生。
-
-Robustness：
+**Tax clientele**
 
 $$
 \begin{aligned}
-\text{credible evidence}
-&\Longleftrightarrow
-\begin{cases}
-\text{firm FE + year/industry-year FE},\\
-\text{lagged controls and pre-trend checks},\\
-\text{alternative valuation proxies},\\
-\text{CAR plus BHAR plus calendar-time portfolio returns},\\
-\text{separate authorization and actual repurchase},\\
-\text{exclude contaminated announcements},\\
-\text{subsample tests by information asymmetry, FCF, governance, tax clientele}.
-\end{cases}
+\frac{P_{cum}-P_{ex}}{D}
+&\approx
+\frac{1-\tau_d}{1-\tau_g}.
 \end{aligned}
 $$
 
-若能使用 tax reform 或 regulatory shock，可写 DID：
+Dividend tax penalty 越高，taxable investors 越不愿持有 high-dividend stocks。Tax clientele theory 预测 ex-dividend price drop ratio 应反映 marginal investor 的 after-tax 无差异条件。<span style="color:#1f6feb;font-weight:700">Elton and Gruber (1970)</span> 测量 ex-dividend day price drop ratio $(P_{cum}-P_{ex})/D$，发现 ratio 显著小于 1 且接近理论预测的税率比 $\frac{1-\tau_d}{1-\tau_g}$，说明税收影响 dividend valuation，不同税率投资者形成 clienteles，支持 tax clientele theory，挑战 MM dividend irrelevance。<span style="color:#1f6feb;font-weight:700">Kalay (1982)</span> 强调 transaction costs 和 arbitrage bounds 限制了 tax arbitrage，使 tax clientele effect 得以存在。
+
+**Signaling**
+
+$$
+\begin{aligned}
+\Delta D>0
+&\Rightarrow
+\mathbb{E}[\text{future cash flow}\mid \Delta D>0]\uparrow
+\Rightarrow
+CAR>0.
+\end{aligned}
+$$
+
+Signaling theory 预测 dividend change 传递管理层对 future cash flow 的私有信息，announcement 应产生同向 stock price reaction。<span style="color:#1f6feb;font-weight:700">Aharony and Swary (1980)</span> 用 event study 测量 dividend increase/decrease announcement returns，发现 dividend increases 产生显著正 CAR，decreases 产生显著负 CAR（cuts 更负），说明市场将 dividend change 解读为 future profitability signal，支持 signaling theory；asymmetric reaction 说明 bad news 信号更强。<span style="color:#1f6feb;font-weight:700">Vermaelen (1981)</span> 发现 repurchase announcements（尤其 tender offers）产生显著正 announcement returns，tender offers 因成本更高而信号更强，支持 costly signaling 和 undervaluation hypothesis。
+
+**Agency**
+
+$$
+\begin{aligned}
+\text{FCF high}+\text{growth low}
+&\Rightarrow
+\text{overinvestment risk}\uparrow
+\Rightarrow
+\text{payout discipline value}\uparrow.
+\end{aligned}
+$$
+
+Agency theory 预测 payout 减少管理层控制的 free cash flow，约束 overinvestment，尤其对 high FCF + low growth firms 价值更大。<span style="color:#1f6feb;font-weight:700">Jensen (1986)</span> 是 free cash flow hypothesis 的理论核心，预测 mature firms with limited growth opportunities 应通过 payout 约束 managerial discretion。<span style="color:#1f6feb;font-weight:700">La Porta et al. (2000)</span> 用 cross-country evidence 检验 investor protection 与 payout policy 的关系，发现 strong investor protection countries 的 firms payout ratio 更高，说明 legal protection 和 payout 都是约束 agency problem 的机制；weak protection countries 中 payout 更低，支持 agency-based payout theory。
+
+**Flexibility / timing**
+
+$$
+\begin{aligned}
+\text{temporary cash flow}
+&\Rightarrow
+\text{repurchase},\\
+\text{persistent cash flow}
+&\Rightarrow
+\text{dividend}.
+\end{aligned}
+$$
+
+Flexibility theory 预测 dividends 是 sticky commitment（适合 permanent cash flows），repurchases 是 flexible（适合 temporary/volatile cash flows）。<span style="color:#1f6feb;font-weight:700">Jagannathan, Stephens and Weisbach (2000)</span> 比较 dividends 和 repurchases 与 cash flow volatility 的关系，发现 repurchases 与 temporary earnings shocks 正相关，dividends 与 persistent cash flows 正相关，说明 firms 用 repurchases 管理 temporary cash，用 dividends commit to permanent payout，支持 flexibility theory。<span style="color:#1f6feb;font-weight:700">Peyer and Vermaelen (2009)</span> 发现 buyback firms 有显著正 long-run abnormal returns，且效应在 undervaluation proxies 高的 firms 更强，说明 repurchases 传递 undervaluation signal，支持 market timing / undervaluation hypothesis。
+
+**Ideal policy**
+
+Dividend tax cut. Treated firms are firms with high taxable individual ownership or high historical dividend propensity.
 
 $$
 \begin{aligned}
 \text{Dividend}_{i,t}
 &=
 \alpha_i+\delta_t
-+\beta(\text{TaxSensitive}_{i}\times\text{PostTaxCut}_{t})
-+\gamma'X_{i,t}
++\beta(\text{TaxSensitiveOwner}_i\times Post_t)
++\gamma'X_{i,t-1}
 +\varepsilon_{i,t}.
 \end{aligned}
 $$
 
-其中 $\beta>0$ 表示 tax-sensitive firms 在 dividend tax penalty 下降后更增加 dividends。DID 的核心识别是假设 treated 和 control firms 在税改前有 parallel trends，且没有同时发生只影响 treated firms 的其他 shock。
+Prediction：$\beta>0$；dividends rise more for tax-sensitive firms, and ex-dividend price-drop ratio changes.
+
+**Threats**
+
+1. Tax reform may coincide with macro shocks.
+2. Investor ownership composition may change endogenously.
 
 ::::
+
+#### 2-4 Theory Comparison
+
+**Question** 比较 payout policy 中 tax clientele、signaling、agency、life-cycle / flexibility 与 repurchase market timing 的机制差异，并整理相关实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+payout theories 的差异在于 payout 改变的是投资者税后收益、信息集合、managerial discretion、cash-flow commitment，还是股票供给和误定价。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | 核心摩擦 | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| Tax clientele | dividends and capital gains are taxed differently | investors sort into firms with tax-preferred payout policies | dividend yield 与 investor tax status 相关；tax cuts raise dividend propensity |
+| Signaling | managers have private information about future cash flows | costly payout increase signals future profitability | dividend increase / repurchase announcement CAR 为正，且后续 earnings or forecasts 改善 |
+| Agency | free cash flow creates overinvestment | payout reduces cash under managerial control | high FCF + low $Q$ firms payout 更高；payout 后 inefficient investment 下降 |
+| Life-cycle / flexibility | cash-flow persistence and investment opportunities differ across firms | mature firms pay dividends; temporary cash-flow shocks use repurchases | mature profitable firms pay dividends；volatile or temporary cash-flow firms use repurchases |
+| Repurchase timing | market undervaluation / underreaction | managers repurchase when shares are undervalued | repurchase announcements follow poor prior returns and predict positive long-run abnormal returns |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| Tax clientele | <span style="color:#1f6feb;font-weight:700">Elton and Gruber (1970)</span> | ex-dividend-day price drop ratio | price drop reflects relative taxation of dividends and capital gains |
+| Tax clientele | <span style="color:#1f6feb;font-weight:700">Brav et al. (2008)</span> | 2003 dividend tax cut and managerial responses | dividend tax penalty affects payout, but taxes are not the only determinant |
+| Signaling | <span style="color:#1f6feb;font-weight:700">Aharony and Swary (1980)</span> | dividend-change announcement returns | dividend increases are good news and cuts are bad news |
+| Signaling / repurchase | <span style="color:#1f6feb;font-weight:700">Vermaelen (1981)</span> | repurchase tender-offer announcements | repurchases can reveal undervaluation or favorable private information |
+| Agency | <span style="color:#1f6feb;font-weight:700">Jensen (1986)</span>; <span style="color:#1f6feb;font-weight:700">La Porta et al. (2000)</span> | free-cash-flow theory and cross-country payout evidence | payout is linked to agency conflicts and investor protection |
+| Life-cycle | <span style="color:#1f6feb;font-weight:700">Fama and French (2001)</span>; <span style="color:#1f6feb;font-weight:700">DeAngelo, DeAngelo and Stulz (2006)</span> | dividend propensity and earned / contributed capital mix | mature firms with accumulated earned capital are more likely to pay dividends |
+| Flexibility / timing | <span style="color:#1f6feb;font-weight:700">Jagannathan, Stephens and Weisbach (2000)</span>; <span style="color:#1f6feb;font-weight:700">Peyer and Vermaelen (2009)</span> | dividends vs repurchases and buyback anomaly | repurchases are more flexible and often associated with undervaluation |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Tax}
+&:\ \text{payout changes after-tax investor payoff},\\
+\text{Signaling}
+&:\ \text{payout changes market beliefs about future cash flow},\\
+\text{Agency}
+&:\ \text{payout changes managerial control over cash},\\
+\text{Flexibility}
+&:\ \text{payout method matches cash-flow persistence},\\
+\text{Timing}
+&:\ \text{repurchase exploits undervaluation and market underreaction}.
+\end{aligned}
+$$
+
+::::
+
+### 3. Seasoned Equity Offerings
+
+#### 3-1 Literature Review
+
+**Question** 对 Seasoned Equity Offerings 做 literature review。按 adverse selection、market timing、ownership-monitoring、price pressure、target leverage adjustment 分类，说明机制、预测和代表文献。
+
+::::{collapse} 分析框架
+
+SEO 题的核心是 announcement effect、flotation method、long-run performance。样题很可能直接从这里出。
+
+::::
+
+::::{solution}
+
+SEO 是已经上市公司在 IPO 后再次发行股票筹资。重点是 primary SEO。
+
+
+| Theory | Mechanism | Predictions | Papers |
+| :--- | :--- | :--- | :--- |
+| Adverse selection | managers issue equity when overvalued; market infers bad news | SEO announcement $CAR<0$；more negative for opaque firms | <span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span>, <span style="color:#1f6feb;font-weight:700">Asquith and Mullins (1986)</span>, <span style="color:#1f6feb;font-weight:700">Masulis and Korwar (1986)</span> |
+| Market timing | firms exploit high valuation / hot market windows | SEOs after high prior returns and high $M/B$；post-SEO BHAR $<0$ | <span style="color:#1f6feb;font-weight:700">Baker and Wurgler (2002)</span>, <span style="color:#1f6feb;font-weight:700">Loughran and Ritter (1995)</span>, <span style="color:#1f6feb;font-weight:700">Spiess and Affleck-Graves (1995)</span> |
+| Ownership-monitoring | equity issue can bring blockholder certification and monitoring | private placements / blockholder participation $\Rightarrow CAR$ less negative or positive | <span style="color:#1f6feb;font-weight:700">Wruck (1989)</span>, <span style="color:#1f6feb;font-weight:700">Hertzel and Smith (1993)</span> |
+| Price pressure | new share supply depresses price mechanically when demand slopes down | larger relative offer size and lower liquidity $\Rightarrow$ more negative price impact, reversal later | Scholes logic, <span style="color:#1f6feb;font-weight:700">Corwin (2003)</span> |
+| Target leverage adjustment | SEO reduces leverage when firm is overlevered | high leverage gap $\Rightarrow SEO$；post-SEO leverage closer to target | <span style="color:#1f6feb;font-weight:700">Masulis (1980)</span>, dynamic trade-off literature |
+| Rights offer puzzle | rights have low direct cost but hidden participation / liquidity / signal costs | firm commitment remains common despite higher direct cost | <span style="color:#1f6feb;font-weight:700">Eckbo and Masulis (1992)</span> |
+
+**Adverse-selection dilution**
+
+$$
+\begin{aligned}
+n&=\frac{I}{\hat p},\\
+\Delta W_{\text{old}}
+&=
+NPV
+-I\left(\frac{p^\ast}{\hat p}-1\right).
+\end{aligned}
+$$
+
+If $\hat p<p^\ast$, existing shareholders bear dilution losses; therefore managers issue equity mainly when stock is not undervalued, creating negative announcement interpretation.
+
+**Rights offer puzzle**
+
+Rights issues often have lower direct flotation costs, but U.S. firms often use firm commitment offers. The reason is that total flotation cost includes hidden costs, liquidity effects, take-up risk, adverse selection, and agency considerations.
+
+$$
+\begin{aligned}
+\text{total flotation cost}
+&=
+\text{direct cost}
++\text{indirect cost}
++\text{information / agency cost}.
+\end{aligned}
+$$
+
+::::
+
+#### 3-2 Research Proposal
+
+**Question** 设计一个 research proposal，检验 SEO announcement effects 是 adverse selection 还是 market timing。
+
+::::{collapse} 分析框架
+
+Adverse selection 最适合用 disclosure shock；market timing 最适合用 waiting-period / timing-restriction shock。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Does enhanced disclosure before SEO reduce adverse-selection costs?
+
+**Policy shock**
+
+SEC unexpectedly requires detailed use-of-proceeds disclosure, segment forecasts, and insider trading plans before SEO filings for a treated subset of issuers.
+
+**Mechanism**
+
+$$
+\begin{aligned}
+\text{Disclosure}\uparrow
+&\Rightarrow
+\text{InfoAsym}\downarrow
+\Rightarrow
+\text{adverse selection cost}\downarrow\\
+&\Rightarrow
+CAR^{SEO}\uparrow,\ \text{issue discount}\downarrow.
+\end{aligned}
+$$
+
+**Data**
+
+- SDC：SEO announcements, offer size, flotation method, issuance date.
+- CRSP：daily returns for CAR and long-run returns.
+- Compustat：firm controls.
+- SEC filings / textual disclosure：pre-SEO disclosure quality.
+- IBES：analyst coverage and forecast dispersion.
+
+**Regression**
+
+$$
+\begin{aligned}
+CAR^{SEO}_{i,t}
+&=
+\alpha
++\beta(\text{Treated}_i\times Post_t)
++\theta \text{InfoAsym}_{i,t-1}
++\lambda \text{OfferSize}_{i,t}\\
+&\quad
++\gamma'X_{i,t-1}
++\delta_t+\eta_j+\varepsilon_{i,t}.
+\end{aligned}
+$$
+
+Expected:
+
+$$
+\begin{aligned}
+\beta>0
+&\Rightarrow
+\text{less negative SEO reaction after disclosure},\\
+\theta<0
+&\Rightarrow
+\text{opaque issuers have more negative CAR},\\
+\left|\theta\right| \text{ declines after policy}
+&\Rightarrow
+\text{disclosure weakens adverse selection}.
+\end{aligned}
+$$
+
+**Alternative market-timing design**
+
+Randomly lengthen filing-to-issuance waiting period for a subset of firms:
+
+$$
+\begin{aligned}
+\Pr(\text{SEO}_{i,t})
+&=
+\alpha_i+\delta_t
++\beta(\text{TimingRestriction}_i\times Post_t)
++\theta Valuation_{i,t-1}
++\gamma'X_{i,t-1}
++u_{i,t}.
+\end{aligned}
+$$
+
+If market timing matters, timing restrictions reduce the sensitivity of SEO issuance to high $M/B$ and reduce post-SEO underperformance.
+
+**Threats**
+
+1. Disclosure rule may also increase litigation risk and change issuer composition.
+2. Long-run SEO underperformance is sensitive to benchmark choice and sample selection.
+
+::::
+
+#### 3-3 Mechanism Question
+
+**Question** Briefly state the economic mechanism and testable predictions for three SEO announcement-effect theories: information asymmetry / adverse selection, market timing, ownership-monitoring, and price pressure. For each selected theory, summarize one empirical paper and design one ideal policy change.
+
+::::{collapse} 分析框架
+
+这类问题应围绕每个 theory 的 mechanism、prediction 与 empirical paper 展开。
+
+::::
+
+::::{solution}
+
+**Adverse selection**
+
+$$
+\begin{aligned}
+\text{InfoAsym}\uparrow
+&\Rightarrow
+\Pr(\text{overvalued equity issue})\uparrow
+\Rightarrow
+CAR^{SEO}\downarrow.
+\end{aligned}
+$$
+
+Adverse selection theory 预测信息不对称下 equity issuance 被市场解读为 overvaluation signal，announcement 应产生负 CAR，且 information asymmetry 越高、issue size 越大，CAR 越负。<span style="color:#1f6feb;font-weight:700">Asquith and Mullins (1986)</span> 和 <span style="color:#1f6feb;font-weight:700">Masulis and Korwar (1986)</span> 用 event study 测量 SEO announcement returns，发现 SEO announcements 产生显著负 CAR，且 issue size 越大、management sells shares 时 CAR 更负，说明市场将 SEO 解读为 overvaluation signal，支持 Myers-Majluf adverse selection theory。
+
+**Market timing**
+
+$$
+\begin{aligned}
+\text{prior return},M/B\uparrow
+&\Rightarrow
+\Pr(\text{SEO})\uparrow,\\
+\text{SEO}
+&\Rightarrow
+BHAR_{[1,36/60]}\downarrow.
+\end{aligned}
+$$
+
+Market timing theory 预测 firms 在 overvaluation windows 发行股票，post-SEO 应有 long-run underperformance。<span style="color:#1f6feb;font-weight:700">Loughran and Ritter (1995)</span> 和 <span style="color:#1f6feb;font-weight:700">Spiess and Affleck-Graves (1995)</span> 测量 post-SEO long-run returns，比较 issuers 和 matched non-issuers，发现 issuers 显著 underperform（持续 3-5 年），且 high prior $M/B$ 和 high prior returns 的 issuers underperformance 更严重，说明 firms 在 overvaluation 时 time the market 发行股票，支持 market timing theory，挑战 efficient market hypothesis。
+
+**Ownership-monitoring**
+
+$$
+\begin{aligned}
+\text{blockholder entry}
+&\Rightarrow
+\text{monitoring}\uparrow
+\Rightarrow
+CAR^{SEO}\uparrow.
+\end{aligned}
+$$
+
+Ownership-monitoring theory 预测如果 equity issuance 引入 blockholders 或改善 ownership structure，monitoring 增强应产生正 announcement effect。<span style="color:#1f6feb;font-weight:700">Wruck (1989)</span> 检验 private placements 的 announcement returns，发现 private placements（相比 public offerings）产生显著正 CAR，且 ownership concentration 增加、blockholder entry 时 CAR 更高，说明 equity issuance 可通过改善 ownership structure 和 monitoring 创造价值，支持 monitoring hypothesis；但 public SEOs 通常分散 ownership，因此 monitoring effect 较弱。
+
+**Price pressure**
+
+$$
+\begin{aligned}
+\frac{\text{OfferSize}}{\text{MarketCap}}\uparrow,\ \text{Liquidity}\downarrow
+&\Rightarrow
+\text{temporary price impact}\downarrow.
+\end{aligned}
+$$
+
+Price pressure theory 预测新股供给在短期内压低价格（需求曲线向下倾斜），temporary price impact 取决于 offer size 和 liquidity。<span style="color:#1f6feb;font-weight:700">Corwin (2003)</span> 分解 SEO discounts 为 information component 和 price pressure component，用 offer size、liquidity、post-SEO price recovery 识别两种效应，发现 both information asymmetry and price pressure 显著影响 SEO pricing；large offers 和 low liquidity stocks 的 price pressure 更强；post-SEO price partially recovers，说明部分 discount 是 temporary price pressure 而非 permanent information effect，支持 downward-sloping demand curves 和 price pressure theory。
+
+**Ideal policy**
+
+Mandatory pre-SEO disclosure. Expected outcome：SEO announcement CAR becomes less negative, especially for opaque firms.
+
+**Threats**
+
+1. Policy may change issuer composition.
+2. Disclosure may affect litigation risk and underwriter screening, not just information asymmetry.
+
+::::
+
+#### 3-4 Theory Comparison
+
+**Question** 比较 SEO announcement effects 的 adverse selection、market timing、ownership-monitoring 与 price pressure 机制差异，并整理相关实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+SEO 的对比重点是区分 negative announcement return 来自 information revelation、overvaluation correction、ownership/control change，还是短期股票供给冲击。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | 核心摩擦 | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| Adverse selection | managers know whether equity is overvalued | equity issue reveals possible overvaluation | SEO announcement CAR negative；effect stronger for opaque firms, large issues, and insider selling |
+| Market timing | managers issue when market valuation is temporarily high | high valuation induces issuance, followed by correction | SEO follows high prior returns / high $M/B$ and predicts long-run underperformance |
+| Ownership-monitoring | issuance changes blockholder incentives and monitoring | private placement or concentrated buyer improves governance | CAR can be positive when ownership concentration and monitoring rise |
+| Price pressure | demand curve for shares is downward sloping in short run | large new share supply temporarily depresses price | discount / price drop increases with offer size and illiquidity; reversal may occur after absorption |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| Adverse selection | <span style="color:#1f6feb;font-weight:700">Asquith and Mullins (1986)</span>; <span style="color:#1f6feb;font-weight:700">Masulis and Korwar (1986)</span> | SEO announcement event studies | common-stock SEO announcements are negative, consistent with adverse information revelation |
+| Adverse selection | <span style="color:#1f6feb;font-weight:700">Myers and Majluf (1984)</span> | theory of financing under asymmetric information | equity issuance is interpreted as an overvaluation signal |
+| Market timing | <span style="color:#1f6feb;font-weight:700">Loughran and Ritter (1995)</span>; <span style="color:#1f6feb;font-weight:700">Spiess and Affleck-Graves (1995)</span> | long-run post-issue stock returns | issuers underperform matched non-issuers after SEOs |
+| Ownership-monitoring | <span style="color:#1f6feb;font-weight:700">Wruck (1989)</span> | private placement announcements and ownership concentration | private placements can create positive returns when monitoring improves |
+| Price pressure | <span style="color:#1f6feb;font-weight:700">Eckbo and Masulis (1992)</span>; <span style="color:#1f6feb;font-weight:700">Corwin (2003)</span> | rights offers / underwriting choice / SEO discounts | flotation method, offer size, and liquidity affect price impact and discount |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Adverse selection}
+&:\ \text{announcement reveals issuer type},\\
+\text{Market timing}
+&:\ \text{issuance exploits temporary overvaluation},\\
+\text{Monitoring}
+&:\ \text{issuance changes control and governance},\\
+\text{Price pressure}
+&:\ \text{issuance changes temporary share supply and liquidity demand}.
+\end{aligned}
+$$
+
+::::
+
+### 4. Labor and Corporate Finance
+
+#### 4-1 Literature Review
+
+**Question** 对 Labor and Corporate Finance 做 literature review。按 labor supply shocks、labor adjustment costs、bargaining power、human capital、labor welfare 分类。
+
+::::{collapse} 分析框架
+
+Labor 同时是 production input、stakeholder、financing friction 与 adjustment margin。分析时应把 labor shock 映射到 investment、leverage、payout 与 firm value。
+
+::::
+
+::::{solution}
+
+$$
+\begin{aligned}
+\text{Labor affects corporate finance}
+&\Longleftrightarrow
+\text{labor is a production input, a stakeholder, a financing friction, and an adjustment margin}.
+\end{aligned}
+$$
+
+
+| Channel | Mechanism | Predictions | Papers / slides |
+| :--- | :--- | :--- | :--- |
+| Labor supply shocks and IT substitution | labor scarcity raises relative labor cost; firms substitute IT / automation | labor shock $\Rightarrow$ employment growth $\downarrow$, IT investment $\uparrow$ | <span style="color:#1f6feb;font-weight:700">Ouimet, Simintzi and Ye (2025)</span>; <span style="color:#1f6feb;font-weight:700">Dai and Qiu (2024)</span> |
+| Capital-labor complementarity | lower capital cost can expand both equipment and labor | tax incentive $\Rightarrow$ capex and employment $\uparrow$ | <span style="color:#1f6feb;font-weight:700">Curtis et al. (2023)</span> |
+| Labor adjustment costs and leverage | firing costs / labor protection raise operating leverage; firms lower financial leverage | employment protection $\uparrow \Rightarrow leverage\downarrow$ | <span style="color:#1f6feb;font-weight:700">Simintzi, Vig and Volpin (2015)</span>, <span style="color:#1f6feb;font-weight:700">Serfling (2016)</span> |
+| Labor bargaining and strategic leverage | debt can reduce surplus available to unions | union power $\uparrow$ can induce strategic debt, but labor rigidity can reduce debt | <span style="color:#1f6feb;font-weight:700">Matsa (2010)</span> |
+| Unemployment risk and debt costs | workers demand compensation for firm distress risk | stronger UI lowers worker unemployment cost and raises debt capacity | <span style="color:#1f6feb;font-weight:700">Agrawal and Matsa (2013)</span> |
+| Human capital and mobility | skilled labor is non-collateralizable and mobile | high human capital intensity $\Rightarrow$ lower debt, more cash, stronger response to mobility shocks | <span style="color:#1f6feb;font-weight:700">Klasa et al. (2018)</span>, <span style="color:#1f6feb;font-weight:700">Jeffers (2024)</span>, <span style="color:#1f6feb;font-weight:700">Shen (2021)</span> |
+| Labor welfare | financial pressure reduces safety investment | constraints / earnings pressure $\Rightarrow$ injuries $\uparrow$ | <span style="color:#1f6feb;font-weight:700">Cohn and Wardlaw (2016)</span>, <span style="color:#1f6feb;font-weight:700">Caskey and Ozel (2017)</span> |
+
+Capital structure with labor costs:
+
+$$
+\begin{aligned}
+NPV[\text{Debt}]
+&=
+\underbrace{\text{Tax Shield}}_{\text{benefit}}
+-\underbrace{\mathbb{E}[\text{Distress Costs}]}_{\text{financial distress}}
+-\underbrace{\text{Labor Costs}}_{\text{wage compensation, turnover, bargaining}}.
+\end{aligned}
+$$
+
+Key conclusion：labor frictions change optimal leverage, cash holdings, investment, safety investment, and technology adoption.
+
+::::
+
+#### 4-2 Research Proposal
+
+**Question** 设计一个 research proposal，检验 negative labor supply shock 是否导致 firms substitute IT capital for labor。
+
+::::{collapse} 分析框架
+
+可采用的识别设计是 local labor supply shock，例如 opioid prescriptions、H-1B visa lottery / constraints、demographic shock。结果变量是 IT investment、employment、capital-labor ratio。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Do negative local labor supply shocks cause firms to substitute IT capital for labor?
+
+**Hypotheses**
+
+$$
+\begin{aligned}
+\text{LaborSupply}_{c,t}\downarrow
+&\Rightarrow
+w_{c,t}\uparrow
+\Rightarrow
+\frac{K^{IT}_{i,t}}{L_{i,t}}\uparrow,\\
+\text{effect}
+&\text{ stronger for routine-task-intensive firms},\\
+\text{effect}
+&\text{ ambiguous for skilled labor if AI/IT and skill are complements}.
+\end{aligned}
+$$
+
+**Data**
+
+- Local labor shock：opioid prescriptions, H-1B visa lottery / green card constraints, demographic shocks.
+- IT investment：CiTDB, Compustat software capex, job postings for IT/AI skills.
+- Employment and wage：BLS, Compustat employees, wage bill.
+- Firm controls：assets, cash flow, sales, industry, local demand.
+
+**Long-difference design**
+
+$$
+\begin{aligned}
+\Delta \ln(\text{IT Investment})_{i,c,t}
+&=
+\alpha_j+\delta_t
++\beta \Delta \text{LaborShock}_{c,t-5}
++\gamma'\Delta X_{c,t-5}
++\varepsilon_{i,c,t}.
+\end{aligned}
+$$
+
+**Alternative H-1B design**
+
+$$
+\begin{aligned}
+\ln(\text{IT Investment})_{i,t}
+&=
+\alpha_i+\delta_t
++\beta(\text{H1BExposure}_{i}\times Post_t)
++\gamma'X_{i,t-1}
++\varepsilon_{i,t}.
+\end{aligned}
+$$
+
+Expected:
+
+$$
+\begin{aligned}
+\beta>0
+&\Rightarrow
+\text{labor scarcity induces IT substitution},\\
+\beta<0
+&\Rightarrow
+\text{skilled labor and IT are complements}.
+\end{aligned}
+$$
+
+**Threats**
+
+1. Local opioid / labor shocks may also reduce product demand, not only labor supply.
+2. Firms may relocate or change plant composition, creating sample selection.
+3. Technology adoption may be driven by industry-level automation trends rather than local labor scarcity.
+
+::::
+
+#### 4-3 Mechanism Question
+
+**Question** State three channels through which labor markets affect corporate finance: labor supply and automation, labor adjustment costs and leverage, bargaining power and strategic debt, labor welfare and financing constraints. For each channel, summarize one empirical paper and propose an ideal policy setting.
+
+::::{collapse} 分析框架
+
+可选择三条可检验机制：IT substitution、labor protection and leverage、worker safety。
+
+::::
+
+::::{solution}
+
+**Labor supply shock and IT substitution**
+
+$$
+\begin{aligned}
+\text{qualified labor supply}\downarrow
+&\Rightarrow
+\text{relative labor cost}\uparrow
+\Rightarrow
+\text{IT / automation}\uparrow.
+\end{aligned}
+$$
+
+Labor supply theory 预测 qualified labor supply 下降提高 relative labor cost，诱发 IT/automation substitution。<span style="color:#1f6feb;font-weight:700">Ouimet, Simintzi and Ye (2025)</span> 利用 local opioid prescription shocks 作为 labor supply 外生负向冲击，发现 opioid-exposed counties 的 plants 显著增加 IT investment 和 automation，employment growth 下降，说明 labor scarcity 诱发 capital-labor substitution。
+
+**Labor adjustment costs and leverage**
+
+$$
+\begin{aligned}
+\text{labor rigidity}\uparrow
+&\Rightarrow
+\text{operating leverage}\uparrow
+\Rightarrow
+\text{financial leverage}\downarrow.
+\end{aligned}
+$$
+
+Labor adjustment costs theory 预测 labor rigidity 提高 operating leverage，firms 降低 financial leverage 以减少 total risk。<span style="color:#1f6feb;font-weight:700">Simintzi, Vig and Volpin (2015)</span> 利用跨国 employment protection reforms，<span style="color:#1f6feb;font-weight:700">Serfling (2016)</span> 利用 U.S. wrongful-discharge laws staggered adoption，均发现 labor protection 加强后 firms 显著降低 leverage，说明 operating leverage 和 financial leverage 是 substitutes。
+
+**Labor bargaining**
+
+$$
+\begin{aligned}
+\text{union bargaining power}\uparrow
+&\Rightarrow
+\text{rent extraction risk}\uparrow
+\Rightarrow
+\text{strategic leverage motive}\uparrow.
+\end{aligned}
+$$
+
+Labor bargaining theory 预测 debt commitments 减少可供 labor rent extraction 的 free cash flow，在 union bargaining power 高时 firms 有 strategic leverage motive。<span style="color:#1f6feb;font-weight:700">Matsa (2010)</span> 利用 right-to-work laws 变化作为 union bargaining power shocks，用 DiD 检验 union power 对 leverage 的影响，发现 union bargaining power 上升时 firms 显著提高 leverage，说明 firms 用 debt 作为 strategic commitment device 限制 labor rent extraction，支持 strategic debt hypothesis；debt 不仅是 financing tool，也是 bargaining tool。
+
+**Labor welfare**
+
+$$
+\begin{aligned}
+\text{financial pressure}\uparrow
+&\Rightarrow
+\text{safety investment}\downarrow
+\Rightarrow
+\text{workplace injuries}\uparrow.
+\end{aligned}
+$$
+
+Worker welfare theory 预测 financial pressure 降低 safety investment，将风险转移给 workers，导致 workplace injuries 上升。<span style="color:#1f6feb;font-weight:700">Cohn and Wardlaw (2016)</span> 检验 financing constraints 对 workplace safety 的影响，用 credit rating downgrades 和 covenant violations 识别 financial pressure shocks，发现 financially constrained firms 的 injury rates 显著上升，说明 financial pressure 导致 firms 削减 safety investment，将 operational risk 转移给 workers。<span style="color:#1f6feb;font-weight:700">Caskey and Ozel (2017)</span> 发现 earnings pressure（接近 analyst forecasts）时 firms 的 workplace injuries 显著增加，说明 short-term earnings management 牺牲 worker safety，支持 financial pressure 恶化 labor welfare 的预测。
+
+**Ideal policy**
+
+Randomized H-1B quota expansion or staggered labor protection reform. Use DiD / event study and test employment, IT investment, leverage, and productivity.
+
+**Threats**
+
+1. Labor policy may be adopted in states or industries with different trends.
+2. Spillovers across local labor markets may contaminate control groups.
+
+::::
+
+#### 4-4 Theory Comparison
+
+**Question** 比较 labor and corporate finance 中 labor supply / automation、labor adjustment costs、labor bargaining / strategic debt 与 worker welfare mechanisms 的机制差异，并整理相关实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+labor finance 的理论差异来自 labor 在企业中扮演的角色不同：生产要素、准固定成本、谈判方、风险承担者。不同角色对应不同 corporate policy。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | Labor role | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| Labor supply / automation | variable production input | local qualified labor supply falls, raising relative labor cost and inducing IT substitution | labor scarcity increases IT budget, PC investment, automation, capital-labor ratio |
+| Labor adjustment costs | quasi-fixed operating cost | firing costs and labor rigidity raise operating leverage, so firms reduce financial leverage | stronger employment protection lowers debt ratios and debt issuance |
+| Labor bargaining / strategic debt | stakeholder with rent-extraction power | debt commitments reduce free cash flow available to labor and strengthen bargaining position | union power or bargaining pressure can increase leverage |
+| Worker welfare / financing constraints | residual claimant on firm risk | financial pressure reduces safety investment and shifts risk to workers | financing constraints or earnings pressure increase workplace injuries |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| Labor supply / automation | <span style="color:#1f6feb;font-weight:700">Ouimet, Simintzi and Ye (2025)</span> | opioid prescription shocks and plant-level IT investment | negative labor supply shocks induce IT substitution |
+| Labor adjustment costs | <span style="color:#1f6feb;font-weight:700">Simintzi, Vig and Volpin (2015)</span> | employment protection reforms across countries | stronger labor protection reduces leverage |
+| Labor adjustment costs | <span style="color:#1f6feb;font-weight:700">Serfling (2016)</span> | U.S. wrongful-discharge laws | labor adjustment costs lead firms to choose lower financial leverage |
+| Labor bargaining | <span style="color:#1f6feb;font-weight:700">Matsa (2010)</span> | right-to-work laws and union bargaining | firms use debt strategically when labor bargaining power is high |
+| Worker welfare | <span style="color:#1f6feb;font-weight:700">Cohn and Wardlaw (2016)</span>; <span style="color:#1f6feb;font-weight:700">Caskey and Ozel (2017)</span> | financing constraints / earnings pressure and injury rates | financial pressure worsens workplace safety outcomes |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Supply / automation}
+&:\ \text{labor scarcity changes input mix},\\
+\text{Adjustment costs}
+&:\ \text{labor rigidity changes optimal leverage},\\
+\text{Bargaining}
+&:\ \text{labor power changes strategic debt incentives},\\
+\text{Worker welfare}
+&:\ \text{financial pressure changes safety and risk allocation}.
+\end{aligned}
+$$
+
+::::
+
+### 5. ESG and Climate
+
+#### 5-1 Literature Review
+
+**Question** 对 ESG and Climate 做 literature review。按 ESG measurement、green human capital、E-S trade-off、climate labor risk 分类。
+
+::::{collapse} 分析框架
+
+ESG 主题应避免停留在概念层面，分析时必须映射回 real investment、human capital demand、risk exposure、information measurement、valuation and financing。
+
+::::
+
+::::{solution}
+
+$$
+\begin{aligned}
+\text{ESG / Climate}
+&\Rightarrow
+\left\{
+\begin{aligned}
+&\text{real investment}\\
+&\text{human capital demand}\\
+&\text{risk exposure and adaptation}\\
+&\text{information and measurement}\\
+&\text{valuation and financing}
+\end{aligned}
+\right.
+\end{aligned}
+$$
+
+
+| Theme | Mechanism | Predictions | Papers / slides |
+| :--- | :--- | :--- | :--- |
+| Stakeholder theory | firms trade off shareholder value with employee, community, environment claims | ESG affects investment, risk, labor demand, governance | <span style="color:#1f6feb;font-weight:700">Freeman (1984)</span>, <span style="color:#1f6feb;font-weight:700">Edmans (2023)</span> |
+| ESG measurement / inside view | external ESG ratings noisy; employee text reveals implementation quality | employee ESG view predicts future ESG outcomes better than ratings | <span style="color:#1f6feb;font-weight:700">Berg et al. (2022)</span>, <span style="color:#1f6feb;font-weight:700">Briscoe-Tran (2026)</span> |
+| Green human capital | real E&S implementation requires specialized labor | green hiring predicts green innovation and profitability | <span style="color:#1f6feb;font-weight:700">Darendeli, Law and Shen (2022)</span> |
+| E vs S trade-off | firms have limited resources and attention across ESG dimensions | improvement in one ESG dimension may reduce another | <span style="color:#1f6feb;font-weight:700">Huang, Li and Zhou (2025)</span>, <span style="color:#1f6feb;font-weight:700">Effah, Qi and Zhang (2025)</span> |
+| Climate labor channel | heat reduces labor productivity and raises safety / wage / litigation costs | heat exposure lowers productivity and raises adaptation investment | <span style="color:#1f6feb;font-weight:700">Somanathan et al. (2021)</span>, <span style="color:#1f6feb;font-weight:700">Ortiz-Molina et al. (2023)</span>, <span style="color:#1f6feb;font-weight:700">Xiao (2024)</span> |
+
+**机制综合**
+
+ESG 不只是 disclosure 或 moral preference。分析中应将 ESG 表述为可观测 corporate policy：green hiring、safety investment、emissions, adaptation CAPEX, labor risk management, and future profitability。
+
+::::
+
+#### 5-2 Research Proposal
+
+**Question** 设计一个 research proposal，检验 firms 的 green hiring 是真实 capability building 还是 greenwashing。
+
+::::{collapse} 分析框架
+
+ESG 的核心难点是 measurement 和 greenwashing。较清晰的经验设计是用 job postings / employee reviews 捕捉行为信号，再看 future real outcomes。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Do firms that post more green jobs subsequently improve real environmental and financial outcomes, or are green postings mainly symbolic disclosure?
+
+**Hypotheses**
+
+$$
+\begin{aligned}
+\text{GreenHiring}_{i,t}\uparrow
+&\Rightarrow
+\text{green patents}_{i,t+k}\uparrow,\ \text{emissions}_{i,t+k}\downarrow,\\
+\text{real capability channel}
+&\Rightarrow
+\text{profitability}_{i,t+k}\uparrow,\\
+\text{greenwashing channel}
+&\Rightarrow
+\text{ESG disclosure / rating}\uparrow
+\quad\text{but real outcomes unchanged}.
+\end{aligned}
+$$
+
+**Data**
+
+- Lightcast / Burning Glass：job postings, green skills, job titles, required tasks.
+- ESG data：MSCI / Refinitiv / KLD ratings, sustainability reports, 10-K climate text.
+- Real environmental outcomes：emissions, toxic releases, green patents, environmental violations.
+- Financial outcomes：profitability, Tobin's $Q$, sales growth, operating margins.
+- Employee inside view：Glassdoor reviews if available.
+
+**Green hiring measure**
+
+$$
+\begin{aligned}
+\text{GreenScore}_{i,t}
+&=
+\frac{
+\#\{\text{green skills in firm }i\text{ postings at }t\}
+}{
+\#\{\text{all skills in firm }i\text{ postings at }t\}
+}.
+\end{aligned}
+$$
+
+**Baseline model**
+
+$$
+\begin{aligned}
+Y_{i,t+k}
+&=
+\alpha_i+\delta_t
++\beta \text{GreenScore}_{i,t}
++\theta \text{DisclosureESG}_{i,t}
++\gamma'X_{i,t}
++\varepsilon_{i,t+k}.
+\end{aligned}
+$$
+
+Outcomes $Y$ include green patents, emissions, environmental violations, workplace safety, profitability, and ESG ratings.
+
+**Mechanism split**
+
+$$
+\begin{aligned}
+\text{real capability}
+&\Longleftrightarrow
+\beta_{\text{real outcomes}}\neq0,\\
+\text{greenwashing}
+&\Longleftrightarrow
+\beta_{\text{ratings/disclosure}}>0
+\quad\text{but}\quad
+\beta_{\text{emissions/patents}}\approx0.
+\end{aligned}
+$$
+
+**Identification strategy**
+
+Use a disclosure mandate, climate policy shock, or stakeholder-pressure shock that increases ESG salience for exposed firms. Treated firms are firms with high pre-policy environmental exposure or high customer / investor ESG pressure.
+
+**Threats**
+
+1. Firms with better future green projects may post green jobs before outcomes.
+2. Job postings measure labor demand, not realized hiring.
+3. ESG policy shocks may also change regulation, financing constraints, or consumer demand.
+
+::::
+
+#### 5-3 Mechanism Question
+
+**Question** Explain three mechanisms in ESG / Climate corporate finance: ESG measurement and inside view, green human capital, E-S trade-off, and climate-labor risk. For each, summarize one empirical paper and give testable predictions.
+
+::::{collapse} 分析框架
+
+这类题要避免 moral discussion。必须写成 measurable corporate finance mechanism：谁受冲击、哪类投入变化、什么 real outcome 改变。
+
+::::
+
+::::{solution}
+
+**ESG measurement / inside view**
+
+$$
+\begin{aligned}
+\text{External rating noise}
+&\Rightarrow
+\text{measurement error},\\
+\text{employee inside view}
+&\Rightarrow
+\text{implementation information}.
+\end{aligned}
+$$
+
+ESG measurement theory 预测 external ratings 存在 measurement error，employee inside view 可能有 superior implementation information。<span style="color:#1f6feb;font-weight:700">Briscoe-Tran (2026)</span> 用 Glassdoor reviews 构造 employee inside-view ESG measures，检验其预测 future ESG outcomes 的能力，发现 inside-view measures 预测力显著超过 commercial ratings，说明 employees 有 superior information about real ESG practices。
+
+**Green human capital**
+
+$$
+\begin{aligned}
+\text{green job postings}
+&\Rightarrow
+\text{green capability investment}
+\Rightarrow
+\text{green patents and profitability}\uparrow.
+\end{aligned}
+$$
+
+Green human capital theory 预测 green job postings 反映 green capability investment，应预测 future green innovation 和 profitability。<span style="color:#1f6feb;font-weight:700">Darendeli, Law and Shen (2022)</span> 测量 green job postings 与 subsequent green patents、emissions、profitability 的关系，发现 green hiring 预测 future green patents 增加、emissions 下降、profitability 提高，说明 green hiring 是 real capability building，非仅 symbolic。
+
+**Climate-labor risk**
+
+$$
+\begin{aligned}
+\text{heat exposure}\uparrow
+&\Rightarrow
+A_L\downarrow,\ w\uparrow
+\Rightarrow
+\text{unit labor cost}\uparrow
+\Rightarrow
+\text{adaptation investment}\uparrow.
+\end{aligned}
+$$
+
+Climate-labor risk theory 预测 heat exposure 降低 labor productivity、提高 wage，诱发 adaptation investment。<span style="color:#1f6feb;font-weight:700">Ortiz-Molina, Xiao and Zheng (2023)</span> 利用 California Heat Illness Prevention Standards 作为 policy shock，发现 exposed firms 的 labor productivity 下降、injury costs 上升，firms 增加 cooling equipment 和 automation，说明 climate heat risk 通过 labor channel 影响 firms。
+
+**E-S trade-off**
+
+$$
+\begin{aligned}
+\text{ESG resources limited}
+&\Rightarrow
+\text{improvement in one dimension may crowd out another},\\
+\text{E regulation}\uparrow
+&\Rightarrow
+\text{S safety / labor outcomes may deteriorate if compliance costs bind}.
+\end{aligned}
+$$
+
+E-S trade-off theory 预测当 ESG resources 有限时，一个维度的强制改善可能 crowd out 另一维度投资。<span style="color:#1f6feb;font-weight:700">Huang, Li and Zhou (2025)</span> 测量 environmental regulation shocks 对 social outcomes 的影响，发现 E regulation 收紧后 environmental performance 改善但 workplace injuries 上升，说明 E-S 存在 trade-off when resources constrained。<span style="color:#1f6feb;font-weight:700">Effah, Qi and Zhang (2025)</span> 发现 constrained firms 的 E 和 S 负向 interact，支持 resource-based view。
+
+**Threats**
+
+1. ESG measures are noisy and rating disagreement creates measurement error.
+2. Green hiring can be symbolic if postings do not turn into realized capabilities.
+3. Climate shocks may affect both labor productivity and local demand.
+
+::::
+
+#### 5-4 Theory Comparison
+
+**Question** 比较 ESG / Climate 中 measurement / greenwashing、green human capital、E-S trade-off 与 climate-labor risk 的机制差异，并整理相关实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+ESG 对比题要把 ESG 拆成可观测企业政策：measurement signal、capability investment、resource allocation trade-off、physical climate exposure。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | 核心问题 | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| Measurement / greenwashing | ESG ratings and disclosure are noisy | firms may improve disclosure without improving real outcomes | ratings / disclosure improve, but emissions, safety, green patents or future ESG outcomes do not |
+| Green human capital | ESG requires specialized human capital | green hiring builds implementation capability | green job postings predict green patents, environmental performance, and profitability |
+| E-S trade-off | ESG dimensions compete for resources and attention | environmental compliance may crowd out social investment, or vice versa | improvements in E may coincide with deterioration in safety / labor outcomes when constraints bind |
+| Climate-labor risk | physical climate risk affects labor productivity | heat exposure lowers labor productivity and raises adaptation costs | exposed firms increase adaptation CAPEX, safety investment, automation, or relocate activity |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| Measurement disagreement | <span style="color:#1f6feb;font-weight:700">Berg et al. (2022)</span> | ESG rating divergence across providers | ESG measurement is noisy and disagreement is economically meaningful |
+| Inside-view measurement | <span style="color:#1f6feb;font-weight:700">Briscoe-Tran (2026)</span> | employee reviews and future ESG outcomes | employee inside-view ESG predicts future outcomes beyond external ratings |
+| Green human capital | <span style="color:#1f6feb;font-weight:700">Darendeli, Law and Shen (2022)</span> | green job postings and subsequent outcomes | green hiring captures real capability building and predicts green innovation / profitability |
+| E-S trade-off | <span style="color:#1f6feb;font-weight:700">Huang, Li and Zhou (2025)</span>; <span style="color:#1f6feb;font-weight:700">Effah, Qi and Zhang (2025)</span> | environmental-social outcome interaction | ESG dimensions can substitute when attention or financial resources are constrained |
+| Climate-labor risk | <span style="color:#1f6feb;font-weight:700">Ortiz-Molina, Xiao and Zheng (2023)</span>; <span style="color:#1f6feb;font-weight:700">Somanathan et al. (2021)</span> | heat exposure and labor productivity / firm adaptation | climate heat risk operates through labor productivity and adaptation investment |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Measurement}
+&:\ \text{signal quality problem},\\
+\text{Green human capital}
+&:\ \text{capability investment problem},\\
+\text{E-S trade-off}
+&:\ \text{resource allocation problem across ESG dimensions},\\
+\text{Climate-labor risk}
+&:\ \text{physical risk changes productivity and adaptation demand}.
+\end{aligned}
+$$
+
+::::
+
+### 6. AI and Corporate Finance
+
+#### 6-1 Literature Review
+
+**Question** 对 AI and Corporate Finance 做 literature review。按 AI measurement、AI as general-purpose technology、product innovation vs process innovation、GenAI exposure and valuation 分类。
+
+::::{collapse} 分析框架
+
+AI 应单独讨论，不宜混入 ESG 框架。核心是把 AI adoption 映射到 growth、innovation、labor reallocation、valuation 和 financing needs。
+
+::::
+
+::::{solution}
+
+$$
+\begin{aligned}
+\text{AI adoption}
+&\Rightarrow
+\left\{
+\begin{aligned}
+&\text{product innovation and market expansion}\\
+&\text{process innovation and cost reduction}\\
+&\text{skill demand and labor reallocation}\\
+&\text{intangible capital and financing needs}\\
+&\text{growth-option valuation}
+\end{aligned}
+\right.
+\end{aligned}
+$$
+
+
+| Theme | Mechanism | Predictions | Papers / slides |
+| :--- | :--- | :--- | :--- |
+| AI measurement | job postings and resumes reveal AI labor demand and AI worker stock | AI skill share predicts future firm outcomes | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> |
+| AI as GPT | AI changes production function and scalability | AI intensity $\uparrow \Rightarrow$ sales, employment, market value $\uparrow$ | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> |
+| Product innovation | AI expands product scope and innovation opportunities | product patents, trademarks, product portfolio breadth $\uparrow$ | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> |
+| Process innovation | AI may automate tasks and reduce costs | TFP $\uparrow$, costs $\downarrow$, exposed labor demand ambiguous | AI / automation literature |
+| GenAI exposure | task exposure changes market expectations and hiring demand | high GenAI exposure firms reprice after ChatGPT; labor demand reallocates | <span style="color:#1f6feb;font-weight:700">Eisfeldt et al. (2025)</span> |
+
+**AI measurement from job postings**
+
+$$
+\begin{aligned}
+w_s^{AI}
+&=
+\frac{
+\#\{\text{jobs requiring skill }s\text{ and AI/ML/NLP/CV}\}
+}{
+\#\{\text{jobs requiring skill }s\}
+},\\
+\text{AIIntensity}_{i,t}
+&=
+\sum_s \text{SkillShare}_{i,s,t}\times w_s^{AI}.
+\end{aligned}
+$$
+
+**GenAI exposure**
+
+$$
+\begin{aligned}
+X^O
+&=
+\frac{\sum_{T\in O}X^T}{\sum_{T\in O}1},\\
+X^f
+&=
+\sum_{O\in f}\text{EmpShare}_{f,O}X^O.
+\end{aligned}
+$$
+
+::::
+
+#### 6-2 Research Proposal
+
+**Question** 设计一个 research proposal，检验 firm-level AI investment 是否提升 firm growth and valuation，并区分 product innovation 和 cost reduction 机制。
+
+::::{collapse} 分析框架
+
+可使用 <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> 式 AI worker / job posting measure，再用 pre-existing hiring network $\times$ AI university strength 做 IV。
+
+::::
+
+::::{solution}
+
+**Research question**
+
+Does firm-level AI investment causally increase growth, and is the mechanism product innovation or cost reduction?
+
+**Hypotheses**
+
+$$
+\begin{aligned}
+\text{AIIntensity}\uparrow
+&\Rightarrow
+\text{sales growth}\uparrow,\ \text{employment growth}\uparrow,\ \text{market value}\uparrow,\\
+\text{product innovation channel}
+&\Rightarrow
+\text{patents/trademarks/product scope}\uparrow,\\
+\text{process innovation channel}
+&\Rightarrow
+\text{TFP}\uparrow,\ \text{costs}\downarrow,\ \text{labor demand}\downarrow.
+\end{aligned}
+$$
+
+**Data**
+
+- Burning Glass / Lightcast：AI job postings and skills.
+- Cognism / LinkedIn / Revelio：AI worker stock.
+- Compustat / CRSP：sales, employment, market value, investment, returns.
+- Patent and trademark data：innovation mechanisms.
+- Pre-2010 hiring network and AI university research strength for IV-style design.
+
+**Long-difference model**
+
+$$
+\begin{aligned}
+\Delta \log Y_i
+&=
+\beta \Delta \text{ShareAIWorkers}_i
++\Gamma'\Delta X_i
++\eta_j
++\varepsilon_i,
+\end{aligned}
+$$
+
+where $Y_i\in\{\text{Sales},\text{Employment},\text{Market Value}\}$.
+
+**IV idea**
+
+$$
+\begin{aligned}
+Z_i
+&=
+\text{Pre-2010 HiringNetwork}_{i,u}
+\times
+\text{AIResearchStrength}_{u,\text{ex ante}}.
+\end{aligned}
+$$
+
+First stage：
+
+$$
+\begin{aligned}
+\Delta \text{ShareAIWorkers}_i
+&=
+\pi Z_i+\Gamma'\Delta X_i+\eta_j+\nu_i.
+\end{aligned}
+$$
+
+Second stage：
+
+$$
+\begin{aligned}
+\Delta \log Y_i
+&=
+\beta \widehat{\Delta \text{ShareAIWorkers}}_i
++\Gamma'\Delta X_i+\eta_j+\varepsilon_i.
+\end{aligned}
+$$
+
+**Expected results**
+
+$$
+\begin{aligned}
+\beta>0
+&\Rightarrow
+\text{AI raises growth / valuation},\\
+\beta_{\text{patent/trademark}}>0
+&\Rightarrow
+\text{product innovation channel},\\
+\beta_{\text{cost}}<0
+&\Rightarrow
+\text{process innovation channel}.
+\end{aligned}
+$$
+
+**Threats**
+
+1. AI adoption is endogenous: high-growth firms hire AI workers because they already expect growth.
+2. Job postings measure demand, not actual adoption; measurement error may bias OLS.
+3. IV exclusion may fail if historical university networks affect growth through other high-skill channels.
+
+::::
+
+#### 6-3 Mechanism Question
+
+**Question** Explain three mechanisms in AI corporate finance: AI as general-purpose technology, product innovation vs process innovation, and GenAI exposure / repricing. For each, summarize one empirical paper and give predictions.
+
+::::{collapse} 分析框架
+
+AI 题要写成 corporate finance：它改变 growth options、labor demand、intangible investment、valuation，而不是只讨论技术本身。
+
+::::
+
+::::{solution}
+
+**AI as general-purpose technology**
+
+$$
+\begin{aligned}
+\text{AI adoption}
+&\Rightarrow
+\text{scalability}\uparrow,\ \text{growth option value}\uparrow
+\Rightarrow
+\text{market value}\uparrow.
+\end{aligned}
+$$
+
+AI as GPT theory 预测 AI 提高生产函数可扩展性，创造 growth options，提高 market value。<span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> 用 AI job postings 和 IV（pre-existing hiring networks × AI university strength）测量 AI adoption，发现 AI adoption 因果性提高 sales、employment、market value，且 product innovation 渠道强于 cost reduction。
+
+**Product innovation vs process innovation**
+
+$$
+\begin{aligned}
+\text{product innovation}
+&\Rightarrow
+\text{patents/trademarks/product scope}\uparrow,\\
+\text{process innovation}
+&\Rightarrow
+\text{TFP}\uparrow,\ \text{costs}\downarrow.
+\end{aligned}
+$$
+
+Product innovation vs process innovation：AI 可通过扩展 product scope（产生 patents、trademarks）或提高 productivity（TFP、cost reduction）创造价值。实证证据显示 AI 的 product innovation 渠道更强：AI intensity 显著预测 product patents 和 trademarks 增加，但短期内对 TFP 和 costs 影响较弱，说明 AI 主要通过扩展产品和市场而非立即削减成本提升价值。
+
+**GenAI exposure and repricing**
+
+$$
+\begin{aligned}
+\text{GenAI exposure}\uparrow
+&\Rightarrow
+\text{expected productivity / profits}\uparrow
+\Rightarrow
+\text{stock market repricing}\uparrow,\\
+\text{GenAI exposure}\uparrow
+&\Rightarrow
+\text{labor demand reallocation}.
+\end{aligned}
+$$
+
+GenAI exposure theory 预测 GenAI 改变 task-level productivity expectations，high GenAI-exposed firms 预期利润上升，触发 stock market repricing 和 labor reallocation。<span style="color:#1f6feb;font-weight:700">Eisfeldt et al. (2025)</span> 用 ChatGPT release 作为 event study，构造 firm-level GenAI exposure（基于 occupation-level task exposure），发现 high-exposure firms 显著正向 repriced，且 labor demand 从 exposed occupations 转向 complementary occupations。
+
+**Threats**
+
+1. AI exposure may proxy for pre-existing high-skill or tech orientation.
+2. Market repricing may reflect hype or sentiment rather than realized productivity.
+3. Job postings capture intended hiring, not realized adoption or productive use.
+
+::::
+
+#### 6-4 Theory Comparison
+
+**Question** 比较 AI and Corporate Finance 中 AI measurement、AI as GPT、product vs process innovation 与 GenAI exposure 的机制差异，并整理相关实证文章和支持结论。
+
+::::{collapse} 分析框架
+
+AI 对比题的关键是把 AI adoption 拆成可观测企业决策：labor demand signal、capability investment、innovation channel choice、task-exposure repricing。
+
+::::
+
+::::{solution}
+
+**机制差异**
+
+| Theory | 核心问题 | 机制链条 | 区别性预测 |
+| :--- | :--- | :--- | :--- |
+| AI measurement | how to measure firm-level AI adoption | AI job postings and AI worker stock reveal AI labor demand and capability | AI intensity predicts future sales, employment, and market value growth |
+| AI as GPT | AI is general-purpose technology that changes production function | AI raises scalability and creates growth options | AI firms grow faster in sales, employment, innovation, and valuation |
+| Product innovation | AI expands product scope and market opportunities | AI enables new products, patents, trademarks, and market entry | AI intensity predicts product patents, trademarks, and product-line breadth |
+| Process innovation | AI automates tasks and reduces costs | AI substitutes for routine tasks and raises productivity | AI intensity predicts TFP gains, cost reductions, and labor displacement in exposed tasks |
+| GenAI exposure | ChatGPT and GenAI change expected productivity and labor demand | high GenAI task exposure raises expected profits and reallocates labor | high GenAI-exposure firms are repriced after ChatGPT; labor demand shifts away from exposed tasks |
+
+**实证支持**
+
+| Theory | Empirical paper | Empirical design / evidence | 支持结论 |
+| :--- | :--- | :--- | :--- |
+| AI measurement | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> | AI job postings and resume-based AI worker stock | AI job postings and worker stock measure firm-level AI adoption and predict outcomes |
+| AI as GPT | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> | long-difference and IV using pre-existing hiring networks × AI university strength | AI adoption causally increases sales, employment, and market value |
+| Product innovation | <span style="color:#1f6feb;font-weight:700">Babina et al. (2024)</span> | AI intensity and subsequent patents, trademarks, product scope | AI investment predicts product innovation more strongly than immediate cost reduction |
+| Process innovation | <span style="color:#1f6feb;font-weight:700">Brynjolfsson, Li and Raymond (2025)</span> | GenAI adoption and firm productivity | AI adoption can raise productivity and automate routine tasks |
+| GenAI exposure | <span style="color:#1f6feb;font-weight:700">Eisfeldt et al. (2025)</span> | ChatGPT event study and occupation-level GenAI exposure | high GenAI-exposure firms are repriced positively after ChatGPT; labor demand reallocates |
+
+**核心对比**
+
+$$
+\begin{aligned}
+\text{Measurement}
+&:\ \text{how to observe AI adoption at firm level},\\
+\text{AI as GPT}
+&:\ \text{AI changes production function and scalability},\\
+\text{Product innovation}
+&:\ \text{AI expands product scope and growth options},\\
+\text{Process innovation}
+&:\ \text{AI automates tasks and raises productivity},\\
+\text{GenAI exposure}
+&:\ \text{GenAI changes expectations and labor reallocation}.
+\end{aligned}
+$$
+
+::::
+
