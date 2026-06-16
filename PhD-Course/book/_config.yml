@@ -15,7 +15,7 @@ sphinx:
     tikz_lexer: _ext
     solution_block: _ext
   config:
-    html_baseurl: https://yuning598.github.io/PhD-Course
+    html_baseurl: https://yuning598.github.io/Notes
     html_show_copyright: false
     html_last_updated_fmt: '%b %d, %Y'
     html_extra_path:
@@ -40,7 +40,7 @@ sphinx:
     mermaid_version: "10.6.1"
     tikz_proc_suite: GhostScript
     html_theme_options:
-      repository_url: https://github.com/Yuning598/PhD-Course
+      repository_url: https://github.com/Yuning598/Notes
       repository_branch: main
       path_to_docs: book
       use_edit_page_button: true

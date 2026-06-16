@@ -272,7 +272,7 @@ Under convex production sets and convex preferences, every interior Pareto effic
 
 ```{raw} html
 <div style="width:100%;max-width:1120px;margin:0 auto;">
-  <iframe src="/PhD-Course/production-welfare-theorems-widget.html" title="Production Welfare Theorems" loading="lazy" style="width:100%;height:610px;border:0;display:block;border-radius:16px;"></iframe>
+  <iframe src="/Notes/production-welfare-theorems-widget.html" title="Production Welfare Theorems" loading="lazy" style="width:100%;height:610px;border:0;display:block;border-radius:16px;"></iframe>
 </div>
 ```
 

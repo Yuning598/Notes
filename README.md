@@ -2,7 +2,7 @@
 
 This repository contains a compact Jupyter Book for PhD course review and QE preparation.
 
-Published site: <https://yuning598.github.io/myQE/>
+Published site: <https://yuning598.github.io/Notes/>
 
 ## Contents
 
