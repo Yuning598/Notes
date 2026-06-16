@@ -5,10 +5,6 @@ Econometrics 的入口分成 EF8090 基础计量和 MS8956 高级计量。EF8090
 ## Start Here
 
 - [ProblemSet](../ProblemSet/Econometrics.md)
-- [Cross-Course Hub](../Cross-Course/index.md)
-- [Projection / beta pricing](../Cross-Course/bridges/Projection_Beta_Pricing.md)
-- [GMM / Euler equation](../Cross-Course/bridges/GMM_Euler_Equation.md)
-- [Identification / Corporate Finance](../Cross-Course/bridges/Identification_Corporate_Finance.md)
 
 ## Chapter Structure
 
@@ -34,9 +30,3 @@ Econometrics 的入口分成 EF8090 基础计量和 MS8956 高级计量。EF8090
 
 - EF8090 cards contain reusable concepts such as projection, robust variance, IV, LATE, and weak instruments.
 - Reference: [Econ 480-3 (Northwestern)](https://bpb-us-e1.wpmucdn.com/sites.northwestern.edu/dist/4/216/files/2022/07/LectureNotes-480.pdf)
-
-## Cross-Course
-
-- [Asset Pricing](../Asset%20Pricing/index.md): factor models, beta pricing, GMM pricing.
-- [Corporate Finance](../Corporate%20Finance/index.md): empirical design and identification.
-- [Microeconomics](../Microeconomic/index.md): assumptions behind choice and equilibrium models.
