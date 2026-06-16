@@ -1,4 +1,4 @@
-# Advanced Microeconomics
+# Microeconomics
 
 Microeconomics 的入口分成选择、风险、均衡、生产和信息问题。本课程提供后续 Asset Pricing 与机制设计题的理论基础。
 

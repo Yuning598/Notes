@@ -32,8 +32,6 @@ courses:
     label: Econometrics
   - id: Corporate Finance
     label: Corporate Finance
-  - id: ProblemSet
-    label: ProblemSet
 
 themes:
   - id: pricing-functional

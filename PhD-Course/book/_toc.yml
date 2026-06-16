@@ -55,6 +55,7 @@ parts:
   - caption: Microeconomics
     chapters:
       - file: Microeconomic/index
+        title: Microeconomics
       - file: Microeconomic/01_Static_Choice_Consumer_Demand_and_Integrability
       - file: Microeconomic/02_Choice_under_Uncertainty_and_State_Contingent_Equilibrium
       - file: Microeconomic/03_General_Equilibrium_Production_and_Welfare
@@ -64,7 +65,6 @@ parts:
       - file: Microeconomic/07_Principal-Agent_Models_Moral_Hazard_and_Screening
   - caption: ProblemSets
     chapters:
-      - file: ProblemSet/index
       - file: ProblemSet/Theoretical Asset Pricing
       - file: ProblemSet/Empirical Asset Pricing
       - file: ProblemSet/Corporate Finance

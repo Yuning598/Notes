@@ -5,7 +5,6 @@ qe_weight: high
 courses:
   - Microeconomics
   - Asset Pricing
-  - QE-PS
 topics:
   - state-prices
   - sdf
@@ -25,11 +24,11 @@ tags:
 
 # Payoff Span and Pricing Functionals
 
-导航：[Cross-Course Hub](../index.md) · [Microeconomic](../../Microeconomic/index.md) · [Asset Pricing](../../Asset%20Pricing/index.md) · [ProblemSet](../../ProblemSet/index.md)
+导航：[Cross-Course Hub](../index.md) · [Microeconomic](../../Microeconomic/index.md) · [Asset Pricing](../../Asset%20Pricing/index.md)
 
 ## 共同对象
 
-共同对象是 payoff span 上的 positive linear pricing functional。Micro 把它叫 Arrow-Debreu state prices；Asset Pricing 把它叫 SDF / pricing kernel；QE ProblemSet 通常给 payoff matrix 和 prices，让你判断 complete markets、求 state price set、给出 no-arbitrage price interval 或构造 arbitrage。
+共同对象是 payoff span 上的 positive linear pricing functional。Micro 把它叫 Arrow-Debreu state prices；Asset Pricing 把它叫 SDF / pricing kernel；题目通常给 payoff matrix 和 prices，让你判断 complete markets、求 state price set、给出 no-arbitrage price interval 或构造 arbitrage。
 
 设状态 $s=1,\ldots,S$，physical probability 为 $\pi_s$，SDF 为 $m_s$，state price 为 $q_s$，risk-neutral probability 为 $\psi_s$：
 
@@ -165,4 +164,3 @@ $$
 - [Micro card: Complete vs incomplete markets](../../Microeconomic/cards/Complete%20vs%20incomplete%20markets.md)
 - [Asset Pricing: Dynamic Asset Pricing](../../Asset%20Pricing/Theoretical%20AP/02_Dynamic_Asset_Pricing.md)
 - [AP card: Stochastic Discount Factor](../../Asset%20Pricing/Theoretical%20AP/cards/part2/Stochastic%20Discount%20Factor%20-%20%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB.md)
-- [ProblemSet](../../ProblemSet/index.md)

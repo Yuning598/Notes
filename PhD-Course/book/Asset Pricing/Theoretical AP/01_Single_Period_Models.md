@@ -3211,7 +3211,7 @@ $\tilde m$ 可能对某些实现值为负。若 CAPM 成立，则有三种可能
 
 #### 3.2.6 General Factor Models
 
-QE-PS 速查：[Factor model 快速复习](../../ProblemSet/Theoretical%20Asset%20Pricing.md#qe-ps-factor-model-review)
+ProblemSet 速查：[Factor model 快速复习](../../ProblemSet/Theoretical%20Asset%20Pricing.md#qe-ps-factor-model-review)
 
 :::{admonition} Lemma: General Factor Models
 CAPM is a single factor model in which the factor is the market return.

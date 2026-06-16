@@ -7,7 +7,7 @@ tags:
 
 # Cross-Course Hub
 
-这个入口把不同课程里反复出现的共同对象连起来。读法不是按课程顺序，而是先定位核心概念，再回到原始章节和 ProblemSet。
+这个入口把不同课程里反复出现的共同对象连起来。读法不是按课程顺序，而是先定位核心概念，再回到原始章节。
 
 ## Graph View
 
@@ -33,7 +33,6 @@ tags:
 - [Corporate Finance](../Corporate%20Finance/index.md): financial policy, identification, payout, capital structure.
 - [Econometrics](../Econometrics/index.md): projection, asymptotics, IV, GMM, treatment effects, panel data.
 - [Microeconomics](../Microeconomic/index.md): preference, risk, general equilibrium, state prices, information.
-- [Problem Sets](../ProblemSet/index.md): question-oriented review and exam templates.
 
 ## Maintenance Rule
 
