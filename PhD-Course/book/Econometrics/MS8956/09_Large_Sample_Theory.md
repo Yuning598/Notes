@@ -298,7 +298,7 @@ $$
 
 :::{admonition} Note
 Link to Chapter 1
-在该条件下，大样本下 t/F 与 Chapter 1 的 `(1.4.5)`、`(1.4.9)` 对齐。  
+在该条件下，大样本下 t 与 F 统计量与 Chapter 1 的 t-ratio 和 F-ratio 对齐。
 对应可回看 [Proposition 1.3 (t-ratio)](08_Finite_Sample_Properties_of_OLS.md#prop-1-3) 与 [Proposition 1.4 (F-ratio)](08_Finite_Sample_Properties_of_OLS.md#prop-1-4)。
 
 :::
@@ -588,7 +588,7 @@ v_n\xrightarrow{d}N(0,\sigma^2Q).
 $$
 
 :::{admonition} Proposition: Proposition 2.11 (Time Trend OLS)
-在 `(2.12.1)` 下，若 $\{\varepsilon_t\}$ 为独立白噪声且 $E(\varepsilon_t^4)<\infty$，则
+在时间趋势回归下，若 $\{\varepsilon_t\}$ 为独立白噪声且 $E(\varepsilon_t^4)<\infty$，则
 
 $$
 \begin{bmatrix}

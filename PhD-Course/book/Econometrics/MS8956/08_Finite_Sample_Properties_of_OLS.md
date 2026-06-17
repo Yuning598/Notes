@@ -434,7 +434,7 @@ t_k \equiv
 $$
 
 :::{admonition} Proposition: Proposition 1.3 (Distribution of the t-ratio)
-在 Assumptions 1.1-1.5 下，若 $H_0:\omega_k=\omega_k^0$ 成立，则 `(1.4.5)` 的统计量服从 $t(n-K)$。
+在 Assumptions 1.1-1.5 下，若 $H_0:\omega_k=\omega_k^0$ 成立，则 t-ratio 统计量服从 $t(n-K)$。
 
 :::
 
@@ -527,7 +527,7 @@ SSR_R-SSR_U =
 $$
 
 :::{admonition} Proposition: Proposition 1.4 (Distribution of the F-ratio)
-在 Assumptions 1.1-1.5 下，若 $\text{rank}(\mathbf{R})=\#r$，则 `(1.4.9)` 的统计量在 $H_0$ 下服从 $F(\#r,n-K)$。
+在 Assumptions 1.1-1.5 下，若 $\text{rank}(\mathbf{R})=\#r$，则 F-ratio 统计量在 $H_0$ 下服从 $F(\#r,n-K)$。
 
 :::
 
@@ -669,7 +669,7 @@ $$
 
 :::{admonition} Note
 Proof Sketch for Proposition 1.5
-由 `(1.5.5)` 对 $\tilde\omega$ 求导：
+由 GLS 目标函数对 $\tilde\omega$ 求导：
 
 $$
 \begin{aligned}
@@ -792,7 +792,7 @@ $$
 
 :::{admonition} Note
 Proof Sketch for Proposition 1.6
-由 `(1.5.16)`，任意无偏估计量 $\tilde\omega$ 满足
+由上式，任意无偏估计量 $\tilde\omega$ 满足
 
 $$
 \begin{aligned}
@@ -912,7 +912,7 @@ $$
 $$
 
 :::{admonition} Proposition: Proposition 1.7 (Finite-Sample Properties of GLS)
-在 1.1-1.3 与 `(1.6.1)` 下：
+在 Assumptions 1.1-1.3 与 GLS 结构下：
 
 $$
 E(\hat{\boldsymbol{\omega}}_{GLS}\mid\mathbf{X})=\boldsymbol{\omega},\quad
@@ -926,7 +926,7 @@ $$
 
 :::{admonition} Note
 Proof Sketch for Proposition 1.7
-由 GLS 显式式 `(1.6.5)`：
+由 GLS 显式解：
 
 $$
 \begin{aligned}
@@ -1030,7 +1030,7 @@ $$
 +\varepsilon_i.
 $$
 
-课程给出的 unrestricted 估计（对应 `(1.7.4)`）：
+课程给出的 unrestricted 估计：
 
 $$
 \log(TC_i)=
@@ -1039,7 +1039,7 @@ $$
 
 并报告 $SSR_U=21.552,\ n=145$（括号中的标准误省略）。
 
-restricted 估计（对应 `(1.7.6)`）：
+restricted 估计：
 
 $$
 \log\!\left(\frac{TC_i}{p_{i3}}\right) =
@@ -1048,7 +1048,7 @@ $$
 
 并报告 $SSR_R=21.640$。
 
-代入 `(1.4.11)`：
+代入 F 检验公式：
 
 $$
 F=\frac{(SSR_R-SSR_U)/1}{SSR_U/(145-5)}=0.57< F_{1,140}(0.95)\approx 3.9,
@@ -1064,7 +1064,7 @@ $$
 H_0:\omega_2=1.
 $$
 
-在受限模型估计中，$t=(0.72-1)/0.017\approx -16$（参见 `(1.4.5)`），强烈拒绝常数规模报酬。
+在受限模型估计中，$t=(0.72-1)/0.017\approx -16$（参见 t-ratio 检验），强烈拒绝常数规模报酬。
 
 :::{admonition} Note
 Residual Plot (slide 68)
