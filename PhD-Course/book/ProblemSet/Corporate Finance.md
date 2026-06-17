@@ -65,6 +65,8 @@ $$
 | ESG / Climate     | measurement, green human capital, E-S trade-off, climate labor risk      | green hiring / ESG disclosure shock             | real capability, greenwashing, climate adaptation      |
 | AI                | AI measurement, AI as GPT, product vs process innovation, GenAI exposure | AI exposure with IV / ChatGPT event study       | growth options, innovation channel, labor reallocation |
 
+理论基础详见 [01_Empirical_Corporate_Finance](../Corporate%20Finance/01_Empirical_Corporate_Finance.md) 及 [theories/](../Corporate%20Finance/theories/) 目录下的各理论文件。
+
 **核心文献**
 
 **Theory 文献**

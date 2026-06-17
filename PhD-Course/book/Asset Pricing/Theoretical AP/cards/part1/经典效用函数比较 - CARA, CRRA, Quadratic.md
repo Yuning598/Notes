@@ -9,9 +9,9 @@ orphan: true
 
 ## 三类经典效用函数
 
-- [CARA 效用 - 常绝对风险厌恶](CARA%20%E6%95%88%E7%94%A8%20-%20%E5%B8%B8%E7%BB%9D%E5%AF%B9%E9%A3%8E%E9%99%A9%E5%8E%8C%E6%81%B6.md)
-- [CRRA 效用 - 常相对风险厌恶](CRRA%20%E6%95%88%E7%94%A8%20-%20%E5%B8%B8%E7%9B%B8%E5%AF%B9%E9%A3%8E%E9%99%A9%E5%8E%8C%E6%81%B6.md)
-- [二次效用 - Mean-Variance 基础](%E4%BA%8C%E6%AC%A1%E6%95%88%E7%94%A8%20-%20Mean-Variance%20%E5%9F%BA%E7%A1%80.md)
+- [CARA 效用 - 常绝对风险厌恶](../CARA%20%E6%95%88%E7%94%A8%20-%20%E5%B8%B8%E7%BB%9D%E5%AF%B9%E9%A3%8E%E9%99%A9%E5%8E%8C%E6%81%B6.md)
+- [CRRA 效用 - 常相对风险厌恶](../CRRA%20%E6%95%88%E7%94%A8%20-%20%E5%B8%B8%E7%9B%B8%E5%AF%B9%E9%A3%8E%E9%99%A9%E5%8E%8C%E6%81%B6.md)
+- [二次效用 - Mean-Variance 基础](../%E4%BA%8C%E6%AC%A1%E6%95%88%E7%94%A8%20-%20Mean-Variance%20%E5%9F%BA%E7%A1%80.md)
 
 ## 对比
 

@@ -9544,7 +9544,7 @@ E_t\left[\int_t^\infty \zeta_s^{(1)}\epsilon_sD_s^2\,ds\right].
 \right.
 $$
 
-Likelihood ratio / belief weight 的动态、allocation shares 与 closed-form log-utility price-dividend ratio 统一看 10.7，避免这里和后文出现符号方向不一致。
+Likelihood ratio / belief weight 的动态、allocation shares 与 closed-form log-utility price-dividend ratio 统一看 ## 31（Two-Country Two-Good 重构版）。
 
 ::::
 

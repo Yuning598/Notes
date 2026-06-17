@@ -80,24 +80,7 @@ $$
 
 **1.3** 解释为什么平稳性要求 $\alpha_1 < 1$。如果 $\alpha_1 = 1$，模型会出现什么问题？
 
-::::{solution}
-
-**1.3 平稳性要求**
-
-如果 $\alpha_1 = 1$，从推导可知：
-
-$$
-\bar\sigma^2 = \frac{\alpha_0}{1 - \alpha_1} = \frac{\alpha_0}{0} = \infty.
-$$
-
-无条件方差发散，过程不平稳。经济含义：
-- 波动率冲击永久持续（no mean reversion）
-- 方差随时间累积，无界增长
-- 模型失去长期预测能力
-
-实证上，$\alpha_1 < 1$ 但通常较接近 1（如 0.08-0.15），意味着波动率有 clustering 但最终会回归。
-
-::::
+推导详见 [01_Volatility_ARCH_GARCH](../Asset%20Pricing/Empirical%20AP/01_Volatility_ARCH_GARCH.md)（ARCH/GARCH 的平稳性与无条件方差）。
 
 ### 2. GARCH(1,1) 参数估计与预测
 
@@ -234,27 +217,7 @@ $$
 
 **2.5** 将 GARCH(1,1) 表示为 infinite ARCH 形式。
 
-::::{solution}
-
-**2.5 Infinite ARCH 表示**
-
-递归代入 $\sigma_{t-1}^2$：
-
-$$
-\begin{aligned}
-\sigma_t^2
-&= \alpha_0 + \alpha_1 u_{t-1}^2 + \beta_1 \sigma_{t-1}^2 \\
-&= \alpha_0 + \alpha_1 u_{t-1}^2 + \beta_1(\alpha_0 + \alpha_1 u_{t-2}^2 + \beta_1 \sigma_{t-2}^2) \\
-&= \alpha_0(1 + \beta_1) + \alpha_1 u_{t-1}^2 + \alpha_1 \beta_1 u_{t-2}^2 + \beta_1^2 \sigma_{t-2}^2 \\
-&= \alpha_0(1 + \beta_1 + \beta_1^2 + \cdots) + \alpha_1(u_{t-1}^2 + \beta_1 u_{t-2}^2 + \beta_1^2 u_{t-3}^2 + \cdots) \\
-&= \frac{\alpha_0}{1 - \beta_1} + \alpha_1 \sum_{j=1}^{\infty} \beta_1^{j-1} u_{t-j}^2.
-\end{aligned}
-$$
-
-GARCH(1,1) 是带几何衰减权重的 ARCH($\infty$)，权重为 $\alpha_1 \beta_1^{j-1}$。
-
-::::
-
+推导详见 [01_Volatility_ARCH_GARCH](../Asset%20Pricing/Empirical%20AP/01_Volatility_ARCH_GARCH.md)（GARCH 的 infinite ARCH 表示与平稳性条件）。
 
 
 ### 3. Consumption SDF, Puzzles, and an Extra Factor
@@ -782,8 +745,7 @@ $$
 
 所以 beta pricing 不是独立于 SDF 的新假设；它是 linear SDF 定价限制在 excess returns 上的横截面写法。
 
-::::
-
+推导详见 [05_Cross_Section_Factor_Models](../Asset%20Pricing/Empirical%20AP/05_Cross_Section_Factor_Models.md)（beta representation 与 linear SDF 的等价性）。
 
 ### 5. VIX 与 Variance Risk Premium 计算
 
@@ -2081,7 +2043,7 @@ $$
 \end{aligned}
 $$
 
-令 $\tau=T-t$，forward price 为 $F_t=S_te^{r\tau}$。用 VIX 推导中的 option expansion 计算 risk-neutral conditional variance。参考 [VIX static replication](../Asset%20Pricing/Empirical%20AP/cards/VIX_Static_Replication.md)。
+令 $\tau=T-t$，forward price 为 $F_t=S_te^{r\tau}$。用 VIX 推导中的 option expansion 计算 risk-neutral conditional variance。推导详见 [02_Implied_Volatility_VIX_VRP](../Asset%20Pricing/Empirical%20AP/02_Implied_Volatility_VIX_VRP.md)。
 
 **（a）** 先用 Itô lemma 把 realized variance 写成 dynamic trading term 加 log contract。
 
@@ -2264,7 +2226,7 @@ $$
 
 #Fama-MacBeth #two_pass_regression #risk_premium #Shanken
 
-**Question** 有 $N$ 个 test assets 和 $K$ 个 factors $f_t$。写出 Fama-MacBeth procedure，并说明标准误和 Shanken correction 的来源。参考 [Fama-MacBeth Shanken](../Asset%20Pricing/Empirical%20AP/cards/Fama_MacBeth_Shanken.md)。
+**Question** 有 $N$ 个 test assets 和 $K$ 个 factors $f_t$。写出 Fama-MacBeth procedure，并说明标准误和 Shanken correction 的来源。推导详见 [05_Cross_Section_Factor_Models](../Asset%20Pricing/Empirical%20AP/05_Cross_Section_Factor_Models.md)。
 
 **（a）** 写出两步回归和 risk premium 估计量。
 
