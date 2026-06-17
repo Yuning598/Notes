@@ -252,7 +252,7 @@ $$
 - flows 是否由过去 returns 引起，即 reverse causality？
 - 是否有 instrument 或 event 能隔离 exogenous demand？
 
-## 9. 复习抓手
+## Review Summary
 
 - 主观预期不等于非理性；它可以与优化并存。
 - Bayesian learning 可以在完全理性更新下产生 predictability。

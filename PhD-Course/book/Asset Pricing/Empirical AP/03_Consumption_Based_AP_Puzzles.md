@@ -281,7 +281,7 @@ price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-ra
 
 :::
 
-## 9. 复习抓手
+## Review Summary
 
 - SDF 一条线：$P=E[MX]$、$E[MR]=1$、risk premium 是 covariance。
 - Consumption model 一条线：$M=\beta(C_{t+1}/C_t)^{-\gamma}$。

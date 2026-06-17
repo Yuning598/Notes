@@ -370,7 +370,7 @@ $$
 
 若 $pd_t$ 明显波动，而 dividend growth 可预测性弱，则 long-run returns 必须可预测，否则 identity 无法成立。
 
-## 11. 复习抓手
+## Review Summary
 
 - 先写 present-value identity，再解释 valuation ratio 为什么预测 returns。
 - 碰到 predictive regression，马上检查：

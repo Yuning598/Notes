@@ -214,7 +214,7 @@ $$
 $$
 :::
 
-有必要重写多方程 GMM 公式 (4.2.3)。如果 $\hat{W}_{mh}$ ($K_m \times K_h$) 是 $\hat{W}$ 的 $(m,h)$ 块 ($M, H = 1,2,...,M$)，那么 (4.2.3) 可以完整地写为：
+有必要重写多方程 GMM GMM 估计量形式。如果 $\hat{W}_{mh}$ ($K_m \times K_h$) 是 $\hat{W}$ 的 $(m,h)$ 块 ($M, H = 1,2,...,M$)，那么 GMM 估计量可以完整地写为：
 $$
 \begin{aligned}
 \hat{\delta}(\hat{W}) = &\begin{bmatrix}
@@ -368,8 +368,8 @@ $$
 \sqrt{n}(\hat{\delta}(\hat{W}) - \delta) = (S'_{xz}\hat{W}S_{xz})^{-1}S'_{xz}\hat{W}(\sqrt{n}\bar{g})
 
 $$
-在式 (4.4.3) 的假设下，$S$ 为块对角阵，其逆矩阵 $S^{-1} = \operatorname{diag}(S_{11}^{-1}, \dots, S_{MM}^{-1})$。
-令 $\widehat{W}$ 为式 (4.4.2) 中定义的块对角权重矩阵，其每一块 $\widehat{W}_{mm} \xrightarrow{p} S_{mm}^{-1}$。
+在方程间条件不相关的假设下，$S$ 为块对角阵，其逆矩阵 $S^{-1} = \operatorname{diag}(S_{11}^{-1}, \dots, S_{MM}^{-1})$。
+令 $\widehat{W}$ 为上文定义的块对角权重矩阵，其每一块 $\widehat{W}_{mm} \xrightarrow{p} S_{mm}^{-1}$。
 由于 $S_{xz}$ 也是块对角的，我们有：
 $$
 \begin{aligned}
@@ -1398,7 +1398,7 @@ $$
 2. **Monotonicity (单调性)**: 关于要素价格 $p$ 是非减的 (non-decreasing)，即对于所有 $j$，有 $\frac{\partial C}{\partial p_j} \ge 0$。
 3. **Concavity (凹性)**: 关于要素价格 $p$ 是凹的 (concave)，要求其 Hessian 矩阵是负半定 (negative semidefinite) 的。
 
-根据 Uzawa (1962) 的公式 (4.7.8)，当且仅当替代弹性矩阵 $(\eta_{jk})$ 是负半定的时候，凹性条件得到满足。
+根据 Uzawa (1962) 的公式，当且仅当替代弹性矩阵 $(\eta_{jk})$ 是负半定的时候，凹性条件得到满足。
 :::
 
 (prop-cost-function-properties)=
@@ -1420,7 +1420,7 @@ $$
 
     ^equation-4-7-10
 
-2.  **Monotonicity (单调性)**: 要求要素份额方程 (4.7.7) 的右侧对于任意要素价格和产出组合均为非负。
+2.  **Monotonicity (单调性)**: 要求要素份额方程的右侧对于任意要素价格和产出组合均为非负。
 3.  **Concavity (凹性)**: 一个充分必要条件是 $3 \times 3$ 的系数矩阵 $(\gamma_{jk})$ 是负半定的。
 
 ## The System of Share Equations and Restrictions

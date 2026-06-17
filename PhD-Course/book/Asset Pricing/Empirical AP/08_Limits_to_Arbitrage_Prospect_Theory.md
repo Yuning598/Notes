@@ -241,7 +241,7 @@ $$
 - uncertainty about probabilities -> higher required compensation
 - relevant for disaster risk, long-run risk, volatility risk
 
-## 8. 复习抓手
+## Review Summary
 
 - Limits to arbitrage：mispricing 为什么能持续
 - Prospect theory：preferences 怎么偏离 EU

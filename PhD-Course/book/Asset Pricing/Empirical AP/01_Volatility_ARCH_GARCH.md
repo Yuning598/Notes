@@ -420,7 +420,7 @@ $$
 
 所以在”采样足够高且没有 microstructure noise”的理想情形下，$RV$ 就是 $IV$ 的一致估计。但实际交易价格有 bid-ask bounce、discreteness、asynchronous trading 等 microstructure noise；采样频率太高时，noise 会放大 RV 偏误。见 [cards/Realized_Variance_Microstructure](cards/Realized_Variance_Microstructure)。
 
-## 11. 复习抓手
+## Review Summary
 
 - ARCH/GARCH 的考点一般是条件方差、无条件方差、stationarity condition、forecast。
 - 经验直觉：returns 本身 autocorrelation 弱，但 squared returns / absolute returns 的 autocorrelation 强。

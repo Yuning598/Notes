@@ -455,7 +455,7 @@ $$
 
 :::
 
-## 11. 复习抓手
+## Review Summary
 
 - 看到横截面，先写 $E[R_i^e]=\beta_i'\lambda$。
 - 看到 SDF，先写 $E[M R_i^e]=0$。

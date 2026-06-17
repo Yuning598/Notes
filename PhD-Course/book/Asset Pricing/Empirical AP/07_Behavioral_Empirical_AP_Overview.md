@@ -167,7 +167,7 @@ $$
 3. **可检验预测是什么？**
    例如高 sentiment 股票未来低收益；高 short-sale constraint 中 disagreement 更强；lottery demand 推高高 skewness 股票价格。
 
-## 11. 复习抓手
+## Review Summary
 
 - Behavioral AP 不是放弃定价方程，而是改变 SDF、beliefs 或市场约束。
 - 任何 anomaly 都要同时考虑 risk-based 与 behavioral explanations。
