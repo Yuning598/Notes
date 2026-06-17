@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Build output
+book/_build/
+
+# Stata
+.omx/
+
+# Claude Code (local settings only)
+.claude/settings.local.json
+
+# Temporary / placeholder files
+.gitkeep
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

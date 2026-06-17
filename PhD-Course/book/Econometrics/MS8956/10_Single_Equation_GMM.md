@@ -784,7 +784,7 @@ $$
 A **necessary condition** for identification is that:
 
 $$
-K \text{ (\# of instruments)} \ge L \text{ (\# of regressors)} \tag{3.3.5a}
+K \text{ (\# of instruments)} \ge L \text{ (\# of regressors)}
 $$
 
 :::
@@ -1326,7 +1326,7 @@ When the optimal weighting matrix $\widehat{\mathbf{W}} = \widehat{\mathbf{S}}^{
 **1. The Efficient GMM Estimator**
 The estimator is defined by:
 $$
-\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}) = (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \tag{3.5.12}
+\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}) = (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy}
 $$
 
 **2. Asymptotic Variance and Consistency**
@@ -1336,14 +1336,12 @@ $$
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}))
 &= (\boldsymbol{\Sigma}_{xz}' \mathbf{S}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}
 \end{aligned}
-\tag{3.5.13}
 $$
 
 $$
 \begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})) &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} 
 \end{aligned}
-\tag{3.5.14}
 $$
 **Derivation of (3.5.14)**:
 Starting from the general consistent estimator of the asymptotic variance:
@@ -1360,12 +1358,12 @@ $$
 **3. Statistical Testing**
 The $t$-test for a single coefficient $H_0: \delta_\ell = \bar{\delta}_\ell$ simplifies to:
 $$
-t_\ell = \frac{\hat{\delta}_\ell(\widehat{\mathbf{S}}^{-1}) - \bar{\delta}_\ell}{SE_\ell^*}, \quad SE_\ell^* = \sqrt{\frac{1}{n} [(\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1}]_{\ell\ell}} \tag{3.5.15}
+t_\ell = \frac{\hat{\delta}_\ell(\widehat{\mathbf{S}}^{-1}) - \bar{\delta}_\ell}{SE_\ell^*}, \quad SE_\ell^* = \sqrt{\frac{1}{n} [(\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1}]_{\ell\ell}}
 $$
 
 For the Wald test of $H_0: \mathbf{a}(\boldsymbol{\delta}) = \mathbf{0}$, the statistic becomes:
 $$
-W = n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' \{ \mathbf{A}(\hat{\boldsymbol{\delta}}) (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}})' \}^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}) \tag{3.5.16}
+W = n \cdot \mathbf{a}(\hat{\boldsymbol{\delta}})' \{ \mathbf{A}(\hat{\boldsymbol{\delta}}) (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}})' \}^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}})
 $$
 
 **Derivation of (3.5.16)**:
@@ -1692,12 +1690,12 @@ $$
 Suppose we can divide the $K$ instruments into two groups: the vector $\mathbf{x}_{i1}$ of $K_1$ variables that are known to satisfy the orthogonality conditions, and the vector $\mathbf{x}_{i2}$ of the remaining $K - K_1$ variables that are suspect.
 
 $$
-\mathbf{x}_i = \begin{bmatrix} \mathbf{x}_{i1} \\ \mathbf{x}_{i2} \end{bmatrix} \begin{matrix} \} & K_1 \text{ rows,} \\ \} & K - K_1 \text{ rows} \end{matrix} \tag{3.6.3}
+\mathbf{x}_i = \begin{bmatrix} \mathbf{x}_{i1} \\ \mathbf{x}_{i2} \end{bmatrix} \begin{matrix} \} & K_1 \text{ rows,} \\ \} & K - K_1 \text{ rows} \end{matrix}
 $$
 
 The part of the model we wish to test is
 $$
-E(\mathbf{x}_{i2} \cdot \varepsilon_i) = \mathbf{0} \tag{3.6.4}
+E(\mathbf{x}_{i2} \cdot \varepsilon_i) = \mathbf{0}
 $$
 
 **How to test?** Compare the $J$ statistics with/without the suspect ($\mathbf{x}_{i2}$).
@@ -1707,7 +1705,7 @@ $$
 **1. 工具变量与矩条件分区 (Partitioning)**
 将 $K$ 个工具变量和对应的样本矩分为两组：
 $$
-\underset{(K \times 1)}{\mathbf{g}_n(\tilde{\boldsymbol{\delta}})} \equiv \begin{bmatrix} \underset{(K_1 \times 1)}{\mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})} \\ \underset{((K-K_1) \times 1)}{\mathbf{g}_{2n}(\tilde{\boldsymbol{\delta}})} \end{bmatrix} , \quad \underset{(K \times K)}{\mathbf{S}} \equiv \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix} \tag{3.6.5}
+\underset{(K \times 1)}{\mathbf{g}_n(\tilde{\boldsymbol{\delta}})} \equiv \begin{bmatrix} \underset{(K_1 \times 1)}{\mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})} \\ \underset{((K-K_1) \times 1)}{\mathbf{g}_{2n}(\tilde{\boldsymbol{\delta}})} \end{bmatrix} , \quad \underset{(K \times K)}{\mathbf{S}} \equiv \begin{bmatrix} \mathbf{S}_{11} & \mathbf{S}_{12} \\ \mathbf{S}_{21} & \mathbf{S}_{22} \end{bmatrix}
 $$
 其中：
 $$
@@ -1719,7 +1717,7 @@ $$
 $$
 其中：
 $$
-\mathbf{s}_{x_1 y} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} y_i, \quad \mathbf{S}_{x_1 z} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \mathbf{z}_i' \tag{3.6.6}
+\mathbf{s}_{x_1 y} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} y_i, \quad \mathbf{S}_{x_1 z} \equiv \frac{1}{n} \sum_{i=1}^n \mathbf{x}_{i1} \mathbf{z}_i'
 $$
 
 **2. 定义两个 $J$ 统计量**
@@ -1729,7 +1727,6 @@ $$
   \hat{\boldsymbol{\delta}} &= (\mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \widehat{\mathbf{S}}^{-1} \mathbf{s}_{xy} \\
   J &= n \cdot \mathbf{g}_n(\hat{\boldsymbol{\delta}})' \widehat{\mathbf{S}}^{-1} \mathbf{g}_n(\hat{\boldsymbol{\delta}})
   \end{aligned}
-  \tag{3.6.8}
 $$
 - **子集 $J_1$ 统计量 (Subset)**：仅使用 $K_1$ 个“安全”工具变量得到的最小化距离。
   $$
@@ -1737,7 +1734,6 @@ $$
   \bar{\boldsymbol{\delta}} &= [\mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{S}_{x_1z}]^{-1} \mathbf{S}_{x_1z}' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{s}_{x_1y} \\
   J_1 &= n \cdot \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})' (\widehat{\mathbf{S}}_{11})^{-1} \mathbf{g}_{1n}(\bar{\boldsymbol{\delta}})
   \end{aligned}
-  \tag{3.6.10}
 $$
 **3. C-检验统计量 (The C-test / Difference-in-Sargan)**
 
@@ -1831,13 +1827,13 @@ $$
 $$
 代入上式，得到最终的分解形式：
 $$
-J(\tilde{\boldsymbol{\delta}}) = n \cdot \mathbf{g}_{1n}' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n} + n \cdot (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n})' \mathbf{W}_{22} (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n}) \tag{3.6.12}
+J(\tilde{\boldsymbol{\delta}}) = n \cdot \mathbf{g}_{1n}' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n} + n \cdot (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n})' \mathbf{W}_{22} (\mathbf{g}_{2n} + \mathbf{W}_{22}^{-1} \mathbf{W}_{21} \mathbf{g}_{1n})
 $$
 
 **Step D: Nonnegative decomposition**
 由于 $\mathbf{W}_{22}$ 是正定的，右侧第二项（全平方式）对于任何 $\tilde{\boldsymbol{\delta}}$ 均 $\ge 0$。因此：
 $$
-J(\tilde{\boldsymbol{\delta}}) \ge n \cdot \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}}) \tag{3.6.13}
+J(\tilde{\boldsymbol{\delta}}) \ge n \cdot \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})' \mathbf{S}_{11}^{-1} \mathbf{g}_{1n}(\tilde{\boldsymbol{\delta}})
 $$
 这表明在相同的 $\tilde{\boldsymbol{\delta}}$ 下，全集矩条件的拟合误差（由 $\mathbf{W}$ 加权）绝不会小于子集矩条件的拟合误差（由 $\mathbf{S}_{11}^{-1}$ 加权）。
 
@@ -1860,14 +1856,14 @@ $$
 
 在有效 GMM 估计中，对于给定的 $\mathbf{S}$ 的一致估计 $\widehat{\mathbf{S}}$，目标函数为 $J(\tilde{\boldsymbol{\delta}}, \widehat{\mathbf{S}}^{-1})$。受约束的估计量 $\bar{\boldsymbol{\delta}}$ 定义为：
 $$
-\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}) \equiv \arg \min_{\tilde{\boldsymbol{\delta}}} J(\tilde{\boldsymbol{\delta}}, \widehat{\mathbf{S}}^{-1}) \quad \text{subject to } H_0 \tag{3.7.1}
+\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}) \equiv \arg \min_{\tilde{\boldsymbol{\delta}}} J(\tilde{\boldsymbol{\delta}}, \widehat{\mathbf{S}}^{-1}) \quad \text{subject to } H_0
 $$
 
 ## LR Statistic Definition
 
 LR 原理建议使用受约束和未受约束的目标函数最小值之差作为统计量：
 $$
-LR \equiv J(\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) - J(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) \tag{3.7.2}
+LR \equiv J(\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) - J(\hat{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1})
 $$
 该统计量在大样本下服从卡方分布：$LR \xrightarrow{d} \chi^2(\#\text{restrictions})$。
 
@@ -1927,17 +1923,17 @@ $$
 **Step A: 求偏导并令其为零 (FOCs)**
 对 $\boldsymbol{\delta}$ 求导：
 $$
-\frac{\partial \mathcal{L}}{\partial \boldsymbol{\delta}} = 2n \mathbf{M} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) + 2 \mathbf{A}' \boldsymbol{\lambda} = \mathbf{0} \quad \implies n \mathbf{M} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) = - \mathbf{A}' \boldsymbol{\lambda} \tag{1}
+\frac{\partial \mathcal{L}}{\partial \boldsymbol{\delta}} = 2n \mathbf{M} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) + 2 \mathbf{A}' \boldsymbol{\lambda} = \mathbf{0} \quad \implies n \mathbf{M} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) = - \mathbf{A}' \boldsymbol{\lambda}
 $$
 对 $\boldsymbol{\lambda}$ 求导（即约束条件）：
 $$
-\frac{\partial \mathcal{L}}{\partial \boldsymbol{\lambda}} = 2[\mathbf{a}(\hat{\boldsymbol{\delta}}) + \mathbf{A} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})] = \mathbf{0} \quad \implies \mathbf{A} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) = - \mathbf{a}(\hat{\boldsymbol{\delta}}) \tag{2}
+\frac{\partial \mathcal{L}}{\partial \boldsymbol{\lambda}} = 2[\mathbf{a}(\hat{\boldsymbol{\delta}}) + \mathbf{A} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})] = \mathbf{0} \quad \implies \mathbf{A} (\boldsymbol{\delta} - \hat{\boldsymbol{\delta}}) = - \mathbf{a}(\hat{\boldsymbol{\delta}})
 $$
 
 **Step B: 联立求解 (Solving for the Multiplier)**
 从式 (1) 解出 $(\boldsymbol{\delta} - \hat{\boldsymbol{\delta}})$：
 $$
-\boldsymbol{\delta} - \hat{\boldsymbol{\delta}} = - \frac{1}{n} \mathbf{M}^{-1} \mathbf{A}' \boldsymbol{\lambda} \tag{3}
+\boldsymbol{\delta} - \hat{\boldsymbol{\delta}} = - \frac{1}{n} \mathbf{M}^{-1} \mathbf{A}' \boldsymbol{\lambda}
 $$
 将式 (3) 代入式 (2)：
 $$
@@ -1999,7 +1995,7 @@ $$
   $$
 - **LR 统计量简化**: 似然比统计量简化为受约束目标函数的值：
   $$
-  LR = J(\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) - 0 \tag{3.7.5}
+  LR = J(\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1}), \widehat{\mathbf{S}}^{-1}) - 0
   $$
   其中 $\bar{\boldsymbol{\delta}}(\widehat{\mathbf{S}}^{-1})$ 是受约束的有效 GMM 估计量。
 
@@ -2013,7 +2009,7 @@ $$
 扰动项的条件方差为常数：
 
 $$
-E(\varepsilon_i^2 | \mathbf{x}_i) = \sigma^2 \tag{3.8.0}
+E(\varepsilon_i^2 | \mathbf{x}_i) = \sigma^2
 $$
 
 **1. $\mathbf{S}$ 矩阵的简化推导 (Derivation of $\mathbf{S}$)**
@@ -2031,7 +2027,6 @@ E(\mathbf{g}_i) &= \mathbf{0} \\
 &= \sigma^2 E(\mathbf{x}_i \mathbf{x}_i') \\
 &= \sigma^2 \boldsymbol{\Sigma}_{xx}
 \end{aligned}
-\tag{3.8.1}
 $$
 其中 $\boldsymbol{\Sigma}_{xx} \equiv E(\mathbf{x}_i \mathbf{x}_i')$。
 
@@ -2039,7 +2034,7 @@ $$
 
 利用上述结构，我们可以构造 $\mathbf{S}$ 的估计量：
 $$
-\widehat{\mathbf{S}} = \hat{\sigma}^2 \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right) = \hat{\sigma}^2 \mathbf{S}_{xx} \tag{3.8.2}
+\widehat{\mathbf{S}} = \hat{\sigma}^2 \left( \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i' \right) = \hat{\sigma}^2 \mathbf{S}_{xx}
 $$
 其中 $\hat{\sigma}^2$ 是 $\sigma^2$ 的任一一致估计量（如样本残差平方和均值）。
 
@@ -2061,7 +2056,6 @@ $$
 &= (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{s}_{xy} \\
 &= \hat{\boldsymbol{\delta}}(\mathbf{S}_{xx}^{-1}) \equiv \hat{\boldsymbol{\delta}}_{2SLS}
 \end{aligned}
-\tag{3.8.3}
 $$
 *注：可以看到 $\hat{\sigma}^2$ 作为一个常数倍数在分子分母中对消了，因此 2SLS 估计量不依赖于对误差方差 $\sigma^2$ 的估计。*
 
@@ -2084,20 +2078,18 @@ $$
 \begin{aligned}
 \operatorname{Avar}(\hat{\boldsymbol{\delta}}_{2SLS}) &= \sigma^2 \cdot (\boldsymbol{\Sigma}_{xz}' \boldsymbol{\Sigma}_{xx}^{-1} \boldsymbol{\Sigma}_{xz})^{-1}
 \end{aligned}
-\tag{3.8.4}
 $$
 
 $$
 \begin{aligned}
 \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}_{2SLS}) &= \hat{\sigma}^2 \cdot (\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1}
 \end{aligned}
-\tag{3.8.5}
 $$
 
 其中方差估计量 $\hat{\sigma}^2$ 通常基于 2SLS 残差计算：
 
 $$
-\hat{\sigma}^2 \equiv \frac{1}{n} \sum_{i=1}^n (y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}_{2SLS})^2 \tag{3.8.6}
+\hat{\sigma}^2 \equiv \frac{1}{n} \sum_{i=1}^n (y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}_{2SLS})^2
 $$
 
 **4. 统计检验量的简化**:
@@ -2105,11 +2097,11 @@ $$
 
 - **$t$-ratio**:
   $$
-  t_\ell = \frac{\hat{\delta}_{2SLS, \ell} - \bar{\delta}_\ell}{SE_\ell}, \quad SE_\ell = \sqrt{\frac{\hat{\sigma}^2}{n} \cdot [(\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1}]_{\ell \ell}} \tag{3.8.7}
+  t_\ell = \frac{\hat{\delta}_{2SLS, \ell} - \bar{\delta}_\ell}{SE_\ell}, \quad SE_\ell = \sqrt{\frac{\hat{\sigma}^2}{n} \cdot [(\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1}]_{\ell \ell}}
   $$
 - **Wald statistic**:
   $$
-  W = n \cdot \frac{\mathbf{a}(\hat{\boldsymbol{\delta}}_{2SLS})' [\mathbf{A}(\hat{\boldsymbol{\delta}}_{2SLS})(\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}}_{2SLS})']^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}_{2SLS})}{\hat{\sigma}^2} \tag{3.8.8}
+  W = n \cdot \frac{\mathbf{a}(\hat{\boldsymbol{\delta}}_{2SLS})' [\mathbf{A}(\hat{\boldsymbol{\delta}}_{2SLS})(\mathbf{S}_{xz}' \mathbf{S}_{xx}^{-1} \mathbf{S}_{xz})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}}_{2SLS})']^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}_{2SLS})}{\hat{\sigma}^2}
   $$
 
 ## J Statistic Reduces to Sargan Statistic
@@ -2119,11 +2111,11 @@ $$
 **1. 统计量定义**:
 此时目标函数 (3.4.6) 变为：
 $$
-J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \mathbf{S}_{xx})^{-1}) = n \cdot \frac{(\mathbf{s}_{xy} - \mathbf{S}_{xz} \tilde{\boldsymbol{\delta}})' \mathbf{S}_{xx}^{-1} (\mathbf{s}_{xy} - \mathbf{S}_{xz} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \tag{3.8.9}
+J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \mathbf{S}_{xx})^{-1}) = n \cdot \frac{(\mathbf{s}_{xy} - \mathbf{S}_{xz} \tilde{\boldsymbol{\delta}})' \mathbf{S}_{xx}^{-1} (\mathbf{s}_{xy} - \mathbf{S}_{xz} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2}
 $$
 在 2SLS 估计量处取最小值，即得到 Sargan 统计量：
 $$
-\text{Sargan's statistic} = n \cdot \frac{(\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}_{2SLS})' \mathbf{S}_{xx}^{-1} (\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}_{2SLS})}{\hat{\sigma}^2} \tag{3.8.10}
+\text{Sargan's statistic} = n \cdot \frac{(\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}_{2SLS})' \mathbf{S}_{xx}^{-1} (\mathbf{s}_{xy} - \mathbf{S}_{xz} \hat{\boldsymbol{\delta}}_{2SLS})}{\hat{\sigma}^2}
 $$
 
 **2. 矩阵形式推导 (Derivation of Matrix Form)**:
@@ -2188,33 +2180,33 @@ $$
 
 - **渐近方差估计量 (Asymptotic Variance Estimator)**:
   $$
-  \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}_{\text{2SLS}}) = n \cdot \hat{\sigma}^2 \cdot [\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z}]^{-1} = n \cdot \hat{\sigma}^2 \cdot (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \tag{Eq 3.8.5'}
+  \widehat{\operatorname{Avar}}(\hat{\boldsymbol{\delta}}_{\text{2SLS}}) = n \cdot \hat{\sigma}^2 \cdot [\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z}]^{-1} = n \cdot \hat{\sigma}^2 \cdot (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1}
   $$
   *解读：$\mathbf{P} = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'$ 为投影矩阵。公式表明 2SLS 的方差取决于误差方差 $\hat{\sigma}^2$ 和解释变量在工具变量空间上的投影强度 $\mathbf{Z}' \mathbf{P} \mathbf{Z}$。投影越强（工具变量相关性越好），方差越小。*
 
 - **误差方差估计 (Error Variance Estimate)**:
   $$
-  \hat{\sigma}^2 \equiv \frac{\hat{\boldsymbol{\varepsilon}}' \hat{\boldsymbol{\varepsilon}}}{n} \quad \text{其中 } \hat{\boldsymbol{\varepsilon}} \equiv \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{\text{2SLS}} \tag{Eq 3.8.6'}
+  \hat{\sigma}^2 \equiv \frac{\hat{\boldsymbol{\varepsilon}}' \hat{\boldsymbol{\varepsilon}}}{n} \quad \text{其中 } \hat{\boldsymbol{\varepsilon}} \equiv \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{\text{2SLS}}
   $$
 
 - **t-统计量 (t-ratio)**:
   $$
-  t_\ell = \frac{\hat{\delta}_{\text{2SLS}, \ell} - \bar{\delta}_\ell}{\sqrt{\hat{\sigma}^2 \cdot ([\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z}]^{-1})_{\ell \ell}}} \tag{Eq 3.8.7'}
+  t_\ell = \frac{\hat{\delta}_{\text{2SLS}, \ell} - \bar{\delta}_\ell}{\sqrt{\hat{\sigma}^2 \cdot ([\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z}]^{-1})_{\ell \ell}}}
   $$
 
 - **Wald 统计量 (Wald Statistic)**:
   $$
-  W = \frac{\mathbf{a}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})' [\mathbf{A}(\hat{\boldsymbol{\delta}}_{\text{2SLS}}) (\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})^T]^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})}{\hat{\sigma}^2} \tag{Eq 3.8.8'}
+  W = \frac{\mathbf{a}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})' [\mathbf{A}(\hat{\boldsymbol{\delta}}_{\text{2SLS}}) (\mathbf{Z}' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \mathbf{Z})^{-1} \mathbf{A}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})^T]^{-1} \mathbf{a}(\hat{\boldsymbol{\delta}}_{\text{2SLS}})}{\hat{\sigma}^2}
   $$
 
 - **GMM 目标函数 (GMM Objective Function)**:
   $$
-  J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \cdot \mathbf{S}_{xx})^{-1}) = \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \tag{Eq 3.8.9'}
+  J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \cdot \mathbf{S}_{xx})^{-1}) = \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2}
   $$
 
 - **Sargan 统计量 (Sargan's Statistic)**:
   $$
-  \text{Sargan's statistic} = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P} \hat{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2} \tag{Eq 3.8.10'}
+  \text{Sargan's statistic} = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P} \hat{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2}
   $$
   *解读：Sargan 统计量衡量了残差在工具变量空间上的投影。在原假设（工具变量外生）下，残差不应包含可由工具变量解释的系统性信息，因此该统计量应服从 $\chi^2(K-L)$ 分布。*
 
@@ -2243,7 +2235,6 @@ J(\tilde{\boldsymbol{\delta}}) &= n \cdot [n^{-1} \mathbf{X}' (\mathbf{y} - \mat
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{X} (\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' \mathbf{P} (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2}
 \end{aligned}
-\tag{Eq 3.8.12}
 $$
 当 $\tilde{\boldsymbol{\delta}} = \hat{\boldsymbol{\delta}}_{\text{2SLS}}$ 时，代入残差 $\hat{\boldsymbol{\varepsilon}} = \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}}_{\text{2SLS}}$，即得到 Sargan 统计量：
 $$
@@ -2257,13 +2248,13 @@ $$
 - **IV 估计量的一般形式**:
   设 $\hat{\mathbf{z}}_i$ 是为 $L$ 个回归变量 $\mathbf{z}_i$ 生成的 $L$ 个工具变量向量。其对应的 IV 估计量为：
   $$
-  \hat{\boldsymbol{\delta}}_{IV} = \left( \frac{1}{n} \sum_{i=1}^n \hat{\mathbf{z}}_i \mathbf{z}_i' \right)^{-1} \frac{1}{n} \sum_{i=1}^n \hat{\mathbf{z}}_i y_i = (\hat{\mathbf{Z}}' \mathbf{Z})^{-1} \hat{\mathbf{Z}}' \mathbf{y} \tag{3.8.12}
+  \hat{\boldsymbol{\delta}}_{IV} = \left( \frac{1}{n} \sum_{i=1}^n \hat{\mathbf{z}}_i \mathbf{z}_i' \right)^{-1} \frac{1}{n} \sum_{i=1}^n \hat{\mathbf{z}}_i y_i = (\hat{\mathbf{Z}}' \mathbf{Z})^{-1} \hat{\mathbf{Z}}' \mathbf{y}
   $$
 
 - **2SLS 的特定工具变量矩阵**:
   在 2SLS 中，第 $\ell$ 个工具变量是 $z_{i \ell}$ 对 $\mathbf{x}_i$ 回归后的拟合值。全局矩阵形式为：
   $$
-  \hat{\mathbf{Z}} = (\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{z}_1, \dots, \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{z}_L) = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{Z} = \mathbf{P}\mathbf{Z} \tag{3.8.13}
+  \hat{\mathbf{Z}} = (\mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{z}_1, \dots, \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{z}_L) = \mathbf{X}(\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}' \mathbf{Z} = \mathbf{P}\mathbf{Z}
   $$
 
 - **代入推导 (Substitution)**:
@@ -2294,7 +2285,6 @@ $$
 &= (\mathbf{Z}' \mathbf{P}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \\
 &= (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad (\because \mathbf{P} \text{ is symmetric and idempotent})
 \end{aligned}
-\tag{Eq 3.8.16}
 $$
 该结果与 2SLS/IV 估计量完全一致。
 
@@ -2313,14 +2303,13 @@ $$
 &= \mathbf{y} - \mathbf{Z} \hat{\boldsymbol{\delta}} + (\mathbf{Z} - \mathbf{P} \mathbf{Z}) \hat{\boldsymbol{\delta}} \\
 &= \hat{\boldsymbol{\varepsilon}}_{\text{correct}} + (\mathbf{I} - \mathbf{P}) \mathbf{Z} \hat{\boldsymbol{\delta}}
 \end{aligned}
-\tag{Eq 3.8.17}
 $$
 由于两者不相等，第二阶段 OLS 估计的方差 $\hat{\sigma}^2_{\text{OLS}} = \frac{\hat{\boldsymbol{\varepsilon}}_{\text{wrong}}' \hat{\boldsymbol{\varepsilon}}_{\text{wrong}}}{n-L}$ 是 $\sigma^2$ 的非一致估计量。
 
 进行统计推断（计算 $t$ 统计量、Wald 检验等）时，必须使用**原始变量 $\mathbf{Z}$** 来重新计算残差和方差估计量：
 
 $$
-\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}_{2SLS})^2 \tag{Eq 3.8.18}
+\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (y_i - \mathbf{z}_i' \hat{\boldsymbol{\delta}}_{2SLS})^2
 $$
 只有这样得到的标准误才是渐近有效的。
 
@@ -2339,7 +2328,6 @@ J(\tilde{\boldsymbol{\delta}}, (\hat{\sigma}^2 \cdot \mathbf{S}_{xx})^{-1}) &= \
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{\mathbf{y}' \mathbf{y} - \mathbf{y}' \mathbf{P} \mathbf{y}}{\hat{\sigma}^2} \\
 &= \frac{(\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})' (\mathbf{y} - \mathbf{Z} \tilde{\boldsymbol{\delta}})}{\hat{\sigma}^2} - \frac{(\mathbf{y} - \hat{\mathbf{y}})' (\mathbf{y} - \hat{\mathbf{y}})}{\hat{\sigma}^2}
 \end{aligned}
-\tag{3.8.14}
 $$
 其中 $\hat{\mathbf{y}} \equiv \mathbf{P}\mathbf{y}$ 是 $\mathbf{y}$ 在工具变量空间 $\mathbf{x}$ 上的投影。
 
@@ -2365,12 +2353,12 @@ $$
 ##### C-统计量的 Sargan 差值形式
 
 令 $\mathbf{X}$ 为全量工具变量矩阵，$\mathbf{X}_1$ 为其包含 $K_1$ 个“安全”变量的子矩阵。对应的两个有效 GMM 估计量（即 2SLS 估计量）为：
-- **全集估计量**: $\hat{\boldsymbol{\delta}} = (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad \text{其中 } \mathbf{P} = \mathbf{X}(\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}' \tag{Eq 3.8.21}$
-- **子集估计量**: $\bar{\boldsymbol{\delta}} = (\mathbf{Z}' \mathbf{P}_1 \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P}_1 \mathbf{y} \quad \text{其中 } \mathbf{P}_1 = \mathbf{X}_1(\mathbf{X}_1' \mathbf{X}_1)^{-1} \mathbf{X}_1' \tag{Eq 3.8.22}$
+- **全集估计量**: $\hat{\boldsymbol{\delta}} = (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P} \mathbf{y} \quad \text{其中 } \mathbf{P} = \mathbf{X}(\mathbf{X}' \mathbf{X})^{-1} \mathbf{X}'$
+- **子集估计量**: $\bar{\boldsymbol{\delta}} = (\mathbf{Z}' \mathbf{P}_1 \mathbf{Z})^{-1} \mathbf{Z}' \mathbf{P}_1 \mathbf{y} \quad \text{其中 } \mathbf{P}_1 = \mathbf{X}_1(\mathbf{X}_1' \mathbf{X}_1)^{-1} \mathbf{X}_1'$
 
 在此框架下，$C$ 统计量简化为两个 Sargan 统计量的差值：
 $$
-C = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P} \hat{\boldsymbol{\varepsilon}} - \bar{\boldsymbol{\varepsilon}}' \mathbf{P}_1 \bar{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2} \xrightarrow{d} \chi^2(K - K_1) \tag{Eq 3.8.23}
+C = \frac{\hat{\boldsymbol{\varepsilon}}' \mathbf{P} \hat{\boldsymbol{\varepsilon}} - \bar{\boldsymbol{\varepsilon}}' \mathbf{P}_1 \bar{\boldsymbol{\varepsilon}}}{\hat{\sigma}^2} \xrightarrow{d} \chi^2(K - K_1)
 $$
 其中 $\hat{\boldsymbol{\varepsilon}} \equiv \mathbf{y} - \mathbf{Z}\hat{\boldsymbol{\delta}}$，$\bar{\boldsymbol{\varepsilon}} \equiv \mathbf{y} - \mathbf{Z}\bar{\boldsymbol{\delta}}$，且 $\hat{\sigma}^2 \equiv \hat{\boldsymbol{\varepsilon}}' \hat{\boldsymbol{\varepsilon}} / n$。
 
@@ -2389,7 +2377,7 @@ $$
 
 **Hausman 统计量定义**:
 $$
-H \equiv \frac{(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}})' [(\mathbf{Z}' \mathbf{P}_1 \mathbf{Z})^{-1} - (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1}]^{-} (\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}})}{\hat{\sigma}^2} \tag{3.8.22}
+H \equiv \frac{(\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}})' [(\mathbf{Z}' \mathbf{P}_1 \mathbf{Z})^{-1} - (\mathbf{Z}' \mathbf{P} \mathbf{Z})^{-1}]^{-} (\bar{\boldsymbol{\delta}} - \hat{\boldsymbol{\delta}})}{\hat{\sigma}^2}
 $$
 其中 $\{\cdot\}^{-}$ 表示广义逆（Generalized Inverse）。
 
@@ -2452,7 +2440,7 @@ $$
 1.  **Wald 是“点到面的距离”**:
     Wald 统计量是在**同一个模型**下，看你的估计点 $\hat{\boldsymbol{\delta}}$ 距离“约束平面” $\mathbf{R}\boldsymbol{\delta} = \mathbf{r}$ 有多远。
     $$
-    W = n \cdot (\text{偏离度})' \cdot [\text{该估计量的精度}]^{-1} \cdot (\text{偏离度}) \tag{Eq 3.8.29}
+    W = n \cdot (\text{偏离度})' \cdot [\text{该估计量的精度}]^{-1} \cdot (\text{偏离度})
     $$
 
 2.  **Hausman 是“点到点的距离”**:

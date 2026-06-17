@@ -1,7 +1,5 @@
 # Corporate Finance
 
-Corporate Finance 只保留一个课程入口。主线从 chapters 进入；理论、paper summaries 和 identification notes 直接从本页进入。
-
 ## Start Here
 
 - [ProblemSet](../ProblemSet/Corporate%20Finance.md): 题目导向复习。

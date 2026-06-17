@@ -6465,7 +6465,6 @@ E[\widetilde v\mid\widetilde y]
 {\operatorname{var}(a+\beta\widetilde v+\widetilde z)} =
 \frac{\beta V}{\beta^2V+Z}.
 \end{aligned}
-\tag{19.1}
 $$
 
 Informed trader 给定 $\widetilde s$ 选择 order $\theta$；其 order 和 noise order 合成 market maker 看到的 total order flow：
@@ -6505,7 +6504,6 @@ E[\widetilde\pi(\theta)\mid\widetilde s]
 \underbrace{\frac{1}{2\lambda+\alpha\sigma^2+\alpha\lambda^2Z}}_{\beta}
 \widetilde v.
 \end{aligned}
-\tag{19.2}
 $$
 
 其中 $\operatorname{var}(\widetilde x-\delta-\lambda\theta-\lambda\widetilde z\mid\widetilde s)=\sigma^2+\lambda^2Z$。

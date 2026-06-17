@@ -1,7 +1,5 @@
 # Asset Pricing
 
-Asset Pricing 只保留一个课程入口。正文按 empirical / theoretical 两条 chapter track 读；题目进入 ProblemSet。
-
 ## Start Here
 
 - [ProblemSet: Theoretical Asset Pricing](../ProblemSet/Theoretical%20Asset%20Pricing.md)

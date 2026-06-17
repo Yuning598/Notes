@@ -3211,8 +3211,6 @@ $\tilde m$ 可能对某些实现值为负。若 CAPM 成立，则有三种可能
 
 #### 3.2.6 General Factor Models
 
-ProblemSet 速查：[Factor model 快速复习](../../ProblemSet/Theoretical%20Asset%20Pricing.md#qe-ps-factor-model-review)
-
 :::{admonition} Lemma: General Factor Models
 CAPM is a single factor model in which the factor is the market return.
 
@@ -3621,11 +3619,6 @@ $$
 
 若 factor model 在 complete market 中成立，则 factors 必须有界；否则会导出套利机会。
 :::
-
-
-Empirical AP 连接：[Linear SDF implies beta pricing](../Empirical%20AP/05_Cross_Section_Factor_Models.md) 是本命题在 excess-return / cross-sectional setting 下的写法；[Beta-SDF Equivalence](../Empirical%20AP/cards/Beta_SDF_Equivalence.md) 汇总 EF8077 与 EF8083 的符号转换。
-
-
 
 
 $$

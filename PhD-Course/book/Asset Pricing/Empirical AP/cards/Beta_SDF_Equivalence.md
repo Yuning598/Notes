@@ -68,9 +68,9 @@ E[R_i^e]=\beta_i'\lambda.
 \end{aligned}
 $$
 
-单因子模型是 $K=1$ 的特例。若 factor 是 traded excess return，则 $\lambda=E[f]$，与 [[../../../ProblemSet/Theoretical Asset Pricing#qe-ps-factor-model-review|ProblemSet factor review]] 的公式一致。
+单因子模型是 $K=1$ 的特例。若 factor 是 traded excess return，则 $\lambda=E[f]$。
 
 ---
 
-**来源**：EF8083 slides, pp. 195-210; EF8077/Theoretical AP factor-model proof
+**来源**：EF8083 slides, pp. 195-210; EF8077 factor-model proof
 **导航**：[[../../index|Asset Pricing index]] · [[../05_Cross_Section_Factor_Models|Cross-section factor models]]

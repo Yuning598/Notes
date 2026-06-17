@@ -342,9 +342,7 @@ $$
 \right.
 $$
 
-3. trading noise：bid-ask bounce、inventory pressure、liquidity trading、temporary price impact、order imbalance 等 microstructure frictions 会让 observed price 比 fundamental price 更 noisy。
-
-和 EF8077 的 microstructure 机制是一条线：Kyle / Glosten-Milgrom 解释“信息如何通过交易进入价格”，这里是它的实证版本。见 [EF8077 的 bid-ask spread 题](../../ProblemSet/Theoretical%20Asset%20Pricing.md)。
+3. trading noise：bid-ask bounce、inventory pressure、liquidity trading、temporary price impact、order imbalance 等 microstructure frictions 会让 observed price 比 fundamental price 更 noisy。Kyle / Glosten-Milgrom 解释信息如何通过交易进入价格，这里是它的实证版本。
 
 对照 Boudoukh et al. (2018) 的分解：
 
@@ -420,9 +418,7 @@ $$
 RV_{t+1}(\Delta)\xrightarrow{p} IV_{t+1}, \qquad \Delta\to 0.
 $$
 
-所以在“采样足够高且没有 microstructure noise”的理想情形下，$RV$ 就是 $IV$ 的一致估计。但实际交易价格有 bid-ask bounce、discreteness、asynchronous trading 等 microstructure noise；采样频率太高时，noise 会放大 RV 偏误。见 [cards/Realized_Variance_Microstructure](cards/Realized_Variance_Microstructure)。
-
-这条线也和 EF8077 里的 microstructure intuition 对应：observed price 受到 noise trader、bid-ask spread 和交易摩擦影响，所以高频收益不是纯粹的 fundamental return，而是 fundamental return 加上噪声差分。可顺手对照 [EF8077 的 bid-ask spread 题](../../ProblemSet/Theoretical%20Asset%20Pricing.md)。
+所以在”采样足够高且没有 microstructure noise”的理想情形下，$RV$ 就是 $IV$ 的一致估计。但实际交易价格有 bid-ask bounce、discreteness、asynchronous trading 等 microstructure noise；采样频率太高时，noise 会放大 RV 偏误。见 [cards/Realized_Variance_Microstructure](cards/Realized_Variance_Microstructure)。
 
 ## 11. 复习抓手
 

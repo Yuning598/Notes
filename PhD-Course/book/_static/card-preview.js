@@ -244,9 +244,10 @@
       box.appendChild(title);
       box.appendChild(preview.content.cloneNode(true));
       positionPopover(link);
-      if (window.MathJax?.typesetPromise) {
-        window.MathJax.typesetPromise([box]).catch(() => {});
-      }
+      try {
+        const mj = await ensureMathJax();
+        if (mj?.typesetPromise) mj.typesetPromise([box]).catch(() => {});
+      } catch (_) {}
     } catch (error) {
       if (error.name === "AbortError") return;
       box.hidden = true;
@@ -265,6 +266,18 @@
     activeLink = null;
     activeController?.abort();
     if (popover) popover.hidden = true;
+  }
+
+  async function ensureMathJax() {
+    if (window.MathJax) return window.MathJax;
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+    script.async = true;
+    return new Promise((resolve, reject) => {
+      script.onload = () => resolve(window.MathJax);
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
   }
 
   function maybeHidePreview(event) {

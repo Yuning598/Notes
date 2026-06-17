@@ -136,35 +136,7 @@ M^*_{t+1}
 \left(R^e_{t+1}-E_t[R^e_{t+1}]\right).
 $$
 
-**与 EF8077 的连接：SDF、single factor 与 beta representation**
-EF8077/Theoretical AP 的抽象证明见 [Factor Models Are Equivalent to SDFs](../Theoretical%20AP/01_Single_Period_Models.md)；QE 速查见 [Factor model review](../../ProblemSet/Theoretical%20Asset%20Pricing.md#qe-ps-factor-model-review)。
-
-
-$$
-\begin{aligned}
-\text{EF8077 gross-return version:}\quad
-\tilde m&=a+b'\tilde F
-\Longleftrightarrow
-E[\tilde R]=R_z+\lambda'\beta,\\
-\text{EF8083 excess-return version:}\quad
-M&=a-b'f
-\Longleftrightarrow
-E[R_i^e]=\beta_i'\lambda.
-\end{aligned}
-$$
-
-
-Single-factor model 是上式取 $K=1$ 的特例：
-
-$$
-\begin{aligned}
-E[R_i^e]
-&=\lambda\,\frac{\operatorname{Cov}(R_i^e,f)}{\operatorname{Var}(f)}.
-\end{aligned}
-$$
-
-
-这页负责 empirical cross-section 表达；EF8077 负责证明 affine SDF $\Longleftrightarrow$ factor pricing 的一般命题。汇总卡片：[cards/Beta_SDF_Equivalence](cards/Beta_SDF_Equivalence)。
+SDF $\Longleftrightarrow$ beta pricing 的等价性证明见 [Beta-SDF Equivalence](cards/Beta_SDF_Equivalence.md)，EF8077/theoretical 版本见 [Factor Models Are Equivalent to SDFs](../Theoretical%20AP/01_Single_Period_Models.md)。
 
 (link-ef8077-factor-sdf)=
 
@@ -398,14 +370,13 @@ $$
 
 若 payoff 写作一般 $X_t$，就得到课件公式 $W_{HJ}=(T^{-1}\sum_tX_tX_t')^{-1}$。
 
-**和 HJ bound / GRS / EF8077 的区别.**
+**和 HJ bound / GRS 的区别.**
 
 | 概念 | 问的问题 | 核心公式 | 在这里的作用 |
 |---|---|---|---|
 | HJ bound (HJ 1991) | 任意可行 SDF 必须多 volatile？ | $\frac{\sigma(M)}{E[M]}\ge \frac{\lvert E[R^e]\rvert}{\sigma(R^e)}$ | 用在 [03_Consumption_Based_AP_Puzzles](03_Consumption_Based_AP_Puzzles.md)：consumption SDF 太平滑，解释不了高 Sharpe ratio |
-| HJ distance (HJ 1997) | 候选 SDF 离“能定价 test assets 的 SDF 集合”有多远？ | $d_{HJ}^2=g'E[R^eR^{e'}]^{-1}g$ | 用来评价 / 比较 misspecified factor models；比单看 GRS 更像“模型距离” |
+| HJ distance (HJ 1997) | 候选 SDF 离”能定价 test assets 的 SDF 集合”有多远？ | $d_{HJ}^2=g'E[R^eR^{e'}]^{-1}g$ | 用来评价 / 比较 misspecified factor models；比单看 GRS 更像”模型距离” |
 | GRS test | traded-factor model 的所有 $\alpha_i$ 是否为零？ | $\hat\alpha'\hat\Sigma_\varepsilon^{-1}\hat\alpha$ 加 finite-sample scaling | 检验一个模型是否被拒绝；课件提醒不要用它直接比较模型优劣 |
-| EF8077 factor-SDF equivalence | factor model 为什么等价于 affine SDF？ | $\text{factor model}\Longleftrightarrow \text{affine SDF}$ | 理论基础：本节的 beta/SDF representations 是其 empirical version |
 
 一句话：
 

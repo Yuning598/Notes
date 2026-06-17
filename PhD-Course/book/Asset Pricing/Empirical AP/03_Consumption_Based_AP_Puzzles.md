@@ -286,4 +286,4 @@ price-dividend ratio 的波动来自两类 news：cash-flow news 与 discount-ra
 - SDF 一条线：$P=E[MX]$、$E[MR]=1$、risk premium 是 covariance。
 - Consumption model 一条线：$M=\beta(C_{t+1}/C_t)^{-\gamma}$。
 - Puzzles 一条线：consumption covariance 太小，SDF volatility 不够，price-dividend ratio 波动很大。
-- 与下一主题连接：如果 $pd_t$ 反映 expected returns 的变化，那么 valuation ratios 应该预测未来 returns。见 [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics)。
+- 如果 $pd_t$ 反映 expected returns 的变化，那么 valuation ratios 应该预测未来 returns，见 [04_Return_Predictability_Econometrics](04_Return_Predictability_Econometrics)。

@@ -2541,7 +2541,7 @@ $$
 =E[\varepsilon_i^4]-\sigma^4.
 $$
 
-考试版写法：
+
 
 $$
 \left\{
